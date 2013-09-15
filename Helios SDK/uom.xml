@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<uomdefinitions>
+  <uomtypes>
+    <uomtype id="distance" displayname="Distance" baseunit="feet" />
+    <uomtype id="time" displayname="Time" baseunit="seconds" />
+    <uomtype id="temp" displayname="Temperature" baseunit="degreesf" />
+    <uomtype id="weight" displayname="Weight" baseunit="pounds" />
+    <uomtype id="area" displayname="Area" baseunit="squarefeet" />
+    <uomtype id="angle" displayname="Angle" baseunit="radians" />
+    <uomtype id="volume" displayname="Volume" baseunit="gallons" />
+    <uomtype id="speed" displayname="Speed" basetype="distance" pertype="time" />
+    <uomtype id="pressure" displayname="Pressure" basetype="weight" pertype="area" />
+    <uomtype id="other" displayname="Other" />
+  </uomtypes>
+  <simpleuoms>
+    <simpleuom id="bool" displayname="Boolean" abbreviation="bool" description="True/False Value" type="other" />
+    <simpleuom id="text" displayname="Text" abbreviation="text" description="Text Value" type="other" />
+    <simpleuom id="num" displayname="Numeric" description="Numerical Value" type="other" />
+    <simpleuom id="inches" displayname="Inches" description="Inches" type="distance" conversionfactor="0.083333" />
+    <simpleuom id="feet" displayname="Feet" description="Feet" type="distance" conversionfactor="1" />
+    <simpleuom id="yards" displayname="Yards" description="Yards" type="distance" conversionfactor="3" />
+    <simpleuom id="miles" displayname="Miles" description="Miles" type="distance" conversionfactor="5280" />
+    <simpleuom id="nautmiles" displayname="Nautical Miles" description="Nautical Miles" type="distance" conversionfactor="6076.11549" />
+    <simpleuom id="milimeters" displayname="Milimeters" description="Milimeters" type="distance" conversionfactor="0.0032808399" />
+    <simpleuom id="centimeters" displayname="Centimeters" description="Centimeters" type="distance" conversionfactor="0.032808399" />
+    <simpleuom id="meters" displayname="Meters" description="Meters" type="distance" conversionfactor="3.2808399" />
+    <simpleuom id="kilometers" displayname="Kilometers" description="Kilometers" type="distance" conversionfactor="3280.8399" />
+    <simpleuom id="degreec" displayname="Celsius" description="Celsius Degrees" type="temp" conversionfactor="33.8" />
+    <simpleuom id="degreef" displayname="Farenheit" description="Farenheit Degrees" type="temp" conversionfactor="1" />
+    <simpleuom id="kelvin" displayname="Kelvin" description="Kelvin Degrees" type="temp" conversionfactor="-457.87" />
+    <simpleuom id="seconds" displayname="Seconds" descrption="Seconds" type="time" conversionfactor="1" />
+    <simpleuom id="minutes" displayname="Minutes" descriptoin="Minutes" type="time" conversionfactor="60" />
+    <simpleuom id="hours" displayname="Hours" description="Hours" type="time" conversionfactor="3600" />
+    <simpleuom id="ounces" displayname="Ounces" description="Ounces" type="weight" conversionfactor="16" />
+    <simpleuom id="pound" displayname="Pounds" description="Pounds" type="weight" conversionfactor="1" />
+    <simpleuom id="ton" displayname="Ton" description="Ton (US)" type="weight" conversionfactor="2000" />
+    <simpleuom id="tonuk" displayname="Ton (UK)" description="Ton (UK)" type="weight" conversionfactor="2240" />
+    <simpleuom id="grams" displayname="Grams" description="Grams" type="weight" conversionfactor="0.0022046226" />
+    <simpleuom id="kilogram" displayname="Kilograms" description="Kilograms" type="weight" conversionfactor="2.20462262" />
+    <simpleuom id="mton" displayname="Metric Ton" description="Metric Ton" type="weight" conversionfactor="2204.6226" />
+    <simpleuom id="degrees" displayname="Degrees" descirption="Degree angle measurement" type="angle" conversionfactor="0.0174532925" />
+    <simpleuom id="radians" displayname="Radians" description="Radians angle measurement" type="angle" conversionfactor="1" />
+    <simpleuom id="squareinches" displayname="Square Inches" description="Square Inches" type="area" conversionfactor="0.00694444444" />
+    <simpleuom id="squarefeet" displayname="Square Feet" description="Square Feet" type="area" conversionfactor="1" />
+  </simpleuoms>
+  <compounduoms>
+    <compoundtype id="inchhg" displayname="Inch HG" description="Inches of Mercury" type="pressure" basefactor="0.49109778" overfactor="0.00694444444" />
+  </compounduoms>
+</uomdefinitions>

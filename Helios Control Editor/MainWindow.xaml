@@ -1,0 +1,23 @@
+﻿<Window x:Class="GadrocsWorkshop.Helios.ControlEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <RadioButton Style="{StaticResource {x:Type ToggleButton}}" IsChecked="True">Visuals</RadioButton>
+            <RadioButton Style="{StaticResource {x:Type ToggleButton}}">Values</RadioButton>
+            <RadioButton Style="{StaticResource {x:Type ToggleButton}}">Code</RadioButton>
+            <RadioButton Style="{StaticResource {x:Type ToggleButton}}">Debug</RadioButton>
+        </StackPanel>
+    </Grid>
+</Window>
