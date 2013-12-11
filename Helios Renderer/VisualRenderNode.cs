@@ -15,11 +15,21 @@
 
 using System;
 
+using GadrocsWorkshop.Helios.Visuals;
+
 namespace GadrocsWorkshop.Helios.Renderer
 {
-    public enum BitmapFormat
+    internal abstract class VisualTreeNode<T> : RenderNode where T : Visual
     {
-        DIB,
-        NoAlpha
+        private VisualState _visualState;
+        private T _visual;
+
+        public VisualTreeNode(SceneRenderer renderer, VisualState state, RenderNode parent) : base(renderer, parent)
+        {
+            _visualState = state;
+            _visual = (T)state.Visual;
+        }
+
+
     }
 }

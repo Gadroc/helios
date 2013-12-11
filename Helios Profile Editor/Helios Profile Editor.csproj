@@ -134,13 +134,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Helios Runtime\Helios Runtime.csproj">
-      <Project>{6065768a-ba01-4b54-8e00-a5dedd144ad3}</Project>
-      <Name>Helios Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Helios SDK\Helios SDK.csproj">
+    <ProjectReference Include="..\Helios SDK\Helios.csproj">
       <Project>{81c45fd9-59e5-4caf-968c-503c841a25b3}</Project>
-      <Name>Helios SDK</Name>
+      <Name>Helios</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

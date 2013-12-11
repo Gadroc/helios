@@ -13,20 +13,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.ComponentModel;
-
-namespace GadrocsWorkshop.Helios.ComponentModel
+namespace GadrocsWorkshop.Helios.Binding
 {
-    /// <summary>
-    /// Meta data flags for special actions which should be taken on property changes.
-    /// </summary>
-    [Flags]
-    public enum PropertyInfo
+    using System;
+
+    public class TriggerEvent
     {
-        [Description("Changes to this property are recorded in the undo buffer.")]
-        Undoable,
-        [Description("When this property changes it forces a clear of the undo buffer.")]
-        UndoClear
     }
 }

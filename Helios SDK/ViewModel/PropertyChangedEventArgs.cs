@@ -13,19 +13,18 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
-namespace GadrocsWorkshop.Helios.ComponentModel
+namespace GadrocsWorkshop.Helios.ViewModel
 {
+    using System;
+
     /// <summary>
-    /// This class extends <see cref="T:PropertyChangingEventArgs"/> and
-    /// allows for storing the old and new values of the changed property as
-    /// well as ability to validate data.
+    /// This class extends <see cref="T:PropertyChangedEventArgs"/> and
+    /// allows for storing the old and new values of the changed property.
     /// </summary>
-    public class PropertyChangingEventArgs : System.ComponentModel.PropertyChangingEventArgs
+    public class PropertyChangedEventArgs : System.ComponentModel.PropertyChangedEventArgs
     {
         // Source object whose property changed.
-        private Object _propertySource;
+        private BaseViewModel _propertySource;
 
         // Holds the new value of the property.
         private Object _newValue;
@@ -34,13 +33,10 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         private Object _oldValue;
 
         // Holds the child object that is property belongs to.
-        private PropertyChangingEventArgs _childNotification;
+        private PropertyChangedEventArgs _childNotification;
 
-        // Holds indicator that this change should be canceled
-        private bool _canceled = false;
-
-        // Holds message indicating why this change was canceled.
-        private string _message = "";
+        // Holds flag indicating whether this change should be undoable
+        private PropertyInfo _propertyInfo;
 
         #region Constructors
 
@@ -50,8 +46,8 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         /// <param name="eventSource">Object whose child object has a property changed.</param>
         /// <param name="childPropertyName">Name of the property which represents the child object whose property has chagned.</param>
         /// <param name="childNotification">Event args for child's property notification.</param>
-        public PropertyChangingEventArgs(object eventSource, string childPropertyName, PropertyChangingEventArgs childNotification)
-            : this(eventSource, childPropertyName, null, null)
+        public PropertyChangedEventArgs(BaseViewModel eventSource, string childPropertyName, PropertyChangedEventArgs childNotification, PropertyInfo propertyInfo)
+            : this(eventSource, childPropertyName, null, null, propertyInfo)
         {
             _childNotification = childNotification;
         }
@@ -67,19 +63,37 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         /// </param>
         /// <param name="oldValue">The old value.</param>
         /// <param name="newValue">The new value.</param>
-        public PropertyChangingEventArgs(object eventSource, String propertyName, Object oldValue, Object newValue)
+        /// <param name="undoable">True if this property change is undoable.</param>
+        public PropertyChangedEventArgs(BaseViewModel eventSource, String propertyName, Object oldValue, Object newValue, PropertyInfo propertyInfo)
             : base(propertyName)
         {
             _propertySource = eventSource;
             _oldValue = oldValue;
             _newValue = newValue;
+            _propertyInfo = propertyInfo;
+        }
+
+        /// <summary>
+        /// Constructs a new notification event for a undoable direct property change.
+        /// <see cref="PropertyDataChangedEventArgs"/> class.
+        /// </summary>
+        /// <param name="eventSource">Object whose property has changed.</param>
+        /// <param name="propertyName">
+        /// The name of the property that is associated with this
+        /// notification.
+        /// </param>
+        /// <param name="oldValue">The old value.</param>
+        /// <param name="newValue">The new value.</param>
+        public PropertyChangedEventArgs(BaseViewModel eventSource, String propertyName, Object oldValue, Object newValue)
+            : this(eventSource, propertyName, oldValue, newValue, 0)
+        {
         }
 
         #endregion // Constructors
 
         #region Properties
 
-        public Object PropertySource
+        public BaseViewModel PropertySource
         {
             get { return _propertySource; }
         }
@@ -89,7 +103,7 @@ namespace GadrocsWorkshop.Helios.ComponentModel
             get { return _childNotification != null; }
         }
 
-        public PropertyChangingEventArgs ChildNotification
+        public PropertyChangedEventArgs ChildNotification
         {
             get { return _childNotification; }
         }
@@ -119,21 +133,11 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         }
 
         /// <summary>
-        /// Gets or sets flag indicating this change should be canceled.
+        /// Property meta-data indicating what actions should happen when this property changes.
         /// </summary>
-        public bool Canceled
+        public PropertyInfo PropertyInfo
         {
-            get { return _canceled; }
-            set { _canceled = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets message indicating why this change was canceled.
-        /// </summary>
-        public string Message
-        {
-            get { return _message; }
-            set { _message = value; }
+            get { return _propertyInfo; }
         }
 
         #endregion // Properties

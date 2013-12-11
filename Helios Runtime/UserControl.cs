@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 
 using GadrocsWorkshop.Helios.ComponentModel;
+using GadrocsWorkshop.Helios.Visuals;
 
 namespace GadrocsWorkshop.Helios.Runtime
 {
@@ -25,13 +26,13 @@ namespace GadrocsWorkshop.Helios.Runtime
     /// </summary>
     public class UserControl : PropertyObject, IControl
     {
-        private IList<IVisual> _visuals;
+        private IList<Visual> _visuals;
         private int _width;
         private int _height;
 
         public UserControl()
         {
-            _visuals = new List<IVisual>();
+            _visuals = new List<Visual>();
         }
 
         public IControlType ControlType
@@ -59,7 +60,7 @@ namespace GadrocsWorkshop.Helios.Runtime
             }
         }
 
-        public IEnumerable<IVisual> Visuals
+        public IEnumerable<Visual> Visuals
         {
             get { return _visuals; }
         }

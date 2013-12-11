@@ -13,27 +13,19 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
-using GadrocsWorkshop.Helios.ComponentModel;
-
 namespace GadrocsWorkshop.Helios.Visuals
 {
     /// <summary>
     /// Renders text onto this control.
     /// </summary>
-    public class TextVisual : ColorVisual
+    public class TextVisual : Visual
     {
         private string _text;
 
         /// <summary>
         /// Text to be displayed on this control
         /// </summary>
-        public string Text
-        {
-            get { return _text; }
-            set { SetProperty(ref _text, value, "Text", PropertyInfo.Undoable); }
-        }
+        public string Text { get; set; }
 
         public override byte VisualType
         {

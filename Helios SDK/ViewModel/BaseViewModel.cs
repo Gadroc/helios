@@ -13,15 +13,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Collections.Generic;
-
-namespace GadrocsWorkshop.Helios.ComponentModel
+namespace GadrocsWorkshop.Helios.ViewModel
 {
+    using System;
+    using System.ComponentModel;
+    using System.Collections.Generic;
+
     /// <summary>
-    /// Base class for objects which propigate property data change events.
+    /// Base ViewModel object for all UI viewmodel objects.
     /// </summary>
-    public class PropertyObject : System.ComponentModel.INotifyPropertyChanged, System.ComponentModel.INotifyPropertyChanging
+    public abstract class BaseViewModel : INotifyPropertyChanged, INotifyPropertyChanging
     {
         private struct ChildPropertyInfo
         {
@@ -35,12 +36,35 @@ namespace GadrocsWorkshop.Helios.ComponentModel
             }
         }
 
-        private Dictionary<PropertyObject, ChildPropertyInfo> _childPropertyInfo;
+        private Dictionary<BaseViewModel, ChildPropertyInfo> _childPropertyInfo;
+        private bool _selected;
+        private bool _expanded;
 
-        public PropertyObject()
+        public BaseViewModel()
         {
-            _childPropertyInfo = new Dictionary<PropertyObject, ChildPropertyInfo>();
+            _childPropertyInfo = new Dictionary<BaseViewModel, ChildPropertyInfo>();
         }
+
+        #region Properties
+
+        /// <summary>
+        /// Returns the short display name for this view model object.
+        /// </summary>
+        public abstract string DisplayName { get; }
+
+        public virtual bool IsSelected
+        {
+            get { return _selected; }
+            set { SetProperty(ref _selected, value, "IsSelected", PropertyInfo.None); }
+        }
+
+        public virtual bool IsExpanded
+        {
+            get { return _expanded; }
+            set { SetProperty(ref _expanded, value, "IsExpanded", PropertyInfo.None); }
+        }
+
+        #endregion
 
         #region Child Property Propigation
 
@@ -50,7 +74,7 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         /// <param name="child">Child object which will be monitored for changes.</param>
         /// <param name="name">Property name used for event propigation.</param>
         /// <param name="propertyInfo">Property meta-data info used for propigation.</param>
-        protected void RegisterChildPropertyObject(PropertyObject child, string name, PropertyInfo propertyInfo)
+        protected void RegisterChildPropertyObject(BaseViewModel child, string name, PropertyInfo propertyInfo)
         {
             if (!_childPropertyInfo.ContainsKey(child))
             {
@@ -68,7 +92,7 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         /// Removes a child object from event propigation.
         /// </summary>
         /// <param name="child">Child object which will be removed from propigation.</param>
-        protected void DeregisterChildPropertyObject(PropertyObject child)
+        protected void DeregisterChildPropertyObject(BaseViewModel child)
         {
             child.PropertyChanged -= Child_PropertyChanged;
             if (_childPropertyInfo.ContainsKey(child))
@@ -89,6 +113,8 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         }
 
         #endregion
+
+        #region Property Set Helpers
 
         /// <summary>
         /// Helper method to set property values.
@@ -170,10 +196,26 @@ namespace GadrocsWorkshop.Helios.ComponentModel
             OnPropertyChanged(new PropertyChangedEventArgs(this, propertyName, oldValue, value, propertyInfo));
         }
 
+        #endregion
+
         #region INotifyPropertyChanged Implementation
 
         [field: NonSerialized]
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Invokes base .net property changed event.
+        /// </summary>
+        /// <param name="propertyName">Name of the property which has changed.</param>
+        private void OnPropertyChanged(string propertyName)
+        {
+            var e = new System.ComponentModel.PropertyChangedEventArgs(propertyName);
+            System.ComponentModel.PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler.Invoke(this, e);
+            }
+        }
 
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
@@ -182,11 +224,15 @@ namespace GadrocsWorkshop.Helios.ComponentModel
             {
                 handler.Invoke(this, e);
             }
+            if (e.PropertyInfo.HasFlag(PropertyInfo.DisplayName))
+            {
+                OnPropertyChanged("DisplayName");
+            }
         }
 
         #endregion
 
-        #region INotifyPropertyChanged Implementation
+        #region INotifyPropertyChanging Implementation
 
         [field: NonSerialized]
         public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
@@ -206,5 +252,6 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         }
 
         #endregion
+
     }
 }

@@ -71,6 +71,8 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FipDisplay.cs" />
@@ -79,9 +81,9 @@
     <Compile Include="SaitekPlugin.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Helios SDK\Helios SDK.csproj">
+    <ProjectReference Include="..\Helios SDK\Helios.csproj">
       <Project>{81c45fd9-59e5-4caf-968c-503c841a25b3}</Project>
-      <Name>Helios SDK</Name>
+      <Name>Helios</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

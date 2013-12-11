@@ -13,10 +13,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
 namespace GadrocsWorkshop.Helios.Binding
 {
+    using System;
+
     public class BindingUomType
     {
         /// <summary>

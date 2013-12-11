@@ -13,15 +13,33 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Windows;
-
-namespace GadrocsWorkshop.Helios.Editor.UI
+namespace GadrocsWorkshop.Helios
 {
     /// <summary>
-    /// Displays a
+    /// Common interface for all objects which are configured in a profile.
     /// </summary>
-    public class HeliosVisualElement : FrameworkElement
+    public interface IProfileObject
     {
+        /// <summary>
+        /// ID of the plug-in which owns this object.
+        /// </summary>
+        string PlugInId { get; }
+
+        /// <summary>
+        /// Returns unique id for this object type.
+        /// </summary>
+        string TypeId { get; }
+
+        /// <summary>
+        /// Returns the display name of this object type.
+        /// </summary>
+        string TypeName { get; }
+
+        /// <summary>
+        /// Returns a description of this object type.
+        /// </summary>
+        string TypeDescription { get; }
+
+        // TODO Define serialization entry points?
     }
 }

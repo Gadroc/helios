@@ -13,38 +13,41 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
 namespace GadrocsWorkshop.Helios.Renderer
 {
-    /// <summary>
-    /// Base class for objects which handle 
-    /// </summary>
-    public abstract class DisposableObject : IDisposable
+    using System;
+
+    using SharpDX;
+    using SharpDX.Direct2D1;
+
+    using GadrocsWorkshop.Helios.Runtime;
+    using GadrocsWorkshop.Helios.Visuals;
+
+    public class RectangleRenderer : StateRenderer<RectangleVisual>
     {
-        private bool _isDisposed = false;
+        private SolidColorBrush Brush;
 
-        internal DisposableObject()
+        public RectangleRenderer(VisualState state, StateRenderer<Visual> parent)
+            : base(state, parent)
         {
         }
 
-        public bool IsDisposed
+        protected override void OnRender(RenderTarget target)
         {
-            get
+            if (Brush == null)
             {
-                return _isDisposed;
+                Brush = new SolidColorBrush(target, new Color4(State.Color.Int));
+
+            }
+            target.FillRectangle(BoundingRectangle, Brush);
+        }
+
+        public override void Dispose()
+        {
+            if (Brush != null)
+            {
+                Brush.Dispose();
             }
         }
-
-        public void Dispose()
-        {
-            if (!_isDisposed)
-            {
-                OnDispose();
-            }
-            _isDisposed = true;
-        }
-
-        protected abstract void OnDispose();
     }
 }

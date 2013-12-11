@@ -13,33 +13,21 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Collections.Generic;
-
-using GadrocsWorkshop.Helios.Profile;
-
 namespace GadrocsWorkshop.Helios
 {
+    using System.Collections.Generic;
+
+    using GadrocsWorkshop.Helios.Renderer;
+
     /// <summary>
     /// Interface for exposing displays so they can be used to render Controls.
     /// </summary>
-    public interface IDisplay
+    public interface IDisplay : IProfileObject
     {
         /// <summary>
-        /// ID of the plug-in which controls this display.
-        /// </summary>
-        string PlugInId { get; }
-
-        /// <summary>
-        /// Unique id for this display.  Value will is unique per plug-in but
-        /// may be duplicated across plug-ins.
+        /// Returns the id for this display.
         /// </summary>
         string Id { get; }
-
-        /// <summary>
-        /// Name of the display as set by the user.
-        /// </summary>
-        string Name { get; set; }
 
         /// <summary>
         /// Width of the display in pixels.
@@ -67,9 +55,5 @@ namespace GadrocsWorkshop.Helios
         /// </summary>
         void Dispose();
 
-        /// <summary>
-        /// Controls displayed on this display.
-        /// </summary>
-        IEnumerable<ControlInstance> Controls { get; set; }
     }
 }

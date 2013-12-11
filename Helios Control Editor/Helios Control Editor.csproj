@@ -100,7 +100,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\UserControlViewModel.cs" />
+    <Compile Include="ViewModel\VisualViewModel.cs" />
+    <Compile Include="View\ControlPropertiesView.xaml.cs">
+      <DependentUpon>ControlPropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VisualsView.xaml.cs">
+      <DependentUpon>VisualsView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -108,10 +117,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ControlPropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VisualsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -141,7 +158,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Actions\" />
     <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helios Editor UI\Helios Editor UI.csproj">
+      <Project>{c7151a00-d28e-4a22-9295-fe4780f60712}</Project>
+      <Name>Helios Editor UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helios SDK\Helios.csproj">
+      <Project>{81c45fd9-59e5-4caf-968c-503c841a25b3}</Project>
+      <Name>Helios</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

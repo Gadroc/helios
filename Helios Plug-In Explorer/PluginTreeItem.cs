@@ -13,12 +13,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-
 namespace GadrocsWorkshop.Helios.PlugInExplorer
 {
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+
     public class PluginTreeItem : INotifyPropertyChanged
     {
         public enum TreeItemType
@@ -52,7 +51,7 @@ namespace GadrocsWorkshop.Helios.PlugInExplorer
             PluginTreeItem displays = new PluginTreeItem("Displays", null, this, TreeItemType.Folder);
             foreach (IDisplay display in plugIn.GetDisplays())
             {
-                displays.Children.Add(new PluginTreeItem(display.Name, display, displays, TreeItemType.Display));
+                displays.Children.Add(new PluginTreeItem(display.TypeName, display, displays, TreeItemType.Display));
             }
             if (displays.Children.Count > 0)
             {
@@ -62,7 +61,7 @@ namespace GadrocsWorkshop.Helios.PlugInExplorer
             PluginTreeItem devices = new PluginTreeItem("Devices", null, this, TreeItemType.Folder);
             foreach (IDevice device in plugIn.GetDevices())
             {
-                devices.Children.Add(new PluginTreeItem(device.Name, device, devices, TreeItemType.Device));
+                devices.Children.Add(new PluginTreeItem(device.TypeName, device, devices, TreeItemType.Device));
             }
             if (devices.Children.Count > 0)
             {
@@ -70,9 +69,9 @@ namespace GadrocsWorkshop.Helios.PlugInExplorer
             }
 
             PluginTreeItem controls = new PluginTreeItem("Controls", null, this, TreeItemType.Folder);
-            foreach (IControlType controlType in plugIn.GetControlTypes())
+            foreach (IControl controlType in plugIn.GetControls())
             {
-                controls.Children.Add(new PluginTreeItem(controlType.Name, controlType, controls, TreeItemType.Control));
+                controls.Children.Add(new PluginTreeItem(controlType.TypeName, controlType, controls, TreeItemType.Control));
             }
             if (controls.Children.Count > 0)
             {

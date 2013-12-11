@@ -13,31 +13,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
-using GadrocsWorkshop.Helios.ComponentModel;
-
 namespace GadrocsWorkshop.Helios.Visuals
 {
     /// <summary>
     /// Renders an image on the control.
     /// </summary>
-    public class ImageVisual : VisualBase
+    public class ImageVisual : Visual
     {
-        private string _imagePath;
         private ImageTileMode _tileMode;
 
-        public string ImagePath
-        {
-            get { return _imagePath; }
-            set { SetProperty(ref _imagePath, value, "ImagePath", PropertyInfo.Undoable); }
-        }
-
-        public ImageTileMode TileMode
-        {
-            get { return _tileMode; }
-            set { SetProperty(ref _tileMode, value, "TileMode", PropertyInfo.Undoable); }
-        }
+        public ImageTileMode TileMode { get; set; }
 
         public override byte VisualType
         {

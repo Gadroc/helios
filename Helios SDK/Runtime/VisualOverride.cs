@@ -13,24 +13,30 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
-namespace GadrocsWorkshop.Helios.Visuals
+namespace GadrocsWorkshop.Helios.Runtime
 {
+    using System;
+
+    using GadrocsWorkshop.Helios.Visuals;
+
     /// <summary>
-    /// Renders an ellipse on the control.
+    /// Values that have been override on a visual for an instance of a control.
     /// </summary>
-    public class EllipseVisual : ColorVisual
+    public class VisualOverride
     {
+        /// <summary>
+        /// ID of the visual this override is for.
+        /// </summary>
+        public string id { get; set; }
 
-        public override byte VisualType
-        {
-            get { return 1; }
-        }
+        /// <summary>
+        /// Color this visual will display glyphs with.
+        /// </summary>
+        public Color? Color { get; set; }
 
-        public override string VisualTypeName
-        {
-            get { return "ellipse"; }
-        }
+        /// <summary>
+        /// Images this visual will display.
+        /// </summary>
+        public string ImagePath { get; set; }
     }
 }

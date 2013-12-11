@@ -13,33 +13,18 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
-namespace GadrocsWorkshop.Helios
+namespace GadrocsWorkshop.Helios.Runtime
 {
+    using System;
+    using System.Collections.Concurrent;
+
+    using GadrocsWorkshop.Helios.Binding;
+
     /// <summary>
-    /// Interface for describing meta-data about available control types.
+    /// 
     /// </summary>
-    public interface IControlType
+    public class ProfileExecutor
     {
-        /// <summary>
-        /// Returns unique id for this control type.
-        /// </summary>
-        string Id { get; }
 
-        /// <summary>
-        /// Returns the display name of this control type.
-        /// </summary>
-        string Name { get; }
-
-        /// <summary>
-        /// Returns a description of this control type.
-        /// </summary>
-        string Description { get; }
-
-        /// <summary>
-        /// Returns true if this control can be displayed on a remote display.
-        /// </summary>
-        bool IsRemoteable { get; }
     }
 }

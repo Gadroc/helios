@@ -13,26 +13,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
-using SharpDX.WIC;
-
-namespace GadrocsWorkshop.Helios.Renderer
+namespace GadrocsWorkshop.Helios.ViewModel
 {
+    using System;
+    using System.ComponentModel;
+
     /// <summary>
-    /// Class for combining managing textures into larger atlas textures.
+    /// Meta data flags for special actions which should be taken on property changes.
     /// </summary>
-    internal class TextureManager
+    [Flags]
+    public enum PropertyInfo
     {
-        private ImagingFactory _wicFactory;
-
-        // TODO Implement http://www.codeproject.com/Articles/210979/Fast-optimizing-rectangle-packing-algorithm-for-bu
-
-        public TextureManager(ImagingFactory wicFactory)
-        {
-            _wicFactory = wicFactory;
-        }
-
-
+        None = 0,
+        [Description("Changes to this property are recorded in the undo buffer.")]
+        Undoable,
+        [Description("When this property changes it forces a clear of the undo buffer.")]
+        UndoClear,
+        [Description("This property should refresh the displayname property.")]
+        DisplayName
     }
 }

@@ -13,29 +13,47 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-
-using GadrocsWorkshop.Helios;
-using System.Linq;
-using System.IO;
-
 namespace GadrocsWorkshop.Helios.Saitek
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.Composition;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+
+    using GadrocsWorkshop.Helios;
+    using System.Runtime.InteropServices;
+
     [Export(typeof(IPlugIn))]
     [ExportMetadata("Id", "GadrocsWorkshop.Saitek")]
     [ExportMetadata("Name", "Saitek Pro Flight PlugIn")]
-    [ExportMetadata("Description", "PlugIn to use Saitek Pro Flight displays and input devices.")]
+    [ExportMetadata("Description", "Exposes Saitek Pro Flight Flight Instrument Panels as displays and input devices.")]
     public class SaitekPlugin : IPlugIn
     {
+        private const int VendorId = 0x06A3;
+        private const int ProductId = 0xA2AE;
+
         private const string DIRECTOUT_PATH = "c:\\program files\\saitek\\directoutput";
         private const string DIRECTOUT32_PATH = "c:\\program files (x86)\\saitek\\directoutput\\";
 
+        private static Guid DEVICE_TYPE_X52PRO = new Guid("{29dad506-f93b-4f20-85fa-1e02c04fac17}");
+        private static Guid DEVICE_TYPE_FIP = new Guid("{3e083cd8-6a37-4a58-80a8-3d6a2c07513e}");
+        private static Guid PRODUCT_GUID_FIP = new Guid("{a2ae06a3-0000-0000-0000-504944564944}");
+
         private bool _initialized = false;
-        private Guid _fipGuid = new Guid(NativeMethods.DeviceType_Fip);
 
         private IList<FipDisplay> _dispays = new List<FipDisplay>();
+
+        public bool IsUnique
+        {
+            get { return true; }
+        }
+
+        public bool IsAutoActive
+        {
+            get { return false; }
+        }
 
         public IEnumerable<IDisplay> GetDisplays()
         {
@@ -44,12 +62,14 @@ namespace GadrocsWorkshop.Helios.Saitek
 
         public IEnumerable<IDevice> GetDevices()
         {
+            // TODO Implement device for the display buttons and rotaries.
             return Enumerable.Empty<IDevice>();
         }
 
-        public IEnumerable<IControlType> GetControlTypes()
+        public IEnumerable<IControl> GetControls()
         {
-            return Enumerable.Empty<IControlType>();
+            // No controls are implemented in this library so return an empty list.
+            return Enumerable.Empty<IControl>();
         }
 
         public IControl CreateControl(string typeId)
@@ -62,14 +82,20 @@ namespace GadrocsWorkshop.Helios.Saitek
             try
             {
                 string path = DIRECTOUT_PATH;
-                if (IntPtr.Size == 4 && Directory.Exists(DIRECTOUT32_PATH))
+                if (!Environment.Is64BitProcess && Directory.Exists(DIRECTOUT32_PATH))
                 {
                     path = DIRECTOUT32_PATH;
                 }
                 // Don't initialize if DirectOutput api does not exist.
                 if (Directory.Exists(path))
                 {
+                    StringBuilder currentPath = new StringBuilder(1024);
+                    NativeMethods.GetDllDirectory(currentPath.Length, currentPath);
+
                     NativeMethods.SetDllDirectory(path);
+                    NativeMethods.LoadLibrary(NativeMethods.DirectOutputDll);
+                    NativeMethods.SetDllDirectory(currentPath.ToString());
+
                     NativeMethods.DirectOutput_Initialize("Helios");
                     NativeMethods.DirectOutput_Enumerate(DeviceEnumeration, IntPtr.Zero);
                     NativeMethods.SetDllDirectory(null);
@@ -95,12 +121,30 @@ namespace GadrocsWorkshop.Helios.Saitek
             Guid deviceType = Guid.Empty;
             if (NativeMethods.DirectOutput_GetDeviceType(handle, out deviceType) == NativeMethods.S_OK)
             {
-                if (deviceType.Equals(_fipGuid))
+                if (deviceType.Equals(DEVICE_TYPE_FIP))
                 {
-                    FipDisplay display = new FipDisplay(handle, "Saitek ProFlight Instrument Panel");
+                    //Guid deviceInstance = new Guid();
+                    //NativeMethods.DirectOutput_GetDeviceInstance(handle, out deviceInstance);
+
+                    //Console.WriteLine(deviceInstance);
+
+                    //foreach (HidDevice hidDevice in HidDevices.Enumerate(VendorId, ProductId))
+                    //{
+                    //    hidDevice.OpenDevice();
+                    //    StringBuilder sb = new StringBuilder(200);
+                    //    NativeMethods.HidD_GetSerialNumberString(hidDevice.ReadHandle, sb, 200);
+                    //    Console.WriteLine(sb);
+                    //    hidDevice.CloseDevice();
+                    //}
+                    FipDisplay display = new FipDisplay(handle);
                     _dispays.Add(display);
                 }
             }
+        }
+
+        public void DeviceChanged(IntPtr handle, bool bAdded, IntPtr context)
+        {
+
         }
     }
 }

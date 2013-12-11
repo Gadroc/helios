@@ -13,11 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Runtime.InteropServices;
 
 namespace GadrocsWorkshop.Helios.Saitek
 {
+    using System;
+    using System.Runtime.InteropServices;
+    using System.Text;
+
     internal delegate void DirectOutput_EnumerateCallback(IntPtr handle, IntPtr context); 
     internal delegate void DirectOutput_DeviceChange(IntPtr handle, bool added, IntPtr context); 
     internal delegate void DirectOutput_PageChange(IntPtr handle, Int16 page, bool setActive, IntPtr context);
@@ -26,7 +28,13 @@ namespace GadrocsWorkshop.Helios.Saitek
     internal static class NativeMethods
     {
         [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern int GetDllDirectory(int bufsize, StringBuilder buf);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern bool SetDllDirectory(string lpPathName);
+
+        [DllImport("kernel32", CharSet = CharSet.Unicode, SetLastError = true)]
+        internal static extern IntPtr LoadLibrary(string librayName);
 
         internal const string DirectOutputDll = "DIRECTOUTPUT.DLL";
         internal const UInt32 S_OK = 0;
@@ -37,9 +45,6 @@ namespace GadrocsWorkshop.Helios.Saitek
         internal const UInt32 E_NOTIMPL = 0x80004001;
 
         internal const UInt32 FLAG_SET_AS_ACTIVE = 0x00000001;
-
-        internal const string DeviceType_X52Pro = "{29DAD506-F93B-4F20-85FA-1E02C04FAC17}";
-        internal const string DeviceType_Fip = "{3E083CD8-6A37-4A58-80A8-3D6A2C07513E}";
 
         /// <summary>
         /// Initialize the DirectOutput library
@@ -159,5 +164,9 @@ namespace GadrocsWorkshop.Helios.Saitek
         ///     E_BUFFERTOOSMALL : cbValue is not of the correct size</returns>
         [DllImport(DirectOutputDll)]
         internal extern static UInt32 DirectOutput_SetImage(IntPtr device, uint page, uint index, uint size, IntPtr bitmap);
+
+        // http://msdn.microsoft.com/en-us/library/windows/hardware/ff539683%28v=vs.85%29.aspx
+        [DllImport("hid.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        internal extern static bool HidD_GetSerialNumberString(IntPtr hDevice, StringBuilder buffer, Int32 bufferLength);
     }
 }

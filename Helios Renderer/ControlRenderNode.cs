@@ -14,36 +14,19 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GadrocsWorkshop.Helios
+namespace GadrocsWorkshop.Helios.Renderer
 {
-    /// <summary>
-    /// Contains state data for an invididual instance of a control.
-    /// </summary>
-    public interface IControlState
+    internal class ControlRenderNode : RenderNode
     {
-        /// <summary>
-        /// Top of the Control.
-        /// </summary>
-        int Top { get; }
+        public ControlRenderNode(SceneRenderer renderer, ControlState control, ControlRenderNode parent) : base(renderer, parent)
+        {
 
-        /// <summary>
-        /// Left of the Control.
-        /// </summary>
-        int Left { get; }
+        }
 
-        /// <summary>
-        /// Width of this Control.
-        /// </summary>
-        int Width { get; }
-
-        /// <summary>
-        /// Height of this Control.
-        /// </summary>
-        int Height { get; }
+        public override void Render()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

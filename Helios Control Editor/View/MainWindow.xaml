@@ -1,0 +1,71 @@
+﻿<!--
+    Copyright 2013 Craig Courtney
+    
+    Helios is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Helios is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<Window x:Class="GadrocsWorkshop.Helios.ControlEditor.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="500" Width="600" MinHeight="500" MinWidth="600" >
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <UniformGrid Grid.Row="0" Columns="6" Rows="1">
+            <RadioButton GroupName="EditMode" Tag="0" Style="{StaticResource {x:Type ToggleButton}}" Click="EditModeClicked" IsChecked="True">
+                <RadioButton.Content>Info</RadioButton.Content>
+                <RadioButton.ToolTip>
+                    <TextBlock TextWrapping="Wrap" MaxWidth="250">Set the ID, Name, Description and other properties of this control.</TextBlock>
+                </RadioButton.ToolTip>
+            </RadioButton>
+            <RadioButton GroupName="EditMode" Tag="1" Style="{StaticResource {x:Type ToggleButton}}" Click="EditModeClicked">
+                <RadioButton.Content>Visuals</RadioButton.Content>
+                <RadioButton.ToolTip>
+                    <TextBlock TextWrapping="Wrap" MaxWidth="250">Setup the visual elements of this control.</TextBlock>
+                </RadioButton.ToolTip>
+            </RadioButton>
+            <RadioButton GroupName="EditMode" Tag="2" Style="{StaticResource {x:Type ToggleButton}}" Click="EditModeClicked">
+                <RadioButton.Content>Mappings</RadioButton.Content>
+                <RadioButton.ToolTip>
+                    <TextBlock TextWrapping="Wrap" MaxWidth="250">Define the input values and map them to visuals.</TextBlock>
+                </RadioButton.ToolTip>
+            </RadioButton>
+            <RadioButton GroupName="EditMode" Tag="3" Style="{StaticResource {x:Type ToggleButton}}" Click="EditModeClicked">
+                <RadioButton.Content>Regions</RadioButton.Content>
+                <RadioButton.ToolTip>
+                    <TextBlock TextWrapping="Wrap" MaxWidth="250">Define regions which should respond to clicks and touches.</TextBlock>
+                </RadioButton.ToolTip>
+            </RadioButton>
+            <RadioButton GroupName="EditMode" Tag="4" Style="{StaticResource {x:Type ToggleButton}}" Click="EditModeClicked">
+                <RadioButton.Content>Code</RadioButton.Content>
+                <RadioButton.ToolTip>
+                    <TextBlock TextWrapping="Wrap" MaxWidth="250">Create custom actions, triggers and regions for this control.</TextBlock>
+                </RadioButton.ToolTip>
+            </RadioButton>
+            <RadioButton GroupName="EditMode" Tag="5" Style="{StaticResource {x:Type ToggleButton}}" Click="EditModeClicked">
+                <RadioButton.Content>Test</RadioButton.Content>
+                <RadioButton.ToolTip>
+                    <TextBlock TextWrapping="Wrap" MaxWidth="250">Test the control with sample input.</TextBlock>
+                </RadioButton.ToolTip>
+            </RadioButton>
+        </UniformGrid>
+
+        <ContentPresenter Name="EditorPresenter" Grid.Row="1"/>
+        
+    </Grid>
+</Window>

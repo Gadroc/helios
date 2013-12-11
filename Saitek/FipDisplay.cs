@@ -13,25 +13,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Collections.Generic;
-
-using GadrocsWorkshop.Helios;
-using GadrocsWorkshop.Helios.Profile;
-
 namespace GadrocsWorkshop.Helios.Saitek
 {
+    using System;
+    using System.Collections.Generic;
+
+    using GadrocsWorkshop.Helios;
+    using GadrocsWorkshop.Helios.Renderer;
+
     public class FipDisplay : IDisplay
     {
         private IntPtr _device;
         private string _id;
-        private string _name;
-        private IEnumerable<ControlInstance> _controls;
 
-        internal FipDisplay(IntPtr device, string name)
+        internal FipDisplay(IntPtr device)
         {
             _device = device;
-            _name = name;
 
             Guid deviceInstance = new Guid();
             NativeMethods.DirectOutput_GetDeviceInstance(_device, out deviceInstance);
@@ -40,9 +37,14 @@ namespace GadrocsWorkshop.Helios.Saitek
 
         public string Id
         {
+            get { return _id; }
+        }
+
+        public string TypeId
+        {
             get
             {
-                return _id;
+                return "saitek.fip";
             }
         }
 
@@ -54,15 +56,19 @@ namespace GadrocsWorkshop.Helios.Saitek
             }
         }
      
-        public string Name
+        public string TypeName
         {
             get
             {
-                return _name;
+                return "Saitek ProFlight Instrument Panel";
             }
-            set
+        }
+
+        public string TypeDescription
+        {
+            get
             {
-                _name = value;
+                return "";
             }
         }
 
@@ -74,12 +80,6 @@ namespace GadrocsWorkshop.Helios.Saitek
         public int Height
         {
             get { return 240; }
-        }
-
-        public IEnumerable<ControlInstance> Controls
-        {
-            get { return _controls; }
-            set { _controls = value; }
         }
 
         public void Identify(string label)

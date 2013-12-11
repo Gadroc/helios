@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HeliosRuntime.cs" />
+    <Compile Include="ProfileExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControl.cs" />
     <Compile Include="UserControlPlugIn.cs" />
@@ -81,9 +82,9 @@
     <Compile Include="UserControlType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Helios SDK\Helios SDK.csproj">
+    <ProjectReference Include="..\Helios SDK\Helios.csproj">
       <Project>{81c45fd9-59e5-4caf-968c-503c841a25b3}</Project>
-      <Name>Helios SDK</Name>
+      <Name>Helios</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

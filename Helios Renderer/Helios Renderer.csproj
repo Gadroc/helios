@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GadrocsWorkshop.Helios.Renderer</RootNamespace>
-    <AssemblyName>Helios Renderer</AssemblyName>
+    <AssemblyName>HeliosRenderer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -66,34 +66,43 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpDX">
-      <HintPath>..\packages\SharpDX.2.4.2\lib\net40\SharpDX.dll</HintPath>
+    <Reference Include="SharpGL">
+      <HintPath>..\packages\SharpGLCore.2.1.0\lib\SharpGL.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX.Direct2D1">
-      <HintPath>..\packages\SharpDX.Direct2D1.2.4.2\lib\net40\SharpDX.Direct2D1.dll</HintPath>
+    <Reference Include="SharpGL.SceneGraph">
+      <HintPath>..\packages\SharpGLCore.2.1.0\lib\SharpGL.SceneGraph.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX.DXGI">
-      <HintPath>..\packages\SharpDX.DXGI.2.4.2\lib\net40\SharpDX.DXGI.dll</HintPath>
+    <Reference Include="SharpGL.Serialization">
+      <HintPath>..\packages\SharpGLCore.2.1.0\lib\SharpGL.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitmapFormat.cs" />
-    <Compile Include="BitmapRenderer.cs" />
-    <Compile Include="DisposableObject.cs" />
+    <Compile Include="ControlRenderNode.cs" />
+    <Compile Include="RenderNode.cs" />
+    <Compile Include="Scene.cs" />
+    <Compile Include="SceneRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextureManager.cs" />
+    <Compile Include="VisualRenderNode.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Helios SDK\Helios.csproj">
+      <Project>{81c45fd9-59e5-4caf-968c-503c841a25b3}</Project>
+      <Name>Helios</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NormalVertex.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Helios SDK\Helios SDK.csproj">
-      <Project>{81c45fd9-59e5-4caf-968c-503c841a25b3}</Project>
-      <Name>Helios SDK</Name>
-    </ProjectReference>
+    <None Include="NormalFragment.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

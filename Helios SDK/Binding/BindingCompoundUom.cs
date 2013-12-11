@@ -13,11 +13,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Diagnostics;
-
 namespace GadrocsWorkshop.Helios.Binding
 {
+    using System;
+    using System.Diagnostics;
+
     /// <summary>
     /// Compound unit of measures which is represented by a simpleuom over a another simpleuom (eq: Miles per Hour).
     /// </summary>

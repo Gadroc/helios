@@ -46,7 +46,6 @@ namespace GadrocsWorkshop.Helios.Runtime
 
             //Adds all the parts found in the same assembly as the Program class
             catalog.Catalogs.Add(new AssemblyCatalog(typeof(HeliosRuntime).Assembly));
-            // TODO:: Should we iterate sub-directories?
             catalog.Catalogs.Add(new DirectoryCatalog(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PlugIns")));
 
             //Create the CompositionContainer with the parts in the catalog

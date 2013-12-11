@@ -13,23 +13,43 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Runtime.InteropServices;
-
 namespace GadrocsWorkshop.Helios.Visuals
 {
+    using System;
+    using System.Runtime.InteropServices;
+
+    /// <summary>
+    /// RGBA Color Representation for visuals.
+    /// </summary>
     [StructLayout(LayoutKind.Explicit)]
     public struct Color
     {
-      [FieldOffset(0)]
-      public byte R;
-      [FieldOffset(1)]
-      public byte G;
-      [FieldOffset(2)]
-      public byte B;
-      [FieldOffset(3)]
-      public byte A;
-      [FieldOffset(0)]
-      public int Int;
+        public Color(byte red, byte green, byte blue) : this (red, green, blue, 255)
+        {
+        }
+
+        public Color(byte red, byte green, byte blue, byte alpha) : this()
+        {
+            R = red;
+            G = green;
+            B = blue;
+            A = alpha;
+        }
+
+        public Color(int color) : this()
+        {
+            Int = color;
+        }
+
+        [FieldOffset(0)]
+        public byte R;
+        [FieldOffset(1)]
+        public byte G;
+        [FieldOffset(2)]
+        public byte B;
+        [FieldOffset(3)]
+        public byte A;
+        [FieldOffset(0)]
+        public int Int;
     }
 }
