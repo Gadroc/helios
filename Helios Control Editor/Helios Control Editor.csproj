@@ -106,6 +106,9 @@
     <Compile Include="View\ControlPropertiesView.xaml.cs">
       <DependentUpon>ControlPropertiesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VisualPropertiesView.xaml.cs">
+      <DependentUpon>VisualPropertiesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\VisualsView.xaml.cs">
       <DependentUpon>VisualsView.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ControlPropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VisualPropertiesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,44 +18,42 @@ namespace GadrocsWorkshop.Helios.Renderer
     using System;
 
     using SharpDX;
-    using SharpDX.Direct2D1;
 
     using GadrocsWorkshop.Helios.Runtime;
-    using GadrocsWorkshop.Helios.Util;
-    using GadrocsWorkshop.Helios.Visuals;
 
-    internal class RectangleRenderer : StateRenderer<RectangleVisual>
+    internal class ControlRenderNode : RenderNode
     {
-        private bool _disposed;
-        private SolidColorBrush Brush;
+        private Matrix3x2 _matrixCache;
+        private RectangleF _rectangle;
 
-        public RectangleRenderer(VisualState state)
-            : base(state)
+        public ControlRenderNode(ControlInstance control)
         {
+            _matrixCache = Matrix3x2.Translation(control.Left, control.Top);
+            _rectangle = new RectangleF(0f, 0f, control.Width, control.Height);
         }
 
-        protected override void OnRenderBeforeChildren(RenderTarget target)
+        protected override Matrix3x2 Matrix
         {
-            if (Brush == null)
-            {
-                Brush = new SolidColorBrush(target, new Color4(State.Color.Int));
-
-            }
-            target.FillRectangle(BoundingRectangle, Brush);
+            get { return _matrixCache; }
         }
 
-        protected override void OnRenderAfterChildren(RenderTarget target)
+        protected override RectangleF BoundingRectangle
         {
-            // NO-Op
+            get { return _rectangle; }
+        }
+
+        protected override void OnRenderBeforeChildren(SharpDX.Direct2D1.RenderTarget target)
+        {
+            target.PushAxisAlignedClip(_rectangle, SharpDX.Direct2D1.AntialiasMode.Aliased);
+        }
+
+        protected override void OnRenderAfterChildren(SharpDX.Direct2D1.RenderTarget target)
+        {
+            target.PopAxisAlignedClip();
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (!_disposed && disposing)
-            {
-                Disposer.RemoveAndDispose(ref Brush);
-                _disposed = true;
-            }
         }
     }
 }

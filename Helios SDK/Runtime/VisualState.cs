@@ -16,29 +16,37 @@
 namespace GadrocsWorkshop.Helios.Runtime
 {
     using System;
+    using System.Collections.Generic;
 
     using GadrocsWorkshop.Helios.Visuals;
 
     /// <summary>
-    /// State data for display visuals.
+    /// State data for display visuals.  All modifications / reads to a visual state should
+    /// be done while holding a lock on it's parent controlinstance.  Not doing so could lead
+    /// to incorrect value or rendering.
     /// </summary>
     public class VisualState
     {
         private Visual _visual;
-        private VisualOverride _overrides;
+        private List<VisualState> _children;
 
-        public VisualState(Visual visual, VisualOverride overrides = null)
+        private float _width;
+        private float _height;
+        private float _xoffset;
+        private float _yoffset;
+        private float _rotation;
+
+        public VisualState(Visual visual)
         {
+            IsMatrixDirty = true;
+            IsSizeDirty = true;
+
             _visual = visual;
-            _overrides = overrides;
-            if (overrides != null && overrides.Color != null)
-            {
-                Color = overrides.Color.Value;
-            }
-            else
-            {
-                Color = visual.Color;
-            }
+            _children = new List<VisualState>();
+
+            Width = visual.Width;
+            Height = visual.Height;
+            Color = visual.Color;
         }
 
         /// <summary>
@@ -53,20 +61,34 @@ namespace GadrocsWorkshop.Helios.Runtime
         }
 
         /// <summary>
+        /// Children visualstates for this visualstate
+        /// </summary>
+        public IEnumerable<VisualState> Children
+        {
+            get
+            {
+                return _children;
+            }
+        }
+
+        /// <summary>
+        /// Flag indicating whether this visual states matrix needs regenerated
+        /// </summary>
+        public bool IsMatrixDirty { get; set; }
+
+        /// <summary>
+        /// Flag indicating whether this visual states size has changed
+        /// </summary>
+        public bool IsSizeDirty { get; set; }
+
+        /// <summary>
         /// Returns the path to the image for this visual.
         /// </summary>
         public string ImagePath
         {
             get
             {
-                if (_overrides != null & !string.IsNullOrWhiteSpace(_overrides.ImagePath))
-                {
-                    return _overrides.ImagePath;
-                }
-                else
-                {
-                    return Visual.ImagePath;
-                }
+                return Visual.ImagePath;
             }
         }
 
@@ -99,7 +121,11 @@ namespace GadrocsWorkshop.Helios.Runtime
         {
             get
             {
-                return Visual.Width;
+                return _width;
+            }
+            set
+            {
+                _width = value;
             }
         }
 
@@ -110,7 +136,11 @@ namespace GadrocsWorkshop.Helios.Runtime
         {
             get
             {
-                return Visual.Height;
+                return _height;
+            }
+            set
+            {
+                _height = value;
             }
         }
 
@@ -144,17 +174,59 @@ namespace GadrocsWorkshop.Helios.Runtime
         /// <summary>
         /// The amount of offset from default X position for this visual
         /// </summary>
-        public float XOffset { get; set; }
+        public float XOffset 
+        {
+            get 
+            {
+                return _xoffset; 
+            }
+            set
+            {
+                if (_xoffset != value)
+                {
+                    _xoffset = value;
+                    IsMatrixDirty = true;
+                }
+            }
+        }
 
         /// <summary>
         /// The amount of offset from default Y position for this visual
         /// </summary>
-        public float YOffset { get; set; }
+        public float YOffset
+        {
+            get
+            {
+                return _yoffset;
+            }
+            set
+            {
+                if (_yoffset != value)
+                {
+                    _yoffset = value;
+                    IsMatrixDirty = true;
+                }
+            }
+        }
 
         /// <summary>
         /// The amount of rotation for this visual.
         /// </summary>
-        public float Rotation { get; set; }
+        public float Rotation
+        {
+            get
+            {
+                return _rotation;
+            }
+            set
+            {
+                if (_rotation != value)
+                {
+                    _rotation = value;
+                    IsMatrixDirty = true;
+                }
+            }
+        }
 
         /// <summary>
         /// Opacity to display this visual with
@@ -164,18 +236,13 @@ namespace GadrocsWorkshop.Helios.Runtime
         /// <summary>
         /// Current color of this visual
         /// </summary>
-        public Color Color { get; private set; }
+        /// TODO Need to trigger brush recreate
+        public Color Color { get; set; }
 
         /// <summary>
         /// Text which will be displayed on this visual
         /// </summary>
+        /// TODO Need to redraw text
         public string Text { get; set; }
-
-        /// <summary>
-        /// Data space for use by the rendering engine.  This data is opaque and should not be modified outside
-        /// the rendering engine.
-        /// </summary>
-        public object RenderData { get; set; }
-
     }
 }

@@ -13,30 +13,33 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Runtime
+namespace GadrocsWorkshop.Helios.ControlEditor.View
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Documents;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
+    using System.Windows.Shapes;
 
-    using GadrocsWorkshop.Helios.Visuals;
+    using GadrocsWorkshop.Helios.ControlEditor.ViewModel;
 
     /// <summary>
-    /// Values that have been override on a visual for an instance of a control.
+    /// Interaction logic for ControlPropertiesView.xaml
     /// </summary>
-    public class VisualOverride
+    public partial class ControlPropertiesView : UserControl
     {
-        /// <summary>
-        /// ID of the visual this override is for.
-        /// </summary>
-        public string id { get; set; }
-
-        /// <summary>
-        /// Color this visual will display glyphs with.
-        /// </summary>
-        public Color? Color { get; set; }
-
-        /// <summary>
-        /// Images this visual will display.
-        /// </summary>
-        public string ImagePath { get; set; }
+        public ControlPropertiesView()
+        {
+            InitializeComponent();
+        }
     }
 }

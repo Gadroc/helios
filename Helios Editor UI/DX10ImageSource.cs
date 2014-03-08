@@ -42,47 +42,53 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 * THE SOFTWARE.
 */
-using System;
-using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Interop;
-using SharpDX.Direct3D9;
 
 namespace GadrocsWorkshop.Helios.Editor.UI
 {
-    public class DX11ImageSource : D3DImage, IDisposable
+    using System;
+    using System.Runtime.InteropServices;
+    using System.Windows;
+    using System.Windows.Interop;
+    using SharpDX.Direct3D9;
+
+    public class DX10ImageSource : D3DImage, IDisposable
     {
         private static int ActiveClients;
         private static Direct3DEx D3DContext;
         private static DeviceEx D3DDevice;
         private Texture RenderTarget;
 
-        public DX11ImageSource()
+        public DX10ImageSource()
         {
             this.StartD3D();
-            DX11ImageSource.ActiveClients++;
+            DX10ImageSource.ActiveClients++;
         }
 
         public void Dispose()
         {
-            this.SetRenderTargetDX11(null);
+            this.SetRenderTargetDX10(null);
             RemoveAndDispose(ref this.RenderTarget);
 
-            DX11ImageSource.ActiveClients--;
+            DX10ImageSource.ActiveClients--;
             this.EndD3D();
         }
 
         public void InvalidateD3DImage()
         {
+            InvalidateD3DImageRegion(new Int32Rect(0, 0, base.PixelWidth, base.PixelHeight));
+        }
+
+        public void InvalidateD3DImageRegion(Int32Rect region)
+        {
             if (this.RenderTarget != null)
             {
                 base.Lock();
-                base.AddDirtyRect(new Int32Rect(0, 0, base.PixelWidth, base.PixelHeight));
+                base.AddDirtyRect(region);
                 base.Unlock();
             }
         }
 
-        public void SetRenderTargetDX11(SharpDX.Direct3D11.Texture2D renderTarget)
+        public void SetRenderTargetDX10(SharpDX.Direct3D10.Texture2D renderTarget)
         {
             if (this.RenderTarget != null)
             {
@@ -99,7 +105,7 @@ namespace GadrocsWorkshop.Helios.Editor.UI
             if (!IsShareable(renderTarget))
                 throw new ArgumentException("Texture must be created with ResourceOptionFlags.Shared");
 
-            Format format = DX11ImageSource.TranslateFormat(renderTarget);
+            Format format = DX10ImageSource.TranslateFormat(renderTarget);
             if (format == Format.Unknown)
                 throw new ArgumentException("Texture format is not compatible with OpenSharedResource");
 
@@ -107,7 +113,7 @@ namespace GadrocsWorkshop.Helios.Editor.UI
             if (handle == IntPtr.Zero)
                 throw new ArgumentNullException("Handle");
 
-            this.RenderTarget = new Texture(DX11ImageSource.D3DDevice, renderTarget.Description.Width, renderTarget.Description.Height, 1, Usage.RenderTarget, format, Pool.Default, ref handle);
+            this.RenderTarget = new Texture(DX10ImageSource.D3DDevice, renderTarget.Description.Width, renderTarget.Description.Height, 1, Usage.RenderTarget, format, Pool.Default, ref handle);
             using (Surface surface = this.RenderTarget.GetSurfaceLevel(0))
             {
                 base.Lock();
@@ -118,7 +124,7 @@ namespace GadrocsWorkshop.Helios.Editor.UI
 
         private void StartD3D()
         {
-            if (DX11ImageSource.ActiveClients != 0)
+            if (DX10ImageSource.ActiveClients != 0)
                 return;
 
             D3DContext = new Direct3DEx();
@@ -129,20 +135,20 @@ namespace GadrocsWorkshop.Helios.Editor.UI
             presentparams.DeviceWindowHandle = NativeMethods.GetDesktopWindow();
             presentparams.PresentationInterval = PresentInterval.Default;
 
-            DX11ImageSource.D3DDevice = new DeviceEx(D3DContext, 0, DeviceType.Hardware, IntPtr.Zero, CreateFlags.HardwareVertexProcessing | CreateFlags.Multithreaded | CreateFlags.FpuPreserve, presentparams);
+            DX10ImageSource.D3DDevice = new DeviceEx(D3DContext, 0, DeviceType.Hardware, IntPtr.Zero, CreateFlags.HardwareVertexProcessing | CreateFlags.Multithreaded | CreateFlags.FpuPreserve, presentparams);
         }
 
         private void EndD3D()
         {
-            if (DX11ImageSource.ActiveClients != 0)
+            if (DX10ImageSource.ActiveClients != 0)
                 return;
 
             RemoveAndDispose(ref this.RenderTarget);
-            RemoveAndDispose(ref DX11ImageSource.D3DDevice);
-            RemoveAndDispose(ref DX11ImageSource.D3DContext);
+            RemoveAndDispose(ref DX10ImageSource.D3DDevice);
+            RemoveAndDispose(ref DX10ImageSource.D3DContext);
         }
 
-        private IntPtr GetSharedHandle(SharpDX.Direct3D11.Texture2D Texture)
+        private IntPtr GetSharedHandle(SharpDX.Direct3D10.Texture2D Texture)
         {
             SharpDX.DXGI.Resource resource = Texture.QueryInterface<SharpDX.DXGI.Resource>();
             IntPtr result = resource.SharedHandle;
@@ -150,7 +156,7 @@ namespace GadrocsWorkshop.Helios.Editor.UI
             return result;
         }
 
-        private static Format TranslateFormat(SharpDX.Direct3D11.Texture2D Texture)
+        private static Format TranslateFormat(SharpDX.Direct3D10.Texture2D Texture)
         {
             switch (Texture.Description.Format)
             {
@@ -168,9 +174,9 @@ namespace GadrocsWorkshop.Helios.Editor.UI
             }
         }
 
-        private static bool IsShareable(SharpDX.Direct3D11.Texture2D Texture)
+        private static bool IsShareable(SharpDX.Direct3D10.Texture2D Texture)
         {
-            return (Texture.Description.OptionFlags & SharpDX.Direct3D11.ResourceOptionFlags.Shared) != 0;
+            return (Texture.Description.OptionFlags & SharpDX.Direct3D10.ResourceOptionFlags.Shared) != 0;
         }
 
         private static void RemoveAndDispose<TypeName>(ref TypeName resource) where TypeName : class

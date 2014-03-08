@@ -17,6 +17,7 @@ namespace GadrocsWorkshop.Helios
 {
     using System.Collections.Generic;
 
+    using GadrocsWorkshop.Helios.Runtime;
     using GadrocsWorkshop.Helios.Renderer;
 
     /// <summary>
@@ -51,9 +52,13 @@ namespace GadrocsWorkshop.Helios
         void Identify(string label);
 
         /// <summary>
+        /// Collection of controls which will be displayed.
+        /// </summary>
+        IEnumerable<ControlInstance> Scene { get; }
+
+        /// <summary>
         /// Disposes any resources for this display since it's no longer used.
         /// </summary>
         void Dispose();
-
     }
 }

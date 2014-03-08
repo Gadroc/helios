@@ -17,17 +17,21 @@ namespace GadrocsWorkshop.Helios.Saitek
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     using GadrocsWorkshop.Helios;
     using GadrocsWorkshop.Helios.Renderer;
+    using GadrocsWorkshop.Helios.Runtime;
 
     public class FipDisplay : IDisplay
     {
         private IntPtr _device;
         private string _id;
+        private ObservableCollection<ControlInstance> _scene;
 
         internal FipDisplay(IntPtr device)
         {
+            _scene = new ObservableCollection<ControlInstance>();
             _device = device;
 
             Guid deviceInstance = new Guid();
@@ -80,6 +84,14 @@ namespace GadrocsWorkshop.Helios.Saitek
         public int Height
         {
             get { return 240; }
+        }
+
+        public IEnumerable<ControlInstance> Scene
+        {
+            get
+            {
+                return _scene;
+            }
         }
 
         public void Identify(string label)

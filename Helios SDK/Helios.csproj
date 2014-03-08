@@ -106,7 +106,9 @@
     <Compile Include="IAdapter.cs" />
     <Compile Include="IProfileObject.cs" />
     <Compile Include="PulseInputEventArgs.cs" />
+    <Compile Include="Renderer\ControlRenderNode.cs" />
     <Compile Include="Renderer\D2DRenderer.cs" />
+    <Compile Include="Renderer\RenderNode.cs" />
     <Compile Include="Runtime\ControlInstance.cs" />
     <Compile Include="Renderer\RectangleRenderer.cs" />
     <Compile Include="Renderer\StateRenderer.cs" />
@@ -114,8 +116,8 @@
     <Compile Include="Runtime\ProfileExecutor.cs" />
     <Compile Include="PlugIns\LuaUserControl\LuaUserControl.cs" />
     <Compile Include="PlugIns\LuaUserControl\LuaUserControlPlugIn.cs" />
-    <Compile Include="Runtime\VisualOverride.cs" />
     <Compile Include="Runtime\VisualState.cs" />
+    <Compile Include="Util\Disposer.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\WrapViewModel.cs" />
     <Compile Include="Visuals\Color.cs" />

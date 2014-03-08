@@ -26,12 +26,10 @@ namespace GadrocsWorkshop.Helios.PlugIns.LuaUserControl
     public class LuaUserControl : IControl
     {
         private IList<Visual> _visuals;
-        private IList<IControl> _children;
 
         public LuaUserControl()
         {
             _visuals = new List<Visual>();
-            _children = new List<IControl>();
         }
 
         public string PlugInId
@@ -58,15 +56,7 @@ namespace GadrocsWorkshop.Helios.PlugIns.LuaUserControl
         public bool AllowChildren
         { get; set; }
 
-        public IEnumerable<IControl> Children
-        {
-            get
-            {
-                return _children;
-            }
-        }
-
-        public IEnumerable<Visual> Visuals
+        public IList<Visual> Visuals
         {
             get
             {

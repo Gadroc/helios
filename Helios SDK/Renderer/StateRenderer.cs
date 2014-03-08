@@ -25,39 +25,25 @@ namespace GadrocsWorkshop.Helios.Renderer
     using GadrocsWorkshop.Helios.Visuals;
 
     /// <summary>
-    /// Base class for all elements which will be rendered in the scnene.
+    /// Base renderer for a visutal state.
     /// </summary>
-    public abstract class StateRenderer<T> : IDisposable where T : Visual
+    internal abstract class StateRenderer : RenderNode
     {
-        private WeakReference _parent;
         private WeakReference _state;
         private Matrix3x2 _matrix;
-        private ObservableCollection<StateRenderer<Visual>> _children;
         private RectangleF _rectangle;
 
         /// <summary>
         /// Base constructure for RenderNodes.
         /// </summary>
         /// <param name="parent">Parent node in the scene</param>
-        public StateRenderer(VisualState state, StateRenderer<Visual> parent)
+        public StateRenderer(VisualState state)
         {
-            _parent = new WeakReference(parent);
-            _matrix = Matrix3x2.Identity;
-            _children = new ObservableCollection<StateRenderer<Visual>>();
+            _state = new WeakReference(state);
+            _rectangle = new RectangleF(0, 0, state.Width, state.Height);
         }
 
         #region Properties
-
-        /// <summary>
-        /// Parent render node that this node is rendered under.
-        /// </summary>
-        public StateRenderer<Visual> Parent
-        {
-            get
-            {
-                return (StateRenderer<Visual>)_parent.Target;
-            }
-        }
 
         /// <summary>
         /// VisualState this renderer is for.
@@ -71,46 +57,29 @@ namespace GadrocsWorkshop.Helios.Renderer
         }
 
         /// <summary>
-        /// Returns the visual for this renderer.
-        /// </summary>
-        protected T Visual
-        {
-            get
-            {
-                return (T)State.Visual;
-            }
-        }
-
-        /// <summary>
-        /// Children nodes which are rendered using this nodes transform matrix
-        /// </summary>
-        public Collection<StateRenderer<Visual>> Children
-        {
-            get
-            {
-                return _children;
-            }
-        }
-
-        /// <summary>
         /// ModelViewProjection matrix for this node.
         /// </summary>
-        protected Matrix3x2 Matrix
+        protected override Matrix3x2 Matrix
         {
             get
             {
+                if (State.IsMatrixDirty)
+                {
+                    _matrix = Matrix3x2.Translation(State.Left, State.Top);
+                    if (State.Rotation != 0)
+                    {
+                        _matrix *= Matrix3x2.Rotation(State.Rotation, new Vector2(State.RotationCenterHorizontal, State.RotationCenterVertical));
+                    }
+                    State.IsMatrixDirty = false;
+                }
                 return _matrix;
-            }
-            set
-            {
-                _matrix = value;
             }
         }
 
         /// <summary>
         /// Bounding rectangle for the visual state
         /// </summary>
-        protected RectangleF BoundingRectangle
+        protected override RectangleF BoundingRectangle
         {
             get
             {
@@ -120,29 +89,28 @@ namespace GadrocsWorkshop.Helios.Renderer
 
         #endregion
 
-        /// <summary>
-        /// Renders this node.
-        /// </summary>
-        public void Render(RenderTarget target)
+    }
+
+    /// <summary>
+    /// Base renderer for a visutal state.
+    /// </summary>
+    internal abstract class StateRenderer<T> : StateRenderer where T : Visual
+    {
+
+        public StateRenderer(VisualState state)
+            : base(state)
         {
-            Matrix3x2 oldMatrix = target.Transform;
-            target.Transform = oldMatrix * Matrix;
-            OnRender(target);
-            foreach(StateRenderer<Visual> child in Children)
-            {
-                child.Render(target);
-            }
-            target.Transform = oldMatrix;
         }
 
         /// <summary>
-        /// Override function which does all rendering for this node.
+        /// Returns the visual for this renderer.
         /// </summary>
-        protected abstract void OnRender(RenderTarget target);
-
-        /// <summary>
-        /// Disposes of all non-managed resources for this object.
-        /// </summary>
-        public abstract void Dispose();
+        protected T Visual
+        {
+            get
+            {
+                return (T)State.Visual;
+            }
+        }
     }
 }

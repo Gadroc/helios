@@ -48,6 +48,6 @@ namespace GadrocsWorkshop.Helios
         /// <summary>
         /// Collection of visuals which will be displayed on this control.
         /// </summary>
-        IEnumerable<Visual> Visuals { get; }
+        IList<Visual> Visuals { get; }
     }
 }

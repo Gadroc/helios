@@ -20,6 +20,7 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
     using System.Windows.Input;
 
     using GadrocsWorkshop.Helios.PlugIns.LuaUserControl;
+    using GadrocsWorkshop.Helios.Runtime;
     using GadrocsWorkshop.Helios.ViewModel;
     using GadrocsWorkshop.Helios.Visuals;
 
@@ -28,10 +29,13 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
         private bool _new;
         private ObservableCollection<object> _visualTree;
         private ObservableCollection<VisualViewModel> _visuals;
+        private ControlInstance _previewInstance;
 
         #region Commands
 
         public ICommand AddRectangleCommand { get; private set; }
+        public ICommand AddImageCommand { get; private set; }
+        public ICommand AddContainerCommand { get; private set; }
 
         /// <summary>
         /// Adds a rectangle visual to this control.
@@ -50,6 +54,19 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
             AddUniqueIdChild(FindSelectedVisual(Children), visual);
         }
 
+        private void AddImage(object sender)
+        {
+        }
+
+        private void AddContainer(object sender)
+        {
+        }
+
+        /// <summary>
+        /// Adds a new visual child but giving it a unique id across the entire control.
+        /// </summary>
+        /// <param name="parent">Parent to add this visual to.  Null will add visual directly to the control.</param>
+        /// <param name="visual">Visual which will be added to the control.</param>
         private void AddUniqueIdChild(VisualViewModel parent, Visual visual)
         {
             ObservableCollection<VisualViewModel> peers = parent == null ? Children : parent.Children;
@@ -63,13 +80,31 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
 
             VisualViewModel viewModel = new VisualViewModel(visual, this);
             peers.Add(viewModel);
+
             viewModel.IsSelected = true;
             if (parent != null)
             {
                 parent.IsExpanded = true;
             }
+
+            // Add to control
+            if (parent == null)
+            {
+                Model.Visuals.Add(visual);
+            }
+            else
+            {
+                parent.Model.Children.Add(visual);
+            }
+            UpdatePreviewInstance();
         }
 
+        /// <summary>
+        ///  Checks to see if a name already exists on a visual in this control.
+        /// </summary>
+        /// <param name="peers">Peers to check.</param>
+        /// <param name="name">Name to check for.</param>
+        /// <returns>True the name was found, false if it was nout found.</returns>
         private bool NameExists(ObservableCollection<VisualViewModel> peers, string name)
         {
             foreach (VisualViewModel peer in peers)
@@ -86,6 +121,11 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
             return false;
         }
 
+        /// <summary>
+        /// Finds the currently selected visual.
+        /// </summary>
+        /// <param name="peers">Peers to check for selection.</param>
+        /// <returns>Viewmodel object representing selected visual, null if none are selected.</returns>
         private VisualViewModel FindSelectedVisual(ObservableCollection<VisualViewModel> peers)
         {
             VisualViewModel retValue = null;
@@ -119,6 +159,7 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
         {
             // Set Model Defaults
             // TODO Pull Model Defaults from user settings.
+
             Model.Width = 300;
             Model.Height = 300;
             Model.TypeId = "GadrocsWorkshop.Helios.NewControl";
@@ -127,13 +168,33 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
             _new = true;
         }
 
+        /// <summary>
+        /// Constructor to edit an existing control.
+        /// </summary>
+        /// <param name="control"></param>
         public UserControlViewModel(LuaUserControl control)
         {
             Model = control;
             _visuals = new ObservableCollection<VisualViewModel>();
+
             _visualTree = new ObservableCollection<object>();
             _visualTree.Add(this);
+
             AddRectangleCommand = new RelayCommand(AddRectangle);
+            AddImageCommand = new RelayCommand(AddImage);
+            AddContainerCommand = new RelayCommand(AddContainer);
+
+            UpdatePreviewInstance();
+        }
+
+        private void UpdatePreviewInstance()
+        {
+            ControlInstance instance = new ControlInstance(Model);
+
+            instance.Width = Model.Width;
+            instance.Height = Model.Height;
+
+            PreviewInstance = instance;
         }
 
         public ObservableCollection<VisualViewModel> Children
@@ -144,6 +205,12 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
         public ObservableCollection<object> VisualTree
         {
             get { return _visualTree; }
+        }
+
+        public ControlInstance PreviewInstance
+        {
+            get { return _previewInstance; }
+            set { SetProperty(ref _previewInstance, value, "PreviewInstance", PropertyInfo.None); }
         }
 
         public override bool IsExpanded
@@ -189,13 +256,13 @@ namespace GadrocsWorkshop.Helios.ControlEditor.ViewModel
         public int Width
         {
             get { return Model.Width; }
-            set { SetWrappedProperty(value, "Width", PropertyInfo.Undoable); }
+            set { SetWrappedProperty(value, "Width", PropertyInfo.Undoable); UpdatePreviewInstance(); }
         }
 
         public int Height
         {
             get { return Model.Height; }
-            set { SetWrappedProperty(value, "Height", PropertyInfo.Undoable); }
+            set { SetWrappedProperty(value, "Height", PropertyInfo.Undoable); UpdatePreviewInstance(); }
         }
     }
 }
