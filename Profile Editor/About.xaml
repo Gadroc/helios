@@ -1,0 +1,9 @@
+﻿<Window x:Class="GadrocsWorkshop.Helios.ProfileEditor.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About" Height="125" Width="527" WindowStyle="None" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+    <Canvas Height="85 " Width="512">
+        <Image Source="about.png"/>
+        <TextBlock Canvas.Left="368" Canvas.Top="12" Height="23" Name="VersionBlock" Text="1.0.0.0" Width="132" />
+    </Canvas>
+</Window>

@@ -1,0 +1,63 @@
+<Window x:Class="GadrocsWorkshop.Helios.ProfileEditor.ResetMonitors"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor"
+        xmlns:hsdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls;assembly=Helios"
+        Title="ResetMonitors" Height="Auto" Width="600" MinWidth="700" WindowStartupLocation="CenterOwner" Name="ResetMonitorsWindow" ResizeMode="NoResize" SizeToContent="Height">
+    <Grid Background="{StaticResource HeliosToolBackground}" Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">Old Layout</Label>
+            <local:ProfilePreview Grid.Row="1" x:Name="OldLayout" Margin="5" />           
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">New Layout</Label>
+            <local:ProfilePreview Grid.Row="1" ShowPanels="False" x:Name="NewLayout" Margin="5" />
+        </Grid>
+
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#FF808080" BorderThickness="1" Background="White" CornerRadius="2" Margin="5">
+            <ItemsControl Margin="0,2" ItemsSource="{Binding ElementName=ResetMonitorsWindow,Path=MonitorResets}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#FF808080" BorderThickness="0,0,0,1" Padding="0,2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Margin="2,0" Text="{Binding OldMonitor.Name}" />
+                                <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="2,0">
+                                    <TextBlock Margin="2,0" VerticalAlignment="Center">New Monitor:</TextBlock>
+                                    <ComboBox ItemsSource="{Binding  ElementName=ResetMonitorsWindow,Path=NewMonitors}" SelectedIndex="{Binding NewMonitor}" />
+                                    <CheckBox Margin="4,0" IsChecked="{Binding Scale}" VerticalAlignment="Center">Scale</CheckBox>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4" >
+            <Button MinWidth="60" Click="Cancel" Margin="0,0,4,0">Cancel</Button>
+            <Button MinWidth="60" IsDefault="True" Click="Ok">Ok</Button>
+        </StackPanel>
+    </Grid>
+</Window>

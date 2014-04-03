@@ -1,0 +1,31 @@
+<HeliosSdk:HeliosInterfaceEditor x:Class="GadrocsWorkshop.Helios.Interfaces.Keyboard.KeyboardInterfaceEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls"                      
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"             
+    Background="{StaticResource ToolBackground}" Padding="5"
+    Height="Auto" Width="Auto">
+    <StackPanel>
+        <GroupBox Header="Properties">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Key Delay</Label>
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Interface.KeyDelay}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" MaxWidth="40" />
+                <TextBlock Grid.Column="1" Grid.Row="1" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Delay in miliseconds between each key up and down event.</TextBlock>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Documentation" Margin="0,4,0,0">
+            <StackPanel>
+                <TextBlock Margin="4" TextWrapping="Wrap">Keyboard interface allows emlation of a physical keyboard to control the simulation.</TextBlock>
+                <TextBlock Margin="4" TextWrapping="Wrap" Text="{Binding SpecialKeysText}" />
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
+</HeliosSdk:HeliosInterfaceEditor>

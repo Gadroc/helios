@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="GadrocsWorkshop.Helios.Windows.Controls.ColorWell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="50" Height="30"
+    x:Name="myColorWell">
+    <Button Click="Button_Click" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+        <Rectangle Fill="{Binding ElementName=myColorWell,Path=FillBrush}" Margin="2" />
+    </Button>
+</UserControl>

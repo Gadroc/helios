@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E5ABE3F5-46EC-46D1-9330-D42311471A93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GadrocsWorkshop.Helios</RootNamespace>
+    <AssemblyName>Helios</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="KeraLua">
+      <HintPath>..\packages\NLua.1.3.0.2\lib\net45\x86\KeraLua.dll</HintPath>
+    </Reference>
+    <Reference Include="NLua">
+      <HintPath>..\packages\NLua.1.3.0.2\lib\net45\x86\NLua.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDeserializer.cs" />
+    <Compile Include="BindingValue.cs" />
+    <Compile Include="BindingValueSources.cs" />
+    <Compile Include="BindingValueType.cs" />
+    <Compile Include="BindingValueUnit.cs" />
+    <Compile Include="BindingValueUnitConverter.cs" />
+    <Compile Include="BindingValueUnits.cs" />
+    <Compile Include="BindingValueUnitType.cs" />
+    <Compile Include="CalibrationPointCollectionDouble.cs" />
+    <Compile Include="CalibrationPointCollectionLong.cs" />
+    <Compile Include="CalibrationPointDouble.cs" />
+    <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Collections\HeliosObjectCollection.cs" />
+    <Compile Include="Collections\KeyedObservableCollection.cs" />
+    <Compile Include="Collections\NoResetObservablecollection.cs" />
+    <Compile Include="ComponentModel\HeliosControlAttribute.cs" />
+    <Compile Include="ComponentModel\HeliosInterfaceAttribute.cs" />
+    <Compile Include="ComponentModel\HeliosModuleAttribute.cs" />
+    <Compile Include="ComponentModel\HeliosPropertyEditorAttribute.cs" />
+    <Compile Include="ComponentModel\HeliosUnitConverterAttribute.cs" />
+    <Compile Include="ComponentModel\IPropertyNotification.cs" />
+    <Compile Include="ComponentModel\PropertyNotificationEventArgs.cs" />
+    <Compile Include="CompositeVisual.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="Controls\ClickType.cs" />
+    <Compile Include="Controls\GuardedThreeWayAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>GuardedThreeWayAppearancePropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GuardedThreeWayBehaviorPropertyEditor.xaml.cs">
+      <DependentUpon>GuardedThreeWayBehaviorPropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GuardedThreeWayToggle.cs" />
+    <Compile Include="Controls\GuardedThreeWayToggleRenderer.cs" />
+    <Compile Include="Controls\GuardedToggleSwitch.cs" />
+    <Compile Include="Controls\GuardedToggleSwitchAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>GuardedToggleSwitchAppearancePropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GuardedToggleSwitchBehaviorPropertyEditor.xaml.cs">
+      <DependentUpon>GuardedToggleSwitchBehaviorPropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GuardedToggleSwitchRenderer.cs" />
+    <Compile Include="Controls\GuardPosition.cs" />
+    <Compile Include="Controls\HatSwitch.cs" />
+    <Compile Include="Controls\HatSwitchAppearanceEditor.xaml.cs">
+      <DependentUpon>HatSwitchAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HatSwitchPosition.cs" />
+    <Compile Include="Controls\HatSwitchRenderer.cs" />
+    <Compile Include="Controls\HeliosPanel.cs" />
+    <Compile Include="Controls\HeliosPanelAppearanceEditor.xaml.cs">
+      <DependentUpon>HeliosPanelAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HeliosPanelRenderer.cs" />
+    <Compile Include="Controls\ImageDecoration.cs" />
+    <Compile Include="Controls\ImageDecorationAppearanceEditor.xaml.cs">
+      <DependentUpon>ImageDecorationAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageDecorationRenderer.cs" />
+    <Compile Include="Controls\Indicator.cs" />
+    <Compile Include="Controls\IndicatorAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>IndicatorAppearancePropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IndicatorPushButton.cs" />
+    <Compile Include="Controls\IndicatorPushButtonAppearanceEditor.xaml.cs">
+      <DependentUpon>IndicatorPushButtonAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IndicatorPushButtonRenderer.cs" />
+    <Compile Include="Controls\IndicatorRenderer.cs" />
+    <Compile Include="Controls\LineDecoration.cs" />
+    <Compile Include="Controls\LineDecorationAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>LineDecorationAppearancePropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LineDecorationRenderer.cs" />
+    <Compile Include="Controls\Potentiometer.cs" />
+    <Compile Include="Controls\PotentiometerAppearanceEditor.xaml.cs">
+      <DependentUpon>PotentiometerAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PotentiometerBehaviorEditor.xaml.cs">
+      <DependentUpon>PotentiometerBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PushButton.cs" />
+    <Compile Include="Controls\PushButtonAppearanceEditor.xaml.cs">
+      <DependentUpon>PushButtonAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PushButtonBehaviorEditor.xaml.cs">
+      <DependentUpon>PushButtonBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PushButtonGlyph.cs" />
+    <Compile Include="Controls\PushButtonRenderer.cs" />
+    <Compile Include="Controls\PushButtonType.cs" />
+    <Compile Include="Controls\RectangleDecoration.cs" />
+    <Compile Include="Controls\RectangleDecorationAppearanceEditor.xaml.cs">
+      <DependentUpon>RectangleDecorationAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RectangleDecorationRenderer.cs" />
+    <Compile Include="Controls\Rotary.cs" />
+    <Compile Include="Controls\RotaryEncoder.cs" />
+    <Compile Include="Controls\RotaryEncoderAppearanceEditor.xaml.cs">
+      <DependentUpon>RotaryEncoderAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RotaryEncoderBehaviorEditor.xaml.cs">
+      <DependentUpon>RotaryEncoderBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RotaryRenderer.cs" />
+    <Compile Include="Controls\RotarySwitch.cs" />
+    <Compile Include="Controls\RotarySwitchAddPositionUndoEvent.cs" />
+    <Compile Include="Controls\RotarySwitchAppearanceEditor.xaml.cs">
+      <DependentUpon>RotarySwitchAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RotarySwitchBehaviorEditor.xaml.cs">
+      <DependentUpon>RotarySwitchBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RotarySwitchDeletePositionUndoEvent.cs" />
+    <Compile Include="Controls\RotarySwitchPosition.cs" />
+    <Compile Include="Controls\RotarySwitchPositionChangeArgs.cs" />
+    <Compile Include="Controls\RotarySwitchPositionCollection.cs" />
+    <Compile Include="Controls\RotarySwitchRenderer.cs" />
+    <Compile Include="Controls\ScreenReplicator.cs" />
+    <Compile Include="Controls\ScreenReplicatorBehaviorPropertyEditor.xaml.cs">
+      <DependentUpon>ScreenReplicatorBehaviorPropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScreenReplicatorRenderer.cs" />
+    <Compile Include="Controls\TextDecoration.cs" />
+    <Compile Include="Controls\TextDecorationAppearanceEditor.xaml.cs">
+      <DependentUpon>TextDecorationAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextDecorationRenderer.cs" />
+    <Compile Include="Controls\ThreeWayToggleSwitch.cs" />
+    <Compile Include="Controls\ThreeWayToggleSwitchAppearanceEditor.xaml.cs">
+      <DependentUpon>ThreeWayToggleSwitchAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ThreeWayToggleSwitchBehaviorEditor.xaml.cs">
+      <DependentUpon>ThreeWayToggleSwitchBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ThreeWayToggleSwitchPosition.cs" />
+    <Compile Include="Controls\ThreeWayToggleSwitchRenderer.cs" />
+    <Compile Include="Controls\ThreeWayToggleSwitchType.cs" />
+    <Compile Include="Controls\ToggleSwitch.cs" />
+    <Compile Include="Controls\ToggleSwitchAppearanceEditor.xaml.cs">
+      <DependentUpon>ToggleSwitchAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToggleSwitchBase.cs" />
+    <Compile Include="Controls\ToggleSwitchBehaviorEditor.xaml.cs">
+      <DependentUpon>ToggleSwitchBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToggleSwitchOrientation.cs" />
+    <Compile Include="Controls\ToggleSwitchPosition.cs" />
+    <Compile Include="Controls\ToggleSwitchRenderer.cs" />
+    <Compile Include="Controls\ToggleSwitchType.cs" />
+    <Compile Include="DisplayManager.cs" />
+    <Compile Include="DisplayOrientation.cs" />
+    <Compile Include="EnumConverter.cs" />
+    <Compile Include="EnumDisplayEntery.cs" />
+    <Compile Include="Gauges\BaseGauge.cs" />
+    <Compile Include="Gauges\GaugeComponent.cs" />
+    <Compile Include="Gauges\GaugeComponentCollection.cs" />
+    <Compile Include="Gauges\GaugeDrumCounter.cs" />
+    <Compile Include="Gauges\GaugeImage.cs" />
+    <Compile Include="Gauges\GaugeNeedle.cs" />
+    <Compile Include="Gauges\GaugeRectangle.cs" />
+    <Compile Include="Gauges\GaugeRenderer.cs" />
+    <Compile Include="HeliosAction.cs" />
+    <Compile Include="HeliosActionCollection.cs" />
+    <Compile Include="HeliosActionEventArgs.cs" />
+    <Compile Include="HeliosBinding.cs" />
+    <Compile Include="HeliosBindingCollection.cs" />
+    <Compile Include="HeliosDescriptor.cs" />
+    <Compile Include="HeliosDescriptorCollection.cs" />
+    <Compile Include="HeliosInit.cs" />
+    <Compile Include="HeliosInterface.cs" />
+    <Compile Include="HeliosInterfaceCollection.cs" />
+    <Compile Include="HeliosInterfaceDescriptor.cs" />
+    <Compile Include="HeliosInterfaceDescriptorColleciton.cs" />
+    <Compile Include="HeliosInterfaceFactory.cs" />
+    <Compile Include="HeliosObject.cs" />
+    <Compile Include="HeliosProfile.cs" />
+    <Compile Include="HeliosPropertyEditorDescriptor.cs" />
+    <Compile Include="HeliosPropertyEditorDescriptorCollection.cs" />
+    <Compile Include="HeliosSerializer.cs" />
+    <Compile Include="HeliosTemplate.cs" />
+    <Compile Include="HeliosTemplateCollection.cs" />
+    <Compile Include="HeliosTrigger.cs" />
+    <Compile Include="HeliosTriggerCollection.cs" />
+    <Compile Include="HeliosTriggerEventArgs.cs" />
+    <Compile Include="HeliosValue.cs" />
+    <Compile Include="HeliosValueCollection.cs" />
+    <Compile Include="HeliosVisual.cs" />
+    <Compile Include="HeliosVisualCollection.cs" />
+    <Compile Include="HeliosVisualContainer.cs" />
+    <Compile Include="HeliosVisualRenderer.cs" />
+    <Compile Include="HeliosVisualRotation.cs" />
+    <Compile Include="IBindingAction.cs" />
+    <Compile Include="IBindingElement.cs" />
+    <Compile Include="IBindingTrigger.cs" />
+    <Compile Include="IHeliosValue.cs" />
+    <Compile Include="IImageManager.cs" />
+    <Compile Include="ImageAlignment.cs" />
+    <Compile Include="ImageManager.cs" />
+    <Compile Include="IModuleManager.cs" />
+    <Compile Include="Interfaces\DCS\A10C\A10CInterface.cs" />
+    <Compile Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml.cs">
+      <DependentUpon>A10CInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\A10C\Functions\Altimeter.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\HSIMiles.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\ILSFrequency.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\TACANChannel.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\TotalFuel.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\VHFPresetSelector.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder1.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder3.cs" />
+    <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder4.cs" />
+    <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterface.cs" />
+    <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml.cs">
+      <DependentUpon>BlackSharkInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\BlackShark\Functions\HSIRange.cs" />
+    <Compile Include="Interfaces\DCS\BlackShark\Functions\LatitudeEntry.cs" />
+    <Compile Include="Interfaces\DCS\BlackShark\Functions\MagVariation.cs" />
+    <Compile Include="Interfaces\DCS\BlackShark\Functions\VHF2Rotary1.cs" />
+    <Compile Include="Interfaces\DCS\BlackShark\Functions\VHF2Rotary23.cs" />
+    <Compile Include="Interfaces\DCS\BlackShark\Functions\VHF2Rotary4.cs" />
+    <Compile Include="Interfaces\DCS\Common\AbsoluteEncoder.cs" />
+    <Compile Include="Interfaces\DCS\Common\Axis.cs" />
+    <Compile Include="Interfaces\DCS\Common\DCSConfigurator.cs" />
+    <Compile Include="Interfaces\DCS\Common\DCSDataElement.cs" />
+    <Compile Include="Interfaces\DCS\Common\FlagValue.cs" />
+    <Compile Include="Interfaces\DCS\Common\GuardedSwitch.cs" />
+    <Compile Include="Interfaces\DCS\Common\HatSwitch.cs" />
+    <Compile Include="Interfaces\DCS\Common\IndicatorPushButton.cs" />
+    <Compile Include="Interfaces\DCS\Common\LockedEncoder.cs" />
+    <Compile Include="Interfaces\DCS\Common\NetworkValue.cs" />
+    <Compile Include="Interfaces\DCS\Common\PushButton.cs" />
+    <Compile Include="Interfaces\DCS\Common\Rocker.cs" />
+    <Compile Include="Interfaces\DCS\Common\RotaryEncoder.cs" />
+    <Compile Include="Interfaces\DCS\Common\ScaledNetworkValue.cs" />
+    <Compile Include="Interfaces\DCS\Common\Switch.cs" />
+    <Compile Include="Interfaces\DCS\Common\SwitchPosition.cs" />
+    <Compile Include="Interfaces\DCS\Common\Text.cs" />
+    <Compile Include="Interfaces\Keyboard\KeyboardInterface.cs" />
+    <Compile Include="Interfaces\Keyboard\KeyboardInterfaceEditor.xaml.cs">
+      <DependentUpon>KeyboardInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Profile\ProfileInterface.cs" />
+    <Compile Include="UnitConverters\AreaConverter.cs" />
+    <Compile Include="UnitConverters\DistanceConverter.cs" />
+    <Compile Include="UnitConverters\MassConverter.cs" />
+    <Compile Include="UnitConverters\MassFlowConverter.cs" />
+    <Compile Include="UnitConverters\PressureConverter.cs" />
+    <Compile Include="UnitConverters\RadianToDegreesConverter.cs" />
+    <Compile Include="UnitConverters\SpeedConverter.cs" />
+    <Compile Include="UnitConverters\TimeConverter.cs" />
+    <Compile Include="Windows\Controls\AxisBar.cs" />
+    <Compile Include="Windows\Controls\ButtonIndicator.cs" />
+    <Compile Include="IProfileManager.cs" />
+    <Compile Include="ISettingsManager.cs" />
+    <Compile Include="ITemplateManager.cs" />
+    <Compile Include="IUndoItem.cs" />
+    <Compile Include="KeyboardEmulator.cs" />
+    <Compile Include="KeyboardThread.cs" />
+    <Compile Include="LogLevel.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="ModuleManager.cs" />
+    <Compile Include="Monitor.cs" />
+    <Compile Include="MonitorCollection.cs" />
+    <Compile Include="MonitorRenderer.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="NotificationObject.cs" />
+    <Compile Include="ProfileManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyChangedUndoItem.cs" />
+    <Compile Include="SettingsManager.cs" />
+    <Compile Include="TemplateManager.cs" />
+    <Compile Include="TextDecorations.cs" />
+    <Compile Include="TextFormat.cs" />
+    <Compile Include="TextHorizontalAlignment.cs" />
+    <Compile Include="TextVerticalAlignment.cs" />
+    <Compile Include="UDPInterface\BaseUDPInterface.cs" />
+    <Compile Include="UDPInterface\ExportDataElement.cs" />
+    <Compile Include="UDPInterface\NetworkFunction.cs" />
+    <Compile Include="UDPInterface\NetworkFunctionCollection.cs" />
+    <Compile Include="UndoManager.cs" />
+    <Compile Include="UndoManagerBatch.cs" />
+    <Compile Include="UniqueHeliosInterfaceFactory.cs" />
+    <Compile Include="Units\AreaUnit.cs" />
+    <Compile Include="Units\BooleanUnit.cs" />
+    <Compile Include="Units\CelsiusUnit.cs" />
+    <Compile Include="Units\DegreesUnit.cs" />
+    <Compile Include="Units\DistanceUnit.cs" />
+    <Compile Include="Units\FeetUnit.cs" />
+    <Compile Include="Units\HoursUnit.cs" />
+    <Compile Include="Units\InchofMercuryUnit.cs" />
+    <Compile Include="Units\InchUnit.cs" />
+    <Compile Include="Units\KilogramsUnit.cs" />
+    <Compile Include="Units\KilometersUnit.cs" />
+    <Compile Include="Units\Liters.cs" />
+    <Compile Include="Units\MassFlowUnit.cs" />
+    <Compile Include="Units\MassUnit.cs" />
+    <Compile Include="Units\MetersUnit.cs" />
+    <Compile Include="Units\MilesUnit.cs" />
+    <Compile Include="Units\MilimetersOfMercury.cs" />
+    <Compile Include="Units\MinuteUnit.cs" />
+    <Compile Include="Units\NauticalMilesUnit.cs" />
+    <Compile Include="Units\NoValueUnit.cs" />
+    <Compile Include="Units\NumericUnit.cs" />
+    <Compile Include="Units\PoundsUnit.cs" />
+    <Compile Include="Units\PressureUnit.cs" />
+    <Compile Include="Units\RadiansUnit.cs" />
+    <Compile Include="Units\RPMPercentUnit.cs" />
+    <Compile Include="Units\RPMUnit.cs" />
+    <Compile Include="Units\SecondsUnit.cs" />
+    <Compile Include="Units\SpeedUnit.cs" />
+    <Compile Include="Units\SquareCentimeterUnit.cs" />
+    <Compile Include="Units\SquareFootUnit.cs" />
+    <Compile Include="Units\SquareInchUnit.cs" />
+    <Compile Include="Units\TextUnit.cs" />
+    <Compile Include="Units\TimeUnit.cs" />
+    <Compile Include="Util\Hash.cs" />
+    <Compile Include="Util\Resources.cs" />
+    <Compile Include="Util\SharedMemory.cs" />
+    <Compile Include="VersionChecker.cs" />
+    <Compile Include="Windows\Controls\ColorPicker.cs" />
+    <Compile Include="Windows\Controls\ColorPickerDialog.xaml.cs">
+      <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\ColorPickerSupport.cs" />
+    <Compile Include="Windows\Controls\ColorWell.xaml.cs">
+      <DependentUpon>ColorWell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\FontChooserDialog.xaml.cs">
+      <DependentUpon>FontChooserDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\FontFamilyListItem.cs" />
+    <Compile Include="Windows\Controls\HeliosEditorDocument.cs" />
+    <Compile Include="Windows\Controls\HeliosInterfaceEditor.cs" />
+    <Compile Include="Windows\Controls\HeliosPropertyEditor.cs" />
+    <Compile Include="Windows\Controls\HeliosPropertyEditorCollection.cs" />
+    <Compile Include="Windows\Controls\HeliosTextBox.cs" />
+    <Compile Include="Windows\Controls\HeliosVisualView.cs" />
+    <Compile Include="Windows\Controls\ImagePicker.xaml.cs">
+      <DependentUpon>ImagePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\StaticValueEditor.cs" />
+    <Compile Include="Windows\Controls\TextFormatButton.xaml.cs">
+      <DependentUpon>TextFormatButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\TextStaticEditor.xaml.cs">
+      <DependentUpon>TextStaticEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\TypefaceListItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Interfaces\DCS\A10C\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\Common\Export.lua" />
+    <Resource Include="Interfaces\DCS\BlackShark\ExportFunctions.lua" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\GuardedThreeWayAppearancePropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GuardedThreeWayBehaviorPropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GuardedToggleSwitchAppearancePropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GuardedToggleSwitchBehaviorPropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\HatSwitchAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\HeliosPanelAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ImageDecorationAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IndicatorAppearancePropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IndicatorPushButtonAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LineDecorationAppearancePropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PotentiometerAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PotentiometerBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PushButtonAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PushButtonBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RectangleDecorationAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RotaryEncoderAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RotaryEncoderBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RotarySwitchAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RotarySwitchBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ScreenReplicatorBehaviorPropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TextDecorationAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ThreeWayToggleSwitchAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ThreeWayToggleSwitchBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ToggleSwitchAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ToggleSwitchBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\Keyboard\KeyboardInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\ColorPickerDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\ColorWell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\FontChooserDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\ImagePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\TextFormatButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\TextStaticEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\DirectX\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Buttons\mfd-in.png" />
+    <Resource Include="Images\Buttons\mfd-lit-in.png" />
+    <Resource Include="Images\Buttons\mfd-lit.png" />
+    <Resource Include="Images\Buttons\mfd.png" />
+    <Resource Include="Images\Buttons\red-push-in.png" />
+    <Resource Include="Images\Buttons\red-push.png" />
+    <Resource Include="Images\Buttons\tactile-dark-round-in.png" />
+    <Resource Include="Images\Buttons\tactile-dark-round.png" />
+    <Resource Include="Images\Buttons\tactile-dark-square-in.png" />
+    <Resource Include="Images\Buttons\tactile-dark-square.png" />
+    <Resource Include="Images\Buttons\tactile-light-round-in.png" />
+    <Resource Include="Images\Buttons\tactile-light-round.png" />
+    <Resource Include="Images\Buttons\tactile-light-square-in.png" />
+    <Resource Include="Images\Buttons\tactile-light-square.png" />
+    <Resource Include="Images\Buttons\white-push-in.png" />
+    <Resource Include="Images\Buttons\white-push.png" />
+    <Resource Include="Images\Hats\dcs-center.png" />
+    <Resource Include="Images\Hats\dcs-down.png" />
+    <Resource Include="Images\Hats\dcs-left.png" />
+    <Resource Include="Images\Hats\dcs-right.png" />
+    <Resource Include="Images\Hats\dcs-up.png" />
+    <Resource Include="Images\Hats\hat-center.png" />
+    <Resource Include="Images\Hats\hat-down.png" />
+    <Resource Include="Images\Hats\hat-left.png" />
+    <Resource Include="Images\Hats\hat-right.png" />
+    <Resource Include="Images\Hats\hat-up.png" />
+    <Resource Include="Images\Indicators\anunciator.png" />
+    <Resource Include="Images\Indicators\caution-indicator-off-pushed.png" />
+    <Resource Include="Images\Indicators\caution-indicator-off.png" />
+    <Resource Include="Images\Indicators\caution-indicator-on-pushed.png" />
+    <Resource Include="Images\Indicators\caution-indicator-on.png" />
+    <Resource Include="Images\Indicators\green-light-off.png" />
+    <Resource Include="Images\Indicators\green-light-on.png" />
+    <Resource Include="Images\Indicators\indicator-push.png" />
+    <Resource Include="Images\Indicators\indicator.png" />
+    <Resource Include="Images\Knobs\knob1.png" />
+    <Resource Include="Images\Knobs\knob2.png" />
+    <Resource Include="Images\Knobs\knob3.png" />
+    <Resource Include="Images\Knobs\knob4.png" />
+    <Resource Include="Images\Knobs\knob5.png" />
+    <Resource Include="Images\Panels\panel-backplate-bottom-left.png" />
+    <Resource Include="Images\Panels\panel-backplate-bottom-right.png" />
+    <Resource Include="Images\Panels\panel-backplate-bottom.png" />
+    <Resource Include="Images\Panels\panel-backplate-left.png" />
+    <Resource Include="Images\Panels\panel-backplate-right.png" />
+    <Resource Include="Images\Panels\panel-backplate-top-left.png" />
+    <Resource Include="Images\Panels\panel-backplate-top-right.png" />
+    <Resource Include="Images\Panels\panel-backplate-top.png" />
+    <Resource Include="Images\Panels\panel-bottom-left.png" />
+    <Resource Include="Images\Panels\panel-bottom-right.png" />
+    <Resource Include="Images\Panels\panel-bottom.png" />
+    <Resource Include="Images\Panels\panel-left.png" />
+    <Resource Include="Images\Panels\panel-right.png" />
+    <Resource Include="Images\Panels\panel-screw.png" />
+    <Resource Include="Images\Panels\panel-screws-bottom-left.png" />
+    <Resource Include="Images\Panels\panel-screws-bottom-right.png" />
+    <Resource Include="Images\Panels\panel-screws-top-left.png" />
+    <Resource Include="Images\Panels\panel-screws-top-right.png" />
+    <Resource Include="Images\Panels\panel-top-left.png" />
+    <Resource Include="Images\Panels\panel-top-right.png" />
+    <Resource Include="Images\Panels\panel-top.png" />
+    <Resource Include="Images\Panels\yellow-caution.png" />
+    <Resource Include="Images\Rockers\arrows-dark-down.png" />
+    <Resource Include="Images\Rockers\arrows-dark-horiz-left.png" />
+    <Resource Include="Images\Rockers\arrows-dark-horiz-norm.png" />
+    <Resource Include="Images\Rockers\arrows-dark-horiz-right.png" />
+    <Resource Include="Images\Rockers\arrows-dark-norm.png" />
+    <Resource Include="Images\Rockers\arrows-dark-up.png" />
+    <Resource Include="Images\Rockers\arrows-light-down.png" />
+    <Resource Include="Images\Rockers\arrows-light-horiz-left.png" />
+    <Resource Include="Images\Rockers\arrows-light-horiz-norm.png" />
+    <Resource Include="Images\Rockers\arrows-light-horiz-right.png" />
+    <Resource Include="Images\Rockers\arrows-light-norm.png" />
+    <Resource Include="Images\Rockers\arrows-light-up.png" />
+    <Resource Include="Images\Rockers\blank-dark-down.png" />
+    <Resource Include="Images\Rockers\blank-dark-horiz-left.png" />
+    <Resource Include="Images\Rockers\blank-dark-horiz-norm.png" />
+    <Resource Include="Images\Rockers\blank-dark-horiz-right.png" />
+    <Resource Include="Images\Rockers\blank-dark-norm.png" />
+    <Resource Include="Images\Rockers\blank-dark-up.png" />
+    <Resource Include="Images\Rockers\blank-light-down.png" />
+    <Resource Include="Images\Rockers\blank-light-horiz-left.png" />
+    <Resource Include="Images\Rockers\blank-light-horiz-norm.png" />
+    <Resource Include="Images\Rockers\blank-light-horiz-right.png" />
+    <Resource Include="Images\Rockers\blank-light-norm.png" />
+    <Resource Include="Images\Rockers\blank-light-up.png" />
+    <Resource Include="Images\Rockers\mfd-down.png" />
+    <Resource Include="Images\Rockers\mfd-norm.png" />
+    <Resource Include="Images\Rockers\mfd-up.png" />
+    <Resource Include="Images\Rockers\plusminus-dark-down.png" />
+    <Resource Include="Images\Rockers\plusminus-dark-horiz-left.png" />
+    <Resource Include="Images\Rockers\plusminus-dark-horiz-norm.png" />
+    <Resource Include="Images\Rockers\plusminus-dark-horiz-right.png" />
+    <Resource Include="Images\Rockers\plusminus-dark-norm.png" />
+    <Resource Include="Images\Rockers\plusminus-dark-up.png" />
+    <Resource Include="Images\Rockers\plusminus-light-down.png" />
+    <Resource Include="Images\Rockers\plusminus-light-horiz-left.png" />
+    <Resource Include="Images\Rockers\plusminus-light-horiz-norm.png" />
+    <Resource Include="Images\Rockers\plusminus-light-horiz-right.png" />
+    <Resource Include="Images\Rockers\plusminus-light-norm.png" />
+    <Resource Include="Images\Rockers\plusminus-light-up.png" />
+    <Resource Include="Images\Rockers\traingles-light-norm.png" />
+    <Resource Include="Images\Rockers\triangles-dark-down.png" />
+    <Resource Include="Images\Rockers\triangles-dark-horiz-left.png" />
+    <Resource Include="Images\Rockers\triangles-dark-horiz-norm.png" />
+    <Resource Include="Images\Rockers\triangles-dark-horiz-right.png" />
+    <Resource Include="Images\Rockers\triangles-dark-norm.png" />
+    <Resource Include="Images\Rockers\triangles-dark-up.png" />
+    <Resource Include="Images\Rockers\triangles-light-down.png" />
+    <Resource Include="Images\Rockers\triangles-light-horiz-left.png" />
+    <Resource Include="Images\Rockers\triangles-light-horiz-norm.png" />
+    <Resource Include="Images\Rockers\triangles-light-horiz-right.png" />
+    <Resource Include="Images\Rockers\triangles-light-norm.png" />
+    <Resource Include="Images\Rockers\triangles-light-up.png" />
+    <Resource Include="Images\Rockers\trim-down.png" />
+    <Resource Include="Images\Rockers\trim-horiz-left.png" />
+    <Resource Include="Images\Rockers\trim-horiz-norm.png" />
+    <Resource Include="Images\Rockers\trim-horiz-right.png" />
+    <Resource Include="Images\Rockers\trim-norm.png" />
+    <Resource Include="Images\Rockers\trim-up.png" />
+    <Resource Include="Images\Rockers\wheel-white-down.png" />
+    <Resource Include="Images\Rockers\wheel-white-horiz-left.png" />
+    <Resource Include="Images\Rockers\wheel-white-horiz-norm.png" />
+    <Resource Include="Images\Rockers\wheel-white-horiz-right.png" />
+    <Resource Include="Images\Rockers\wheel-white-norm.png" />
+    <Resource Include="Images\Rockers\wheel-white-up.png" />
+    <Resource Include="Images\Toggles\flattop-down.png" />
+    <Resource Include="Images\Toggles\flattop-horiz-left.png" />
+    <Resource Include="Images\Toggles\flattop-horiz-norm.png" />
+    <Resource Include="Images\Toggles\flattop-horiz-right.png" />
+    <Resource Include="Images\Toggles\flattop-locking-down.png" />
+    <Resource Include="Images\Toggles\flattop-locking-horiz-left.png" />
+    <Resource Include="Images\Toggles\flattop-locking-horiz-norm.png" />
+    <Resource Include="Images\Toggles\flattop-locking-horiz-right.png" />
+    <Resource Include="Images\Toggles\flattop-locking-norm.png" />
+    <Resource Include="Images\Toggles\flattop-locking-up.png" />
+    <Resource Include="Images\Toggles\flattop-norm.png" />
+    <Resource Include="Images\Toggles\flattop-up.png" />
+    <Resource Include="Images\Toggles\guard-down-norm.png" />
+    <Resource Include="Images\Toggles\guard-down-off.png" />
+    <Resource Include="Images\Toggles\guard-down-on.png" />
+    <Resource Include="Images\Toggles\guard-up-norm.png" />
+    <Resource Include="Images\Toggles\guard-up-off.png" />
+    <Resource Include="Images\Toggles\guard-up-on.png" />
+    <Resource Include="Images\Toggles\orange-down.png" />
+    <Resource Include="Images\Toggles\orange-horiz-left.png" />
+    <Resource Include="Images\Toggles\orange-horiz-norm.png" />
+    <Resource Include="Images\Toggles\orange-horiz-right.png" />
+    <Resource Include="Images\Toggles\orange-norm.png" />
+    <Resource Include="Images\Toggles\orange-round-down.png" />
+    <Resource Include="Images\Toggles\orange-round-horiz-left.png" />
+    <Resource Include="Images\Toggles\orange-round-horiz-norm.png" />
+    <Resource Include="Images\Toggles\orange-round-horiz-right.png" />
+    <Resource Include="Images\Toggles\orange-round-norm.png" />
+    <Resource Include="Images\Toggles\orange-round-up.png" />
+    <Resource Include="Images\Toggles\orange-up.png" />
+    <Resource Include="Images\Toggles\round-down.png" />
+    <Resource Include="Images\Toggles\round-horiz-left.png" />
+    <Resource Include="Images\Toggles\round-horiz-norm.png" />
+    <Resource Include="Images\Toggles\round-horiz-right.png" />
+    <Resource Include="Images\Toggles\round-locking-down.png" />
+    <Resource Include="Images\Toggles\round-locking-horiz-left.png" />
+    <Resource Include="Images\Toggles\round-locking-horiz-norm.png" />
+    <Resource Include="Images\Toggles\round-locking-horiz-right.png" />
+    <Resource Include="Images\Toggles\round-locking-norm.png" />
+    <Resource Include="Images\Toggles\round-locking-up.png" />
+    <Resource Include="Images\Toggles\round-norm.png" />
+    <Resource Include="Images\Toggles\round-up.png" />
+    <Resource Include="Images\Toggles\square-tan-down.png" />
+    <Resource Include="Images\Toggles\square-tan-horiz-left.png" />
+    <Resource Include="Images\Toggles\square-tan-horiz-norm.png" />
+    <Resource Include="Images\Toggles\square-tan-horiz-right.png" />
+    <Resource Include="Images\Toggles\square-tan-norm.png" />
+    <Resource Include="Images\Toggles\square-tan-up.png" />
+    <Resource Include="Images\Toggles\toggle-down.png" />
+    <Resource Include="Images\Toggles\toggle-horiz-left.png" />
+    <Resource Include="Images\Toggles\toggle-horiz-norm.png" />
+    <Resource Include="Images\Toggles\toggle-horiz-right.png" />
+    <Resource Include="Images\Toggles\toggle-norm.png" />
+    <Resource Include="Images\Toggles\toggle-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\missing_image.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+xcopy /s /y "C:\Users\Craig Courtney\Source\Repos\helios\packages\NLua.1.3.0.2\lib\native\x64\*.*" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

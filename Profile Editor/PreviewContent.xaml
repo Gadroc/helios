@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="GadrocsWorkshop.Helios.ProfileEditor.PreviewContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="300" Name="PreviewContentPane" Background="{StaticResource ToolBackground}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Name="ZoomPanel" DockPanel.Dock="Left" Orientation="Vertical" Width="32" Visibility="Collapsed">
+            <Label FontSize="8" FontWeight="Bold" Foreground="Black">Zoom</Label>
+            <Slider Orientation="Vertical" Margin="2,0" MinHeight="100" Minimum="-10" Maximum="2" Value="{Binding ElementName=PreviewContentPane,Path=ZoomLevel,Mode=TwoWay}" TickFrequency="1" TickPlacement="BottomRight" IsMoveToPointEnabled="False" IsSnapToTickEnabled="False" SmallChange="0.25" />
+        </StackPanel>
+        <ScrollViewer Grid.Row="0" Grid.Column="1" x:Name="PreviewScroller" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+            <local:ProfilePreview x:Name="Preview" Profile="{Binding ElementName=PreviewContentPane,Path=Profile}" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </ScrollViewer>
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,6">
+            <CheckBox Margin="2" VerticalAlignment="Center" IsChecked="{Binding ElementName=Preview,Path=ShowPanels}" />
+            <TextBlock>Show Panels</TextBlock>
+            <CheckBox Margin="12,2,2,2" VerticalAlignment="Center" IsChecked="{Binding ElementName=PreviewContentPane,Path=Zoom}" />
+            <TextBlock>Full Size</TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

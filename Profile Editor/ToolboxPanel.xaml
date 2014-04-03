@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="GadrocsWorkshop.Helios.ProfileEditor.ToolboxPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor"
+             xmlns:helios="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls;assembly=Helios"
+             xmlns:vm="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Name="ToolboxPane" Background="{StaticResource ToolBackground}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="ToolboxControlLayout" DataType="{x:Type vm:ToolboxItem}">
+                <Border Name="Border" BorderBrush="#FFFFFFFF" Background="WhiteSmoke" BorderThickness="1" CornerRadius="4" Padding="0,2" Margin="5,2" Width="75" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <helios:HeliosVisualView Grid.Row="0" IsEnabled="False" Visual="{Binding Path=ControlIconInstance}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1" />
+                        <TextBlock Grid.Row="1" Text="{Binding Path=Name}" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1" TextWrapping="Wrap" />
+                    </Grid>
+                </Border>
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsBeingDragged}" Value="True">
+                        <Setter TargetName="Border" Property="Background" Value="#FFF1F1F1" />
+                        <Setter TargetName="Border" Property="BorderBrush" Value="#FF808080" />
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ToolboxGroupLayout" DataType="{x:Type vm:ToolboxGroup}">
+                <Expander Header="{Binding Path=Name}" Margin="2,0">
+                    <ItemsControl Grid.Row="1" ItemsSource="{Binding}" ItemTemplate="{StaticResource ToolboxControlLayout}" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" local:DragAndDropManager.DragSourceAdvisor="{Binding DragAdvisor}"></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </Expander>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <!--<UserControl.Style>
+        <StaticResource ResourceKey="ToolPanelStyle"/>
+    </UserControl.Style>-->
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="6">
+            <ItemsControl ItemsSource="{Binding ElementName=ToolboxPane,Path=ToolboxGroups}" BorderThickness="0" ItemTemplate="{StaticResource ToolboxGroupLayout}" HorizontalContentAlignment="Stretch" />
+        </ScrollViewer>
+    </Grid>
+</UserControl>

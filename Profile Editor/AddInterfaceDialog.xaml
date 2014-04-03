@@ -1,0 +1,17 @@
+<Window x:Class="GadrocsWorkshop.Helios.ProfileEditor.AddInterfaceDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Name="AddWindow"
+        Title="Add Interface" Height="364" Width="328" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ListBox Grid.Row="0" ItemsSource="{Binding ElementName=AddWindow,Path=AvailableInterfaces}" DisplayMemberPath="Name" SelectedItem="{Binding ElementName=AddWindow,Path=SelectedInterface}" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4" >
+            <Button MinWidth="60" Click="Cancel" Margin="0,0,4,0">Cancel</Button>
+            <Button MinWidth="60" Name="AddButton" IsDefault="True" IsEnabled="False" Click="AddInterface">Add</Button>
+        </StackPanel>
+    </Grid>
+</Window>

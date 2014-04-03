@@ -1,0 +1,230 @@
+﻿<Window x:Class="GadrocsWorkshop.Helios.ProfileEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor"
+        xmlns:hsdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls;assembly=Helios"
+        Title="{Binding ElementName=ProfileEditorWindow,Path=Profile.Name}" Height="900" Width="1400" Name="ProfileEditorWindow" Icon="Icon.png" Background="{StaticResource WindowBackground}">
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="New_Executed" />
+        <CommandBinding Command="Open" Executed="Open_Executed" />
+        <CommandBinding Command="Save" Executed="Save_Executed" />
+        <CommandBinding Command="SaveAs" Executed="SaveAs_Executed" />
+        <CommandBinding Command="Close" Executed="Close_Executed" />
+        <CommandBinding Command="local:ProfileEditorCommands.OpenProfileItem" Executed="OpenProfileItem_Executed" />
+        <CommandBinding Command="local:ProfileEditorCommands.CloseProfileItem" Executed="CloseProfileItem_Executed" />
+        <CommandBinding Command="ApplicationCommands.Undo" CanExecute="OnCanExecuteUndo" Executed="OnExecuteUndo" />
+        <CommandBinding Command="ApplicationCommands.Redo" CanExecute="OnCanExecuteRedo" Executed="OnExecuteRedo" />
+        <CommandBinding Command="local:ProfileEditorCommands.AddInterface" Executed="AddInterface_Executed" />
+        <CommandBinding Command="local:ProfileEditorCommands.ResetMonitors" Executed="ResetMonitors_Executed" />
+        <CommandBinding Command="local:ProfileEditorCommands.SaveLayout" Executed="SaveLayout_Executed" />
+        <CommandBinding Command="local:ProfileEditorCommands.LoadLayout" Executed="LoadLayout_Executed" />
+        <CommandBinding Command="local:ProfileEditorCommands.RestoreDefaultLayout" Executed="RestoreDefaultLayout_Executed" />
+    </Window.CommandBindings>
+    <Grid Name="PrimaryGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Background="Transparent">
+            <MenuItem Header="_Profile">
+                <MenuItem Header="_New" Command="New" InputGestureText="Ctrl+N">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\NewIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Open" Command="Open" InputGestureText="Ctrl+O">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\OpenIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="_Save" Command="Save" InputGestureText="Ctrl+S">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\SaveIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Save _As..." Command="SaveAs" />
+                <Separator />
+                <MenuItem Header="_Add Interface" Command="local:ProfileEditorCommands.AddInterface" />
+                <Separator />
+                <MenuItem Header="_Reset Monitors" Command="local:ProfileEditorCommands.ResetMonitors">
+                    <MenuItem.ToolTip>Rests this profiles monitor configuration to match the current system configuration.</MenuItem.ToolTip>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="E_xit" Command="Close" />
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Undo" Command="ApplicationCommands.Undo">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\UndoIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Redo" Command="ApplicationCommands.Redo">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\RedoIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Cu_t" Command="ApplicationCommands.Cut">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\CutIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Copy" Command="ApplicationCommands.Copy">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\CopyIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Paste" Command="ApplicationCommands.Paste">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\PasteIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Delete" Command="ApplicationCommands.Delete">
+                    <MenuItem.Icon>
+                        <Image Source="ToolbarGraphics\DeleteIcon.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="Tool_box" Click="Show_Toolbox" />
+                <Separator />
+                <MenuItem Header="Profile P_review" Click="Show_Preview" />
+                <MenuItem Header="Profile _Explorer" Click="Show_Explorer" />
+                <Separator />
+                <MenuItem Header="_Properties" Click="Show_Properties" />
+                <MenuItem Header="_Bindings" Click="Show_Bindings" />
+                <MenuItem Header="_Layers" Click="Show_Layers" />
+                <Separator />
+                <MenuItem Header="Save Layout" Command="local:ProfileEditorCommands.SaveLayout">
+                    <MenuItem.ToolTip>Saves the current tool layout as the user default.</MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="Load Layout" Command="local:ProfileEditorCommands.LoadLayout">
+                    <MenuItem.ToolTip>Loads the current user default tool layout.</MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="Restore Default Layout" Command="local:ProfileEditorCommands.RestoreDefaultLayout">
+                    <MenuItem.ToolTip>Resets the user default tool layout to system defaults.</MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem Header="Save Template" Command="local:ProfileEditorCommands.SaveTemplate" />
+                <MenuItem Header="Template _Manager" Click="Show_TemplateManager" />
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About Helios" Click="About_Click" />
+                <MenuItem Header="_Donate Now" Click="Donate_Click" />
+            </MenuItem>
+        </Menu>
+        <ToolBarTray Grid.Row="1" IsLocked="True" Background="Transparent">
+            <ToolBar Height="28" Background="Transparent">
+                <Button Command="local:ProfileEditorCommands.MoveForward">
+                    <Image Source="ToolbarGraphics\BringForwardIcon.png" />
+                    <Button.ToolTip>Bring control forward so it displays on top of other controls.</Button.ToolTip>
+                </Button>
+                <Button Command="local:ProfileEditorCommands.MoveBack">
+                    <Image Source="ToolbarGraphics\SendBackIcon.png" />
+                    <Button.ToolTip>Send control back so it displays under other controls.</Button.ToolTip>
+                </Button>
+                <Separator />
+                <Button Command="local:ProfileEditorCommands.AlignTop">
+                    <Image Source="ToolbarGraphics\AlignTop.png" />
+                    <Button.ToolTip>Align selected controls to the top of the first selected control.</Button.ToolTip>
+                </Button>
+                <Button Command="local:ProfileEditorCommands.AlignBottom">
+                    <Image Source="ToolbarGraphics\AlignBottom.png" />
+                    <Button.ToolTip>Align selected controls to the bottom of the first selected control.</Button.ToolTip>
+                </Button>
+                <Button Command="local:ProfileEditorCommands.AlignHorizontalCenter">
+                    <Image Source="ToolbarGraphics\AlignHCenter.png" />
+                    <Button.ToolTip>Align selected controls to the vertical center of the first selected control.</Button.ToolTip>
+                </Button>
+                <Button Command="local:ProfileEditorCommands.AlignLeft">
+                    <Image Source="ToolbarGraphics\AlignLeft.png" />
+                    <Button.ToolTip>Align selected controls to the left of the first selected control.</Button.ToolTip>
+                </Button>
+                <Button Command="local:ProfileEditorCommands.AlignRight">
+                    <Image Source="ToolbarGraphics\AlignRight.png" />
+                    <Button.ToolTip>Align selected controls to the right of the first selected control.</Button.ToolTip>
+                </Button>
+                <Button Command="local:ProfileEditorCommands.AlignVerticalCenter">
+                    <Image Source="ToolbarGraphics\AlignVCenter.png" />
+                    <Button.ToolTip>Align selected controls to the horizontal center of the first selected control.</Button.ToolTip>
+                </Button>
+                <Separator />
+                <Button Command="local:ProfileEditorCommands.DistributeHorizontalCenter">
+                    <Image Source="ToolbarGraphics\DistributeHorizontal.png" />
+                    <Button.ToolTip>Distribute horizontally selected controls evenly spaced on ceneter.</Button.ToolTip>
+                </Button>
+                <Button Command="local:ProfileEditorCommands.DistributeVerticalCenter">
+                    <Image Source="ToolbarGraphics\DistributeVertical.png" />
+                    <Button.ToolTip>Distribute vertically selected controls evenly spaced on ceneter.</Button.ToolTip>
+                </Button>
+                <Separator />
+                <Button Command="local:ProfileEditorCommands.SpaceHorizontal">
+                    <Image Source="ToolbarGraphics\SpaceHorizontal.png" />
+                    <Button.ToolTip>Space evenly selected controls horizontaly.</Button.ToolTip>
+                </Button>
+                <Button Command="local:ProfileEditorCommands.SpaceVertical">
+                    <Image Source="ToolbarGraphics\SpaceVertical.png" />
+                    <Button.ToolTip>Space evenly selected controls verticaly.</Button.ToolTip>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
+        <ad:DockingManager x:Name="DockManager" Grid.Row="2" Loaded="DockManager_Loaded">
+            <ad:DockingManager.Theme>
+                <ad:VS2010Theme />
+            </ad:DockingManager.Theme>
+            <ad:LayoutRoot>
+                <ad:LayoutPanel  Orientation="Horizontal">
+                    <ad:LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="300">
+                        <ad:LayoutAnchorablePane DockHeight="1*">
+                            <ad:LayoutAnchorable Title="Preview" x:Name="PreviewPane" Selector.IsSelected="True">
+                                <local:PreviewContent Profile="{Binding ElementName=ProfileEditorWindow,Path=Profile}" />
+                            </ad:LayoutAnchorable>
+                            <ad:LayoutAnchorable Title="Profile Explorer" x:Name="ExplorerPane">
+                                <local:ProfileExplorerPanel Profile="{Binding ElementName=ProfileEditorWindow,Path=Profile}" ItemDeleting="Explorer_ItemDeleting" />
+                            </ad:LayoutAnchorable>
+                        </ad:LayoutAnchorablePane>
+                        <ad:LayoutAnchorablePane DockHeight="3*">
+                            <ad:LayoutAnchorable Title="Toolbox" Selector.IsSelected="True" x:Name="ToolboxPane">
+                                <local:ToolboxPanel />
+                            </ad:LayoutAnchorable>
+                        </ad:LayoutAnchorablePane>
+                    </ad:LayoutAnchorablePaneGroup>
+                    <ad:LayoutPanel  Orientation="Horizontal" DockWidth="*">
+                        <ad:LayoutPanel  Orientation="Vertical">
+                            <ad:LayoutDocumentPane   x:Name="DocumentPane">
+                            </ad:LayoutDocumentPane>
+                            <ad:LayoutAnchorablePane DockHeight="300">
+                                <ad:LayoutAnchorable  Title="Bindings" x:Name="BindingsPane" AutoHideMinHeight="300">
+                                    <local:BindingsPanel BindingObject="{Binding ElementName=ProfileEditorWindow,Path=CurrentEditor.BindingFocus}" />
+                                </ad:LayoutAnchorable>
+                            </ad:LayoutAnchorablePane>
+                        </ad:LayoutPanel>
+                        <ad:LayoutAnchorablePaneGroup  Orientation="Vertical" DockWidth="300">
+                            <ad:LayoutAnchorablePane  >
+                                <ad:LayoutAnchorable Title="Properties" Selector.IsSelected="True"  x:Name="PropertiesPane">
+                                    <local:PropertyPanel PropertyEditors="{Binding ElementName=ProfileEditorWindow,Path=CurrentEditor.PropertyEditors,Mode=TwoWay}" />
+                                </ad:LayoutAnchorable>
+                                <ad:LayoutAnchorable Title="Layers" x:Name="LayersPane">
+                                    <local:LayersPanel Editor="{Binding ElementName=ProfileEditorWindow,Path=CurrentEditor}" />
+                                </ad:LayoutAnchorable>
+                            </ad:LayoutAnchorablePane>
+                        </ad:LayoutAnchorablePaneGroup>
+                    </ad:LayoutPanel>
+                </ad:LayoutPanel>
+            </ad:LayoutRoot>
+        </ad:DockingManager>
+
+        <!--<StatusBar Grid.Row="3" Background="{StaticResource StatusBarBackground}">
+            <StatusBarItem>
+                <TextBlock Text="{Binding ElementName=ProfileEditorWindow,Path=StatusBarMessage}" />
+            </StatusBarItem>
+        </StatusBar>-->
+    </Grid>
+</Window>
+

@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="GadrocsWorkshop.Helios.ProfileEditor.LayersPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor.ViewModel"
+             d:DesignHeight="300" d:DesignWidth="300" Name="PanelControls" Focusable="False"  Background="{StaticResource ToolBackground}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="HiddenCheckBoxTemplate" TargetType="{x:Type CheckBox}">
+                <Image Name="ButtonImage" Source="ToolbarGraphics/VisibleIcon.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter TargetName="ButtonImage" Property="Source" Value="ToolbarGraphics/HiddenIcon.png" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+
+            <Style x:Key="HiddenCheckBox" TargetType="{x:Type CheckBox}">
+                <Setter Property="Template" Value="{StaticResource HiddenCheckBoxTemplate}" />
+            </Style>
+
+            <ControlTemplate x:Key="LockCheckBoxTemplate" TargetType="{x:Type CheckBox}">
+                <Image Name="ButtonImage" Source="ToolbarGraphics/UnlockedIcon.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter TargetName="ButtonImage" Property="Source" Value="ToolbarGraphics/LockedIcon.png" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+
+            <Style x:Key="LockCheckBox" TargetType="{x:Type CheckBox}">
+                <Setter Property="Template" Value="{StaticResource LockCheckBoxTemplate}" />
+            </Style>
+
+            <ControlTemplate x:Key="SnapCheckBoxTemplate" TargetType="{x:Type CheckBox}">
+                <Image Name="ButtonImage" Source="ToolbarGraphics/NoSnapIcon.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter TargetName="ButtonImage" Property="Source" Value="ToolbarGraphics/SnapIcon.png" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+
+            <Style x:Key="SnapCheckBox" TargetType="{x:Type CheckBox}">
+                <Setter Property="Template" Value="{StaticResource SnapCheckBoxTemplate}" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <!--<UserControl.Style>
+        <StaticResource ResourceKey="ToolPanelStyle"/>
+    </UserControl.Style>-->
+    <Border BorderBrush="#FF808080" BorderThickness="0,1,0,0">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Focusable="False">
+            <ItemsControl BorderThickness="0" ItemsSource="{Binding ElementName=PanelControls,Path=Controls}" Focusable="False">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:VisualsListItem}">
+                        <Border BorderBrush="#FF808080" BorderThickness="0,0,0,1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" HorizontalAlignment="Center" IsChecked="{Binding Path=Control.IsHidden}" VerticalAlignment="Center" Margin="2" Focusable="false" Style="{StaticResource HiddenCheckBox}" />
+                                <CheckBox Grid.Column="1" HorizontalAlignment="Center" IsChecked="{Binding Path=Control.IsLocked}" VerticalAlignment="Center" Style="{StaticResource LockCheckBox}" Checked="ItemLockChecked" Tag="{Binding Control}" Margin="0,2,2,2" Focusable="False" />
+                                <Border Grid.Column="2" BorderBrush="#FF808080" BorderThickness="0,0,1,0">
+                                    <CheckBox HorizontalAlignment="Center" IsChecked="{Binding Path=Control.IsSnapTarget}" VerticalAlignment="Center" Style="{StaticResource SnapCheckBox}" Margin="0,2,2,2" Focusable="False" />
+                                </Border>
+                                <TextBlock Grid.Column="3" Name="ItemText" Text="{Binding Path=Control.Name}" Tag="{Binding Path=Control}" MouseDown="ControlMouseDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="2" />
+                            </Grid>
+                        </Border>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                                <Setter TargetName="ItemText" Property="Background" Value="LightBlue" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Border>
+</UserControl>

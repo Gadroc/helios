@@ -1,0 +1,39 @@
+﻿<HeliosSdk:HeliosPropertyEditor x:Class="GadrocsWorkshop.Helios.Controls.LineDecorationAppearancePropertyEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:Helios="clr-namespace:GadrocsWorkshop.Helios"                      
+             xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls"  
+             xmlns:HeliosDecorations="clr-namespace:GadrocsWorkshop.Helios.Controls"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             Height="Auto" Width="180">
+    <HeliosSdk:HeliosPropertyEditor.Resources>
+    </HeliosSdk:HeliosPropertyEditor.Resources>
+    <Grid Background="Transparent" Margin="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" FontSize="10" HorizontalAlignment="Right">Color</Label>
+        <HeliosSdk:ColorWell Grid.Column="1" Grid.Row="0" Color="{Binding Path=Control.LineColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="0,2" />
+        <Label Grid.Column="0" Grid.Row="1" FontSize="10" HorizontalAlignment="Right">Thickness</Label>
+        <HeliosSdk:HeliosTextBox  Grid.Column="1" Grid.Row="1" FontSize="10" Text="{Binding Path=Control.Thickness}" Margin="2" />
+        <Label Grid.Column="0" Grid.Row="2" FontSize="10" HorizontalAlignment="Right">Curve</Label>
+        <CheckBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6" IsChecked="{Binding Path=Control.Curve}" />
+        <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" FontSize="10" HorizontalAlignment="Center">Start</Label>
+        <Slider Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Minimum="0" Maximum="0.49" Value="{Binding Control.CurveStart}" Margin="4" TickPlacement="TopLeft" TickFrequency="0.1" />
+        <Label Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" FontSize="10" HorizontalAlignment="Center">Depth</Label>
+        <Slider Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Minimum="-0.5" Maximum="0.5" Value="{Binding Control.CurveDepth}" Margin="4" TickPlacement="TopLeft" Ticks="-0.5,-0.25,0,0.25,0.5" />
+    </Grid>
+</HeliosSdk:HeliosPropertyEditor>

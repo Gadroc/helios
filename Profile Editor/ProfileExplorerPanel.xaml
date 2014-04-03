@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="GadrocsWorkshop.Helios.ProfileEditor.ProfileExplorerPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor"
+             xmlns:vm="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Name="ProfileExplorerPane" Background="{StaticResource ToolBackground}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ProfileExplorerResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="Delete" Executed="Delete_Executed" CanExecute="Delete_CanExecute" />
+    </UserControl.CommandBindings>
+    <Grid>
+        <TreeView Name="ProfileExplorerTree" BorderThickness="0" ItemsSource="{Binding ElementName=ProfileExplorerPane,Path=ProfileExplorerItems}" Style="{StaticResource ProfileExplorerTreeStyle}" PreviewMouseDoubleClick="TreeView_PreviewMouseDoubleClick" />
+    </Grid>
+</UserControl>

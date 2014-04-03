@@ -1,0 +1,14 @@
+<UserControl x:Class="GadrocsWorkshop.Helios.Windows.Controls.TextFormatButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             Name="myTextFormatButton"
+             >
+    <Grid>
+        <Button Click="Button_Click">
+            <TextBlock Margin="2" FontSize="10" FontFamily="{Binding ElementName=myTextFormatButton,Path=TextFormat.FontFamily}" FontStyle="{Binding ElementName=myTextFormatButton,Path=TextFormat.FontStyle}" FontWeight="{Binding ElementName=myTextFormatButton,Path=TextFormat.FontWeight}" TextDecorations="{Binding ElementName=myTextFormatButton,Path=TextFormat.TextDecorations}" Text="{Binding ElementName=myTextFormatButton,Path=TextFormat.DisplayName}" />
+        </Button>
+    </Grid>
+</UserControl>
