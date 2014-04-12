@@ -287,6 +287,43 @@
     <Compile Include="Interfaces\DCS\Common\Switch.cs" />
     <Compile Include="Interfaces\DCS\Common\SwitchPosition.cs" />
     <Compile Include="Interfaces\DCS\Common\Text.cs" />
+    <Compile Include="Interfaces\Falcon\AlliedForces\AlliedForcesDataExporter.cs" />
+    <Compile Include="Interfaces\Falcon\AlliedForces\FlightData.cs" />
+    <Compile Include="Interfaces\Falcon\BMS\BMSFalconDataExporter.cs" />
+    <Compile Include="Interfaces\Falcon\BMS\BMSLightBits.cs" />
+    <Compile Include="Interfaces\Falcon\BMS\BMSLightBits3.cs" />
+    <Compile Include="Interfaces\Falcon\BMS\FlightData.cs" />
+    <Compile Include="Interfaces\Falcon\BMS\FlightData2.cs" />
+    <Compile Include="Interfaces\Falcon\FalconCallbackValueEditor.xaml.cs">
+      <DependentUpon>FalconCallbackValueEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Falcon\FalconDataExporter.cs" />
+    <Compile Include="Interfaces\Falcon\FalconIntefaceEditor.xaml.cs">
+      <DependentUpon>FalconIntefaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Falcon\FalconInterface.cs" />
+    <Compile Include="Interfaces\Falcon\FalconKeyCallback.cs" />
+    <Compile Include="Interfaces\Falcon\FalconKeyCallbackFilter.cs" />
+    <Compile Include="Interfaces\Falcon\FalconKeyFile.cs" />
+    <Compile Include="Interfaces\Falcon\FalconTypes.cs" />
+    <Compile Include="Interfaces\Falcon\HsiBits.cs" />
+    <Compile Include="Interfaces\Falcon\LightBits.cs" />
+    <Compile Include="Interfaces\Falcon\LightBits2.cs" />
+    <Compile Include="Interfaces\Falcon\LightBits3.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\DED.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\FlightData.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\FlightData2.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\HUD.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\LeftMFD.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\OpenFalconDataExporter.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\OpenFalconTextureDisplay.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\OpenFalconTextureDisplayRenderer.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\PFL.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\RightMFD.cs" />
+    <Compile Include="Interfaces\Falcon\OpenFalcon\RWR.cs" />
+    <Compile Include="Interfaces\Falcon\RadarContact.cs" />
+    <Compile Include="Interfaces\Falcon\RadarSymbols.cs" />
+    <Compile Include="Interfaces\Falcon\TextLines.cs" />
     <Compile Include="Interfaces\Keyboard\KeyboardInterface.cs" />
     <Compile Include="Interfaces\Keyboard\KeyboardInterfaceEditor.xaml.cs">
       <DependentUpon>KeyboardInterfaceEditor.xaml</DependentUpon>
@@ -400,6 +437,180 @@
     <Compile Include="Windows\Controls\TypefaceListItem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Templates\Base\Buttons\MFD Lit.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Buttons\MFD.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Buttons\Push - Red.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Buttons\Push - White.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Buttons\Tactile Round - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Buttons\Tactile Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Buttons\Tactile Square - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Backplate Screw - Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Backplate Screw - Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Backplate Screw - Top Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Backplate Screw - Top Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Backplate Screw - Top.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Caution.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Decorations\Screw.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Encoders\Encoder - Knob 2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Encoders\Encoder - Knob 3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Encoders\Encoder - Knob 4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Encoders\Encoder - Knob 5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Hats\DCS Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Indicators\Anunciator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Indicators\Green Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Indicators\Indicator - Square.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Panels\Generic Backplate.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Panels\Generic Screws.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Push Button Indicators\Push Indicator - Square.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Arrows - Dark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Arrows - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Blank - Dark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Blank - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Dark Wheel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Plus Minus - Dark - Horizontal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Plus Minus - Dark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Plus Minus - Light - Horizontal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Plus Minus - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Triangles - Dark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\Triangles - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rockers\White Wheel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rotaries\Rotary - Knob 1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rotaries\Rotary - Knob 3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rotaries\Rotary - Knob 4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Rotaries\Rotary - Knob 5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Threeway Toggles\Flat Top - Locking.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Threeway Toggles\Flat Top.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Threeway Toggles\Orange Seal - Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Threeway Toggles\Orange Seal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Threeway Toggles\Round - Locking.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Threeway Toggles\Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Threeway Toggles\Square - Tan.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Toggles\Flat Top - Locking.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Toggles\Flat Top.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Toggles\Orange Seal - Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Toggles\Orange Seal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Toggles\Round - Locking.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Toggles\Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\Toggles\Square - Tan.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Resource Include="Interfaces\DCS\A10C\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Common\Export.lua" />
     <Resource Include="Interfaces\DCS\BlackShark\ExportFunctions.lua" />
@@ -511,6 +722,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\Falcon\FalconCallbackValueEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\Falcon\FalconIntefaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -735,10 +954,18 @@
   <ItemGroup>
     <Resource Include="Controls\missing_image.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Interfaces\Falcon\OpenFalcon\ded.png" />
+    <Resource Include="Interfaces\Falcon\OpenFalcon\hud.png" />
+    <Resource Include="Interfaces\Falcon\OpenFalcon\mfd_left.png" />
+    <Resource Include="Interfaces\Falcon\OpenFalcon\mfd_right.png" />
+    <Resource Include="Interfaces\Falcon\OpenFalcon\pfl.png" />
+    <Resource Include="Interfaces\Falcon\OpenFalcon\rwr.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-xcopy /s /y "C:\Users\Craig Courtney\Source\Repos\helios\packages\NLua.1.3.0.2\lib\native\x64\*.*" "$(TargetDir)"</PostBuildEvent>
+xcopy /s /y "%userprofile%\Source\Repos\helios\packages\NLua.1.3.0.2\lib\native\x64\*.*" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

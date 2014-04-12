@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>Screw</Name><Category>Panel Decorations</Category><TypeIdentifier>Helios.Base.Image</TypeIdentifier><Template><TemplateValues><Image>{Helios}/Images/Panels/panel-screw.png</Image><Alignment>Centered</Alignment><CornerRadius>0</CornerRadius><Location>48.5,51.04</Location><Size>20,20</Size></TemplateValues></Template></ControlTemplate>

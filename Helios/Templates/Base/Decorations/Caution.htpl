@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>Caution</Name><Category>Panel Decorations</Category><TypeIdentifier>Helios.Base.Image</TypeIdentifier><Template><TemplateValues><Image>{Helios}/Images/Panels/yellow-caution.png</Image><Alignment>Tiled</Alignment><CornerRadius>0</CornerRadius><Location>37.5,96.04</Location><Size>56,51</Size></TemplateValues></Template></ControlTemplate>

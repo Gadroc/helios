@@ -1,0 +1,34 @@
+﻿<HeliosSdk:StaticValueEditor x:Class="GadrocsWorkshop.Helios.Interfaces.Falcon.FalconCallbackValueEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls" 
+             mc:Ignorable="d" 
+             d:DesignWidth="300" d:DesignHeight="200" x:Name="CallbackEditor">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" FontSize="10">Filter:</Label>
+        <TextBox Grid.Column="1" Grid.Row="0" Name="TextFilter" FontSize="10" />
+        <ListBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="10" Name="CallbackList" Margin="0,2,0,0" ItemsSource="{Binding ElementName=CallbackEditor,Path=Callbacks}" SelectedValuePath="Name" SelectedValue="{Binding ElementName=CallbackEditor,Path=StaticValue,Mode=TwoWay}" HorizontalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>                
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.ToolTip>
+                            <TextBlock Text="{Binding KeyString}" FontSize="10" />
+                        </StackPanel.ToolTip>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="10" Margin="1,1,8,1" />                        
+                        <TextBlock Text="{Binding Description}" FontSize="10" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</HeliosSdk:StaticValueEditor>

@@ -1,0 +1,79 @@
+﻿<HeliosSdk:HeliosInterfaceEditor x:Class="GadrocsWorkshop.Helios.Interfaces.Falcon.FalconIntefaceEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:GadrocsWorkshop.Helios.Interfaces.Falcon"
+    xmlns:Helios="clr-namespace:GadrocsWorkshop.Helios"                      
+    xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls"
+    mc:Ignorable="d" 
+    d:DesignHeight="650" d:DesignWidth="600"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <HeliosSdk:HeliosInterfaceEditor.Resources>
+        <Helios:EnumConverter x:Key="FalconTypes" Type="{x:Type local:FalconTypes}" />
+        <Style x:Key="TextueSettingsSidebar" BasedOn="{StaticResource {x:Type GroupBox}}" TargetType="{x:Type GroupBox}">
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Interface.FalconType}" Value="OpenFalcon">
+                    <Setter Property="Visibility" Value="Visible" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </HeliosSdk:HeliosInterfaceEditor.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="Falcon Setup" Margin="4">
+            <Grid Margin="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="11" Margin="4" FontStyle="Italic" TextWrapping="Wrap">Select which version of falcon you are running.</TextBlock>
+                <Label Grid.Column="0" Grid.Row="1">Falcon Version</Label>
+                <ComboBox Grid.Column="1" Grid.Row="1" Margin="2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource FalconTypes}, Path=DisplayNames}" SelectedItem="{Binding Path=Interface.FalconType, Converter={StaticResource FalconTypes}}" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Header="Open Falcon Texture Export" Margin="4" Style="{StaticResource TextueSettingsSidebar}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="11" Margin="4" FontStyle="Italic" TextWrapping="Wrap">Helios can extract the textures and render MFDs, DEDs and more from Open Falcon 4.7.  Helios has reasonable default to understand the size and shape of these screen sections, but if you're textures don't look right please locate the 3dckpt.dat file for the aircraft you are flying.</TextBlock>
+                <Label Grid.Column="0" Grid.Row="1">3D Cockpit Data File</Label>
+                <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Interface.CockpitDatFile,Mode=TwoWay}" Margin="4" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="2" Header="Falcon Key Callbacks" Margin="4">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" FontSize="11" Margin="4" FontStyle="Italic" TextWrapping="Wrap">Select the keyfile you use.  Helios uses the keyfile to understand which keystrokes to send to Falcon.  If this is not set accuratley you will not get the correct actions. Verify the keystrokes below look acurate.</TextBlock>
+                <Label Grid.Column="0" Grid.Row="1">Key File</Label>
+                <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Interface.KeyFileName,Mode=TwoWay}" Margin="4" />
+                <Button Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Width="30" Margin="4" Click="Button_Click">...</Button>
+                <local:FalconCallbackValueEditor Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Profile="{Binding Path=Interface.Profile}" Margin="4,10,4,4" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</HeliosSdk:HeliosInterfaceEditor>

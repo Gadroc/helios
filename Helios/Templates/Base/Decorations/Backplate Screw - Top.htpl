@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>Backplate Screw - Top</Name><Category>Panel Decorations</Category><TypeIdentifier>Helios.Base.Image</TypeIdentifier><Template><TemplateValues><Image>{Helios}/Images/Panels/panel-backplate-top.png</Image><Alignment>Centered</Alignment><CornerRadius>0</CornerRadius><Location>194,0</Location><Size>34,30</Size></TemplateValues></Template></ControlTemplate>
