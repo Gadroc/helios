@@ -1,0 +1,27 @@
+﻿<ControlTemplate>
+  <Name>Fire Pull APU</Name>
+  <Category>A-10</Category>
+  <TypeIdentifier>Helios.Base.IndicatorPushButton</TypeIdentifier>
+  <Template>
+    <TemplateValues>
+      <IndicatorOnImage>{Helios}/Images/A-10/fire-apu-fire.png</IndicatorOnImage>
+      <PushedIndicatorOnImage>{Helios}/Images/A-10/fire-apu-pull-fire.png</PushedIndicatorOnImage>
+      <Font>
+        <FontFamily>Franklin Gothic</FontFamily>
+        <FontStyle>Normal</FontStyle>
+        <FontWeight>Normal</FontWeight>
+        <FontSize>12</FontSize>
+        <HorizontalAlignment>Center</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+      </Font>
+      <Text />
+      <OnTextColor>#FFB3A229</OnTextColor>
+      <OffTextColor>#FF1C1C1C</OffTextColor>
+      <Location>60,28.04</Location>
+      <Size>200,65</Size>
+      <Type>Toggle</Type>
+      <Image>{Helios}/Images/A-10/fire-apu-norm.png</Image>
+      <PushedImage>{Helios}/Images/A-10/fire-apu-pull-norm.png</PushedImage>
+    </TemplateValues>
+  </Template>
+</ControlTemplate>

@@ -1841,6 +1841,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\DirectX\" />
+    <Folder Include="Interfaces\Phidgets\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />
