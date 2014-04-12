@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="14" Height="15"><Canvas.Resources/><Canvas Name="layer14"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><TranslateTransform X="-163.0443" Y="-15.569028"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="rect8320" Fill="#FFF7F332" Stroke="#FF000000" StrokeThickness="1" StrokeMiterLimit="4" Data="m 163.58058 16.105304 12.83884 0 L 170 29.933676 z"/></Canvas></Canvas></Canvas>
