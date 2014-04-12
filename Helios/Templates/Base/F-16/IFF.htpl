@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>IFF</Name><Category>F-16 ICP</Category><TypeIdentifier>Helios.Base.PushButton</TypeIdentifier><Template><TemplateValues><Location>151,117.04</Location><Size>50,50</Size><Type>Momentary</Type><Image>{Helios}/Images/F-16/iff.png</Image><PushedImage>{Helios}/Images/F-16/iff-press.png</PushedImage></TemplateValues></Template></ControlTemplate>

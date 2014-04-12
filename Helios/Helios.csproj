@@ -120,6 +120,10 @@
       <DependentUpon>LineDecorationAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\LineDecorationRenderer.cs" />
+    <Compile Include="Controls\MFD-A10.cs" />
+    <Compile Include="Controls\MFD-F16.cs" />
+    <Compile Include="Controls\MFD.cs" />
+    <Compile Include="Controls\MFDRenderer.cs" />
     <Compile Include="Controls\Potentiometer.cs" />
     <Compile Include="Controls\PotentiometerAppearanceEditor.xaml.cs">
       <DependentUpon>PotentiometerAppearanceEditor.xaml</DependentUpon>
@@ -200,7 +204,46 @@
     <Compile Include="DisplayOrientation.cs" />
     <Compile Include="EnumConverter.cs" />
     <Compile Include="EnumDisplayEntery.cs" />
+    <Compile Include="Gauges\A-10\ADI\ADI.cs" />
+    <Compile Include="Gauges\A-10\ADI\BackupADI.cs" />
+    <Compile Include="Gauges\A-10\Altimeter\Altimeter.cs" />
+    <Compile Include="Gauges\A-10\AOA\AOA.cs" />
+    <Compile Include="Gauges\A-10\ApuEGT\ApuEGT.cs" />
+    <Compile Include="Gauges\A-10\ApuRPM\ApuRPM.cs" />
+    <Compile Include="Gauges\A-10\CabinPressure\CabinPressure.cs" />
+    <Compile Include="Gauges\A-10\EngineRPM\EngineRPM.cs" />
+    <Compile Include="Gauges\A-10\FanRPM\FanRPM.cs" />
+    <Compile Include="Gauges\A-10\Flaps\Flaps.cs" />
+    <Compile Include="Gauges\A-10\FuelFlow\FuelFlow.cs" />
+    <Compile Include="Gauges\A-10\FuelGauge\FuelGauge.cs" />
+    <Compile Include="Gauges\A-10\HARS\HARSSync.cs" />
+    <Compile Include="Gauges\A-10\HSI\HSI.cs" />
+    <Compile Include="Gauges\A-10\HSI\HSIBehaviorEditor.xaml.cs">
+      <DependentUpon>HSIBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\A-10\Hydraulic\Hydraulic.cs" />
+    <Compile Include="Gauges\A-10\IAS\IAS.cs" />
+    <Compile Include="Gauges\A-10\ILSFrequencey\ILSFrequency.cs" />
+    <Compile Include="Gauges\A-10\LiquidOxygen\LiquidOxygen.cs" />
+    <Compile Include="Gauges\A-10\OilPressure\OilPressure.cs" />
+    <Compile Include="Gauges\A-10\OxygenPressure\OxygenPressure.cs" />
+    <Compile Include="Gauges\A-10\TACANChannel\TACANChannel.cs" />
+    <Compile Include="Gauges\A-10\TISLCodeWheel\TISLCodeWheel.cs" />
+    <Compile Include="Gauges\A-10\VVI\VVI.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
+    <Compile Include="Gauges\F-16\ADI\ADI.cs" />
+    <Compile Include="Gauges\F-16\Airspeed\Airspeed.cs" />
+    <Compile Include="Gauges\F-16\Altimeter\Altimeter.cs" />
+    <Compile Include="Gauges\F-16\AOA\AOA.cs" />
+    <Compile Include="Gauges\F-16\FTIT\FTIT.cs" />
+    <Compile Include="Gauges\F-16\FuelFlow\FuelFlow.cs" />
+    <Compile Include="Gauges\F-16\HSI\HSI.cs" />
+    <Compile Include="Gauges\F-16\Nozzle\Nozzle.cs" />
+    <Compile Include="Gauges\F-16\OilPressure\OilPressure.cs" />
+    <Compile Include="Gauges\F-16\RPM\RPM.cs" />
+    <Compile Include="Gauges\F-16\Trim\PitchTrim.cs" />
+    <Compile Include="Gauges\F-16\Trim\RollTrim.cs" />
+    <Compile Include="Gauges\F-16\VVI\VVI.cs" />
     <Compile Include="Gauges\GaugeComponent.cs" />
     <Compile Include="Gauges\GaugeComponentCollection.cs" />
     <Compile Include="Gauges\GaugeDrumCounter.cs" />
@@ -287,6 +330,10 @@
     <Compile Include="Interfaces\DCS\Common\Switch.cs" />
     <Compile Include="Interfaces\DCS\Common\SwitchPosition.cs" />
     <Compile Include="Interfaces\DCS\Common\Text.cs" />
+    <Compile Include="Interfaces\DCS\FC2\FC2Interface.cs" />
+    <Compile Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml.cs">
+      <DependentUpon>FC2InterfaceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\Falcon\AlliedForces\AlliedForcesDataExporter.cs" />
     <Compile Include="Interfaces\Falcon\AlliedForces\FlightData.cs" />
     <Compile Include="Interfaces\Falcon\BMS\BMSFalconDataExporter.cs" />
@@ -323,6 +370,8 @@
     <Compile Include="Interfaces\Falcon\OpenFalcon\RWR.cs" />
     <Compile Include="Interfaces\Falcon\RadarContact.cs" />
     <Compile Include="Interfaces\Falcon\RadarSymbols.cs" />
+    <Compile Include="Interfaces\Falcon\RWR\RWR.cs" />
+    <Compile Include="Interfaces\Falcon\RWR\RWRRenderer.cs" />
     <Compile Include="Interfaces\Falcon\TextLines.cs" />
     <Compile Include="Interfaces\Keyboard\KeyboardInterface.cs" />
     <Compile Include="Interfaces\Keyboard\KeyboardInterfaceEditor.xaml.cs">
@@ -427,6 +476,8 @@
     <Compile Include="Windows\Controls\ImagePicker.xaml.cs">
       <DependentUpon>ImagePicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Controls\PointOfViewIndicator.cs" />
+    <Compile Include="Windows\Controls\POVDirection.cs" />
     <Compile Include="Windows\Controls\StaticValueEditor.cs" />
     <Compile Include="Windows\Controls\TextFormatButton.xaml.cs">
       <DependentUpon>TextFormatButton.xaml</DependentUpon>
@@ -437,6 +488,131 @@
     <Compile Include="Windows\Controls\TypefaceListItem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Interfaces\DCS\FC2\Export.lua" />
+    <Resource Include="Interfaces\DCS\FC2\ExportFunctions.lua" />
+    <None Include="Templates\Base\A-10\0.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\6.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\7.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\8.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\9.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\AFT.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Altitude Alert.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\ANCHR.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Blank.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Clear.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Data.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\EGI.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Enter.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Fire Pull APU.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Fire Pull Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Fire Pull Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\FM Indicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Func.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\FWD.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Gear Handle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Hack.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\HARS.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Horizontal Rocker.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\ILS.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\LTR.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Mark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Master Caution.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\MID.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\RWR Bezel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Sel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Space.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\STR PT.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\TCN.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\TISL.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\UHF Indicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\A-10\Vertical Rocker.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Templates\Base\Buttons\MFD Lit.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -498,6 +674,102 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Templates\Base\Encoders\Encoder - Knob 5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\0.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\6.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\7.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\8.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\9.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\A-A.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\A-G.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Arrow.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\CMDS Outline.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\COM 1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\COM 2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\DED Bezel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\ENTR.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\F-16 ICP Panel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\F-16 Panel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Gear Handle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Gear Light Diagarm.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Horizontal Panel Guard.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\IFF.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\LIST.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Panel Screw.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\RCL.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Seat Arming Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Spider Canopy Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Vertical Panel Guard.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\WX.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\F-16\Yaw Trim Scale.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Templates\Base\Hats\DCS Switch.htpl">
@@ -717,11 +989,499 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Resource Include="Gauges\A-10\ADI\adi_backup_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_backup_inner_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_backup_outer_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_backup_warning_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_backup_wings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_bank_pointer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_bank_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_course_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_gs_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_gs_indicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_guides.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_inner_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_off_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_outer_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_pitch_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ADI\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Altimeter\altimeter_backplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Altimeter\altimeter_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Altimeter\altimeter_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Altimeter\alt_drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Common\drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Common\drum_tape_reverse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Common\eng_inner_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Common\eng_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Common\eng_small_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Common\needle_a.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\AOA\aoa_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ApuEGT\apu_egt_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ApuRPM\apu_rpm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\CabinPressure\cabin_pressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\CabinPressure\cabin_pressure_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\EngineRPM\eng_rpm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\FanRPM\eng_fan_rpm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Flaps\flaps_cover.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Flaps\flaps_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\FuelFlow\eng_fuel_flow_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\FuelGauge\fuel_gauge_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\FuelGauge\fuel_gauge_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HARS\hars_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HARS\hars_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Gauges\A-10\HSI\HSIBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Gauges\A-10\HSI\hsi_bearing_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_bearing_needle_1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_bearing_needle_2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_compass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_course_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_deviation_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_from_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_heading_bug.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_off_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_range_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\HSI\hsi_to_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Hydraulic\hydraulic_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Hydraulic\hydraulic_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\IAS\ias_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\IAS\ias_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\ILSFrequencey\ils_frequency_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\LiquidOxygen\liquid_oxygen_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\LiquidOxygen\liquid_oxygen_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\OilPressure\eng_oil_pressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\OxygenPressure\oxygen_pressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\OxygenPressure\oxygen_pressure_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\TACANChannel\tacan_channel_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\TACANChannel\tacan_channel_hundreds_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\TACANChannel\tacan_channel_x_mode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\TACANChannel\tacan_channel_y_mode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\VVI\vvi_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_aux_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_gs_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_guides.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_ils_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_ils_scale_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_inner_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_loc_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_off_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_outer_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\ADI\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Airspeed\asi_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Airspeed\asi_inner_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Airspeed\asi_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Common\drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Altimeter\altimeter_backplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Altimeter\altimeter_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Altimeter\altimeter_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Altimeter\alt_drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\AOA\aoa_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\AOA\aoa_off_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\AOA\aoa_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\FTIT\ftit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\FTIT\ftit_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\FuelFlow\fuelflow_labels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_background.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_bearing_needle_f16.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_compass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_course_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_course_needle_f16.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_deviation_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_dme_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_from_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_heading_bug.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_off_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HSI\hsi_to_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Nozzle\nozzle_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Nozzle\nozzle_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\OilPressure\oil_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\OilPressure\oil_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\RPM\rpm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\RPM\rpm_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Trim\pitchtrim_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Trim\pitchtrim_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Trim\rolltrim_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\Trim\rolltrim_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\VVI\vvi_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\VVI\vvi_off_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\VVI\vvi_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -961,6 +1721,249 @@
     <Resource Include="Interfaces\Falcon\OpenFalcon\mfd_right.png" />
     <Resource Include="Interfaces\Falcon\OpenFalcon\pfl.png" />
     <Resource Include="Interfaces\Falcon\OpenFalcon\rwr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\A-10\adj-down.png" />
+    <Resource Include="Images\A-10\adj-norm.png" />
+    <Resource Include="Images\A-10\adj-up.png" />
+    <Resource Include="Images\A-10\anchr-norm-off.png" />
+    <Resource Include="Images\A-10\anchr-norm-on.png" />
+    <Resource Include="Images\A-10\anchr-press-off.png" />
+    <Resource Include="Images\A-10\anchr-press-on.png" />
+    <Resource Include="Images\A-10\brt-down.png" />
+    <Resource Include="Images\A-10\brt-norm.png" />
+    <Resource Include="Images\A-10\brt-up.png" />
+    <Resource Include="Images\A-10\con-down.png" />
+    <Resource Include="Images\A-10\con-norm.png" />
+    <Resource Include="Images\A-10\con-up.png" />
+    <Resource Include="Images\A-10\dsp-down.png" />
+    <Resource Include="Images\A-10\dsp-norm.png" />
+    <Resource Include="Images\A-10\dsp-up.png" />
+    <Resource Include="Images\A-10\egi-norm-off.png" />
+    <Resource Include="Images\A-10\egi-norm-on.png" />
+    <Resource Include="Images\A-10\egi-press-off.png" />
+    <Resource Include="Images\A-10\egi-press-on.png" />
+    <Resource Include="Images\A-10\fire-apu-fire.png" />
+    <Resource Include="Images\A-10\fire-apu-norm.png" />
+    <Resource Include="Images\A-10\fire-apu-pull-fire.png" />
+    <Resource Include="Images\A-10\fire-apu-pull-norm.png" />
+    <Resource Include="Images\A-10\fire-left-fire.png" />
+    <Resource Include="Images\A-10\fire-left-norm.png" />
+    <Resource Include="Images\A-10\fire-left-pull-fire.png" />
+    <Resource Include="Images\A-10\fire-left-pull-norm.png" />
+    <Resource Include="Images\A-10\fire-right-fire.png" />
+    <Resource Include="Images\A-10\fire-right-norm.png" />
+    <Resource Include="Images\A-10\fire-right-pull-fire.png" />
+    <Resource Include="Images\A-10\fire-right-pull-norm.png" />
+    <Resource Include="Images\A-10\front_panel_background.png" />
+    <Resource Include="Images\A-10\gear-dn-off.png" />
+    <Resource Include="Images\A-10\gear-dn-red.png" />
+    <Resource Include="Images\A-10\gear-up-off.png" />
+    <Resource Include="Images\A-10\gear-up-red.png" />
+    <Resource Include="Images\A-10\hars-norm-off.png" />
+    <Resource Include="Images\A-10\hars-norm-on.png" />
+    <Resource Include="Images\A-10\hars-press-off.png" />
+    <Resource Include="Images\A-10\hars-press-on.png" />
+    <Resource Include="Images\A-10\homing-fm-off.png" />
+    <Resource Include="Images\A-10\homing-fm-on.png" />
+    <Resource Include="Images\A-10\homing-uhf-off.png" />
+    <Resource Include="Images\A-10\homing-uhf-on.png" />
+    <Resource Include="Images\A-10\ils-norm-off.png" />
+    <Resource Include="Images\A-10\ils-norm-on.png" />
+    <Resource Include="Images\A-10\ils-press-off.png" />
+    <Resource Include="Images\A-10\ils-press-on.png" />
+    <Resource Include="Images\A-10\mfd-bezel.png" />
+    <Resource Include="Images\A-10\mfd-in.png" />
+    <Resource Include="Images\A-10\mfd-knob.png" />
+    <Resource Include="Images\A-10\mfd-out.png" />
+    <Resource Include="Images\A-10\mfd-rocker-down.png" />
+    <Resource Include="Images\A-10\mfd-rocker-middle.png" />
+    <Resource Include="Images\A-10\mfd-rocker-up.png" />
+    <Resource Include="Images\A-10\mfd.png" />
+    <Resource Include="Images\A-10\strpt-norm-off.png" />
+    <Resource Include="Images\A-10\strpt-norm-on.png" />
+    <Resource Include="Images\A-10\strpt-press-off.png" />
+    <Resource Include="Images\A-10\strpt-press-on.png" />
+    <Resource Include="Images\A-10\sym-left.png" />
+    <Resource Include="Images\A-10\sym-norm.png" />
+    <Resource Include="Images\A-10\sym-right.png" />
+    <Resource Include="Images\A-10\tcn-norm-off.png" />
+    <Resource Include="Images\A-10\tcn-norm-on.png" />
+    <Resource Include="Images\A-10\tcn-press-off.png" />
+    <Resource Include="Images\A-10\tcn-press-on.png" />
+    <Resource Include="Images\A-10\tisl-norm-off.png" />
+    <Resource Include="Images\A-10\tisl-norm-on.png" />
+    <Resource Include="Images\A-10\tisl-press-off.png" />
+    <Resource Include="Images\A-10\tisl-press-on.png" />
+    <Resource Include="Images\A-10\ufc_0.png" />
+    <Resource Include="Images\A-10\ufc_0_in.png" />
+    <Resource Include="Images\A-10\ufc_1.png" />
+    <Resource Include="Images\A-10\ufc_1_in.png" />
+    <Resource Include="Images\A-10\ufc_2.png" />
+    <Resource Include="Images\A-10\ufc_2_in.png" />
+    <Resource Include="Images\A-10\ufc_3.png" />
+    <Resource Include="Images\A-10\ufc_3_in.png" />
+    <Resource Include="Images\A-10\ufc_4.png" />
+    <Resource Include="Images\A-10\ufc_4_in.png" />
+    <Resource Include="Images\A-10\ufc_5.png" />
+    <Resource Include="Images\A-10\ufc_5_in.png" />
+    <Resource Include="Images\A-10\ufc_6.png" />
+    <Resource Include="Images\A-10\ufc_6_in.png" />
+    <Resource Include="Images\A-10\ufc_7.png" />
+    <Resource Include="Images\A-10\ufc_7_in.png" />
+    <Resource Include="Images\A-10\ufc_8.png" />
+    <Resource Include="Images\A-10\ufc_8_in.png" />
+    <Resource Include="Images\A-10\ufc_9.png" />
+    <Resource Include="Images\A-10\ufc_9_in.png" />
+    <Resource Include="Images\A-10\ufc_aft.png" />
+    <Resource Include="Images\A-10\ufc_aft_in.png" />
+    <Resource Include="Images\A-10\ufc_alt_alrt.png" />
+    <Resource Include="Images\A-10\ufc_alt_alrt_in.png" />
+    <Resource Include="Images\A-10\ufc_blank.png" />
+    <Resource Include="Images\A-10\ufc_blank_in.png" />
+    <Resource Include="Images\A-10\ufc_clr.png" />
+    <Resource Include="Images\A-10\ufc_clr_in.png" />
+    <Resource Include="Images\A-10\ufc_data_rocker.png" />
+    <Resource Include="Images\A-10\ufc_data_rocker_down.png" />
+    <Resource Include="Images\A-10\ufc_data_rocker_up.png" />
+    <Resource Include="Images\A-10\ufc_ent.png" />
+    <Resource Include="Images\A-10\ufc_ent_in.png" />
+    <Resource Include="Images\A-10\ufc_func.png" />
+    <Resource Include="Images\A-10\ufc_func_in.png" />
+    <Resource Include="Images\A-10\ufc_fwd.png" />
+    <Resource Include="Images\A-10\ufc_fwd_in.png" />
+    <Resource Include="Images\A-10\ufc_hack.png" />
+    <Resource Include="Images\A-10\ufc_hack_in.png" />
+    <Resource Include="Images\A-10\ufc_hrocker_blank.png" />
+    <Resource Include="Images\A-10\ufc_hrocker_blank_left.png" />
+    <Resource Include="Images\A-10\ufc_hrocker_blank_right.png" />
+    <Resource Include="Images\A-10\ufc_ltr.png" />
+    <Resource Include="Images\A-10\ufc_ltr_in.png" />
+    <Resource Include="Images\A-10\ufc_mid.png" />
+    <Resource Include="Images\A-10\ufc_mid_in.png" />
+    <Resource Include="Images\A-10\ufc_mk.png" />
+    <Resource Include="Images\A-10\ufc_mk_in.png" />
+    <Resource Include="Images\A-10\ufc_sel_rocker.png" />
+    <Resource Include="Images\A-10\ufc_sel_rocker_down.png" />
+    <Resource Include="Images\A-10\ufc_sel_rocker_up.png" />
+    <Resource Include="Images\A-10\ufc_spc.png" />
+    <Resource Include="Images\A-10\ufc_spc_in.png" />
+    <Resource Include="Images\A-10\ufc_vrocker_blank.png" />
+    <Resource Include="Images\A-10\ufc_vrocker_blank_down.png" />
+    <Resource Include="Images\A-10\ufc_vrocker_blank_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Interfaces\Falcon\RWR\rwr_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\A-10\ADI\adi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\A-10\Common\engine_bezel.png" />
+    <Resource Include="Gauges\A-10\Common\gauge_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\A-10\HSI\hsi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\F-16\a-a-press.png" />
+    <Resource Include="Images\F-16\a-a.png" />
+    <Resource Include="Images\F-16\a-g-press.png" />
+    <Resource Include="Images\F-16\a-g.png" />
+    <Resource Include="Images\F-16\arrow-image.png" />
+    <Resource Include="Images\F-16\aux-comm-freq.png" />
+    <Resource Include="Images\F-16\canopy-down.png" />
+    <Resource Include="Images\F-16\canopy-up.png" />
+    <Resource Include="Images\F-16\cmds_outline.png" />
+    <Resource Include="Images\F-16\comm1-press.png" />
+    <Resource Include="Images\F-16\comm1.png" />
+    <Resource Include="Images\F-16\comm2-press.png" />
+    <Resource Include="Images\F-16\comm2.png" />
+    <Resource Include="Images\F-16\ded-box.png" />
+    <Resource Include="Images\F-16\earming-off.png" />
+    <Resource Include="Images\F-16\earming-on.png" />
+    <Resource Include="Images\F-16\f16_panel_background.png" />
+    <Resource Include="Images\F-16\f16_panel_border_left.png" />
+    <Resource Include="Images\F-16\f16_panel_border_right.png" />
+    <Resource Include="Images\F-16\f16_panel_bottom_border.png" />
+    <Resource Include="Images\F-16\f16_panel_bottom_left_croner.png" />
+    <Resource Include="Images\F-16\f16_panel_bottom_right_corner.png" />
+    <Resource Include="Images\F-16\f16_panel_horizontal_guard.png" />
+    <Resource Include="Images\F-16\f16_panel_screw.png" />
+    <Resource Include="Images\F-16\f16_panel_top_border.png" />
+    <Resource Include="Images\F-16\f16_panel_top_left_corner.png" />
+    <Resource Include="Images\F-16\f16_panel_top_right_corner.png" />
+    <Resource Include="Images\F-16\f16_panel_vertical_guard.png" />
+    <Resource Include="Images\F-16\f16_small_panel_bottom_border.png" />
+    <Resource Include="Images\F-16\f16_small_panel_bottom_left_corner.png" />
+    <Resource Include="Images\F-16\f16_small_panel_bottom_right_corner.png" />
+    <Resource Include="Images\F-16\f16_small_panel_left_border.png" />
+    <Resource Include="Images\F-16\f16_small_panel_right_border.png" />
+    <Resource Include="Images\F-16\f16_small_panel_top_border.png" />
+    <Resource Include="Images\F-16\f16_small_panel_top_left_corner.png" />
+    <Resource Include="Images\F-16\f16_small_panel_top_right_corner.png" />
+    <Resource Include="Images\F-16\gear-down-red-on.png" />
+    <Resource Include="Images\F-16\gear-down.png" />
+    <Resource Include="Images\F-16\gear-light-graphic.png" />
+    <Resource Include="Images\F-16\gear-up-red-on.png" />
+    <Resource Include="Images\F-16\gear-up.png" />
+    <Resource Include="Images\F-16\icp-0-press.png" />
+    <Resource Include="Images\F-16\icp-0.png" />
+    <Resource Include="Images\F-16\icp-1-press.png" />
+    <Resource Include="Images\F-16\icp-1.png" />
+    <Resource Include="Images\F-16\icp-2-press.png" />
+    <Resource Include="Images\F-16\icp-2.png" />
+    <Resource Include="Images\F-16\icp-3-press.png" />
+    <Resource Include="Images\F-16\icp-3.png" />
+    <Resource Include="Images\F-16\icp-4-press.png" />
+    <Resource Include="Images\F-16\icp-4.png" />
+    <Resource Include="Images\F-16\icp-5-press.png" />
+    <Resource Include="Images\F-16\icp-5.png" />
+    <Resource Include="Images\F-16\icp-6-press.png" />
+    <Resource Include="Images\F-16\icp-6.png" />
+    <Resource Include="Images\F-16\icp-7-press.png" />
+    <Resource Include="Images\F-16\icp-7.png" />
+    <Resource Include="Images\F-16\icp-8-press.png" />
+    <Resource Include="Images\F-16\icp-8.png" />
+    <Resource Include="Images\F-16\icp-9-press.png" />
+    <Resource Include="Images\F-16\icp-9.png" />
+    <Resource Include="Images\F-16\icp-enter-press.png" />
+    <Resource Include="Images\F-16\icp-enter.png" />
+    <Resource Include="Images\F-16\icp-wx-press.png" />
+    <Resource Include="Images\F-16\icp-wx.png" />
+    <Resource Include="Images\F-16\icp_panel_background.png" />
+    <Resource Include="Images\F-16\iff-press.png" />
+    <Resource Include="Images\F-16\iff.png" />
+    <Resource Include="Images\F-16\ipc-rcl-press.png" />
+    <Resource Include="Images\F-16\ipc-rcl.png" />
+    <Resource Include="Images\F-16\list-pressed.png" />
+    <Resource Include="Images\F-16\list.png" />
+    <Resource Include="Images\F-16\mfd-in.png" />
+    <Resource Include="Images\F-16\mfd-out.png" />
+    <Resource Include="Images\F-16\mfd_bezel.png" />
+    <Resource Include="Images\F-16\rocker-down.png" />
+    <Resource Include="Images\F-16\rocker-middle.png" />
+    <Resource Include="Images\F-16\rocker-up.png" />
+    <Resource Include="Images\F-16\yaw_trim_scale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\F-16\ADI\adi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\F-16\Common\f16_engine_bezel.png" />
+    <Resource Include="Gauges\F-16\Common\f16_gauge_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\F-16\AOA\aoa_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\F-16\FuelFlow\fuelflow_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\F-16\HSI\hsi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\F-16\VVI\vvi_bezel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

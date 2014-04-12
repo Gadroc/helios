@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>COM 2</Name><Category>F-16 ICP</Category><TypeIdentifier>Helios.Base.PushButton</TypeIdentifier><Template><TemplateValues><Location>201,43.04</Location><Size>50,50</Size><Type>Momentary</Type><Image>{Helios}/Images/F-16/comm2.png</Image><PushedImage>{Helios}/Images/F-16/comm2-press.png</PushedImage></TemplateValues></Template></ControlTemplate>

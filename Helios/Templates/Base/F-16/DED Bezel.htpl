@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>DED Bezel</Name><Category>F-16 Decorations</Category><TypeIdentifier>Helios.Base.Image</TypeIdentifier><Template><TemplateValues><Image>{Helios}/Images/F-16/ded-box.png</Image><Alignment>Stretched</Alignment><CornerRadius>0</CornerRadius><Location>103,188.04</Location><Size>400,168</Size></TemplateValues></Template></ControlTemplate>

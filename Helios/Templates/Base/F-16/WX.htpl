@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>WX</Name><Category>F-16 ICP</Category><TypeIdentifier>Helios.Base.PushButton</TypeIdentifier><Template><TemplateValues><Location>101,117.04</Location><Size>50,50</Size><Type>Momentary</Type><Image>{Helios}/Images/F-16/icp-wx.png</Image><PushedImage>{Helios}/Images/F-16/icp-wx-press.png</PushedImage></TemplateValues></Template></ControlTemplate>
