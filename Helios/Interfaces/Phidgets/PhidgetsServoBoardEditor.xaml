@@ -1,0 +1,187 @@
+﻿<HeliosSdk:HeliosInterfaceEditor x:Class="GadrocsWorkshop.Helios.Interfaces.Phidgets.PhidgetsServoBoardEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls" 
+             xmlns:Phidgets="clr-namespace:GadrocsWorkshop.Helios.Interfaces.Phidgets"
+             x:Name="ServoBoardEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <StackPanel>
+        
+        <StackPanel.Resources>
+            <Style x:Key="ServoPropertyTab" TargetType="TabControl">
+                <Setter Property="Visibility" Value="Visible" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding ElementName=ServoBoardEditor,Path=SelectedServo}" Value="{x:Null}">
+                        <Setter Property="Visibility" Value="Hidden" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Phidgets:ServoTypeConverter x:Key="ServoTypes" />
+        </StackPanel.Resources>
+
+        <GroupBox Header="Properties">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">
+                    <Label.Content>Serial Number</Label.Content>
+                </Label>
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding ElementName=ServoBoardEditor,Path=Interface.SerialNumber}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" MaxWidth="200" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Motor Properties" Margin="0,10,0,0" MinHeight="150">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0">Available Motors</Label>
+                    <ListBox Grid.Row="1" Name="MotorListBox" ItemsSource="{Binding ElementName=ServoBoardEditor,Path=MotorList}" SelectionChanged="SelectedGroupChanged"></ListBox>
+                </Grid>
+
+                <TabControl Name="PropertyTab" Grid.Row="0" Grid.Column="1" Margin="5" Style="{StaticResource ServoPropertyTab}" MinHeight="250" SelectionChanged="Tab_SelectionChanged">
+
+                    <TabItem Header="Properties">
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="5" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">
+                                <Label.Content>Speed Ramping</Label.Content>
+                            </Label>
+                            <CheckBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" IsChecked="{Binding ElementName=ServoBoardEditor,Path=SelectedServo.SpeedRamping}" />
+                            <TextBlock Grid.Column="1" Grid.Row="1" Margin="0,0,0,10" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Speed ramping enables acceleration and velocity limits, if disabled servo moves immediatly to the new specified position.</TextBlock>
+
+
+                            <TextBlock Grid.Column="1" Grid.Row="3" Margin="0,0,0,10" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Acceleration specifies how fast the servo will change speeds.  The higher the acceleration the faster the servo will go from stopped to full speed.</TextBlock>
+                            <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">
+                                <Label.Content>Acceleration</Label.Content>
+                            </Label>
+                            <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" MaxWidth="200">
+                                <TextBox.Text>
+                                    <Binding ElementName="ServoBoardEditor" Path="SelectedServo.Acceleration">
+                                        <Binding.ValidationRules>
+                                            <ExceptionValidationRule />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <Label Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">
+                                <Label.Content>Velocity Limit</Label.Content>
+                            </Label>
+                            <TextBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" MaxWidth="200">
+                                <TextBox.Text>
+                                    <Binding ElementName="ServoBoardEditor" Path="SelectedServo.VelocityLimit">
+                                        <Binding.ValidationRules>
+                                            <ExceptionValidationRule />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <TextBlock Grid.Column="1" Grid.Row="5" Margin="0,0,0,10" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Sets the maximum you want this servo to travel.</TextBlock>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Name="CalibrationTab" Header="Input Calibration">
+                        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <TextBlock FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Input calibration allows you to map arbitrary input unit types to steps of your stepper motor.  It also allows for non-linear settings of smae gauge faces.  Use the step size of your motor and driver to calculate the necessary target position.</TextBlock>
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <Label HorizontalAlignment="Right">
+                                    <Label.Content>Test Value</Label.Content>
+                                </Label>
+                                <TextBox Name="TextValueTextBox" Grid.Column="1" Grid.Row="5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" MaxWidth="200" TextChanged="TextValueChanged" />
+                            </StackPanel>
+
+                            <Border BorderBrush="#ff808080" BorderThickness="1" CornerRadius="4" Padding="4" Margin="4">
+                                <Phidgets:CalibrationEditorDouble x:Name="CalibrationEditor" Grid.Row="0" Grid.Column="2" />
+                            </Border>
+
+                        </StackPanel>
+
+                    </TabItem>
+                    <TabItem Header="Servo Type">
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="5" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">
+                                <Label.Content>Servo Type</Label.Content>
+                            </Label>
+                            <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Source={StaticResource ServoTypes},Path=DisplayNames}" SelectedItem="{Binding ElementName=ServoBoardEditor,Path=SelectedServo.ServoType, Converter={StaticResource ServoTypes}}"  />
+                            <TextBlock Grid.Column="1" Grid.Row="1" Margin="0,0,0,10" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Selects the type of servo which is attached to this connector.</TextBlock>
+
+                            <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">
+                                <Label.Content>Min Pulse Width</Label.Content>
+                            </Label>
+                            <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="2" Width="120" HorizontalAlignment="Left" Text="{Binding ElementName=ServoBoardEditor,Path=SelectedServo.ServoMinPulseWidth}" />
+                            <TextBlock Grid.Column="1" Grid.Row="3" Margin="0,0,0,10" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Sets the minimum pulse width that the servo can accept. Only used when Servo Type is set to USER_DEFINED.</TextBlock>
+
+                            <Label Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">
+                                <Label.Content>Max Pulse Width</Label.Content>
+                            </Label>
+                            <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="4" Width="120" HorizontalAlignment="Left" Text="{Binding ElementName=ServoBoardEditor,Path=SelectedServo.ServoMaxPulseWidth}" />
+                            <TextBlock Grid.Column="1" Grid.Row="5" Margin="0,0,0,10" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Sets the maximum pulse width that the servo can accept. Only used when Servo Type is set to USER_DEFINED.</TextBlock>
+
+                            <Label Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">
+                                <Label.Content>Max Velocity</Label.Content>
+                            </Label>
+                            <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="6" Width="120" HorizontalAlignment="Left" Text="{Binding ElementName=ServoBoardEditor,Path=SelectedServo.ServoMaxVelocity}" />
+                            <TextBlock Grid.Column="1" Grid.Row="7" Margin="0,0,0,10" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Sets the maximum velocity this servo can move. Only used when Servo Type is set to USER_DEFINED.</TextBlock>
+
+                            <Label Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right">
+                                <Label.Content>Servo Travel</Label.Content>
+                            </Label>
+                            <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="8" Width="120" HorizontalAlignment="Left" Text="{Binding ElementName=ServoBoardEditor,Path=SelectedServo.ServoDegrees}" />
+                            <TextBlock Grid.Column="1" Grid.Row="9" Margin="0,0,0,10" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Sets the amount of travel in degrees that this servo can move. Only used when Servo Type is set to USER_DEFINED.</TextBlock>
+
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
+
+
+    </StackPanel>
+</HeliosSdk:HeliosInterfaceEditor>
