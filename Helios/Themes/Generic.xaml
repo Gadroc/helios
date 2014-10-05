@@ -737,11 +737,11 @@
 
     <Style TargetType="{x:Type controls:ButtonIndicator}">
         <Style.Triggers>
-            <Trigger Property="IsPushed" Value="true">
-                <Setter Property="Fill" Value="Red" />
+            <Trigger Property="IsPushed" Value="false">
+                <Setter Property="Fill" Value="DarkRed" />
             </Trigger>
         </Style.Triggers>
-        <Setter Property="Fill" Value="DarkRed" />
+        <Setter Property="Fill" Value="Red" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:ButtonIndicator}">
