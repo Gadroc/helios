@@ -112,7 +112,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DirectX
                         }
 
                         _device = newDevice;
-                        _device.SetCooperativeLevel(_hWnd, CooperativeLevel.Background | CooperativeLevel.Exclusive);
+                        //_device.SetCooperativeLevel(_hWnd, CooperativeLevel.Background | CooperativeLevel.Exclusive);
                         //_device.SetDataFormat(DeviceDataFormat.Joystick);
                         _device.Acquire();
 

@@ -1,0 +1,9 @@
+﻿<Window x:Class="GadrocsWorkshop.Helios.ControlCenter.HotKeyDetector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HotKeyDetector" Height="Auto" Width="Auto" WindowStyle="None" Background="LightGray" Name="HotKeyDetectorWindow" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight">
+    <StackPanel Margin="10,15">
+        <TextBlock>Please press your desired hotkey now.</TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Text="{Binding ElementName=HotKeyDetectorWindow,Path=HotKeyDescription}" Margin="5" />
+    </StackPanel>
+</Window>

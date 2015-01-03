@@ -62,11 +62,13 @@ namespace GadrocsWorkshop.Helios
             ConfigManager.LogManager.LogDebug("Loading Modules");
 
             LoadModule(Assembly.GetExecutingAssembly());
-            //LoadModule("A10GaugePack.dll");
-            //LoadModule("F16GaugePack.dll");
-            //LoadModule("KA50GaugePack.dll");
-            //LoadModule("HeliosPhidgets.dll");
-            //LoadModule("EOSInterface.dll");
+
+            // Check for Phidgets dll and load phidgets assembly if it's loaded
+            String phidgetsDllPath = Path.Combine(Environment.SystemDirectory, "phidget21.dll");
+            if (File.Exists("Phidgets.dll") && File.Exists(phidgetsDllPath))
+            {
+                LoadModule("Phidgets.dll");
+            }
 
             if (RenderCapability.Tier == 0)
             {

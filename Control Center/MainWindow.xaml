@@ -1,0 +1,146 @@
+﻿<Window x:Class="GadrocsWorkshop.Helios.ControlCenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ControlCenter"
+    Title="Helios Control Center"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    Height="316" Width="525" Background="Red" WindowStyle="None" ResizeMode="NoResize" Name="HeliosWindow" Icon="Icon.png" Topmost="True" Loaded="Widnow_Loaded" ContentRendered="Window_Opened">
+    <Window.Resources>
+
+        <Style TargetType="{x:Type CheckBox}" x:Key="HeliosSwitchStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Grid>
+                            <Image x:Name="ButtonImage" Source="ControlCenterPowerOff.png" Width="32"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="ButtonImage" Property="Source" Value="ControlCenterPower.png"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="HeliosRoundPushButtonStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Name="ButtonImage" Source="ControlCenterDelete.png" Stretch="Fill" />
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonImage" Property="Source" Value="ControlCenterDeletePressed.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="HeliosPushButtonStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Name="ButtonImage" Source="ControlCenterButton.png" Stretch="Fill" />
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonImage" Property="Source" Value="ControlCenterButtonPressed.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="HeliosPrevButtonStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Name="ButtonImage" Source="PrevButton.png" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonImage" Property="Source" Value="PrevButtonPressed.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="HeliosNextButtonStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Name="ButtonImage" Source="NextButton.png" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonImage" Property="Source" Value="NextButtonPressed.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="local:ControlCenterCommands.OpenControlCenter" Executed="OpenControlCenter_Executed" />
+        <CommandBinding Command="local:ControlCenterCommands.StartProfile" CanExecute="StartProfile_CanExecute" Executed="StartProfile_Executed" />
+        <CommandBinding Command="local:ControlCenterCommands.StopProfile" CanExecute="StopProfile_CanExecute" Executed="StopProfile_Executed" />
+        <CommandBinding Command="local:ControlCenterCommands.ResetProfile" CanExecute="ResetProfile_CanExecute" Executed="ResetProfile_Executed" />
+        <CommandBinding Command="local:ControlCenterCommands.TogglePreferences" Executed="TogglePreferences_Executed" />
+        <CommandBinding Command="local:ControlCenterCommands.PreviousProfile" Executed="PrevProfile_Executed" />
+        <CommandBinding Command="local:ControlCenterCommands.NextProfile" Executed="NextProfile_Executed" />
+        <CommandBinding Command="local:ControlCenterCommands.DeleteProfile" Executed="DeleteProfile_Executed" />
+        <CommandBinding Command="local:ControlCenterCommands.RunProfile" Executed="RunProfile_Executed" />
+        <CommandBinding Command="Close" Executed="Close_Executed" />
+    </Window.CommandBindings>
+    <Grid Name="WindowGrid">
+
+        <StackPanel Margin="0">
+            <Canvas Name="ControlCenterCanvas" Margin="0" Height="277" Width="504">
+                <Image Source="ControlCenterBackground.png" Canvas.Top="0" Canvas.Left="0" />
+                <Thumb Name="ControlCenterDragThumb" Width="504" Height="277" Opacity="0"  DragDelta="MoveThumb_DragDelta" />
+                <Button Canvas.Left="70" Canvas.Top="171" Height="50" Name="StartButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StartProfile"/>
+                <Button Canvas.Left="161" Canvas.Top="171" Height="50" Name="StopButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StopProfile"/>
+                <Button Canvas.Left="254" Canvas.Top="171" Height="50" Name="ResetProfileButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.ResetProfile" />
+                <Button Canvas.Left="413" Canvas.Top="49" Height="50" Name="PrefsButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.TogglePreferences" />
+                <Button Canvas.Left="323" Canvas.Top="26" Height="50" Name="PrevButton" Width="50" Style="{StaticResource HeliosPrevButtonStyle}" Command="local:ControlCenterCommands.PreviousProfile" />
+                <Button Canvas.Left="323" Canvas.Top="82" Height="50" Name="NextButton" Width="50" Style="{StaticResource HeliosNextButtonStyle}" Command="local:ControlCenterCommands.NextProfile" />
+                <Button Canvas.Left="413" Canvas.Top="171" Height="50" Name="DeleteButton" Width="50" Style="{StaticResource HeliosRoundPushButtonStyle}" Command="local:ControlCenterCommands.DeleteProfile" />
+                <CheckBox Canvas.Left="7" Canvas.Top="30" Height="100" Name="PowerButton" Width="50" Style="{StaticResource HeliosSwitchStyle}" IsChecked="True" Unchecked="PowerButton_Unchecked" />
+                <TextBlock Canvas.Left="76" Canvas.Top="36" Height="29" Name="ProfileName" Text="{Binding SelectedProfileName}" Width="223" Foreground="#FF79CC87" FontFamily="Franklin Gothic" FontSize="20" />
+                <TextBlock Canvas.Left="76" Canvas.Top="71" Height="53" Name="MesssgeText" Text="{Binding Message}" Width="223" FontFamily="Franklin Gothic" Foreground="#FF79CC87" FontSize="10" TextWrapping="Wrap" />
+                <Button Canvas.Left="40" Canvas.Top="242" Content="Hide" FontWeight="Bold" Foreground="White" Height="25" Style="{StaticResource HeliosPushButtonStyle}" Width="80" Click="Button_Click" />
+            </Canvas>
+            <Canvas Name="PreferencesCanvas" Margin="0" Height="200" Width="504" Visibility="Collapsed">
+                <Image Source="PreferencesBackground.png" />
+                <Thumb Name="PrefsDragThumb" Width="504" Height="200" Opacity="0" DragDelta="MoveThumb_DragDelta" />
+                <CheckBox Canvas.Left="39" Canvas.Top="50" Height="100" Name="MinimizeCheckBox" Width="50" Style="{StaticResource HeliosSwitchStyle}" Checked="MinimizeCheckBox_Checked" Unchecked="MinimizeCheckBox_Unchecked" />
+                <CheckBox Canvas.Left="142" Canvas.Top="50" Height="100" Name="AutoStartCheckBox" Width="50" Style="{StaticResource HeliosSwitchStyle}" Checked="AutoStartCheckBox_Checked" Unchecked="AutoStartCheckBox_Unchecked" />
+                <CheckBox Canvas.Left="256" Canvas.Top="50" Height="100" Name="AutoHideCheckBox" Width="50" Style="{StaticResource HeliosSwitchStyle}" Checked="AutoHideCheckBox_Checked" Unchecked="AutoHideCheckBox_Unchecked" />
+                <Rectangle Fill="White" Width="110" Height="2" Canvas.Left="351" Canvas.Top="37" />
+                <TextBlock FontFamily="Franklin Gothic" FontSize="12" Text="HOTKEY" Foreground="White" Canvas.Left="386" Canvas.Top="31" Width="50" TextAlignment="Center" Background="#FF202020" />
+                <Rectangle Fill="Black" Width="153" Height="36" Canvas.Left="332" Canvas.Top="120" />
+                <TextBlock FontFamily="Franklin Gothic" FontSize="10" Text="SET" Foreground="White" Canvas.Left="344" Canvas.Top="57" Width="50" TextAlignment="Center" />
+                <TextBlock FontFamily="Franklin Gothic" FontSize="10" Text="CLEAR" Foreground="White" Canvas.Left="416" Canvas.Top="57" Width="50" TextAlignment="Center" />
+                <TextBlock FontFamily="Franklin Gothic" Foreground="LimeGreen" FontSize="11" Text="{Binding HotKeyDescription}" Canvas.Left="333" Canvas.Top="124" Width="150" TextAlignment="Center" Height="28" TextWrapping="Wrap" />
+                <Button Canvas.Left="351" Canvas.Top="74" Height="40" Name="SetHotkey" Width="40" Style="{StaticResource HeliosPushButtonStyle}" Click="SetHotkey_Click" />
+                <Button Canvas.Left="423" Canvas.Top="74" Height="40" Name="ClearHotkey" Width="40" Style="{StaticResource HeliosPushButtonStyle}" Click="ClearHotkey_Click" />
+            </Canvas>
+        </StackPanel>
+
+    </Grid>
+</Window>
