@@ -49,6 +49,9 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EosSharp">
+      <HintPath>..\packages\EosSharp.1.0.5397.30074\lib\net45\EosSharp.dll</HintPath>
+    </Reference>
     <Reference Include="KeraLua" Condition="'$(Platform)' == 'x86'">
       <HintPath>..\packages\NLua.1.3.0.2\lib\net45\x86\KeraLua.dll</HintPath>
     </Reference>
@@ -393,6 +396,23 @@
     </Compile>
     <Compile Include="Interfaces\DirectX\DirectXControllerInterfaceFactory.cs" />
     <Compile Include="Interfaces\DirectX\DirectXControllerPOVHat.cs" />
+    <Compile Include="Interfaces\Eos\EosAnalogInput.cs" />
+    <Compile Include="Interfaces\Eos\EosBacklight.cs" />
+    <Compile Include="Interfaces\Eos\EosBoard.cs" />
+    <Compile Include="Interfaces\Eos\EosBusType.cs" />
+    <Compile Include="Interfaces\Eos\EosDigitalInput.cs" />
+    <Compile Include="Interfaces\Eos\EosDirectSerial.cs" />
+    <Compile Include="Interfaces\Eos\EosDirectSerialEditor.xaml.cs">
+      <DependentUpon>EosDirectSerialEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Eos\EosInput.cs" />
+    <Compile Include="Interfaces\Eos\EosInputCollection.cs" />
+    <Compile Include="Interfaces\Eos\EosLedOutput.cs" />
+    <Compile Include="Interfaces\Eos\EosOutput.cs" />
+    <Compile Include="Interfaces\Eos\EosOutputCollection.cs" />
+    <Compile Include="Interfaces\Eos\EosServo.cs" />
+    <Compile Include="Interfaces\Eos\EosStepper.cs" />
+    <Compile Include="Interfaces\Eos\EosTextOutput.cs" />
     <Compile Include="Interfaces\Falcon\AlliedForces\AlliedForcesDataExporter.cs" />
     <Compile Include="Interfaces\Falcon\AlliedForces\FlightData.cs" />
     <Compile Include="Interfaces\Falcon\BMS\BMSFalconDataExporter.cs" />
@@ -476,6 +496,7 @@
     <Compile Include="UnitConverters\RadianToDegreesConverter.cs" />
     <Compile Include="UnitConverters\SpeedConverter.cs" />
     <Compile Include="UnitConverters\TimeConverter.cs" />
+    <Compile Include="Windows\Controls\AnalogBar.cs" />
     <Compile Include="Windows\Controls\AxisBar.cs" />
     <Compile Include="Windows\Controls\ButtonIndicator.cs" />
     <Compile Include="IProfileManager.cs" />
@@ -545,6 +566,9 @@
     <Compile Include="Util\Resources.cs" />
     <Compile Include="Util\SharedMemory.cs" />
     <Compile Include="VersionChecker.cs" />
+    <Compile Include="Windows\Controls\CalibrationEditorLong.xaml.cs">
+      <DependentUpon>CalibrationEditorLong.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Controls\ColorPicker.cs" />
     <Compile Include="Windows\Controls\ColorPickerDialog.xaml.cs">
       <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
@@ -553,6 +577,7 @@
     <Compile Include="Windows\Controls\ColorWell.xaml.cs">
       <DependentUpon>ColorWell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Controls\DigitalInputIndicator.cs" />
     <Compile Include="Windows\Controls\FontChooserDialog.xaml.cs">
       <DependentUpon>FontChooserDialog.xaml</DependentUpon>
     </Compile>
@@ -1879,6 +1904,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Interfaces\Eos\EosDirectSerialEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Interfaces\Falcon\FalconCallbackValueEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1914,6 +1943,10 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\CalibrationEditorLong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Controls\ColorPickerDialog.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="GadrocsWorkshop.Helios.Windows.Controls.CalibrationEditorLong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls" 
+             Name="CalibrationEditor"             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="46" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0">Input Value</Label>
+        <Label Grid.Row="0" Grid.Column="1">Target Position</Label>
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding ElementName=CalibrationEditor,Path=Calibration}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="46" />
+                            </Grid.ColumnDefinitions>
+
+                            <HeliosSdk:HeliosTextBox Grid.Column="0" Margin="2" Text="{Binding Path=Value}" />
+                            <HeliosSdk:HeliosTextBox Grid.Column="1" Margin="2" Text="{Binding Path=Multiplier}" TextChanged="OutputChange"/>
+                            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                                <Button Width="20" Height="20" Padding="2" Margin="2" VerticalAlignment="Center" VerticalContentAlignment="Stretch" Tag="{Binding}" Click="AddCalibrationPoint">
+                                    <TextBlock VerticalAlignment="Center">+</TextBlock>
+                                </Button>
+                                <Button Width="20" Height="20" Padding="2" Margin="2" VerticalAlignment="Center" VerticalContentAlignment="Stretch" Tag="{Binding}" Click="RemoveCalibrationPoint">
+                                    <TextBlock VerticalAlignment="Center">-</TextBlock>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

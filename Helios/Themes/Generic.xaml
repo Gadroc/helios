@@ -754,4 +754,43 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type controls:DigitalInputIndicator}">
+        <Style.Triggers>
+            <Trigger Property="IsOn" Value="true">
+                <Setter Property="Fill" Value="Red" />
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="Fill" Value="DarkRed" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:DigitalInputIndicator}">
+                    <Grid>
+                        <Ellipse Fill="{TemplateBinding Fill}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        <TextBlock Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Label}" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type controls:AnalogBar}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:AnalogBar}">
+                    <Grid>
+                        <Border HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Width="{TemplateBinding BarWidth}">
+                            <Rectangle Fill="{TemplateBinding Fill}" Width="{TemplateBinding FillWidth}" Height="{TemplateBinding FillHeight}" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                        </Border>
+                        <TextBlock Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Label}" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
