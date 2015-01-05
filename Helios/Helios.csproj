@@ -34,6 +34,9 @@
     <Reference Include="EosSharp">
       <HintPath>..\packages\EosSharp.1.0.5397.30074\lib\net45\EosSharp.dll</HintPath>
     </Reference>
+    <Reference Include="HidSharp">
+      <HintPath>..\packages\HidSharp.1.5\lib\net35\HidSharp.dll</HintPath>
+    </Reference>
     <Reference Include="KeraLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=04d04586786c6f34, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NLua.1.3.2.1\lib\net45\KeraLua.dll</HintPath>
@@ -374,6 +377,9 @@
     </Compile>
     <Compile Include="Interfaces\DirectX\DirectXControllerInterfaceFactory.cs" />
     <Compile Include="Interfaces\DirectX\DirectXControllerPOVHat.cs" />
+    <Compile Include="Interfaces\DTSCard\DTSCard.cs" />
+    <Compile Include="Interfaces\DTSCard\DTSCardInterface.cs" />
+    <Compile Include="Interfaces\DTSCard\DTSCardFactory.cs" />
     <Compile Include="Interfaces\Eos\EosAnalogInput.cs" />
     <Compile Include="Interfaces\Eos\EosBacklight.cs" />
     <Compile Include="Interfaces\Eos\EosBoard.cs" />
