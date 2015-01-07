@@ -23,6 +23,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DTSCard
     {
         private string _serialNumber;
         private HeliosValue _angle;
+        private DTSCard _card;
 
         public DTSCardInterface() : base("DTS Card")
         {
@@ -55,7 +56,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DTSCard
             }
         }
 
-        public Double Angle
+        public double Angle
         {
             get
             {
@@ -65,19 +66,57 @@ namespace GadrocsWorkshop.Helios.Interfaces.DTSCard
             {
                 if (!_angle.Value.DoubleValue.Equals(value))
                 {
-                    Double oldValue = _angle.Value.DoubleValue;
+                    double oldValue = _angle.Value.DoubleValue;
                     _angle.SetValue(new BindingValue(value), BypassTriggers);
                     OnPropertyChanged("Angle", oldValue, value, false);
                 }
             }
         }
 
+        private DTSCard Card
+        {
+            get
+            {
+                if (_card == null)
+                {
+                    _card = new DTSCard(SerialNumber);
+                }
+                return _card;
+            }
+        }
+
         #endregion
+
+
+        protected override void OnProfileChanged(HeliosProfile oldProfile)
+        {
+            if (oldProfile != null)
+            {
+                oldProfile.ProfileStarted -= Profile_ProfileStarted;
+                oldProfile.ProfileStopped -= Profile_ProfileStopped;
+            }
+
+            Profile.ProfileStarted += Profile_ProfileStarted;
+            Profile.ProfileStopped += Profile_ProfileStopped;
+            base.OnProfileChanged(oldProfile);
+        }
+
+        void Profile_ProfileStopped(object sender, EventArgs e)
+        {
+            Card.dispose();
+        }
+
+        void Profile_ProfileStarted(object sender, EventArgs e)
+        {
+            Card.initialize();
+            Card.setAngle(Angle); 
+        }
 
         void Angle_Execute(object action, HeliosActionEventArgs e)
         {
             BeginTriggerBypass(e.BypassCascadingTriggers);
             Angle = e.Value.DoubleValue;
+            Card.setAngle(e.Value.DoubleValue);
             EndTriggerBypass(e.BypassCascadingTriggers);
         }
 

@@ -103,17 +103,18 @@ namespace GadrocsWorkshop.Helios.Interfaces.DTSCard
         /// <returns>True if update is sucessful, false if there was a problem.</returns>
         public bool initialize()
         {
-            _device = null;
-
-            if (_device != null) 
+            if (_device == null) 
             {
-                HidDeviceLoader deviceLoader = new HidDeviceLoader();
-                foreach (HidDevice device in deviceLoader.GetDevices(0x04d8, 0xf64e))
+                dispose();
+            }
+
+            HidDeviceLoader deviceLoader = new HidDeviceLoader();
+            foreach (HidDevice device in deviceLoader.GetDevices(0x04d8, 0xf64e))
+            {
+                if (device.SerialNumber.Equals(SerialNumber))
                 {
-                    if (device.SerialNumber.Equals(SerialNumber))
-                    {
-                        _device = device;
-                    }
+                    _device = device;
+                    break;
                 }
             }
 
