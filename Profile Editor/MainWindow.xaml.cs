@@ -342,15 +342,14 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 document.IsSelected = true;
                 document.ContentId = HeliosSerializer.GetReferenceName(profileObject);
                 document.Content = CreateDocumentContent(editor);
-                document.Closed += Document_Closed;
                 DocumentPane.Children.Add(document);
+                document.Closed += Document_Closed;
 
+                meta = AddDocumentMeta(profileObject, document, editor);
                 profileObject.PropertyChanged += DocumentObject_PropertyChanged;
-
-                return AddDocumentMeta(profileObject, document, editor);
             }
 
-            return null;
+            return meta;
         }
         
         private HeliosEditorDocument CreateDocumentEditor(HeliosObject profileObject)
@@ -407,6 +406,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             }
 
             meta.editor.Closed();
+            meta.hobj.PropertyChanged -= DocumentObject_PropertyChanged;
             meta.document.Closed -= Document_Closed;
 
             _documents.Remove(meta);
