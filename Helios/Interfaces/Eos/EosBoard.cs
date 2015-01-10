@@ -558,7 +558,15 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
                     byte number = byte.Parse(reader.GetAttribute("Number"));
                     EosServo output = new EosServo(this, number);
                     output.Name = reader.GetAttribute("Name");
-                    reader.ReadStartElement("ServoOutput");
+                    // TODO: Deprectated fix for bad element name... remove after 1.6
+                    if (reader.Name.Equals("ServerOutput"))
+                    {
+                        reader.ReadStartElement("ServerOutput");
+                    }
+                    else
+                    {
+                        reader.ReadStartElement("ServoOutput");
+                    }                    
                     output.Calibration.Read(reader);
                     reader.ReadEndElement();
                     _servoOutputs.Add(output);
@@ -594,25 +602,28 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
             }
             StepperOutputCount = (byte)StepperOutputs.Count;
 
-            if (!reader.IsEmptyElement)
+            if (reader.Name.Equals("CoilOutputs"))
             {
-                reader.ReadStartElement("CoilOutputs");
-                while (reader.NodeType != XmlNodeType.EndElement)
+                if (!reader.IsEmptyElement)
                 {
-                    byte number = byte.Parse(reader.GetAttribute("Number"));
-                    EosCoilOutput output = new EosCoilOutput(this, number);
-                    output.Name = reader.GetAttribute("Name");
-                    reader.ReadStartElement("CoilOutput");
-                    output.Calibration.Read(reader);
+                    reader.ReadStartElement("CoilOutputs");
+                    while (reader.NodeType != XmlNodeType.EndElement)
+                    {
+                        byte number = byte.Parse(reader.GetAttribute("Number"));
+                        EosCoilOutput output = new EosCoilOutput(this, number);
+                        output.Name = reader.GetAttribute("Name");
+                        reader.ReadStartElement("CoilOutput");
+                        output.Calibration.Read(reader);
+                        reader.ReadEndElement();
+                        _coilOutputs.Add(output);
+                        _outputs.Add(output);
+                    }
                     reader.ReadEndElement();
-                    _coilOutputs.Add(output);
-                    _outputs.Add(output);
                 }
-                reader.ReadEndElement();
-            }
-            else
-            {
-                reader.Read();
+                else
+                {
+                    reader.Read();
+                }
             }
             CoilOutputCount = (byte)CoilOutputs.Count;
         }

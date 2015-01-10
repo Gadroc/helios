@@ -72,27 +72,30 @@ namespace GadrocsWorkshop.Helios.Interfaces.DirectX
                     DirectXControllerGuid newDeviceId = value;
                     Joystick newDevice = null;
 
-                    newDevice = new Joystick(DirectXControllerInterfaceFactory.DirectInput, newDeviceId.InstanceGuid);
+                    try
+                    {
+                        newDevice = new Joystick(DirectXControllerInterfaceFactory.DirectInput, newDeviceId.InstanceGuid);
+                    }
+                    catch (SharpDX.SharpDXException)
+                    {
+                        //    // Check to see if any enumerable controllers have the same DisplayName
+                        //    DeviceList gameControllerList = Manager.GetDevices(DeviceClass.GameControl, EnumDevicesFlags.AttachedOnly);
+                        //    if (gameControllerList.Count > 0)
+                        //    {
+                        //        while (gameControllerList.MoveNext())
+                        //        {
+                        //            DeviceInstance joystickInstance = (DeviceInstance)gameControllerList.Current;
+                        //            DirectXControllerGuid joystickId = new DirectXControllerGuid(joystickInstance.ProductName, joystickInstance.InstanceGuid);
+                        //            if (joystickId.ProductName.Equals(newDeviceId.ProductName))
+                        //            {
+                        //                newDeviceId = joystickId;
+                        //                newDevice = new Device(newDeviceId.InstanceGuid);
+                        //                break;
+                        //            }
+                        //        }
+                        //    }
+                    }
 
-                    //catch (DeviceNotRegisteredException)
-                    //{
-                    //    // Check to see if any enumerable controllers have the same DisplayName
-                    //    DeviceList gameControllerList = Manager.GetDevices(DeviceClass.GameControl, EnumDevicesFlags.AttachedOnly);
-                    //    if (gameControllerList.Count > 0)
-                    //    {
-                    //        while (gameControllerList.MoveNext())
-                    //        {
-                    //            DeviceInstance joystickInstance = (DeviceInstance)gameControllerList.Current;
-                    //            DirectXControllerGuid joystickId = new DirectXControllerGuid(joystickInstance.ProductName, joystickInstance.InstanceGuid);
-                    //            if (joystickId.ProductName.Equals(newDeviceId.ProductName))
-                    //            {
-                    //                newDeviceId = joystickId;
-                    //                newDevice = new Device(newDeviceId.InstanceGuid);
-                    //                break;
-                    //            }
-                    //        }
-                    //    }
-                    //}
 
                     if (newDeviceId == null)
                     {

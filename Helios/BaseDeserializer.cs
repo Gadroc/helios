@@ -54,7 +54,10 @@ namespace GadrocsWorkshop.Helios
                 case "Interface":
                     HeliosInterfaceDescriptor descriptor = ConfigManager.ModuleManager.InterfaceDescriptors[typeId];
                     HeliosInterface heliosInterface = descriptor != null ? descriptor.CreateInstance() : null;
-                    heliosInterface.Dispatcher = _dispatcher;
+                    if (heliosInterface != null)
+                    {
+                        heliosInterface.Dispatcher = _dispatcher;
+                    }                    
                     return heliosInterface;
 
                 case "Binding":
