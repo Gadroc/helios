@@ -150,7 +150,19 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
 
         void DockManager_ActiveDocumentChanged(object sender, EventArgs e)
         {
-            HeliosEditorDocument activeDocument = DockManager.ActiveContent as HeliosEditorDocument;
+            HeliosEditorDocument activeDocument = null;
+
+            // Interface Editor documents are embeded in a scrollviewer.  Unwrap them if they are
+            // the current content.
+            ScrollViewer viewer = DockManager.ActiveContent as ScrollViewer;
+            if (viewer != null)
+            {
+                activeDocument = viewer.Content as HeliosEditorDocument;
+            }
+            else
+            {
+                activeDocument = DockManager.ActiveContent as HeliosEditorDocument;
+            }            
             if (activeDocument != null)
             {
                 if (activeDocument != CurrentEditor)
@@ -656,7 +668,6 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
 
         private void OpenProfileItem_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            // TODO Why do I do this?
             DocumentMeta meta = AddNewDocument(e.Parameter as HeliosObject);
             if (meta != null)
             {
