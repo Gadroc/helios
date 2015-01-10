@@ -75,6 +75,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
             AnalogInputsTab.IsEnabled = board.AnalogInputCount > 0;
             ServoTab.IsEnabled = board.ServoOutputCount > 0;
             StepperTab.IsEnabled = board.StepperOutputCount > 0;
+            CoilTab.IsEnabled = board.CoilOutputCount > 0;
 
             if (board.ServoOutputCount > 0)
             {
@@ -84,6 +85,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
             if (board.StepperOutputCount > 0)
             {
                 StepperSelector.SelectedIndex = 0;
+            }
+
+            if (board.CoilOutputCount > 0)
+            {
+                CoilSelector.SelectedIndex = 0;
             }
 
             TabItem selectedTab = PropertyTab.SelectedItem as TabItem;
@@ -184,6 +190,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
         private void StepperTestValueChanged(object sender, TextChangedEventArgs e)
         {
             (this.StepperSelector.SelectedItem as EosStepper).StepperValue.ExecuteAction(new BindingValue(this.StepperTestTextBox.Text), true);
+        }
+
+        private void CoilTestValueChanged(object sender, TextChangedEventArgs e)
+        {
+            (this.CoilSelector.SelectedItem as EosCoilOutput).CoilValue.ExecuteAction(new BindingValue(this.CoilTestTextBox.Text), true);
         }
 
         private void Zero_Click(object sender, RoutedEventArgs e)

@@ -31,8 +31,9 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EosSharp">
-      <HintPath>..\packages\EosSharp.1.0.5397.30074\lib\net45\EosSharp.dll</HintPath>
+    <Reference Include="EosSharp, Version=1.1.5488.21795, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EosSharp.1.1.5488.21795\lib\net45\EosSharp.dll</HintPath>
     </Reference>
     <Reference Include="HidSharp">
       <HintPath>..\packages\HidSharp.1.5\lib\net35\HidSharp.dll</HintPath>
@@ -384,6 +385,7 @@
     <Compile Include="Interfaces\Eos\EosBacklight.cs" />
     <Compile Include="Interfaces\Eos\EosBoard.cs" />
     <Compile Include="Interfaces\Eos\EosBusType.cs" />
+    <Compile Include="Interfaces\Eos\EosCoilOutput.cs" />
     <Compile Include="Interfaces\Eos\EosDigitalInput.cs" />
     <Compile Include="Interfaces\Eos\EosDirectSerial.cs" />
     <Compile Include="Interfaces\Eos\EosDirectSerialEditor.xaml.cs">

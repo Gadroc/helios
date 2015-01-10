@@ -381,6 +381,66 @@
                             </Grid>
                         </Grid>
                     </TabItem>
+                    <TabItem Header="Coils" Name="CoilTab" IsEnabled="false">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="4*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                                <Label HorizontalAlignment="Right">Stepper</Label>
+                                <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Name="CoilSelector" ItemsSource="{Binding ElementName=BoardListBox, Path=SelectedItem.CoilOutputs}" DisplayMemberPath="Number" />
+                            </StackPanel>
+
+                            <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">Properties</Label>
+                            <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">Calibration</Label>
+
+                            <Grid Grid.Row="3" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" >Name</Label>
+                                <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Text="{Binding ElementName=CoilSelector, Path=SelectedItem.Name}" />
+                            </Grid>
+
+                            <Grid Grid.Row="3" Grid.Column="1" Margin="5,0,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Input calibration allows you to map arbitrary input unit types to steps of your servo motor.  It also allows for non-linear settings of gauge faces.</TextBlock>
+
+                                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                    <Label HorizontalAlignment="Right">
+                                        <Label.Content>Test Value</Label.Content>
+                                    </Label>
+                                    <TextBox Name="CoilTestTextBox" Grid.Column="1" Grid.Row="5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" MaxWidth="120" TextChanged="CoilTestValueChanged" />
+                                </StackPanel>
+
+                                <HeliosSdk:CalibrationEditorLong x:Name="CoilCalibrationEditor" Grid.Row="2" VerticalAlignment="Stretch" Calibration="{Binding ElementName=CoilSelector, Path=SelectedItem.Calibration}" />
+
+                            </Grid>
+                        </Grid>
+                    </TabItem>
                 </TabControl>
             </Grid>
         </GroupBox>

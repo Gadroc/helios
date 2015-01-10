@@ -37,6 +37,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
         private byte _textOutputCount;
         private byte _servoCount;
         private byte _stepperCount;
+        private byte _coilCount;
 
         private EosInputCollection _inputs = new EosInputCollection();
         private EosOutputCollection _outputs = new EosOutputCollection();
@@ -46,6 +47,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
         private List<EosTextOutput> _textOutputs = new List<EosTextOutput>();
         private List<EosServo> _servoOutputs = new List<EosServo>();
         private List<EosStepper> _stepperOutputs = new List<EosStepper>();
+        private List<EosCoilOutput> _coilOutputs = new List<EosCoilOutput>();
 
         public EosBoard(EosDirectSerial eosInterface, byte address, string name)
         {
@@ -84,6 +86,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
                 TextOutputCount = _device.AlpahNumbericDisplays;
                 ServoOutputCount = _device.ServoMotors;
                 StepperOutputCount = _device.StepperMotors;
+                CoilOutputCount = _device.CoilOutputs;
             }
         }
 
@@ -320,6 +323,38 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
             }
         }
 
+        public byte CoilOutputCount
+        {
+            get
+            {
+                return _coilCount;
+            }
+            private set
+            {
+                if (_coilCount != value)
+                {
+                    byte oldValue = _coilCount;
+                    _coilCount = value;
+
+                    for (byte i = oldValue; i < _coilCount; i++)
+                    {
+                        EosCoilOutput output = new EosCoilOutput(this, i);
+                        _coilOutputs.Add(output);
+                        _outputs.Add(output);
+                    }
+
+                    while (_coilOutputs.Count > _coilCount)
+                    {
+                        EosCoilOutput output = _coilOutputs.Last();
+                        _coilOutputs.Remove(output);
+                        _outputs.Remove(output);
+                    }
+
+                    OnPropertyChanged("CoilOutputCount", oldValue, value, false);
+                }
+            }
+        }
+
         public byte AnalogInputCount
         {
             get
@@ -407,6 +442,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
         public List<EosStepper> StepperOutputs
         {
             get { return _stepperOutputs; }
+        }
+
+        public List<EosCoilOutput> CoilOutputs
+        {
+            get { return _coilOutputs; }
         }
 
         public List<EosTextOutput> TextOutputs
@@ -518,7 +558,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
                     byte number = byte.Parse(reader.GetAttribute("Number"));
                     EosServo output = new EosServo(this, number);
                     output.Name = reader.GetAttribute("Name");
-                    reader.ReadStartElement("ServerOutput");
+                    reader.ReadStartElement("ServoOutput");
                     output.Calibration.Read(reader);
                     reader.ReadEndElement();
                     _servoOutputs.Add(output);
@@ -554,6 +594,27 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
             }
             StepperOutputCount = (byte)StepperOutputs.Count;
 
+            if (!reader.IsEmptyElement)
+            {
+                reader.ReadStartElement("CoilOutputs");
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    byte number = byte.Parse(reader.GetAttribute("Number"));
+                    EosCoilOutput output = new EosCoilOutput(this, number);
+                    output.Name = reader.GetAttribute("Name");
+                    reader.ReadStartElement("CoilOutput");
+                    output.Calibration.Read(reader);
+                    reader.ReadEndElement();
+                    _coilOutputs.Add(output);
+                    _outputs.Add(output);
+                }
+                reader.ReadEndElement();
+            }
+            else
+            {
+                reader.Read();
+            }
+            CoilOutputCount = (byte)CoilOutputs.Count;
         }
 
         public void WriteXml(System.Xml.XmlWriter writer)
@@ -613,6 +674,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
             foreach (EosStepper output in StepperOutputs)
             {
                 writer.WriteStartElement("StepperOutput");
+                writer.WriteAttributeString("Number", output.Number.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                writer.WriteAttributeString("Name", output.Name);
+                output.Calibration.Write(writer);
+                writer.WriteEndElement();
+            }
+            writer.WriteEndElement();
+
+            writer.WriteStartElement("CoilOutputs");
+            foreach (EosStepper output in StepperOutputs)
+            {
+                writer.WriteStartElement("CoilOutput");
                 writer.WriteAttributeString("Number", output.Number.ToString(System.Globalization.CultureInfo.InvariantCulture));
                 writer.WriteAttributeString("Name", output.Name);
                 output.Calibration.Write(writer);
