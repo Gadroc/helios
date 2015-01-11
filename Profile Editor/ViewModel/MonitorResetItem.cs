@@ -112,7 +112,6 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.ViewModel
             OldMonitor.Orientation = display.Orientation;
 
             double scale = Math.Min(display.Width / _oldWidth, display.Height / _oldHeight);
-            Console.WriteLine("Scaling to " + scale);
             foreach (HeliosVisual visual in OldMonitor.Children)
             {
                 if (Scale)
@@ -148,7 +147,6 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.ViewModel
                 while (newMonitor.Children.ContainsKey(name))
                 {
                     name = visual.Name + " " + i++;
-                    Console.WriteLine(name);
                 }
                 visual.Name = name;
 

@@ -54,7 +54,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DirectX
                 foreach (KeyValuePair<DirectXControllerButton, ButtonIndicator> pair in _buttons)
                 {
                     pair.Value.IsPushed = pair.Key.GetValue(state);
-                    Console.WriteLine(pair.Key.Name + " - " + (pair.Value.IsPushed ? "true" : "false"));
                 }
 
                 foreach (KeyValuePair<DirectXControllerAxis, AxisBar> pair in _axis)

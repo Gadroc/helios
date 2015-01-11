@@ -237,7 +237,6 @@ namespace GadrocsWorkshop.Helios
 
         void Item_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            Console.WriteLine("Changed");
             OnCalibrationChanged();
         }
 

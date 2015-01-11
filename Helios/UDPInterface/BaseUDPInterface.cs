@@ -231,12 +231,6 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                 if (_functionsById.ContainsKey(_tokens[i]))
                 {
                     NetworkFunction function = _functionsById[_tokens[i]];
-#if DEBUG
-                                if (function.IsDebugMode)
-                                {
-                                    Console.WriteLine(_tokens[i] + " = " + _tokens[i + 1]);
-                                }
-#endif
                     function.ProcessNetworkData(_tokens[i], _tokens[i + 1]);
                 }
                 else
