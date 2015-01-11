@@ -693,7 +693,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
             writer.WriteEndElement();
 
             writer.WriteStartElement("CoilOutputs");
-            foreach (EosStepper output in StepperOutputs)
+            foreach (EosCoilOutput output in CoilOutputs)
             {
                 writer.WriteStartElement("CoilOutput");
                 writer.WriteAttributeString("Number", output.Number.ToString(System.Globalization.CultureInfo.InvariantCulture));
