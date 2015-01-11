@@ -21,6 +21,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading;
     using System.Xml;
 
     [HeliosInterface("Helios.EOS.DirectSerial", "EOS Bus", typeof(EosDirectSerialEditor))]
@@ -382,6 +383,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.Eos
         private void Profile_ProfileStarted(object sender, EventArgs e)
         {
             Connect();
+            // Prevent profile from continuing until bus is initialized.
+            Thread.Sleep(250);
+            while (IsScanning)
+            {
+                Thread.Sleep(250);
+            }
         }
 
         private void Profile_ProfileStopped(object sender, EventArgs e)

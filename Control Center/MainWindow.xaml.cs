@@ -357,7 +357,22 @@ namespace GadrocsWorkshop.Helios.ControlCenter
         {
             if (ActiveProfile != null && !ActiveProfile.IsStarted)
             {
-                Message = "Running Profile";
+                ActiveProfile.ControlCenterShown += Profile_ShowControlCenter;
+                ActiveProfile.ControlCenterHidden += Profile_HideControlCenter;
+                ActiveProfile.ProfileStopped += new EventHandler(Profile_ProfileStopped);
+
+                ActiveProfile.Dispatcher = Dispatcher;
+                ActiveProfile.Start();
+
+                if (_dispatcherTimer != null)
+                {
+                    _dispatcherTimer.Stop();
+                }
+
+                _dispatcherTimer = new DispatcherTimer();
+                _dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 33);
+                _dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
+                _dispatcherTimer.Start();
 
                 foreach (Monitor monitor in ActiveProfile.Monitors)
                 {
@@ -377,23 +392,6 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                     }
                 }
 
-                ActiveProfile.ControlCenterShown += Profile_ShowControlCenter;
-                ActiveProfile.ControlCenterHidden += Profile_HideControlCenter;
-                ActiveProfile.ProfileStopped += new EventHandler(Profile_ProfileStopped);
-
-                ActiveProfile.Dispatcher = Dispatcher;
-                ActiveProfile.Start();
-
-                if (_dispatcherTimer != null)
-                {
-                    _dispatcherTimer.Stop();
-                }
-
-                _dispatcherTimer = new DispatcherTimer();
-                _dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 33);
-                _dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
-                _dispatcherTimer.Start();
-
                 //App app = Application.Current as App;
                 //if (app == null || (app != null && !app.DisableTouchKit))
                 //{
@@ -406,6 +404,8 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                 //        ConfigManager.LogManager.LogError("Error capturing touchkit screens.", ex);
                 //    }
                 //}
+
+                Message = "Running Profile";
 
                 if (AutoHideCheckBox.IsChecked == true)
                 {
