@@ -233,6 +233,7 @@
     <Compile Include="Gauges\A-10\ApuRPM\ApuRPM.cs" />
     <Compile Include="Gauges\A-10\CabinPressure\CabinPressure.cs" />
     <Compile Include="Gauges\A-10\EngineRPM\EngineRPM.cs" />
+    <Compile Include="Gauges\A-10\EngineTemp\EngineTemp.cs" />
     <Compile Include="Gauges\A-10\FanRPM\FanRPM.cs" />
     <Compile Include="Gauges\A-10\Flaps\Flaps.cs" />
     <Compile Include="Gauges\A-10\FuelFlow\FuelFlow.cs" />
@@ -1220,6 +1221,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\A-10\HARS\hars_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\EngineTemp\eng_temp_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
