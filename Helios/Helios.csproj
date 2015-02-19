@@ -286,7 +286,6 @@
     <Compile Include="Gauges\KA-50\RotorRPM\RotorRPM.cs" />
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
-    <Compile Include="Gauges\Mig-21\Accelerometer\Accelerometer.cs" />
     <Compile Include="HeliosAction.cs" />
     <Compile Include="HeliosActionCollection.cs" />
     <Compile Include="HeliosActionEventArgs.cs" />
@@ -369,10 +368,6 @@
     <Compile Include="Interfaces\DCS\FC2\FC2Interface.cs" />
     <Compile Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml.cs">
       <DependentUpon>FC2InterfaceEditor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaces\DCS\Mig21\Mig21Interface.cs" />
-    <Compile Include="Interfaces\DCS\Mig21\Mig21InterfaceEditor.xaml.cs">
-      <DependentUpon>Mig21InterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\DirectX\DirectXControllerAxis.cs" />
     <Compile Include="Interfaces\DirectX\DirectXControllerButton.cs" />
@@ -566,8 +561,6 @@
   <ItemGroup>
     <Resource Include="Interfaces\DCS\FC2\Export.lua" />
     <Resource Include="Interfaces\DCS\FC2\ExportFunctions.lua" />
-    <None Include="Interfaces\DCS\Mig21\Export.lua" />
-    <None Include="Interfaces\DCS\Mig21\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1855,42 +1848,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Page Include="Gauges\Mig-21\Accelerometer\accelerometer_bezel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Gauges\Mig-21\Accelerometer\accelerometer_faceplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Gauges\Mig-21\Accelerometer\accelerometer_limit_needle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Gauges\Mig-21\Accelerometer\accelerometer_limit_needleLow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Gauges\Mig-21\Accelerometer\accelerometer_needle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Gauges\Mig-21\Common\eng_needle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Gauges\Mig-21\Common\eng_small_needle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Gauges\Mig-21\Common\generic_bezel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Gauges\Mig-21\Common\needle_a.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1900,10 +1857,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Interfaces\DCS\Mig21\Mig21InterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1960,9 +1913,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\DCS\Mig21\Functions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />
     <Resource Include="Images\Buttons\mfd-lit-in.png" />
