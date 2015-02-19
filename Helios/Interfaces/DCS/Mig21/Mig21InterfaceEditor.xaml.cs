@@ -62,7 +62,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
         public Mig21InterfaceEditor()
         {
             InitializeComponent();
-            Configuration = new DCSConfigurator("Mig21", "pack://application:,,,/Helios;component/Interfaces/DCS/Mig21/Export.lua", DCSPath, true);           
+            Configuration = new DCSConfigurator("Mig21", "pack://application:,,,/Helios;component/Interfaces/DCS/Mig21/Export.lua", DCSPath, true);
             Configuration.ExportConfigPath = "Config\\Export";
             Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/Mig21/ExportFunctions.lua";
         }

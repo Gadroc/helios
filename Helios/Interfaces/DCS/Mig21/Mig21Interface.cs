@@ -386,7 +386,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
         private const string SORC_NIGHT_DAY = "3277";
         #endregion
 
-        public Mig21Interface() : base("DCS Mig21")
+        public Mig21Interface()
+            : base("DCS Mig21")
         {
             #region DragChute
             AddFunction(new PushButton(this, CHUTE, DRAGCHUTE, "298", "Chute", "Release Drop Chute"));
@@ -429,7 +430,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(Switch.CreateToggleSwitch(this, FUEL_PUMPS, PUMP_RASHOD, "161", "1", "Open", "0", "Closed", "Drain Fuel Tank", "Fuel Pump On/Off", "%1d"));
             //used potentiometer with step value of 0.2 and lower sensitivity (acts same in cockpit its either up or down fully practically)
             //elements["PNT_274"] = default_axis(LOCALIZE("Fuel Quantity Set"),devices.FUEL_SYSTEM, device_commands.FuelQt,274, 0.0, 0.02, true, false)
-            AddFunction(new Axis(this, FUEL_SYSTEM, FUEL_QT, "274", 0.1d, 0d, 0.2d, "Fuel System", "Fuel Qt"));           
+            AddFunction(new Axis(this, FUEL_SYSTEM, FUEL_QT, "274", 0.1d, 0d, 0.2d, "Fuel System", "Fuel Qt"));
             #endregion
 
             #region Engine Start Device
@@ -439,14 +440,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(Switch.CreateToggleSwitch(this, ENGINE_START_DEVICE, AIRSTART, "301", "1", "Open", "0", "Closed", "Engine Start Device", "Engine Emergency Air Start on/off", "%1d"));
             AddFunction(new PushButton(this, ENGINE_START_DEVICE, RUD_STOP_LOCK, "616", "Engine Start Device", "Engine Stop/Lock"));
             #endregion
-          
+
             #region Pitot Tubes
             AddFunction(Switch.CreateToggleSwitch(this, PITOT_TUBES, PITO_SELECT, "229", "1", "Open", "0", "Closed", "Pitot Tubes", "Pitot tube Selector Main/Emergency", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, PITOT_TUBES, PITO_HEAT_MAIN, "279", "1", "Open", "0", "Closed", "Pitot Tubes", "Pitot tube/Periscope/Clock Heat", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, PITOT_TUBES, PITOT_HEAT_AUX, "280", "1", "Open", "0", "Closed", "Pitot Tubes", "Secondary Pitot Tube Heat", "%1d"));
             #endregion
 
-            #region DA200 (Variometer) 
+            #region DA200 (Variometer)
             AddFunction(new Axis(this, DA_200, DA200_SET, "261", 0.1d, 0d, 1d, "DA200", "DA200 Set")); //perfect with potentiometer
             #endregion
 
@@ -468,15 +469,15 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new Axis(this, LIGHTS, RED_LIGHTS_MAIN_AXIS, "157", 0.1d, 0d, 1d, "Lights", "Main Red Lights"));
             AddFunction(new Axis(this, LIGHTS, WHITE_LIGHTS_MAIN_AXIS, "222", 0.1d, 0d, 1d, "Lights", "Main White Lights"));
             AddFunction(new Switch(this, LIGHTS, NAV_LIGHTS, new SwitchPosition[] { new SwitchPosition("0.00", "Off ", NAV_LIGHTS),
-                new SwitchPosition("0.33", "Min", NAV_LIGHTS), new SwitchPosition("0.66", "Med", NAV_LIGHTS),new SwitchPosition("0.99", "Max", NAV_LIGHTS)}, 
+                new SwitchPosition("0.33", "Min", NAV_LIGHTS), new SwitchPosition("0.66", "Med", NAV_LIGHTS),new SwitchPosition("0.99", "Max", NAV_LIGHTS)},
                 "Lights", "Navlights", "%0.1f"));
             AddFunction(Switch.CreateThreeWaySwitch(this, LIGHTS, LANDING_LIGHTS, "323", "1.0", "Off", "0.5", "Taxi", "0.0", "Land", "Lights", "Off/Taxi/Land Lights", "%0.1f"));
             #endregion
-            
+
             #region Lights Warning
             //both push button and axis work perfect. Its a rotary with a pushbutton in game.
             AddFunction(new PushButton(this, LIGHTS_WARNING, CHECK_WARNING_LIGHTS10, "369", "Lights Warning", "Check Warning Lights 195"));
-            AddFunction(new Axis(this, LIGHTS_WARNING, CHECK_WARNING_LIGHTS11, "195", 0.1d, 0d, 1d, "Lights Warning", "Set  Warning Lights 195"));        
+            AddFunction(new Axis(this, LIGHTS_WARNING, CHECK_WARNING_LIGHTS11, "195", 0.1d, 0d, 1d, "Lights Warning", "Set  Warning Lights 195"));
             AddFunction(new PushButton(this, LIGHTS_WARNING, CHECK_WARNING_LIGHTS20, "370", "Lights Warning", "Check Warning Lights 196"));
             AddFunction(new Axis(this, LIGHTS_WARNING, CHECK_WARNING_LIGHTS21, "196", 0.1d, 0d, 1d, "Lights Warning", "Set Warning Lights 196"));
             AddFunction(new PushButton(this, LIGHTS_WARNING, CHECK_WARNING_LIGHTS30, "371", "Lights Warning", "Check Warning Lights 273"));
@@ -488,14 +489,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new PushButton(this, LIGHTS_WARNING, CHECK_WARNING_LIGHTS60, "374", "Lights Warning", "Check Warning Lights 322"));
             AddFunction(new Axis(this, LIGHTS_WARNING, CHECK_WARNING_LIGHTS61, "322", 0.1d, 0d, 1d, "Lights Warning", "Set Warning Lights 322"));
             AddFunction(new PushButton(this, LIGHTS_WARNING, SORC, "255", "Lights Warning", "Sorc Check Warning Lights "));
-            AddFunction(new Axis(this, LIGHTS_WARNING, SORC_NIGHT_DAY, "657", 0.1d, 0d, 1d, "Sorc", "Sorc Set Night Day Warning Lights "));          
+            AddFunction(new Axis(this, LIGHTS_WARNING, SORC_NIGHT_DAY, "657", 0.1d, 0d, 1d, "Sorc", "Sorc Set Night Day Warning Lights "));
             #endregion
 
             #region ARK
             AddFunction(Switch.CreateToggleSwitch(this, ARK, ARK_ON, "174", "1", "Open", "0", "Closed", "ARK", "ARK On/Off", "%1d"));
             AddFunction(new Axis(this, ARK, ARK_SOUND, "198", 0.1d, 0d, 1d, "ARK", "ARK Sound"));
             AddFunction(new PushButton(this, ARK, ARK_PEREK_LUCENIE, "212", "ARK", "ARK Change"));
-            AddFunction(new PushButton(this, ARK, ARK_CHANNEL, "213", "ARK", "ARK 1", "0.1", "0.1", "0.1d"));           
+            AddFunction(new PushButton(this, ARK, ARK_CHANNEL, "213", "ARK", "ARK 1", "0.1", "0.1", "0.1d"));
             AddFunction(new PushButton(this, ARK, ARK_CHANNEL, "214", "ARK", "ARK 2", "0.2", "0.2", "0.1d"));
             AddFunction(new PushButton(this, ARK, ARK_CHANNEL, "215", "ARK", "ARK 3", "0.3", "0.3", "0.1d"));
             AddFunction(new PushButton(this, ARK, ARK_CHANNEL, "216", "ARK", "ARK 4", "0.4", "0.4", "0.1d"));
@@ -515,7 +516,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
 
             #region RSBN
             AddFunction(Switch.CreateToggleSwitch(this, RSBN, RSBN_ON, "176", "1", "Open", "0", "Closed", "RSBN", "RSBN On/Off", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, RSBN, RSBN_MODE, "240", "1.0", "Land", "0.5", "Navigation", "0.0", "Descend", "RSBN", "Land/Navigation/Descend", "%0.1f"));           
+            AddFunction(Switch.CreateThreeWaySwitch(this, RSBN, RSBN_MODE, "240", "1.0", "Land", "0.5", "Navigation", "0.0", "Descend", "RSBN", "Land/Navigation/Descend", "%0.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, RSBN, RSBN_ARK, "340", "1", "Open", "0", "Closed", "RSBN", "RSBN / ARK", "%1d"));
             AddFunction(new PushButton(this, RSBN, RSBN_IDENT, "294", "RSBN", "RSBN Identify"));
             AddFunction(new PushButton(this, RSBN, RSBN_TEST, "347", "RSBN", "RSBN Test"));
@@ -558,7 +559,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
                 ,new SwitchPosition("0.91", "91", RSBN_NAV), new SwitchPosition("0.92", "92", RSBN_NAV), new SwitchPosition("0.93", "93", RSBN_NAV)
                 ,new SwitchPosition("0.94", "94", RSBN_NAV), new SwitchPosition("0.95", "95", RSBN_NAV), new SwitchPosition("0.96", "96", RSBN_NAV)
                 ,new SwitchPosition("0.97", "97", RSBN_NAV), new SwitchPosition("0.98", "98", RSBN_NAV), new SwitchPosition("0.99", "99", RSBN_NAV)
-                },"RSBN", "RSBN NAV", "%0.01f"));          
+                }, "RSBN", "RSBN NAV", "%0.01f"));
             AddFunction(new Switch(this, RSBN, RSBN_LAND, new SwitchPosition[] { new SwitchPosition("0.00", "0", RSBN_LAND)
                 ,new SwitchPosition("0.01", "1", RSBN_LAND), new SwitchPosition("0.02", "2", RSBN_LAND), new SwitchPosition("0.03", "3", RSBN_LAND)
                 ,new SwitchPosition("0.04", "4", RSBN_LAND), new SwitchPosition("0.05", "5", RSBN_LAND), new SwitchPosition("0.06", "6", RSBN_LAND)
@@ -615,7 +616,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(Switch.CreateToggleSwitch(this, SPO, SPO_ON, "202", "1", "Open", "0", "Closed", "SPO", "SPO-10 RWR On/Off", "%1d"));
             AddFunction(new PushButton(this, SPO, SPO_TEST, "226", "SPO", "SPO-10 Test"));
             AddFunction(Switch.CreateToggleSwitch(this, SPO, SPO_DAY_NIGHT, "227", "1", "Open", "0", "Closed", "SPO", "SPO-10 Night / Day", "%1d"));
-            AddFunction(new Axis(this, SPO, SPO_VOLUME, "225", 0.1d, 0d, 1d, "SPO", "SPO-10 Volume")); 
+            AddFunction(new Axis(this, SPO, SPO_VOLUME, "225", 0.1d, 0d, 1d, "SPO", "SPO-10 Volume"));
             #endregion
 
             #region SRZO IFF (not implemented in game)
@@ -642,7 +643,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new Switch(this, SOD, SOD_MODE, new SwitchPosition[] { new SwitchPosition("0.00", "Fine", SOD_MODE)
                 ,new SwitchPosition("0.25", "Course", SOD_MODE), new SwitchPosition("0.50", "Off", SOD_MODE), new SwitchPosition("0.75", "Single", SOD_MODE)
                 , new SwitchPosition("1.0", "Group", SOD_MODE)   
-                }, "SOD", "SOD Modes", "%0.01f"));    
+                }, "SOD", "SOD Modes", "%0.01f"));
             #endregion
 
             #region RADAR
@@ -701,7 +702,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             #endregion
 
             #region Flaps
-            AddFunction(Switch.CreateToggleSwitch(this, FLAPS, FLAPS_0, "311", "0", "Open", "1", "Closed", "Flaps", "Flaps Neutral", "%1d"));         
+            AddFunction(Switch.CreateToggleSwitch(this, FLAPS, FLAPS_0, "311", "0", "Open", "1", "Closed", "Flaps", "Flaps Neutral", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLAPS, FLAPS_25, "312", "0", "Open", "1", "Closed", "Flaps", "Flaps Take-Off", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLAPS, FLAPS_45, "313", "0", "Open", "1", "Closed", "Flaps", "Flaps Landing", "%1d"));
             AddFunction(new PushButton(this, FLAPS, FLAPS_RESET, "314", "Flaps", "Flaps Reset"));
@@ -709,13 +710,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
 
             #region TRIMER
             AddFunction(Switch.CreateToggleSwitch(this, TRIMER, TRIMMER_ON, "172", "1", "On", "0", "Off", "Trimmer", "Trimmer On/Off", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, TRIMER, TRIMMER_BTN_UP, "379", "1.0", "Up", "0.0", "Neutral", "-1.0", "Down", "Trimmer", "Trimmer Up/Neutral/Down", "%0.1f")); 
+            AddFunction(Switch.CreateThreeWaySwitch(this, TRIMER, TRIMMER_BTN_UP, "379", "1.0", "Up", "0.0", "Neutral", "-1.0", "Down", "Trimmer", "Trimmer Up/Neutral/Down", "%0.1f"));
             #endregion
 
             #region KONUS aka nosecone
             AddFunction(Switch.CreateToggleSwitch(this, KONUS, KONUS_ON, "170", "1", "Open", "0", "Closed", "Nose Cone", "Nosecone On/Of", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, KONUS, KONUS_MAN_AUTO, "309", "1", "Open", "0", "Closed", "Nose Cone", "Nosecone Control - Manual/Auto", "%1d"));
-            AddFunction(new Axis(this, KONUS, KONUS_BUTTON, "236", 0.1d, 0d, 1d, "Nose Cone", "Nosecone manual position controller"));         
+            AddFunction(new Axis(this, KONUS, KONUS_BUTTON, "236", 0.1d, 0d, 1d, "Nose Cone", "Nosecone manual position controller"));
             #endregion
 
             #region SOPLO aka engine nozzle
@@ -747,8 +748,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
                 ,new SwitchPosition("0.56", "200", DANGER_ALT_SELECT), new SwitchPosition("0.70", "250", DANGER_ALT_SELECT), new SwitchPosition("0.84", "300", DANGER_ALT_SELECT)
                 , new SwitchPosition("0.98", "400", DANGER_ALT_SELECT)   
                 }, "Radio Altimeter", "Danger Alt Select", "%0.01f"));
-            AddFunction(new Axis(this, ALTIMETER, ALTIMETER_PRESSURE, "262", 0.01d, -1d, 1d, "Altimeter", "Altimeter pressure knob axis"));       
-            AddFunction(new PushButton(this, ALTIMETER, ALTIMETER_PRESSURE_RESET, "653", "Altimeter", "Altimeter Pressure Reset"));            
+            AddFunction(new Axis(this, ALTIMETER, ALTIMETER_PRESSURE, "262", 0.01d, -1d, 1d, "Altimeter", "Altimeter pressure knob axis"));
+            AddFunction(new PushButton(this, ALTIMETER, ALTIMETER_PRESSURE_RESET, "653", "Altimeter", "Altimeter Pressure Reset"));
             #endregion
 
             #region OXYGENE_SYSTEM
@@ -817,7 +818,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new PushButton(this, WEAPON_CONTROL, PUSK_BTN, "382", "Weapon Control", "Release Weapon"));
             AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, PUSK_BTN_SAFETY_COVER, "383", "1", "On", "0", "Off", "Weapon Control", "Release Weapon Cover", "%1d"));
             #endregion
-           
+
             #region HELMET_VISOR
             AddFunction(Switch.CreateToggleSwitch(this, HELMET_VISOR, HELMET_HEAT_MAN_AUT, "306", "1", "Manual", "0", "Auto", "Helmet Visor", "Helmet Heat - Manual/Auto", "%1d"));
             AddFunction(new PushButton(this, HELMET_VISOR, HELMET_QUICK_HEAT, "310", "Helmet Visor", "Helmet Quick Heat"));
@@ -843,7 +844,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new Axis(this, avAChS, ACHS_RIGHT_ROTATE, "267", 0.1d, 0d, 1d, "avAChS", "Clock right rotate"));
             #endregion
 
-            #region Dummy buttons/switches 
+            #region Dummy buttons/switches
             //these 4 are now implemented by leatherneck
             AddFunction(Switch.CreateToggleSwitch(this, RADAR, MISL_MODE_COVER, "632", "1", "Open", "0", "Closed", "Radar", "Radar emission - Cover", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, RADAR, MISL_MODE_ACT_TRAIN, "633", "1", "Combat", "0", "Training", "Radar", "Radar emission - Combat/Training", "%1d"));
@@ -893,7 +894,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, GUV_POD_MAIN, "421", "1", "Main", "0", "UPK", "Weapon Control GUV", "MAIN GUN / UPK Guns", "%1d"));
             AddFunction(new PushButton(this, WEAPON_CONTROL, GUV_ARM_1, "422", "Weapon Control GUV", "LOAD 1"));
             AddFunction(new PushButton(this, WEAPON_CONTROL, GUV_ARM_2, "425", "Weapon Control GUV", "LOAD 2"));
-            AddFunction(new PushButton(this, WEAPON_CONTROL, GUV_ARM_3, "424", "Weapon Control GUV", "LOAD 3"));            
+            AddFunction(new PushButton(this, WEAPON_CONTROL, GUV_ARM_3, "424", "Weapon Control GUV", "LOAD 3"));
             #endregion
 
             #region Warning Lights
@@ -925,7 +926,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new FlagValue(this, "13", "Cockpit Indicators", "Gear Left Down Light", "Indicator lit when down"));
             AddFunction(new FlagValue(this, "11", "Cockpit Indicators", "Gear Right Up Light", "Indicator lit when up"));
             AddFunction(new FlagValue(this, "14", "Cockpit Indicators", "Gear Right Down Light", "Indicator lit when down"));
-            
+
             AddFunction(new FlagValue(this, "548", "Cockpit Indicators", "RSBN azimuth correction light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "549", "Cockpit Indicators", "RSBN range correction light", "Indicator lit when on"));
 
@@ -973,7 +974,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             /******************************************************
              * ******************GAUGES BELOW**********************
              * ****************************************************/
-        
+
             #region Accelerometer
             //ACCELEROMETER.input = { -5.0, 1, 5, 8, 10.0 } 
             //ACCELEROMETER.output = { -0.41, 0.096, 0.5, 0.81, 1 
@@ -983,9 +984,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             accelerometerScale.Add(new CalibrationPointDouble(0.81d, 8d));
             AddFunction(new ScaledNetworkValue(this, "110", accelerometerScale, "Accelerometer", "Acceleration", "Current gs", "", BindingValueUnits.Numeric, "%0.2f"));
             AddFunction(new ScaledNetworkValue(this, "113", 9d, "Accelerometer", "Maxium acceleration", "Max Gs attained.", "", BindingValueUnits.Numeric, 1d, "%0.2f"));
-            AddFunction(new ScaledNetworkValue(this, "114",6d , "Accelerometer", "Minimum acceleration", "Min Gs attained.", "", BindingValueUnits.Numeric, -5d,"%0.2f"));        
+            AddFunction(new ScaledNetworkValue(this, "114", 6d, "Accelerometer", "Minimum acceleration", "Min Gs attained.", "", BindingValueUnits.Numeric, -5d, "%0.2f"));
             AddFunction(new PushButton(this, ACCELEROMETER, ACCEL_RESET, "228", "Accelerometer", "Accelerometer Reset buton"));
-		    #endregion
+            #endregion
 
         }
 

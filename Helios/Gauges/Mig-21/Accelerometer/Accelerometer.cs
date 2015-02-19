@@ -47,7 +47,7 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.Accelerometer
             //ACCELEROMETER.output = { -0.41, 0.096, 0.5, 0.81, 1 }
 
             Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Accelerometer/accelerometer_faceplate.xaml", new Rect(0, 0, 340, 340)));
-           
+
             _lowNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Accelerometer/accelerometer_limit_needleLow.xaml", center, new Size(32, 189), new Point(16, 161));
             Components.Add(_lowNeedle);
 

@@ -1,4 +1,4 @@
-﻿gHighImportanceArguments = {}
+gHighImportanceArguments = {}
 gLowImportanceArguments = {}
 ProcessHighImportance = ProcessNoHighImportance
 ProcessLowImportance  = ProcessNoLowImportance
