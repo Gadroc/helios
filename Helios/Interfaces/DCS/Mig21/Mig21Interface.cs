@@ -968,6 +968,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new FlagValue(this, "544", "Cockpit Indicators", "SAU landing command light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "545", "Cockpit Indicators", "SAU landing auto light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "550", "Cockpit Indicators", "GUN gotovn LIGHT", "Indicator lit when on"));
+
+            AddFunction(new FlagValue(this, "601", "Cockpit Indicators", "SPO LF", "Indicator lit when on"));
+            AddFunction(new FlagValue(this, "602", "Cockpit Indicators", "SPO RF", "Indicator lit when on"));
+            AddFunction(new FlagValue(this, "603", "Cockpit Indicators", "SPO RB", "Indicator lit when on"));
+            AddFunction(new FlagValue(this, "604", "Cockpit Indicators", "SPO LB", "Indicator lit when on"));
+            AddFunction(new FlagValue(this, "605", "Cockpit Indicators", "SPO Muted", "Indicator lit when up"));
+
             #endregion
 
 
