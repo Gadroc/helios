@@ -968,6 +968,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new FlagValue(this, "544", "Cockpit Indicators", "SAU landing command light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "545", "Cockpit Indicators", "SAU landing auto light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "550", "Cockpit Indicators", "GUN gotovn LIGHT", "Indicator lit when on"));
+
+            AddFunction(new FlagValue(this, "601", "Cockpit Indicators", "SPO LF", "Indicator lit when on"));
+            AddFunction(new FlagValue(this, "602", "Cockpit Indicators", "SPO RF", "Indicator lit when on"));
+            AddFunction(new FlagValue(this, "603", "Cockpit Indicators", "SPO RB", "Indicator lit when on"));
+            AddFunction(new FlagValue(this, "604", "Cockpit Indicators", "SPO LB", "Indicator lit when on"));
+            AddFunction(new FlagValue(this, "605", "Cockpit Indicators", "SPO Muted", "Indicator lit when up"));
+
             #endregion
 
 
@@ -976,8 +983,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
              * ****************************************************/
 
             #region Accelerometer
-            //ACCELEROMETER.input = { -5.0, 1, 5, 8, 10.0 } 
-            //ACCELEROMETER.output = { -0.41, 0.096, 0.5, 0.81, 1 
             CalibrationPointCollectionDouble accelerometerScale = new CalibrationPointCollectionDouble(-0.41d, -5, 1.0d, 10d);
             accelerometerScale.Add(new CalibrationPointDouble(0.096d, 1d));
             accelerometerScale.Add(new CalibrationPointDouble(0.5d, 5d));
@@ -988,6 +993,24 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new PushButton(this, ACCELEROMETER, ACCEL_RESET, "228", "Accelerometer", "Accelerometer Reset buton"));
             #endregion
 
+            #region IAS
+            AddFunction(new ScaledNetworkValue(this, "100", 555.55d, "IAS", "IAS", "Current ias", "", BindingValueUnits.Numeric, 0d, "%0.4f"));
+            #endregion
+
+            #region TAS
+            CalibrationPointCollectionDouble tasScale = new CalibrationPointCollectionDouble(0.20d, 167d, 1.0d, 833d);
+            tasScale.Add(new CalibrationPointDouble(0.309d, 278d));
+            tasScale.Add(new CalibrationPointDouble(0.49d, 417d));
+            tasScale.Add(new CalibrationPointDouble(0.67d, 555d));
+            AddFunction(new ScaledNetworkValue(this, "101", tasScale, "TAS", "TAS", "Current tas", "", BindingValueUnits.Numeric, "%0.4f"));
+
+            CalibrationPointCollectionDouble mScale = new CalibrationPointCollectionDouble(0d, 0d, 1.0d, 3.0d);
+            mScale.Add(new CalibrationPointDouble(0.202d, 0.6d));
+            mScale.Add(new CalibrationPointDouble(0.312d, 1.0d));
+            mScale.Add(new CalibrationPointDouble(0.6d, 1.8d));
+            mScale.Add(new CalibrationPointDouble(0.66d, 2.0d));
+            AddFunction(new ScaledNetworkValue(this, "102", 3.00d, "TAS", "M", "Current mach", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
         }
 
     }

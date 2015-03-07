@@ -988,10 +988,23 @@ gKa50LowImportanceArguments =
 
 gMIG21HighImportanceArguments =
 {
-	[110]="%0.2f",		--accelerometer guage
-	[113]="%0.2f",		--accelterometer max g
-	[114]="%0.2f",		--accelterometer min g
-	[105]="%.4f"		--UUA (aoa) meter
+	[110]="%.4f",		--accelerometer guage
+	[113]="%.4f",		--accelterometer max g
+	[114]="%.4f",		--accelterometer min g
+	[105]="%.4f",		--UUA (aoa) meter
+	[52]="%.4f",		--fuel gauge
+	[50]="%.4f",		--Engine rpm 1
+	[670]="%.4f",		--Engine rpm 2 
+	[100]="%.4f",		--IAS
+	[101]="%.4f",		--TAS
+	[102]="%.4f",		--M
+	[66]="%.4f",		--Nosecone position (UPES3)
+	[108]="%.4f",		--kpp bank
+	[109]="%.4f",		--kpp pitch
+	[51]="%.4f",		--Engine exhaust temp
+	[106]="%.4f",		--da200 vvi
+	[31]="%.4f",		--da200 slip
+	[107]="%.4f",		--da200 turn
 }
 
 gMIG21LowImportanceArguments =
@@ -1095,18 +1108,17 @@ gMIG21LowImportanceArguments =
 	[184] = "%1d",		--Pylon 3-4 Power On/Off
 	[185] = "%1d",		--GS-23 Gun On/Off
 	[187] = "%1d",		--Guncam On/Off
-	[277] = "%1d",		--Tactical Drop Cover
+	[227] = "%1d",		--Tactical Drop Cover
 	[278] = "%1d",		--Tactical Drop switch
 	[275] = "%1d",		--Emergency Missile/Rocket Launcher Cover
 	[256] = "%1d",		--Drop Wing Fuel Tanks Cover
 	[386] = "%1d",		--Drop Center Fuel Tank
 	[269] = "%1d",		--Drop Payload - Outer Pylons Cover
 	[271] = "%1d",		--Drop Payload - Inner Pylons Cover
-	[230] = "%1d",		--Weapon Mode - Air/Ground
+	[230] = "%.1f",		--Weapon Mode - Air/Ground
 	[381] = "%1d",		--Fire Gun - stick - virtual switch only
 	[382] = "%1d",		--Release Weapon
 	[383] = "%1d",		--Release Weapon Cover
-	[227] = "%1d",		--SPO-10 Night / Day 
 	[306] = "%1d",		--Helmet Heat - Manual/Auto
 	[369] = "%1d",		--Helmet visor - off/on
 	[193] = "%1d",		--SARPP-12 Flight Data Recorder On/Off
@@ -1115,7 +1127,7 @@ gMIG21LowImportanceArguments =
 	[268] = "%1d",		--Mech clock right lever
 	[292] = "%1d",		--Cockpit Air Condition Off/Cold/Auto/Warm
 	[235] = "%1d",		--Weapon Selector
-	[231] = "%1d",		--Weapon Mode - IR Missile/Neutral/SAR Missile
+	[231] = "%.1f",		--Weapon Mode - IR Missile/Neutral/SAR Missile
 	--Dummy button switches section may not be required============
 	[632] = "%1d",		--Radar emission - Cover
 	[633] = "%1d",		--Radar emission - Combat/Training
@@ -1218,7 +1230,11 @@ gMIG21LowImportanceArguments =
 	[206] = "%1d",		--Radar off/comp/on (low alt)
 	[653] = "%1d",		--alt press axis
 	[262] = "%1d",		--alt press reset
-
+	[601] = "%1d",		--spo lf
+	[602] = "%1d",		--spo rf
+	[603] = "%1d",		--spo rb
+	[604] = "%1d",		--spo lb
+	[605] = "%1d",		--spo muted
 
 }
 
@@ -1515,9 +1531,6 @@ function ProcessMig21Exports()
 	local ias = MainPanel:get_argument_value(100)
 	local airspeed_normalized = MainPanel:get_argument_value(100)
 	local airspeed = (airspeed_normalized * 1000) * 0.561
-	--eng rpm
-	local engRpm = MainPanel:get_argument_value(50)
-	local engOut = engRpm * 100
 	--pitch
 	local pitch = MainPanel:get_argument_value(109)
 	pitch = pitch * 1.5
@@ -1528,12 +1541,28 @@ function ProcessMig21Exports()
 	local vvi = MainPanel:get_argument_value(106)
 	vvi = (vvi * 20) * 2
 	--aoa aka uua
-	--local aoa = MainPanel:get_argument_value(105)
+	local aoa = MainPanel:get_argument_value(105)
 	--aoa = string.format("%.4f", aoa)
-	--log_file:write(aoa)
-	--log_file:write("\n")
---aoa = aoa * 0.75
+	--eng rpm
 
+--local engRpm1 = MainPanel:get_argument_value(50)
+	--local engOut = engRpm * 100
+--local engRpm2 = MainPanel:get_argument_value(670)
+
+--local fuel = MainPanel:get_argument_value(52)
+--log_file:write("rpm1:")
+--log_file:write(engRpm1)
+--log_file:write("\n")
+
+--log_file:write("rpm2:")
+--log_file:write(engRpm2)
+--log_file:write("\n")
+
+--aoa = aoa * 0.75
+--local tas= MainPanel:get_argument_value(101)
+--log_file:write("tas:")
+--log_file:write(tas)
+--log_file:write("\n")
 
 	-- baro alt
 	local altBar = MainPanel:get_argument_value(112)
@@ -1936,3 +1965,6 @@ elseif gCurrentAircraft == "MiG-21Bis" then  --name is correct i checked the exp
     end
   end
 end
+
+--dofile("./AriesWings/AriesRadio.luac")
+local Tacviewlfs=require('lfs');dofile(Tacviewlfs.writedir()..'Scripts/TacviewExportDCS.lua')
