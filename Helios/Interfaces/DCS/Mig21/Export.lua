@@ -1003,6 +1003,8 @@ gMIG21HighImportanceArguments =
 	[109]="%.4f",		--kpp pitch
 	[51]="%.4f",		--Engine exhaust temp
 	[106]="%.4f",		--da200 vvi
+	[31]="%.4f",		--da200 slip
+	[107]="%.4f",		--da200 turn
 }
 
 gMIG21LowImportanceArguments =
