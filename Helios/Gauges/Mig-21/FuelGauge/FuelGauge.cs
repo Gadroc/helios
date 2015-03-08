@@ -32,10 +32,7 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.FuelGauge
         {
             Point center = new Point(170, 170);
 
-            //accelerometer input min, deg, max, deg where i want the indicator to point
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 6000d, 326d);
-            //FUEL_METER.input = { 0.0, 6000.0 }--1
-            //FUEL_METER.output = { 0.0, 1.0 } 
 
             Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/FuelGauge/fuelgauge_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
