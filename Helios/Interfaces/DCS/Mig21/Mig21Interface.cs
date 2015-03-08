@@ -1011,6 +1011,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             mScale.Add(new CalibrationPointDouble(0.66d, 2.0d));
             AddFunction(new ScaledNetworkValue(this, "102", 3.00d, "TAS", "M", "Current mach", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             #endregion
+
+            #region Fuel Gauge
+            AddFunction(new ScaledNetworkValue(this, "52", 6000d, "Fuel", "Fuel Gauge", "Current fuel", "", BindingValueUnits.Numeric, 0, "%0.4f"));
+            #endregion
         }
 
     }
