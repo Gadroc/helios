@@ -1015,6 +1015,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             #region Fuel Gauge
             AddFunction(new ScaledNetworkValue(this, "52", 6000d, "Fuel", "Fuel Gauge", "Current fuel", "", BindingValueUnits.Numeric, 0, "%0.4f"));
             #endregion
+
+            #region UUA (aoa)
+            AddFunction(new ScaledNetworkValue(this, "105", 0.6108d, "UUA", "UUA (AOA)", "Current Angle", "", BindingValueUnits.Numeric, 0d, "%0.4f"));
+            #endregion
         }
 
     }
