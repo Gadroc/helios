@@ -1001,10 +1001,15 @@ gMIG21HighImportanceArguments =
 	[66]="%.4f",		--Nosecone position (UPES3)
 	[108]="%.4f",		--kpp bank
 	[109]="%.4f",		--kpp pitch
+	[565]="%.4f",		--kpp bank steering bar
+	[566]="%.4f",		--kpp pitch steering bar
 	[51]="%.4f",		--Engine exhaust temp
 	[106]="%.4f",		--da200 vvi
 	[31]="%.4f",		--da200 slip
 	[107]="%.4f",		--da200 turn
+	[104]="%.4f",		--Baro Alt meters
+	[112]="%.4f",		--Baro Alt Kilometers
+	[655]="%.4f"		--Cockpit pressure altimeter
 }
 
 gMIG21LowImportanceArguments =
