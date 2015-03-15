@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="svg2" Width="45.5" Height="232.958">
+
+    <Canvas x:Name="da200bankNeedle" HorizontalAlignment="Left" Height="233.594879" UseLayoutRounding="False" VerticalAlignment="Top" Width="45.622429">
+        <Path Data="F1M2.797,2.796L2.801,2.796 2.801,111.605 2.797,111.605z" Fill="#FFF1F201" Height="114.402" Canvas.Left="32.035" Stroke="#FFFAFB00" StrokeThickness="5.593" StrokeMiterLimit="4" Canvas.Top="87.363" Width="5.597"/>
+        <Path Data="F1M0.027,0.027L29.664,0.027 29.664,21.769 0.027,21.769z" Fill="#FF333333" Height="21.796" Canvas.Left="8.178" Stroke="Blue" StrokeThickness="0.054" StrokeMiterLimit="4" Canvas.Top="210.102" Width="29.726" Stretch="Fill"/>
+        <Path Data="F1M20.835,10.034C20.835,15.558 16.178,20.034 10.432,20.034 4.69,20.034 0.034,15.558 0.034,10.034 0.034,4.515 4.69,0.034 10.432,0.034 16.178,0.034 20.835,4.515 20.835,10.034z" Fill="#FF1A1A1A" Height="20.068" Canvas.Left="12.065" Stroke="#FF010051" StrokeThickness="0.069" StrokeMiterLimit="4" Canvas.Top="210.828" Width="20.87"/>
+        <Path Data="F1M0.026,0.026L29.78,0.026 29.78,9.628 0.026,9.628z" Fill="Yellow" Height="9.655" Canvas.Left="7.88" Stroke="Yellow" StrokeThickness="0.053" StrokeMiterLimit="4" Canvas.Top="201.465" Width="29.807"/>
+        <Path Data="F1M4.778,4.778L4.821,4.778 4.821,56.821 4.778,56.821z" Fill="#FFF1F201" Height="61.6" Canvas.Left="17.984" Stroke="#FFFAFB00" StrokeThickness="9.557" StrokeMiterLimit="4" Canvas.Top="-0.463" Width="9.6"/>
+        <Path Data="F1M4.789,4.789L4.809,4.789 4.809,109.613 4.789,109.613z" Fill="#FFF1F201" Height="114.402" Canvas.Left="17.984" Stroke="#FFFAFB00" StrokeThickness="9.578" StrokeMiterLimit="4" Canvas.Top="87.186" Width="9.598"/>
+        <Path Data="F1M2.796,2.796L2.804,2.796 2.804,111.601 2.796,111.601z" Fill="#FFF1F201" Height="114.398" Canvas.Left="7.907" Stroke="#FFFAFB00" StrokeThickness="5.593" StrokeMiterLimit="4" Canvas.Top="87.265" Width="5.601"/>
+        <Path Data="F1M1.598,1.598L1.602,1.598 1.602,60.004 1.598,60.004z" Fill="#FFF1F201" Height="61.602" Canvas.Left="31.82" Stroke="#FFFAFB00" StrokeThickness="3.196" StrokeMiterLimit="4" Canvas.Top="-0.447" Width="3.2"/>
+        <Path Data="F1M1.598,1.598L1.602,1.598 1.602,60.004 1.598,60.004z" Fill="#FFF1F201" Height="60.801" Canvas.Left="10" Stroke="#FFFAFB00" StrokeThickness="3.196" StrokeMiterLimit="4" Width="3.2" Stretch="Fill"/>
+        <Path Data="F1M0.039,0.039L13.402,0.039 13.402,3.676 0.039,3.676z" Fill="Yellow" Height="3.715" Canvas.Left="0.012" Stroke="Yellow" StrokeThickness="0.078" StrokeMiterLimit="4" Canvas.Top="87.225" Width="13.441"/>
+        <Path Data="F1M0.039,0.039L13.406,0.039 13.406,3.672 0.039,3.672z" Fill="Yellow" Height="3.711" Canvas.Left="32.168" Stroke="Yellow" StrokeThickness="0.078" StrokeMiterLimit="4" Canvas.Top="87.429" Width="13.445"/>
+        <Path Data="F1M0.02,0.019L7.954,0.019 7.954,1.57 0.02,1.57z" Fill="Yellow" Height="1.59" Canvas.Left="31.886" Stroke="Yellow" StrokeThickness="0.039" StrokeMiterLimit="4" Canvas.Top="59.55" Width="7.973"/>
+        <Path Data="F1M0.02,0.019L7.954,0.019 7.954,1.57 0.02,1.57z" Fill="Yellow" Height="1.59" Canvas.Left="5.468" Stroke="Yellow" StrokeThickness="0.039" StrokeMiterLimit="4" Canvas.Top="60.205" Width="7.973"/>
+    </Canvas>
+
+
+
+
+
+
+
+
+</Canvas>
