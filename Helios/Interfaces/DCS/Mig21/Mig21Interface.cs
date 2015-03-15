@@ -1019,6 +1019,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             #region UUA (aoa)
             AddFunction(new ScaledNetworkValue(this, "105", 0.6108d, "UUA", "UUA (AOA)", "Current Angle", "", BindingValueUnits.Numeric, 0d, "%0.4f"));
             #endregion
+
+            #region DA200
+            CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-1d, -400d, 1.0d, 400d);
+            vviScale.Add(new CalibrationPointDouble(-0.878d, -200d));
+            vviScale.Add(new CalibrationPointDouble(-0.754d, -100d));
+            vviScale.Add(new CalibrationPointDouble(-0.575d, -50d));
+            vviScale.Add(new CalibrationPointDouble(-0.504d, -20d));
+            vviScale.Add(new CalibrationPointDouble(-0.256d, -10d));
+            vviScale.Add(new CalibrationPointDouble(0d, 0d));
+            vviScale.Add(new CalibrationPointDouble(0.256d, 10d));
+            vviScale.Add(new CalibrationPointDouble(0.505d, 20d));
+            vviScale.Add(new CalibrationPointDouble(0.571d, 50d));
+            vviScale.Add(new CalibrationPointDouble(0.751d, 100d));
+            vviScale.Add(new CalibrationPointDouble(0.871d, 200d));
+            AddFunction(new ScaledNetworkValue(this, "106", vviScale, "DA200", "DA200 VVI", "Current vvi", "", BindingValueUnits.Numeric, "%.4f"));
+
+            AddFunction(new ScaledNetworkValue(this, "31", 1d, "DA200", "DA200 Slip", "Current slip", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+
+            AddFunction(new ScaledNetworkValue(this, "107", 0.0443d, "DA200", "DA200 Turn", "Current turn", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
         }
 
     }
