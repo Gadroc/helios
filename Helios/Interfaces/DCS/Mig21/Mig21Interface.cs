@@ -13,12 +13,6 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/*==========================================================================================
- *Double check you names for axis/switches/buttons etc... obviously no 2 can have the same 
- *==========================================================================================*/
-
-
-//ALL WORKING APART FROM THE AOA GAUGE NEED CALIBRATION... OR SOMETHING.
 
 namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
 {

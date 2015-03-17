@@ -1003,13 +1003,17 @@ gMIG21HighImportanceArguments =
 	[109]="%.4f",		--kpp pitch
 	[565]="%.4f",		--kpp bank steering bar
 	[566]="%.4f",		--kpp pitch steering bar
+	[567] = "%1d",		--RSBN_KPP_kren_blinker (roll blinker) (maybe K flag??)
+	[568] = "%1d",		--RSBN_KPP_tangaz_blinker pitch blinker) (maybe T flag??)
 	[51]="%.4f",		--Engine exhaust temp
 	[106]="%.4f",		--da200 vvi
 	[31]="%.4f",		--da200 slip
 	[107]="%.4f",		--da200 turn
 	[104]="%.4f",		--Baro Alt meters
 	[112]="%.4f",		--Baro Alt Kilometers
-	[655]="%.4f"		--Cockpit pressure altimeter
+	[655]="%.4f",		--Cockpit pressure altimeter
+	[590]="%.4f",		--RSBN_NPP_kurs_needle (used for KPP aux too) course
+	[589]="%.4f"		--RSBN_NPP_glisada_needle (used for kpp aux too) glideslope
 }
 
 gMIG21LowImportanceArguments =
@@ -1179,7 +1183,6 @@ gMIG21LowImportanceArguments =
 	[549] = "%1d",		--RSBN_dalnost_korekcija_LIGHT (range correction)
 	[587] = "%1d",		--RSBN_NPP_kurs_blinker (course blinker)
 	[588] = "%1d",		--RSBN_NPP_glisada_blinker
-	[567] = "%1d",		--RSBN_KPP_kren_blinker (roll blinker)
 	[500] = "%1d",		--LOW_ALT_LIGHT
 	[537] = "%1d",		--AOA_WARNING_LIGHT
 	[535] = "%1d",		--KPP_ARRETIR_light (arrested)
@@ -1563,11 +1566,6 @@ function ProcessMig21Exports()
 --log_file:write(engRpm2)
 --log_file:write("\n")
 
---aoa = aoa * 0.75
---local tas= MainPanel:get_argument_value(101)
---log_file:write("tas:")
---log_file:write(tas)
---log_file:write("\n")
 
 	-- baro alt
 	local altBar = MainPanel:get_argument_value(112)
