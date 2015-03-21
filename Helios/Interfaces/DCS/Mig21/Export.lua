@@ -1003,8 +1003,8 @@ gMIG21HighImportanceArguments =
 	[109]="%.4f",		--kpp pitch
 	[565]="%.4f",		--kpp bank steering bar
 	[566]="%.4f",		--kpp pitch steering bar
-	[567] = "%1d",		--RSBN_KPP_kren_blinker (roll blinker) (maybe K flag??)
-	[568] = "%1d",		--RSBN_KPP_tangaz_blinker pitch blinker) (maybe T flag??)
+	[567] = "%1d",		--RSBN_KPP_kren_blinker (roll blinker) (maybe K flag)
+	[568] = "%1d",		--RSBN_KPP_tangaz_blinker (pitch blinker) (maybe T flag)
 	[51]="%.4f",		--Engine exhaust temp
 	[106]="%.4f",		--da200 vvi
 	[31]="%.4f",		--da200 slip
@@ -1013,7 +1013,9 @@ gMIG21HighImportanceArguments =
 	[112]="%.4f",		--Baro Alt Kilometers
 	[655]="%.4f",		--Cockpit pressure altimeter
 	[590]="%.4f",		--RSBN_NPP_kurs_needle (used for KPP aux too) course
-	[589]="%.4f"		--RSBN_NPP_glisada_needle (used for kpp aux too) glideslope
+	[589]="%.4f",		--RSBN_NPP_glisada_needle (used for kpp aux too) glideslope
+	[111]="%.4f",		--NPP Heading
+	[68]="%.4f"			--NPP commanded course
 }
 
 gMIG21LowImportanceArguments =
@@ -1566,6 +1568,11 @@ function ProcessMig21Exports()
 --log_file:write(engRpm2)
 --log_file:write("\n")
 
+
+local flag= MainPanel:get_argument_value(567)
+log_file:write("flag:")
+log_file:write(flag)
+log_file:write("\n")
 
 	-- baro alt
 	local altBar = MainPanel:get_argument_value(112)

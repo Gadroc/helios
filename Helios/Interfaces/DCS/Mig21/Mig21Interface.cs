@@ -926,7 +926,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
 
             AddFunction(new FlagValue(this, "587", "Cockpit Indicators", "RSBN NPP course blinker", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "588", "Cockpit Indicators", "RSBN NPP glisada blinker", "Indicator lit when on"));
-            AddFunction(new FlagValue(this, "567", "Cockpit Indicators", "RSBN NPP roll blinker", "Indicator lit when on"));
 
             AddFunction(new FlagValue(this, "500", "Cockpit Indicators", "Low alt light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "537", "Cockpit Indicators", "AOA warning light", "Indicator lit when on"));
@@ -1032,6 +1031,25 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "31", 1d, "DA200", "DA200 Slip", "Current slip", "", BindingValueUnits.Numeric, 0d, "%.4f"));
 
             AddFunction(new ScaledNetworkValue(this, "107", 0.0443d, "DA200", "DA200 Turn", "Current turn", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
+
+            #region KPP aka ADI
+            AddFunction(new ScaledNetworkValue(this, "108", 180d, "KPP", "Bank", "Current bank", "(-180 to 180)", BindingValueUnits.Degrees));
+            AddFunction(new ScaledNetworkValue(this, "109", -90d, "KPP", "Pitch", "Current pitch", "(-90 to 90)", BindingValueUnits.Degrees));
+            AddFunction(new NetworkValue(this, "565", "KPP", "bank steering offset", "Current amount of bank steering displayed on the KPP.", "(-1 to 1)", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "566", "KPP", "pitch steering offset", "Current amount of pitch steering displayed on the KPP.", "(-1 to 1)", BindingValueUnits.Numeric));
+            AddFunction(new FlagValue(this, "567", "KPP", "K flag", "Indicates whether the K flag is displayed on the KPP."));
+            AddFunction(new FlagValue(this, "568", "KPP", "T flag", "Indicates whether the T flag is displayed on the KPP."));
+            //For slip uses the same input as da200
+            //for the 2 PRMG aux uses the same input as NPP main course & glideslope needles
+            #endregion
+
+            #region NPP aka HSI
+            //required for KPP aux input too==
+            AddFunction(new NetworkValue(this, "590", "NPP", "Course Needle", "Current course required on NPP & KPP.", "(-1 to 1)", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "589", "NPP", "Glideslope Needle", "Current glideslope required on NPP & KPP.", "(-1 to 1)", BindingValueUnits.Numeric));
+            //================================
+
             #endregion
         }
 
