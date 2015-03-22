@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="5" Height="120">
+    <Canvas.Resources>
+        <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient3755" MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="1,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FF070707" Offset="0"/>
+                    <GradientStop Color="#FF303030" Offset="0.8888889"/>
+                    <GradientStop Color="#FF151515" Offset="1"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        <RadialGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="radialGradient3761" MappingMode="Absolute" Center="200,200" GradientOrigin="200,200" RadiusX="55" RadiusY="55">
+            <RadialGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FF070707" Offset="0"/>
+                    <GradientStop Color="#FF303030" Offset="0.8888889"/>
+                    <GradientStop Color="#FF151515" Offset="1"/>
+                </GradientStopCollection>
+            </RadialGradientBrush.GradientStops>
+        </RadialGradientBrush>
+    </Canvas.Resources>
+    <Canvas Name="g3802">
+        <Canvas>
+            <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="5" Canvas.Top="0" Width="119" Height="4" Name="rect3804" Fill="#FFF5F5F5" Stroke="#FF0A0A0A" StrokeThickness="1" StrokeMiterLimit="4">
+                <!--rect-->
+                <Rectangle.RenderTransform>
+                    <MatrixTransform Matrix="0,1,-1,0,0,0"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Canvas>
+    </Canvas>
+</Canvas>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="254" Height="254">
+    <Canvas.Resources>
+        <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient3755" MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="1,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FF070707" Offset="0"/>
+                    <GradientStop Color="#FF303030" Offset="0.8888889"/>
+                    <GradientStop Color="#FF151515" Offset="1"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        <RadialGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="radialGradient3761" MappingMode="Absolute" Center="200,200" GradientOrigin="200,200" RadiusX="55" RadiusY="55">
+            <RadialGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FF070707" Offset="0"/>
+                    <GradientStop Color="#FF303030" Offset="0.8888889"/>
+                    <GradientStop Color="#FF151515" Offset="1"/>
+                </GradientStopCollection>
+            </RadialGradientBrush.GradientStops>
+        </RadialGradientBrush>
+    </Canvas.Resources>
+    <Canvas Name="layer2">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-73" Y="-73"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3764" Fill="Black" Stroke="#FF000000" Data="m 200 73.5 c -69.86402 0 -126.5 56.63598 -126.5 126.5 0 69.86402 56.63598 126.5 126.5 126.5 69.86402 0 126.5 -56.63598 126.5 -126.5 C 326.5 130.13598 269.86402 73.5 200 73.5 z m 0 71.5 c 30.37566 0 55 24.62434 55 55 0 30.37566 -24.62434 55 -55 55 -30.37566 0 -55 -24.62434 -55 -55 0 -30.37566 24.62434 -55 55 -55 z"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3792" Stroke="#FF444444" StrokeThickness="1" StrokeMiterLimit="4" Data="m 255 200 c 0 30.37566 -24.62434 55 -55 55 -30.37566 0 -55 -24.62434 -55 -55 0 -30.37566 24.62434 -55 55 -55 30.37566 0 55 24.62434 55 55 z">
+                <!--path-->
+                <Path.RenderTransform>
+                    <MatrixTransform Matrix="1.0181818,0,0,1.0181818,-3.63636,-3.63636"/>
+                </Path.RenderTransform>
+            </Path>
+        </Canvas>
+    </Canvas>
+</Canvas>

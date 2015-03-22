@@ -924,9 +924,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new FlagValue(this, "548", "Cockpit Indicators", "RSBN azimuth correction light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "549", "Cockpit Indicators", "RSBN range correction light", "Indicator lit when on"));
 
-            AddFunction(new FlagValue(this, "587", "Cockpit Indicators", "RSBN NPP course blinker", "Indicator lit when on"));
-            AddFunction(new FlagValue(this, "588", "Cockpit Indicators", "RSBN NPP glisada blinker", "Indicator lit when on"));
-
             AddFunction(new FlagValue(this, "500", "Cockpit Indicators", "Low alt light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "537", "Cockpit Indicators", "AOA warning light", "Indicator lit when on"));
             AddFunction(new FlagValue(this, "535", "Cockpit Indicators", "KPP Arrested light", "Indicator lit when on"));
@@ -1049,7 +1046,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new NetworkValue(this, "590", "NPP", "Course Needle", "Current course required on NPP & KPP.", "(-1 to 1)", BindingValueUnits.Numeric));
             AddFunction(new NetworkValue(this, "589", "NPP", "Glideslope Needle", "Current glideslope required on NPP & KPP.", "(-1 to 1)", BindingValueUnits.Numeric));
             //================================
-
+            AddFunction(new ScaledNetworkValue(this, "111", 360d, "NPP", "Heading", "Current heading displayed on the HSI", "(0-360)", BindingValueUnits.Degrees));
+            AddFunction(new ScaledNetworkValue(this, "68", 360d, "NPP", "Commaned Course", "Current commanded course on the HSI", "(0-360)", BindingValueUnits.Degrees));
+            AddFunction(new ScaledNetworkValue(this, "36", 360d, "NPP", "Bearing", "Current bearing displayed on the HSI", "(0-360)", BindingValueUnits.Degrees));
+            AddFunction(new FlagValue(this, "587", "NPP", "K flag", "Indicates whether the K flag is displayed on the NPP."));
+            AddFunction(new FlagValue(this, "588", "NPP", "G flag", "Indicates whether the G flag is displayed on the NPP."));
             #endregion
         }
 
