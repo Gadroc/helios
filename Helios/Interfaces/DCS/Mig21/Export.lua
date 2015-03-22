@@ -1003,8 +1003,8 @@ gMIG21HighImportanceArguments =
 	[109]="%.4f",		--kpp pitch
 	[565]="%.4f",		--kpp bank steering bar
 	[566]="%.4f",		--kpp pitch steering bar
-	[567] = "%1d",		--RSBN_KPP_kren_blinker (roll blinker) (maybe K flag)
-	[568] = "%1d",		--RSBN_KPP_tangaz_blinker (pitch blinker) (maybe T flag)
+	[567] = "%1d",		--RSBN_KPP_kren_blinker (roll blinker) (K flag)
+	[568] = "%1d",		--RSBN_KPP_tangaz_blinker pitch blinker) (T flag)
 	[51]="%.4f",		--Engine exhaust temp
 	[106]="%.4f",		--da200 vvi
 	[31]="%.4f",		--da200 slip
@@ -1015,7 +1015,10 @@ gMIG21HighImportanceArguments =
 	[590]="%.4f",		--RSBN_NPP_kurs_needle (used for KPP aux too) course
 	[589]="%.4f",		--RSBN_NPP_glisada_needle (used for kpp aux too) glideslope
 	[111]="%.4f",		--NPP Heading
-	[68]="%.4f"			--NPP commanded course
+	[68]="%.4f",		--NPP commanded course
+	[36]="%.4f",		--NPP Heading (Ark rsbn needle)
+	[587] = "%1d",		--RSBN_NPP_kurs_blinker (course blinker) K flag
+	[588] = "%1d"		--RSBN_NPP_glisada_blinker G flag
 }
 
 gMIG21LowImportanceArguments =
@@ -1183,8 +1186,6 @@ gMIG21LowImportanceArguments =
 	[14] = "%1d",		--GEAR_RIGHT_DOWN_LIGHT
 	[548] = "%1d",		--RSBN_azimut_korekcija_LIGHT (rsbn azimuth correction light)
 	[549] = "%1d",		--RSBN_dalnost_korekcija_LIGHT (range correction)
-	[587] = "%1d",		--RSBN_NPP_kurs_blinker (course blinker)
-	[588] = "%1d",		--RSBN_NPP_glisada_blinker
 	[500] = "%1d",		--LOW_ALT_LIGHT
 	[537] = "%1d",		--AOA_WARNING_LIGHT
 	[535] = "%1d",		--KPP_ARRETIR_light (arrested)
@@ -1537,78 +1538,14 @@ end
 
 function ProcessMig21Exports()
 	MainPanel = GetDevice(0)
-	--IAS
-	local ias = MainPanel:get_argument_value(100)
-	local airspeed_normalized = MainPanel:get_argument_value(100)
-	local airspeed = (airspeed_normalized * 1000) * 0.561
-	--pitch
-	local pitch = MainPanel:get_argument_value(109)
-	pitch = pitch * 1.5
-	--bank
-	local bank  = MainPanel:get_argument_value(108)
-	bank = bank * 3.4
-	--vvi
-	local vvi = MainPanel:get_argument_value(106)
-	vvi = (vvi * 20) * 2
-	--aoa aka uua
-	local aoa = MainPanel:get_argument_value(105)
-	--aoa = string.format("%.4f", aoa)
-	--eng rpm
 
---local engRpm1 = MainPanel:get_argument_value(50)
-	--local engOut = engRpm * 100
---local engRpm2 = MainPanel:get_argument_value(670)
-
---local fuel = MainPanel:get_argument_value(52)
---log_file:write("rpm1:")
---log_file:write(engRpm1)
---log_file:write("\n")
-
---log_file:write("rpm2:")
---log_file:write(engRpm2)
+--local flag= MainPanel:get_argument_value(567)
+--log_file:write("flag:")
+--log_file:write(flag)
 --log_file:write("\n")
 
 
-local flag= MainPanel:get_argument_value(567)
-log_file:write("flag:")
-log_file:write(flag)
-log_file:write("\n")
 
-	-- baro alt
-	local altBar = MainPanel:get_argument_value(112)
-	altBar = (altBar * 10000) * 3
-	--radio Altimeter
-	local altRad = MainPanel:get_argument_value(103)
-	altRad = (altRad * 1000) / 2.5
-	--hsi aka ksi course indicator
-	local hsi = MainPanel:get_argument_value(111)
-	hsi = (math.pi * 2.0) * hsi
-	hsi = hsi * -1
-	--log_file:write(hsi)
-	--log_file:write("\n")
-	--accelerometer
-	local accelerometer = MainPanel:get_argument_value(110)
-	accelerometer = accelerometer * 5
-	--compressed air main
-	local mainCompressedAir = MainPanel:get_argument_value(413)
-	mainCompressedAir = mainCompressedAir * 100
-
---now im doing the interface properly not required
-
---	SendData("9", string.format("%.2f", engOut) )
---	SendData("14", string.format("%.2f", airspeed ) )
---	SendData("1", string.format("%.2f", pitch * 57.3) )
---	SendData("2", string.format("%.2f", bank * 57.3) )
---	SendData("16", string.format("%.2f", aoa * 57.3 ) )
-
---	SendData("13", string.format("%.2f", vvi) )
---	SendData("4", string.format("%.2f", altBar) )
---	SendData("5", string.format("%.2f", altRad) )
---	SendData("8", string.format("%.2f", (hsi * 57.3)) )
---	SendData("18", string.format("%.2f", accelerometer) ) --had to use adi side dev to get this to work in helios
---	SendData("10", string.format("%.2f", mainCompressedAir ) ) --had to use right eng rpm for compressed air
-	--[4] = "%.4f",		-- AOA
-	--[12] = "%.4f",
 	FlushData()
 
 end

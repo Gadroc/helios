@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="svg2" Width="20.000006" Height="39.900856">
+    <Canvas x:Name="NppFlags" HorizontalAlignment="Left" Height="39.900856" UseLayoutRounding="False" VerticalAlignment="Top" Width="20.000006">
+        <Path Data="F1M0.108,0.107L19.889,0.107 19.889,19.888 0.108,19.888z" Fill="White" Height="19.996" Canvas.Left="0.001" Stroke="White" StrokeThickness="0.215" StrokeMiterLimit="4" Canvas.Top="9.144" Width="19.996"/>
+        <Path Data="F1M19.589,10.004C19.589,15.296 15.296,19.589 10.003,19.589 4.71,19.589 0.417,15.296 0.417,10.004 0.417,4.71 4.71,0.417 10.003,0.417 15.296,0.417 19.589,4.71 19.589,10.004z" Fill="White" Height="20.006" Canvas.Left="-0.003" Stroke="White" StrokeThickness="0.834" StrokeMiterLimit="4" Canvas.Top="-0.904" Width="20.006"/>
+        <Path Data="F1M19.589,10.004C19.589,15.296 15.296,19.586 10.003,19.586 4.71,19.586 0.417,15.296 0.417,10.004 0.417,4.707 4.71,0.417 10.003,0.417 15.296,0.417 19.589,4.707 19.589,10.004z" Fill="White" Height="20.002" Canvas.Left="-0.003" Stroke="White" StrokeThickness="0.834" StrokeMiterLimit="4" Canvas.Top="18.998" Width="20.006"/>
+    </Canvas>
+</Canvas>
