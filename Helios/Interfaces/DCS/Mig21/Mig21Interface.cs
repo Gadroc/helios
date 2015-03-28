@@ -1052,6 +1052,19 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new FlagValue(this, "587", "NPP", "K flag", "Indicates whether the K flag is displayed on the NPP."));
             AddFunction(new FlagValue(this, "588", "NPP", "G flag", "Indicates whether the G flag is displayed on the NPP."));
             #endregion
+
+            #region Engine Exhaust Temp
+            CalibrationPointCollectionDouble engtempScale = new CalibrationPointCollectionDouble(0d, 300d, 1.0d, 900d);
+            engtempScale.Add(new CalibrationPointDouble(0.11d, 400d));
+            engtempScale.Add(new CalibrationPointDouble(0.25d, 500d));
+            engtempScale.Add(new CalibrationPointDouble(0.39d, 600d));
+            engtempScale.Add(new CalibrationPointDouble(0.51d, 650d));
+            engtempScale.Add(new CalibrationPointDouble(0.635d, 700d));
+            engtempScale.Add(new CalibrationPointDouble(0.75d, 750d));
+            engtempScale.Add(new CalibrationPointDouble(0.87d, 800d));
+            engtempScale.Add(new CalibrationPointDouble(0.95d, 850d));
+            AddFunction(new ScaledNetworkValue(this, "51", engtempScale, "Engine", "Exhaust Temp", "Current temp", "", BindingValueUnits.Numeric, "%0.4f"));
+            #endregion
         }
 
     }
