@@ -1011,14 +1011,15 @@ gMIG21HighImportanceArguments =
 	[107]="%.4f",		--da200 turn
 	[104]="%.4f",		--Baro Alt meters
 	[112]="%.4f",		--Baro Alt Kilometers
-	[655]="%.4f",		--Cockpit pressure altimeter
 	[590]="%.4f",		--RSBN_NPP_kurs_needle (used for KPP aux too) course
 	[589]="%.4f",		--RSBN_NPP_glisada_needle (used for kpp aux too) glideslope
 	[111]="%.4f",		--NPP Heading
 	[68]="%.4f",		--NPP commanded course
 	[36]="%.4f",		--NPP Heading (Ark rsbn needle)
 	[587] = "%1d",		--RSBN_NPP_kurs_blinker (course blinker) K flag
-	[588] = "%1d"		--RSBN_NPP_glisada_blinker G flag
+	[588] = "%1d",		--RSBN_NPP_glisada_blinker G flag
+	[103] = "%.4f",		--Radio Altimeter
+	[64] = "%.4f"		--ARU3VM
 }
 
 gMIG21LowImportanceArguments =
@@ -1539,12 +1540,15 @@ end
 function ProcessMig21Exports()
 	MainPanel = GetDevice(0)
 
---local flag= MainPanel:get_argument_value(567)
---log_file:write("flag:")
---log_file:write(flag)
+--local rpm1= MainPanel:get_argument_value(50)
+--log_file:write("rpm1:")
+--log_file:write(rpm1)
 --log_file:write("\n")
 
-
+--local rpm2= MainPanel:get_argument_value(670)
+--log_file:write("rpm2:")
+--log_file:write(rpm2)
+--log_file:write("\n")
 
 	FlushData()
 
