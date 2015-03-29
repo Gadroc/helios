@@ -1086,6 +1086,21 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "103", radaltScale, "Radio Altimeter", "Radio Altimeter", "Current AGL", "", BindingValueUnits.Numeric, "%0.4f"));
             #endregion
 
+            #region Baro Altimeter
+            //uses baro alt pressure knob axis as input for qfe card
+            AddFunction(new Axis(this, ALTIMETER, ALTIMETER_PRESSURE, "262", 0.01d, -1d, 1d, "Baro Altimeter", "Altimeter pressure knob axis"));
+            AddFunction(new PushButton(this, ALTIMETER, ALTIMETER_PRESSURE_RESET, "653", "Baro Altimeter", "Altimeter Pressure Reset"));
+            CalibrationPointCollectionDouble baroAltimeterMScale = new CalibrationPointCollectionDouble(0.0d, 0d, 1.0d, 1000d);
+            baroAltimeterMScale.Add(new CalibrationPointDouble(0.211d, 200d));
+            baroAltimeterMScale.Add(new CalibrationPointDouble(0.416d, 400d));
+            baroAltimeterMScale.Add(new CalibrationPointDouble(0.61d, 600d));
+            baroAltimeterMScale.Add(new CalibrationPointDouble(0.815d, 800d));
+            AddFunction(new ScaledNetworkValue(this, "104", baroAltimeterMScale, "Baro Altimeter", "Altimeter M", "Current Meters", "", BindingValueUnits.Meters, "%0.4f"));
+            AddFunction(new ScaledNetworkValue(this, "112", 30000d, "Baro Altimeter", "Altimeter Km", "Current Km's", "", BindingValueUnits.Meters, 0d, "%0.4f"));
+            AddFunction(new ScaledNetworkValue(this, "658", 1000d, "Baro Altimeter", "Altimeter Triangle M", "Current Triangle Meters", "", BindingValueUnits.Meters, 0d, "%0.4f"));
+            AddFunction(new ScaledNetworkValue(this, "652", 30000d, "Baro Altimeter", "Altimeter Triangle Km", "Current Triangle Km's", "", BindingValueUnits.Meters, 0d, "%0.4f"));
+            #endregion
+
         }
 
     }
