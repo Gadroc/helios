@@ -286,6 +286,7 @@
     <Compile Include="Gauges\KA-50\RotorRPM\RotorRPM.cs" />
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
+    <Compile Include="Gauges\Mig-21\BaroAltimeter\BaroAltimeter.cs" />
     <Compile Include="Gauges\Mig-21\RadioAltimeter\RadioAltimeter.cs" />
     <Compile Include="Gauges\Mig-21\EngineRpm\EngineRpm.cs" />
     <Compile Include="Gauges\Mig-21\EngExhaustTemp\EngExhaustTemp.cs" />
@@ -2070,6 +2071,30 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\Mig-21\RadioAltimeter\radalt_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_innerfaceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_short_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_qfe_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_long_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_triangle_m.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
