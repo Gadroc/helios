@@ -1063,6 +1063,29 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "50", enginerpmScale, "EngineRpm", "EngineRpm1", "Current rpm", "", BindingValueUnits.Numeric, "%0.4f"));
             AddFunction(new ScaledNetworkValue(this, "670", enginerpmScale, "EngineRpm", "EngineRpm2", "Current rpm", "", BindingValueUnits.Numeric, "%0.4f"));
             #endregion
+
+            #region Radio Altimeter
+            CalibrationPointCollectionDouble radaltScale = new CalibrationPointCollectionDouble(0d, 0d, 1.0d, 1000d);
+            radaltScale.Add(new CalibrationPointDouble(0.041d, 10d));
+            radaltScale.Add(new CalibrationPointDouble(0.07d, 20d));
+            radaltScale.Add(new CalibrationPointDouble(0.103d, 30d));
+            radaltScale.Add(new CalibrationPointDouble(0.13d, 40d));
+            radaltScale.Add(new CalibrationPointDouble(0.181d, 50d));
+            radaltScale.Add(new CalibrationPointDouble(0.21d, 60d));
+            radaltScale.Add(new CalibrationPointDouble(0.245d, 70d));
+            radaltScale.Add(new CalibrationPointDouble(0.260d, 80d));
+            radaltScale.Add(new CalibrationPointDouble(0.298d, 90d));
+            radaltScale.Add(new CalibrationPointDouble(0.325d, 100d));
+            radaltScale.Add(new CalibrationPointDouble(0.472d, 150d));
+            radaltScale.Add(new CalibrationPointDouble(0.58d, 200d));
+            radaltScale.Add(new CalibrationPointDouble(0.680d, 250d));
+            radaltScale.Add(new CalibrationPointDouble(0.732d, 300d));
+            radaltScale.Add(new CalibrationPointDouble(0.807d, 400d));
+            radaltScale.Add(new CalibrationPointDouble(0.867d, 500d));
+            radaltScale.Add(new CalibrationPointDouble(0.909d, 600d));
+            AddFunction(new ScaledNetworkValue(this, "103", radaltScale, "Radio Altimeter", "Radio Altimeter", "Current AGL", "", BindingValueUnits.Numeric, "%0.4f"));
+            #endregion
+
         }
 
     }
