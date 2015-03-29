@@ -707,12 +707,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(Switch.CreateThreeWaySwitch(this, TRIMER, TRIMMER_BTN_UP, "379", "1.0", "Up", "0.0", "Neutral", "-1.0", "Down", "Trimmer", "Trimmer Up/Neutral/Down", "%0.1f"));
             #endregion
 
-            #region KONUS aka nosecone
-            AddFunction(Switch.CreateToggleSwitch(this, KONUS, KONUS_ON, "170", "1", "Open", "0", "Closed", "Nose Cone", "Nosecone On/Of", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, KONUS, KONUS_MAN_AUTO, "309", "1", "Open", "0", "Closed", "Nose Cone", "Nosecone Control - Manual/Auto", "%1d"));
-            AddFunction(new Axis(this, KONUS, KONUS_BUTTON, "236", 0.1d, 0d, 1d, "Nose Cone", "Nosecone manual position controller"));
-            #endregion
-
             #region SOPLO aka engine nozzle
             AddFunction(Switch.CreateToggleSwitch(this, SOPLO, SOPLO2X_POZ, "291", "1", "Open", "0", "Closed", "Engine Nozzle", "2 Position Emergency Control", "%1d"));
             #endregion
@@ -735,16 +729,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new Axis(this, KSI, NPP_SET_COURSE, "263", 0.1d, -1d, 1d, "NPP", "NPP Course set"));
             #endregion
 
-            #region ALTIMETER and radioALTIMETER
+            #region RADIO ALTIMETER
             AddFunction(Switch.CreateToggleSwitch(this, RADIO_ALTIMETER, RADIO_ALT_ON, "175", "1", "On", "0", "Off", "Radio Altimeter", "Radio Altimeter/Marker On/Off", "%1d"));
             AddFunction(new Switch(this, RADIO_ALTIMETER, DANGER_ALT_SELECT, new SwitchPosition[] { new SwitchPosition("0.00", "Off", DANGER_ALT_SELECT)
                 ,new SwitchPosition("0.14", "50", DANGER_ALT_SELECT), new SwitchPosition("0.28", "100", DANGER_ALT_SELECT), new SwitchPosition("0.42", "150", DANGER_ALT_SELECT)
                 ,new SwitchPosition("0.56", "200", DANGER_ALT_SELECT), new SwitchPosition("0.70", "250", DANGER_ALT_SELECT), new SwitchPosition("0.84", "300", DANGER_ALT_SELECT)
                 , new SwitchPosition("0.98", "400", DANGER_ALT_SELECT)   
                 }, "Radio Altimeter", "Danger Alt Select", "%0.01f"));
-            AddFunction(new Axis(this, ALTIMETER, ALTIMETER_PRESSURE, "262", 0.01d, -1d, 1d, "Altimeter", "Altimeter pressure knob axis"));
-            AddFunction(new PushButton(this, ALTIMETER, ALTIMETER_PRESSURE_RESET, "653", "Altimeter", "Altimeter Pressure Reset"));
-            #endregion
+           #endregion
 
             #region OXYGENE_SYSTEM
             AddFunction(Switch.CreateToggleSwitch(this, OXYGENE_SYSTEM, HELMET_AIR_CONDITION, "285", "1", "On", "0", "Off", "Oxygen System", "Helmet Air Condition Off/On", "%1d"));
@@ -842,8 +834,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             //these 4 are now implemented by leatherneck
             AddFunction(Switch.CreateToggleSwitch(this, RADAR, MISL_MODE_COVER, "632", "1", "Open", "0", "Closed", "Radar", "Radar emission - Cover", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, RADAR, MISL_MODE_ACT_TRAIN, "633", "1", "Combat", "0", "Training", "Radar", "Radar emission - Combat/Training", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, KONUS, AIRDUCT_TEST_COVER, "638", "1", "Open", "0", "Closed", "Konus", "1.7 Mach Test Button - Cover", "%1d"));
-            AddFunction(new PushButton(this, KONUS, AIRDUCT_TEST, "639", "Konus", "1.7 Mach Test Button"));
+            AddFunction(Switch.CreateToggleSwitch(this, KONUS, AIRDUCT_TEST_COVER, "638", "1", "Open", "0", "Closed", "Mach", "1.7 Mach Test Button - Cover", "%1d"));
+            AddFunction(new PushButton(this, KONUS, AIRDUCT_TEST, "639", "Mach", "1.7 Mach Test Button"));
             //not implemented in game
             //AddFunction(new Axis(this, UNCLASSIFIED, GSUIT_MAX_MIN, "634", 0.1d, 0d, 1d, "Unclassified", "G-Suit Max/Min valve"));
             //AddFunction(Switch.CreateToggleSwitch(this, UNCLASSIFIED, SINA_NR_1_COVER, "635", "1", "Open", "0", "Closed", "Unclassified", "Electric Bus Nr.1 - Cover", "%1d"));
@@ -1064,6 +1056,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             engtempScale.Add(new CalibrationPointDouble(0.87d, 800d));
             engtempScale.Add(new CalibrationPointDouble(0.95d, 850d));
             AddFunction(new ScaledNetworkValue(this, "51", engtempScale, "Engine", "Exhaust Temp", "Current temp", "", BindingValueUnits.Numeric, "%0.4f"));
+            #endregion
+
+            #region Engine RPM
+            CalibrationPointCollectionDouble enginerpmScale = new CalibrationPointCollectionDouble(0.0d, 0.0, 1.0d, 110d);
+            AddFunction(new ScaledNetworkValue(this, "50", enginerpmScale, "EngineRpm", "EngineRpm1", "Current rpm", "", BindingValueUnits.Numeric, "%0.4f"));
+            AddFunction(new ScaledNetworkValue(this, "670", enginerpmScale, "EngineRpm", "EngineRpm2", "Current rpm", "", BindingValueUnits.Numeric, "%0.4f"));
             #endregion
         }
 

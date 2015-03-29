@@ -1,3 +1,8 @@
+------------------------------------------------------------------------------
+--Needs a real good tidy up, includes exports from CaptZeen, Gadroc and mine--
+--Once mig 21 interface complete will go through and condense properly--------
+------------------------------------------------------------------------------
+
 gHighImportanceArguments = {}
 gLowImportanceArguments = {}
 ProcessHighImportance = ProcessNoHighImportance
@@ -1011,6 +1016,8 @@ gMIG21HighImportanceArguments =
 	[107]="%.4f",		--da200 turn
 	[104]="%.4f",		--Baro Alt meters
 	[112]="%.4f",		--Baro Alt Kilometers
+	[652] = "%.4f",		--Baro Alt Triangle KM
+	[658] = "%.4f",		--Baro Alt Triangle M
 	[590]="%.4f",		--RSBN_NPP_kurs_needle (used for KPP aux too) course
 	[589]="%.4f",		--RSBN_NPP_glisada_needle (used for kpp aux too) glideslope
 	[111]="%.4f",		--NPP Heading
@@ -1020,6 +1027,7 @@ gMIG21HighImportanceArguments =
 	[588] = "%1d",		--RSBN_NPP_glisada_blinker G flag
 	[103] = "%.4f",		--Radio Altimeter
 	[64] = "%.4f"		--ARU3VM
+
 }
 
 gMIG21LowImportanceArguments =
@@ -1094,7 +1102,7 @@ gMIG21LowImportanceArguments =
 	[378] = "%1d",		--Lock Target
 	[170] = "%1d",		--Nosecone On/Off
 	[309] = "%1d",		--Nosecone Control - Manual/Auto
-	[236] = "%1d",		--Nosecone manual position controller
+	[236] = "%.4f",		--Nosecone manual position controller. Also used as input for Manual needle
 	[291] = "%1d",		--Engine Nozzle 2 Position Emergency Control
 	[171] = "%1d",		--Hydro Emergency Hydraulic Pump On/Off
 	[319] = "%1d",		--Aileron Booster - Off/On
@@ -1240,14 +1248,21 @@ gMIG21LowImportanceArguments =
 	[613] = "%1d",		--ASP backlight on
 	[205] = "%1d",		--Radar off/prep/on
 	[206] = "%1d",		--Radar off/comp/on (low alt)
-	[653] = "%1d",		--alt press axis
-	[262] = "%1d",		--alt press reset
+	[653] = "%1d",		--alt press reset
+	[262] = "%.4f",		--alt press axis. also used as input for qfe card.
 	[601] = "%1d",		--spo lf
 	[602] = "%1d",		--spo rf
 	[603] = "%1d",		--spo rb
 	[604] = "%1d",		--spo lb
 	[605] = "%1d",		--spo muted
 
+}
+
+gP51HighImportanceArguments = 
+{
+}
+gP51LowImportanceArguments = 
+{
 }
 
 -- Lookup tables for weapons store type display
@@ -1495,6 +1510,102 @@ function ProcessFCExports ()
 
 end
 
+------------------------------------------------
+-- P-51D and TF-51D exported as a FC aircraft --
+-- 				by Capt Zeen  --
+------------------------------------------------
+
+function ProcessP51Exports ()
+
+		
+						-- read from main panel
+						local MainPanel = GetDevice(0)
+							local AirspeedNeedle = MainPanel:get_argument_value(11)*1000
+							local Altimeter_10000_footPtr = MainPanel:get_argument_value(96)*100000
+							local Variometer = MainPanel:get_argument_value(29)   
+							local TurnNeedle = MainPanel:get_argument_value(27)   
+							local Slipball = MainPanel:get_argument_value(28)
+							local CompassHeading = MainPanel:get_argument_value(1) 
+							local CommandedCourse = MainPanel:get_argument_value(2) 							
+							local Manifold_Pressure = MainPanel:get_argument_value(10) 
+							local Engine_RPM = MainPanel:get_argument_value(23)
+							local AHorizon_Pitch = MainPanel:get_argument_value(15) 
+							local AHorizon_Bank = MainPanel:get_argument_value(14) 
+							local AHorizon_PitchShift = MainPanel:get_argument_value(16) * 10.0 * math.pi/180.0
+							local AHorizon_Caged = MainPanel:get_argument_value(20) 
+							local GyroHeading = MainPanel:get_argument_value(12) 
+							local vaccum_suction = MainPanel:get_argument_value(9)
+							local carburator_temp = MainPanel:get_argument_value(21)
+							local coolant_temp = MainPanel:get_argument_value(22)
+							local Acelerometer = MainPanel:get_argument_value(175)
+							local OilTemperature = MainPanel:get_argument_value(30)
+							local OilPressure = MainPanel:get_argument_value(31)
+							local FuelPressure = MainPanel:get_argument_value(32)
+							local Clock_hours = MainPanel:get_argument_value(4)
+							local Clock_minutes = MainPanel:get_argument_value(5)
+							local Clock_seconds = MainPanel:get_argument_value(6)
+							local LandingGearGreenLight = MainPanel:get_argument_value(80) 
+							local LandingGearRedLight = MainPanel:get_argument_value(82)
+							local Hight_Blower_Lamp = MainPanel:get_argument_value(59) 						
+							local Acelerometer_Min = MainPanel:get_argument_value(177)
+							local Acelerometer_Max = MainPanel:get_argument_value(178)
+							local Ammeter = MainPanel:get_argument_value(101)	
+							local hydraulic_Pressure = MainPanel:get_argument_value(78)  
+							local Oxygen_Flow_Blinker = MainPanel:get_argument_value(33)
+							local Oxygen_Pressure = MainPanel:get_argument_value(34)
+							local Fuel_Tank_Left = MainPanel:get_argument_value(155)
+							local Fuel_Tank_Right = MainPanel:get_argument_value(156)
+							local Fuel_Tank_Fuselage = MainPanel:get_argument_value(160)
+							local Tail_radar_warning = MainPanel:get_argument_value(161)
+							local Channel_A = MainPanel:get_argument_value(122)
+							local Channel_B = MainPanel:get_argument_value(123)
+							local Channel_C = MainPanel:get_argument_value(124)
+							local Channel_D = MainPanel:get_argument_value(125)
+							local transmit_light = MainPanel:get_argument_value(126)
+							local RocketCounter = MainPanel:get_argument_value(77)
+													
+						--- preparing landing gear and High Blower lights, all together, in only one value	
+							local gear_lights = 0
+							if LandingGearGreenLight > 0 then gear_lights = gear_lights +100 end
+							if LandingGearRedLight > 0 then gear_lights = gear_lights +10 end
+							if Hight_Blower_Lamp > 0 then gear_lights = gear_lights +1 end
+						------------------------------------------------------------	
+						
+						--- preparing radio lights, all together, in only one value	
+							local radio_active = 0
+							if Channel_A > 0 then radio_active = 1 end
+							if Channel_B >0 then radio_active= 2 end
+							if Channel_C >0 then radio_active= 3 end
+							if Channel_D >0 then radio_active= 4 end
+							if transmit_light >0 then radio_active = radio_active + 10 end
+						------------------------------------------------------------
+						
+						
+						---- sending P51 and tf51 data across fc2 interface
+						
+							SendData("1", string.format("%.5f", math.floor((AHorizon_Pitch+1)*1000) + ((AHorizon_Bank+1)/100) ) ) 	-- pitch
+							SendData("2", string.format("%.3f", math.floor(Oxygen_Flow_Blinker*100) + (Oxygen_Pressure/100) ) )		-- bank
+							SendData("3", string.format("%.4f", math.floor(OilTemperature*100) + (vaccum_suction/100) ) )			-- yaw
+							SendData("4", string.format("%.3f", math.floor(Altimeter_10000_footPtr) + (AHorizon_Caged/100) ) )		-- barometric altitude 
+							SendData("5", string.format("%.5f", math.floor(Clock_hours*1000000) + (Tail_radar_warning/100) ) )		-- radar altitude 
+							SendData("6", string.format("%.5f", math.floor(CompassHeading*1000) + (CommandedCourse/100) ) )			-- adf
+							SendData("7", string.format("%.4f", math.floor(Clock_seconds*100) + (hydraulic_Pressure/100) ) )		-- rmi
+							SendData("8", string.format("%.2f", math.floor(GyroHeading*1000) + (radio_active/100) ) )				-- heading
+							SendData("9", string.format("%.4f", math.floor(Engine_RPM*100) + (Manifold_Pressure/100) ) )			-- left rpm
+							SendData("10", string.format("%.4f", math.floor(Fuel_Tank_Left*100) + (Fuel_Tank_Right/100) ) )			-- right rpm
+							SendData("11", string.format("%.4f", math.floor(carburator_temp*100) + (coolant_temp/100) ) )			-- left temp
+							SendData("12", string.format("%.4f", math.floor(gear_lights) + (Acelerometer_Min/100 ) ) )				-- right temp
+							SendData("13", string.format("%.2f", Variometer) )														-- vvi
+							SendData("14", string.format("%.5f", math.floor(AirspeedNeedle)+ (RocketCounter/100) ) )				-- ias
+							SendData("15", string.format("%.4f", math.floor(OilPressure*100) + (FuelPressure/100) ) )				-- distance to way
+							SendData("16", string.format("%.3f", math.floor(Acelerometer*1000) + (Acelerometer_Max/100 ) ) )		-- aoa
+							SendData("17", string.format("%.4f", math.floor((TurnNeedle+1)*100) + ((Slipball+1)/100) ) )			-- glide
+							SendData("18", string.format("%.4f", math.floor(Fuel_Tank_Fuselage*100) + (Ammeter/100) ) )				-- side
+						
+
+	FlushData()
+end
+
 -----------------------------------------
 ----------------HAWK AIRCRAFT -----------
 -----------------------------------------
@@ -1540,14 +1651,9 @@ end
 function ProcessMig21Exports()
 	MainPanel = GetDevice(0)
 
---local rpm1= MainPanel:get_argument_value(50)
---log_file:write("rpm1:")
---log_file:write(rpm1)
---log_file:write("\n")
-
---local rpm2= MainPanel:get_argument_value(670)
---log_file:write("rpm2:")
---log_file:write(rpm2)
+--local qfe= MainPanel:get_argument_value(262)
+--log_file:write("qfe:")
+--log_file:write(qfe)
 --log_file:write("\n")
 
 	FlushData()
@@ -1667,6 +1773,9 @@ function LuaExportActivityNextEvent(t)
 	end
 	if gMig21 then
 		ProcessMig21Exports()
+	end
+	if gCurrentAircraft == "P-51D" or gCurrentAircraft == "TF-51D" then	
+				ProcessP51Exports ()  --process P51 as FC
 	end
 	if gKnownAircraft then
 

@@ -286,6 +286,7 @@
     <Compile Include="Gauges\KA-50\RotorRPM\RotorRPM.cs" />
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
+    <Compile Include="Gauges\Mig-21\EngineRpm\EngineRpm.cs" />
     <Compile Include="Gauges\Mig-21\EngExhaustTemp\EngExhaustTemp.cs" />
     <Compile Include="Gauges\Mig-21\NPP\NPP.cs" />
     <Compile Include="Gauges\Mig-21\KPP\KPP.cs" />
@@ -2044,6 +2045,22 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\Mig-21\EngExhaustTemp\EngExhaustTemp_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineRpm\enginerpm_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineRpm\enginerpm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineRpm\enginerpm_needle2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineRpm\enginerpm_needle1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
