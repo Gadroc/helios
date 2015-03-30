@@ -1104,6 +1104,15 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             #region ARU-3VM
             AddFunction(new ScaledNetworkValue(this, "64", 1d, "ARU", "ARU-3VM", "Current ratio", "", BindingValueUnits.Numeric, 0d, "%0.4f"));
             #endregion
+
+            #region Nosecone Position UPES3
+            //Nosecone manual needle uses position controller output
+            CalibrationPointCollectionDouble upesScale = new CalibrationPointCollectionDouble(0d, 0d, 1.0d, 1.0d);
+            AddFunction(new ScaledNetworkValue(this, "66", 1.0d, "Nose Cone", "Nosecone position", "Nose position", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            AddFunction(Switch.CreateToggleSwitch(this, KONUS, KONUS_ON, "170", "1", "Open", "0", "Closed", "Nose Cone", "Nosecone On/Of", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, KONUS, KONUS_MAN_AUTO, "309", "1", "Open", "0", "Closed", "Nose Cone", "Nosecone Control - Manual/Auto", "%1d"));
+            AddFunction(new Axis(this, KONUS, KONUS_BUTTON, "236", 0.1d, 0d, 1d, "Nose Cone", "Nosecone manual position controller"));
+            #endregion
         }
 
     }
