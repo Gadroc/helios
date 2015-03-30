@@ -1101,6 +1101,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "652", 30000d, "Baro Altimeter", "Altimeter Triangle Km", "Current Triangle Km's", "", BindingValueUnits.Meters, 0d, "%0.4f"));
             #endregion
 
+            #region ARU-3VM
+            AddFunction(new ScaledNetworkValue(this, "64", 1d, "ARU", "ARU-3VM", "Current ratio", "", BindingValueUnits.Numeric, 0d, "%0.4f"));
+            #endregion
         }
 
     }

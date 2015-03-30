@@ -13,44 +13,42 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.FuelGauge
+namespace GadrocsWorkshop.Helios.Gauges.Mig21.ARU3VM
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.FuelGauge", "Fuel Gauge", "Mig-21 Gauges", typeof(GaugeRenderer))]
-    public class FuelGauge : BaseGauge
+    [HeliosControl("Helios.Mig-21.ARU3VM", "ARU", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    public class ARU3VM : BaseGauge
     {
+
         private GaugeNeedle _currentNeedle;
-
         private CalibrationPointCollectionDouble _needleCalibration;
-        private HeliosValue _currentFuel;
+        private HeliosValue _currentARU3VM;
 
-        public FuelGauge()
-            : base("FuelGauge", new Size(340, 340))
+        public ARU3VM()
+            : base("ARU3VM", new Size(340, 340))
         {
             Point center = new Point(170, 170);
 
-            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 6000d, 326d);
+            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 1d, 204d);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/FuelGauge/fuelgauge_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/ARU3VM/ARU3VM_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/FuelGauge/fuelgauge_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), -159d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/ARU3VM/aru3vm_needle.xaml", center, new Size(100, 185), new Point(50, 127), 246d);
             Components.Add(_currentNeedle);
 
             Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
-
-            _currentFuel = new HeliosValue(this, BindingValue.Empty, "", "Fuel", "Current quantity", "", BindingValueUnits.Numeric);
-            _currentFuel.Execute += CurrentFuel_Execute;
-            Actions.Add(_currentFuel);
+            _currentARU3VM = new HeliosValue(this, BindingValue.Empty, "", "Current ARU3VM", "Current ARU3VM", "", BindingValueUnits.Numeric);
+            _currentARU3VM.Execute += CurrentARU3VM_Execute;
+            Actions.Add(_currentARU3VM);
         }
 
-
-        private void CurrentFuel_Execute(object action, HeliosActionEventArgs e)
+        private void CurrentARU3VM_Execute(object action, HeliosActionEventArgs e)
         {
-            _currentFuel.SetValue(e.Value, e.BypassCascadingTriggers);
+            _currentARU3VM.SetValue(e.Value, e.BypassCascadingTriggers);
             _currentNeedle.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue);
         }
     }

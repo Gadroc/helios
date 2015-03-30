@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.EngingeRpm
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.EngingeRpm", "EngingeRpm", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.Mig-21.EngingeRpm", "Enginge RPM", "Mig-21 Gauges", typeof(GaugeRenderer))]
     public class EngingeRpm : BaseGauge
     {
         private GaugeNeedle _oneNeedle;
