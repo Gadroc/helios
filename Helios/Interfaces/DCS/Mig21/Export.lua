@@ -1026,7 +1026,9 @@ gMIG21HighImportanceArguments =
 	[587] = "%1d",		--RSBN_NPP_kurs_blinker (course blinker) K flag
 	[588] = "%1d",		--RSBN_NPP_glisada_blinker G flag
 	[103] = "%.4f",		--Radio Altimeter
-	[64] = "%.4f"		--ARU3VM
+	[64] = "%.4f",		--ARU3VM
+	[126] = "%.4f",		--Hydraulic Pressure Main
+	[125] = "%.4f"		--Hydraulic Pressure Secondary
 
 }
 
@@ -1655,6 +1657,10 @@ function ProcessMig21Exports()
 --log_file:write("qfe:")
 --log_file:write(qfe)
 --log_file:write("\n")
+
+
+
+
 
 	FlushData()
 
