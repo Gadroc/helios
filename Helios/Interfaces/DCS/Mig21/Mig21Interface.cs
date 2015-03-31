@@ -1113,6 +1113,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(Switch.CreateToggleSwitch(this, KONUS, KONUS_MAN_AUTO, "309", "1", "Open", "0", "Closed", "Nose Cone", "Nosecone Control - Manual/Auto", "%1d"));
             AddFunction(new Axis(this, KONUS, KONUS_BUTTON, "236", 0.1d, 0d, 1d, "Nose Cone", "Nosecone manual position controller"));
             #endregion
+
+            #region Hydraulic Pressure
+            AddFunction(new ScaledNetworkValue(this, "126", 300d, "Hydraulic Pressure Gauge", "Hydraulic Pressure Main", "Current pressure", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            AddFunction(new ScaledNetworkValue(this, "125", 300d, "Hydraulic Pressure Gauge", "Hydraulic Pressure Secondary", "Current pressure", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
         }
 
     }
