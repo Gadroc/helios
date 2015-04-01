@@ -1118,6 +1118,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "126", 300d, "Hydraulic Pressure Gauge", "Hydraulic Pressure Main", "Current pressure", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             AddFunction(new ScaledNetworkValue(this, "125", 300d, "Hydraulic Pressure Gauge", "Hydraulic Pressure Secondary", "Current pressure", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             #endregion
+
+            #region Voltmeter
+            AddFunction(new ScaledNetworkValue(this, "124", 30d, "Voltmeter Gauge", "Voltmeter", "Current Volts", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
         }
 
     }
