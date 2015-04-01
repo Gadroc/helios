@@ -1030,7 +1030,9 @@ gMIG21HighImportanceArguments =
 	[126] = "%.4f",		--Hydraulic Pressure Main
 	[125] = "%.4f",		--Hydraulic Pressure Secondary
 	[124] = "%.4f",		--DC Voltmeter
-	[627] = "%.4f"		--Oil Pressure gauge
+	[627] = "%.4f",		--Oil Pressure gauge
+	[413] = "%.4f"		--Main airpressure
+
 }
 
 gMIG21LowImportanceArguments =
@@ -1654,9 +1656,9 @@ end
 function ProcessMig21Exports()
 	MainPanel = GetDevice(0)
 
-local qfe= MainPanel:get_argument_value(262)
-log_file:write("qfe:")
-log_file:write(qfe)
+local o= MainPanel:get_argument_value(414)
+log_file:write("414:")
+log_file:write(o)
 log_file:write("\n")
 
 
