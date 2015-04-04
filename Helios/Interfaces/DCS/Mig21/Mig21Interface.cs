@@ -1122,6 +1122,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             #region Voltmeter
             AddFunction(new ScaledNetworkValue(this, "124", 30d, "Voltmeter Gauge", "Voltmeter", "Current Volts", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             #endregion
+
+            #region Oil Pressure Gauge
+            AddFunction(new ScaledNetworkValue(this, "627", 4d, "Oil Pressure Gauge", "Oil Pressure", "Current Pressure", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
+
         }
 
     }
