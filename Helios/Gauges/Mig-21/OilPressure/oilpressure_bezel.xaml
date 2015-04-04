@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="svg2" Width="340" Height="340">
+    <Canvas x:Name="layer1">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="0" Y="-712.36218"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+        </Canvas>
+    </Canvas>
+    <Canvas x:Name="layer2"/>
+    <Canvas x:Name="layer10"/>
+    <Canvas x:Name="layer3">
+        <Canvas x:Name="flowRoot3865" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="179.5" Y="11.5"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5427" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="129" Y="84.5"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5435" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="37.5" Y="94.5"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5443" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="157.5" Y="-78"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5451" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="-30.665476" Y="7.2227182"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5459" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="-14.5" Y="-76.5"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5467" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="69.815918" Y="-112"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot6318" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="-7.3789062" Y="0"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+    </Canvas>
+    <Canvas x:Name="OilPressureBezel" HorizontalAlignment="Left" Height="329.570801" UseLayoutRounding="False" VerticalAlignment="Top" Width="329.600403">
+        <Path Data="F1M164.799,0.975C74.319,0.975 0.975,74.315 0.975,164.783 0.975,255.252 74.319,328.592 164.799,328.592 255.276,328.592 328.624,255.252 328.624,164.783 328.624,74.315 255.276,0.975 164.799,0.975z M164.799,18.526C245.581,18.526 311.069,84.006 311.069,164.783 311.069,245.561 245.581,311.041 164.799,311.041 84.014,311.041 18.526,245.561 18.526,164.783 18.526,84.006 84.014,18.526 164.799,18.526z" Fill="#FF282828" Height="329.567" Canvas.Left="4.578" Stroke="Black" StrokeThickness="1.95" StrokeMiterLimit="4" Canvas.Top="5.403" Width="329.599"/>
+        <Path Data="M294.004,147.235C294.004,166.447 290.184,185.646 282.832,203.391 275.481,221.138 264.602,237.419 251.02,251.001 237.434,264.583 221.157,275.458 203.407,282.81 185.661,290.162 166.457,293.981 147.246,293.981 128.036,293.981 108.832,290.162 91.082,282.81 73.336,275.458 57.055,264.583 43.473,251.001 29.887,237.419 19.008,221.138 11.657,203.391 4.305,185.646 0.489,166.447 0.489,147.235 0.489,128.028 4.305,108.825 11.657,91.079 19.008,73.333 29.887,57.055 43.473,43.47 57.055,29.888 73.336,19.013 91.082,11.662 108.832,4.309 128.036,0.49 147.246,0.49 166.457,0.49 185.661,4.309 203.407,11.662 221.157,19.013 237.434,29.888 251.02,43.47 264.602,57.055 275.481,73.333 282.832,91.079 290.184,108.825 294.004,128.028 294.004,147.235z" Height="294.47" Canvas.Left="22.131" Stroke="#FF363636" StrokeThickness="0.978" StrokeMiterLimit="4" Canvas.Top="22.951" Width="294.493"/>
+        <Path Data="M327.652,164.296C327.652,185.675 323.402,207.046 315.218,226.797 307.035,246.551 294.929,264.668 279.812,279.785 264.691,294.903 246.574,307.007 226.82,315.188 207.066,323.371 185.691,327.621 164.312,327.621 142.929,327.621 121.558,323.371 101.804,315.188 82.05,307.007 63.933,294.903 48.812,279.785 33.695,264.668 21.59,246.551 13.406,226.797 5.222,207.046 0.972,185.675 0.972,164.296 0.972,142.918 5.222,121.547 13.406,101.793 21.59,82.043 33.695,63.925 48.812,48.809 63.933,33.691 82.05,21.586 101.804,13.402 121.558,5.223 142.929,0.972 164.312,0.972 185.691,0.972 207.066,5.223 226.82,13.402 246.574,21.586 264.691,33.691 279.812,48.809 294.929,63.925 307.035,82.043 315.218,101.793 323.402,121.547 327.652,142.918 327.652,164.296z" Height="328.593" Canvas.Left="4.577" Stroke="#FF363636" StrokeThickness="1.944" StrokeMiterLimit="4" Canvas.Top="6.378" Width="328.624"/>
+        <Path Data="F1M5.438,46.655C2.641,45.702 0.285,44.874 0.211,44.815 -0.039,44.62 3.254,35.3 5.375,30.19 8.946,21.589 13.457,13.054 19.11,4.214L21.543,0.405 26.285,3.85 31.028,7.3 27.668,12.643C21.457,22.526 16.602,32.69 12.785,43.804 11.907,46.374 11.035,48.452 10.856,48.429 10.676,48.401 8.239,47.604 5.438,46.655z" Fill="Red" Height="48.71" Canvas.Left="14.76" Stroke="Red" StrokeThickness="0.566" StrokeMiterLimit="4" Canvas.Top="77.906" Width="31.409"/>
+        <Path Data="F1M96.583,107.248C84.622,72.29 62.712,44.564 32.091,25.626 24.669,21.037 13.212,15.498 5.786,12.908 2.833,11.88 0.321,10.966 0.204,10.88 0.091,10.794 0.857,8.294 1.904,5.33 3.579,0.576 3.943,-0.026 4.939,0.271 9.361,1.587 20.349,6.31 27.517,9.97 58.044,25.572 82.118,49.763 97.728,80.529 102.001,88.955 107.611,102.462 107.611,104.326 107.611,104.447 102.837,106.056 97.548,107.716 97.15,107.845 96.712,107.634 96.583,107.248z" Fill="Red" Height="107.986" Canvas.Left="215.513" Stroke="Red" StrokeThickness="0.566" StrokeMiterLimit="4" Canvas.Top="16.716" Width="107.894"/>
+        <Path Data="F1M4.643,72.897C2.311,71.17 0.311,69.67 0.197,69.561 -0.096,69.272 1.998,66.377 6.947,60.229 28.967,32.862 59.631,13.307 93.74,4.877 104.49,2.217 118.229,0.283 126.326,0.283L129.658,0.283 129.658,12.162 125.838,12.162C119.998,12.162 108.338,13.674 99.92,15.526 65.447,23.096 34.979,42.678 13.045,71.35 11.17,73.799 9.467,75.854 9.26,75.916 9.057,75.983 6.975,74.623 4.643,72.897z" Fill="Yellow" Height="76.187" Canvas.Left="36.77" Stroke="Yellow" StrokeThickness="0.566" StrokeMiterLimit="4" Canvas.Top="8.434" Width="129.941"/>
+        <Path Data="F1M40.728,16.846C29.622,13.971,20.935,12.694,10.04,12.326L0.283,11.998 0.283,0.283 6.08,0.291C16.658,0.311 29.005,1.983 41.583,5.1 45.787,6.143 49.908,7.256 50.744,7.572L52.267,8.151 50.947,11.428C50.22,13.233 49.451,15.53 49.236,16.537 49.021,17.545 48.673,18.455 48.462,18.557 48.255,18.662 44.775,17.889 40.728,16.846z" Fill="Blue" Height="18.812" Canvas.Left="166.712" Stroke="Blue" StrokeThickness="0.566" StrokeMiterLimit="4" Canvas.Top="8.434" Width="52.637"/>
+    </Canvas>
+</Canvas>
+
+
