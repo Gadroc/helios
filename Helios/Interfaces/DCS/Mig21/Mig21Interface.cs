@@ -1127,6 +1127,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "627", 4d, "Oil Pressure Gauge", "Oil Pressure", "Current Pressure", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             #endregion
 
+            #region RSBN Distance
+            AddFunction(new ScaledNetworkValue(this, "357", 10d, "RSBN Distance Gauge", "RSBN Distance Single Meters", "Current Singles Distance", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            AddFunction(new ScaledNetworkValue(this, "356", 10d, "RSBN Distance Gauge", "RSBN Distance Tens Meters", "Current Tens Distance", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            AddFunction(new ScaledNetworkValue(this, "355", 10d, "RSBN Distance Gauge", "RSBN Distance Hundreds Meters", "Current Hundreds Distance", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
         }
 
     }
