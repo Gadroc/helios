@@ -1132,6 +1132,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "356", 10d, "RSBN Distance Gauge", "RSBN Distance Tens Meters", "Current Tens Distance", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             AddFunction(new ScaledNetworkValue(this, "355", 10d, "RSBN Distance Gauge", "RSBN Distance Hundreds Meters", "Current Hundreds Distance", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             #endregion
+
+            #region Engine Oxygen Manometer (engine O2 feed)
+            AddFunction(new ScaledNetworkValue(this, "61", 40d, "Engine O2 Gauge", "Engine O2", "Current O2", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
+
         }
 
     }
