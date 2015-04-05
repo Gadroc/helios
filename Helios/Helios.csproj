@@ -286,6 +286,7 @@
     <Compile Include="Gauges\KA-50\RotorRPM\RotorRPM.cs" />
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
+    <Compile Include="Gauges\Mig-21\EngineO2\EngineO2.cs" />
     <Compile Include="Gauges\Mig-21\OilPressure\OilPressure.cs" />
     <Compile Include="Gauges\Mig-21\RSBNDistance\RSBNDistance.cs" />
     <Compile Include="Gauges\Mig-21\Voltmeter\Voltmeter.cs" />
@@ -2157,6 +2158,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\Mig-21\Common\generic_small_gray_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineO2\engine_o2_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
