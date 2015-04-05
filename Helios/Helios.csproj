@@ -287,6 +287,7 @@
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
     <Compile Include="Gauges\Mig-21\OilPressure\OilPressure.cs" />
+    <Compile Include="Gauges\Mig-21\RSBNDistance\RSBNDistance.cs" />
     <Compile Include="Gauges\Mig-21\Voltmeter\Voltmeter.cs" />
     <Compile Include="Gauges\Mig-21\HydroPressure\HydroPressure.cs" />
     <Compile Include="Gauges\Mig-21\Nosecone\Nosecone.cs" />
@@ -2155,6 +2156,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\Mig-21\Common\generic_small_gray_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2662,6 +2667,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\F-16\VVI\vvi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\Mig-21\RSBNDistance\RSBNDistance.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

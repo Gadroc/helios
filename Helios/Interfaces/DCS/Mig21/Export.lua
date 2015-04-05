@@ -1037,6 +1037,9 @@ gMIG21HighImportanceArguments =
 	[413] = "%.4f",		--Main airpressure
 	[414] = "%.4f",		--Aux airpressure??? this doesnt change??
 	[357] = "%.4f",		--RSBN Distance singles
+	[356] = "%.4f",		--RSBN Distance Tens
+	[355] = "%.4f",		--RSBN Distance Hundreds
+	[61] = "%.4f",		--Engine oxygen feed meter
 }
 
 gMIG21LowImportanceArguments =
@@ -1660,10 +1663,11 @@ end
 function ProcessMig21Exports()
 	MainPanel = GetDevice(0)
 
-	--local o= MainPanel:get_argument_value(414)
-	--log_file:write("414:")
-	--log_file:write(o)
-	--log_file:write("\n")
+--compressed air aux
+--local o= MainPanel:get_argument_value(414)
+--log_file:write("414:")
+--log_file:write(o)
+--log_file:write("\n")
 
 	FlushData()
 
