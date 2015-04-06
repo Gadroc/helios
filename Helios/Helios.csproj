@@ -286,6 +286,7 @@
     <Compile Include="Gauges\KA-50\RotorRPM\RotorRPM.cs" />
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
+    <Compile Include="Gauges\Mig-21\BatteryCapacity\BatteryCapacity.cs" />
     <Compile Include="Gauges\Mig-21\O2Pressure\O2Pressure.cs" />
     <Compile Include="Gauges\Mig-21\EngineO2\EngineO2.cs" />
     <Compile Include="Gauges\Mig-21\O2Level\O2Level.cs" />
@@ -2180,6 +2181,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\Mig-21\O2Pressure\o2_pressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BatteryCapacity\battery_capacity_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
