@@ -287,6 +287,7 @@
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
     <Compile Include="Gauges\Mig-21\EngineO2\EngineO2.cs" />
+    <Compile Include="Gauges\Mig-21\O2Level\O2Level.cs" />
     <Compile Include="Gauges\Mig-21\OilPressure\OilPressure.cs" />
     <Compile Include="Gauges\Mig-21\RSBNDistance\RSBNDistance.cs" />
     <Compile Include="Gauges\Mig-21\Voltmeter\Voltmeter.cs" />
@@ -584,8 +585,8 @@
   <ItemGroup>
     <Resource Include="Interfaces\DCS\FC2\Export.lua" />
     <Resource Include="Interfaces\DCS\FC2\ExportFunctions.lua" />
-    <Resource Include="Interfaces\DCS\Mig21\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Mig21\Export.lua" />
+    <Resource Include="Interfaces\DCS\Mig21\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2162,6 +2163,18 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\Mig-21\EngineO2\engine_o2_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\O2Level\o2_level_blinker_l.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\O2Level\o2_level_blinker_r.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\O2Level\o2_level_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>

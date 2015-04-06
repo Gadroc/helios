@@ -1040,6 +1040,10 @@ gMIG21HighImportanceArguments =
 	[356] = "%.4f",		--RSBN Distance Tens
 	[355] = "%.4f",		--RSBN Distance Hundreds
 	[61] = "%.4f",		--Engine oxygen feed meter
+	[211] = "%.3f",		--Radio Channel
+	[349] = "%.3f",		--RSBN Nav Channel
+	[350] = "%.3f",		--RSBN Land Channel
+	[55] = "%.4f",		--Battery capacity meter gauge
 }
 
 gMIG21LowImportanceArguments =
@@ -1267,6 +1271,8 @@ gMIG21LowImportanceArguments =
 	[603] = "%1d",		--spo rb
 	[604] = "%1d",		--spo lb
 	[605] = "%1d",		--spo muted
+	[258] = "%1d",		--npp adjust
+	[259] = "%1d",		--kpp cage
 
 }
 
@@ -1664,8 +1670,8 @@ function ProcessMig21Exports()
 	MainPanel = GetDevice(0)
 
 --compressed air aux
---local o= MainPanel:get_argument_value(414)
---log_file:write("414:")
+--local o= MainPanel:get_argument_value(230)
+--log_file:write("230:")
 --log_file:write(o)
 --log_file:write("\n")
 
