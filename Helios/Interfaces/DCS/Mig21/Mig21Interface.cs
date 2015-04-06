@@ -1141,6 +1141,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "59", 150d, "O2 Level Gauge", "O2 Level", "Current level", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             AddFunction(new FlagValue(this, "60", "O2 Level Gauge", "Lung Blinkers", "Indicates whether the O2 is flowing."));
             #endregion
+
+            #region O2 Pressure Gauge
+            AddFunction(new ScaledNetworkValue(this, "58", 20d, "O2 Pressure Gauge", "O2 Pressure", "Current pressure", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
         }
 
     }
