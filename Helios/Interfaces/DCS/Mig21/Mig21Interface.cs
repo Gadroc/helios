@@ -395,14 +395,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(Switch.CreateToggleSwitch(this, RADIO, SQUELCH, "209", "1", "On", "0", "Off", "Radio", "Squelch On/Off", "%1d"));
             //works great with potentiometer
             AddFunction(new Axis(this, RADIO, RADIO_VOLUME, "210", 0.1d, 0d, 1d, "Radio", "Radio Volume"));
-            AddFunction(new Switch(this, RADIO, RADIO_CHANNEL, new SwitchPosition[] { new SwitchPosition("0.00", "Channel 0", RADIO_CHANNEL), 
+            AddFunction(new Switch(this, RADIO, RADIO_CHANNEL, new SwitchPosition[] { new SwitchPosition("0", "Channel 0", RADIO_CHANNEL), 
                 new SwitchPosition("0.05", "Channel 1", RADIO_CHANNEL), new SwitchPosition("0.1", "Channel 2", RADIO_CHANNEL), new SwitchPosition("0.15", "Channel 3", RADIO_CHANNEL), 
                 new SwitchPosition("0.2", "Channel 4", RADIO_CHANNEL), new SwitchPosition("0.25", "Channel 5", RADIO_CHANNEL), new SwitchPosition("0.3", "Channel 6", RADIO_CHANNEL), 
-                new SwitchPosition("0.35", "Channel 7", RADIO_CHANNEL), new SwitchPosition("0.4", "Channel 8", RADIO_CHANNEL) , new SwitchPosition("0.5", "Channel 9", RADIO_CHANNEL),
-                new SwitchPosition("0.55", "Channel 10", RADIO_CHANNEL), new SwitchPosition("0.6", "Channel 11", RADIO_CHANNEL) , new SwitchPosition("0.65", "Channel 12", RADIO_CHANNEL),
-                new SwitchPosition("0.7", "Channel 13", RADIO_CHANNEL), new SwitchPosition("0.75", "Channel 14", RADIO_CHANNEL) , new SwitchPosition("0.8", "Channel 15", RADIO_CHANNEL),
-                new SwitchPosition("0.85", "Channel 16", RADIO_CHANNEL), new SwitchPosition("0.9", "Channel 17", RADIO_CHANNEL) , new SwitchPosition("0.95", "Channel 18", RADIO_CHANNEL),
-                new SwitchPosition("0.1", "Channel 19", RADIO_CHANNEL)}, "Radio", "Radio Channel Selector", "%0.1f"));
+                new SwitchPosition("0.35", "Channel 7", RADIO_CHANNEL), new SwitchPosition("0.4", "Channel 8", RADIO_CHANNEL) , new SwitchPosition("0.45", "Channel 9", RADIO_CHANNEL),
+                new SwitchPosition("0.5", "Channel 10", RADIO_CHANNEL), new SwitchPosition("0.55", "Channel 11", RADIO_CHANNEL) , new SwitchPosition("0.66", "Channel 12", RADIO_CHANNEL),
+                new SwitchPosition("0.65", "Channel 13", RADIO_CHANNEL), new SwitchPosition("0.7", "Channel 14", RADIO_CHANNEL) , new SwitchPosition("0.75", "Channel 15", RADIO_CHANNEL),
+                new SwitchPosition("0.8", "Channel 16", RADIO_CHANNEL), new SwitchPosition("0.85", "Channel 17", RADIO_CHANNEL) , new SwitchPosition("0.9", "Channel 18", RADIO_CHANNEL),
+                new SwitchPosition("0.95", "Channel 19", RADIO_CHANNEL), new SwitchPosition("1", "Channel 20", RADIO_CHANNEL)}, "Radio", "Radio Channel Selector", "%0.1f"));
             AddFunction(new PushButton(this, INTERCOM, RADIO_INTERCOM, "315", "Radio", "Intercom pushbutton"));
             #endregion
 
@@ -789,7 +789,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new PushButton(this, WEAPON_CONTROL, SBROS_VNESN, "270", "Weapon Control", "Drop Payload - Outer Pylon"));
             AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, SBROS_VNUTR_SAFETY_COVER, "271", "1", "On", "0", "Off", "Weapon Control", "Drop Payload - Inner Pylons Cover", "%1d"));
             AddFunction(new PushButton(this, WEAPON_CONTROL, SbROS_VNUTR, "272", "Weapon Control", "Drop Payload - Inner Pylons"));
-            AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, ASP_VOZDUH_ZEMLJA, "230", "1", "On", "0", "Off", "Weapon Control", "Weapon Mode - Air/Ground", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, ASP_VOZDUH_ZEMLJA, "230", "1", "Air", "0", "Ground", "Weapon Control", "Weapon Mode - Air/Ground", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, WEAPON_CONTROL, ASP_SS_NEUTR_RNS, "231", "1.0", "IR Missile", "0.5", "Neutral", "0.0", "SAR Missile", "Weapon Control", "IR/Neutral/SAR", "%0.1f"));
             AddFunction(new PushButton(this, WEAPON_CONTROL, ASP_GUN_RELOAD_1, "232", "Weapon Control", "Activate Gun Loading Pyro - 1"));
             AddFunction(new PushButton(this, WEAPON_CONTROL, ASP_GUN_RELOAD_2, "233", "Weapon Control", "Activate Gun Loading Pyro - 2"));
@@ -1137,6 +1137,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(new ScaledNetworkValue(this, "61", 40d, "Engine O2 Gauge", "Engine O2", "Current O2", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             #endregion
 
+            #region O2 Level Gauge
+            AddFunction(new ScaledNetworkValue(this, "59", 150d, "O2 Level Gauge", "O2 Level", "Current level", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            AddFunction(new FlagValue(this, "60", "O2 Level Gauge", "Lung Blinkers", "Indicates whether the O2 is flowing."));
+            #endregion
         }
 
     }
