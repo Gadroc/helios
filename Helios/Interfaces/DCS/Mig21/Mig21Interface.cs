@@ -1145,6 +1145,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             #region O2 Pressure Gauge
             AddFunction(new ScaledNetworkValue(this, "58", 20d, "O2 Pressure Gauge", "O2 Pressure", "Current pressure", "", BindingValueUnits.Numeric, 0d, "%.4f"));
             #endregion
+
+            #region Battery capacity meter gauge
+            AddFunction(new ScaledNetworkValue(this, "55", 100d, "Battery Capacity Gauge", "Battery Capacity", "Current capacity", "", BindingValueUnits.Numeric, 0d, "%.4f"));
+            #endregion
+
         }
 
     }
