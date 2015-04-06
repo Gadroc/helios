@@ -993,61 +993,59 @@ gKa50LowImportanceArguments =
 
 gMIG21HighImportanceArguments =
 {
-	[110]="%.4f",		--accelerometer guage
-	[113]="%.4f",		--accelterometer max g
-	[114]="%.4f",		--accelterometer min g
+	[110]="%.3f",		--accelerometer guage
+	[113]="%.3f",		--accelterometer max g
+	[114]="%.3f",		--accelterometer min g
 	[105]="%.4f",		--UUA (aoa) meter
-	[52]="%.4f",		--fuel gauge
-	[50]="%.4f",		--Engine rpm 1
-	[670]="%.4f",		--Engine rpm 2 
+	[52]="%.3f",		--fuel gauge
+	[50]="%.3f",		--Engine rpm 1
+	[670]="%.3f",		--Engine rpm 2 
 	[100]="%.4f",		--IAS
-	[101]="%.4f",		--TAS
-	[102]="%.4f",		--M
-	[66]="%.4f",		--Nosecone position (UPES3)
+	[101]="%.3f",		--TAS
+	[102]="%.3f",		--M
+	[66]="%.3f",		--Nosecone position (UPES3)
 	[108]="%.4f",		--kpp bank
 	[109]="%.4f",		--kpp pitch
-	[565]="%.4f",		--kpp bank steering bar
-	[566]="%.4f",		--kpp pitch steering bar
-	[567] = "%1d",		--RSBN_KPP_kren_blinker (roll blinker) (K flag)
-	[568] = "%1d",		--RSBN_KPP_tangaz_blinker pitch blinker) (T flag)
-	[51]="%.4f",		--Engine exhaust temp
+	[565]="%.3f",		--kpp bank steering bar
+	[566]="%.3f",		--kpp pitch steering bar
+	[51]="%.3f",		--Engine exhaust temp
 	[106]="%.4f",		--da200 vvi
-	[31]="%.4f",		--da200 slip
+	[31]="%.3f",		--da200 slip
 	[107]="%.4f",		--da200 turn
-	[104]="%.4f",		--Baro Alt meters
-	[112]="%.4f",		--Baro Alt Kilometers
-	[652] = "%.4f",		--Baro Alt Triangle KM
-	[658] = "%.4f",		--Baro Alt Triangle M
-	[590]="%.4f",		--RSBN_NPP_kurs_needle (used for KPP aux too) course
-	[589]="%.4f",		--RSBN_NPP_glisada_needle (used for kpp aux too) glideslope
+	[104]="%.3f",		--Baro Alt meters
+	[112]="%.3f",		--Baro Alt Kilometers
+	[652] = "%.3f",		--Baro Alt Triangle KM
+	[658] = "%.3f",		--Baro Alt Triangle M
+	[590]="%.3f",		--RSBN_NPP_kurs_needle (used for KPP aux too) course
+	[589]="%.3f",		--RSBN_NPP_glisada_needle (used for kpp aux too) glideslope
 	[111]="%.4f",		--NPP Heading
 	[68]="%.4f",		--NPP commanded course
 	[36]="%.4f",		--NPP Heading (Ark rsbn needle)
-	[587] = "%1d",		--RSBN_NPP_kurs_blinker (course blinker) K flag
-	[588] = "%1d",		--RSBN_NPP_glisada_blinker G flag
-	[103] = "%.4f",		--Radio Altimeter
-	[64] = "%.4f",		--ARU3VM
-	[126] = "%.4f",		--Hydraulic Pressure Main
-	[125] = "%.4f",		--Hydraulic Pressure Secondary
-	[124] = "%.4f",		--DC Voltmeter
-	[627] = "%.4f",		--Oil Pressure gauge
-	[59] = "%.4f",		--Pilot O2 level
+	[103] = "%.3f",		--Radio Altimeter
+	[64] = "%.3f",		--ARU3VM
+	[126] = "%.3f",		--Hydraulic Pressure Main
+	[125] = "%.3f",		--Hydraulic Pressure Secondary
+	[124] = "%.3f",		--DC Voltmeter
+	[627] = "%.3f",		--Oil Pressure gauge
+	[59] = "%.3f",		--Pilot O2 level
 	[60] = "%1d",		--Pilot O2 lungs
 	[58] = "%.4f",		--O2 Pressure
 	[413] = "%.4f",		--Main airpressure
 	[414] = "%.4f",		--Aux airpressure??? this doesnt change??
-	[357] = "%.4f",		--RSBN Distance singles
-	[356] = "%.4f",		--RSBN Distance Tens
-	[355] = "%.4f",		--RSBN Distance Hundreds
+	[357] = "%.3f",		--RSBN Distance singles
+	[356] = "%.3f",		--RSBN Distance Tens
+	[355] = "%.3f",		--RSBN Distance Hundreds
 	[61] = "%.4f",		--Engine oxygen feed meter
-	[211] = "%.3f",		--Radio Channel
-	[349] = "%.3f",		--RSBN Nav Channel
-	[350] = "%.3f",		--RSBN Land Channel
-	[55] = "%.4f",		--Battery capacity meter gauge
+	[55] = "%.3f",		--Battery capacity meter gauge
 }
 
 gMIG21LowImportanceArguments =
 {
+	[211] = "%.3f",		--Radio Channel
+	[351] = "%.3f",		--RSBN Nav Channel
+	[352] = "%.3f",		--RSBN Land Channel
+	[587] = "%1d",		--RSBN_NPP_kurs_blinker (course blinker) K flag
+	[588] = "%1d",		--RSBN_NPP_glisada_blinker G flag
 	[173] = "%1d",		-- Radio on/off
 	[208] = "%1d",		-- Radio Compass Sound on/off
 	[209] = "%1d",		-- Squelch on/off
@@ -1668,12 +1666,6 @@ end
 
 function ProcessMig21Exports()
 	MainPanel = GetDevice(0)
-
---compressed air aux
---local o= MainPanel:get_argument_value(230)
---log_file:write("230:")
---log_file:write(o)
---log_file:write("\n")
 
 	FlushData()
 

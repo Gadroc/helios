@@ -94,7 +94,7 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.BaroAltimeter
             _altitudeShort.Execute += AltitudeShort_Execute;
             Actions.Add(_altitudeShort);
 
-            _qfePressure = new HeliosValue(this, BindingValue.Empty, "", "QFE Pressure", "Current calibrated qfe pressure", "Use Altimeter pressure knob axis as input ", BindingValueUnits.Numeric);
+            _qfePressure = new HeliosValue(this, BindingValue.Empty, "", "QFE Pressure", "Use Altimeter pressure knob axis as input", "Use Altimeter pressure knob axis as input", BindingValueUnits.Numeric);
             _qfePressure.Execute += Pressure_Execute;
             Actions.Add(_qfePressure);
 
