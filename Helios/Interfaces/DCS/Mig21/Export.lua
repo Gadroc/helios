@@ -1043,7 +1043,8 @@ gMIG21LowImportanceArguments =
 {
 	[211] = "%.3f",		--Radio Channel
 	[351] = "%.3f",		--RSBN Nav Channel
-	[352] = "%.3f",		--RSBN Land Channel
+	[352] = "%.3f",		--RSBN Land Channel 
+	[192] = "%.3f",		--SRZO Channel
 	[587] = "%1d",		--RSBN_NPP_kurs_blinker (course blinker) K flag
 	[588] = "%1d",		--RSBN_NPP_glisada_blinker G flag
 	[173] = "%1d",		-- Radio on/off
@@ -1666,6 +1667,12 @@ end
 
 function ProcessMig21Exports()
 	MainPanel = GetDevice(0)
+
+--compressed air aux
+--local o= MainPanel:get_argument_value(351)
+--log_file:write("349:")
+--log_file:write(o)
+--log_file:write("\n")
 
 	FlushData()
 
