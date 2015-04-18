@@ -395,6 +395,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
             AddFunction(Switch.CreateToggleSwitch(this, RADIO, SQUELCH, "209", "1", "On", "0", "Off", "Radio", "Squelch On/Off", "%1d"));
             //works great with potentiometer
             AddFunction(new Axis(this, RADIO, RADIO_VOLUME, "210", 0.1d, 0d, 1d, "Radio", "Radio Volume"));
+            //works better this way instead of axis to get the output
             AddFunction(new Switch(this, RADIO, RADIO_CHANNEL, new SwitchPosition[] { new SwitchPosition("0", "Channel 0", RADIO_CHANNEL), 
                 new SwitchPosition("0.05", "Channel 1", RADIO_CHANNEL), new SwitchPosition("0.1", "Channel 2", RADIO_CHANNEL), new SwitchPosition("0.15", "Channel 3", RADIO_CHANNEL), 
                 new SwitchPosition("0.2", "Channel 4", RADIO_CHANNEL), new SwitchPosition("0.25", "Channel 5", RADIO_CHANNEL), new SwitchPosition("0.3", "Channel 6", RADIO_CHANNEL), 
@@ -404,6 +405,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
                 new SwitchPosition("0.8", "Channel 16", RADIO_CHANNEL), new SwitchPosition("0.85", "Channel 17", RADIO_CHANNEL) , new SwitchPosition("0.9", "Channel 18", RADIO_CHANNEL),
                 new SwitchPosition("0.95", "Channel 19", RADIO_CHANNEL), new SwitchPosition("1", "Channel 20", RADIO_CHANNEL)}, "Radio", "Radio Channel Selector", "%0.1f"));
             AddFunction(new PushButton(this, INTERCOM, RADIO_INTERCOM, "315", "Radio", "Intercom pushbutton"));
+            // potentiometer with initial 0, min0, max 20, step 1 works perfect with it.
+            AddFunction(new ScaledNetworkValue(this, "211", 20d, "Radio Channel Display", "Radio Channel output for display", "Current channel", "use potentiometer with initial 0, min0, max 20, step 1", BindingValueUnits.Numeric, 0d, "%.4f"));          
             #endregion
 
             #region DC & AC buses & giro devices
@@ -555,6 +558,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
                 ,new SwitchPosition("0.97", "97", RSBN_NAV), new SwitchPosition("0.98", "98", RSBN_NAV), new SwitchPosition("0.99", "99", RSBN_NAV)
                 }, "RSBN", "RSBN NAV", "%0.01f"));
             //The following Axis is now crashing the game... need to investigate, remove from pull until fixed
+            //RSBN_LAND value, as soon as you use it game crashes now... need to investigate
+            //tried axis but RSBN_LAND value still used and does the same thing.
             //AddFunction(new Switch(this, RSBN, RSBN_LAND, new SwitchPosition[] { new SwitchPosition("0.00", "0", RSBN_LAND)
             //    ,new SwitchPosition("0.01", "1", RSBN_LAND), new SwitchPosition("0.02", "2", RSBN_LAND), new SwitchPosition("0.03", "3", RSBN_LAND)
             //    ,new SwitchPosition("0.04", "4", RSBN_LAND), new SwitchPosition("0.05", "5", RSBN_LAND), new SwitchPosition("0.06", "6", RSBN_LAND)
