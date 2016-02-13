@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="svg2" Width="340" Height="340">
+    <Canvas x:Name="layer1">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="0" Y="-712.36218"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+        </Canvas>
+    </Canvas>
+    <Canvas x:Name="layer2"/>
+    <Canvas x:Name="layer10"/>
+    <Canvas x:Name="layer3">
+        <Canvas x:Name="flowRoot3865" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="179.5" Y="11.5"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5427" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="129" Y="84.5"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5435" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="37.5" Y="94.5"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5443" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="157.5" Y="-78"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5451" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="-30.665476" Y="7.2227182"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5459" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="-14.5" Y="-76.5"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot5467" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="69.815918" Y="-112"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="flowRoot6318" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <TranslateTransform X="-7.3789062" Y="0"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Canvas>
+    </Canvas>
+    <Canvas x:Name="IAS" HorizontalAlignment="Left" Height="329.483" UseLayoutRounding="False" VerticalAlignment="Top" Width="329.571" Canvas.Left="5.429">
+
+
+
+
+    </Canvas>
+    <Canvas x:Name="IAS_under" HorizontalAlignment="Left" Height="329.483" UseLayoutRounding="False" VerticalAlignment="Top" Width="329.571" Canvas.Left="0.429">
+        <Path Data="F1M197.597,98.797C197.597,153.363 153.363,197.598 98.801,197.598 44.234,197.598 0,153.363 0,98.797 0,44.234 44.234,0 98.801,0 153.363,0 197.597,44.234 197.597,98.797z" Fill="#FF1A1A1A" Height="197.598" Canvas.Left="70.202" Canvas.Top="69.539" Width="197.596"/>
+        <Path Data="F1M0.515,18.781L4.875,18.75 4.734,2.625 0.015,3.672 0,1.063 4.687,0.016 7.359,0 7.515,18.734 11.859,18.688 11.875,21.094 0.531,21.188z" Fill="White" Height="21.188" Canvas.Left="164.211" Canvas.Top="83" Width="11.876"/>
+    </Canvas>
+</Canvas>
+
+
+
+
+

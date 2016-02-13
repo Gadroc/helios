@@ -286,6 +286,29 @@
     <Compile Include="Gauges\KA-50\RotorRPM\RotorRPM.cs" />
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
+    <Compile Include="Gauges\Mig-21\BatteryCapacity\BatteryCapacity.cs" />
+    <Compile Include="Gauges\Mig-21\RadioChannelDisplay\RadioChannelDisplay.cs" />
+    <Compile Include="Gauges\Mig-21\O2Pressure\O2Pressure.cs" />
+    <Compile Include="Gauges\Mig-21\EngineO2\EngineO2.cs" />
+    <Compile Include="Gauges\Mig-21\O2Level\O2Level.cs" />
+    <Compile Include="Gauges\Mig-21\OilPressure\OilPressure.cs" />
+    <Compile Include="Gauges\Mig-21\RSBNDistance\RSBNDistance.cs" />
+    <Compile Include="Gauges\Mig-21\Voltmeter\Voltmeter.cs" />
+    <Compile Include="Gauges\Mig-21\HydroPressure\HydroPressure.cs" />
+    <Compile Include="Gauges\Mig-21\Nosecone\Nosecone.cs" />
+    <Compile Include="Gauges\Mig-21\BaroAltimeter\BaroAltimeter.cs" />
+    <Compile Include="Gauges\Mig-21\ARU3VM\ARU3VM.cs" />
+    <Compile Include="Gauges\Mig-21\RadioAltimeter\RadioAltimeter.cs" />
+    <Compile Include="Gauges\Mig-21\EngineRpm\EngineRpm.cs" />
+    <Compile Include="Gauges\Mig-21\EngExhaustTemp\EngExhaustTemp.cs" />
+    <Compile Include="Gauges\Mig-21\NPP\NPP.cs" />
+    <Compile Include="Gauges\Mig-21\KPP\KPP.cs" />
+    <Compile Include="Gauges\Mig-21\DA200\DA200.cs" />
+    <Compile Include="Gauges\Mig-21\AOA\AOA.cs" />
+    <Compile Include="Gauges\Mig-21\FuelGauge\FuelGauge.cs" />
+    <Compile Include="Gauges\Mig-21\TAS\TAS.cs" />
+    <Compile Include="Gauges\Mig-21\IAS\IAS.cs" />
+    <Compile Include="Gauges\Mig-21\Accelerometer\Accelerometer.cs" />
     <Compile Include="HeliosAction.cs" />
     <Compile Include="HeliosActionCollection.cs" />
     <Compile Include="HeliosActionEventArgs.cs" />
@@ -368,6 +391,10 @@
     <Compile Include="Interfaces\DCS\FC2\FC2Interface.cs" />
     <Compile Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml.cs">
       <DependentUpon>FC2InterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\Mig21\Mig21Interface.cs" />
+    <Compile Include="Interfaces\DCS\Mig21\Mig21InterfaceEditor.xaml.cs">
+      <DependentUpon>Mig21InterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\DirectX\DirectXControllerAxis.cs" />
     <Compile Include="Interfaces\DirectX\DirectXControllerButton.cs" />
@@ -561,6 +588,8 @@
   <ItemGroup>
     <Resource Include="Interfaces\DCS\FC2\Export.lua" />
     <Resource Include="Interfaces\DCS\FC2\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\Mig21\Export.lua" />
+    <Resource Include="Interfaces\DCS\Mig21\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1848,6 +1877,318 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\Mig-21\Accelerometer\accelerometer_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Accelerometer\accelerometer_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Accelerometer\accelerometer_limit_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Accelerometer\accelerometer_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Accelerometer\accelerometer_limit_needleLow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Common\generic_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Common\small_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Common\generic_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\IAS\ias_back.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\IAS\ias_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\TAS\tas_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\TAS\tas_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\TAS\m_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\FuelGauge\fuelgauge_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\FuelGauge\fuelgauge_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\AOA\aoa_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\DA200\da200slip_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\DA200\da200_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\DA200\da200vvi_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\DA200\da200_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\DA200\da200bank_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_aircraft_symbol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_airspeed_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_bank_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_inner_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_lateral_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_pitch_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_pitch_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_k_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\KPP\adi_t_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\bearing_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\compass_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\compass_card_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\deviation_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\inner_bezel_markers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\k_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\g_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\glideslope_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\outer_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\black_blinker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\course_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\NPP\course_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngExhaustTemp\EngExhaustTemp_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngExhaustTemp\EngExhaustTemp_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngExhaustTemp\EngExhaustTemp_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineRpm\enginerpm_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineRpm\enginerpm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineRpm\enginerpm_needle2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineRpm\enginerpm_needle1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\RadioAltimeter\radalt_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\RadioAltimeter\radalt_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_innerfaceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_short_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_qfe_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_long_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BaroAltimeter\baro_alt_triangle_m.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\ARU3VM\aru3vm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\ARU3VM\aru3vm_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Nosecone\nosecone_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Nosecone\nosecone_outer_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\HydroPressure\hydropressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\HydroPressure\hydropressure_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\HydroPressure\hydropressure_needle_cover.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\HydroPressure\hydropressure_needle_cover_second.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Common\drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Common\generic_gray_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Voltmeter\voltmeter_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\OilPressure\oilpressure_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\OilPressure\oilpressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\Common\generic_small_gray_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\EngineO2\engine_o2_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\O2Level\o2_level_blinker_l.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\O2Level\o2_level_blinker_r.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\O2Level\o2_level_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\O2Pressure\o2_pressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mig-21\BatteryCapacity\battery_capacity_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1857,6 +2198,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\Mig21\Mig21InterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1913,7 +2258,9 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\DCS\Mig21\Functions\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />
     <Resource Include="Images\Buttons\mfd-lit-in.png" />
@@ -2349,6 +2696,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\F-16\VVI\vvi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\Mig-21\RSBNDistance\RSBNDistance.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
