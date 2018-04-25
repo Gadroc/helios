@@ -338,6 +338,20 @@
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder1.cs" />
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder3.cs" />
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder4.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\AV8BInterface.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\AV8BInterfaceEditor.xaml.cs">
+      <DependentUpon>AV8BInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\Altimeter.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\HSIMiles.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\ILSFrequency.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\TACANChannel.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\TotalFuel.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFPresetSelector.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFRadioEncoder.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFRadioEncoder1.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFRadioEncoder3.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFRadioEncoder4.cs" />
     <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterface.cs" />
     <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml.cs">
       <DependentUpon>BlackSharkInterfaceEditor.xaml</DependentUpon>
@@ -561,6 +575,7 @@
   <ItemGroup>
     <Resource Include="Interfaces\DCS\FC2\Export.lua" />
     <Resource Include="Interfaces\DCS\FC2\ExportFunctions.lua" />
+    <None Include="Interfaces\DCS\AV-8B\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1849,6 +1864,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\AV-8B\AV8BInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
