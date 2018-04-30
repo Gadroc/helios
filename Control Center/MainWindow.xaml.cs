@@ -802,7 +802,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                 StartProfile();
             }
 
-            VersionChecker.CheckVersion();
+            //VersionChecker.CheckVersion();
         }
 
         protected override void OnInitialized(EventArgs e)
@@ -817,7 +817,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
         private void AutoStartCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
-            pathKey.SetValue("Helios", "\"" + System.IO.Path.Combine(ConfigManager.ApplicationPath, "HeliosControlCenter.exe") + "\"");
+            pathKey.SetValue("Helios", "\"" + System.IO.Path.Combine(ConfigManager.ApplicationPath, "ControlCenter.exe") + "\"");
             pathKey.Close();
         }
 

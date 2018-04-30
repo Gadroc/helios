@@ -5,12 +5,12 @@
                                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                  xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls"
                                  xmlns:dcs="clr-namespace:GadrocsWorkshop.Helios.Interfaces.DCS.Common"
-                                 x:Name="A10PropertiesWindow" Height="Auto" Width="Auto" Background="{StaticResource ToolBackground}" Padding="5">
+                                 x:Name="AV8BPropertiesWindow" Height="Auto" Width="Auto" Background="{StaticResource ToolBackground}" Padding="5">
   <FrameworkElement.Resources>
     <Style x:Key="PathInvalid" TargetType="{x:Type StackPanel}">
       <Setter Property="UIElement.Visibility" Value="Collapsed"/>
       <Style.Triggers>
-        <DataTrigger Binding="{Binding ElementName=A10PropertiesWindow, Path=Configuration.IsPathValid}" Value="False">
+        <DataTrigger Binding="{Binding ElementName=AV8BPropertiesWindow, Path=Configuration.IsPathValid}" Value="False">
           <Setter Property="UIElement.Visibility" Value="Visible"/>
         </DataTrigger>
       </Style.Triggers>
@@ -20,8 +20,8 @@
       <Style.Triggers>
         <MultiDataTrigger>
           <MultiDataTrigger.Conditions>
-            <Condition Binding="{Binding ElementName=A10PropertiesWindow, Path=Configuration.IsUpToDate}" Value="True"/>
-            <Condition Binding="{Binding ElementName=A10PropertiesWindow, Path=Configuration.IsPathValid}" Value="True"/>
+            <Condition Binding="{Binding ElementName=AV8BPropertiesWindow, Path=Configuration.IsUpToDate}" Value="True"/>
+            <Condition Binding="{Binding ElementName=AV8BPropertiesWindow, Path=Configuration.IsPathValid}" Value="True"/>
           </MultiDataTrigger.Conditions>
           <MultiDataTrigger.Setters>
             <Setter Property="UIElement.Visibility" Value="Visible"/>
@@ -124,7 +124,7 @@
           <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Content="Install Path"/>
           <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
             <HeliosSdk:HeliosTextBox VerticalAlignment="Top" HorizontalAlignment="Left" MinWidth="200" MaxWidth="400"
-                                     Text="{Binding ElementName=A10PropertiesWindow, Path=Configuration.AppPath}"/>
+                                     Text="{Binding ElementName=AV8BPropertiesWindow, Path=Configuration.AppPath}"/>
             <Button Click="ResetPath" Margin="5 2 0 2">Reset</Button>
           </StackPanel>
           <TextBlock Grid.Column="1" Grid.Row="1" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">

@@ -30,6 +30,24 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EosSharp, Version=1.1.5488.21795, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -252,6 +270,7 @@
     <Compile Include="Gauges\A-10\TACANChannel\TACANChannel.cs" />
     <Compile Include="Gauges\A-10\TISLCodeWheel\TISLCodeWheel.cs" />
     <Compile Include="Gauges\A-10\VVI\VVI.cs" />
+    <Compile Include="Gauges\AV-8B\EDP Nozzle\edpNoz.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
     <Compile Include="Gauges\F-16\ADI\ADI.cs" />
@@ -342,16 +361,6 @@
     <Compile Include="Interfaces\DCS\AV-8B\AV8BInterfaceEditor.xaml.cs">
       <DependentUpon>AV8BInterfaceEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\Altimeter.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\HSIMiles.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\ILSFrequency.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\TACANChannel.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\TotalFuel.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFPresetSelector.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFRadioEncoder.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFRadioEncoder1.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFRadioEncoder3.cs" />
-    <Compile Include="Interfaces\DCS\AV-8B\Functions\VHFRadioEncoder4.cs" />
     <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterface.cs" />
     <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml.cs">
       <DependentUpon>BlackSharkInterfaceEditor.xaml</DependentUpon>
@@ -458,6 +467,11 @@
       <DependentUpon>KeyboardInterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Profile\ProfileInterface.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UnitConverters\AreaConverter.cs" />
     <Compile Include="UnitConverters\DistanceConverter.cs" />
     <Compile Include="UnitConverters\MassConverter.cs" />
@@ -1863,6 +1877,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\AV-8B\EDP Nozzle\edp_noz_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Common\nozzle_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1932,7 +1954,10 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\DCS\AV-8B\Functions\" />
+    <Folder Include="Templates\Base\AV-8B\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />
     <Resource Include="Images\Buttons\mfd-lit-in.png" />
@@ -2368,6 +2393,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\F-16\VVI\vvi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\AV-8B\Advisory Panel.png" />
+    <Content Include="Images\AV-8B\Cockpit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
