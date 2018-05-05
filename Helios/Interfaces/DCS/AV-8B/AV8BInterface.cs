@@ -16,7 +16,7 @@
 namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 {
     using GadrocsWorkshop.Helios.ComponentModel;
-    //using GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions;
+    using GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions;
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
     using Microsoft.Win32;
@@ -78,77 +78,77 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         private const string AUTOSTART = "40";
         #endregion
 
-        #region Buttons
-        private const string BUTTON_1 = "3001";
-        private const string BUTTON_2 = "3002";
-        private const string BUTTON_3 = "3003";
-        private const string BUTTON_4 = "3004";
-        private const string BUTTON_5 = "3005";
-        private const string BUTTON_6 = "3006";
-        private const string BUTTON_7 = "3007";
-        private const string BUTTON_8 = "3008";
-        private const string BUTTON_9 = "3009";
-        private const string BUTTON_10 = "3010";
-        private const string BUTTON_11 = "3011";
-        private const string BUTTON_12 = "3012";
-        private const string BUTTON_13 = "3013";
-        private const string BUTTON_14 = "3014";
-        private const string BUTTON_15 = "3015";
-        private const string BUTTON_16 = "3016";
-        private const string BUTTON_17 = "3017";
-        private const string BUTTON_18 = "3018";
-        private const string BUTTON_19 = "3019";
-        private const string BUTTON_20 = "3020";
-        private const string BUTTON_21 = "3021";
-        private const string BUTTON_22 = "3022";
-        private const string BUTTON_23 = "3023";
-        private const string BUTTON_24 = "3024";
-        private const string BUTTON_25 = "3025";
-        private const string BUTTON_26 = "3026";
-        private const string BUTTON_27 = "3027";
-        private const string BUTTON_28 = "3028";
-        private const string BUTTON_29 = "3029";
-        private const string BUTTON_30 = "3030";
-        private const string BUTTON_31 = "3031";
-        private const string BUTTON_32 = "3032";
-        private const string BUTTON_33 = "3033";
-        private const string BUTTON_34 = "3034";
-        private const string BUTTON_35 = "3035";
-        private const string BUTTON_36 = "3036";
-        private const string BUTTON_37 = "3037";
-        private const string BUTTON_38 = "3038";
-        private const string BUTTON_39 = "3039";
-        private const string BUTTON_40 = "3040";
-        private const string BUTTON_41 = "3041";
-        private const string BUTTON_42 = "3042";
-        private const string BUTTON_43 = "3043";
-        private const string BUTTON_44 = "3044";
-        private const string BUTTON_45 = "3045";
-        private const string BUTTON_46 = "3046";
-        private const string BUTTON_47 = "3047";
-        private const string BUTTON_48 = "3048";
-        private const string BUTTON_49 = "3049";
-        private const string BUTTON_50 = "3050";
-        private const string BUTTON_51 = "3051";
-        private const string BUTTON_52 = "3052";
-        private const string BUTTON_53 = "3053";
-        private const string BUTTON_54 = "3054";
-        private const string BUTTON_55 = "3055";
-        private const string BUTTON_56 = "3056";
-        private const string BUTTON_57 = "3057";
-        private const string BUTTON_58 = "3058";
-        private const string BUTTON_59 = "3059";
-        private const string BUTTON_60 = "3060";
-        private const string BUTTON_61 = "3061";
-        private const string BUTTON_62 = "3062";
-        private const string BUTTON_63 = "3063";
-        private const string BUTTON_64 = "3064";
-        private const string BUTTON_65 = "3065";
-        private const string BUTTON_66 = "3066";
-        private const string BUTTON_67 = "3067";
-        private const string BUTTON_68 = "3068";
-        private const string BUTTON_69 = "3069";
-        #endregion
+        //#region Buttons
+        //private const string BUTTON_1 = "3001";
+        //private const string BUTTON_2 = "3002";
+        //private const string BUTTON_3 = "3003";
+        //private const string BUTTON_4 = "3004";
+        //private const string BUTTON_5 = "3005";
+        //private const string BUTTON_6 = "3006";
+        //private const string BUTTON_7 = "3007";
+        //private const string BUTTON_8 = "3008";
+        //private const string BUTTON_9 = "3009";
+        //private const string BUTTON_10 = "3010";
+        //private const string BUTTON_11 = "3011";
+        //private const string BUTTON_12 = "3012";
+        //private const string BUTTON_13 = "3013";
+        //private const string BUTTON_14 = "3014";
+        //private const string BUTTON_15 = "3015";
+        //private const string BUTTON_16 = "3016";
+        //private const string BUTTON_17 = "3017";
+        //private const string BUTTON_18 = "3018";
+        //private const string BUTTON_19 = "3019";
+        //private const string BUTTON_20 = "3020";
+        //private const string BUTTON_21 = "3021";
+        //private const string BUTTON_22 = "3022";
+        //private const string BUTTON_23 = "3023";
+        //private const string BUTTON_24 = "3024";
+        //private const string BUTTON_25 = "3025";
+        //private const string BUTTON_26 = "3026";
+        //private const string BUTTON_27 = "3027";
+        //private const string BUTTON_28 = "3028";
+        //private const string BUTTON_29 = "3029";
+        //private const string BUTTON_30 = "3030";
+        //private const string BUTTON_31 = "3031";
+        //private const string BUTTON_32 = "3032";
+        //private const string BUTTON_33 = "3033";
+        //private const string BUTTON_34 = "3034";
+        //private const string BUTTON_35 = "3035";
+        //private const string BUTTON_36 = "3036";
+        //private const string BUTTON_37 = "3037";
+        //private const string BUTTON_38 = "3038";
+        //private const string BUTTON_39 = "3039";
+        //private const string BUTTON_40 = "3040";
+        //private const string BUTTON_41 = "3041";
+        //private const string BUTTON_42 = "3042";
+        //private const string BUTTON_43 = "3043";
+        //private const string BUTTON_44 = "3044";
+        //private const string BUTTON_45 = "3045";
+        //private const string BUTTON_46 = "3046";
+        //private const string BUTTON_47 = "3047";
+        //private const string BUTTON_48 = "3048";
+        //private const string BUTTON_49 = "3049";
+        //private const string BUTTON_50 = "3050";
+        //private const string BUTTON_51 = "3051";
+        //private const string BUTTON_52 = "3052";
+        //private const string BUTTON_53 = "3053";
+        //private const string BUTTON_54 = "3054";
+        //private const string BUTTON_55 = "3055";
+        //private const string BUTTON_56 = "3056";
+        //private const string BUTTON_57 = "3057";
+        //private const string BUTTON_58 = "3058";
+        //private const string BUTTON_59 = "3059";
+        //private const string BUTTON_60 = "3060";
+        //private const string BUTTON_61 = "3061";
+        //private const string BUTTON_62 = "3062";
+        //private const string BUTTON_63 = "3063";
+        //private const string BUTTON_64 = "3064";
+        //private const string BUTTON_65 = "3065";
+        //private const string BUTTON_66 = "3066";
+        //private const string BUTTON_67 = "3067";
+        //private const string BUTTON_68 = "3068";
+        //private const string BUTTON_69 = "3069";
+        //#endregion
 
         public AV8BInterface()
             : base("DCS AV8B")
@@ -291,13 +291,19 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "344", "Warning Indicators", "GEN", "AC Generator offline"));
             #endregion
 
-            #region Advisory Indicators
+            #region Refueling Indicators
             AddFunction(new FlagValue(this, "750", "Refueling Indicators", "Canopy Left", "Refueling Left Tank"));
             AddFunction(new FlagValue(this, "751", "Refueling Indicators", "Canopy Ready", "Refueling Ready light"));
             AddFunction(new FlagValue(this, "752", "Refueling Indicators", "Canopy Right", "Refuelng Right Light"));
             #endregion
 
-            #region refueling indicators
+            #region Fuel Quantity Indicator System
+            AddFunction(new Axis(this, FQIS, "3380", "3380", 0.05d, 0.15d, 0.85d, "Fuel Quantity", "Bingo Fuel Set Knob"));
+            AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3395"), new SwitchPosition("-0.66", "FEED", "3395"), new SwitchPosition("-0.33", "TOTAL", "3395"), new SwitchPosition("0.0", "INT", "3395"), new SwitchPosition("0.33", "WING", "3395"), new SwitchPosition("0.66", "INBD", "3395"), new SwitchPosition("0.99", "OUTBD", "3395") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
+
+            #endregion
+
+            #region Advisory indicators
             AddFunction(new FlagValue(this, "560", "Advisory Indicators", "OXY", "OBOGS malfunction"));
             AddFunction(new FlagValue(this, "561", "Advisory Indicators", "WSHLD", "Windshield hot"));
             AddFunction(new FlagValue(this, "562", "Advisory Indicators", "HYD 1", "HYD 1 pressure ≤ 1400 psi"));
@@ -359,19 +365,68 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "469", "Landing Gear Indicators", "Main", "Main Gear Ready"));
             #endregion
 
-            #region Right Hand Advisory Indicators
-            AddFunction(new FlagValue(this, "451", "RH Advisory Indicators", "SEL", "Combat thrust limiter selected"));
-            AddFunction(new FlagValue(this, "452", "RH Advisory Indicators", "CMBT", "Combat thrust activated. Flashes after 2 ½ minutes"));
-            AddFunction(new FlagValue(this, "453", "RH Advisory Indicators", "STO", "Flap switch in STOL"));
+            #region Left Hand Advisory Indicators
+            AddFunction(new FlagValue(this, "451", "LH Flaps & Water", "SEL indicator", "Combat thrust limiter selected"));
+            AddFunction(new FlagValue(this, "452", "LH Flaps & Water", "CMBT indicator", "Combat thrust activated. Flashes after 2 ½ minutes"));
+            AddFunction(new FlagValue(this, "453", "LH Flaps & Water", "STO indicator", "Flap switch in STOL"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3449", "3449", "-1", "TO", "0", "Off", "1", "VSTOL", "LH Flaps & Water", "H2O Mode Switch", "%1d"));
+            AddFunction(new PushButton(this, DECS, "3450", "3450", "LH Flaps & Water", "Combat Thrust Button"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3454", "3454", "-1", "Cruise", "0", "Auto", "1", "VSTOL", "LH Flaps & Water", "Flaps Mode Switch", "%1d"));
             #endregion
 
-            #region SMC
-            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3287", "3287", "1", "Safe", "0", "Armed", "Weapons", "SMC Master Arm Switch", "%1d"));
+            #region Stores Management Controller
+            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3287", "3287", "1", "Armed", "0", "Safe", "Stores Management", "Master Arm Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3396", "3396", "-1", "dn", "0", "Off", "1", "Up", "Stores Management", "Armament Mode control", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "3397", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Fuzing control", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "3398", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Quantity Tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "3399", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Quantity Units", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "3400", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Multiple Release", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "3401", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Release interval hundreds", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "3402", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Release interval tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "3403", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Release interval units", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3420", "3420", "0", "Off", "1", "Cooling", "Stores Management", "IR Cool Switch", "%1d"));
+            AddFunction(new PushButton(this, SMC, "3407", "3407", "Stores Management", "Select station 1"));
+            AddFunction(new FlagValue(this, "406", "Stores Management", "Station 1 Selected", "Station 1 selected indicator"));
+            AddFunction(new PushButton(this, SMC, "3409", "3409", "Stores Management", "Select station 2"));
+            AddFunction(new FlagValue(this, "408", "Stores Management", "Station 2 Selected", "station 2 selected indicator"));
+            AddFunction(new PushButton(this, SMC, "3411", "3411", "Stores Management", "Select station 3"));
+            AddFunction(new FlagValue(this, "410", "Stores Management", "Station 3 Selected", "station 3 selected indicator"));
+            AddFunction(new PushButton(this, SMC, "3413", "3413", "Stores Management", "Select station 4"));
+            AddFunction(new FlagValue(this, "412", "Stores Management", "Station 4 Selected", "station 4 selected indicator"));
+            AddFunction(new PushButton(this, SMC, "3415", "3415", "Stores Management", "Select station 5"));
+            AddFunction(new FlagValue(this, "414", "Stores Management", "Station 5 Selected", "station 5 selected indicator"));
+            AddFunction(new PushButton(this, SMC, "3417", "3417", "Stores Management", "Select station 6"));
+            AddFunction(new FlagValue(this, "416", "Stores Management", "Station 6 Selected", "station 6 selected indicator"));
+            AddFunction(new PushButton(this, SMC, "3419", "3419", "Stores Management", "Select station 7"));
+            AddFunction(new FlagValue(this, "418", "Stores Management", "Station 7 Selected", "station 7 selected indicator"));
+            AddFunction(new PushButton(this, SMC, "3286", "3286", "Stores Management", "Launch Flare Salvo"));
+            AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("-1.0", "STA", "3404"), new SwitchPosition("-0.5", "STOR", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("1.0", "FUEL", "3404") }, "Stores Management", "Jettison Mode Selector", "%0.1f"));
+            AddFunction(new PushButton(this, SMC, "3405", "3405", "Stores Management", "Jettison Stores"));
+            AddFunction(new Switch(this, SMC, "3395", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3395"), new SwitchPosition("0.33", "N/T", "3395"), new SwitchPosition("0.66", "N", "3395"), new SwitchPosition("1.0", "T", "3395") }, "Stores Management", "Manual Fuzing Release Control", "%0.1f"));
 
             #endregion
-            AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Angle", "Current Nozzle Angle.", "", BindingValueUnits.Degrees));
 
+            #region Engine Display Panel
+            AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Position", "Current Nozzle position.", "", BindingValueUnits.Degrees));
+            #endregion
 
+            #region Flight Instruments
+            AddFunction(new Altimeter(this));
+            //AddFunction(new RotaryEncoder(this, FM_PROXY, BUTTON_1, "62", 0.04d, "Altimeter", "Pressure"));
+
+            CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-0.6d, -6000d, 0.6d, 6000d);
+            vviScale.Add(new CalibrationPointDouble(0d, 0d));
+            AddFunction(new ScaledNetworkValue(this, "362", vviScale, "Flight Instruments", "VVI", "Vertical velocity indicator -6000 to +6000.", "", BindingValueUnits.FeetPerMinute));
+
+            CalibrationPointCollectionDouble AoAScale = new CalibrationPointCollectionDouble(-0.05d, -5d, 0.20d, 20d);
+            AoAScale.Add(new CalibrationPointDouble(0d, 0d));
+            AddFunction(new ScaledNetworkValue(this, "361", AoAScale, "AOA", "Angle of Attack", "Current angle of attack of the aircraft.", "", BindingValueUnits.Degrees));
+            AddFunction(new FlagValue(this, "360", "AOA", "Off Flag", ""));
+
+            CalibrationPointCollectionDouble airspeedScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 1000d);
+            AddFunction(new ScaledNetworkValue(this, "346", airspeedScale, "IAS", "Airspeed", "Current indicated air speed of the aircraft.", "", BindingValueUnits.Knots));
+
+            #endregion
 
         }
 
