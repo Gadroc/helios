@@ -182,6 +182,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, MPCD_LEFT, "3217", "3217", "Left MFCD", "OSB18", "1", "0", "%1d"));
             AddFunction(new PushButton(this, MPCD_LEFT, "3218", "3218", "Left MFCD", "OSB19", "1", "0", "%1d"));
             AddFunction(new PushButton(this, MPCD_LEFT, "3219", "3219", "Left MFCD", "OSB20", "1", "0", "%1d"));
+            AddFunction(new Axis(this, MPCD_LEFT, "3194", "3194", 0.1d, 0d, 1d, "Left MFCD", "Off/Brightness Control"));
             #endregion
 
             #region Right MCFD
@@ -205,6 +206,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, MPCD_RIGHT, "3241", "3241", "Right MFCD", "OSB18"));
             AddFunction(new PushButton(this, MPCD_RIGHT, "3242", "3242", "Right MFCD", "OSB19"));
             AddFunction(new PushButton(this, MPCD_RIGHT, "3243", "3243", "Right MFCD", "OSB20"));
+            AddFunction(new Axis(this, MPCD_RIGHT, "3195", "3195", 0.1d, 0d, 1d, "Right MFCD", "Off/Brightness Control"));
+
             #endregion
 
             #region UFC
@@ -239,9 +242,22 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "196", "Caution/Warning", "Master Caution", "Master Caution indicator"));
             AddFunction(new PushButton(this, LTWCA, "3199", "3199", "Caution/Warning", "Master Warning Button"));
             AddFunction(new FlagValue(this, "197", "Caution/Warning", "Master Warning", "Master warning indicator"));
+            AddFunction(new Axis(this, UFCCONTROL, "3295", "3295", 0.1d, 0d, 1d, "UFC", "Display Brightness"));
+            AddFunction(new Axis(this, UFCCONTROL, "3298", "3298", 0.1d, 0d, 1d, "UFC", "Comm 1 Volume"));
+            AddFunction(new Axis(this, UFCCONTROL, "3299", "3299", 0.1d, 0d, 1d, "UFC", "Comm 2 Volume"));
+            AddFunction(new Axis(this, UFCCONTROL, "3300", "3300", 0.1d, 0d, 1d, "UFC", "Comm 1 Channel selector"));
+            AddFunction(new Axis(this, UFCCONTROL, "3301", "3301", 0.1d, 0d, 1d, "UFC", "Comm 2 Channel selector"));
+
             //       public IndicatorPushButton(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, string device, string name)
             //       public FlagValue(BaseUDPInterface sourceInterface, string id, string device, string name, string description)
             //       public PushButton(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, string device, string name)
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "3288", "1", "Norm", "0", "Reject 1", "-1", "Reject 2", "HUD Control", "Declutter switch", "%1d"));
+            AddFunction(new Axis(this, HUDCONTROL, "3289", "3289", 0.1d, 0d, 1d, "HUD Control", "Off/Brightness control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "3290", "1", "Day", "0", "Auto", "-1", "Night", "HUD Control", "Display Mode switch", "%1d"));
+            AddFunction(new Axis(this, HUDCONTROL, "3291", "3291", 0.1d, 0d, 1d, "HUD Control", "Video Brightness"));
+            AddFunction(new Axis(this, HUDCONTROL, "3292", "3292", 0.1d, 0d, 1d, "HUD Control", "Video Contrast"));
+            AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "3293", "1", "Baro", "0", "Rdr", "HUD Control", "Altimeter Mode Switch", "%1d"));
+
             #endregion
 
             #region Master Modes
@@ -299,7 +315,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Fuel Quantity Indicator System
             AddFunction(new Axis(this, FQIS, "3380", "3380", 0.05d, 0.15d, 0.85d, "Fuel Quantity", "Bingo Fuel Set Knob"));
-            AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3395"), new SwitchPosition("-0.66", "FEED", "3395"), new SwitchPosition("-0.33", "TOTAL", "3395"), new SwitchPosition("0.0", "INT", "3395"), new SwitchPosition("0.33", "WING", "3395"), new SwitchPosition("0.66", "INBD", "3395"), new SwitchPosition("0.99", "OUTBD", "3395") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
+            AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("0.99", "OUTBD", "3395"), new SwitchPosition( "0.66", "INBD", "3395"), new SwitchPosition("0.33", "WING", "3395"), new SwitchPosition("0.0", "INT", "3395"), new SwitchPosition("-0.33", "TOTAL", "3395"), new SwitchPosition("-0.66", "FEED", "3395"), new SwitchPosition("-0.99", "BIT", "3395") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
 
             #endregion
 
@@ -376,15 +392,15 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Stores Management Controller
             AddFunction(Switch.CreateToggleSwitch(this, SMC, "3287", "3287", "1", "Armed", "0", "Safe", "Stores Management", "Master Arm Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3396", "3396", "-1", "dn", "0", "Off", "1", "Up", "Stores Management", "Armament Mode control", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "3397", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Fuzing control", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "3398", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Quantity Tens", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "3399", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Quantity Units", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "3400", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Multiple Release", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "3401", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Release interval hundreds", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "3402", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Release interval tens", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "3403", "-1", "decrease", "0", "Off", "1", "Increase", "Stores Management", "Armament Release interval units", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3420", "3420", "0", "Off", "1", "Cooling", "Stores Management", "IR Cool Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3396", "3396", "1", "Up", "0", "Off", "-1", "Dn", "Stores Management", "Armament Mode control", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "3397", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Fuzing control", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "3398", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "3399", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Units", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "3400", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Multiple Release", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "3401", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval hundreds", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "3402", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "3403", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval units", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3420", "3420", "1", "Cooling", "0", "Off", "Stores Management", "IR Cool Switch", "%1d"));
             AddFunction(new PushButton(this, SMC, "3407", "3407", "Stores Management", "Select station 1"));
             AddFunction(new FlagValue(this, "406", "Stores Management", "Station 1 Selected", "Station 1 selected indicator"));
             AddFunction(new PushButton(this, SMC, "3409", "3409", "Stores Management", "Select station 2"));
@@ -400,9 +416,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, SMC, "3419", "3419", "Stores Management", "Select station 7"));
             AddFunction(new FlagValue(this, "418", "Stores Management", "Station 7 Selected", "station 7 selected indicator"));
             AddFunction(new PushButton(this, SMC, "3286", "3286", "Stores Management", "Launch Flare Salvo"));
-            AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("-1.0", "STA", "3404"), new SwitchPosition("-0.5", "STOR", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("1.0", "FUEL", "3404") }, "Stores Management", "Jettison Mode Selector", "%0.1f"));
+            AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("1.0", "FUEL", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("-0.5", "STOR", "3404"),new SwitchPosition("-1.0", "STA", "3404") },  "Stores Management", "Jettison Mode Selector", "%0.1f"));
             AddFunction(new PushButton(this, SMC, "3405", "3405", "Stores Management", "Jettison Stores"));
-            AddFunction(new Switch(this, SMC, "3395", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3395"), new SwitchPosition("0.33", "N/T", "3395"), new SwitchPosition("0.66", "N", "3395"), new SwitchPosition("1.0", "T", "3395") }, "Stores Management", "Manual Fuzing Release Control", "%0.1f"));
+            AddFunction(new Switch(this, SMC, "3395", new SwitchPosition[] { new SwitchPosition("1.0", "T", "3395"), new SwitchPosition("0.66", "N", "3395"), new SwitchPosition("0.33", "N/T", "3395"), new SwitchPosition("0.0", "Norm", "3395")}, "Stores Management", "Manual Fuzing Release Control", "%0.1f"));
 
             #endregion
 

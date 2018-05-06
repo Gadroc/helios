@@ -938,6 +938,9 @@
     <None Include="Templates\Base\Rockers\White Wheel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Templates\Base\AV-8B\Rotary - Knob 6.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Templates\Base\Rotaries\Rotary - Knob 1.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2003,9 +2006,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Templates\Base\AV-8B\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />
     <Resource Include="Images\Buttons\mfd-lit-in.png" />
@@ -2444,7 +2445,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\AV-8B\Advisory Panel.png" />
+    <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_Off.png" />
+    <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_On.png" />
+    <Content Include="Images\AV-8B\AV8BNA_Rotary5.png" />
+    <Content Include="Images\AV-8B\AV8BNA_Rotary_Jett.png" />
     <Content Include="Images\AV-8B\Cockpit.png" />
+    <Content Include="Images\AV-8B\knob1a.png" />
+    <Content Include="Images\AV-8B\knob_solo.png" />
+    <Content Include="Images\AV-8B\Knob7.png" />
+    <Content Include="Images\AV-8B\Rotary.png" />
+    <Content Include="Images\AV-8B\sw_lng-lgt_cent.png" />
+    <Content Include="Images\AV-8B\sw_lng-lgt_down.png" />
+    <Content Include="Images\AV-8B\sw_lng-lgt_up.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
