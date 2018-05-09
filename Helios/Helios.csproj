@@ -270,10 +270,15 @@
     <Compile Include="Gauges\A-10\TACANChannel\TACANChannel.cs" />
     <Compile Include="Gauges\A-10\TISLCodeWheel\TISLCodeWheel.cs" />
     <Compile Include="Gauges\A-10\VVI\VVI.cs" />
+    <Compile Include="Gauges\AV-8B\1 Digit Display\1DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\Altimeter\Altimeter.cs" />
     <Compile Include="Gauges\AV-8B\AOA\AOA.cs" />
     <Compile Include="Gauges\AV-8B\EDP Nozzle\edpNoz.cs" />
+    <Compile Include="Gauges\AV-8B\5 Digit Display\5DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\3 Digit Display\3DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\IAS\IAS.cs" />
+    <Compile Include="Gauges\AV-8B\4 Digit Display\4DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\2 Digit Display\2DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
@@ -366,6 +371,19 @@
       <DependentUpon>AV8BInterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\DCS\AV-8B\Functions\Altimeter.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\SMCMultipleDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\SMCQuantityDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\SMCIntervalDispaly.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\EngineDuctDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\EngineStabiliserDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\EngineJPTDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\EngineFFDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\FuelTotalDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\FuelRightDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\FuelBingoDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\FuelLeftDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\EngineRPMDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV-8B\Functions\EngineH2ODisplay.cs" />
     <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterface.cs" />
     <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml.cs">
       <DependentUpon>BlackSharkInterfaceEditor.xaml</DependentUpon>
@@ -1930,6 +1948,26 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\AV-8B\Common\drum_tape_reverse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\5 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\4 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\3 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\2 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\1 Digit Display\digit_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>

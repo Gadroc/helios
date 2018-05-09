@@ -251,12 +251,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             //       public IndicatorPushButton(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, string device, string name)
             //       public FlagValue(BaseUDPInterface sourceInterface, string id, string device, string name, string description)
             //       public PushButton(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, string device, string name)
-            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "3288", "1", "Norm", "0", "Reject 1", "-1", "Reject 2", "HUD Control", "Declutter switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "3288", "0", "Norm", "0.5", "Reject 1", "1", "Reject 2", "HUD Control", "Declutter switch", "%1d"));
             AddFunction(new Axis(this, HUDCONTROL, "3289", "3289", 0.1d, 0d, 1d, "HUD Control", "Off/Brightness control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "3290", "1", "Day", "0", "Auto", "-1", "Night", "HUD Control", "Display Mode switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "3290", "0", "Day", "0.5", "Auto", "1", "Night", "HUD Control", "Display Mode switch", "%1d"));
             AddFunction(new Axis(this, HUDCONTROL, "3291", "3291", 0.1d, 0d, 1d, "HUD Control", "Video Brightness"));
             AddFunction(new Axis(this, HUDCONTROL, "3292", "3292", 0.1d, 0d, 1d, "HUD Control", "Video Contrast"));
-            AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "3293", "1", "Baro", "0", "Rdr", "HUD Control", "Altimeter Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "3293", "1", "Baro", "0", "RDR", "HUD Control", "Altimeter Mode Switch", "%1d"));
 
             #endregion
 
@@ -315,8 +315,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Fuel Quantity Indicator System
             AddFunction(new Axis(this, FQIS, "3380", "3380", 0.05d, 0.15d, 0.85d, "Fuel Quantity", "Bingo Fuel Set Knob"));
-            AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("0.99", "OUTBD", "3395"), new SwitchPosition( "0.66", "INBD", "3395"), new SwitchPosition("0.33", "WING", "3395"), new SwitchPosition("0.0", "INT", "3395"), new SwitchPosition("-0.33", "TOTAL", "3395"), new SwitchPosition("-0.66", "FEED", "3395"), new SwitchPosition("-0.99", "BIT", "3395") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
+            AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3379"), new SwitchPosition("-0.66", "FEED", "3379"), new SwitchPosition("-0.33", "TOTAL", "3379"), new SwitchPosition("0.0", "INT", "3379"), new SwitchPosition("0.33", "WING", "3379"), new SwitchPosition("0.66", "INBD", "3379"), new SwitchPosition("0.99", "OUTBD", "3379") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
+            AddFunction(new FuelLeftDisplay(this));
+            AddFunction(new FuelRightDisplay(this));
+            AddFunction(new FuelBingoDisplay(this));
+            AddFunction(new FuelTotalDisplay(this));
+            #endregion
 
+            #region ECM
+            AddFunction(new Switch(this, RWRCONTROL, "3273", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3273"), new SwitchPosition("0.3", "posn 1", "3273"), new SwitchPosition("0.4", "posn 2", "3273"), new SwitchPosition("0.5", "posn 3", "3273"), new SwitchPosition("0.6", "posn 4", "3273"), new SwitchPosition("0.7", "posn 5", "3273"), new SwitchPosition("0.8", "posn 6", "3273"), new SwitchPosition("0.9", "posn 7", "3273"), new SwitchPosition("1.0", "posn 8", "3273") }, "RWR / ECM", "Off/Volume", "%0.1f"));
+            AddFunction(new Switch(this, EWS, "3274", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3274"),new SwitchPosition("0.25", "AUTO", "3274"), new SwitchPosition("0.50", "UP", "3274"), new SwitchPosition("0.75", "Down", "3274"), new SwitchPosition("1.00", "RWR", "3274") }, "RWR / ECM", "Decoy Dispenser Control", "%0.1f"));
+            AddFunction(new Switch(this, EWS, "3275", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3275"),new SwitchPosition("0.25", "STBY", "3275"), new SwitchPosition("0.50", "BIT", "3275"), new SwitchPosition("0.75", "RPT", "3275"), new SwitchPosition("1.00", "RPT", "3275")}, "RWR / ECM", "Jammer Control", "%0.1f"));
             #endregion
 
             #region Advisory indicators
@@ -385,7 +394,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "451", "LH Flaps & Water", "SEL indicator", "Combat thrust limiter selected"));
             AddFunction(new FlagValue(this, "452", "LH Flaps & Water", "CMBT indicator", "Combat thrust activated. Flashes after 2 ½ minutes"));
             AddFunction(new FlagValue(this, "453", "LH Flaps & Water", "STO indicator", "Flap switch in STOL"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3449", "3449", "-1", "TO", "0", "Off", "1", "VSTOL", "LH Flaps & Water", "H2O Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3449", "3449", "1", "TO", "0.5", "Off", "0", "VSTOL", "LH Flaps & Water", "H2O Mode Switch", "%1d"));
             AddFunction(new PushButton(this, DECS, "3450", "3450", "LH Flaps & Water", "Combat Thrust Button"));
             AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3454", "3454", "-1", "Cruise", "0", "Auto", "1", "VSTOL", "LH Flaps & Water", "Flaps Mode Switch", "%1d"));
             #endregion
@@ -416,14 +425,25 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, SMC, "3419", "3419", "Stores Management", "Select station 7"));
             AddFunction(new FlagValue(this, "418", "Stores Management", "Station 7 Selected", "station 7 selected indicator"));
             AddFunction(new PushButton(this, SMC, "3286", "3286", "Stores Management", "Launch Flare Salvo"));
-            AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("1.0", "FUEL", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("-0.5", "STOR", "3404"),new SwitchPosition("-1.0", "STA", "3404") },  "Stores Management", "Jettison Mode Selector", "%0.1f"));
+            AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("-1.0", "STA", "3404"), new SwitchPosition("-0.5", "STOR", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("1.0", "FUEL", "3404") },  "Stores Management", "Jettison Mode Selector", "%0.1f"));
             AddFunction(new PushButton(this, SMC, "3405", "3405", "Stores Management", "Jettison Stores"));
-            AddFunction(new Switch(this, SMC, "3395", new SwitchPosition[] { new SwitchPosition("1.0", "T", "3395"), new SwitchPosition("0.66", "N", "3395"), new SwitchPosition("0.33", "N/T", "3395"), new SwitchPosition("0.0", "Norm", "3395")}, "Stores Management", "Manual Fuzing Release Control", "%0.1f"));
+            AddFunction(new Switch(this, SMC, "3395", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3395"), new SwitchPosition("0.33", "N/T", "3395"), new SwitchPosition("0.66", "N", "3395"), new SwitchPosition("1.0", "T", "3395")  }, "Stores Management", "Manual Fuzing Release Control", "%0.1f"));
+            AddFunction(new SMCIntervalDisplay(this));
+            AddFunction(new SMCQuantityDisplay(this));
+            AddFunction(new SMCMultipleDisplay(this));
 
             #endregion
 
             #region Engine Display Panel
             AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Position", "Current Nozzle position.", "", BindingValueUnits.Degrees));
+            AddFunction(new PushButton(this, EDP, "3655", "3655", "EDP", "BIT"));
+            AddFunction(new EngineH2ODisplay(this));
+            AddFunction(new EngineRPMDisplay(this));
+            AddFunction(new EngineFFDisplay(this));
+            AddFunction(new EngineJPTDisplay(this));
+            AddFunction(new EngineStabiliserDisplay(this));
+            AddFunction(new EngineDuctDisplay(this));
+
             #endregion
 
             #region Flight Instruments
