@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions
 
     public class SMCQuantityDisplay : NetworkFunction
     {
-        private static DCSDataElement[] _dataElements = new DCSDataElement[] { new DCSDataElement("2021", null, false) };
+        private static DCSDataElement[] _dataElements = new DCSDataElement[] { new DCSDataElement("2022", null, false) };
 
  
         private HeliosValue _two_digit_display;
@@ -30,7 +30,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions
         public SMCQuantityDisplay(BaseUDPInterface sourceInterface)
             : base(sourceInterface)
         {
-            _two_digit_display = new HeliosValue(sourceInterface, BindingValue.Empty, "SMC", "Stores quantity display", "Quantity of stores", "", BindingValueUnits.Numeric);
+            _two_digit_display = new HeliosValue(sourceInterface, BindingValue.Empty, "Stores Management", "Stores quantity display", "Quantity of stores", "", BindingValueUnits.Numeric);
             Values.Add(_two_digit_display);
             Triggers.Add(_two_digit_display);
         }

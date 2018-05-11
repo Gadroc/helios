@@ -78,78 +78,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         private const string AUTOSTART = "40";
         #endregion
 
-        //#region Buttons
-        //private const string BUTTON_1 = "3001";
-        //private const string BUTTON_2 = "3002";
-        //private const string BUTTON_3 = "3003";
-        //private const string BUTTON_4 = "3004";
-        //private const string BUTTON_5 = "3005";
-        //private const string BUTTON_6 = "3006";
-        //private const string BUTTON_7 = "3007";
-        //private const string BUTTON_8 = "3008";
-        //private const string BUTTON_9 = "3009";
-        //private const string BUTTON_10 = "3010";
-        //private const string BUTTON_11 = "3011";
-        //private const string BUTTON_12 = "3012";
-        //private const string BUTTON_13 = "3013";
-        //private const string BUTTON_14 = "3014";
-        //private const string BUTTON_15 = "3015";
-        //private const string BUTTON_16 = "3016";
-        //private const string BUTTON_17 = "3017";
-        //private const string BUTTON_18 = "3018";
-        //private const string BUTTON_19 = "3019";
-        //private const string BUTTON_20 = "3020";
-        //private const string BUTTON_21 = "3021";
-        //private const string BUTTON_22 = "3022";
-        //private const string BUTTON_23 = "3023";
-        //private const string BUTTON_24 = "3024";
-        //private const string BUTTON_25 = "3025";
-        //private const string BUTTON_26 = "3026";
-        //private const string BUTTON_27 = "3027";
-        //private const string BUTTON_28 = "3028";
-        //private const string BUTTON_29 = "3029";
-        //private const string BUTTON_30 = "3030";
-        //private const string BUTTON_31 = "3031";
-        //private const string BUTTON_32 = "3032";
-        //private const string BUTTON_33 = "3033";
-        //private const string BUTTON_34 = "3034";
-        //private const string BUTTON_35 = "3035";
-        //private const string BUTTON_36 = "3036";
-        //private const string BUTTON_37 = "3037";
-        //private const string BUTTON_38 = "3038";
-        //private const string BUTTON_39 = "3039";
-        //private const string BUTTON_40 = "3040";
-        //private const string BUTTON_41 = "3041";
-        //private const string BUTTON_42 = "3042";
-        //private const string BUTTON_43 = "3043";
-        //private const string BUTTON_44 = "3044";
-        //private const string BUTTON_45 = "3045";
-        //private const string BUTTON_46 = "3046";
-        //private const string BUTTON_47 = "3047";
-        //private const string BUTTON_48 = "3048";
-        //private const string BUTTON_49 = "3049";
-        //private const string BUTTON_50 = "3050";
-        //private const string BUTTON_51 = "3051";
-        //private const string BUTTON_52 = "3052";
-        //private const string BUTTON_53 = "3053";
-        //private const string BUTTON_54 = "3054";
-        //private const string BUTTON_55 = "3055";
-        //private const string BUTTON_56 = "3056";
-        //private const string BUTTON_57 = "3057";
-        //private const string BUTTON_58 = "3058";
-        //private const string BUTTON_59 = "3059";
-        //private const string BUTTON_60 = "3060";
-        //private const string BUTTON_61 = "3061";
-        //private const string BUTTON_62 = "3062";
-        //private const string BUTTON_63 = "3063";
-        //private const string BUTTON_64 = "3064";
-        //private const string BUTTON_65 = "3065";
-        //private const string BUTTON_66 = "3066";
-        //private const string BUTTON_67 = "3067";
-        //private const string BUTTON_68 = "3068";
-        //private const string BUTTON_69 = "3069";
-        //#endregion
-
         public AV8BInterface()
             : base("DCS AV8B")
         {
@@ -247,7 +175,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Axis(this, UFCCONTROL, "3299", "3299", 0.1d, 0d, 1d, "UFC", "Comm 2 Volume"));
             AddFunction(new Axis(this, UFCCONTROL, "3300", "3300", 0.1d, 0d, 1d, "UFC", "Comm 1 Channel selector"));
             AddFunction(new Axis(this, UFCCONTROL, "3301", "3301", 0.1d, 0d, 1d, "UFC", "Comm 2 Channel selector"));
-
             //       public IndicatorPushButton(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, string device, string name)
             //       public FlagValue(BaseUDPInterface sourceInterface, string id, string device, string name, string description)
             //       public PushButton(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, string device, string name)
@@ -256,8 +183,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "3290", "0", "Day", "0.5", "Auto", "1", "Night", "HUD Control", "Display Mode switch", "%1d"));
             AddFunction(new Axis(this, HUDCONTROL, "3291", "3291", 0.1d, 0d, 1d, "HUD Control", "Video Brightness"));
             AddFunction(new Axis(this, HUDCONTROL, "3292", "3292", 0.1d, 0d, 1d, "HUD Control", "Video Contrast"));
-            AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "3293", "1", "Baro", "0", "RDR", "HUD Control", "Altimeter Mode Switch", "%1d"));
-
+            AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "3293", "0", "RDR", "1", "Baro", "HUD Control", "Altimeter Mode Switch", "%1d"));
             #endregion
 
             #region Master Modes
@@ -314,7 +240,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Fuel Quantity Indicator System
-            AddFunction(new Axis(this, FQIS, "3380", "3380", 0.05d, 0.15d, 0.85d, "Fuel Quantity", "Bingo Fuel Set Knob"));
+            AddFunction(new RotaryEncoder(this, FQIS, "3380", "-1", 1d, "Fuel Quantity", "Bingo Fuel Set Knob"));
             AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3379"), new SwitchPosition("-0.66", "FEED", "3379"), new SwitchPosition("-0.33", "TOTAL", "3379"), new SwitchPosition("0.0", "INT", "3379"), new SwitchPosition("0.33", "WING", "3379"), new SwitchPosition("0.66", "INBD", "3379"), new SwitchPosition("0.99", "OUTBD", "3379") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
             AddFunction(new FuelLeftDisplay(this));
             AddFunction(new FuelRightDisplay(this));
@@ -448,7 +374,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Flight Instruments
             AddFunction(new Altimeter(this));
-            //AddFunction(new RotaryEncoder(this, FM_PROXY, BUTTON_1, "62", 0.04d, "Altimeter", "Pressure"));
+            AddFunction(new RotaryEncoder(this, ADC, "3653", "3653", 0.04d, "Altimeter", "Pressure"));
+            //AddFunction(new Axis(this, ADC, "3653", "3653", 0.1d,0d,1d, "Altimeter", "Pressure adjust",true, "%1d"));
 
             CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-0.6d, -6000d, 0.6d, 6000d);
             vviScale.Add(new CalibrationPointDouble(0d, 0d));
@@ -461,6 +388,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             CalibrationPointCollectionDouble airspeedScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 1000d);
             AddFunction(new ScaledNetworkValue(this, "346", airspeedScale, "IAS", "Airspeed", "Current indicated air speed of the aircraft.", "", BindingValueUnits.Knots));
+
+            AddFunction(new Axis(this, NAV_INS, "3364", "3364", 0.1d,0d,1d, "NAV course", "Course Setting",true, "%1d"));
 
             #endregion
 

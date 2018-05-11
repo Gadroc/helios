@@ -29,7 +29,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions
         public SMCIntervalDisplay(BaseUDPInterface sourceInterface)
             : base(sourceInterface)
         {
-            _three_digit_display = new HeliosValue(sourceInterface, BindingValue.Empty, "SMC", "Stores interval display", "Interval value in metres", "", BindingValueUnits.Numeric);
+            _three_digit_display = new HeliosValue(sourceInterface, BindingValue.Empty, "Stores Management", "Stores interval display", "Interval value in metres", "", BindingValueUnits.Numeric);
             Values.Add(_three_digit_display);
             Triggers.Add(_three_digit_display);
         }

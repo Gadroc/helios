@@ -22,14 +22,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions
 
     public class SMCMultipleDisplay : NetworkFunction
     {
-        private static DCSDataElement[] _dataElements = new DCSDataElement[] { new DCSDataElement("2022", null, false) };
+        private static DCSDataElement[] _dataElements = new DCSDataElement[] { new DCSDataElement("2021", null, false) };
 
         private HeliosValue _one_digit_display;
 
         public SMCMultipleDisplay(BaseUDPInterface sourceInterface)
             : base(sourceInterface)
         {
-            _one_digit_display = new HeliosValue(sourceInterface, BindingValue.Empty, "SMC", "Stores multiple display", "Multiple value", "", BindingValueUnits.Numeric);
+            _one_digit_display = new HeliosValue(sourceInterface, BindingValue.Empty, "Stores Management", "Stores multiple display", "Multiple value", "", BindingValueUnits.Numeric);
             Values.Add(_one_digit_display);
             Triggers.Add(_one_digit_display);
         }
