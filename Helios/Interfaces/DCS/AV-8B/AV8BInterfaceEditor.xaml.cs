@@ -95,7 +95,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
                         pathKey.Close();
-                        ConfigManager.LogManager.LogDebug("DCS A-10C Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                        ConfigManager.LogManager.LogDebug("DCS AV-8B Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
                     }
                     else
                     {
