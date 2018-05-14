@@ -39,8 +39,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.voltage
             _voltage.Execute += new HeliosActionHandler(voltage_Execute);
             Actions.Add(_voltage);
 
-            _calibrationPoints = new CalibrationPointCollectionDouble(15d, -90d, 30d, 90d);
-            _calibrationPoints.Add(new CalibrationPointDouble(0d, -90d));  // used to set an end stop at 15v
+            _calibrationPoints = new CalibrationPointCollectionDouble(15d, 0d, 30d, 180d);
+            _calibrationPoints.Add(new CalibrationPointDouble(0d, 0d));  // used to set an end stop at 15v
 
         }
 

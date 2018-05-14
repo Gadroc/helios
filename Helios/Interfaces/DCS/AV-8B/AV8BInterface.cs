@@ -312,8 +312,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "465", "Landing Gear", "Left", "Left Wheel Ready"));
             AddFunction(new FlagValue(this, "466", "Landing Gear", "Right Wrn", "Right Wheel Warning"));
             AddFunction(new FlagValue(this, "467", "Landing Gear", "Right", "Right Wheel Ready"));
-            AddFunction(new FlagValue(this, "468", "Landing Gear", "Main Wrn", "Main Gear Warning"));
-            AddFunction(new FlagValue(this, "469", "Landing Gear", "Main", "Main Gear Ready"));
+            //AddFunction(new FlagValue(this, "468", "Landing Gear", "Main Wrn", "Main Gear Warning"));
+            //AddFunction(new FlagValue(this, "469", "Landing Gear", "Main", "Main Gear Ready"));
+            AddFunction(new FlagValue(this, "469", "Landing Gear", "Main Wrn", "Main Gear Warning"));   // I think the codes are switched for this and might get corrected in future by Bazbam
+            AddFunction(new FlagValue(this, "468", "Landing Gear", "Main", "Main Gear Ready"));         // I think the codes are switched for this and might get corrected in future by Bazbam
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3461", "3461", "1", "Gear up", "0", "Gear down", "Landing Gear", "lever", "%1d"));
             #endregion
             
@@ -394,7 +396,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Electrical Panel
             //Battery
-            CalibrationPointCollectionDouble batteryScale = new CalibrationPointCollectionDouble(0.15d, 15d, 0.3d, 30d);
+            CalibrationPointCollectionDouble batteryScale = new CalibrationPointCollectionDouble(0.0d, 0d, 0.30d, 30d);
             AddFunction(new ScaledNetworkValue(this, "608", batteryScale, "Electrical", "Battery Voltage", "Voltage of battery 15v to 30v", "", BindingValueUnits.Volts));
 
             AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3613", "3613", "1", "On", "0.5", "Off", "0", "Alert", "Electrical", "Battery switch", "%1d"));
