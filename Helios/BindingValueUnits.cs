@@ -81,7 +81,10 @@ namespace GadrocsWorkshop.Helios
         public static readonly BindingValueUnit MilimetersOfMercury = new MilimetersOfMercury();
         public static readonly BindingValueUnit KilgramsForcePerSquareCentimenter = new PressureUnit(Kilograms, SquareCentimeter, "kgf/cm2", "Kilograms Force per Square Centimeter");
 
-        // Voluem Units
+        // Volume Units
         public static readonly BindingValueUnit Liters = new Liters();
+
+        //Electrical Units
+        public static readonly BindingValueUnit Volts = new NumericUnit();
     }
 }

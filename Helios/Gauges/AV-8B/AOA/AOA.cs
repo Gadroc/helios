@@ -74,7 +74,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
                 // Description
                                    "Current angle of attack of the aircraft.",
                 // Value Description
-                                   "(-5 - 20)",
+                                   "(-5 to 20)",
                 // Value Unit of Measure
                                    BindingValueUnits.Degrees);
             // Hook event callback for when the Angle of Attack value is updated

@@ -23,19 +23,20 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions
 
     class Altimeter : NetworkFunction
     {
-        private static DCSDataElement[] _dataElements = new DCSDataElement[] { new DCSDataElement("2051", null, true), new DCSDataElement("2059", null, true) };
+        private static DCSDataElement[] _dataElements;
 
         private HeliosValue _altitude;
         private HeliosValue _pressure;
 
-        public Altimeter(BaseUDPInterface sourceInterface)
+        public Altimeter(BaseUDPInterface sourceInterface, string instrumentClass, string altitudeDeviceId, string altitudeName, string altitudeDescription,string altitudeComments, string pressureDeviceId,string pressureName,string pressureDescription, string pressureComments)
             : base(sourceInterface)
         {
-            _altitude = new HeliosValue(sourceInterface, BindingValue.Empty, "Altimeter", "Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", BindingValueUnits.Feet);
+            _dataElements = new DCSDataElement[] { new DCSDataElement(altitudeDeviceId, null, true), new DCSDataElement(pressureDeviceId, null, true) };
+            _altitude = new HeliosValue(sourceInterface, BindingValue.Empty, instrumentClass, altitudeName, altitudeDescription, altitudeComments, BindingValueUnits.Feet);
             Values.Add(_altitude);
             Triggers.Add(_altitude);
 
-            _pressure = new HeliosValue(sourceInterface, BindingValue.Empty, "Altimeter", "Pressure", "Manually set barometric altitude.", "", BindingValueUnits.InchesOfMercury);
+            _pressure = new HeliosValue(sourceInterface, BindingValue.Empty, instrumentClass, pressureName, pressureDescription, pressureComments, BindingValueUnits.InchesOfMercury);
             Values.Add(_pressure);
             Triggers.Add(_pressure);
         }

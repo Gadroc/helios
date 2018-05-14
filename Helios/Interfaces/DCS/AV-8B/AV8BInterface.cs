@@ -242,9 +242,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Fuel Quantity Indicator System
             AddFunction(new RotaryEncoder(this, FQIS, "3380", "-1", 1d, "Fuel Quantity", "Bingo Fuel Set Knob"));
             AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3379"), new SwitchPosition("-0.66", "FEED", "3379"), new SwitchPosition("-0.33", "TOTAL", "3379"), new SwitchPosition("0.0", "INT", "3379"), new SwitchPosition("0.33", "WING", "3379"), new SwitchPosition("0.66", "INBD", "3379"), new SwitchPosition("0.99", "OUTBD", "3379") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
-            AddFunction(new FuelLeftDisplay(this));
-            AddFunction(new FuelRightDisplay(this));
-            AddFunction(new FuelBingoDisplay(this));
+            AddFunction(new Digits4Display(this, FQIS, "2011", "FQIS", "Left Tank display", "Fuel left tank quantity"));
+            AddFunction(new Digits4Display(this, FQIS, "2012", "FQIS", "Right Tank display", "Fuel right tank quantity"));
+            AddFunction(new Digits4Display(this, FQIS, "2013", "FQIS", "Bingo value display", "Fuel Bingo amount"));
             AddFunction(new FuelTotalDisplay(this));
             #endregion
 
@@ -304,25 +304,30 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "606", "Advisory Indicators", "REPLY", "IFF responding to Mode 4 interrogation"));
             #endregion
 
-            #region Landing Gear Indicators
-            AddFunction(new FlagValue(this, "446", "Landing Gear Indicators", "Gear - Lever", "Red Gear Lever"));
-            AddFunction(new FlagValue(this, "462", "Landing Gear Indicators", "Nose Wrn", "Nose Gear Warning"));
-            AddFunction(new FlagValue(this, "463", "Landing Gear Indicators", "Nose", "Nose Gear Ready"));
-            AddFunction(new FlagValue(this, "464", "Landing Gear Indicators", "Left Wrn", "Left Wheel Warning"));
-            AddFunction(new FlagValue(this, "465", "Landing Gear Indicators", "Left", "Left Wheel Ready"));
-            AddFunction(new FlagValue(this, "466", "Landing Gear Indicators", "Right Wrn", "Right Wheel Warning"));
-            AddFunction(new FlagValue(this, "467", "Landing Gear Indicators", "Right", "Right Wheel Ready"));
-            AddFunction(new FlagValue(this, "468", "Landing Gear Indicators", "Main Wrn", "Main Gear Warning"));
-            AddFunction(new FlagValue(this, "469", "Landing Gear Indicators", "Main", "Main Gear Ready"));
+            #region Landing Gear
+            AddFunction(new FlagValue(this, "446", "Landing Gear", "Gear - Lever", "Red Gear Lever"));
+            AddFunction(new FlagValue(this, "462", "Landing Gear", "Nose Wrn", "Nose Gear Warning"));
+            AddFunction(new FlagValue(this, "463", "Landing Gear", "Nose", "Nose Gear Ready"));
+            AddFunction(new FlagValue(this, "464", "Landing Gear", "Left Wrn", "Left Wheel Warning"));
+            AddFunction(new FlagValue(this, "465", "Landing Gear", "Left", "Left Wheel Ready"));
+            AddFunction(new FlagValue(this, "466", "Landing Gear", "Right Wrn", "Right Wheel Warning"));
+            AddFunction(new FlagValue(this, "467", "Landing Gear", "Right", "Right Wheel Ready"));
+            AddFunction(new FlagValue(this, "468", "Landing Gear", "Main Wrn", "Main Gear Warning"));
+            AddFunction(new FlagValue(this, "469", "Landing Gear", "Main", "Main Gear Ready"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3461", "3461", "1", "Gear up", "0", "Gear down", "Landing Gear", "lever", "%1d"));
             #endregion
-
+            
             #region Left Hand Advisory Indicators
             AddFunction(new FlagValue(this, "451", "LH Flaps & Water", "SEL indicator", "Combat thrust limiter selected"));
             AddFunction(new FlagValue(this, "452", "LH Flaps & Water", "CMBT indicator", "Combat thrust activated. Flashes after 2 ½ minutes"));
             AddFunction(new FlagValue(this, "453", "LH Flaps & Water", "STO indicator", "Flap switch in STOL"));
             AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3449", "3449", "1", "TO", "0.5", "Off", "0", "VSTOL", "LH Flaps & Water", "H2O Mode Switch", "%1d"));
             AddFunction(new PushButton(this, DECS, "3450", "3450", "LH Flaps & Water", "Combat Thrust Button"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3454", "3454", "-1", "Cruise", "0", "Auto", "1", "VSTOL", "LH Flaps & Water", "Flaps Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3454", "3454", "1", "VSTOL", "0.5", "Auto", "0", "Cruise", "LH Flaps & Water", "Flaps Mode Switch", "%1d"));
+            AddFunction(new Digits2Display(this, SMC, "2014", "LH Flaps & Water", "Flaps position", "Position of the flaps in degrees"));
+            AddFunction(new PushButton(this, VREST, "3460", "3460", "LH Flaps & Water", "Flaps BIT"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3457", "3457", "0", "Off", "0.5", "On", "1", "Reset", "LH Flaps & Water", "Flaps Power Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3459", "3459", "1", "NWS", "0.5", "On", "0", "Test", "LH Flaps & Water", "Anti-Skid Switch", "%1d"));
             #endregion
 
             #region Stores Management Controller
@@ -354,26 +359,55 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("-1.0", "STA", "3404"), new SwitchPosition("-0.5", "STOR", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("1.0", "FUEL", "3404") },  "Stores Management", "Jettison Mode Selector", "%0.1f"));
             AddFunction(new PushButton(this, SMC, "3405", "3405", "Stores Management", "Jettison Stores"));
             AddFunction(new Switch(this, SMC, "3395", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3395"), new SwitchPosition("0.33", "N/T", "3395"), new SwitchPosition("0.66", "N", "3395"), new SwitchPosition("1.0", "T", "3395")  }, "Stores Management", "Manual Fuzing Release Control", "%0.1f"));
-            AddFunction(new SMCIntervalDisplay(this));
-            AddFunction(new SMCQuantityDisplay(this));
+            AddFunction(new Digits3Display(this, SMC, "2020", "Stores Management", "Stores interval display", "Interval value in metres"));
+            AddFunction(new Digits2Display(this, SMC, "2022", "Stores Management", "Stores quantity display", "Quantity of stores"));
             AddFunction(new SMCMultipleDisplay(this));
+            //AddFunction(new Text(this, "2018", "Stores Management", "SMC mode", "Stores management mode in text form"));
 
             #endregion
 
             #region Engine Display Panel
             AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Position", "Current Nozzle position.", "", BindingValueUnits.Degrees));
             AddFunction(new PushButton(this, EDP, "3655", "3655", "EDP", "BIT"));
-            AddFunction(new EngineH2ODisplay(this));
-            AddFunction(new EngineRPMDisplay(this));
-            AddFunction(new EngineFFDisplay(this));
-            AddFunction(new EngineJPTDisplay(this));
-            AddFunction(new EngineStabiliserDisplay(this));
-            AddFunction(new EngineDuctDisplay(this));
+            AddFunction(new Digits2Display(this, EDP, "2006", "EDP", "H2O display", "Amount of H2O available"));
+            AddFunction(new Digits4Display(this, EDP, "2002", "EDP", "RPM display", "Engine RPM percentage"));
+            AddFunction(new Digits3Display(this, EDP, "2001", "EDP", "Duct pressure display", "Engine Duct pressure"));
+            AddFunction(new Digits3Display(this, EDP, "2003", "EDP", "FF display", "Engine FF percentage"));
+            AddFunction(new Digits3Display(this, EDP, "2004", "EDP", "JPT display", "Engine Jet pipe temperature"));
+            AddFunction(new Digits2Display(this, EDP, "2005", "EDP", "Stabiliser display", "Amount of Stabiliser"));
+            AddFunction(new FlagValue(this, "266", "EDP", "Stabilzer Arrow", "Up/Down Arrow for the stabilizer"));  // 266 returns -1 or 1  and 0 is a dash * * * Currently causing problems with the FlagValue!
+
+            #endregion
+            #region Brake / Hydraulic Pressures
+            AddFunction(new Digits3Display(this, FLIGHTCONTROLS, "2015", "Brake/ Hydraulic", "Brake pressure display", "Brake pressure in psi"));
+            AddFunction(new Digits3Display(this, FLIGHTCONTROLS, "2016", "Brake/ Hydraulic", "Hyd 1 pressure display", "Hydraulic system 1 pressure in psi"));
+            AddFunction(new Digits3Display(this, FLIGHTCONTROLS, "2017", "Brake/ Hydraulic", "Hyd 2 pressure display", "Hydraulic system 2 pressure in psi"));
+            // Brake accumulator pressure           
+            CalibrationPointCollectionDouble accummulatorScale = new CalibrationPointCollectionDouble(0d, 0d, 0.36d, 3600d);
+            AddFunction(new ScaledNetworkValue(this, "559", accummulatorScale, "Brake/ Hydraulic", "Brake accummulator", "Brake accummulator pressure in psi 600 to 3600 psi", "", BindingValueUnits.PoundsPerSquareInch));
+            //Cabin Altitude Pressure 
+            CalibrationPointCollectionDouble cabinScale = new CalibrationPointCollectionDouble(-0.003d,-300d,0.5000d, 50000d);
+            cabinScale.Add(new CalibrationPointDouble(0d, 0d));
+            AddFunction(new ScaledNetworkValue(this, "607", cabinScale, "Brake/ Hydraulic", "Cabin Altitude", "Cabin altitude pressue in feet 0 to +50000.", "", BindingValueUnits.Feet));
 
             #endregion
 
+            #region Electrical Panel
+            //Battery
+            CalibrationPointCollectionDouble batteryScale = new CalibrationPointCollectionDouble(0.15d, 15d, 0.3d, 30d);
+            AddFunction(new ScaledNetworkValue(this, "608", batteryScale, "Electrical", "Battery Voltage", "Voltage of battery 15v to 30v", "", BindingValueUnits.Volts));
+
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3613", "3613", "1", "On", "0.5", "Off", "0", "Alert", "Electrical", "Battery switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3612", "3612", "1", "On", "0.5", "Off", "0", "Test", "Electrical", "Generator switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELECTRIC, "3611", "3611", "0", "Off", "1", "Start", "Electrical", "Engine start switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3610", "3610", "1", "Reset", "0.5", "On", "0", "Off", "Electrical", "APU generator switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3609", "3609", "1", "Main", "0.5", "Off", "0", "Standby", "Electrical", "DC Test switch", "%1d"));
+
+            #endregion
+
+
             #region Flight Instruments
-            AddFunction(new Altimeter(this));
+            AddFunction(new Altimeter(this,"Altimeter","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Pressure", "Manually set barometric altitude.",""));
             AddFunction(new RotaryEncoder(this, ADC, "3653", "3653", 0.04d, "Altimeter", "Pressure"));
             //AddFunction(new Axis(this, ADC, "3653", "3653", 0.1d,0d,1d, "Altimeter", "Pressure adjust",true, "%1d"));
 
@@ -383,13 +417,31 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             CalibrationPointCollectionDouble AoAScale = new CalibrationPointCollectionDouble(-0.05d, -5d, 0.20d, 20d);
             AoAScale.Add(new CalibrationPointDouble(0d, 0d));
-            AddFunction(new ScaledNetworkValue(this, "361", AoAScale, "AOA", "Angle of Attack", "Current angle of attack of the aircraft.", "", BindingValueUnits.Degrees));
-            AddFunction(new FlagValue(this, "360", "AOA", "Off Flag", ""));
+            AddFunction(new ScaledNetworkValue(this, "361", AoAScale, "Flight Instruments", "Angle of Attack", "Current angle of attack of the aircraft.", "", BindingValueUnits.Degrees));
+            AddFunction(new FlagValue(this, "360", "Flight Instruments", "AOA", "Off Flag"));
 
             CalibrationPointCollectionDouble airspeedScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 1000d);
-            AddFunction(new ScaledNetworkValue(this, "346", airspeedScale, "IAS", "Airspeed", "Current indicated air speed of the aircraft.", "", BindingValueUnits.Knots));
-
+            AddFunction(new ScaledNetworkValue(this, "346", airspeedScale, "Flight Instruments", "IAS Airspeed", "Current indicated air speed of the aircraft.", "", BindingValueUnits.Knots));
             AddFunction(new Axis(this, NAV_INS, "3364", "3364", 0.1d,0d,1d, "NAV course", "Course Setting",true, "%1d"));
+
+            //AddFunction(new ScaledNetworkValue(this, "17", -90d, "ADI", "Pitch", "Current pitch displayed on the ADI.", "", BindingValueUnits.Degrees));
+            //AddFunction(new ScaledNetworkValue(this, "18", 180d, "ADI", "Bank", "Current bank displayed on the ADI.", "", BindingValueUnits.Degrees));
+            //AddFunction(new NetworkValue(this, "24", "ADI", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+            //AddFunction(new NetworkValue(this, "23", "ADI", "Turn Needle", "Position of the turn needle.", "(-1 to 1)", BindingValueUnits.Numeric));
+            //AddFunction(new FlagValue(this, "25", "ADI", "Attitude Warning Flag", "Indicates that the ADI has lost electrical power or otherwise been disabled."));
+            //AddFunction(new FlagValue(this, "19", "ADI", "Course Warning Flag", "Indicates thatn an operative ILS or TACAN signal is received."));
+            //AddFunction(new FlagValue(this, "26", "ADI", "Glide Slope Warning Flag", "Indicates that the ADI is not recieving a ILS glide slope signal."));
+            //AddFunction(new NetworkValue(this, "20", "ADI", "Bank Steering Bar Offset", "Location of bank steering bar relative to the middle of the ADI.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+            //AddFunction(new NetworkValue(this, "21", "ADI", "Pitch Steering Bar Offset", "Location of pitch steering bar relative to the middle of the ADI.", "(-1 to 1) 1 is full up and -1 is full down.", BindingValueUnits.Numeric));
+            //AddFunction(new NetworkValue(this, "27", "ADI", "Glide Slope Indicator", "Location of the glide slope indicator relative to the middle of the slope deviation scale.", "(-1 to 1) 1 is full up and -1 is full down.", BindingValueUnits.Numeric));
+            //AddFunction(new Axis(this, ADI, BUTTON_1, "22", 0.05d, -0.5d, 0.5d, "ADI", "Pitch Trim Knob"));
+
+            AddFunction(new ScaledNetworkValue(this, "349", 90d, "Flight Instruments", "SAI Pitch", "Current pitch displayed on the SAI.", "", BindingValueUnits.Degrees));
+            AddFunction(new ScaledNetworkValue(this, "348", -180d, "Flight Instruments", "SAI Bank", "Current bank displayed on the SAI.", "", BindingValueUnits.Degrees));
+            AddFunction(new FlagValue(this, "347", "Flight Instruments", "SAI Warning Flag", "Displayed when SAI is caged or non-functional."));
+            //AddFunction(new RotaryEncoder(this, FLIGHTCONTROLS, BUTTON_3, "66", 0.1d, "SAI", "Pitch Trim / Cage"));
+            //AddFunction(new NetworkValue(this, "715", "SAI", "Pitch Adjust", "Current pitch adjustment setting", "0 to 1", BindingValueUnits.Numeric));
+
 
             #endregion
 
