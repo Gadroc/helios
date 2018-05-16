@@ -318,7 +318,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "468", "Landing Gear", "Main", "Main Gear Ready"));         // I think the codes are switched for this and might get corrected in future by Bazbam
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3461", "3461", "1", "Gear up", "0", "Gear down", "Landing Gear", "lever", "%1d"));
             #endregion
-            
+
             #region Left Hand Advisory Indicators
             AddFunction(new FlagValue(this, "451", "LH Flaps & Water", "SEL indicator", "Combat thrust limiter selected"));
             AddFunction(new FlagValue(this, "452", "LH Flaps & Water", "CMBT indicator", "Combat thrust activated. Flashes after 2 ½ minutes"));
@@ -330,6 +330,63 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, VREST, "3460", "3460", "LH Flaps & Water", "Flaps BIT"));
             AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3457", "3457", "0", "Off", "0.5", "On", "1", "Reset", "LH Flaps & Water", "Flaps Power Switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3459", "3459", "1", "NWS", "0.5", "On", "0", "Test", "LH Flaps & Water", "Anti-Skid Switch", "%1d"));
+            #endregion
+
+            #region Centre Console
+            //             --Flights Instruments Panel
+            //elements["PTN_364"] = default_axis_cycle(_("NAV Course Setting"), devices.NAV_INS, inst_commands.Knob_Course, 364)
+            //elements["PTN_653"] = default_axis(_("Barometric Pressure Calibration"), devices.ADC, inst_commands.Knob_Altimeter, 653)
+            //elements["PTN_351"] = default_button_lever(_("Backup ADI Cage/Pitch Adjust Knob"), devices.FLIGHTINSTRUMENTS, inst_commands.ADI_Cage, inst_commands.Knob_ADI, 350, 351)
+
+            //-- Miscelaneous Switch Panel
+            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3422", "3422", "0", "Off", "1", "Auto", "Centre Console", "Video Recorder System Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3423", "3423", "0", "HUD", "1", "MPCD", "Centre Console", "Video Recorder System Display Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DMT, "3424", "3424", "1", "DMT", "0", "Off", "Centre Console", "DMT Toggle On/Off", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3425", "3425", "1", "DP Prim", "0.5", "Auto", "0", "Alter", "Centre Console", "Dual Processor Mode Selector Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTINSTRUMENTS, "3426", "3426", "1", "PRB H T", "0", "Auto", "Centre Console", "Probe Heat Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3427", "3427", "1", "Mission Computer OVerride", "0.5", "Auto", "0", "Off", "Centre Console", "Mission Computer Mode Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3429", "3429", "1", "FLIR", "0", "Off", "Centre Console", "FLIR Power Switch", "%1d"));
+            AddFunction(new Switch(this, NAV_INS, "3421", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3421"), new SwitchPosition("0.1", "Sea", "3421"), new SwitchPosition("0.2", "INS GND", "3421"), new SwitchPosition("0.3", "Nav", "3421"), new SwitchPosition("0.4", "IFA", "3421"), new SwitchPosition("0.5", "Gyro", "3421"), new SwitchPosition("0.6", "GB", "3421"), new SwitchPosition("0.7", "Test", "3421") }, "Centre Console", "INS Mode Switch", "%.1f"));
+
+            #endregion
+
+            #region Left Hand Left Hand Switches Fuel External Lights SAAHS
+            ////         --Trim Panel
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "3471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3472", "3472", "1", "Approach", "0.5", "Hover", "0", "Off", "SAAHS", "Trim Mode Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0.5", "Centre", "0", "Right", "SAAHS", "Rudder trim switch", "%1d"));
+
+            CalibrationPointCollectionDouble aileronTrimScale = new CalibrationPointCollectionDouble(-1.0d, -10d, 1.0d, 10d);
+            AddFunction(new ScaledNetworkValue(this, "473", aileronTrimScale, "SAAHS", "Aileron trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
+            CalibrationPointCollectionDouble rudderTrimScale = new CalibrationPointCollectionDouble(-1.0d, -10d, 1.0d, 10d);
+            AddFunction(new ScaledNetworkValue(this, "474", rudderTrimScale, "SAAHS", "Rudder trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
+            //         --SAAHS Panel
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3476", "3476", "1", "Hold", "0", "Off", "SAAHS", "Altitude hold switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3477", "3477", "1", "On", "0.5", "Off", "0", "Reset", "SAAHS", "AFC Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3475", "3475", "1", "On", "0", "Off", "SAAHS", "Q Feel switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3478", "3478", "1", "On", "0", "Off", "SAAHS", "SAS Yaw Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3479", "3479", "1", "On", "0", "Off", "SAAHS", "SAS Roll Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3480", "3480", "1", "On", "0", "Off", "SAAHS", "SAS Pitch Switch", "%1d"));
+            //         --Fuel Panel
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3504", "3504", "1", "On", "0", "Off", "Fuel", "Fuel Proportioner", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3508", "3508", "1", "Dump", "0", "Off", "Fuel", "Fuel Dump L Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3509", "3509", "1", "Dump", "0", "Off", "Fuel", "Fuel Dump R Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3505", "3505", "1", "Norm", "0.5", "Off", "0", "DC Oper", "Fuel", "Fuel Pump L Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3506", "3506", "1", "Norm", "0.5", "Off", "0", "DC Oper", "Fuel", "Fuel Pump R Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3507", "3507", "1", "Press", "0.5", "Out", "0", "In", "Fuel", "Air Refueling Probe Switch", "%.1f"));
+
+            //          -- External Lights Panel
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3472", "3472", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "Landing/Taxi Lights Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3503", "3503", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "External Lights Mode Switch", "%.1f"));
+            AddFunction(new Axis(this, LTEXT, "3510", "3510", 0.1d, 0d, 1d, "External Lights", "Formation Lights brightness"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3511", "3511", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "Position Lights Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, LTEXT, "3512", "3512", "1", "On", "0", "Off", "External Lights", "Anti-Collision Lights Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, LTEXT, "3513", "3513", "1", "On", "0", "Off", "External Lights", "External Auxiliary Lights Switch", "%1d"));
+
+            //          -- Pilot Service Panel
+            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3514", "3514", "1", "On", "0", "Off", "Pilot Service", "Oxygen Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3515", "3515", "1", "Dump", "0", "Off", "Pilot Service", "H2O Dump Switch", "%1d"));
+
             #endregion
 
             #region Stores Management Controller
@@ -365,11 +422,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits2Display(this, SMC, "2022", "Stores Management", "Stores quantity display", "Quantity of stores"));
             AddFunction(new SMCMultipleDisplay(this));
             //AddFunction(new Text(this, "2018", "Stores Management", "SMC mode", "Stores management mode in text form"));
-
             #endregion
 
             #region Engine Display Panel
-            AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Position", "Current Nozzle position.", "", BindingValueUnits.Degrees));
+            AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Position", "Current Nozzle position.", "Nozzle position in degrees", BindingValueUnits.Degrees));
             AddFunction(new PushButton(this, EDP, "3655", "3655", "EDP", "BIT"));
             AddFunction(new Digits2Display(this, EDP, "2006", "EDP", "H2O display", "Amount of H2O available"));
             AddFunction(new Digits4Display(this, EDP, "2002", "EDP", "RPM display", "Engine RPM percentage"));
@@ -378,8 +434,19 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits3Display(this, EDP, "2004", "EDP", "JPT display", "Engine Jet pipe temperature"));
             AddFunction(new Digits2Display(this, EDP, "2005", "EDP", "Stabiliser display", "Amount of Stabiliser"));
             AddFunction(new FlagValue(this, "266", "EDP", "Stabilzer Arrow", "Up/Down Arrow for the stabilizer"));  // 266 returns -1 or 1  and 0 is a dash * * * Currently causing problems with the FlagValue!
-
             #endregion
+ 
+            #region Electrical Panel
+            //Battery
+            CalibrationPointCollectionDouble batteryScale = new CalibrationPointCollectionDouble(0.0d, 0d, 0.30d, 30d);
+            AddFunction(new ScaledNetworkValue(this, "608", batteryScale, "Electrical", "Battery Voltage", "Voltage of battery 15v to 30v", "", BindingValueUnits.Volts));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3613", "3613", "1", "On", "0.5", "Off", "0", "Alert", "Electrical", "Battery switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3612", "3612", "1", "On", "0.5", "Off", "0", "Test", "Electrical", "Generator switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELECTRIC, "3611", "3611", "1", "Start", "0", "Off", "Electrical", "Engine start switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3610", "3610", "1", "Reset", "0.5", "On", "0", "Off", "Electrical", "APU generator switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3609", "3609", "1", "Main", "0.5", "Off", "0", "Standby", "Electrical", "DC Test switch", "%1d"));
+            #endregion
+
             #region Brake / Hydraulic Pressures
             AddFunction(new Digits3Display(this, FLIGHTCONTROLS, "2015", "Brake/ Hydraulic", "Brake pressure display", "Brake pressure in psi"));
             AddFunction(new Digits3Display(this, FLIGHTCONTROLS, "2016", "Brake/ Hydraulic", "Hyd 1 pressure display", "Hydraulic system 1 pressure in psi"));
@@ -394,21 +461,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #endregion
 
-            #region Electrical Panel
-            //Battery
-            CalibrationPointCollectionDouble batteryScale = new CalibrationPointCollectionDouble(0.0d, 0d, 0.30d, 30d);
-            AddFunction(new ScaledNetworkValue(this, "608", batteryScale, "Electrical", "Battery Voltage", "Voltage of battery 15v to 30v", "", BindingValueUnits.Volts));
-
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3613", "3613", "1", "On", "0.5", "Off", "0", "Alert", "Electrical", "Battery switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3612", "3612", "1", "On", "0.5", "Off", "0", "Test", "Electrical", "Generator switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELECTRIC, "3611", "3611", "0", "Off", "1", "Start", "Electrical", "Engine start switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3610", "3610", "1", "Reset", "0.5", "On", "0", "Off", "Electrical", "APU generator switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3609", "3609", "1", "Main", "0.5", "Off", "0", "Standby", "Electrical", "DC Test switch", "%1d"));
-
-            #endregion
-
 
             #region Flight Instruments
+            AddFunction(new ScaledNetworkValue(this, "363", 0.94d, "Flight Instruments", "Sideslip", "Sideslip Ball Indicator", "", BindingValueUnits.Degrees));
+
             AddFunction(new Altimeter(this,"Altimeter","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Pressure", "Manually set barometric altitude.",""));
             AddFunction(new RotaryEncoder(this, ADC, "3653", "3653", 0.04d, "Altimeter", "Pressure"));
             //AddFunction(new Axis(this, ADC, "3653", "3653", 0.1d,0d,1d, "Altimeter", "Pressure adjust",true, "%1d"));
