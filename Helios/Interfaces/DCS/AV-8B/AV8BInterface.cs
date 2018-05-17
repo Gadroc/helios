@@ -350,6 +350,21 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #endregion
 
+            #region Throttle Quadrant
+//elements["PTN_481"] = default_2_position_tumb(_("JPTL Switch"), devices.DECS, engine_commands.Switch_JPTL, 481)
+//elements["PTN_483"] = default_2_way_spring_switch(_("Rudder Trim Switch"), devices.FLIGHTCONTROLS, fcs_commands.Switch_RUDDER_TRIM, 483, true)
+//elements["PTN_482"] = default_button(_("EMS Button"), devices.DECS, engine_commands.Button_EMS, 482)
+//elements["PTN_484"] = default_2_position_tumb(_("Manual Fuel Switch"), devices.DECS, engine_commands.Switch_MAN_FUEL, 484)
+//elements["PTN_485"] = default_axis_limited(_("Throttle Lever Friction Knob"), devices.FLIGHTCONTROLS, fcs_commands.Knob_FRICTION_LEFT, 485, 0, 0.1, true, 0, { 0, 1.0})
+//elements["PTN_486"] = default_axis_limited(_("Nozzle Lever Friction Knob"), devices.FLIGHTCONTROLS, fcs_commands.Knob_FRICTION_RIGHT, 486, 0, 0.1, true, 0, { 0, 1.0})
+//elements["PTN_490"] = default_animated_lever(_("Throttle Cutoff Lever"), devices.DECS, engine_commands.Handle_THROTTLE_CUTOFF, 490, 5.0)
+//elements["PTN_489"] = default_animated_lever(_("Parking Brake Lever"), devices.FLIGHTCONTROLS, fcs_commands.Handle_PARKING_BRAKE, 489, 5.0)
+//elements["PTN_487"] = default_axis_limited(_("Nozzle Control Lever"), devices.VREST, engine_commands.Handle_NOZZLE_CONTROL, 487, 0, -0.1, true, 0, 1)
+//elements["PTN_488"] = default_axis_limited(_("STO Stop Lever"), devices.VREST, engine_commands.Handle_NOZZLE_STO_STOP, 488, 0, -0.1, true, 0, 1)
+
+            #endregion
+
+
             #region Left Hand Left Hand Switches Fuel External Lights SAAHS
             ////         --Trim Panel
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "3471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
@@ -385,6 +400,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             //          -- Pilot Service Panel
             AddFunction(Switch.CreateToggleSwitch(this, ECS, "3514", "3514", "1", "On", "0", "Off", "Pilot Service", "Oxygen Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3515", "3515", "1", "Dump", "0", "Off", "Pilot Service", "H2O Dump Switch", "%1d"));
+            // need proper labels
+            AddFunction(Switch.CreateToggleSwitch(this, VREST, "3516", "3516", "1", "On", "0", "Off", "Pilot Service", "LIDS Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3517", "3517", "1", "On", "0", "Off", "Pilot Service", "ENG RPM Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3518", "3518", "1", "On", "0", "Off", "Pilot Service", "EFC Switch", "%1d"));
 
             #endregion
 
@@ -421,6 +440,94 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits2Display(this, SMC, "2022", "Stores Management", "Stores quantity display", "Quantity of stores"));
             AddFunction(new SMCMultipleDisplay(this));
             //AddFunction(new Text(this, "2018", "Stores Management", "SMC mode", "Stores management mode in text form"));
+            #endregion
+
+            #region Left Bulkhead
+            // switch positions still need to be labeled
+            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3502", "3502", "1", "Pressed", "0", "Off", "Left Bulkhead", "Seat adjustment switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3519", "3519", "1", "Pressed", "0", "Off", "Left Bulkhead", "Fuel Shutoff Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3520", "3520", "1", "On", "0", "Off", "Left Bulkhead", "DECS switch", "%1d"));
+
+            #endregion
+
+            #region V/UHF Radio
+            // switch positions still need to be labeled
+            AddFunction(new Axis(this, RSC, "3614", "3614", 0.03d, 0d, 1d, "V/UHF Radio", "Volume Knob"));
+            AddFunction(new Axis(this, RSC, "3615", "3615", 0.03d, 0d, 1d, "V/UHF Radio", "Chan/Freq Knob"));
+            AddFunction(new Switch(this, RSC, "3616", new SwitchPosition[] {new SwitchPosition("-0.20", "Norm", "3616"), new SwitchPosition("0.0", "Norm", "3616"), new SwitchPosition("0.0", "Norm", "3616"), new SwitchPosition("0.20", "Norm", "3616"), new SwitchPosition("0.40", "Norm", "3616"), new SwitchPosition("0.60", "Norm", "3616"), new SwitchPosition("0.80", "Norm", "3616"), new SwitchPosition("1.0", "Norm", "3616") }, "V / UHF Radio", "Operational Mode Switch", "%0.1f"));
+            AddFunction(new PushButton(this, RSC, "3617", "3617", "V/UHF Radio", "Ancillary Mode Pointer A mode"));
+            AddFunction(new PushButton(this, RSC, "3618", "3618", "V/UHF Radio", "Ancillary Mode Switch P mode"));
+            AddFunction(new Switch(this, RSC, "3619", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3619"), new SwitchPosition("0.0", "Norm", "3619"), new SwitchPosition("0.15", "Norm", "3619"), new SwitchPosition("0.30", "Norm", "3619"), new SwitchPosition("0.45", "Norm", "3619"), new SwitchPosition("0.60", "Norm", "3619"), new SwitchPosition("0.75", "Norm", "3619"), new SwitchPosition("0.90", "Norm", "3619"), new SwitchPosition("1.00", "Norm", "3619") }, "V / UHF Radio", "Frequency Mode Switch", "%0.1f"));
+            AddFunction(new PushButton(this, RSC, "3620", "3620", "V/UHF Radio", "LOAD/OFST Switch"));
+
+            #endregion
+
+            #region ACNIP
+            // switch positions still need to be labeled
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3621", "3621", "1", "On", "0", "Off", "ACNIP", "ACNIP Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3622", "3622", "1", "On", "0", "Off", "ACNIP", "KY-1 Cipher Type Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3623", "3623", "1", "On", "0", "Off", "ACNIP", "KY-2 Cipher Type Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3624", "3624", "1", "On", "0", "Off", "ACNIP", "KY-1 Code/Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3625", "3625", "1", "On", "0", "Off", "ACNIP", "KY-2 Code/Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3626", "3626", "1", "On", "0", "Off", "ACNIP", "ACNIP Radio Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3627", "3627", "1", "On", "0", "Off", "ACNIP", "KY-58 Codes Clear Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "3628", "1", "On", "0.5", "Off", "0", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3632", "3632", "1", "On", "0", "Off", "ACNIP", "IFF Operational Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "3633", "1", "On", "0.5", "Off", "0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%1d"));
+
+            #endregion
+
+            #region ICS IFF
+            // switch positions still need to be labeled
+            AddFunction(new Axis(this, INTERCOM, "3629", "3629", 0.03d, 0d, 1d, "Intercomm", "Aux Volume Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3630", "3630", 0.03d, 0d, 1d, "Intercomm", "Ground Volume Knob"));
+            AddFunction(new Switch(this, RSC, "3631", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3631"), new SwitchPosition("0.5", "Norm", "3631"), new SwitchPosition("1.0", "Norm", "3631") }, "Intercomm", "Mic Operational Mode Switch", "%0.1f"));
+
+            #endregion
+
+            #region Interior Lights
+            // switch positions still need to be labeled
+            AddFunction(new PushButton(this, LTINT, "3634", "3634", "Interior Lights", "Compass Light/Test Lights")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
+            AddFunction(new Axis(this, LTINT, "3635", "3635", 0.03d, 0d, 1d, "Interior Lights", "Instruments Lights"));
+            AddFunction(new Axis(this, LTINT, "3636", "3636", 0.03d, 0d, 1d, "Interior Lights", "Console Lights"));
+            AddFunction(new Axis(this, LTINT, "3637", "3637", 0.03d, 0d, 1d, "Interior Lights", "Flood Lights"));
+            AddFunction(new Axis(this, LTINT, "3638", "3638", 0.03d, 0d, 1d, "Interior Lights", "Annunciator Lights"));
+            AddFunction(new Axis(this, LTINT, "3150", "3150", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Canopy Frame Top"));
+            AddFunction(new Axis(this, LTINT, "3151", "3151", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Canopy Frame Bottom"));
+            AddFunction(new Axis(this, LTINT, "3152", "3152", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Forward"));
+            AddFunction(new Axis(this, LTINT, "3153", "3153", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Aft Front"));
+            AddFunction(new Axis(this, LTINT, "3154", "3154", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Aft Back"));
+            AddFunction(new Axis(this, LTINT, "3155", "3155", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Aft Back"));
+            AddFunction(new Axis(this, LTINT, "3156", "3156", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Aft Front"));
+            AddFunction(new Axis(this, LTINT, "3157", "3157", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Forward"));
+            AddFunction(new Axis(this, LTINT, "3158", "3158", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Canopy Frame Bottom"));
+            AddFunction(new Axis(this, LTINT, "3159", "3159", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Canopy Frame Top"));
+
+            #endregion
+
+            #region Canopy Controls
+            // switch positions still need to be labeled
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3801", "3801", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Left", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3802", "3802", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Right", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3803", "3803", "1", "On", "0", "Off", "Canopy Controls", "Canopy Locking Lever", "%1d"));
+
+            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3800", "3800", "1", "On", "0", "Off", "Canopy Controls", "Seat Ground Safety Lever", "%1d"));
+
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3501", "3501", "1", "On", "0", "Off", "Canopy Controls", "MFS Emergency Lever", "%1d"));
+            #endregion
+
+            #region Stopwatch
+            AddFunction(new PushButton(this, MSC, "4121", "4121", "Stop Watch", "Stopwatch Start/Stop"));
+            AddFunction(new PushButton(this, MSC, "4122", "4122", "Stop Watch", "Stopwatch Lap/Reset"));
+            #endregion
+
+            #region ECS
+            // switch positions still need to be labeled
+            AddFunction(new Axis(this, ECS, "3639", "3639", 0.03d, 0d, 1d, "Environment Control", "Temperature Control Knob"));
+            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3640", "3640", "1", "On", "0", "Off", "Environment Control", "Fwd Equipment Bay ECS Switch", "%1d"));
+            AddFunction(new Switch(this, ECS, "3641", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3641"), new SwitchPosition("0.5", "Norm", "3641"), new SwitchPosition("1.0", "Norm", "3641") }, "Environment Control", "Cabin Defog Switch", "%0.1f"));
+            AddFunction(new Switch(this, ECS, "3642", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3642"), new SwitchPosition("0.5", "Norm", "3642"), new SwitchPosition("1.0", "Norm", "3642") }, "Environment Control", "Aft Equipment Bay ECS Switch", "%0.1f"));
+            AddFunction(new Switch(this, ECS, "3643", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3643"), new SwitchPosition("0.5", "Norm", "3643"), new SwitchPosition("1.0", "Norm", "3643") }, "Environment Control", "Cabin Pressure Switch", "%0.1f"));
             #endregion
 
             #region Engine Display Panel
