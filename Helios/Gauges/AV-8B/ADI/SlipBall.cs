@@ -35,17 +35,17 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.SlipBall
             Point center = new Point(174d, 163d);
 
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/A-10/ADI/adi_inner_ring.xaml", new Rect(0d, 0d, 350d, 350d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV8B/ADI/adi_inner_ring.xaml", new Rect(0d, 0d, 350d, 350d)));
 
             _slipBallCalibration = new CalibrationPointCollectionDouble(-1d, -26d, 1d, 26d);
-            _slipBallNeedle = new GaugeNeedle("{Helios}/Gauges/A-10/ADI/adi_slip_ball.xaml", new Point(174d, 297d), new Size(10d, 10d), new Point(5d, 5d));
+            _slipBallNeedle = new GaugeNeedle("{Helios}/Gauges/AV8B/ADI/adi_slip_ball.xaml", new Point(174d, 297d), new Size(10d, 10d), new Point(5d, 5d));
             Components.Add(_slipBallNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/A-10/ADI/adi_guides.xaml", new Rect(0d, 0d, 350d, 350d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV8B/ADI/adi_guides.xaml", new Rect(0d, 0d, 350d, 350d)));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/A-10/ADI/adi_outer_ring.xaml", new Rect(0d, 0d, 350d, 350d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV8B/ADI/adi_outer_ring.xaml", new Rect(0d, 0d, 350d, 350d)));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/A-10/ADI/adi_bezel.png", new Rect(0d, 0d, 350d, 350d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV8B/ADI/adi_bezel.png", new Rect(0d, 0d, 350d, 350d)));
 
             _slipBall = new HeliosValue(this, new BindingValue(0d), "", "Slip Ball Offset", "Side slip indicator offset from the center of the tube.", "(-1 to 1) -1 full left and 1 is full right.", BindingValueUnits.Numeric);
             _slipBall.Execute += new HeliosActionHandler(SlipBall_Execute);

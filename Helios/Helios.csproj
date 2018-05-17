@@ -1977,6 +1977,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_outer_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_guides.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_inner_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Gauges\AV-8B\VVI\vvi_faceplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -2488,6 +2504,7 @@
     <Resource Include="Gauges\F-16\VVI\vvi_bezel.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Gauges\AV-8B\ADI\adi_bezel.png" />
     <Content Include="Images\AV-8B\Advisory Panel.png" />
     <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_Off.png" />
     <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_On.png" />

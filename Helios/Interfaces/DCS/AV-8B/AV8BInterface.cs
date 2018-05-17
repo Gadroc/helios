@@ -356,10 +356,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3472", "3472", "1", "Approach", "0.5", "Hover", "0", "Off", "SAAHS", "Trim Mode Switch", "%.1f"));
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0.5", "Centre", "0", "Right", "SAAHS", "Rudder trim switch", "%1d"));
 
-            CalibrationPointCollectionDouble aileronTrimScale = new CalibrationPointCollectionDouble(-1.0d, -10d, 1.0d, 10d);
-            AddFunction(new ScaledNetworkValue(this, "473", aileronTrimScale, "SAAHS", "Aileron trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
-            CalibrationPointCollectionDouble rudderTrimScale = new CalibrationPointCollectionDouble(-1.0d, -10d, 1.0d, 10d);
-            AddFunction(new ScaledNetworkValue(this, "474", rudderTrimScale, "SAAHS", "Rudder trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
+            CalibrationPointCollectionDouble trimScale = new CalibrationPointCollectionDouble(-1.0d, -10d, 1.0d, 10d);
+            AddFunction(new ScaledNetworkValue(this, "473", trimScale, "SAAHS", "Aileron trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
+            AddFunction(new ScaledNetworkValue(this, "474", trimScale, "SAAHS", "Rudder trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
             //         --SAAHS Panel
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3476", "3476", "1", "Hold", "0", "Off", "SAAHS", "Altitude hold switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3477", "3477", "1", "On", "0.5", "Off", "0", "Reset", "SAAHS", "AFC Switch", "%.1f"));
@@ -499,7 +498,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "347", "Flight Instruments", "SAI Warning Flag", "Displayed when SAI is caged or non-functional."));
             //AddFunction(new RotaryEncoder(this, FLIGHTCONTROLS, BUTTON_3, "66", 0.1d, "SAI", "Pitch Trim / Cage"));
             //AddFunction(new NetworkValue(this, "715", "SAI", "Pitch Adjust", "Current pitch adjustment setting", "0 to 1", BindingValueUnits.Numeric));
-
+            AddFunction(new NetworkValue(this, "363", "Flight Instruments", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
 
             #endregion
 
