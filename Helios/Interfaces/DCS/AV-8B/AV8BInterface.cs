@@ -333,12 +333,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Centre Console
-            //             --Flights Instruments Panel
-            //elements["PTN_364"] = default_axis_cycle(_("NAV Course Setting"), devices.NAV_INS, inst_commands.Knob_Course, 364)
-            //elements["PTN_653"] = default_axis(_("Barometric Pressure Calibration"), devices.ADC, inst_commands.Knob_Altimeter, 653)
+            AddFunction(new Axis(this, NAV_INS, "3364", "3464", 0.1d, 0d, 1d, "Centre Console", "NAV Course Setting"));
+            AddFunction(new Axis(this, ADC, "3653", "3653", 0.1d, 0d, 1d, "Centre Console", "Barometric Pressure Calibration"));
             //elements["PTN_351"] = default_button_lever(_("Backup ADI Cage/Pitch Adjust Knob"), devices.FLIGHTINSTRUMENTS, inst_commands.ADI_Cage, inst_commands.Knob_ADI, 350, 351)
 
-            //-- Miscelaneous Switch Panel
+            //-- Misc Switch Panel
             AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3422", "3422", "0", "Off", "1", "Auto", "Centre Console", "Video Recorder System Mode Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3423", "3423", "0", "HUD", "1", "MPCD", "Centre Console", "Video Recorder System Display Selector Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DMT, "3424", "3424", "1", "DMT", "0", "Off", "Centre Console", "DMT Toggle On/Off", "%1d"));
@@ -351,16 +350,16 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Throttle Quadrant
-//elements["PTN_481"] = default_2_position_tumb(_("JPTL Switch"), devices.DECS, engine_commands.Switch_JPTL, 481)
-//elements["PTN_483"] = default_2_way_spring_switch(_("Rudder Trim Switch"), devices.FLIGHTCONTROLS, fcs_commands.Switch_RUDDER_TRIM, 483, true)
-//elements["PTN_482"] = default_button(_("EMS Button"), devices.DECS, engine_commands.Button_EMS, 482)
-//elements["PTN_484"] = default_2_position_tumb(_("Manual Fuel Switch"), devices.DECS, engine_commands.Switch_MAN_FUEL, 484)
-//elements["PTN_485"] = default_axis_limited(_("Throttle Lever Friction Knob"), devices.FLIGHTCONTROLS, fcs_commands.Knob_FRICTION_LEFT, 485, 0, 0.1, true, 0, { 0, 1.0})
-//elements["PTN_486"] = default_axis_limited(_("Nozzle Lever Friction Knob"), devices.FLIGHTCONTROLS, fcs_commands.Knob_FRICTION_RIGHT, 486, 0, 0.1, true, 0, { 0, 1.0})
-//elements["PTN_490"] = default_animated_lever(_("Throttle Cutoff Lever"), devices.DECS, engine_commands.Handle_THROTTLE_CUTOFF, 490, 5.0)
-//elements["PTN_489"] = default_animated_lever(_("Parking Brake Lever"), devices.FLIGHTCONTROLS, fcs_commands.Handle_PARKING_BRAKE, 489, 5.0)
-//elements["PTN_487"] = default_axis_limited(_("Nozzle Control Lever"), devices.VREST, engine_commands.Handle_NOZZLE_CONTROL, 487, 0, -0.1, true, 0, 1)
-//elements["PTN_488"] = default_axis_limited(_("STO Stop Lever"), devices.VREST, engine_commands.Handle_NOZZLE_STO_STOP, 488, 0, -0.1, true, 0, 1)
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3481", "3481", "1", "On", "0", "Off", "Throttle Quadrant", "JPTL Switch", "%1d"));
+            AddFunction(new Switch(this, FLIGHTCONTROLS, "3483", new SwitchPosition[] { new SwitchPosition("0.0", "Left", "3483"), new SwitchPosition("0.5", "Centre", "3483"), new SwitchPosition("1.0", "Right", "3483") }, "Throttle Quadrant", "Rudder Trim Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3482", "3482", "1", "On", "0", "Off", "Throttle Quadrant", "EMS Button", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3484", "3484", "1", "On", "0", "Off", "Throttle Quadrant", "Manual Fuel Switch", "%1d"));
+            AddFunction(new Axis(this, FLIGHTCONTROLS, "3485", "3485", 0.1d, 0d, 1d, "Throttle Quadrant", "Throttle Lever Friction Knob"));
+            AddFunction(new Axis(this, FLIGHTCONTROLS, "3486", "3486", 0.1d, 0d, 1d, "Throttle Quadrant", "Nozzle Lever Friction Knob"));
+            AddFunction(new Axis(this, DECS, "3490", "3490", 0.1d, 0d, 1d, "Throttle Quadrant", "Throttle Cutoff Lever"));
+            AddFunction(new Axis(this, FLIGHTCONTROLS, "3489", "3489", 0.1d, 0d, 1d, "Throttle Quadrant", "Parking Brake Lever"));
+            AddFunction(new Axis(this, VREST, "3487", "3487", 0.1d, 0d, 1d, "Throttle Quadrant", "Nozzle Control Lever"));
+            AddFunction(new Axis(this, VREST, "3488", "3488", 0.1d, 0d, 1d, "Throttle Quadrant", "STO Stop Lever"));
 
             #endregion
 
@@ -369,7 +368,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             ////         --Trim Panel
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "3471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3472", "3472", "1", "Approach", "0.5", "Hover", "0", "Off", "SAAHS", "Trim Mode Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0.5", "Centre", "0", "Right", "SAAHS", "Rudder trim switch", "%1d"));
+            //AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0.5", "Centre", "0", "Right", "SAAHS", "Rudder trim switch", "%1d"));
 
             CalibrationPointCollectionDouble trimScale = new CalibrationPointCollectionDouble(-1.0d, -10d, 1.0d, 10d);
             AddFunction(new ScaledNetworkValue(this, "473", trimScale, "SAAHS", "Aileron trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
