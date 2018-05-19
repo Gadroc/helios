@@ -440,8 +440,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new SMCMultipleDisplay(this));
             AddFunction(new Text(this, "2018", "Stores Management", "SMC mode (Text)", "Stores management mode in text form"));
             AddFunction(new NetworkValue(this, "385", "Stores Management", "SMC mode (value)", "Current SMC mode in value form", "", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "386", "Stores Management", "Fuze mode section 1 (value)", "Fuze mode (first part)", "", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "387", "Stores Management", "Fuze mode section 2 (value)", "Fuze mode (second part)", "", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "386", "Stores Management", "Fuze mode 1 (value)", "Fuze mode (1st part)", "", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "387", "Stores Management", "Fuze mode 2 (value)", "Fuze mode (2nd part)", "", BindingValueUnits.Numeric));
             AddFunction(new NetworkValue(this, "2007", "Stores Management", "Fuze Mode (combined 2007)", "Fuze mode in combined form", "", BindingValueUnits.Numeric));
             AddFunction(new NetworkValue(this, "2019", "Stores Management", "Fuze Mode (combined 2019)", "Fuze mode in combined form", "", BindingValueUnits.Numeric));
 
