@@ -27,12 +27,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.stabilizerDisplay
         private GaugeDrumCounter _onesDrum;
 
         public stabilizerDisplay()
-            : base("Stabilizer Direction Display", new Size(164, 100))
+            : base("Stabilizer Direction", new Size(40, 50))
         {
-            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/stabilizer display/digit_faceplate.xaml", new Rect(0d, 0d, 164d, 100d)));
+            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/stabilizer display/digit_faceplate.xaml", new Rect(0d, 0d, 80d, 100d)));
 
-            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/stabilizer display/stabilizer_drum_tape.xaml", new Point(0d, 0d), "#", new Size(20d, 15d), new Size(120d, 90d));
-            _onesDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 120d, 90d));
+            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/stabiliser display/stabilizer_drum_tape.xaml", new Point(0d, 0d), "#", new Size(8d, 10d), new Size(40d, 50d));
+            _onesDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 40d, 50d));
             Components.Add(_onesDrum);
 
             _one_digit_display = new HeliosValue(this, new BindingValue(0d), "", "value", "EDP", "Stabilizer direction display", BindingValueUnits.Numeric);
@@ -43,7 +43,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.stabilizerDisplay
 
         void DigitDisplay_Execute(object action, HeliosActionEventArgs e)
         {
-            _onesDrum.Value = e.Value.DoubleValue;
+            _onesDrum.Value = e.Value.DoubleValue + 2;  // The adddition of the +2 is to cater for the fact that the value is -1 to 1
         }
     }
 }

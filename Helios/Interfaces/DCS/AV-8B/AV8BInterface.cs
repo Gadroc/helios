@@ -438,7 +438,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits3Display(this, SMC, "2020", "Stores Management", "Stores interval display", "Interval value in metres"));
             AddFunction(new Digits2Display(this, SMC, "2022", "Stores Management", "Stores quantity display", "Quantity of stores"));
             AddFunction(new SMCMultipleDisplay(this));
-            //AddFunction(new Text(this, "2018", "Stores Management", "SMC mode", "Stores management mode in text form"));
+            AddFunction(new Text(this, "2018", "Stores Management", "SMC mode (Text)", "Stores management mode in text form"));
+            AddFunction(new NetworkValue(this, "385", "Stores Management", "SMC mode (value)", "Current SMC mode in value form", "", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "386", "Stores Management", "Fuze mode section 1 (value)", "Fuze mode (first part)", "", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "387", "Stores Management", "Fuze mode section 2 (value)", "Fuze mode (second part)", "", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "2007", "Stores Management", "Fuze Mode (combined 2007)", "Fuze mode in combined form", "", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "2019", "Stores Management", "Fuze Mode (combined 2019)", "Fuze mode in combined form", "", BindingValueUnits.Numeric));
+
             #endregion
 
             #region Left Bulkhead
@@ -538,9 +544,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits3Display(this, EDP, "2003", "EDP", "FF display", "Engine FF percentage"));
             AddFunction(new Digits3Display(this, EDP, "2004", "EDP", "JPT display", "Engine Jet pipe temperature"));
             AddFunction(new Digits2Display(this, EDP, "2005", "EDP", "Stabiliser display", "Amount of Stabiliser"));
-            AddFunction(new FlagValue(this, "266", "EDP", "Stabilzer Arrow", "Up/Down Arrow for the stabilizer"));  // 266 returns -1 or 1  and 0 is a dash * * * Currently causing problems with the FlagValue!
+            AddFunction(new NetworkValue(this, "266", "EDP", "Stabilzer Arrow", "Up/Down Arrow for the stabilizer"," value -1 to 1", BindingValueUnits.Numeric));
             #endregion
- 
+
             #region Electrical Panel
             //Battery
             CalibrationPointCollectionDouble batteryScale = new CalibrationPointCollectionDouble(0.0d, 0d, 0.30d, 30d);

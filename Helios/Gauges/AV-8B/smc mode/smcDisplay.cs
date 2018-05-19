@@ -27,12 +27,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.smcModeDisplay
         private GaugeDrumCounter _onesDrum;
 
         public smcModeDisplay()
-            : base("Stores Mode Display", new Size(82, 100))
+            : base("Stores Mode Display", new Size(90, 50))
         {
-            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/smc mode/digit_faceplate.xaml", new Rect(0d, 0d, 82d, 100d)));
+            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/smc mode/digit_faceplate.xaml", new Rect(0d, 0d, 180d, 100d)));
 
-            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/smc mode/stores_mode_drum_tape.xaml", new Point(13.5d, 11.5d), "#", new Size(10d, 15d), new Size(50d, 75d));
-            _onesDrum.Clip = new RectangleGeometry(new Rect(13.5d, 11.5d, 50d, 75d));
+            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/smc mode/stores_mode_drum_tape.xaml", new Point(0d, 0d), "#", new Size(18d, 10d), new Size(90d, 50d));
+            _onesDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 90d, 50d));
             Components.Add(_onesDrum);
 
             _one_digit_display = new HeliosValue(this, new BindingValue(0d), "", "value", "Stores Management", "SMC stores delivery mode display", BindingValueUnits.Numeric);
@@ -43,7 +43,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.smcModeDisplay
 
         void DigitDisplay_Execute(object action, HeliosActionEventArgs e)
         {
-            _onesDrum.Value = e.Value.DoubleValue;
+            _onesDrum.Value = e.Value.DoubleValue * 5;  // the returned values for 385 are 0.0 0.2 0.4 etc so mult by 5 to get unit values
         }
     }
 }

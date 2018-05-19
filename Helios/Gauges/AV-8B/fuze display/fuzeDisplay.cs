@@ -27,12 +27,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.fuzeDisplay
         private GaugeDrumCounter _onesDrum;
 
         public fuzeDisplay()
-            : base("One Digit Display", new Size(164, 100))
+            : base("Fuze Mode Display", new Size(140, 50))
         {
-            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/fuze Display/digit_faceplate.xaml", new Rect(0d, 0d, 164d, 100d)));
+            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/fuze Display/digit_faceplate.xaml", new Rect(0d, 0d, 280d, 100d)));
 
-            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/fuze display/fuze_mode_drum_tape.xaml", new Point(0d, 0d), "#", new Size(20d, 15d), new Size(120d, 90d));
-            _onesDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 120d, 90d));
+            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/fuze display/fuze_mode_drum_tape.xaml", new Point(0d, 0d), "#", new Size(28d,10d), new Size(140d,50d));
+            _onesDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 140d, 50d));
             Components.Add(_onesDrum);
 
             _one_digit_display = new HeliosValue(this, new BindingValue(0d), "", "value", "Stores Management", "display for SMC fuze mode", BindingValueUnits.Numeric);
@@ -43,7 +43,10 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.fuzeDisplay
 
         void DigitDisplay_Execute(object action, HeliosActionEventArgs e)
         {
-            _onesDrum.Value = e.Value.DoubleValue;
+            if (e.Value.DoubleValue == 1)
+                _onesDrum.Value = 5;
+            else
+                _onesDrum.Value = e.Value.DoubleValue * 10;  // 386 returns values 0.1, 0.2 etc to multiply by 10 to get unit values
         }
     }
 }

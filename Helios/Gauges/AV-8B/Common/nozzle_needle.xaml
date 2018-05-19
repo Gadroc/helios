@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="17" Height="45">
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="18.00" Height="49">
     <Canvas.Resources/>
     <Canvas Name="layer5">
         <Canvas>
@@ -17,7 +17,7 @@
                             <MatrixTransform Matrix="1.4497992,0,0,1.4497992,-108.17671,-67.4375"/>
                         </TransformGroup>
                     </Canvas.RenderTransform>
-                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4082" Fill="#EAEAEA" Stroke="#FF222222" StrokeThickness="1" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 237.375 150 -1.0 -15 3.5 -10 3.5 10 -1.0 15 z" Canvas.Left="0.505" Canvas.Top="0"/>
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4082" Fill="#EAEAEA" Stroke="#FF222222" StrokeThickness="1" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 237.375 150 -1.0 -15 3.5 -10 3.5 10 -1.0 15 z" Canvas.Left="1" Canvas.Top="1.207"/>
                     <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4074" Fill="#FF222222" Data="m 247 151.5 c 0 3.31371 -2.68629 6 -6 6 -3.31371 0 -6 -2.68629 -6 -6 0 -3.31371 2.68629 -6 6 -6 3.31371 0 6 2.68629 6 6 z">
                         <!--path-->
                         <Path.RenderTransform>
