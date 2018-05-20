@@ -101,7 +101,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
         void OffFlag_Execute(object action, HeliosActionEventArgs e)
         {
             _warningFlag.SetValue(e.Value, e.BypassCascadingTriggers);
-            _warningFlagNeedle.Rotation = e.Value.BoolValue ? 45 : 0;
+            _warningFlagNeedle.Rotation = e.Value.BoolValue ? 0 : 45;
         }
     }
 

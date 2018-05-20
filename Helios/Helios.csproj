@@ -2020,6 +2020,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_slip_guides.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_slip_ball_complete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_slip_marker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Gauges\AV-8B\VVI\vvi_faceplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -2532,6 +2544,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\AV-8B\ADI\adi_bezel.png" />
+    <Content Include="Gauges\AV-8B\ADI\adi_slip_bezel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\AV-8B\Advisory Panel.png" />
     <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_Off.png" />
     <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_On.png" />

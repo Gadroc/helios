@@ -240,7 +240,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Fuel Quantity Indicator System
-            AddFunction(new RotaryEncoder(this, FQIS, "3380", "-1", 1d, "Fuel Quantity", "Bingo Fuel Set Knob"));
+            AddFunction(new Axis(this, FQIS, "3380", "3380", 0.001d, 0d, 1d, "Fuel Quantity", "Bingo Fuel Set Knob", true, "%.3f"));  //looping axis
             AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3379"), new SwitchPosition("-0.66", "FEED", "3379"), new SwitchPosition("-0.33", "TOTAL", "3379"), new SwitchPosition("0.0", "INT", "3379"), new SwitchPosition("0.33", "WING", "3379"), new SwitchPosition("0.66", "INBD", "3379"), new SwitchPosition("0.99", "OUTBD", "3379") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
             AddFunction(new Digits4Display(this, FQIS, "2011", "FQIS", "Left Tank display", "Fuel left tank quantity"));
             AddFunction(new Digits4Display(this, FQIS, "2012", "FQIS", "Right Tank display", "Fuel right tank quantity"));
@@ -333,9 +333,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Centre Console
-            AddFunction(new Axis(this, NAV_INS, "3364", "3464", 0.1d, 0d, 1d, "Centre Console", "NAV Course Setting"));
-            AddFunction(new Axis(this, ADC, "3653", "3653", 0.1d, 0d, 1d, "Centre Console", "Barometric Pressure Calibration"));
-            //elements["PTN_351"] = default_button_lever(_("Backup ADI Cage/Pitch Adjust Knob"), devices.FLIGHTINSTRUMENTS, inst_commands.ADI_Cage, inst_commands.Knob_ADI, 350, 351)
 
             //-- Misc Switch Panel
             AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3422", "3422", "0", "Off", "1", "Auto", "Centre Console", "Video Recorder System Mode Switch", "%1d"));
@@ -368,9 +365,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             ////         --Trim Panel
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "3471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3472", "3472", "1", "Approach", "0.5", "Hover", "0", "Off", "SAAHS", "Trim Mode Switch", "%.1f"));
-            //AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0.5", "Centre", "0", "Right", "SAAHS", "Rudder trim switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0.5", "Centre", "0", "Right", "SAAHS", "Rudder trim switch", "%.1f"));
 
-            CalibrationPointCollectionDouble trimScale = new CalibrationPointCollectionDouble(-1.0d, -10d, 1.0d, 10d);
+            CalibrationPointCollectionDouble trimScale = new CalibrationPointCollectionDouble(-1.0d, -1d, 1.0d, 1d);
             AddFunction(new ScaledNetworkValue(this, "473", trimScale, "SAAHS", "Aileron trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
             AddFunction(new ScaledNetworkValue(this, "474", trimScale, "SAAHS", "Rudder trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
             //         --SAAHS Panel
@@ -538,6 +535,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Engine Display Panel
             AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Position", "Current Nozzle position.", "Nozzle position in degrees", BindingValueUnits.Degrees));
             AddFunction(new PushButton(this, EDP, "3655", "3655", "EDP", "BIT"));
+            //elements["PTN_272"] = default_axis_limited(_("EDP Brightness Control"), devices.EDP, edp_commands.BRT_Knob, 272, 0, 0.03, false, 0, { 0, 1})
+            AddFunction(new Axis(this, EDP, "3272", "3272", 0.1d, 0d, 1d, "EDP", "Off/Brightness Control"));
             AddFunction(new Digits2Display(this, EDP, "2006", "EDP", "H2O display", "Amount of H2O available"));
             AddFunction(new Digits4Display(this, EDP, "2002", "EDP", "RPM display", "Engine RPM percentage"));
             AddFunction(new Digits3Display(this, EDP, "2001", "EDP", "Duct pressure display", "Engine Duct pressure"));
@@ -574,11 +573,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
 
             #region Flight Instruments
-            AddFunction(new ScaledNetworkValue(this, "363", 0.94d, "Flight Instruments", "Sideslip", "Sideslip Ball Indicator", "", BindingValueUnits.Degrees));
+            //elements["PTN_351"] = default_button_lever(_("Backup ADI Cage/Pitch Adjust Knob"), devices.FLIGHTINSTRUMENTS, inst_commands.ADI_Cage, inst_commands.Knob_ADI, 350, 351)
+
 
             AddFunction(new Altimeter(this,"Altimeter","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Pressure", "Manually set barometric altitude.",""));
-            AddFunction(new RotaryEncoder(this, ADC, "3653", "3653", 0.04d, "Altimeter", "Pressure"));
-            //AddFunction(new Axis(this, ADC, "3653", "3653", 0.1d,0d,1d, "Altimeter", "Pressure adjust",true, "%1d"));
+            AddFunction(new Axis(this, ADC, "3653", "3653", 0.01d,0d,1d, "Altimeter", "Barometric pressure calibration adjust", true, "%.3f"));
 
             CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-0.6d, -6000d, 0.6d, 6000d);
             vviScale.Add(new CalibrationPointDouble(0d, 0d));
@@ -591,7 +590,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             CalibrationPointCollectionDouble airspeedScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 1000d);
             AddFunction(new ScaledNetworkValue(this, "346", airspeedScale, "Flight Instruments", "IAS Airspeed", "Current indicated air speed of the aircraft.", "", BindingValueUnits.Knots));
-            AddFunction(new Axis(this, NAV_INS, "3364", "3364", 0.1d,0d,1d, "NAV course", "Course Setting",true, "%1d"));
+
+            AddFunction(new Axis(this, NAV_INS, "3364", "3364", 0.01d,0d,1d, "NAV course", "Course Setting",true, "%.3f"));
 
             //AddFunction(new ScaledNetworkValue(this, "17", -90d, "ADI", "Pitch", "Current pitch displayed on the ADI.", "", BindingValueUnits.Degrees));
             //AddFunction(new ScaledNetworkValue(this, "18", 180d, "ADI", "Bank", "Current bank displayed on the ADI.", "", BindingValueUnits.Degrees));
@@ -610,7 +610,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "347", "Flight Instruments", "SAI Warning Flag", "Displayed when SAI is caged or non-functional."));
             //AddFunction(new RotaryEncoder(this, FLIGHTCONTROLS, BUTTON_3, "66", 0.1d, "SAI", "Pitch Trim / Cage"));
             //AddFunction(new NetworkValue(this, "715", "SAI", "Pitch Adjust", "Current pitch adjustment setting", "0 to 1", BindingValueUnits.Numeric));
+
+            // This next set are a little flakey
             AddFunction(new NetworkValue(this, "363", "Flight Instruments", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+            //CalibrationPointCollectionDouble slipScale = new CalibrationPointCollectionDouble(-1.0d, -26d, 1.0d, 26d);
+            //AddFunction(new ScaledNetworkValue(this, "363", slipScale, "Flight Instruments", "Sideslip", "Sideslip Ball Indicator", "", BindingValueUnits.Degrees));
+            AddFunction(new NetworkValue(this, "24", "Flight Instruments", "Slip Ball (A-10C)", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "23", "Flight Instruments", "Turn Needle (A-10C)", "Position of the turn needle.", "(-1 to 1)", BindingValueUnits.Numeric));
 
             #endregion
 
