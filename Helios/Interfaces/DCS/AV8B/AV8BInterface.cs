@@ -83,7 +83,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         {
             DCSConfigurator config = new DCSConfigurator("DCSAV8B", DCSPath);
             config.ExportConfigPath = "Config\\Export";
-            config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/AV-8B/ExportFunctions.lua";
+            config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/AV8B/ExportFunctions.lua";
             Port = config.Port;
             _phantomFix = config.PhantomFix;
             _phantomLeft = config.PhantomFixLeft;
@@ -111,6 +111,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, MPCD_LEFT, "3218", "3218", "Left MFCD", "OSB19", "1", "0", "%1d"));
             AddFunction(new PushButton(this, MPCD_LEFT, "3219", "3219", "Left MFCD", "OSB20", "1", "0", "%1d"));
             AddFunction(new Axis(this, MPCD_LEFT, "3194", "3194", 0.1d, 0d, 1d, "Left MFCD", "Off/Brightness Control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3220", "3220", "-1", "Day", "0", "Off", "1", "Night", "Left MFCD", "DAY/NIGHT Mode", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3221", "3221", "-1", "More", "0", "Off", "1", "Less", "Left MFCD", "Symbology", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3222", "3222", "-1", "Up", "0", "Off", "1", "Down", "Left MFCD", "Gain", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3223", "3223", "-1", "Up", "0", "Off", "1", "Down", "Left MFCD", "Contrast", "%1d"));
+
             #endregion
 
             #region Right MCFD
@@ -135,6 +140,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, MPCD_RIGHT, "3242", "3242", "Right MFCD", "OSB19"));
             AddFunction(new PushButton(this, MPCD_RIGHT, "3243", "3243", "Right MFCD", "OSB20"));
             AddFunction(new Axis(this, MPCD_RIGHT, "3195", "3195", 0.1d, 0d, 1d, "Right MFCD", "Off/Brightness Control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3244", "3244", "-1", "Day", "0", "Off", "1", "Night", "Right MFCD", "DAY/NIGHT Mode", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3245", "3245", "-1", "More", "0", "Off", "1", "Less", "Right MFCD", "Symbology", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3246", "3246", "-1", "Up", "0", "Off", "1", "Down", "Right MFCD", "Gain", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3247", "3247", "-1", "Up", "0", "Off", "1", "Down", "Right MFCD", "Contrast", "%1d"));
+
 
             #endregion
 
@@ -175,9 +185,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Axis(this, UFCCONTROL, "3299", "3299", 0.1d, 0d, 1d, "UFC", "Comm 2 Volume"));
             AddFunction(new Axis(this, UFCCONTROL, "3300", "3300", 0.1d, 0d, 1d, "UFC", "Comm 1 Channel selector"));
             AddFunction(new Axis(this, UFCCONTROL, "3301", "3301", 0.1d, 0d, 1d, "UFC", "Comm 2 Channel selector"));
-            //       public IndicatorPushButton(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, string device, string name)
-            //       public FlagValue(BaseUDPInterface sourceInterface, string id, string device, string name, string description)
-            //       public PushButton(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, string device, string name)
             AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "3288", "0", "Norm", "0.5", "Reject 1", "1", "Reject 2", "HUD Control", "Declutter switch", "%1d"));
             AddFunction(new Axis(this, HUDCONTROL, "3289", "3289", 0.1d, 0d, 1d, "HUD Control", "Off/Brightness control"));
             AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "3290", "0", "Day", "0.5", "Auto", "1", "Night", "HUD Control", "Display Mode switch", "%1d"));
@@ -439,7 +446,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new NetworkValue(this, "385", "Stores Management", "SMC mode (value)", "Current SMC mode in value form", "", BindingValueUnits.Numeric));
             AddFunction(new NetworkValue(this, "386", "Stores Management", "Fuze mode 1 (value)", "Fuze mode (1st part)", "", BindingValueUnits.Numeric));
             AddFunction(new NetworkValue(this, "387", "Stores Management", "Fuze mode 2 (value)", "Fuze mode (2nd part)", "", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "2007", "Stores Management", "Fuze Mode (combined 2007)", "Fuze mode in combined form", "", BindingValueUnits.Numeric));
             AddFunction(new NetworkValue(this, "2019", "Stores Management", "Fuze Mode (combined 2019)", "Fuze mode in combined form", "", BindingValueUnits.Numeric));
 
             #endregion
@@ -456,21 +462,21 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             // switch positions still need to be labeled
             AddFunction(new Axis(this, RSC, "3614", "3614", 0.03d, 0d, 1d, "V/UHF Radio", "Volume Knob"));
             AddFunction(new Axis(this, RSC, "3615", "3615", 0.03d, 0d, 1d, "V/UHF Radio", "Chan/Freq Knob"));
-            AddFunction(new Switch(this, RSC, "3616", new SwitchPosition[] {new SwitchPosition("-0.20", "Norm", "3616"), new SwitchPosition("0.0", "Norm", "3616"), new SwitchPosition("0.0", "Norm", "3616"), new SwitchPosition("0.20", "Norm", "3616"), new SwitchPosition("0.40", "Norm", "3616"), new SwitchPosition("0.60", "Norm", "3616"), new SwitchPosition("0.80", "Norm", "3616"), new SwitchPosition("1.0", "Norm", "3616") }, "V / UHF Radio", "Operational Mode Switch", "%0.1f"));
+            AddFunction(new Switch(this, RSC, "3616", new SwitchPosition[] {new SwitchPosition("-0.20", "Zero", "3616"), new SwitchPosition("0.0", "Off", "3616"), new SwitchPosition("0.0", "Test", "3616"), new SwitchPosition("0.20", "TR+G", "3616"), new SwitchPosition("0.40", "TR", "3616"), new SwitchPosition("0.60", "ADF", "3616"), new SwitchPosition("0.80", "Chng PRST", "3616"), new SwitchPosition("1.0", "Norm", "3616") }, "V / UHF Radio", "Operational Mode Switch", "%0.1f"));
             AddFunction(new PushButton(this, RSC, "3617", "3617", "V/UHF Radio", "Ancillary Mode Pointer A mode"));
             AddFunction(new PushButton(this, RSC, "3618", "3618", "V/UHF Radio", "Ancillary Mode Switch P mode"));
-            AddFunction(new Switch(this, RSC, "3619", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3619"), new SwitchPosition("0.0", "Norm", "3619"), new SwitchPosition("0.15", "Norm", "3619"), new SwitchPosition("0.30", "Norm", "3619"), new SwitchPosition("0.45", "Norm", "3619"), new SwitchPosition("0.60", "Norm", "3619"), new SwitchPosition("0.75", "Norm", "3619"), new SwitchPosition("0.90", "Norm", "3619"), new SwitchPosition("1.00", "Norm", "3619") }, "V / UHF Radio", "Frequency Mode Switch", "%0.1f"));
+            AddFunction(new Switch(this, RSC, "3619", new SwitchPosition[] { new SwitchPosition("0.0", "AJ/M", "3619"), new SwitchPosition("0.0", "AJ", "3619"), new SwitchPosition("0.15", "MAR", "3619"), new SwitchPosition("0.30", "PRST", "3619"), new SwitchPosition("0.45", "MAN", "3619"), new SwitchPosition("0.60", "234", "3619"), new SwitchPosition("0.75", "121", "3619"), new SwitchPosition("0.90", "Norm", "3619"), new SwitchPosition("1.00", "Norm", "3619") }, "V / UHF Radio", "Frequency Mode Switch", "%0.1f"));
             AddFunction(new PushButton(this, RSC, "3620", "3620", "V/UHF Radio", "LOAD/OFST Switch"));
 
             #endregion
 
             #region ACNIP
             // switch positions still need to be labeled
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3621", "3621", "1", "On", "0", "Off", "ACNIP", "ACNIP Mode Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3622", "3622", "1", "On", "0", "Off", "ACNIP", "KY-1 Cipher Type Selector Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3623", "3623", "1", "On", "0", "Off", "ACNIP", "KY-2 Cipher Type Selector Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3624", "3624", "1", "On", "0", "Off", "ACNIP", "KY-1 Code/Mode Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3625", "3625", "1", "On", "0", "Off", "ACNIP", "KY-2 Code/Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3621", "3621", "1", "MAN", "0", "UFC", "ACNIP", "ACNIP Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3622", "3622", "1", "DIPH", "0", "BB", "ACNIP", "KY-1 Cipher Type Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3623", "3623", "1", "DIPH", "0", "BB", "ACNIP", "KY-2 Cipher Type Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3624", "3624", "1", "Code", "0", "Mode", "ACNIP", "KY-1 Code/Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3625", "3625", "1", "Code", "0", "Mode", "ACNIP", "KY-2 Code/Mode Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3626", "3626", "1", "On", "0", "Off", "ACNIP", "ACNIP Radio Selector Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3627", "3627", "1", "On", "0", "Off", "ACNIP", "KY-58 Codes Clear Switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "3628", "1", "On", "0.5", "Off", "0", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%1d"));
@@ -488,8 +494,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Interior Lights
-            // switch positions still need to be labeled
-            AddFunction(new PushButton(this, LTINT, "3634", "3634", "Interior Lights", "Compass Light/Test Lights")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "3634", "1", "Compass", "0.5", "Off","0","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
             AddFunction(new Axis(this, LTINT, "3635", "3635", 0.03d, 0d, 1d, "Interior Lights", "Instruments Lights"));
             AddFunction(new Axis(this, LTINT, "3636", "3636", 0.03d, 0d, 1d, "Interior Lights", "Console Lights"));
             AddFunction(new Axis(this, LTINT, "3637", "3637", 0.03d, 0d, 1d, "Interior Lights", "Flood Lights"));
@@ -524,18 +529,16 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region ECS
-            // switch positions still need to be labeled
             AddFunction(new Axis(this, ECS, "3639", "3639", 0.03d, 0d, 1d, "Environment Control", "Temperature Control Knob"));
-            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3640", "3640", "1", "On", "0", "Off", "Environment Control", "Fwd Equipment Bay ECS Switch", "%1d"));
-            AddFunction(new Switch(this, ECS, "3641", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3641"), new SwitchPosition("0.5", "Norm", "3641"), new SwitchPosition("1.0", "Norm", "3641") }, "Environment Control", "Cabin Defog Switch", "%0.1f"));
-            AddFunction(new Switch(this, ECS, "3642", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3642"), new SwitchPosition("0.5", "Norm", "3642"), new SwitchPosition("1.0", "Norm", "3642") }, "Environment Control", "Aft Equipment Bay ECS Switch", "%0.1f"));
-            AddFunction(new Switch(this, ECS, "3643", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3643"), new SwitchPosition("0.5", "Norm", "3643"), new SwitchPosition("1.0", "Norm", "3643") }, "Environment Control", "Cabin Pressure Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3640", "3640", "1", "Norm", "0", "Reset", "Environment Control", "Fwd Equipment Bay ECS Switch", "%1d"));
+            AddFunction(new Switch(this, ECS, "3641", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3641"), new SwitchPosition("0.5", "Defog", "3641"), new SwitchPosition("1.0", "Max", "3641") }, "Environment Control", "Cabin Defog Switch", "%0.1f"));
+            AddFunction(new Switch(this, ECS, "3642", new SwitchPosition[] { new SwitchPosition("0.0", "Reset", "3642"), new SwitchPosition("0.5", "On", "3642"), new SwitchPosition("1.0", "Off", "3642") }, "Environment Control", "Aft Equipment Bay ECS Switch", "%0.1f"));
+            AddFunction(new Switch(this, ECS, "3643", new SwitchPosition[] { new SwitchPosition("0.0", "PRESS NORM", "3643"), new SwitchPosition("0.5", "DUMP", "3643"), new SwitchPosition("1.0", "RAM", "3643") }, "Environment Control", "Cabin Pressure Switch", "%0.1f"));
             #endregion
 
             #region Engine Display Panel
             AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Position", "Current Nozzle position.", "Nozzle position in degrees", BindingValueUnits.Degrees));
             AddFunction(new PushButton(this, EDP, "3655", "3655", "EDP", "BIT"));
-            //elements["PTN_272"] = default_axis_limited(_("EDP Brightness Control"), devices.EDP, edp_commands.BRT_Knob, 272, 0, 0.03, false, 0, { 0, 1})
             AddFunction(new Axis(this, EDP, "3272", "3272", 0.1d, 0d, 1d, "EDP", "Off/Brightness Control"));
             AddFunction(new Digits2Display(this, EDP, "2006", "EDP", "H2O display", "Amount of H2O available"));
             AddFunction(new Digits4Display(this, EDP, "2002", "EDP", "RPM display", "Engine RPM percentage"));
@@ -611,12 +614,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             //AddFunction(new RotaryEncoder(this, FLIGHTCONTROLS, BUTTON_3, "66", 0.1d, "SAI", "Pitch Trim / Cage"));
             //AddFunction(new NetworkValue(this, "715", "SAI", "Pitch Adjust", "Current pitch adjustment setting", "0 to 1", BindingValueUnits.Numeric));
 
-            // This next set are a little flakey
+
             AddFunction(new NetworkValue(this, "363", "Flight Instruments", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
-            //CalibrationPointCollectionDouble slipScale = new CalibrationPointCollectionDouble(-1.0d, -26d, 1.0d, 26d);
-            //AddFunction(new ScaledNetworkValue(this, "363", slipScale, "Flight Instruments", "Sideslip", "Sideslip Ball Indicator", "", BindingValueUnits.Degrees));
-            AddFunction(new NetworkValue(this, "24", "Flight Instruments", "Slip Ball (A-10C)", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "23", "Flight Instruments", "Turn Needle (A-10C)", "Position of the turn needle.", "(-1 to 1)", BindingValueUnits.Numeric));
+            //AddFunction(new NetworkValue(this, "24", "Flight Instruments", "Slip Ball (A-10C)", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+            //AddFunction(new NetworkValue(this, "23", "Flight Instruments", "Turn Needle (A-10C)", "Position of the turn needle.", "(-1 to 1)", BindingValueUnits.Numeric));
 
             #endregion
 

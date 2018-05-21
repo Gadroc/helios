@@ -64,7 +64,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             InitializeComponent();
             Configuration = new DCSConfigurator("DCSAV8B", DCSPath);
             Configuration.ExportConfigPath = "Config\\Export";
-            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/AV-8B/ExportFunctions.lua";
+            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/AV8B/ExportFunctions.lua";
         }
 
         #region Properties

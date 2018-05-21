@@ -146,7 +146,7 @@
           <TextBlock Margin="4" TextWrapping="Wrap">
             In order for Helios to interface with DCS AV-8B an updated Export.lua file must be installed. This will back up and existing Export.lua file and deploy the necessary Helios configuration.
           </TextBlock>
-          <Button Click="Configure_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2">Setup DCS A-10C</Button>
+          <Button Click="Configure_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2">Setup DCS AV-8B</Button>
         </StackPanel>
       </StackPanel>
     </GroupBox>
