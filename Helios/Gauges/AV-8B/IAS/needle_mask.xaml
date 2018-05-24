@@ -3,7 +3,7 @@
     <Canvas.Resources/>
     <Canvas Name="layer7">
         <Canvas>
-            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path5182" Fill="#FF101010" Stroke="#FF202020" StrokeThickness="1" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 145 145 0 -145 8 0 8 20 -13 125 0 0.0 z" Height="143.75" Stretch="Fill" Width="52.274" Canvas.Left="0" Canvas.Top="0"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path5182" Fill="#FF202030" Stroke="#FF202020" StrokeThickness="1" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 145 145 0 -145 8 0 8 20 -13 125 0 0.0 z" Height="143.75" Stretch="Fill" Width="52.274" Canvas.Left="0" Canvas.Top="0"/>
         </Canvas>
     </Canvas>
     <!--
