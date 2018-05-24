@@ -453,7 +453,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Left Bulkhead
             // switch positions still need to be labeled
             AddFunction(Switch.CreateToggleSwitch(this, MSC, "3502", "3502", "1", "Pressed", "0", "Off", "Left Bulkhead", "Seat adjustment switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3519", "3519", "1", "Pressed", "0", "Off", "Left Bulkhead", "Fuel Shutoff Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3519", "3519", "0", "Off", "1", "Pressed", "Left Bulkhead", "Fuel Shutoff Lever", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3520", "3520", "1", "On", "0", "Off", "Left Bulkhead", "DECS switch", "%1d"));
 
             #endregion
@@ -494,7 +494,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Interior Lights
-            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "3634", "1", "Compass", "0.5", "Off","0","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "3634", "0", "Compass", "0.5", "Off","1","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
             AddFunction(new Axis(this, LTINT, "3635", "3635", 0.03d, 0d, 1d, "Interior Lights", "Instruments Lights"));
             AddFunction(new Axis(this, LTINT, "3636", "3636", 0.03d, 0d, 1d, "Interior Lights", "Console Lights"));
             AddFunction(new Axis(this, LTINT, "3637", "3637", 0.03d, 0d, 1d, "Interior Lights", "Flood Lights"));
@@ -518,7 +518,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3802", "3802", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Right", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3803", "3803", "1", "On", "0", "Off", "Canopy Controls", "Canopy Locking Lever", "%1d"));
 
-            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3800", "3800", "1", "On", "0", "Off", "Canopy Controls", "Seat Ground Safety Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3800", "3800", "0", "Off", "1", "On", "Canopy Controls", "Seat Ground Safety Lever", "%1d"));
 
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3501", "3501", "1", "On", "0", "Off", "Canopy Controls", "MFS Emergency Lever", "%1d"));
             #endregion

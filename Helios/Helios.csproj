@@ -2032,6 +2032,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\AV-8B\IAS\needle_mask.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Gauges\AV-8B\VVI\vvi_faceplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -2546,6 +2550,9 @@
     <Resource Include="Gauges\F-16\VVI\vvi_bezel.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\AV-8B\Parking Brake Off.png" />
+    <Content Include="Images\AV-8B\Parking Brake On.png" />
+    <Content Include="Images\AV-8B\Parking Brake.png" />
     <Content Include="Images\AV-8B\Threat AAA Off.png" />
     <Content Include="Images\AV-8B\Threat AAA.png" />
     <Content Include="Images\AV-8B\Threat AI Off.png" />
@@ -2587,8 +2594,8 @@
     </Content>
     <Content Include="Images\AV-8B\adi_slip_bezel.png" />
     <Content Include="Images\AV-8B\Advisory Panel.png" />
-    <Content Include="Images\AV-8B\AV8B Toggle Down.png" />
-    <Content Include="Images\AV-8B\AV8B Toggle Up.png" />
+    <Resource Include="Images\AV-8B\AV8B Toggle Down.png" />
+    <Resource Include="Images\AV-8B\AV8B Toggle Up.png" />
     <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_Off.png" />
     <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_On.png" />
     <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_On.png.png" />
@@ -2616,7 +2623,7 @@
     <Content Include="Images\AV-8B\Combat Button Pushed.png" />
     <Content Include="Images\AV-8B\Combat Button SEL CBMT.png" />
     <Content Include="Images\AV-8B\Combat Button SEL.png" />
-    <Content Include="Images\AV-8B\Common Knob.png" />
+    <Resource Include="Images\AV-8B\Common Knob.png" />
     <Content Include="Images\AV-8B\Electrical and Radio.png" />
     <Content Include="Images\AV-8B\Flaps and Gear Lever.png" />
     <Content Include="Images\AV-8B\Flaps Auto.png" />
