@@ -13,25 +13,25 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.Accululator
+namespace GadrocsWorkshop.Helios.Gauges.AV8B.Accumulator
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.Accululator", "Accululator", "AV-8B Gauges", typeof(GaugeRenderer))]
-    public class Accululator : BaseGauge
+    [HeliosControl("Helios.AV8B.Accumulator", "Accumulator", "AV-8B Gauges", typeof(GaugeRenderer))]
+    public class Accumulator : BaseGauge
     {
-        private HeliosValue _accululatorPressure;
+        private HeliosValue _AccumulatorPressure;
         private GaugeNeedle _needle;
         private CalibrationPointCollectionDouble _needleCalibration;
         
-        public Accululator()
-            : base("Accululator", new Size(364, 376))
+        public Accumulator()
+            : base("Accumulator", new Size(364, 376))
         {
 
-            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/Accululator/Accululator_faceplate.xaml", new Rect(32d, 38d, 300, 300)));
+            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/Accumulator/Accumulator_faceplate.xaml", new Rect(32d, 38d, 300, 300)));
 
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 3600d, 90d);
             //_needleCalibration.Add(new CalibrationPointDouble(100d, 18d));
@@ -41,12 +41,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.Accululator
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
 
-            _accululatorPressure = new HeliosValue(this, new BindingValue(0d), "", "Accumulator", "Current brake accumulator pressure", "(0 - 3600)", BindingValueUnits.PoundsPerSquareInch);
-            _accululatorPressure.Execute += new HeliosActionHandler(accululatorPressure_Execute);
-            Actions.Add(_accululatorPressure);
+            _AccumulatorPressure = new HeliosValue(this, new BindingValue(0d), "", "Accumulator", "Current brake accumulator pressure", "(0 - 3600)", BindingValueUnits.PoundsPerSquareInch);
+            _AccumulatorPressure.Execute += new HeliosActionHandler(AccumulatorPressure_Execute);
+            Actions.Add(_AccumulatorPressure);
         }
 
-        void accululatorPressure_Execute(object action, HeliosActionEventArgs e)
+        void AccumulatorPressure_Execute(object action, HeliosActionEventArgs e)
         {
             _needle.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue);
         }
