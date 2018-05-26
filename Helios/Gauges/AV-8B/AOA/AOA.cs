@@ -50,7 +50,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
             _needleCalibration = new CalibrationPointCollectionDouble(-5d, -36d, 20d, 146d);
             _needleCalibration.Add(new CalibrationPointDouble(0d, 0d));
 
-            _warningFlagNeedle = new GaugeNeedle("{Helios}/Gauges/A-10/ADI/adi_backup_warning_flag.xaml", new Point(29d, 226d), new Size(31d, 127d), new Point(0d, 127d));
+            _warningFlagNeedle = new GaugeNeedle("{Helios}/Gauges/AV-8B/AOA/aoa_off_flag.xaml", new Point(59d, 256d), new Size(48d, 72d), new Point(0d, 127d));
             Components.Add(_warningFlagNeedle);
 
 
@@ -60,9 +60,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
                 // Location on gauge which the needle will be rotated
                                       new Point(182d, 188d),
                 // Size of needle image (will scale image to this size automatically)
-                                      new Size(33d, 165d),
+                                      new Size(36d, 175d),
                 // Center point of needle image to rotate around
-                                      new Point(16d, 130d),
+                                      new Point(18d, 157d),
                 // Initial rotation for this needle
                                       175d);
             Components.Add(_needle);
@@ -102,7 +102,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
         void OffFlag_Execute(object action, HeliosActionEventArgs e)
         {
             _warningFlag.SetValue(e.Value, e.BypassCascadingTriggers);
-            _warningFlagNeedle.Rotation = e.Value.BoolValue ? 0 : 15;
+            _warningFlagNeedle.Rotation = e.Value.BoolValue ? 0 : 45;
         }
     }
 }

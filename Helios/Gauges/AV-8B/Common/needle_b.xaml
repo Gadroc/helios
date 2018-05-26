@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="36" Height="114">
+    <Canvas.Resources/>
+    <Canvas Name="layer7">
+        <Canvas>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path5183" Fill="#FFF0F0F0" Stroke="#FF202020" StrokeThickness="1" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 85 85 2 -55 5 -10 5 10 2 55 -14 0.0 z" Height="85" Stretch="Fill" Width="16" Canvas.Left="10" Canvas.Top="0.648"/>
+            <Ellipse Fill="#FF202020" Height="36" Stroke="#1E1E1E1E" StrokeThickness="1" StrokeMiterLimit="4" VerticalAlignment="Bottom" Canvas.Left="0" Width="36" Canvas.Top="78.334" >
+            </Ellipse>
+        </Canvas>
+    </Canvas>
+</Canvas>

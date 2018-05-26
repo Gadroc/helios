@@ -30,7 +30,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.VVI
             : base("VVI", new Size(182, 188))
         {
             //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/VVI/vvi_faceplate.xaml", new Rect(32d, 38d, 300d, 300d)));
-            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(91d, 94d), new Size(11, 82), new Point(5, 65), -90d);
+            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_b.xaml", new Point(91d, 94d), new Size(36, 114), new Point(18, 96), -90d);
             Components.Add(_needle);
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
