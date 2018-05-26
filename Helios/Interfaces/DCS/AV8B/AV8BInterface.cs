@@ -589,7 +589,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             CalibrationPointCollectionDouble AoAScale = new CalibrationPointCollectionDouble(-0.05d, -5d, 0.20d, 20d);
             AoAScale.Add(new CalibrationPointDouble(0d, 0d));
             AddFunction(new ScaledNetworkValue(this, "361", AoAScale, "Flight Instruments", "Angle of Attack", "Current angle of attack of the aircraft.", "", BindingValueUnits.Degrees));
-            AddFunction(new FlagValue(this, "360", "Flight Instruments", "AOA", "Off Flag"));
+            AddFunction(new FlagValue(this, "360", "Flight Instruments", "AOA", "Warning Flag"));
 
             CalibrationPointCollectionDouble airspeedScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 1000d);
             AddFunction(new ScaledNetworkValue(this, "346", airspeedScale, "Flight Instruments", "IAS Airspeed", "Current indicated air speed of the aircraft.", "", BindingValueUnits.Knots));

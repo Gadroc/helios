@@ -43,8 +43,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
             // Add faceplate image to drawing components
             // Source image file (xaml will be vector rendered to appropriate size)
             //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/AOA/aoa_faceplate.xaml",
-                // Rectangle inside gauge where image will be drawn (scaled automatically to fit rectangle)
-            //                              new Rect(32d, 38d, 300d, 300d)));
+            // Rectangle inside gauge where image will be drawn (scaled automatically to fit rectangle)
+                                          //new Rect(32d, 38d, 300d, 300d)));
 
             // Create needle calibration scale which will be used to represent 0 degrees rotation for 0 input and 270 degrees rotation when input is 30.
             _needleCalibration = new CalibrationPointCollectionDouble(-5d, -36d, 20d, 146d);
