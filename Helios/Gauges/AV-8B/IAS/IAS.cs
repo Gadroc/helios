@@ -36,11 +36,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.IAS
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 950d, 350d);
             _needleCalibration.Add(new CalibrationPointDouble(100d, 18d));
             _needleCalibration.Add(new CalibrationPointDouble(500d, 180d));
-            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(182d, 188d), new Size(36, 175), new Point(18, 157), 0d);
+            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(182d, 188d), new Size(36, 154), new Point(18, 136), 0d);
             Components.Add(_needle);
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
-            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/IAS/needle_mask.xaml", new Rect(170d, 55d, 110d, 110d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/IAS/needle_mask.xaml", new Rect(150d, 52d, 97d, 108d)));
 
             _indicatedAirSpeed = new HeliosValue(this, new BindingValue(0d), "", "indicated airspeed", "Current indicated airspeed of the aircraft.", "(0 - 950)", BindingValueUnits.Knots);
             _indicatedAirSpeed.Execute += new HeliosActionHandler(IndicatedAirSpeed_Execute);
