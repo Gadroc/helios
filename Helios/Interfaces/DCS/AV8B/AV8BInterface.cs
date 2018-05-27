@@ -549,6 +549,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits3Display(this, EDP, "2004", "EDP", "JPT display", "Engine Jet pipe temperature"));
             AddFunction(new Digits2Display(this, EDP, "2005", "EDP", "Stabiliser display", "Amount of Stabiliser"));
             AddFunction(new NetworkValue(this, "266", "EDP", "Stabilzer Arrow", "Up/Down Arrow for the stabilizer"," value -1 to 1", BindingValueUnits.Numeric));
+            AddFunction(new FlagValue(this, "179", "EDP", "H2O Control indicator", ""));
             #endregion
 
             #region Electrical Panel
