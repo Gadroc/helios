@@ -615,6 +615,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Resource>
+    <Resource Include="Images\AV-8B\AV8B Toggle Down.png" />
+    <Resource Include="Images\AV-8B\AV8B Toggle Up.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Rotary5.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_SEL_Off.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_SEL_On.png" />
+    <Resource Include="Images\AV-8B\Bulkhead DECS switch Down.png" />
+    <Resource Include="Images\AV-8B\Bulkhead DECS switch Up.png" />
+    <Resource Include="Images\AV-8B\Common Knob.png" />
+    <Resource Include="Images\AV-8B\Fuel Selector Knob.png" />
+    <Resource Include="Images\AV-8B\H2O Switch Norm.png" />
+    <Resource Include="Images\AV-8B\H2O Switch TO.png" />
+    <Resource Include="Images\AV-8B\H2O Switch VTOL.png" />
+    <Resource Include="Images\AV-8B\Heart Knob.png" />
+    <Resource Include="Images\AV-8B\Hexagonal Switch Off.png" />
+    <Resource Include="Images\AV-8B\Hexagonal Switch On.png" />
+    <Resource Include="Images\AV-8B\Jettison Button.png" />
+    <Resource Include="Images\AV-8B\Jettison Rotary Switch.png" />
+    <Resource Include="Images\AV-8B\Knob 3.png" />
+    <Resource Include="Images\AV-8B\Mic Volume Knob Lower.png" />
+    <Resource Include="Images\AV-8B\Mic Volume Knob Upper.png" />
+    <Resource Include="Images\AV-8B\Rotary.png" />
+    <Resource Include="Images\AV-8B\Selector Knob.png" />
+    <Resource Include="Images\AV-8B\sw_lng-lgt_cent.png" />
+    <Resource Include="Images\AV-8B\sw_lng-lgt_down.png" />
+    <Resource Include="Images\AV-8B\sw_lng-lgt_up.png" />
+    <Resource Include="Images\AV-8B\UVHF Knob.png" />
+    <Resource Include="Images\AV-8B\Water Control Indicator.png" />
     <Resource Include="Interfaces\DCS\FC2\Export.lua" />
     <Resource Include="Interfaces\DCS\FC2\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\AV8B\ExportFunctions.lua" />
@@ -2558,352 +2585,138 @@
     <Resource Include="Gauges\F-16\VVI\vvi_bezel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\AV-8B\Parking Brake Off.png">
+    <Resource Include="Images\AV-8B\2 way Dome Down.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Parking Brake On.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\2 way Dome Up.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Parking Brake.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\3way DomeHead Down.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Threat AAA Off.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\3way DomeHead Mid.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Threat AAA.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\3way DomeHead Up.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Threat AI Off.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\ADI Cage Knob.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Threat AI.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\ADI Cage Scale.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Threat CW Off.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Advisory Panel.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_FLR_SAL_Off.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_FLR_SAL_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_Green_L_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_Green_M_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_Green_N_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_Green_R_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_L_Off.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_M_Off.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_N_Off.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_Orange_L_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_Orange_M_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_Orange_N_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_Orange_R_On.png" />
+    <Resource Include="Images\AV-8B\AV8BNA_Gear_R_Off.png" />
+    <Resource Include="Images\AV-8B\Blank Panel 2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Threat CW.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Chan Freq Knob.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Threat SAM Off.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Cockpit.png" />
+    <Resource Include="Images\AV-8B\Combat Button Off.png" />
+    <Resource Include="Images\AV-8B\Combat Button Pushed.png" />
+    <Resource Include="Images\AV-8B\Combat Button SEL.png" />
+    <Resource Include="Images\AV-8B\Defog Rotary.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Threat SAM.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Flaps and Gear Lever.png" />
+    <Resource Include="Images\AV-8B\Flaps Auto.png" />
+    <Resource Include="Images\AV-8B\Flaps Cruise.png" />
+    <Resource Include="Images\AV-8B\Flaps STOL.png" />
+    <Resource Include="Images\AV-8B\Fuel and External Lights Panel.png" />
+    <Resource Include="Images\AV-8B\Fuel Cutoff Lever Down.png" />
+    <Resource Include="Images\AV-8B\Fuel Cutoff Lever Up.png" />
+    <Resource Include="Images\AV-8B\Fuel Cutoff Panel 1.png" />
+    <Resource Include="Images\AV-8B\Gear Lever Dn Red.png" />
+    <Resource Include="Images\AV-8B\Gear Lever Dn.png" />
+    <Resource Include="Images\AV-8B\Gear Lever Up Red.png" />
+    <Resource Include="Images\AV-8B\Gear Lever Up.png" />
+    <Resource Include="Images\AV-8B\Ground Safety Handle Down.png" />
+    <Resource Include="Images\AV-8B\Ground Safety Handle Up.png" />
+    <Resource Include="Images\AV-8B\Internal Lights.png" />
+    <Resource Include="Images\AV-8B\Landing Gear Lights.png" />
+    <Resource Include="Images\AV-8B\Left Canopy Handle Closed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_0.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Left Canopy Handle Open.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_1.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Parking Brake Off.png" />
+    <Resource Include="Images\AV-8B\Parking Brake On.png" />
+    <Resource Include="Images\AV-8B\Parking Brake.png" />
+    <Resource Include="Images\AV-8B\Radio Cutout 1.png" />
+    <Resource Include="Images\AV-8B\Radio Cutout 2.png" />
+    <Resource Include="Images\AV-8B\Radio Panel.png" />
+    <Resource Include="Images\AV-8B\Right Canopy Handle Closed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_2.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Right Canopy Handle Open.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_3.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Right Canopy Lock.png" />
+    <Resource Include="Images\AV-8B\Right Canopy unLock.png" />
+    <Resource Include="Images\AV-8B\SAAHS Panel.png" />
+    <Resource Include="Images\AV-8B\Seat and Lights.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_4.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\STO Indicator Off.png" />
+    <Resource Include="Images\AV-8B\STO Indicator.png" />
+    <Resource Include="Images\AV-8B\Threat AAA.png" />
+    <Resource Include="Images\AV-8B\Threat AI.png" />
+    <Resource Include="Images\AV-8B\Threat CW.png" />
+    <Resource Include="Images\AV-8B\Threat SAM.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_0.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_1.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_2.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_3.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_4.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_5.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_6.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_7.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_8.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_9.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_ALT.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_AWL.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_BCN.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_CLR.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_Dash.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_Decimal.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_EMCON.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_ENT.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_IFF.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_ONOFF.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_SVE.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_TCN.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_TMR.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_TOO.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_WOF.png" />
+    <Resource Include="Images\AV-8B\UFC_Button_WPN.png" />
+    <Resource Include="Images\AV-8B\UVHF Volume Knob.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_5.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_6.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_7.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_8.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_9.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_ALT.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_AWL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_BCN.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_CLR.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_Dash.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_Decimal.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_EMCON.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_ENT.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_IFF.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_ONOFF.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_SVE.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_TCN.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_TMR.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_TOO.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_WOF.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\UFC_Button_WPN.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Water and CMBT Panel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\Water Control Indicator.png">
+    </Resource>
+    <Resource Include="Images\AV-8B\Water and CMBT Panel.png" />
+    <Resource Include="Images\AV-8B\_transparant.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Gauges\AV-8B\ADI\adi_bezel.png" />
     <Content Include="Gauges\AV-8B\ADI\adi_slip_bezel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\AV-8B\adi_slip_bezel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Advisory Panel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\AV8B Toggle Down.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\AV8B Toggle Up.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_FLR_SAL_On.png.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_Green_L_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_Green_M_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_Green_N_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_Green_R_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_L_Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_M_Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_N_Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_Orange_L_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_Orange_M_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_Orange_N_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_Orange_R_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\AV8BNA_Gear_R_Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\AV8BNA_Rotary5.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Images\AV-8B\AV8BNA_Rotary_Jett.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\AV8BNA_SEL_Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\AV8BNA_SEL_On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\Bulkhead DECS switch Down.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\Bulkhead DECS switch Up.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Images\AV-8B\Cockpit.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Combat Button CBMT.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Combat Button Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Combat Button Pushed.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Combat Button SEL CBMT.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Combat Button SEL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\Common Knob.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Images\AV-8B\Electrical and Radio.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Flaps and Gear Lever.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Flaps Auto.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Flaps Cruise.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Flaps Small.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Flaps STOL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Fuel and External Lights Panel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Fuel Cutoff Lever Down.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Fuel Cutoff Lever Up.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Fuel Cutoff Panel 1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Fuel Panel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Gear Lever Dn Red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Gear Lever Dn.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Gear Lever Up Red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Gear Lever Up.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Ground Safety Handle Down.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Ground Safety Handle Up.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\H2O Switch Norm.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\H2O Switch TO.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\H2O Switch VTOL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\Hexagonal Switch Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\Hexagonal Switch On.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Images\AV-8B\Internal Lights.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\knob1a.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\knob_solo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\Knob7.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Images\AV-8B\Landing Gear Lights.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Radio Cutout 1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Radio Cutout 2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Radio Panel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Right Canopy Handle.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Right Canopy Lock.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Right Canopy unLock.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\Rotary.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Images\AV-8B\SAAHS Panel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Stab Dn Arrow.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Stab Middle Arrow.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\Stab Up Arrow.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\STO Indicator Off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\AV-8B\STO Indicator.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\AV-8B\sw_lng-lgt_cent.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\sw_lng-lgt_down.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\sw_lng-lgt_up.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
