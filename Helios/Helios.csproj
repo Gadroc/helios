@@ -984,9 +984,6 @@
     <None Include="Templates\Base\Rockers\White Wheel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\Base\AV-8B\Rotary - Knob 6.htpl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Templates\Base\Rotaries\Rotary - Knob 1.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2147,6 +2144,7 @@
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\" />
     <Folder Include="Interfaces\DCS\FA18C\" />
+    <Folder Include="Templates\Base\AV-8B\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />

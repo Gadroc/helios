@@ -520,7 +520,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3802", "3802", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Right", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3803", "3803", "1", "On", "0", "Off", "Canopy Controls", "Canopy Locking Lever", "%1d"));
 
-            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3800", "3800", "0", "Off", "1", "On", "Canopy Controls", "Seat Ground Safety Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3800", "3800", "1", "On", "0", "Off", "Canopy Controls", "Seat Ground Safety Lever", "%1d"));
 
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3501", "3501", "1", "On", "0", "Off", "Canopy Controls", "MFS Emergency Lever", "%1d"));
             #endregion
@@ -579,11 +579,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
 
             #region Flight Instruments
-            //elements["PTN_351"] = default_button_lever(_("Backup ADI Cage/Pitch Adjust Knob"), devices.FLIGHTINSTRUMENTS, inst_commands.ADI_Cage, inst_commands.Knob_ADI, 350, 351)
-
 
             AddFunction(new Altimeter(this,"Altimeter","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Pressure", "Manually set barometric altitude.",""));
-            AddFunction(new Axis(this, ADC, "3653", "3653", 0.01d,0d,1d, "Altimeter", "Barometric pressure calibration adjust", true, "%.3f"));
+            AddFunction(new Axis(this, ADC, "3653", "3653", 0.01d, 0d, 1d, "Altimeter", "Barometric pressure calibration adjust", true, "%.3f"));
 
             CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-0.6d, -6000d, 0.6d, 6000d);
             vviScale.Add(new CalibrationPointDouble(0d, 0d));
@@ -599,28 +597,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             AddFunction(new Axis(this, NAV_INS, "3364", "3364", 0.01d,0d,1d, "NAV course", "Course Setting",true, "%.3f"));
 
-            //AddFunction(new ScaledNetworkValue(this, "17", -90d, "ADI", "Pitch", "Current pitch displayed on the ADI.", "", BindingValueUnits.Degrees));
-            //AddFunction(new ScaledNetworkValue(this, "18", 180d, "ADI", "Bank", "Current bank displayed on the ADI.", "", BindingValueUnits.Degrees));
-            //AddFunction(new NetworkValue(this, "24", "ADI", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
-            //AddFunction(new NetworkValue(this, "23", "ADI", "Turn Needle", "Position of the turn needle.", "(-1 to 1)", BindingValueUnits.Numeric));
-            //AddFunction(new FlagValue(this, "25", "ADI", "Attitude Warning Flag", "Indicates that the ADI has lost electrical power or otherwise been disabled."));
-            //AddFunction(new FlagValue(this, "19", "ADI", "Course Warning Flag", "Indicates thatn an operative ILS or TACAN signal is received."));
-            //AddFunction(new FlagValue(this, "26", "ADI", "Glide Slope Warning Flag", "Indicates that the ADI is not recieving a ILS glide slope signal."));
-            //AddFunction(new NetworkValue(this, "20", "ADI", "Bank Steering Bar Offset", "Location of bank steering bar relative to the middle of the ADI.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
-            //AddFunction(new NetworkValue(this, "21", "ADI", "Pitch Steering Bar Offset", "Location of pitch steering bar relative to the middle of the ADI.", "(-1 to 1) 1 is full up and -1 is full down.", BindingValueUnits.Numeric));
-            //AddFunction(new NetworkValue(this, "27", "ADI", "Glide Slope Indicator", "Location of the glide slope indicator relative to the middle of the slope deviation scale.", "(-1 to 1) 1 is full up and -1 is full down.", BindingValueUnits.Numeric));
-            //AddFunction(new Axis(this, ADI, BUTTON_1, "22", 0.05d, -0.5d, 0.5d, "ADI", "Pitch Trim Knob"));
-
             AddFunction(new ScaledNetworkValue(this, "349", 90d, "Flight Instruments", "SAI Pitch", "Current pitch displayed on the SAI.", "", BindingValueUnits.Degrees));
             AddFunction(new ScaledNetworkValue(this, "348", -180d, "Flight Instruments", "SAI Bank", "Current bank displayed on the SAI.", "", BindingValueUnits.Degrees));
             AddFunction(new FlagValue(this, "347", "Flight Instruments", "SAI Warning Flag", "Displayed when SAI is caged or non-functional."));
-            //AddFunction(new RotaryEncoder(this, FLIGHTCONTROLS, BUTTON_3, "66", 0.1d, "SAI", "Pitch Trim / Cage"));
-            //AddFunction(new NetworkValue(this, "715", "SAI", "Pitch Adjust", "Current pitch adjustment setting", "0 to 1", BindingValueUnits.Numeric));
-
+            AddFunction(new Axis(this, ADC, "3351", "3351", 0.01d, 0d, 1d, "Flight Instruments", "SAI Cage/Pitch Adjust Knob", true, "%.3f"));
 
             AddFunction(new NetworkValue(this, "363", "Flight Instruments", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
-            //AddFunction(new NetworkValue(this, "24", "Flight Instruments", "Slip Ball (A-10C)", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
-            //AddFunction(new NetworkValue(this, "23", "Flight Instruments", "Turn Needle (A-10C)", "Position of the turn needle.", "(-1 to 1)", BindingValueUnits.Numeric));
 
             #endregion
 
