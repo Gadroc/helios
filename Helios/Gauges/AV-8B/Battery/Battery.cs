@@ -13,20 +13,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.voltage
+namespace GadrocsWorkshop.Helios.Gauges.AV8B.Battery
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.voltage", "voltage", "AV-8B Gauges", typeof(GaugeRenderer))]
-    public class voltage : BaseGauge
+    [HeliosControl("Helios.AV8B.Battery", "Battery", "AV-8B Gauges", typeof(GaugeRenderer))]
+    public class Battery : BaseGauge
     {
         private HeliosValue _voltage;
         private GaugeNeedle _needle;
         private CalibrationPointCollectionDouble _calibrationPoints;
 
-        public voltage()
+        public Battery()
             : base("voltage", new Size(182, 188))
         {
             //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/VVI/vvi_faceplate.xaml", new Rect(32d, 38d, 300d, 300d)));

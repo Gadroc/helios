@@ -279,7 +279,7 @@
     <Compile Include="Gauges\AV-8B\ADI\BackupADI.cs" />
     <Compile Include="Gauges\AV-8B\AOA\AOA.cs" />
     <Compile Include="Gauges\AV-8B\Trim Position\trimPosition.cs" />
-    <Compile Include="Gauges\AV-8B\Voltage\voltage.cs" />
+    <Compile Include="Gauges\AV-8B\Battery\Battery.cs" />
     <Compile Include="Gauges\AV-8B\EDP Nozzle\edpNoz.cs" />
     <Compile Include="Gauges\AV-8B\5 Digit Display\5DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\3 Digit Display\3DigitDisplay.cs" />
