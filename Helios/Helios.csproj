@@ -270,6 +270,7 @@
     <Compile Include="Gauges\A-10\TACANChannel\TACANChannel.cs" />
     <Compile Include="Gauges\A-10\TISLCodeWheel\TISLCodeWheel.cs" />
     <Compile Include="Gauges\A-10\VVI\VVI.cs" />
+    <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
     <Compile Include="Gauges\AV-8B\fuze display\fuzeDisplay.cs" />
     <Compile Include="Gauges\AV-8B\smc mode\smcDisplay.cs" />
     <Compile Include="Gauges\AV-8B\stabiliser display\stabilizerDisplay.cs" />
