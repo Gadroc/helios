@@ -21,7 +21,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
     using System.Windows.Media;
 
     // Annotation Indicating the unique name for this control, display, toolbox group, and control renderer.
-    [HeliosControl("Helios.AV8B.AoA", "Angle of Attack", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.AoA", "AV-8B Angle of Attack", "AV-8B Gauges", typeof(GaugeRenderer))]
     public class AOA : BaseGauge
     {
         // Value object used to expose angle of attack rendered on the gauge
@@ -36,35 +36,34 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
 
         // Base construcor is passed default name and native size
         public AOA()
-            : base("Angle of Attack", new Size(364, 376))
+            : base("Angle of Attack", new Size(300, 300))
         {
-            // Components contains all artifacts that are used to draw the gauge, they are drawn in the order they are added to the collection.
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/Common/300_Gauge.xaml", new Rect(0d, 0d, 300d, 300d)));
 
+            // Components contains all artifacts that are used to draw the gauge, they are drawn in the order they are added to the collection.
+            _warningFlagNeedle = new GaugeNeedle("{Helios}/Gauges/AV-8B/AOA/aoa_off_flag.xaml", new Point(20d, 248d), new Size(70d, 90d), new Point(0d, 178d), 0d);
+            Components.Add(_warningFlagNeedle);
             // Add faceplate image to drawing components
             // Source image file (xaml will be vector rendered to appropriate size)
-            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/AOA/aoa_faceplate.xaml",
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/AOA/aoa_faceplate.xaml", new Rect(0d, 0d, 300d, 300d)));
             // Rectangle inside gauge where image will be drawn (scaled automatically to fit rectangle)
-                                          //new Rect(32d, 38d, 300d, 300d)));
+            //new Rect(32d, 38d, 300d, 300d)));
 
             // Create needle calibration scale which will be used to represent 0 degrees rotation for 0 input and 270 degrees rotation when input is 30.
             _needleCalibration = new CalibrationPointCollectionDouble(-5d, -36d, 20d, 146d);
             _needleCalibration.Add(new CalibrationPointDouble(0d, 0d));
 
-            _warningFlagNeedle = new GaugeNeedle("{Helios}/Gauges/AV-8B/AOA/aoa_off_flag.xaml", new Point(60d, 300d), new Size(62d, 78d), new Point(0d, 178d),0d);
-            Components.Add(_warningFlagNeedle);
-
-
             // Add needle to drawing components
             // Source image file (xaml will be vector rendered to appropriate size)
             _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml",
                 // Location on gauge which the needle will be rotated
-                                      new Point(182d, 188d),
+                                      new Point(150d, 150d),
                 // Size of needle image (will scale image to this size automatically)
-                                      new Size(36d, 154d),
+                                      new Size(30d, 128d),
                 // Center point of needle image to rotate around
-                                      new Point(18d, 136d),
+                                      new Point(15d, 113d),
                 // Initial rotation for this needle
-                                      175d);
+                                      173d);
             Components.Add(_needle);
             _warningFlag = new HeliosValue(this, new BindingValue(false), "", "Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
             _warningFlag.Execute += new HeliosActionHandler(OffFlag_Execute);

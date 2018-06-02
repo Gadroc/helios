@@ -26,7 +26,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.cabinPressure
         public cabinPressure()
             : base()
         {
-            Components.RemoveAt(Components.Count-1);
+            Components.RemoveAt(Components.Count-1);  // remove the bezel
         }
     }
 }

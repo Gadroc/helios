@@ -272,6 +272,7 @@
     <Compile Include="Gauges\A-10\TISLCodeWheel\TISLCodeWheel.cs" />
     <Compile Include="Gauges\A-10\VVI\VVI.cs" />
     <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
+    <Compile Include="Gauges\AV-8B\Engine Panel\edp.cs" />
     <Compile Include="Gauges\AV-8B\fuze display\fuzeDisplay.cs" />
     <Compile Include="Gauges\AV-8B\smc mode\smcDisplay.cs" />
     <Compile Include="Gauges\AV-8B\stabiliser display\stabilizerDisplay.cs" />
@@ -1946,10 +1947,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\IAS\ias_tape.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Gauges\AV-8B\AOA\aoa_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2070,10 +2067,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Page Include="Gauges\AV-8B\VVI\vvi_faceplate.xaml">
-      <SubType>Designer</SubType>
+    <Resource Include="Gauges\AV-8B\Common\300_Gauge.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Engine Panel\edp_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
