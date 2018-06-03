@@ -271,6 +271,7 @@
     <Compile Include="Gauges\A-10\TACANChannel\TACANChannel.cs" />
     <Compile Include="Gauges\A-10\TISLCodeWheel\TISLCodeWheel.cs" />
     <Compile Include="Gauges\A-10\VVI\VVI.cs" />
+    <Compile Include="Gauges\AV-8B\Altimeter\AV-8B Altimeter.cs" />
     <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
     <Compile Include="Gauges\AV-8B\Engine Panel\edp.cs" />
     <Compile Include="Gauges\AV-8B\fuze display\fuzeDisplay.cs" />
@@ -1995,11 +1996,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\Accumulator\ias_faceplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Gauges\AV-8B\Accumulator\ias_tape.xaml">
+    <Resource Include="Gauges\AV-8B\Accumulator\accumulator_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2072,6 +2069,14 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\AV-8B\Engine Panel\edp_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Battery\battery_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Accumulator\accumulator_bezel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2343,134 +2348,390 @@
     <Resource Include="Interfaces\Falcon\OpenFalcon\rwr.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\A-10\adj-down.png" />
-    <Resource Include="Images\A-10\adj-norm.png" />
-    <Resource Include="Images\A-10\adj-up.png" />
-    <Resource Include="Images\A-10\anchr-norm-off.png" />
-    <Resource Include="Images\A-10\anchr-norm-on.png" />
-    <Resource Include="Images\A-10\anchr-press-off.png" />
-    <Resource Include="Images\A-10\anchr-press-on.png" />
-    <Resource Include="Images\A-10\brt-down.png" />
-    <Resource Include="Images\A-10\brt-norm.png" />
-    <Resource Include="Images\A-10\brt-up.png" />
-    <Resource Include="Images\A-10\con-down.png" />
-    <Resource Include="Images\A-10\con-norm.png" />
-    <Resource Include="Images\A-10\con-up.png" />
-    <Resource Include="Images\A-10\dsp-down.png" />
-    <Resource Include="Images\A-10\dsp-norm.png" />
-    <Resource Include="Images\A-10\dsp-up.png" />
-    <Resource Include="Images\A-10\egi-norm-off.png" />
-    <Resource Include="Images\A-10\egi-norm-on.png" />
-    <Resource Include="Images\A-10\egi-press-off.png" />
-    <Resource Include="Images\A-10\egi-press-on.png" />
-    <Resource Include="Images\A-10\fire-apu-fire.png" />
-    <Resource Include="Images\A-10\fire-apu-norm.png" />
-    <Resource Include="Images\A-10\fire-apu-pull-fire.png" />
-    <Resource Include="Images\A-10\fire-apu-pull-norm.png" />
-    <Resource Include="Images\A-10\fire-left-fire.png" />
-    <Resource Include="Images\A-10\fire-left-norm.png" />
-    <Resource Include="Images\A-10\fire-left-pull-fire.png" />
-    <Resource Include="Images\A-10\fire-left-pull-norm.png" />
-    <Resource Include="Images\A-10\fire-right-fire.png" />
-    <Resource Include="Images\A-10\fire-right-norm.png" />
-    <Resource Include="Images\A-10\fire-right-pull-fire.png" />
-    <Resource Include="Images\A-10\fire-right-pull-norm.png" />
-    <Resource Include="Images\A-10\front_panel_background.png" />
-    <Resource Include="Images\A-10\gear-dn-off.png" />
-    <Resource Include="Images\A-10\gear-dn-red.png" />
-    <Resource Include="Images\A-10\gear-up-off.png" />
-    <Resource Include="Images\A-10\gear-up-red.png" />
-    <Resource Include="Images\A-10\hars-norm-off.png" />
-    <Resource Include="Images\A-10\hars-norm-on.png" />
-    <Resource Include="Images\A-10\hars-press-off.png" />
-    <Resource Include="Images\A-10\hars-press-on.png" />
-    <Resource Include="Images\A-10\homing-fm-off.png" />
-    <Resource Include="Images\A-10\homing-fm-on.png" />
-    <Resource Include="Images\A-10\homing-uhf-off.png" />
-    <Resource Include="Images\A-10\homing-uhf-on.png" />
-    <Resource Include="Images\A-10\ils-norm-off.png" />
-    <Resource Include="Images\A-10\ils-norm-on.png" />
-    <Resource Include="Images\A-10\ils-press-off.png" />
-    <Resource Include="Images\A-10\ils-press-on.png" />
-    <Resource Include="Images\A-10\mfd-bezel.png" />
-    <Resource Include="Images\A-10\mfd-in.png" />
-    <Resource Include="Images\A-10\mfd-knob.png" />
-    <Resource Include="Images\A-10\mfd-out.png" />
-    <Resource Include="Images\A-10\mfd-rocker-down.png" />
-    <Resource Include="Images\A-10\mfd-rocker-middle.png" />
-    <Resource Include="Images\A-10\mfd-rocker-up.png" />
-    <Resource Include="Images\A-10\mfd.png" />
-    <Resource Include="Images\A-10\strpt-norm-off.png" />
-    <Resource Include="Images\A-10\strpt-norm-on.png" />
-    <Resource Include="Images\A-10\strpt-press-off.png" />
-    <Resource Include="Images\A-10\strpt-press-on.png" />
-    <Resource Include="Images\A-10\sym-left.png" />
-    <Resource Include="Images\A-10\sym-norm.png" />
-    <Resource Include="Images\A-10\sym-right.png" />
-    <Resource Include="Images\A-10\tcn-norm-off.png" />
-    <Resource Include="Images\A-10\tcn-norm-on.png" />
-    <Resource Include="Images\A-10\tcn-press-off.png" />
-    <Resource Include="Images\A-10\tcn-press-on.png" />
-    <Resource Include="Images\A-10\tisl-norm-off.png" />
-    <Resource Include="Images\A-10\tisl-norm-on.png" />
-    <Resource Include="Images\A-10\tisl-press-off.png" />
-    <Resource Include="Images\A-10\tisl-press-on.png" />
-    <Resource Include="Images\A-10\ufc_0.png" />
-    <Resource Include="Images\A-10\ufc_0_in.png" />
-    <Resource Include="Images\A-10\ufc_1.png" />
-    <Resource Include="Images\A-10\ufc_1_in.png" />
-    <Resource Include="Images\A-10\ufc_2.png" />
-    <Resource Include="Images\A-10\ufc_2_in.png" />
-    <Resource Include="Images\A-10\ufc_3.png" />
-    <Resource Include="Images\A-10\ufc_3_in.png" />
-    <Resource Include="Images\A-10\ufc_4.png" />
-    <Resource Include="Images\A-10\ufc_4_in.png" />
-    <Resource Include="Images\A-10\ufc_5.png" />
-    <Resource Include="Images\A-10\ufc_5_in.png" />
-    <Resource Include="Images\A-10\ufc_6.png" />
-    <Resource Include="Images\A-10\ufc_6_in.png" />
-    <Resource Include="Images\A-10\ufc_7.png" />
-    <Resource Include="Images\A-10\ufc_7_in.png" />
-    <Resource Include="Images\A-10\ufc_8.png" />
-    <Resource Include="Images\A-10\ufc_8_in.png" />
-    <Resource Include="Images\A-10\ufc_9.png" />
-    <Resource Include="Images\A-10\ufc_9_in.png" />
-    <Resource Include="Images\A-10\ufc_aft.png" />
-    <Resource Include="Images\A-10\ufc_aft_in.png" />
-    <Resource Include="Images\A-10\ufc_alt_alrt.png" />
-    <Resource Include="Images\A-10\ufc_alt_alrt_in.png" />
-    <Resource Include="Images\A-10\ufc_blank.png" />
-    <Resource Include="Images\A-10\ufc_blank_in.png" />
-    <Resource Include="Images\A-10\ufc_clr.png" />
-    <Resource Include="Images\A-10\ufc_clr_in.png" />
-    <Resource Include="Images\A-10\ufc_data_rocker.png" />
-    <Resource Include="Images\A-10\ufc_data_rocker_down.png" />
-    <Resource Include="Images\A-10\ufc_data_rocker_up.png" />
-    <Resource Include="Images\A-10\ufc_ent.png" />
-    <Resource Include="Images\A-10\ufc_ent_in.png" />
-    <Resource Include="Images\A-10\ufc_func.png" />
-    <Resource Include="Images\A-10\ufc_func_in.png" />
-    <Resource Include="Images\A-10\ufc_fwd.png" />
-    <Resource Include="Images\A-10\ufc_fwd_in.png" />
-    <Resource Include="Images\A-10\ufc_hack.png" />
-    <Resource Include="Images\A-10\ufc_hack_in.png" />
-    <Resource Include="Images\A-10\ufc_hrocker_blank.png" />
-    <Resource Include="Images\A-10\ufc_hrocker_blank_left.png" />
-    <Resource Include="Images\A-10\ufc_hrocker_blank_right.png" />
-    <Resource Include="Images\A-10\ufc_ltr.png" />
-    <Resource Include="Images\A-10\ufc_ltr_in.png" />
-    <Resource Include="Images\A-10\ufc_mid.png" />
-    <Resource Include="Images\A-10\ufc_mid_in.png" />
-    <Resource Include="Images\A-10\ufc_mk.png" />
-    <Resource Include="Images\A-10\ufc_mk_in.png" />
-    <Resource Include="Images\A-10\ufc_sel_rocker.png" />
-    <Resource Include="Images\A-10\ufc_sel_rocker_down.png" />
-    <Resource Include="Images\A-10\ufc_sel_rocker_up.png" />
-    <Resource Include="Images\A-10\ufc_spc.png" />
-    <Resource Include="Images\A-10\ufc_spc_in.png" />
-    <Resource Include="Images\A-10\ufc_vrocker_blank.png" />
-    <Resource Include="Images\A-10\ufc_vrocker_blank_down.png" />
-    <Resource Include="Images\A-10\ufc_vrocker_blank_up.png" />
+    <Resource Include="Images\A-10\adj-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\adj-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\adj-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\anchr-norm-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\anchr-norm-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\anchr-press-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\anchr-press-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\brt-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\brt-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\brt-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\con-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\con-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\con-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\dsp-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\dsp-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\dsp-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\egi-norm-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\egi-norm-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\egi-press-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\egi-press-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-apu-fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-apu-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-apu-pull-fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-apu-pull-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-left-fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-left-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-left-pull-fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-left-pull-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-right-fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-right-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-right-pull-fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\fire-right-pull-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\front_panel_background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\gear-dn-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\gear-dn-red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\gear-up-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\gear-up-red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\hars-norm-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\hars-norm-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\hars-press-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\hars-press-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\homing-fm-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\homing-fm-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\homing-uhf-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\homing-uhf-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ils-norm-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ils-norm-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ils-press-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ils-press-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\mfd-bezel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\mfd-in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\mfd-knob.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\mfd-out.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\mfd-rocker-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\mfd-rocker-middle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\mfd-rocker-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\mfd.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\strpt-norm-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\strpt-norm-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\strpt-press-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\strpt-press-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\sym-left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\sym-norm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\sym-right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\tcn-norm-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\tcn-norm-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\tcn-press-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\tcn-press-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\tisl-norm-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\tisl-norm-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\tisl-press-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\tisl-press-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_0_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_1_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_2_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_3_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_4_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_5_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_6_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_7_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_8_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_9_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_aft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_aft_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_alt_alrt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_alt_alrt_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_blank.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_blank_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_clr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_clr_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_data_rocker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_data_rocker_down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_data_rocker_up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_ent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_ent_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_func.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_func_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_fwd.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_fwd_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_hack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_hack_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_hrocker_blank.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_hrocker_blank_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_hrocker_blank_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_ltr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_ltr_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_mid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_mid_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_mk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_mk_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_sel_rocker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_sel_rocker_down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_sel_rocker_up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_spc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_spc_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_vrocker_blank.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_vrocker_blank_down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\A-10\ufc_vrocker_blank_up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Interfaces\Falcon\RWR\rwr_bezel.png" />

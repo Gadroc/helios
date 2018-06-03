@@ -27,10 +27,10 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.Battery
         private CalibrationPointCollectionDouble _calibrationPoints;
 
         public Battery()
-            : base("voltage", new Size(182, 188))
+            : base("voltage", new Size(300, 300))
         {
-            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/VVI/vvi_faceplate.xaml", new Rect(32d, 38d, 300d, 300d)));
-            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(91d, 94d), new Size(11, 82), new Point(5, 65), -90d);
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/Battery/battery_faceplate.xaml", new Rect(0d, 0d, 300d, 300d)));
+            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(150d, 150d), new Size(36, 154), new Point(18, 136), -90d);
             Components.Add(_needle);
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
