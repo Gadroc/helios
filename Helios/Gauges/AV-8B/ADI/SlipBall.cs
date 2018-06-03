@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.SlipBall
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.SlipBall", "SlipBall", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.SlipBall", "AV-8B Slip Indicator", "AV-8B Gauges", typeof(GaugeRenderer))]
     public class SlipBall : BaseGauge
     {
         private HeliosValue _slipBall;
@@ -40,7 +40,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.SlipBall
 
             _slipBallCalibration = new CalibrationPointCollectionDouble(-1d, -50d, 1d, 50d);
             _slipBallNeedle = new GaugeNeedle("{Helios}/Gauges/AV-8B/ADI/adi_slip_ball.xaml", new Point(112d, 75d), new Size(24d, 24d), new Point(12d, 12d));
-            _slipBallMarker = new GaugeNeedle("{Helios}/Gauges/AV-8B/ADI/adi_slip_marker.xaml", new Point(112d, 25d), new Size(14d, 18d), new Point(7d, 9d));
+            _slipBallMarker = new GaugeNeedle("{Helios}/Gauges/AV-8B/ADI/adi_slip_marker.xaml", new Point(112d, 38d), new Size(14d, 18d), new Point(7d, 9d));
             Components.Add(_slipBallNeedle);
             Components.Add(_slipBallMarker);
 
