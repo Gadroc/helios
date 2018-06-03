@@ -13,24 +13,17 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.Altimeter
+namespace GadrocsWorkshop.Helios.Gauges.AV8B.trimPosition
 {
     using GadrocsWorkshop.Helios.ComponentModel;
-    using GadrocsWorkshop.Helios.Gauges.A_10.ADI;
     using System;
     using System.Windows;
-    using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.Altimeter", "AV-8B Altimeter", "AV-8B Gauges", typeof(GaugeRenderer))]
-    public class Altimeter : GadrocsWorkshop.Helios.Gauges.A_10.ADI.Altimeter
+    [HeliosControl("Helios.AV8B.trimPositionRudder", "AV-8B Rudder Trim Position", "AV-8B Gauges", typeof(GaugeRenderer))]
+    public class trimPositionRudder: trimPosition
     {
+        public trimPositionRudder()
+            : base(new GaugeImage("{Helios}/Gauges/AV-8B/Trim Position/Trim_rudder_faceplate.xaml", new Rect(0d, 0d, 300d, 300d)), "Rudder Trim Position", new Size(300d, 300d)) { }
 
-        public Altimeter()
-            : base()
-        {
-            //Components.RemoveAt(Components.Count - 1);  // remove the bezel
-            //
-            // Note that this approach might need a different format of export for tle altimeter code.
-        }
     }
 }

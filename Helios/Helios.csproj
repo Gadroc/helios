@@ -282,6 +282,8 @@
     <Compile Include="Gauges\AV-8B\Altimeter\Altimeter.cs" />
     <Compile Include="Gauges\AV-8B\ADI\BackupADI.cs" />
     <Compile Include="Gauges\AV-8B\AOA\AOA.cs" />
+    <Compile Include="Gauges\AV-8B\Trim Position\trimPositionRudder.cs" />
+    <Compile Include="Gauges\AV-8B\Trim Position\trimPositionAileron.cs" />
     <Compile Include="Gauges\AV-8B\Trim Position\trimPosition.cs" />
     <Compile Include="Gauges\AV-8B\Battery\Battery.cs" />
     <Compile Include="Gauges\AV-8B\EDP Nozzle\edpNoz.cs" />
