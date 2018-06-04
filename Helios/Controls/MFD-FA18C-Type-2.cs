@@ -85,7 +85,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/MPCD bezel.png"; }
+            get { return "{Helios}/Images/FA-18C/AMPCD frame.png"; }
         }
 
         #endregion
