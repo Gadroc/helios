@@ -72,13 +72,13 @@
         <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"
                  MaxWidth="200" Text="{Binding ElementName=FA18CPropertiesWindow, Path=Configuration.IPAddress}"/>
         <TextBlock Grid.Column="1" Grid.Row="1" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">
-          IP Address DCS FA-18C will send it's data to. If you are running on the same machine 127.0.0.1 is recommended.
+          IP Address DCS F/A-18C will send it's data to. If you are running on the same machine 127.0.0.1 is recommended.
         </TextBlock>
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Content="Port"/>
         <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"
                  MaxWidth="40" Text="{Binding ElementName=FA18CPropertiesWindow, Path=Configuration.Port}"/>
         <TextBlock Grid.Column="1" Grid.Row="3" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">
-          UDP Port number which will be used to communicate between Helios and DCS FA-18C.
+          UDP Port number which will be used to communicate between Helios and DCS F/A-18C.
         </TextBlock>
         <Label Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Content="Export Frequency"/>
         <TextBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"
@@ -97,7 +97,7 @@
     <GroupBox Header="Third Party Scripts" Margin="0,4,0,0">
       <StackPanel>
         <TextBlock Margin="4" TextWrapping="Wrap">
-          Helios will add the following scripts as dofile lines when it configures DCS FA-18C exports. (Example:TARS = "./Config/Export/TARSExportFA18C.lua").
+          Helios will add the following scripts as dofile lines when it configures DCS F/A-18C exports. (Example:TARS = "./Config/Export/TARSExportFA18C.lua").
         </TextBlock>
         <Border BorderBrush="#FF808080" BorderThickness="0,1" Margin="12">
           <ItemsControl ItemTemplate="{StaticResource DoFileTemplate}"
@@ -110,7 +110,7 @@
         </StackPanel>
       </StackPanel>
     </GroupBox>
-        <GroupBox Header="FA-18C Setup" Margin="0,4,0,0">
+        <GroupBox Header="F/A-18C Setup" Margin="0,4,0,0">
       <StackPanel>
         <Grid>
           <Grid.ColumnDefinitions>
@@ -128,7 +128,7 @@
             <Button Click="ResetPath" Margin="5 2 0 2">Reset</Button>
           </StackPanel>
           <TextBlock Grid.Column="1" Grid.Row="1" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">
-            Path to your DCS FA-18C install folder.
+            Path to your DCS F/A-18C install folder.
           </TextBlock>
         </Grid>
         <StackPanel Style="{StaticResource PathInvalid}">
@@ -144,9 +144,9 @@
         </StackPanel>
         <StackPanel Style="{StaticResource OutOfDateStyle}">
           <TextBlock Margin="4" TextWrapping="Wrap">
-            In order for Helios to interface with DCS FA-18C an updated Export.lua file must be installed. This will back up and existing Export.lua file and deploy the necessary Helios configuration.
+            In order for Helios to interface with DCS F/A-18C an updated Export.lua file must be installed. This will back up and existing Export.lua file and deploy the necessary Helios configuration.
           </TextBlock>
-          <Button Click="Configure_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2">Setup DCS FA-18C</Button>
+          <Button Click="Configure_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2">Setup DCS F/A-18C</Button>
         </StackPanel>
       </StackPanel>
     </GroupBox>
