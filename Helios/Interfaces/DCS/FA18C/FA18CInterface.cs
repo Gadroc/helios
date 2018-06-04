@@ -16,6 +16,7 @@
 namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 {
     using GadrocsWorkshop.Helios.ComponentModel;
+    using GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions;
     //using GadrocsWorkshop.Helios.Interfaces.DCS.FA18C.Functions;
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
