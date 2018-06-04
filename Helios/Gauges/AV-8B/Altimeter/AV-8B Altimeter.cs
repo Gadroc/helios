@@ -28,7 +28,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.Altimeter
         public Altimeter()
             : base()
         {
-            //Components.RemoveAt(Components.Count - 1);  // remove the bezel
+            Components.RemoveAt(Components.Count - 1);  // remove the bezel
             //
             // Note that this approach might need a different format of export for tle altimeter code.
         }
