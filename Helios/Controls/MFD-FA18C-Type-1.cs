@@ -27,58 +27,35 @@ namespace GadrocsWorkshop.Helios.Controls
         private Rect _scaledScreenRect = SCREEN_RECT;
 
         public MPCD_FA18C()
-            : base("MPCD", new Size(435, 475))
+            : base("MPCD", new Size(656, 706))
         {
-            AddButton("OSB1", 0, 332, false);
-            AddButton("OSB2", 0, 282, false);
-            AddButton("OSB3", 0, 234, false);
-            AddButton("OSB4", 0, 188, false);
-            AddButton("OSB5", 0, 140, false);
+            AddButton("OSB1", 14, 540, false);
+            AddButton("OSB2", 14, 455, false);
+            AddButton("OSB3", 14, 370, false);
+            AddButton("OSB4", 14, 285, false);
+            AddButton("OSB5", 14, 200, false);
 
-            AddButton("OSB6", 96, 50, true);
-            AddButton("OSB7", 150, 50, true);
-            AddButton("OSB8", 204, 50, true);
-            AddButton("OSB9", 256, 50, true);
-            AddButton("OSB10", 310, 50, true);
+            AddButton("OSB6", 150, 74, true);
+            AddButton("OSB7", 230, 74, true);
+            AddButton("OSB8", 310, 74, true);
+            AddButton("OSB9", 390, 74, true);
+            AddButton("OSB10", 470, 74, true);
 
-            AddButton("OSB11", 404, 140, false);
-            AddButton("OSB12", 404, 188, false);
-            AddButton("OSB13", 404, 234, false);
-            AddButton("OSB14", 404, 282, false);
-            AddButton("OSB15", 404, 332, false);
+            AddButton("OSB11", 604, 200, false);
+            AddButton("OSB12", 604, 285, false);
+            AddButton("OSB13", 604, 370, false);
+            AddButton("OSB14", 604, 455, false);
+            AddButton("OSB15", 604, 540, false);
 
-            AddButton("OSB16", 310, 418, true);
-            AddButton("OSB17", 256, 418, true);
-            AddButton("OSB18", 204, 418, true);
-            AddButton("OSB19", 150, 418, true);
-            AddButton("OSB20", 96, 418,true);
+            AddButton("OSB16", 470, 652, true);
+            AddButton("OSB17", 390, 652, true);
+            AddButton("OSB18", 310, 652, true);
+            AddButton("OSB19", 230, 652, true);
+            AddButton("OSB20", 150, 652, true);
 
-            AddRocker("Day / Night", "triangles-light", 59, 26, false);
-            AddRocker("Symbols", "triangles-light", 347, 26, false);
-            AddRocker("Gain", "triangles-light", 3, 390, false);
-            AddRocker("Contrast", "triangles-light", 405, 390, false);
-
-            Helios.Controls.RotarySwitch knob = new Helios.Controls.RotarySwitch();
-            knob.Name = "Mode Knob";
-            knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
-            knob.DrawLabels = false;
-            knob.DrawLines = false;
-            knob.Positions.Clear();
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 0, "Off", 225d));
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 1, "Middle", 0d));
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 2, "Bright", 135d));
-            knob.CurrentPosition = 0;
-            knob.Top = 4;
-            knob.Left = 200;
-            knob.Width = 40;
-            knob.Height = 40;
-
-            Children.Add(knob);
-            foreach (IBindingTrigger trigger in knob.Triggers)
-            {
-                AddTrigger(trigger, "Mode Knob");
-            }
-            AddAction(knob.Actions["set.position"], "Mode Knob");
+            AddKnob("Mode Knob", "Off", "Night", "Day", new Helios.Controls.RotarySwitch(), new Point(298, 14), new Size(50, 50));
+            AddKnob("Brightness Knob", "Dim", "Middle", "Bright", new Helios.Controls.RotarySwitch(), new Point(14, 632), new Size(50, 50));
+            AddKnob("Contrast Knob", "Low", "Middle", "High", new Helios.Controls.RotarySwitch(), new Point(592, 632), new Size(50, 50));
         }
 
         #region Properties
@@ -101,20 +78,44 @@ namespace GadrocsWorkshop.Helios.Controls
             base.OnPropertyChanged(args);
         }
 
+        private void AddKnob(string name, string pos1, string pos2, string pos3, Helios.Controls.RotarySwitch _knob, Point posn, Size size)
+        {
+            _knob.Name = name;
+            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.DrawLabels = false;
+            _knob.DrawLines = false;
+            _knob.Positions.Clear();
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 0, pos1, 225d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, pos2, 0d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, pos3, 135d));
+            _knob.CurrentPosition = 0;
+            _knob.Top = posn.Y;
+            _knob.Left = posn.X;
+            _knob.Width = size.Width;
+            _knob.Height = size.Height;
+
+            Children.Add(_knob);
+            foreach (IBindingTrigger trigger in _knob.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            AddAction(_knob.Actions["set.position"], name);
+        }
+
         private void AddButton(string name, double x, double y, bool horizontal)
         {
             Helios.Controls.PushButton button = new Helios.Controls.PushButton();
             button.Top = y;
             button.Left = x;
-            button.Width = 32;
-            button.Height = 32;
+            button.Width = 40;
+            button.Height = 40;
             //button.TextPushOffset = new System.Windows.Media.TranslateTransform(1,1);
             button.Image = "{Helios}/Images/Buttons/tactile-light-square.png";
             button.PushedImage = "{Helios}/Images/Buttons/tactile-light-square.png";
             if (horizontal) button.Text = "|";
             else
             {
-                button.TextFormat.FontSize = 28;
+                button.TextFormat.FontSize = 32;
                 button.TextFormat.FontWeight = FontWeights.Bold;
                 button.Text = "--";
             }
@@ -142,43 +143,6 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             action.Device = device;
             Actions.Add(action);
-        }
-
-        private void AddRocker(string name, string imagePrefix, double x, double y, bool horizontal)
-        {
-            Helios.Controls.ThreeWayToggleSwitch rocker = new Helios.Controls.ThreeWayToggleSwitch();
-            rocker.Name = name;
-            rocker.SwitchType = Helios.Controls.ThreeWayToggleSwitchType.MomOnMom;
-            rocker.ClickType = Helios.Controls.ClickType.Touch;
-            rocker.PositionTwoImage = "{Helios}/Images/Rockers/" + imagePrefix + "-norm.png";
-
-            rocker.Top = y;
-            rocker.Left = x;
-            if (horizontal)
-            {
-                rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Horizontal;
-                rocker.PositionOneImage = "{Helios}/Images/Rockers/" + imagePrefix + "-left.png";
-                rocker.PositionThreeImage = "{Helios}/Images/Rockers/" + imagePrefix + "-right.png";
-                rocker.Width = 56;
-                rocker.Height = 30;
-            }
-            else
-            {
-                rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Vertical;
-                rocker.PositionOneImage = "{Helios}/Images/Rockers/" + imagePrefix + "-up.png";
-                rocker.PositionThreeImage = "{Helios}/Images/Rockers/" + imagePrefix + "-down.png";
-                rocker.Width = 30;
-                rocker.Height = 56;
-            }
-
-            Children.Add(rocker);
-
-            foreach (IBindingTrigger trigger in rocker.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-
-            AddAction(rocker.Actions["set.position"], name);
         }
 
         public override bool HitTest(Point location)
