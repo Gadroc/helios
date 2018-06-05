@@ -277,6 +277,7 @@
     <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
     <Compile Include="Gauges\AV-8B\Engine Panel\edp.cs" />
     <Compile Include="Gauges\AV-8B\fuze display\fuzeDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\smc mode\smc.cs" />
     <Compile Include="Gauges\AV-8B\smc mode\smcDisplay.cs" />
     <Compile Include="Gauges\AV-8B\stabiliser display\stabilizerDisplay.cs" />
     <Compile Include="Gauges\AV-8B\1 Digit Display\1DigitDisplay.cs" />
@@ -2705,6 +2706,9 @@
   <ItemGroup>
     <Resource Include="Images\FA-18C\AMPCD Frame.png" />
     <Resource Include="Images\FA-18C\MPCD Frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\AV-8B SMC Faceplate.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
