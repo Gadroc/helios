@@ -13,15 +13,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
+namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.Altimeter", "Altimeter", "AV-8B Gauges (Deprecated)", typeof(GaugeRenderer))]
-    public class Altimeter : BaseGauge
+    [HeliosControl("Helios.AV8B.Altimeter", "Old Altimeter", "AV-8B Gauges (Deprecated)", typeof(GaugeRenderer))]
+    public class OldAltimeter : BaseGauge
     {
         private HeliosValue _altitude;
         private HeliosValue _airPressure;
@@ -31,7 +31,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
         private GaugeDrumCounter _drum;
         private GaugeDrumCounter _airPressureDrum;
 
-        public Altimeter()
+        public OldAltimeter()
             : base("Altimeter", new Size(364, 376))
         {
             Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Altimeter/altimeter_backplate.xaml", new Rect(32d, 38d, 300d, 300d)));

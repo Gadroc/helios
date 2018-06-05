@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.ThreeDigitDisplay
+namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
@@ -31,7 +31,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ThreeDigitDisplay
         public ThreeDigitDisplay()
             : base("Three Digit Display", new Size(211, 100))
         {
-            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/3 Digit Display/three_digit_faceplate.xaml", new Rect(0d, 0d, 211d, 100d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/3 Digit Display/digit_faceplate.xaml", new Rect(0d, 0d, 211d, 100d)));
 
             _hundredsDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/Common/drum_tape.xaml", new Point(13.5d, 11.5d), "#", new Size(10d, 15d), new Size(50d, 75d));
             _hundredsDrum.Clip = new RectangleGeometry(new Rect(13.5d, 11.5d, 50d, 75d));

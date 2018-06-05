@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.Altimeter
+namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Gauges.A_10.ADI;
@@ -21,7 +21,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.Altimeter
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.AV8BAltimeter", "AV-8B Altimeter", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.Altimeter", "Altimeter", "AV-8B Gauges", typeof(GaugeRenderer))]
     public class Altimeter : GadrocsWorkshop.Helios.Gauges.A_10.ADI.Altimeter
     {
 
