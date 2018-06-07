@@ -35,16 +35,36 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddDisplay("Multiple", new Helios.Gauges.AV8B.OneDigitDisplay(), new Point(340, 34), new Size(32, 32));
             AddDisplay("Interval", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(428, 34), new Size(96, 32));
 
-            AddButton("Station 1", 217, 208,new Size(32,32));
-            AddButton("Station 2", 274, 208, new Size(32, 32));
-            AddButton("Station 3", 331, 208, new Size(32, 32));
-            AddButton("Station 4", 388, 208, new Size(32, 32));
-            AddButton("Station 5", 445, 208, new Size(32, 32));
-            AddButton("Station 6", 502, 208, new Size(32, 32));
-            AddButton("Station 7", 559, 208, new Size(32, 32));
+            AddButton("Station 1", 218, 211, new Size(30, 30));
+            AddButton("Station 2", 276, 211, new Size(30, 30));
+            AddButton("Station 3", 333, 211, new Size(30, 30));
+            AddButton("Station 4", 390, 211, new Size(30, 30));
+            AddButton("Station 5", 447, 211, new Size(30, 30));
+            AddButton("Station 6", 504, 211, new Size(30, 30));
+            AddButton("Station 7", 562, 211, new Size(30, 30));
 
-            AddKnobSMC1("Fuzing Options", new Point(580, 39), new Size(75, 75));
-            AddKnobSMC2("Stores Jettison Switch", new Point(56, 154), new Size(100, 100));
+            //AddIndicator("Station 1", 215, 175, new Size(38, 25));
+            //AddIndicator("Station 2", 273, 175, new Size(30, 25));
+            //AddIndicator("Station 3", 330, 175, new Size(30, 25));
+            //AddIndicator("Station 4", 387, 175, new Size(30, 25));
+            //AddIndicator("Station 5", 444, 175, new Size(30, 25));
+            //AddIndicator("Station 6", 501, 175, new Size(30, 25));
+            //AddIndicator("Station 7", 559, 175, new Size(30, 25));
+
+            //AddThreeWayToggle("Aiming Mode Switch", 27, 61, new Size(50, 100));
+            //AddThreeWayToggle("Fuze Toggle Switch", 139, 61, new Size(50, 100));
+            //AddThreeWayToggle("Quantity 10's", 201, 61, new Size(50, 100));
+            //AddThreeWayToggle("Quantity 1's", 263, 61, new Size(50, 100));
+            //AddThreeWayToggle("Multiple Switch", 325, 61, new Size(50, 100));
+            //AddThreeWayToggle("Interval 100's", 390, 65, new Size(50, 100));
+            //AddThreeWayToggle("Interval 10's", 452, 65, new Size(50, 100));
+            //AddThreeWayToggle("Interval 1's", 514, 65, new Size(50, 100));
+            //AddTwoWayToggle("IR Cool Switch", 620, 147, new Size(50, 100));
+
+            AddKnobSMC1("Fuzing Options", new Point(582, 39), new Size(75, 75));
+            AddKnobSMC2("Stores Jettison Switch", new Point(58, 150), new Size(100, 100));
+            AddButton("Jettison Button", 58, 150, new Size(100, 100), true, true);
+
 
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize)
@@ -110,7 +130,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.KnobImage = "{Helios}/Gauges/AV-8B/smc mode/Jettison Knob.xaml";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -118,6 +138,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, "1", 0d));
             _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, "2", 135d));
             _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 3, "3", 180d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 4, "4", 90d));
             _knob.CurrentPosition = 0;
             _knob.Top = posn.Y;
             _knob.Left = posn.X;
@@ -134,25 +155,63 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private void AddButton(string name, double x, double y) { AddButton(name, x, y, false); }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
         private void AddButton(string name, double x, double y, bool horizontal) { AddButton(name, x, y, new Size(40,40),false); }
-        private void AddButton(string name, double x, double y, Size size, bool horizontal)
+        private void AddButton(string name, double x, double y, Size size, bool horizontal) { AddButton(name, x, y, size, horizontal, false); }
+        private void AddButton(string name, double x, double y, Size size, bool horizontal, bool altImage)
         {
             Helios.Controls.PushButton button = new Helios.Controls.PushButton();
             button.Top = y;
             button.Left = x;
             button.Width = size.Width;
             button.Height = size.Height;
-            //button.TextPushOffset = new System.Windows.Media.TranslateTransform(1,1);
-            button.Image = "{Helios}/Images/Buttons/tactile-light-square.png";
-            button.PushedImage = "{Helios}/Images/Buttons/tactile-light-square.png";
-            if (horizontal) button.Text = "|";
+            if (!altImage)
+            {
+                button.Image = "{Helios}/Images/Buttons/tactile-dark-round.png";
+                button.PushedImage = "{Helios}/Images/Buttons/tactile-dark-round-in.png";
+                if (horizontal) button.Text = "|";
+                else
+                {
+                    button.TextFormat.FontSize = 32;
+                    button.TextFormat.FontWeight = FontWeights.Bold;
+                    button.Text = "--";
+                }
+
+            }
             else
             {
-                button.TextFormat.FontSize = 32;
-                button.TextFormat.FontWeight = FontWeights.Bold;
-                button.Text = "--";
+                button.Image = "{Helios}/Gauges/AV-8B/smc mode/Jettison Button.xaml";
+                button.PushedImage = "{Helios}/Gauges/AV-8B/smc mode/Jettison Button.xaml";
             }
 
 
+            button.Name = name;
+
+            Children.Add(button);
+            foreach (IBindingTrigger trigger in button.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            foreach (IBindingAction action in button.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddTrigger(button.Triggers["pushed"], name);
+            //AddTrigger(button.Triggers["released"], name);
+
+            //AddAction(button.Actions["push"], name);
+            //AddAction(button.Actions["release"], name);
+            //AddAction(button.Actions["set.physical state"], name);
+        }
+        private void AddIndicator(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
+        private void AddIndicator(string name, double x, double y, Size size, bool horizontal)
+        {
+            Helios.Controls.PushButton button = new Helios.Controls.PushButton();
+            button.Top = y;
+            button.Left = x;
+            button.Width = size.Width;
+            button.Height = size.Height;
+            button.Image = "{Helios}/Images/AV-8B/AV8BNA_SEL_On.png";
+            button.PushedImage = "{Helios}/Images/AV-8B/AV8BNA_SEL_Off.png";
             button.Name = name;
 
             Children.Add(button);
