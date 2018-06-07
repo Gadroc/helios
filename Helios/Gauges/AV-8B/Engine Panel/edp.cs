@@ -36,6 +36,10 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddDisplay("Stabilizer Direction Indicator", new Helios.Gauges.AV8B.stabilizerDisplay(), new Point(44, 232), new Size(30, 42));
             AddDisplay("Stabilizer Angle Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(73, 232), new Size(60, 42));
             AddDisplay("Water Amount Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(214, 232), new Size(60, 42));
+
+            AddIndicator("Water Light Indicator",new Point(158,234),new Size(32,32));
+
+
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize)
         {
@@ -53,6 +57,29 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             {
                 AddAction(action, name);
             }
+        }
+        private void AddIndicator(string name, Point posn , Size size)
+        {
+            Helios.Controls.Indicator indicator = new Helios.Controls.Indicator();
+            indicator.Top = posn.Y;
+            indicator.Left = posn.X;
+            indicator.Width = size.Width;
+            indicator.Height = size.Height;
+            indicator.OnImage = "{Helios}/Gauges/AV-8B/Engine Panel/edp_water_light.xaml";
+            indicator.OffImage = "{Helios}/Images/AV-8B/_transparant.png";
+            indicator.Text = "";
+            indicator.Name = name;
+
+            Children.Add(indicator);
+            foreach (IBindingTrigger trigger in indicator.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            foreach (IBindingAction action in indicator.Actions)
+            {
+                AddAction(action, name);
+            }
+
         }
         private void AddTrigger(IBindingTrigger trigger, string device)
         {

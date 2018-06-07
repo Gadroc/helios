@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="edp_Faceplate" Width="527.627" Height="302.000">
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  Name="edp_Faceplate" Width="527.627" Height="302.000">
     <Canvas Width="527.627" Height="302.000">
 
         <Canvas>
@@ -307,7 +307,7 @@
             </Canvas>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="1.0" Stroke="#ff3c3c3e" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 157.415,248.986 C 157.415,240.654 164.171,233.899 172.502,233.899 C 180.834,233.899 187.588,240.654 187.588,248.986 C 187.588,257.317 180.834,264.072 172.502,264.072 C 164.171,264.072 157.415,257.317 157.415,248.986 Z"/>
+            <Path StrokeThickness="1.0" Stroke="#ff3c3c3e" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 157.415,248.986 C 157.415,240.654 164.171,233.899 172.502,233.899 C 180.834,233.899 187.588,240.654 187.588,248.986 C 187.588,257.317 180.834,264.072 172.502,264.072 C 164.171,264.072 157.415,257.317 157.415,248.986 Z" Canvas.Left="0.942"/>
 
             <Canvas>
 
