@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.cabinAltitude", "Cabin Altitude", "AV-8B Gauges (Deprecated)", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.cabinAltitude", "Cabin Altitude", "AV-8B (Deprecated)", typeof(GaugeRenderer))]
     public class cabinAltitude : BaseGauge
     {
         private HeliosValue _cabinAltitude;

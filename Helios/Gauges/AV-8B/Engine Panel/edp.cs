@@ -21,7 +21,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.edp", "AV-8B Engine Panel", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.edp", "AV-8B Engine Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
     class edp: AV8BDevice
     {
         public edp()

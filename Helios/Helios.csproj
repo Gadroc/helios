@@ -277,6 +277,7 @@
     <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
     <Compile Include="Gauges\AV-8B\Engine Panel\edp.cs" />
     <Compile Include="Gauges\AV-8B\fuze display\fuzeDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\Misc\Gear Lever.cs" />
     <Compile Include="Gauges\AV-8B\smc mode\smcDisplay.cs" />
     <Compile Include="Gauges\AV-8B\smc mode\SMC.cs" />
     <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BDevice.cs" />
@@ -782,6 +783,30 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Templates\Base\A-10\Vertical Rocker.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\AV-8B Flaps Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\Fuel Cutoff Lever.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\Ground Safety Lever.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\H2O Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\Hexagonal Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\Landing Gear Lever.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\Landing Lights Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\Rotary Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Templates\Base\Buttons\MFD Lit.htpl">
@@ -2168,7 +2193,6 @@
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\" />
     <Folder Include="Interfaces\DCS\FA18C\Functions\" />
-    <Folder Include="Templates\Base\AV-8B\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />

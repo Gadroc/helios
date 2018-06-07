@@ -43,23 +43,23 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddButton("Station 6", 504, 211, new Size(30, 30));
             AddButton("Station 7", 562, 211, new Size(30, 30));
 
-            //AddIndicator("Station 1", 215, 175, new Size(38, 25));
-            //AddIndicator("Station 2", 273, 175, new Size(30, 25));
-            //AddIndicator("Station 3", 330, 175, new Size(30, 25));
-            //AddIndicator("Station 4", 387, 175, new Size(30, 25));
-            //AddIndicator("Station 5", 444, 175, new Size(30, 25));
-            //AddIndicator("Station 6", 501, 175, new Size(30, 25));
-            //AddIndicator("Station 7", 559, 175, new Size(30, 25));
+            AddIndicator("Station 1 Selected", 215, 175, new Size(38, 25));
+            AddIndicator("Station 2 Selected", 273, 175, new Size(30, 25));
+            AddIndicator("Station 3 Selected", 330, 175, new Size(30, 25));
+            AddIndicator("Station 4 Selected", 387, 175, new Size(30, 25));
+            AddIndicator("Station 5 Selected", 444, 175, new Size(30, 25));
+            AddIndicator("Station 6 Selected", 501, 175, new Size(30, 25));
+            AddIndicator("Station 7 Selected", 559, 175, new Size(30, 25));
 
-            //AddThreeWayToggle("Aiming Mode Switch", 27, 61, new Size(50, 100));
-            //AddThreeWayToggle("Fuze Toggle Switch", 139, 61, new Size(50, 100));
-            //AddThreeWayToggle("Quantity 10's", 201, 61, new Size(50, 100));
-            //AddThreeWayToggle("Quantity 1's", 263, 61, new Size(50, 100));
-            //AddThreeWayToggle("Multiple Switch", 325, 61, new Size(50, 100));
-            //AddThreeWayToggle("Interval 100's", 390, 65, new Size(50, 100));
-            //AddThreeWayToggle("Interval 10's", 452, 65, new Size(50, 100));
-            //AddThreeWayToggle("Interval 1's", 514, 65, new Size(50, 100));
-            //AddTwoWayToggle("IR Cool Switch", 620, 147, new Size(50, 100));
+            AddThreeWayToggle("Aiming Mode Switch", 27, 62, new Size(50, 100));
+            AddThreeWayToggle("Fuze Toggle Switch", 139, 62, new Size(50, 100));
+            AddThreeWayToggle("Quantity 10's", 201, 62, new Size(50, 100));
+            AddThreeWayToggle("Quantity 1's", 263, 62, new Size(50, 100));
+            AddThreeWayToggle("Multiple Switch", 325, 62, new Size(50, 100));
+            AddThreeWayToggle("Interval 100's", 390, 67, new Size(50, 100));
+            AddThreeWayToggle("Interval 10's", 452, 67, new Size(50, 100));
+            AddThreeWayToggle("Interval 1's", 514, 67, new Size(50, 100));
+            AddTwoWayToggle("IR Cool Switch", 620, 149, new Size(50, 100));
 
             AddKnobSMC1("Fuzing Options", new Point(582, 39), new Size(75, 75));
             AddKnobSMC2("Stores Jettison Switch", new Point(58, 150), new Size(100, 100));
@@ -202,34 +202,95 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             //AddAction(button.Actions["release"], name);
             //AddAction(button.Actions["set.physical state"], name);
         }
-        private void AddIndicator(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
-        private void AddIndicator(string name, double x, double y, Size size, bool horizontal)
+       private void AddTwoWayToggle(string name, double x, double y, Size size)
         {
-            Helios.Controls.PushButton button = new Helios.Controls.PushButton();
-            button.Top = y;
-            button.Left = x;
-            button.Width = size.Width;
-            button.Height = size.Height;
-            button.Image = "{Helios}/Images/AV-8B/AV8BNA_SEL_On.png";
-            button.PushedImage = "{Helios}/Images/AV-8B/AV8BNA_SEL_Off.png";
-            button.Name = name;
+            Helios.Controls.ToggleSwitch toggle = new Helios.Controls.ToggleSwitch();
+            toggle.Top = y;
+            toggle.Left = x;
+            toggle.Width = size.Width;
+            toggle.Height = size.Height;
+            toggle.DefaultPosition = ToggleSwitchPosition.Two;
+            toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
+            toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-down.png";
+            toggle.Name = name;
 
-            Children.Add(button);
-            foreach (IBindingTrigger trigger in button.Triggers)
+            Children.Add(toggle);
+            foreach (IBindingTrigger trigger in toggle.Triggers)
             {
                 AddTrigger(trigger, name);
             }
-            foreach (IBindingAction action in button.Actions)
+            foreach (IBindingAction action in toggle.Actions)
             {
                 AddAction(action, name);
             }
 
-            //AddTrigger(button.Triggers["pushed"], name);
-            //AddTrigger(button.Triggers["released"], name);
+            //AddTrigger(toggle.Triggers["pushed"], name);
+            //AddTrigger(toggle.Triggers["released"], name);
 
-            //AddAction(button.Actions["push"], name);
-            //AddAction(button.Actions["release"], name);
-            //AddAction(button.Actions["set.physical state"], name);
+            //AddAction(toggle.Actions["push"], name);
+            //AddAction(toggle.Actions["release"], name);
+            //AddAction(toggle.Actions["set.physical state"], name);
+        }
+        private void AddThreeWayToggle(string name, double x, double y, Size size)
+        {
+            Helios.Controls.ThreeWayToggleSwitch toggle = new Helios.Controls.ThreeWayToggleSwitch();
+            toggle.Top = y;
+            toggle.Left = x;
+            toggle.Width = size.Width;
+            toggle.Height = size.Height;
+            toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
+            toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
+            toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-norm.png";
+            toggle.PositionThreeImage = "{Helios}/Images/Toggles/orange-round-down.png";
+            toggle.SwitchType = ThreeWayToggleSwitchType.MomOnMom;
+            toggle.Name = name;
+
+            Children.Add(toggle);
+            foreach (IBindingTrigger trigger in toggle.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            foreach (IBindingAction action in toggle.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddTrigger(toggle.Triggers["pushed"], name);
+            //AddTrigger(toggle.Triggers["released"], name);
+
+            //AddAction(toggle.Actions["push"], name);
+            //AddAction(toggle.Actions["release"], name);
+            //AddAction(toggle.Actions["set.physical state"], name);
+        }
+        private void AddIndicator(string name, double x, double y, Size size) { AddIndicator(name, x, y, size, false); }
+        private void AddIndicator(string name, double x, double y, Size size, bool horizontal)
+        {
+            Helios.Controls.Indicator indicator = new Helios.Controls.Indicator();
+            indicator.Top = y;
+            indicator.Left = x;
+            indicator.Width = size.Width;
+            indicator.Height = size.Height;
+            indicator.OnImage = "AV-8B/AV8BNA_SEL_On.png";
+            indicator.OffImage = "AV-8B/AV8BNA_SEL_Off.png";
+            indicator.Text = "";
+            indicator.Name = name;
+
+            Children.Add(indicator);
+            foreach (IBindingTrigger trigger in indicator.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            foreach (IBindingAction action in indicator.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddTrigger(indicator.Triggers["pushed"], name);
+            //AddTrigger(indicator.Triggers["released"], name);
+
+            //AddAction(indicator.Actions["push"], name);
+            //AddAction(indicator.Actions["release"], name);
+            //AddAction(indicator.Actions["set.physical state"], name);
         }
 
         public override bool HitTest(Point location)
