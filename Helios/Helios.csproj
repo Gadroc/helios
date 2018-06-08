@@ -2748,6 +2748,18 @@
   <ItemGroup>
     <Resource Include="Images\AV-8B\AV-8B SMC Faceplate.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\3 Way Toggle Square Down.png" />
+    <Resource Include="Images\AV-8B\3 Way Toggle Square Mid.png" />
+    <Resource Include="Images\AV-8B\3 Way Toggle Square Up.png" />
+    <Resource Include="Images\AV-8B\Master Arm Switch Down.png" />
+    <Resource Include="Images\AV-8B\Master Arm Switch Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\3 Way Toggle Square Down 1.png" />
+    <Resource Include="Images\AV-8B\3 Way Toggle Square Mid 1.png" />
+    <Resource Include="Images\AV-8B\3 Way Toggle Square Up 1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /s /y "$(SolutionDir)packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"

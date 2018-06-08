@@ -51,15 +51,15 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddIndicator("Station 6 Selected", 501, 175, new Size(30, 25));
             AddIndicator("Station 7 Selected", 559, 175, new Size(30, 25));
 
-            AddThreeWayToggle("Aiming Mode Switch", 27, 62, new Size(50, 100));
-            AddThreeWayToggle("Fuze Toggle Switch", 139, 62, new Size(50, 100));
-            AddThreeWayToggle("Quantity 10's", 201, 62, new Size(50, 100));
-            AddThreeWayToggle("Quantity 1's", 263, 62, new Size(50, 100));
-            AddThreeWayToggle("Multiple Switch", 325, 62, new Size(50, 100));
-            AddThreeWayToggle("Interval 100's", 390, 67, new Size(50, 100));
-            AddThreeWayToggle("Interval 10's", 452, 67, new Size(50, 100));
-            AddThreeWayToggle("Interval 1's", 514, 67, new Size(50, 100));
-            AddTwoWayToggle("IR Cool Switch", 620, 149, new Size(50, 100));
+            AddThreeWayToggle("Aiming Mode Switch", 32, 60, new Size(40, 100));
+            AddThreeWayToggle("Fuze Toggle Switch", 144, 60, new Size(40, 100));
+            AddThreeWayToggle("Quantity 10's", 206, 60, new Size(40, 100));
+            AddThreeWayToggle("Quantity 1's", 268, 60, new Size(40, 100));
+            AddThreeWayToggle("Multiple Switch", 330, 60, new Size(40, 100));
+            AddThreeWayToggle("Interval 100's", 395, 65, new Size(40, 100));
+            AddThreeWayToggle("Interval 10's", 457, 65, new Size(40, 100));
+            AddThreeWayToggle("Interval 1's", 519, 65, new Size(40, 100));
+            AddTwoWayToggle("IR Cool Switch", 620, 147, new Size(50, 100));
 
             AddKnobSMC1("Fuzing Options", new Point(582, 39), new Size(75, 75));
             AddKnobSMC2("Stores Jettison Switch", new Point(58, 150), new Size(100, 100));
@@ -109,11 +109,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 0, "0", 225d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, "1", 0d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, "2", 135d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 3, "3", 180d));
-            _knob.CurrentPosition = 0;
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 0, "Norm", 315d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, "N/T", 0d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, "N", 45d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 3, "T", 90d));
+            _knob.CurrentPosition = 1;
             _knob.Top = posn.Y;
             _knob.Left = posn.X;
             _knob.Width = size.Width;
@@ -134,12 +134,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 0, "0", 225d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, "1", 0d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, "2", 135d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 3, "3", 180d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 4, "4", 90d));
-            _knob.CurrentPosition = 0;
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 0, "Station", 270d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, "Stores", 315d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, "Safe", 0d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 3, "Combat", 45d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 4, "Fuel", 90d));
+            _knob.CurrentPosition = 3;
             _knob.Top = posn.Y;
             _knob.Left = posn.X;
             _knob.Width = size.Width;
@@ -239,9 +239,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             toggle.Width = size.Width;
             toggle.Height = size.Height;
             toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
-            toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
-            toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-norm.png";
-            toggle.PositionThreeImage = "{Helios}/Images/Toggles/orange-round-down.png";
+            toggle.PositionOneImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Up 1.png";
+            toggle.PositionTwoImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Mid 1.png";
+            toggle.PositionThreeImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Down 1.png";
             toggle.SwitchType = ThreeWayToggleSwitchType.MomOnMom;
             toggle.Name = name;
 
