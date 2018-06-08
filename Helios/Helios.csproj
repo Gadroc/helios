@@ -276,10 +276,10 @@
     <Compile Include="Gauges\AV-8B\Altimeter\AV-8B Altimeter.cs" />
     <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
     <Compile Include="Gauges\AV-8B\Engine Panel\edp.cs" />
-    <Compile Include="Gauges\AV-8B\fuze display\fuzeDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\fuzeDisplay.cs" />
     <Compile Include="Gauges\AV-8B\Misc\Gear Lever.cs" />
-    <Compile Include="Gauges\AV-8B\smc mode\smcDisplay.cs" />
-    <Compile Include="Gauges\AV-8B\smc mode\SMC.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\smcDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\SMC.cs" />
     <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BDevice.cs" />
     <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BDeviceRenderer.cs" />
     <Compile Include="Gauges\AV-8B\stabiliser display\stabilizerDisplay.cs" />
@@ -2041,11 +2041,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\smc mode\stores_mode_drum_tape.xaml">
+    <Resource Include="Gauges\AV-8B\SMC\stores_mode_drum_tape.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\fuze display\fuze_mode_drum_tape.xaml">
+    <Resource Include="Gauges\AV-8B\SMC\fuze_mode_drum_tape.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2053,11 +2053,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\fuze display\digit_faceplate.xaml">
+    <Resource Include="Gauges\AV-8B\SMC\fuze_digit_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\smc mode\digit_faceplate.xaml">
+    <Resource Include="Gauges\AV-8B\SMC\DelModedigit_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2109,11 +2109,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\smc mode\Jettison Knob.xaml">
+    <Resource Include="Gauges\AV-8B\SMC\Jettison Knob.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\smc mode\Jettison Button.xaml">
+    <Resource Include="Gauges\AV-8B\SMC\Jettison Button.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>

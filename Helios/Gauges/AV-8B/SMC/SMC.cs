@@ -29,7 +29,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             : base("Stores Management Panel", new Size(703, 254))
         {
 
-            AddDisplay("Stores Mode", new Helios.Gauges.AV8B.smcModeDisplay(), new Point(48, 34), new Size(32, 32));
+            AddDisplay("Stores Mode", new Helios.Gauges.AV8B.smcModeDisplay(), new Point(46, 34), new Size(34, 32));
             AddDisplay("Fuze Mode", new Helios.Gauges.AV8B.fuzeDisplay(), new Point(120, 34), new Size(60, 32));
             AddDisplay("Quantity", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(226, 34), new Size(64, 32));
             AddDisplay("Multiple", new Helios.Gauges.AV8B.OneDigitDisplay(), new Point(340, 34), new Size(32, 32));
@@ -130,7 +130,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Gauges/AV-8B/smc mode/Jettison Knob.xaml";
+            _knob.KnobImage = "{Helios}/Gauges/AV-8B/SMC/Jettison Knob.xaml";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -178,8 +178,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             }
             else
             {
-                button.Image = "{Helios}/Gauges/AV-8B/smc mode/Jettison Button.xaml";
-                button.PushedImage = "{Helios}/Gauges/AV-8B/smc mode/Jettison Button.xaml";
+                button.Image = "{Helios}/Gauges/AV-8B/SMC/Jettison Button.xaml";
+                button.PushedImage = "{Helios}/Gauges/AV-8B/SMC/Jettison Button.xaml";
             }
 
 

@@ -20,22 +20,22 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.smcModeDisplay", "SMC Delivery Mode", "AV-8B (Parts)", typeof(GaugeRenderer))]
-    public class smcModeDisplay : BaseGauge
+    [HeliosControl("Helios.AV8B.fuzeDisplay", "SMC Fuze Display", "AV-8B (Parts)", typeof(GaugeRenderer))]
+    public class fuzeDisplay : BaseGauge
     {
         private HeliosValue _one_digit_display;
         private GaugeDrumCounter _onesDrum;
 
-        public smcModeDisplay()
-            : base("Stores Mode Display", new Size(90, 50))
+        public fuzeDisplay()
+            : base("Fuze Mode Display", new Size(140, 50))
         {
-            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/smc mode/digit_faceplate.xaml", new Rect(0d, 0d, 180d, 100d)));
+            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/SMC/fuze_digit_faceplate.xaml", new Rect(0d, 0d, 140d, 50d)));
 
-            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/smc mode/stores_mode_drum_tape.xaml", new Point(0d, 0d), "#", new Size(18d, 10d), new Size(90d, 50d));
-            _onesDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 90d, 50d));
+            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/SMC/fuze_mode_drum_tape.xaml", new Point(0d, 0d), "#", new Size(28d,10d), new Size(140d,50d));
+            _onesDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 140d, 50d));
             Components.Add(_onesDrum);
 
-            _one_digit_display = new HeliosValue(this, new BindingValue(0d), "", "value", "Stores Management", "SMC stores delivery mode display", BindingValueUnits.Numeric);
+            _one_digit_display = new HeliosValue(this, new BindingValue(0d), "", "value", "Stores Management", "display for SMC fuze mode", BindingValueUnits.Numeric);
             _one_digit_display.Execute += new HeliosActionHandler(DigitDisplay_Execute);
             Actions.Add(_one_digit_display);
 
@@ -43,8 +43,10 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         void DigitDisplay_Execute(object action, HeliosActionEventArgs e)
         {
-            _onesDrum.Value = e.Value.DoubleValue * 5;  // the returned values for 385 are 0.0 0.2 0.4 etc so mult by 5 to get unit values
+            if (e.Value.DoubleValue == 1)
+                _onesDrum.Value = 5;
+            else
+                _onesDrum.Value = e.Value.DoubleValue * 10;  // 386 returns values 0.1, 0.2 etc to multiply by 10 to get unit values
         }
-  
     }
 }
