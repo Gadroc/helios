@@ -2760,6 +2760,9 @@
     <Resource Include="Images\AV-8B\3 Way Toggle Square Mid 1.png" />
     <Resource Include="Images\AV-8B\3 Way Toggle Square Up 1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\SMC Selector Knob.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /s /y "$(SolutionDir)packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"
