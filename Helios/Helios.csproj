@@ -292,7 +292,7 @@
     <Compile Include="Gauges\AV-8B\Trim Position\trimPositionAileron.cs" />
     <Compile Include="Gauges\AV-8B\Trim Position\trimPosition.cs" />
     <Compile Include="Gauges\AV-8B\Battery\Battery.cs" />
-    <Compile Include="Gauges\AV-8B\EDP Nozzle\edpNoz.cs" />
+    <Compile Include="Gauges\AV-8B\Engine Panel\edpNoz.cs" />
     <Compile Include="Gauges\AV-8B\5 Digit Display\5DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\3 Digit Display\3DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\Accumulator\Accumulator.cs" />
@@ -300,6 +300,7 @@
     <Compile Include="Gauges\AV-8B\4 Digit Display\4DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\2 Digit Display\2DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\Cabin Altitude\CabinAltitude.cs" />
+    <Compile Include="Gauges\AV-8B\UFC\UFC.cs" />
     <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
@@ -1973,7 +1974,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\EDP Nozzle\edp_noz_faceplate.xaml">
+    <Resource Include="Gauges\AV-8B\Engine Panel\edp_noz_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2762,6 +2763,77 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AV-8B\SMC Selector Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\UFC Button Dn 1.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\AV-8B UFC 1080.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\UFC Button Up 0.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 2.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 3.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 4.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 5.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 6.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 7.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 8.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up 9.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up ALT.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up AWL.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up BCN.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up CLR.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up Dot.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up EMCON.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up ENT.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up IFF.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up ONOFF.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up SVE.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up TCN.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up TMR.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up TOO.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up WOF.png" />
+    <Resource Include="Images\AV-8B\UFC Button Up WPN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\UFC Button Up Dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FA-18C\UFC Button Dn AP.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn DL.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn ILS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\UFC Button Dn 0.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn 2.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn 3.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn 4.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn 5.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn 6.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn 7.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn 8.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn 9.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn ALT.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn AWL.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn BCN.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn CLR.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn Dash.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn Dot.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn EMCON.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn ENT.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn IFF.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn ONOFF.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn SVE.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn TCN.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn TMR.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn TOO.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn WOF.png" />
+    <Resource Include="Images\AV-8B\UFC Button Dn WPN.png" />
+    <Content Include="Images\FA-18C\UFC Button Up AP.png" />
+    <Content Include="Images\FA-18C\UFC Button Up DL.png" />
+    <Content Include="Images\FA-18C\UFC Button Up ILS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
