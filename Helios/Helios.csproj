@@ -303,6 +303,9 @@
     <Compile Include="Gauges\AV-8B\UFC\UFC.cs" />
     <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
+    <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
+    <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDeviceRenderer.cs" />
+    <Compile Include="Gauges\FA-18C\UFC\UFC.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
     <Compile Include="Gauges\F-16\ADI\ADI.cs" />
     <Compile Include="Gauges\F-16\Airspeed\Airspeed.cs" />
@@ -2196,7 +2199,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Gauges\FA-18C\" />
     <Folder Include="Interfaces\DCS\FA18C\Functions\" />
   </ItemGroup>
   <ItemGroup>
@@ -2831,9 +2833,10 @@
     <Resource Include="Images\AV-8B\UFC Button Dn TOO.png" />
     <Resource Include="Images\AV-8B\UFC Button Dn WOF.png" />
     <Resource Include="Images\AV-8B\UFC Button Dn WPN.png" />
-    <Content Include="Images\FA-18C\UFC Button Up AP.png" />
-    <Content Include="Images\FA-18C\UFC Button Up DL.png" />
-    <Content Include="Images\FA-18C\UFC Button Up ILS.png" />
+    <Resource Include="Images\FA-18C\UFC 1080.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up AP.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up DL.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up ILS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
