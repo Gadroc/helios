@@ -58,6 +58,9 @@ namespace GadrocsWorkshop.Helios.Controls
             AddRocker("Gain", "triangles-light", 39, 650, false);
             AddRocker("Contrast", "triangles-light", 645, 650, false);
 
+            AddThreeWayToggle("Heading", 28, 25, new Size(50, 100));
+            AddThreeWayToggle("Course", 651, 25, new Size(50, 100));
+
             Helios.Controls.RotarySwitch knob = new Helios.Controls.RotarySwitch();
             knob.Name = "Mode Knob";
             knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
@@ -179,6 +182,37 @@ namespace GadrocsWorkshop.Helios.Controls
             }
 
             AddAction(rocker.Actions["set.position"], name);
+        }
+        private void AddThreeWayToggle(string name, double x, double y, Size size)
+        {
+            Helios.Controls.ThreeWayToggleSwitch toggle = new Helios.Controls.ThreeWayToggleSwitch();
+            toggle.Top = y;
+            toggle.Left = x;
+            toggle.Width = size.Width;
+            toggle.Height = size.Height;
+            toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
+            toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
+            toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-norm.png";
+            toggle.PositionThreeImage = "{Helios}/Images/Toggles/orange-round-down.png";
+            toggle.SwitchType = ThreeWayToggleSwitchType.MomOnMom;
+            toggle.Name = name;
+
+            Children.Add(toggle);
+            foreach (IBindingTrigger trigger in toggle.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            foreach (IBindingAction action in toggle.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddTrigger(toggle.Triggers["pushed"], name);
+            //AddTrigger(toggle.Triggers["released"], name);
+
+            //AddAction(toggle.Actions["push"], name);
+            //AddAction(toggle.Actions["release"], name);
+            //AddAction(toggle.Actions["set.physical state"], name);
         }
 
         public override bool HitTest(Point location)

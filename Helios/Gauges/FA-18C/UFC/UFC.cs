@@ -30,7 +30,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             : base("Up Front Controller", new Size(645, 470))
         {
 
-            AddButton("EMCON", 560, 130, new Size(50, 50));
+            AddButton("EMCON", 562, 129, new Size(50, 50));
             AddButton("1", 115, 112, new Size(50, 50));
             AddButton("2", 179, 112, new Size(50, 50));
             AddButton("3", 243, 112, new Size(50, 50));
@@ -51,15 +51,16 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButton("BCN", 416, 397, new Size(50, 50));
             AddButton("ONOFF", 479, 397, new Size(50, 50));
             AddButtonIP("IP", 37, 54, new Size(40, 40));
-            AddButtonIP("ODU 1", 323, 32, new Size(40, 40));
+            AddButtonIP("ODU 1", 323, 36, new Size(40, 40));
             AddButtonIP("ODU 2", 323, 102, new Size(40, 40));
             AddButtonIP("ODU 3", 323, 172, new Size(40, 40));
             AddButtonIP("ODU 4", 323, 240, new Size(40, 40));
             AddButtonIP("ODU 5", 323, 310, new Size(40, 40));
+            AddThreeWayToggle("ADF", 41, 116, new Size(30, 60));
 
-            AddPot("UFC Display Brightness", new Point(557, 58), new Size(50, 50));
-            AddPot("Radio Volume 1", new Point(37, 211), new Size(50, 50));
-            AddPot("Radio Volume 2", new Point(557, 211), new Size(50, 50));
+            AddPot("UFC Display Brightness", new Point(566, 58), new Size(50, 50));
+            AddPot("Radio Volume 1", new Point(28, 212), new Size(50, 50));
+            AddPot("Radio Volume 2", new Point(566, 212), new Size(50, 50));
             AddEncoder("Radio 1", new Point(20, 385), new Size(75, 75));
             AddEncoder("Radio 2", new Point(540, 385), new Size(75, 75));
         }
@@ -262,7 +263,66 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddAction(indicator.Actions["release"], name);
             AddAction(indicator.Actions["set.indicator"], name);
          }
+        private void AddTwoWayToggle(string name, double x, double y, Size size)
+        {
+            Helios.Controls.ToggleSwitch toggle = new Helios.Controls.ToggleSwitch();
+            toggle.Top = y;
+            toggle.Left = x;
+            toggle.Width = size.Width;
+            toggle.Height = size.Height;
+            toggle.DefaultPosition = ToggleSwitchPosition.Two;
+            toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
+            toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-down.png";
+            toggle.Name = name;
 
+            Children.Add(toggle);
+            foreach (IBindingTrigger trigger in toggle.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            foreach (IBindingAction action in toggle.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddTrigger(toggle.Triggers["pushed"], name);
+            //AddTrigger(toggle.Triggers["released"], name);
+
+            //AddAction(toggle.Actions["push"], name);
+            //AddAction(toggle.Actions["release"], name);
+            //AddAction(toggle.Actions["set.physical state"], name);
+        }
+        private void AddThreeWayToggle(string name, double x, double y, Size size)
+        {
+            Helios.Controls.ThreeWayToggleSwitch toggle = new Helios.Controls.ThreeWayToggleSwitch();
+            toggle.Top = y;
+            toggle.Left = x;
+            toggle.Width = size.Width;
+            toggle.Height = size.Height;
+            toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
+            toggle.PositionOneImage = "{Helios}/Images/Toggles/round-up.png";
+            toggle.PositionTwoImage = "{Helios}/Images/Toggles/round-norm.png";
+            toggle.PositionThreeImage = "{Helios}/Images/Toggles/round-down.png";
+            toggle.SwitchType = ThreeWayToggleSwitchType.OnOnOn;
+            toggle.Name = name;
+
+            Children.Add(toggle);
+            foreach (IBindingTrigger trigger in toggle.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            foreach (IBindingAction action in toggle.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddTrigger(toggle.Triggers["pushed"], name);
+            //AddTrigger(toggle.Triggers["released"], name);
+
+            //AddAction(toggle.Actions["push"], name);
+            //AddAction(toggle.Actions["release"], name);
+            //AddAction(toggle.Actions["set.physical state"], name);
+        }
         public override bool HitTest(Point location)
         {
             //if (_scaledScreenRect.Contains(location))
