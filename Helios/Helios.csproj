@@ -189,6 +189,7 @@
     </Compile>
     <Compile Include="Controls\RectangleDecorationRenderer.cs" />
     <Compile Include="Controls\Rotary.cs" />
+    <Compile Include="Controls\RotaryEncoderPushable.cs" />
     <Compile Include="Controls\RotaryEncoder.cs" />
     <Compile Include="Controls\RotaryEncoderAppearanceEditor.xaml.cs">
       <DependentUpon>RotaryEncoderAppearanceEditor.xaml</DependentUpon>
@@ -197,6 +198,7 @@
       <DependentUpon>RotaryEncoderBehaviorEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RotaryRenderer.cs" />
+    <Compile Include="Controls\RotarySwitchPushable.cs" />
     <Compile Include="Controls\RotarySwitch.cs" />
     <Compile Include="Controls\RotarySwitchAddPositionUndoEvent.cs" />
     <Compile Include="Controls\RotarySwitchAppearanceEditor.xaml.cs">

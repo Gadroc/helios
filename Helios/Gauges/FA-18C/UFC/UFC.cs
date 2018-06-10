@@ -106,7 +106,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddEncoder(string name, Point posn, Size size)
         {
-            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
+            Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
             _knob.Name = name;
             _knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
             _knob.StepValue = 0.1;
