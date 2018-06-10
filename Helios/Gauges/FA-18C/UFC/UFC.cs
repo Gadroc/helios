@@ -41,7 +41,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButton("8", 179, 237, new Size(50, 50));
             AddButton("9", 243, 237, new Size(50, 50));
             AddButton("CLR", 115, 299, new Size(50, 50));
-            AddButton("0", 179, 299, new Size(50, 50));
+            AddButton("0", 179, 299, new Size(50, 50),true);
             AddButton("ENT", 243, 299, new Size(50, 50));
             AddButton("AP", 112, 397, new Size(50, 50),true);
             AddButton("IFF", 170, 397, new Size(50, 50));

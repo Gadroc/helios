@@ -30,15 +30,15 @@ namespace GadrocsWorkshop.Helios.Controls
         private HeliosTrigger _incrementTrigger;
         private HeliosTrigger _decrementTrigger;
         private bool _pushed;
- 
+        private HeliosValue _pushedValue;
         private HeliosAction _pushAction;
         private HeliosAction _releaseAction;
 
-        private HeliosTrigger _openTrigger;
+
         private HeliosTrigger _pushedTrigger;
         private HeliosTrigger _releasedTrigger;
-        private HeliosValue _value;
-        private HeliosValue _pushedValue;
+
+
 
         public RotaryEncoderPushable()
             : base("Pushable Rotary Encoder", new Size(100, 100))
@@ -61,6 +61,11 @@ namespace GadrocsWorkshop.Helios.Controls
             _releaseAction.Execute += new HeliosActionHandler(Release_ExecuteAction);
             Actions.Add(_pushAction);
             Actions.Add(_releaseAction);
+
+            _pushedValue = new HeliosValue(this, new BindingValue(false), "", "physical state", "Current state of this button.", "True if the button is currently pushed(either via pressure or toggle), otherwise false.  Setting this value will not fire pushed/released triggers, but will fire on/off triggers.  Directly setting this state to on for a momentary buttons will not auto release, the state must be manually reset to false.", BindingValueUnits.Boolean);
+            _pushedValue.Execute += new HeliosActionHandler(PushedValue_Execute);
+            Values.Add(_pushedValue);
+            Actions.Add(_pushedValue);
         }
 
         #region Properties
@@ -206,6 +211,14 @@ namespace GadrocsWorkshop.Helios.Controls
             Pushed = false;
         }
 
+        void PushedValue_Execute(object action, HeliosActionEventArgs e)
+        {
+            BeginTriggerBypass(e.BypassCascadingTriggers);
+
+            Pushed = e.Value.BoolValue;
+
+            EndTriggerBypass(e.BypassCascadingTriggers);
+        }
 
         public override void Reset()
         {

@@ -29,29 +29,29 @@ namespace GadrocsWorkshop.Helios.Controls
         public MPCD_FA18C()
             : base("MPCD", new Size(656, 706))
         {
-            AddButton("OSB1", 14, 540, false);
-            AddButton("OSB2", 14, 455, false);
-            AddButton("OSB3", 14, 370, false);
-            AddButton("OSB4", 14, 285, false);
-            AddButton("OSB5", 14, 200, false);
+            AddButton("OSB1", 14, 540, true);
+            AddButton("OSB2", 14, 455, true);
+            AddButton("OSB3", 14, 370, true);
+            AddButton("OSB4", 14, 285, true);
+            AddButton("OSB5", 14, 200, true);
 
-            AddButton("OSB6", 150, 74, true);
-            AddButton("OSB7", 230, 74, true);
-            AddButton("OSB8", 310, 74, true);
-            AddButton("OSB9", 390, 74, true);
-            AddButton("OSB10", 470, 74, true);
+            AddButton("OSB6", 150, 74, false);
+            AddButton("OSB7", 230, 74, false);
+            AddButton("OSB8", 310, 74, false);
+            AddButton("OSB9", 390, 74, false);
+            AddButton("OSB10", 470, 74, false);
 
-            AddButton("OSB11", 604, 200, false);
-            AddButton("OSB12", 604, 285, false);
-            AddButton("OSB13", 604, 370, false);
-            AddButton("OSB14", 604, 455, false);
-            AddButton("OSB15", 604, 540, false);
+            AddButton("OSB11", 604, 200, true);
+            AddButton("OSB12", 604, 285, true);
+            AddButton("OSB13", 604, 370, true);
+            AddButton("OSB14", 604, 455, true);
+            AddButton("OSB15", 604, 540, true);
 
-            AddButton("OSB16", 470, 652, true);
-            AddButton("OSB17", 390, 652, true);
-            AddButton("OSB18", 310, 652, true);
-            AddButton("OSB19", 230, 652, true);
-            AddButton("OSB20", 150, 652, true);
+            AddButton("OSB16", 470, 652, false);
+            AddButton("OSB17", 390, 652, false);
+            AddButton("OSB18", 310, 652, false);
+            AddButton("OSB19", 230, 652, false);
+            AddButton("OSB20", 150, 652, false);
 
             AddKnob("Mode Knob", "Off", "Night", "Day", new Helios.Controls.RotarySwitch(), new Point(298, 14), new Size(50, 50));
             AddKnob("Brightness Knob", "Dim", "Middle", "Bright", new Helios.Controls.RotarySwitch(), new Point(14, 632), new Size(50, 50));
@@ -110,16 +110,19 @@ namespace GadrocsWorkshop.Helios.Controls
             button.Width = 40;
             button.Height = 40;
             //button.TextPushOffset = new System.Windows.Media.TranslateTransform(1,1);
-            button.Image = "{Helios}/Images/Buttons/tactile-light-square.png";
-            button.PushedImage = "{Helios}/Images/Buttons/tactile-light-square.png";
-            if (horizontal) button.Text = "|";
+            //button.Image = "{Helios}/Images/FA-18C/MFD Button Up.png";
+            //button.PushedImage = "{Helios}/Images/FA-18C/MFD Button Dn.png";
+            if (!horizontal)
+            {
+                button.Image = "{Helios}/Images/FA-18C/MFD Button UpV.png";
+                button.PushedImage = "{Helios}/Images/FA-18C/MFD Button DnV.png";
+                //button.Rotation = HeliosVisualRotation.CCW;
+            }
             else
             {
-                button.TextFormat.FontSize = 32;
-                button.TextFormat.FontWeight = FontWeights.Bold;
-                button.Text = "--";
+                button.Image = "{Helios}/Images/FA-18C/MFD Button UpH.png";
+                button.PushedImage = "{Helios}/Images/FA-18C/MFD Button DnH.png";
             }
-
 
             button.Name = name;
 

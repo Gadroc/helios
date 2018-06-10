@@ -159,9 +159,9 @@
       <DependentUpon>LineDecorationAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\LineDecorationRenderer.cs" />
-    <Compile Include="Controls\MFD-FA18C-Type-2.cs" />
-    <Compile Include="Controls\MFD-FA18C-Type-1.cs" />
-    <Compile Include="Controls\MFD-AV8B.cs" />
+    <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-2.cs" />
+    <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-1.cs" />
+    <Compile Include="Gauges\AV-8B\MFD\MFD-AV8B.cs" />
     <Compile Include="Controls\MFD-A10.cs" />
     <Compile Include="Controls\MFD-F16.cs" />
     <Compile Include="Controls\MFD.cs" />
@@ -198,7 +198,6 @@
       <DependentUpon>RotaryEncoderBehaviorEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RotaryRenderer.cs" />
-    <Compile Include="Controls\RotarySwitchPushable.cs" />
     <Compile Include="Controls\RotarySwitch.cs" />
     <Compile Include="Controls\RotarySwitchAddPositionUndoEvent.cs" />
     <Compile Include="Controls\RotarySwitchAppearanceEditor.xaml.cs">
@@ -2839,6 +2838,20 @@
     <Resource Include="Images\FA-18C\UFC Button Up AP.png" />
     <Resource Include="Images\FA-18C\UFC Button Up DL.png" />
     <Resource Include="Images\FA-18C\UFC Button Up ILS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FA-18C\UFC Button Dn 0.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\MFD Button 1 DnH.png" />
+    <Resource Include="Images\AV-8B\MFD Button 1 DnV.png" />
+    <Resource Include="Images\AV-8B\MFD Button 1 UpH.png" />
+    <Resource Include="Images\AV-8B\MFD Button 1 UpV.png" />
+    <Resource Include="Images\FA-18C\MFD Button DnH.png" />
+    <Resource Include="Images\FA-18C\MFD Button DnV.png" />
+    <Resource Include="Images\FA-18C\MFD Button UpH.png" />
+    <Resource Include="Images\FA-18C\MFD Button UpV.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
