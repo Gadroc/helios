@@ -219,10 +219,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 AddTrigger(trigger, name);
             }
-            foreach (IBindingAction action in indicator.Actions)
-            {
-                AddAction(action, name);
-            }
+            AddAction(indicator.Actions["set.indicator"], name);
         }
         private void AddIndicatorPushButton(string name, double x, double y, Size size)
         {
@@ -263,35 +260,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddAction(indicator.Actions["release"], name);
             AddAction(indicator.Actions["set.indicator"], name);
          }
-        private void AddTwoWayToggle(string name, double x, double y, Size size)
-        {
-            Helios.Controls.ToggleSwitch toggle = new Helios.Controls.ToggleSwitch();
-            toggle.Top = y;
-            toggle.Left = x;
-            toggle.Width = size.Width;
-            toggle.Height = size.Height;
-            toggle.DefaultPosition = ToggleSwitchPosition.Two;
-            toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
-            toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-down.png";
-            toggle.Name = name;
-
-            Children.Add(toggle);
-            foreach (IBindingTrigger trigger in toggle.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            foreach (IBindingAction action in toggle.Actions)
-            {
-                AddAction(action, name);
-            }
-
-            //AddTrigger(toggle.Triggers["pushed"], name);
-            //AddTrigger(toggle.Triggers["released"], name);
-
-            //AddAction(toggle.Actions["push"], name);
-            //AddAction(toggle.Actions["release"], name);
-            //AddAction(toggle.Actions["set.physical state"], name);
-        }
         private void AddThreeWayToggle(string name, double x, double y, Size size)
         {
             Helios.Controls.ThreeWayToggleSwitch toggle = new Helios.Controls.ThreeWayToggleSwitch();
@@ -307,21 +275,14 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             toggle.Name = name;
 
             Children.Add(toggle);
-            foreach (IBindingTrigger trigger in toggle.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            foreach (IBindingAction action in toggle.Actions)
-            {
-                AddAction(action, name);
-            }
-
+            //foreach (IBindingTrigger trigger in toggle.Triggers)
+            //{
+            //    AddTrigger(trigger, name);
+            //}
+            AddTrigger(toggle.Triggers["position.changed"], name);
             //AddTrigger(toggle.Triggers["pushed"], name);
             //AddTrigger(toggle.Triggers["released"], name);
-
-            //AddAction(toggle.Actions["push"], name);
-            //AddAction(toggle.Actions["release"], name);
-            //AddAction(toggle.Actions["set.physical state"], name);
+            AddAction(toggle.Actions["set.position"], name);
         }
         public override bool HitTest(Point location)
         {

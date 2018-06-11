@@ -53,10 +53,15 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             {
                 AddTrigger(trigger, name);
             }
-            foreach (IBindingAction action in _gauge.Actions)
+            if(name == "Nozzle Position")
             {
-                AddAction(action, name);
+                AddAction(_gauge.Actions["set.nozzle angle"], name);
             }
+            else
+            {
+                AddAction(_gauge.Actions["set.value"], name);
+            }
+
         }
         private void AddIndicator(string name, Point posn , Size size)
         {
@@ -75,10 +80,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             {
                 AddTrigger(trigger, name);
             }
-            foreach (IBindingAction action in indicator.Actions)
-            {
-                AddAction(action, name);
-            }
+            AddAction(indicator.Actions["set.indicator"], name);
+
 
         }
         private void AddTrigger(IBindingTrigger trigger, string device)

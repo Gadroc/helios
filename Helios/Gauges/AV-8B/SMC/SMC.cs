@@ -75,14 +75,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _gauge.Left = posn.X;
             _gauge.Top = posn.Y;
             Children.Add(_gauge);
-            foreach (IBindingTrigger trigger in _gauge.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            foreach (IBindingAction action in _gauge.Actions)
-            {
-                AddAction(action, name);
-            }
+            AddAction(_gauge.Actions["set.value"], name);
         }
 
         public override string BezelImage
@@ -120,10 +113,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _knob.Height = size.Height;
 
             Children.Add(_knob);
-            foreach (IBindingTrigger trigger in _knob.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
+            AddTrigger(_knob.Triggers["position.changed"], name);
             AddAction(_knob.Actions["set.position"], name);
         }
         private void AddKnobSMC2(string name, Point posn, Size size)
@@ -146,10 +136,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _knob.Height = size.Height;
 
             Children.Add(_knob);
-            foreach (IBindingTrigger trigger in _knob.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
+            AddTrigger(_knob.Triggers["position.changed"], name);
             AddAction(_knob.Actions["set.position"], name);
         }
         private void AddButton(string name, double x, double y) { AddButton(name, x, y, false); }
@@ -186,21 +173,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             button.Name = name;
 
             Children.Add(button);
-            foreach (IBindingTrigger trigger in button.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            foreach (IBindingAction action in button.Actions)
-            {
-                AddAction(action, name);
-            }
 
-            //AddTrigger(button.Triggers["pushed"], name);
-            //AddTrigger(button.Triggers["released"], name);
+            AddTrigger(button.Triggers["pushed"], name);
+            AddTrigger(button.Triggers["released"], name);
 
-            //AddAction(button.Actions["push"], name);
-            //AddAction(button.Actions["release"], name);
-            //AddAction(button.Actions["set.physical state"], name);
+            AddAction(button.Actions["push"], name);
+            AddAction(button.Actions["release"], name);
+            AddAction(button.Actions["set.physical state"], name);
         }
        private void AddTwoWayToggle(string name, double x, double y, Size size)
         {
@@ -215,21 +194,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             toggle.Name = name;
 
             Children.Add(toggle);
-            foreach (IBindingTrigger trigger in toggle.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            foreach (IBindingAction action in toggle.Actions)
-            {
-                AddAction(action, name);
-            }
-
-            //AddTrigger(toggle.Triggers["pushed"], name);
-            //AddTrigger(toggle.Triggers["released"], name);
-
-            //AddAction(toggle.Actions["push"], name);
-            //AddAction(toggle.Actions["release"], name);
-            //AddAction(toggle.Actions["set.physical state"], name);
+            AddTrigger(toggle.Triggers["position.changed"], name);
+            AddAction(toggle.Actions["set.position"], name);
         }
         private void AddThreeWayToggle(string name, double x, double y, Size size)
         {
@@ -246,21 +212,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             toggle.Name = name;
 
             Children.Add(toggle);
-            foreach (IBindingTrigger trigger in toggle.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            foreach (IBindingAction action in toggle.Actions)
-            {
-                AddAction(action, name);
-            }
-
-            //AddTrigger(toggle.Triggers["pushed"], name);
-            //AddTrigger(toggle.Triggers["released"], name);
-
-            //AddAction(toggle.Actions["push"], name);
-            //AddAction(toggle.Actions["release"], name);
-            //AddAction(toggle.Actions["set.physical state"], name);
+            AddTrigger(toggle.Triggers["position.changed"], name);
+            AddAction(toggle.Actions["set.position"], name);
         }
         private void AddIndicator(string name, double x, double y, Size size) { AddIndicator(name, x, y, size, false); }
         private void AddIndicator(string name, double x, double y, Size size, bool horizontal)
@@ -276,21 +229,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             indicator.Name = name;
 
             Children.Add(indicator);
-            foreach (IBindingTrigger trigger in indicator.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            foreach (IBindingAction action in indicator.Actions)
-            {
-                AddAction(action, name);
-            }
-
-            //AddTrigger(indicator.Triggers["pushed"], name);
-            //AddTrigger(indicator.Triggers["released"], name);
-
-            //AddAction(indicator.Actions["push"], name);
-            //AddAction(indicator.Actions["release"], name);
-            //AddAction(indicator.Actions["set.physical state"], name);
+            AddAction(indicator.Actions["set.indicator"], name);
         }
 
         public override bool HitTest(Point location)
