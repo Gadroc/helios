@@ -121,7 +121,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 AddTrigger(trigger, name);
             }
-            //AddAction(_knob.Actions["set.value"], name);
+            AddAction(_knob.Actions["set.value"], name);
+            AddAction(_knob.Actions["push"], name);
+            AddAction(_knob.Actions["release"], name);
         }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
          private void AddButton(string name, double x, double y, Size size, bool altImage)

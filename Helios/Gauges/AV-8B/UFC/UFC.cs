@@ -130,7 +130,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         }
         private void AddEncoder(string name, Point posn, Size size)
         {
-            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
+            Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
             _knob.Name = name;
             _knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
             _knob.StepValue = 0.1;
@@ -145,7 +145,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             {
                 AddTrigger(trigger, name);
             }
-            //AddAction(_knob.Actions["set.value"], name);
+            AddAction(_knob.Actions["push"], name);
+            AddAction(_knob.Actions["release"], name);
         }
         private void AddButton(string name, double x, double y) { AddButton(name, x, y, false); }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
