@@ -27,7 +27,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         public edp()
             : base("Engine Panel", new Size(528,302))
         {
-            AddDisplay("Nozzle Position", new Helios.Gauges.AV8B.edpNoz(), new Point(402d, 140d), new Size(18d, 72d));  //nozzle needle
+            AddDisplay("Nozzle Position", new Helios.Gauges.AV8B.edpNoz(), new Point(405d, 140d), new Size(18d, 72d));  //nozzle needle
             AddDisplay("Engine RPM Indicator", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(186, 45), new Size(120, 42));
             AddDisplay("Engine Duct Indicator", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(44, 45), new Size(90, 42));
             AddDisplay("Engine FF Indicator", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(44, 137), new Size(90, 42));
@@ -99,7 +99,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             //    return false;
             //}
 
-            return true;
+            return false;  // nothing to press on the EDP so return false.
         }
         public override void MouseDown(Point location)
         {

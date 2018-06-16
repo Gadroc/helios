@@ -302,7 +302,6 @@
     <Compile Include="Gauges\AV-8B\4 Digit Display\4DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\2 Digit Display\2DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\Cabin Altitude\CabinAltitude.cs" />
-    <Compile Include="Gauges\AV-8B\Test.cs" />
     <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
@@ -2856,6 +2855,17 @@
     <Resource Include="Images\FA-18C\MFD Button DnV.png" />
     <Resource Include="Images\FA-18C\MFD Button UpH.png" />
     <Resource Include="Images\FA-18C\MFD Button UpV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\MFD Rocker L Dn.png" />
+    <Resource Include="Images\AV-8B\MFD Rocker L Mid.png" />
+    <Resource Include="Images\AV-8B\MFD Rocker L Up.png" />
+    <Resource Include="Images\AV-8B\MFD Rocker R Dn.png" />
+    <Resource Include="Images\AV-8B\MFD Rocker R Mid.png" />
+    <Resource Include="Images\AV-8B\MFD Rocker R Up.png" />
+    <Resource Include="Images\AV-8B\MFD Rocker V Dn.png" />
+    <Resource Include="Images\AV-8B\MFD Rocker V Mid.png" />
+    <Resource Include="Images\AV-8B\MFD Rocker V Up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

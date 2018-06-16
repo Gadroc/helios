@@ -43,7 +43,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddButton("Station 6", 504, 211, new Size(30, 30));
             AddButton("Station 7", 562, 211, new Size(30, 30));
 
-            AddIndicator("Station 1 Selected", 215, 175, new Size(38, 25));
+            AddIndicator("Station 1 Selected", 215, 175, new Size(30, 25));
             AddIndicator("Station 2 Selected", 273, 175, new Size(30, 25));
             AddIndicator("Station 3 Selected", 330, 175, new Size(30, 25));
             AddIndicator("Station 4 Selected", 387, 175, new Size(30, 25));
@@ -63,7 +63,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
             AddKnobSMC1("Fuzing Options", new Point(582, 39), new Size(75, 75));
             AddKnobSMC2("Stores Jettison Switch", new Point(58, 150), new Size(100, 100));
-            AddButton("Jettison Button", 58, 150, new Size(100, 100), true, true);
+            AddButton("Jettison Button", 77, 169, new Size(62, 62), true, true);
 
 
         }

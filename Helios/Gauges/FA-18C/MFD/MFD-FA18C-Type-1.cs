@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.Controls
     [HeliosControl("FA18C.MPCD", "MPCD", "F/A-18C", typeof(MFDRenderer))]
     class MPCD_FA18C : MFD
     {
-        private static readonly Rect SCREEN_RECT = new Rect(45, 86, 343, 312);
+        private static readonly Rect SCREEN_RECT = new Rect(72, 137, 497, 493);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
         public MPCD_FA18C()
@@ -53,9 +53,9 @@ namespace GadrocsWorkshop.Helios.Controls
             AddButton("OSB19", 230, 652, false);
             AddButton("OSB20", 150, 652, false);
 
-            AddKnob("Mode Knob", "Off", "Night", "Day", new Helios.Controls.RotarySwitch(), new Point(298, 14), new Size(50, 50));
-            AddKnob("Brightness Knob", "Dim", "Middle", "Bright", new Helios.Controls.RotarySwitch(), new Point(14, 632), new Size(50, 50));
-            AddKnob("Contrast Knob", "Low", "Middle", "High", new Helios.Controls.RotarySwitch(), new Point(592, 632), new Size(50, 50));
+            AddKnob("Mode Knob", new Point(298, 14), new Size(50, 50));
+            AddKnob("Brightness Knob",  new Point(14, 632), new Size(50, 50));
+            AddKnob("Contrast Knob",   new Point(592, 632), new Size(50, 50));
         }
 
         #region Properties
@@ -78,17 +78,17 @@ namespace GadrocsWorkshop.Helios.Controls
             base.OnPropertyChanged(args);
         }
 
-        private void AddKnob(string name, string pos1, string pos2, string pos3, Helios.Controls.RotarySwitch _knob, Point posn, Size size)
+        private void AddKnob(string name, Point posn, Size size)
         {
+            Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer();
             _knob.Name = name;
             _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
-            _knob.DrawLabels = false;
-            _knob.DrawLines = false;
-            _knob.Positions.Clear();
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 0, pos1, 225d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, pos2, 0d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, pos3, 135d));
-            _knob.CurrentPosition = 0;
+            _knob.InitialRotation = 219;
+            _knob.RotationTravel = 291;
+            _knob.MinValue = 0;
+            _knob.MaxValue = 1;
+            _knob.InitialValue = 0;
+            _knob.StepValue = 0.1;
             _knob.Top = posn.Y;
             _knob.Left = posn.X;
             _knob.Width = size.Width;
@@ -99,7 +99,7 @@ namespace GadrocsWorkshop.Helios.Controls
             {
                 AddTrigger(trigger, name);
             }
-            AddAction(_knob.Actions["set.position"], name);
+            AddAction(_knob.Actions["set.value"], name);
         }
 
         private void AddButton(string name, double x, double y, bool horizontal)

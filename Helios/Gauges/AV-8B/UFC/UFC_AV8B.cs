@@ -87,6 +87,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddPot("Radio Volume 2", new Point(570, 210), new Size(50, 50));
             AddEncoder("Radio 1", new Point(160, 405), new Size(100, 100));
             AddEncoder("Radio 2", new Point(557, 405), new Size(100, 100));
+            AddButtonComm("Comm 1", new Point(190, 435), new Size(40, 40));
+            AddButtonComm("Comm 2", new Point(587, 435), new Size(40, 40));
+
         }
 
         public override string BezelImage
@@ -130,7 +133,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         }
         private void AddEncoder(string name, Point posn, Size size)
         {
-            Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
+            //Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
+            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
             _knob.Name = name;
             _knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
             _knob.StepValue = 0.1;
@@ -145,8 +149,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             {
                 AddTrigger(trigger, name);
             }
-            AddAction(_knob.Actions["push"], name);
-            AddAction(_knob.Actions["release"], name);
+            //AddAction(_knob.Actions["push"], name);
+            //AddAction(_knob.Actions["release"], name);
         }
         private void AddButton(string name, double x, double y) { AddButton(name, x, y, false); }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
@@ -196,6 +200,30 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddAction(button.Actions["release"], "UFC Key " + name);
             AddAction(button.Actions["set.physical state"], "UFC Key " + name);
         }
+        private void AddButtonComm(string name, Point posn, Size size)
+        {
+            Helios.Controls.PushButton button = new Helios.Controls.PushButton();
+            button.Top = posn.Y;
+            button.Left = posn.X;
+            button.Width = size.Width;
+            button.Height = size.Height;
+            button.Image = "";
+            button.PushedImage = "";
+            button.Text = "";
+            button.Name = "UFC " + name;
+            button.Glyph = PushButtonGlyph.Circle;
+            button.GlyphThickness = 3;
+            button.GlyphColor = Color.FromArgb(0xFF, 0xC0, 0xC0, 0xC0);
+            Children.Add(button);
+
+            AddTrigger(button.Triggers["pushed"], "UFC " + name);
+            AddTrigger(button.Triggers["released"], "UFC " + name);
+
+            AddAction(button.Actions["push"], "UFC " + name);
+            AddAction(button.Actions["release"], "UFC " + name);
+            AddAction(button.Actions["set.physical state"], "UFC " + name);
+        }
+
         private void AddIndicator(string name, double x, double y, Size size) { AddIndicator(name, x, y, size, false); }
         private void AddIndicator(string name, double x, double y, Size size, bool _vertical)
         {
@@ -206,9 +234,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             indicator.Height = size.Height;
             indicator.OnImage = "{Helios}/Images/Indicators/anunciator.png";
             indicator.OffImage = "{Helios}/Images/Indicators/anunciator.png";
-            if (name == "Unknown 1")
+            if (name == "Unknown 1" | name == "Unknown 2")
             {
-                indicator.Text = ". . .";
+                indicator.Text = ".";
             }
             else
             {
@@ -227,7 +255,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             {
                 indicator.TextFormat.FontSize = 12;
             }
-            indicator.TextFormat.FontFamily = new FontFamily("MS 33558");
+            indicator.TextFormat.FontFamily = new FontFamily("MS 33558");  // this probably needs to change before release
             indicator.TextFormat.PaddingLeft = 0;
             indicator.TextFormat.PaddingRight = 0;
             indicator.TextFormat.PaddingTop = 0;

@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.Controls
     [HeliosControl("FA18C.AMPCD", "AMPCD", "F/A-18C", typeof(MFDRenderer))]
     class AMPCD_FA18C : MFD
     {
-        private static readonly Rect SCREEN_RECT = new Rect(45, 86, 343, 312);
+        private static readonly Rect SCREEN_RECT = new Rect(88, 161, 551, 532);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
         public AMPCD_FA18C()
@@ -52,36 +52,16 @@ namespace GadrocsWorkshop.Helios.Controls
             AddButton("OSB18", 346, 696, false);
             AddButton("OSB19", 266, 696, false);
             AddButton("OSB20", 186, 696, false);
-
-            AddRocker("Day / Night", "triangles-light", 106, 58, false);
-            AddRocker("Symbols", "triangles-light", 588, 58, false);
-            AddRocker("Gain", "triangles-light", 39, 650, false);
-            AddRocker("Contrast", "triangles-light", 645, 650, false);
+            AddRocker("Day / Night", "MFD Rocker", "L", 90, 75);
+            AddRocker("Symbols", "MFD Rocker", "R", 550, 75);
+            AddRocker("Gain", "MFD Rocker", "V", 39, 650);
+            AddRocker("Contrast", "MFD Rocker", "V", 645, 650);
 
             AddThreeWayToggle("Heading", 28, 25, new Size(50, 100));
             AddThreeWayToggle("Course", 651, 25, new Size(50, 100));
 
             Helios.Controls.RotarySwitch knob = new Helios.Controls.RotarySwitch();
-            knob.Name = "Mode Knob";
-            knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
-            knob.DrawLabels = false;
-            knob.DrawLines = false;
-            knob.Positions.Clear();
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 0, "Off", 225d));
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 1, "Middle", 0d));
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 2, "Bright", 135d));
-            knob.CurrentPosition = 0;
-            knob.Top = 37;
-            knob.Left = 336;
-            knob.Width = 60;
-            knob.Height = 60;
-
-            Children.Add(knob);
-            foreach (IBindingTrigger trigger in knob.Triggers)
-            {
-                AddTrigger(trigger, "Mode Knob");
-            }
-            AddAction(knob.Actions["set.position"], "Mode Knob");
+            AddKnob("Mode Knob",new Point(336,37),new Size(60,60));
         }
 
         #region Properties
@@ -136,6 +116,29 @@ namespace GadrocsWorkshop.Helios.Controls
             AddAction(button.Actions["release"], name);
             AddAction(button.Actions["set.physical state"], name);
         }
+        private void AddKnob(string name, Point posn, Size size)
+        {
+            Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer();
+            _knob.Name = name;
+            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.InitialRotation = 219;
+            _knob.RotationTravel = 291;
+            _knob.MinValue = 0;
+            _knob.MaxValue = 1;
+            _knob.InitialValue = 0;
+            _knob.StepValue = 0.1;
+            _knob.Top = posn.Y;
+            _knob.Left = posn.X;
+            _knob.Width = size.Width;
+            _knob.Height = size.Height;
+
+            Children.Add(_knob);
+            foreach (IBindingTrigger trigger in _knob.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            AddAction(_knob.Actions["set.value"], name);
+        }
 
         private void AddTrigger(IBindingTrigger trigger, string device)
         {
@@ -149,35 +152,42 @@ namespace GadrocsWorkshop.Helios.Controls
             Actions.Add(action);
         }
 
-        private void AddRocker(string name, string imagePrefix, double x, double y, bool horizontal)
+        private void AddRocker(string name, string imagePrefix, string imageOrientation, double x, double y)
         {
             Helios.Controls.ThreeWayToggleSwitch rocker = new Helios.Controls.ThreeWayToggleSwitch();
             rocker.Name = name;
             rocker.SwitchType = Helios.Controls.ThreeWayToggleSwitchType.MomOnMom;
             rocker.ClickType = Helios.Controls.ClickType.Touch;
-            rocker.PositionTwoImage = "{Helios}/Images/Rockers/" + imagePrefix + "-norm.png";
+            rocker.PositionTwoImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Mid.png";
 
             rocker.Top = y;
             rocker.Left = x;
-            if (horizontal)
+            switch (imageOrientation)
             {
-                rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Horizontal;
-                rocker.PositionOneImage = "{Helios}/Images/Rockers/" + imagePrefix + "-left.png";
-                rocker.PositionThreeImage = "{Helios}/Images/Rockers/" + imagePrefix + "-right.png";
-                rocker.Width = 80;
-                rocker.Height = 40;
-            }
-            else
-            {
-                rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Vertical;
-                rocker.PositionOneImage = "{Helios}/Images/Rockers/" + imagePrefix + "-up.png";
-                rocker.PositionThreeImage = "{Helios}/Images/Rockers/" + imagePrefix + "-down.png";
-                rocker.Width = 40;
-                rocker.Height = 80;
+                case ("V"):
+                    //rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Horizontal;
+                    rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
+                    rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                    rocker.Height = 84;
+                    rocker.Width = 40;
+                    break;
+                case ("L"):
+                    rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
+                    rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                    rocker.Width = 86;
+                    rocker.Height = 71;
+                    break;
+                case ("R"):
+                    rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
+                    rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                    rocker.Width = 86;
+                    rocker.Height = 71;
+                    break;
+                default:
+                    break;
             }
 
             Children.Add(rocker);
-
             foreach (IBindingTrigger trigger in rocker.Triggers)
             {
                 AddTrigger(trigger, name);
@@ -185,6 +195,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
             AddAction(rocker.Actions["set.position"], name);
         }
+
         private void AddThreeWayToggle(string name, double x, double y, Size size)
         {
             Helios.Controls.ThreeWayToggleSwitch toggle = new Helios.Controls.ThreeWayToggleSwitch();

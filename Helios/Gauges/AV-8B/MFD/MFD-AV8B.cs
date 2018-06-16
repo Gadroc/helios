@@ -23,64 +23,44 @@ namespace GadrocsWorkshop.Helios.Controls
     [HeliosControl("AV8B.MPCD", "MPCD", "AV-8B", typeof(MFDRenderer))]
     class MPCD_AV8B : MFD
     {
-        private static readonly Rect SCREEN_RECT = new Rect(45, 86, 343, 312);
+        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 435, 450);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
         public MPCD_AV8B()
             : base("MPCD", new Size(435, 475))
         {
-            AddButton("OSB1", 0, 332, true);
-            AddButton("OSB2", 0, 282, true);
-            AddButton("OSB3", 0, 234, true);
-            AddButton("OSB4", 0, 188, true);
-            AddButton("OSB5", 0, 140, true);
+            AddButton("OSB1", 1, 334, true);
+            AddButton("OSB2", 1, 285, true);
+            AddButton("OSB3", 1, 237, true);
+            AddButton("OSB4", 1, 189, true);
+            AddButton("OSB5", 1, 141, true);
 
-            AddButton("OSB6", 96, 50, false);
-            AddButton("OSB7", 150, 50, false);
-            AddButton("OSB8", 204, 50, false);
-            AddButton("OSB9", 256, 50, false);
-            AddButton("OSB10", 310, 50, false);
+            AddButton("OSB6", 96, 51, false);
+            AddButton("OSB7", 150, 51, false);
+            AddButton("OSB8", 204, 51, false);
+            AddButton("OSB9", 256, 51, false);
+            AddButton("OSB10", 310, 51, false);
 
-            AddButton("OSB11", 404, 140, true);
-            AddButton("OSB12", 404, 188, true);
-            AddButton("OSB13", 404, 234, true);
-            AddButton("OSB14", 404, 282, true);
-            AddButton("OSB15", 404, 332, true);
+            AddButton("OSB11", 405, 141, true);
+            AddButton("OSB12", 405, 189, true);
+            AddButton("OSB13", 405, 237, true);
+            AddButton("OSB14", 405, 285, true);
+            AddButton("OSB15", 405, 334, true);
 
-            AddButton("OSB16", 310, 418, false);
-            AddButton("OSB17", 256, 418, false);
-            AddButton("OSB18", 204, 418, false);
-            AddButton("OSB19", 150, 418, false);
-            AddButton("OSB20", 96, 418,false);
+            AddButton("OSB16", 310, 420, false);
+            AddButton("OSB17", 256, 420, false);
+            AddButton("OSB18", 204, 420, false);
+            AddButton("OSB19", 150, 420, false);
+            AddButton("OSB20", 96, 420, false);
 
-            AddRocker("Day / Night", "triangles-light", 59, 26, false);
-            AddRocker("Symbols", "triangles-light", 347, 26, false);
-            AddRocker("Gain", "triangles-light", 3, 390, false);
-            AddRocker("Contrast", "triangles-light", 405, 390, false);
+            AddRocker("Day / Night", "MFD Rocker", "L", 36, 26);
+            AddRocker("Symbols", "MFD Rocker", "R", 344, 26);
+            AddRocker("Gain", "MFD Rocker", "V", 3, 390);
+            AddRocker("Contrast", "MFD Rocker", "V", 406, 390);
 
-            Helios.Controls.RotarySwitch knob = new Helios.Controls.RotarySwitch();
-            knob.Name = "Mode Knob";
-            knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
-            knob.DrawLabels = false;
-            knob.DrawLines = false;
-            knob.Positions.Clear();
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 0, "Off", 225d));
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 1, "Middle", 0d));
-            knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(knob, 2, "Bright", 135d));
-            knob.CurrentPosition = 0;
-            knob.Top = 4;
-            knob.Left = 200;
-            knob.Width = 40;
-            knob.Height = 40;
-
-            Children.Add(knob);
-            foreach (IBindingTrigger trigger in knob.Triggers)
-            {
-                AddTrigger(trigger, "Mode Knob");
-            }
-            AddAction(knob.Actions["set.position"], "Mode Knob");
-        }
-
+            Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer();
+            AddPot("Brightness Knob", new Point(200,4), new Size(40,40));
+}
         #region Properties
 
         public override string BezelImage
@@ -100,14 +80,36 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             base.OnPropertyChanged(args);
         }
+        private void AddPot(string name, Point posn, Size size)
+        {
+            Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer();
+            _knob.Name = name;
+            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.InitialRotation = 219;
+            _knob.RotationTravel = 291;
+            _knob.MinValue = 0;
+            _knob.MaxValue = 1;
+            _knob.InitialValue = 0;
+            _knob.StepValue = 0.1;
+            _knob.Top = posn.Y;
+            _knob.Left = posn.X;
+            _knob.Width = size.Width;
+            _knob.Height = size.Height;
 
+            Children.Add(_knob);
+            foreach (IBindingTrigger trigger in _knob.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            AddAction(_knob.Actions["set.value"], name);
+        }
         private void AddButton(string name, double x, double y, bool horizontal)
         {
             Helios.Controls.PushButton button = new Helios.Controls.PushButton();
             button.Top = y;
             button.Left = x;
-            button.Width = 32;
-            button.Height = 32;
+            button.Width = 30;
+            button.Height = 30;
             //button.TextPushOffset = new System.Windows.Media.TranslateTransform(1,1);
             //button.Image = "{Helios}/Images/FA-18C/MFD Button 1 Up.png";
             //button.PushedImage = "{Helios}/Images/FA-18C/MFD Button 1 Dn.png";
@@ -147,35 +149,41 @@ namespace GadrocsWorkshop.Helios.Controls
             Actions.Add(action);
         }
 
-        private void AddRocker(string name, string imagePrefix, double x, double y, bool horizontal)
+        private void AddRocker(string name, string imagePrefix, string imageOrientation, double x, double y)
         {
             Helios.Controls.ThreeWayToggleSwitch rocker = new Helios.Controls.ThreeWayToggleSwitch();
             rocker.Name = name;
             rocker.SwitchType = Helios.Controls.ThreeWayToggleSwitchType.MomOnMom;
             rocker.ClickType = Helios.Controls.ClickType.Touch;
-            rocker.PositionTwoImage = "{Helios}/Images/Rockers/" + imagePrefix + "-norm.png";
+            rocker.PositionTwoImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Mid.png";
 
             rocker.Top = y;
             rocker.Left = x;
-            if (horizontal)
-            {
-                rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Horizontal;
-                rocker.PositionOneImage = "{Helios}/Images/Rockers/" + imagePrefix + "-left.png";
-                rocker.PositionThreeImage = "{Helios}/Images/Rockers/" + imagePrefix + "-right.png";
-                rocker.Width = 56;
-                rocker.Height = 30;
-            }
-            else
-            {
-                rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Vertical;
-                rocker.PositionOneImage = "{Helios}/Images/Rockers/" + imagePrefix + "-up.png";
-                rocker.PositionThreeImage = "{Helios}/Images/Rockers/" + imagePrefix + "-down.png";
-                rocker.Width = 30;
-                rocker.Height = 56;
+            switch (imageOrientation) {
+                case ("V"):
+                    //rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Horizontal;
+                    rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
+                    rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                    rocker.Height = 56;
+                    rocker.Width = 27;
+                    break;
+                case ("L"):
+                        rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
+                        rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                    rocker.Width = 54;
+                    rocker.Height = 45;
+                    break;
+                case ("R"):
+                    rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
+                    rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                    rocker.Width = 54;
+                    rocker.Height = 45;
+                    break;
+            default:
+                    break;
             }
 
-            Children.Add(rocker);
-
+        Children.Add(rocker);
             foreach (IBindingTrigger trigger in rocker.Triggers)
             {
                 AddTrigger(trigger, name);
