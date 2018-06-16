@@ -27,8 +27,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         public edp()
             : base("Engine Panel", new Size(528,302))
         {
-            AddDisplay("Nozzle Position", new Helios.Gauges.AV8B.edpNoz(), new Point(440d, 138d), new Size(18d, 72d));  //nozzle needle
-
+            AddDisplay("Nozzle Position", new Helios.Gauges.AV8B.edpNoz(), new Point(402d, 140d), new Size(18d, 72d));  //nozzle needle
             AddDisplay("Engine RPM Indicator", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(186, 45), new Size(120, 42));
             AddDisplay("Engine Duct Indicator", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(44, 45), new Size(90, 42));
             AddDisplay("Engine FF Indicator", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(44, 137), new Size(90, 42));
@@ -36,9 +35,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddDisplay("Stabilizer Direction Indicator", new Helios.Gauges.AV8B.stabilizerDisplay(), new Point(44, 232), new Size(30, 42));
             AddDisplay("Stabilizer Angle Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(73, 232), new Size(60, 42));
             AddDisplay("Water Amount Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(214, 232), new Size(60, 42));
-
             AddIndicator("Water Light Indicator",new Point(158,234),new Size(32,32));
-
 
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize)

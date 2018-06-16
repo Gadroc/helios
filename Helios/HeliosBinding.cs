@@ -453,7 +453,12 @@ namespace GadrocsWorkshop.Helios
                                 }
                                 break;
                         }
-
+                        if(Action.Target.Dispatcher == null) {
+                            // if we don't have a dispatcher, likely because this is a composite device, we use the dispatcher object from the owner of the trigger
+                            // this seems to work and was the best I could come up with, but it is very much a kludge because I could not work out the proper way
+                            // to have a dispatcher created for Actions
+                            Action.Target.Dispatcher = Trigger.Owner.Dispatcher;
+                        }
                         Action.Target.Dispatcher.Invoke(new Action<BindingValue, bool>(Execute), value, BypassCascadingTriggers);
                     }
                     catch (Exception ex)

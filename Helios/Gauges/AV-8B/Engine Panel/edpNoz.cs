@@ -27,11 +27,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private CalibrationPointCollectionDouble _needleCalibration;
 
         public edpNoz()
-            : base("EDP Nozzle", new Size(18, 72))
+            : base("EDP Nozzle", new Size(12, 48))
         {
             //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/Engine Panel/edp_faceplate.xaml", new Rect(0d, 0d, 528d, 302d)));
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 0.94d, 150d);
-            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/nozzle_needle.xaml", new Point(0d, 0d), new Size(18d, 72d), new Point(7.6d, 28.1d), 90d);
+            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Engine Panel/nozzle_needle.xaml", new Point(0d, 0d), new Size(12d, 48d), new Point(6d, 45d), 90d);
             Components.Add(_needle);
 
             _angle = new HeliosValue(this, new BindingValue(0d), "", "nozzle angle", "Current position of Nozzles.", "(0 - 120)", BindingValueUnits.Degrees);

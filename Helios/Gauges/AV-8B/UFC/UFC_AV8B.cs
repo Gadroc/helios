@@ -21,9 +21,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows.Media;
     using System.Windows;
+    using System.Windows.Threading;
+
 
     [HeliosControl("Helios.AV8B.UFC", "Up Front Controller", "AV-8B", typeof(AV8BDeviceRenderer))]
-    class UFC_AV8B: AV8BDevice
+    class UFC_AV8B : AV8BDevice
     {
  
         public UFC_AV8B()
@@ -69,8 +71,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddIndicator("FIRE", 678, 108, new Size(60, 31));
             AddIndicator("LAW", 678, 149, new Size(60, 31));
             AddIndicator("FLAPS", 678, 190, new Size(60, 31));
-            AddIndicator("L TANK", 676, 231, new Size(60, 31),true);
-            AddIndicator("R TANK", 676, 272, new Size(60, 31),true);
+            AddIndicator("L TANK", 676, 231, new Size(60, 31), true);
+            AddIndicator("R TANK", 676, 272, new Size(60, 31), true);
             AddIndicator("HYD", 675, 314, new Size(60, 31));
             AddIndicator("GEAR", 675, 354, new Size(60, 31));
             AddIndicator("OT", 674, 394, new Size(60, 31));
@@ -85,15 +87,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddPot("Radio Volume 2", new Point(570, 210), new Size(50, 50));
             AddEncoder("Radio 1", new Point(160, 405), new Size(100, 100));
             AddEncoder("Radio 2", new Point(557, 405), new Size(100, 100));
-
-
         }
 
         public override string BezelImage
         {
-            get { return "{ Helios}/Images/AV-8B/AV-8B UFC 1080.png"; }
+            get { return "{Helios}/Images/AV-8B/AV-8B UFC 1080.png"; }
         }
-            
+
         private void AddTrigger(IBindingTrigger trigger, string device)
         {
             trigger.Device = device;
@@ -150,7 +150,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         }
         private void AddButton(string name, double x, double y) { AddButton(name, x, y, false); }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
-        private void AddButton(string name, double x, double y, bool horizontal) { AddButton(name, x, y, new Size(40,40),false); }
+        private void AddButton(string name, double x, double y, bool horizontal) { AddButton(name, x, y, new Size(40, 40), false); }
         private void AddButton(string name, double x, double y, Size size, bool horizontal) { AddButton(name, x, y, size, horizontal, false); }
         private void AddButton(string name, double x, double y, Size size, bool horizontal, bool altImage)
         {
@@ -186,7 +186,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             button.Name = "UFC Key " + name;
             button.Glyph = PushButtonGlyph.Circle;
             button.GlyphThickness = 3;
-            button.GlyphColor = Color.FromArgb( 0xFF,0xC0, 0xC0, 0xC0);
+            button.GlyphColor = Color.FromArgb(0xFF, 0xC0, 0xC0, 0xC0);
             Children.Add(button);
 
             AddTrigger(button.Triggers["pushed"], "UFC Key " + name);
@@ -206,7 +206,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             indicator.Height = size.Height;
             indicator.OnImage = "{Helios}/Images/Indicators/anunciator.png";
             indicator.OffImage = "{Helios}/Images/Indicators/anunciator.png";
-            if(name == "Unknown 1")
+            if (name == "Unknown 1")
             {
                 indicator.Text = ". . .";
             }
@@ -283,7 +283,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddAction(indicator.Actions["push"], name);
             AddAction(indicator.Actions["release"], name);
             AddAction(indicator.Actions["set.indicator"], name);
-         }
+        }
 
         public override bool HitTest(Point location)
         {
