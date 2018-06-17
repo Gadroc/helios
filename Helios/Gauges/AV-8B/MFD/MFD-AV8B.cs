@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.Controls
     [HeliosControl("AV8B.MPCD", "MPCD", "AV-8B", typeof(MFDRenderer))]
     class MPCD_AV8B : MFD
     {
-        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 435, 450);
+        private static readonly Rect SCREEN_RECT = new Rect(44,85, 345, 317);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
         public MPCD_AV8B()

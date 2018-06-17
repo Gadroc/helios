@@ -30,11 +30,17 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Components.Add(GI);
 
-            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 0.94d, 150d);
+            _needleCalibration = new CalibrationPointCollectionDouble(-1.0d, -45d, 1.0d, 45d);
+            //_needleCalibration.Add(new CalibrationPointDouble(-0.50d, -35d));
+            //_needleCalibration.Add(new CalibrationPointDouble(-0.10d, -22d));
+            //_needleCalibration.Add(new CalibrationPointDouble(0d, 0d));
+            //_needleCalibration.Add(new CalibrationPointDouble(0.10d, 22d));
+            //_needleCalibration.Add(new CalibrationPointDouble(0.50d, 35d));
+
             _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Engine Panel/nozzle_needle.xaml", new Point(150d, 150d), new Size(36d, 140d), new Point(18d, 122d), 0d);
             Components.Add(_needle);
 
-            _angle = new HeliosValue(this, new BindingValue(0d), "", "angle", "Current position of trim.", "(0 - 120)", BindingValueUnits.Degrees);
+            _angle = new HeliosValue(this, new BindingValue(0d), "", "angle", "Current position of trim.", "", BindingValueUnits.Degrees);
             _angle.Execute += new HeliosActionHandler(Angle_Execute);
             Actions.Add(_angle);
         }
