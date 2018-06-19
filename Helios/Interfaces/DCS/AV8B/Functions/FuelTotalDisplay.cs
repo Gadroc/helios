@@ -29,7 +29,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions
         public FuelTotalDisplay(BaseUDPInterface sourceInterface)
             : base(sourceInterface)
         {
-            _five_digit_display = new HeliosValue(sourceInterface, BindingValue.Empty, "FQIS", "Total display", "Fuel Total value", "", BindingValueUnits.Numeric);
+            _five_digit_display = new HeliosValue(sourceInterface, BindingValue.Empty, "Fuel Quantity", "Total display", "Fuel Total value", "", BindingValueUnits.Numeric);
             Values.Add(_five_digit_display);
             Triggers.Add(_five_digit_display);
         }

@@ -25,13 +25,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     class fuel: AV8BDevice
     {
         public fuel()
-            : base("Fuel Panel", new Size(330,122))
+            : base("Fuel Panel", new Size(334,125))
         {
-            AddDisplay("Total Quantity", new Helios.Gauges.AV8B.FiveDigitDisplay(), new Point(99, 11), new Size(76, 20));
-            AddDisplay("Left Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(30, 40), new Size(64, 20));
-            AddDisplay("Right Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(155, 40), new Size(64, 20));
-            AddDisplay("Bingo Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(92, 66), new Size(56, 20));
-            AddKnob("Fuel Selector", new Point(244, 20), new Size(80, 80));
+            AddDisplay("Total Quantity", new Helios.Gauges.AV8B.FiveDigitDisplay(), new Point(98, 14), new Size(77, 20));
+            AddDisplay("Left Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(34, 42), new Size(64, 20));
+            AddDisplay("Right Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(157, 42), new Size(64, 20));
+            AddDisplay("Bingo Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(95, 68), new Size(56, 20));
+            AddKnob("Fuel Selector", new Point(246, 24), new Size(80, 80));
             AddEncoder("Bingo Knob", new Point(165,80), new Size(30,30));
 
         }

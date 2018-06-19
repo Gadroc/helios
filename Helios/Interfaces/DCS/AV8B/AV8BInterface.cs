@@ -251,9 +251,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Fuel Quantity Indicator System
             AddFunction(new Axis(this, FQIS, "3380", "3380", 0.001d, 0d, 1d, "Fuel Quantity", "Bingo Fuel Set Knob", true, "%.3f"));  //looping axis
             AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3379"), new SwitchPosition("-0.66", "FEED", "3379"), new SwitchPosition("-0.33", "TOTAL", "3379"), new SwitchPosition("0.0", "INT", "3379"), new SwitchPosition("0.33", "WING", "3379"), new SwitchPosition("0.66", "INBD", "3379"), new SwitchPosition("0.99", "OUTBD", "3379") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
-            AddFunction(new Digits4Display(this, FQIS, "2011", "FQIS", "Left Tank display", "Fuel left tank quantity"));
-            AddFunction(new Digits4Display(this, FQIS, "2012", "FQIS", "Right Tank display", "Fuel right tank quantity"));
-            AddFunction(new Digits4Display(this, FQIS, "2013", "FQIS", "Bingo value display", "Fuel Bingo amount"));
+            AddFunction(new Digits4Display(this, FQIS, "2011", "Fuel Quantity", "Left Tank display", "Fuel left tank quantity"));
+            AddFunction(new Digits4Display(this, FQIS, "2012", "Fuel Quantity", "Right Tank display", "Fuel right tank quantity"));
+            AddFunction(new Digits4Display(this, FQIS, "2013", "Fuel Quantity", "Bingo value display", "Fuel Bingo amount"));
             AddFunction(new FuelTotalDisplay(this));
             #endregion
 

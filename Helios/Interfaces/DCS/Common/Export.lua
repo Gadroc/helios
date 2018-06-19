@@ -1,4 +1,6 @@
-﻿os.setlocale("ISO-8559-1", "numeric")
+﻿-- for some reason, this causes a failure on my system so commenting it
+-- out in the hope that others don't see a problem with it.
+-- os.setlocale("ISO-8559-1", "numeric")
 
 -- Simulation id
 gSimID = string.format("%08x*",os.time())
