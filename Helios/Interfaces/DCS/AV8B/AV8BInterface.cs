@@ -326,6 +326,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "469", "Landing Gear", "Main Wrn", "Main Gear Warning"));   // I think the codes are switched for this and might get corrected in future by Bazbam
             AddFunction(new FlagValue(this, "468", "Landing Gear", "Main", "Main Gear Ready"));         // I think the codes are switched for this and might get corrected in future by Bazbam
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3461", "3461", "1", "Gear up", "0", "Gear down", "Landing Gear", "lever", "%1d"));
+
+
             #endregion
 
             #region Left Hand Advisory Indicators
@@ -357,7 +359,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Throttle Quadrant
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3481", "3481", "1", "On", "0", "Off", "Throttle Quadrant", "JPTL Switch", "%1d"));
-            //AddFunction(new Switch(this, FLIGHTCONTROLS, "3483", new SwitchPosition[] { new SwitchPosition("0.0", "Left", "3483"), new SwitchPosition("0.5", "Centre", "3483"), new SwitchPosition("1.0", "Right", "3483") }, "Throttle Quadrant", "Rudder Trim Switch", "%.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3482", "3482", "1", "On", "0", "Off", "Throttle Quadrant", "EMS Button", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3484", "3484", "1", "On", "0", "Off", "Throttle Quadrant", "Manual Fuel Switch", "%1d"));
             AddFunction(new Axis(this, FLIGHTCONTROLS, "3485", "3485", 0.1d, 0d, 1d, "Throttle Quadrant", "Throttle Lever Friction Knob"));
@@ -373,7 +374,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Left Hand Left Hand Switches Fuel External Lights SAAHS
             ////         --Trim Panel
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "3471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
-            //AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3472", "3472", "1", "Approach", "0.5", "Hover", "0", "Off", "SAAHS", "Trim Mode Switch", "%.1f"));
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0.5", "Centre", "0", "Right", "SAAHS", "Rudder trim switch", "%.1f"));
 
             CalibrationPointCollectionDouble trimScale = new CalibrationPointCollectionDouble(-1.0d, -1d, 1.0d, 1d);
@@ -519,9 +519,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3801", "3801", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Left", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3802", "3802", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Right", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3803", "3803", "1", "On", "0", "Off", "Canopy Controls", "Canopy Locking Lever", "%1d"));
-
             AddFunction(Switch.CreateToggleSwitch(this, MSC, "3800", "3800", "1", "On", "0", "Off", "Canopy Controls", "Seat Ground Safety Lever", "%1d"));
-
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3501", "3501", "1", "On", "0", "Off", "Canopy Controls", "MFS Emergency Lever", "%1d"));
             #endregion
 

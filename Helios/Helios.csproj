@@ -280,7 +280,6 @@
     <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
     <Compile Include="Gauges\AV-8B\Engine Panel\edp.cs" />
     <Compile Include="Gauges\AV-8B\SMC\fuzeDisplay.cs" />
-    <Compile Include="Gauges\AV-8B\Misc\Gear Lever.cs" />
     <Compile Include="Gauges\AV-8B\SMC\smcDisplay.cs" />
     <Compile Include="Gauges\AV-8B\SMC\SMC.cs" />
     <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BDevice.cs" />
