@@ -326,6 +326,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "469", "Landing Gear", "Main Wrn", "Main Gear Warning"));   // I think the codes are switched for this and might get corrected in future by Bazbam
             AddFunction(new FlagValue(this, "468", "Landing Gear", "Main", "Main Gear Ready"));         // I think the codes are switched for this and might get corrected in future by Bazbam
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3461", "3461", "1", "Gear up", "0", "Gear down", "Landing Gear", "lever", "%1d"));
+            AddFunction(new PushButton(this, SMC, "3458", "3458", "Landing Gear", "Emergency Jettison Button"));
+            AddFunction(new PushButton(this, FLIGHTCONTROLS, "3448", "3448", "Landing Gear", "Gear Down Lock Override Button"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3447", "3447", "5.0", "Gear up", "0", "Gear down", "Landing Gear", "Emergency Landing Gear Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3470", "3470", "5.0", "Up", "0", "Down", "Landing Gear", "Landing Gear Emergency Battery Lever", "%1d"));
 
 
             #endregion
