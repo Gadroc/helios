@@ -27,7 +27,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     [HeliosControl("Helios.AV8B.UFC", "Up Front Controller", "AV-8B", typeof(AV8BDeviceRenderer))]
     class UFC_AV8B : AV8BDevice
     {
- 
+        // these three sections are the dead space in the UFC image.
+        private static readonly Rect SCREEN_RECT_L = new Rect(0, 135, 38, 415);
+        private Rect _scaledScreenRectL = SCREEN_RECT_L;
+        private static readonly Rect SCREEN_RECT_LB = new Rect(38, 476, 103, 74);
+        private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
+        private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
+        private Rect _scaledScreenRectR = SCREEN_RECT_R;
         public UFC_AV8B()
             : base("Up Front Controller", new Size(808, 550))
         {
@@ -315,14 +321,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override bool HitTest(Point location)
         {
-            //if (_scaledScreenRect.Contains(location))
-            //{
-            //    return false;
-            //}
+            if (_scaledScreenRectL.Contains(location) || _scaledScreenRectLB.Contains(location) || _scaledScreenRectR.Contains(location))
+            {
+                return false;
+            }
 
             return true;
         }
-
         public override void MouseDown(Point location)
         {
             // No-Op
