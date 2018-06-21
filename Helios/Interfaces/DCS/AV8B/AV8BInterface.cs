@@ -338,23 +338,23 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new FlagValue(this, "451", "LH Flaps & Water", "SEL indicator", "Combat thrust limiter selected"));
             AddFunction(new FlagValue(this, "452", "LH Flaps & Water", "CMBT indicator", "Combat thrust activated. Flashes after 2 ½ minutes"));
             AddFunction(new FlagValue(this, "453", "LH Flaps & Water", "STO indicator", "Flap switch in STOL"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3449", "3449", "1", "TO", "0.5", "Off", "0", "VSTOL", "LH Flaps & Water", "H2O Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3449", "3449", "1", "Take Off", "0.5", "Off", "0", "Landing", "LH Flaps & Water", "H2O Mode Switch", "%1d"));
             AddFunction(new PushButton(this, DECS, "3450", "3450", "LH Flaps & Water", "Combat Thrust Button"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3454", "3454", "1", "VSTOL", "0.5", "Auto", "0", "Cruise", "LH Flaps & Water", "Flaps Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3454", "3454", "1", "Cruise", "0.5", "Auto", "0", "STOL", "LH Flaps & Water", "Flaps Mode Switch", "%1d"));
             AddFunction(new Digits2Display(this, SMC, "2014", "LH Flaps & Water", "Flaps position", "Position of the flaps in degrees"));
             AddFunction(new PushButton(this, VREST, "3460", "3460", "LH Flaps & Water", "Flaps BIT"));
             AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3457", "3457", "0", "Off", "0.5", "On", "1", "Reset", "LH Flaps & Water", "Flaps Power Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3459", "3459", "1", "NWS", "0.5", "On", "0", "Test", "LH Flaps & Water", "Anti-Skid Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3459", "3459", "1", "Test", "0.5", "On", "0", "NWS", "LH Flaps & Water", "Anti-Skid Switch", "%1d"));
             #endregion
 
             #region Centre Console
 
             //-- Misc Switch Panel
-            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3422", "3422", "0", "Off", "1", "Auto", "Centre Console", "Video Recorder System Mode Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3423", "3423", "0", "HUD", "1", "MPCD", "Centre Console", "Video Recorder System Display Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3422", "3422", "0", "Auto", "1", "Run", "Centre Console", "Video Recorder System Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3423", "3423", "0", "MPCD", "1", "HUD", "Centre Console", "Video Recorder System Display Selector Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DMT, "3424", "3424", "1", "DMT", "0", "Off", "Centre Console", "DMT Toggle On/Off", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3425", "3425", "1", "DP Prim", "0.5", "Auto", "0", "Alter", "Centre Console", "Dual Processor Mode Selector Switch", "%.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTINSTRUMENTS, "3426", "3426", "1", "PRB H T", "0", "Auto", "Centre Console", "Probe Heat Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3425", "3425", "1", "DP Prim", "0.5", "Alter", "0", "Alter", "Centre Console", "Dual Processor Mode Selector Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTINSTRUMENTS, "3426", "3426", "1", "Probe Heat", "0", "Auto", "Centre Console", "Probe Heat Mode Switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3427", "3427", "1", "Mission Computer OVerride", "0.5", "Auto", "0", "Off", "Centre Console", "Mission Computer Mode Switch", "%.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3429", "3429", "1", "FLIR", "0", "Off", "Centre Console", "FLIR Power Switch", "%1d"));
             AddFunction(new Switch(this, NAV_INS, "3421", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3421"), new SwitchPosition("0.1", "Sea", "3421"), new SwitchPosition("0.2", "INS GND", "3421"), new SwitchPosition("0.3", "Nav", "3421"), new SwitchPosition("0.4", "IFA", "3421"), new SwitchPosition("0.5", "Gyro", "3421"), new SwitchPosition("0.6", "GB", "3421"), new SwitchPosition("0.7", "Test", "3421") }, "Centre Console", "INS Mode Switch", "%.1f"));
@@ -378,14 +378,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Left Hand Left Hand Switches Fuel External Lights SAAHS
             ////         --Trim Panel
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "3471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0.5", "Centre", "0", "Right", "SAAHS", "Rudder trim switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0", "Centre", "-1", "Right", "SAAHS", "Rudder trim switch", "%.1f"));
 
             CalibrationPointCollectionDouble trimScale = new CalibrationPointCollectionDouble(-1.0d, -1d, 1.0d, 1d);
             AddFunction(new ScaledNetworkValue(this, "473", trimScale, "SAAHS", "Aileron trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
             AddFunction(new ScaledNetworkValue(this, "474", trimScale, "SAAHS", "Rudder trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
             //         --SAAHS Panel
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3476", "3476", "1", "Hold", "0", "Off", "SAAHS", "Altitude hold switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3477", "3477", "1", "On", "0.5", "Off", "0", "Reset", "SAAHS", "AFC Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3477", "3477", "2", "On", "1", "Off", "0", "Reset", "SAAHS", "AFC Switch", "%.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3475", "3475", "1", "On", "0", "Off", "SAAHS", "Q Feel switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3478", "3478", "1", "On", "0", "Off", "SAAHS", "SAS Yaw Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3479", "3479", "1", "On", "0", "Off", "SAAHS", "SAS Roll Switch", "%1d"));
@@ -485,9 +485,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3625", "3625", "1", "Code", "0", "Mode", "ACNIP", "KY-2 Code/Mode Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3626", "3626", "1", "On", "0", "Off", "ACNIP", "ACNIP Radio Selector Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3627", "3627", "1", "On", "0", "Off", "ACNIP", "KY-58 Codes Clear Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "3628", "1", "On", "0.5", "Off", "0", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "3628", "1", "On", "0", "Off", "-1", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3632", "3632", "1", "On", "0", "Off", "ACNIP", "IFF Operational Mode Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "3633", "1", "On", "0.5", "Off", "0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "3633", "1", "On", "0.5", "Mid", "0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%1d"));
 
             #endregion
 
@@ -500,7 +500,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Interior Lights
-            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "3634", "0", "Compass", "0.5", "Off","1","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "3634", "1", "Compass", "0.5", "Off","0","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
             AddFunction(new Axis(this, LTINT, "3635", "3635", 0.03d, 0d, 1d, "Interior Lights", "Instruments Lights"));
             AddFunction(new Axis(this, LTINT, "3636", "3636", 0.03d, 0d, 1d, "Interior Lights", "Console Lights"));
             AddFunction(new Axis(this, LTINT, "3637", "3637", 0.03d, 0d, 1d, "Interior Lights", "Flood Lights"));
@@ -534,10 +534,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region ECS
             AddFunction(new Axis(this, ECS, "3639", "3639", 0.03d, 0d, 1d, "Environment Control", "Temperature Control Knob"));
-            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3640", "3640", "1", "Norm", "0", "Reset", "Environment Control", "Fwd Equipment Bay ECS Switch", "%1d"));
-            AddFunction(new Switch(this, ECS, "3641", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3641"), new SwitchPosition("0.5", "Defog", "3641"), new SwitchPosition("1.0", "Max", "3641") }, "Environment Control", "Cabin Defog Switch", "%0.1f"));
-            AddFunction(new Switch(this, ECS, "3642", new SwitchPosition[] { new SwitchPosition("0.0", "Reset", "3642"), new SwitchPosition("0.5", "On", "3642"), new SwitchPosition("1.0", "Off", "3642") }, "Environment Control", "Aft Equipment Bay ECS Switch", "%0.1f"));
-            AddFunction(new Switch(this, ECS, "3643", new SwitchPosition[] { new SwitchPosition("0.0", "PRESS NORM", "3643"), new SwitchPosition("0.5", "DUMP", "3643"), new SwitchPosition("1.0", "RAM", "3643") }, "Environment Control", "Cabin Pressure Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3640", "3640", "0", "Norm", "1", "Reset", "Environment Control", "Fwd Equipment Bay ECS Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3641", "3641", "1", "Norm", "0.5", "Defog", "0", "Max", "Environment Control", "Cabin Defog Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3642", "3642", "1", "Reset", "0.5", "On", "0", "Off", "Environment Control", "Aft Equipment Bay ECS Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3643", "3643", "1", "Press Norm", "0.5", "Dump", "0", "Ram", "Environment Control", "Cabin Pressure Switch", "%0.1f"));
             #endregion
 
             #region Engine Display Panel
@@ -562,7 +562,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3612", "3612", "1", "On", "0.5", "Off", "0", "Test", "Electrical", "Generator switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ELECTRIC, "3611", "3611", "1", "Start", "0", "Off", "Electrical", "Engine start switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3610", "3610", "1", "Reset", "0.5", "On", "0", "Off", "Electrical", "APU generator switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3609", "3609", "1", "Main", "0.5", "Off", "0", "Standby", "Electrical", "DC Test switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3609", "3609", "0", "Main", "0.5", "Off", "1", "Standby", "Electrical", "DC Test switch", "%1d"));
             #endregion
 
             #region Brake / Hydraulic Pressures
