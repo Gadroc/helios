@@ -287,7 +287,6 @@
     <Compile Include="Gauges\AV-8B\stabiliser display\stabilizerDisplay.cs" />
     <Compile Include="Gauges\AV-8B\1 Digit Display\1DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\ADI\SlipBall.cs" />
-    <Compile Include="Gauges\AV-8B\Altimeter\Altimeter.cs" />
     <Compile Include="Gauges\AV-8B\ADI\BackupADI.cs" />
     <Compile Include="Gauges\AV-8B\AOA\AOA.cs" />
     <Compile Include="Gauges\AV-8B\Trim Position\trimPositionRudder.cs" />
@@ -301,7 +300,6 @@
     <Compile Include="Gauges\AV-8B\IAS\IAS.cs" />
     <Compile Include="Gauges\AV-8B\4 Digit Display\4DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\2 Digit Display\2DigitDisplay.cs" />
-    <Compile Include="Gauges\AV-8B\Cabin Altitude\CabinAltitude.cs" />
     <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
