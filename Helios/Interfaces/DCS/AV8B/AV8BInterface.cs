@@ -575,7 +575,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             //Cabin Altitude Pressure 
             CalibrationPointCollectionDouble cabinScale = new CalibrationPointCollectionDouble(-0.003d,-300d,0.5000d, 50000d);
             cabinScale.Add(new CalibrationPointDouble(0d, 0d));
-            AddFunction(new ScaledNetworkValue(this, "607", cabinScale, "Brake/ Hydraulic", "Cabin Altitude", "Cabin altitude pressue in feet 0 to +50000.", "", BindingValueUnits.Feet));
+            AddFunction(new ScaledNetworkValue(this, "607", cabinScale, "Brake/ Hydraulic", "Cabin Altitude", "Cabin altitude pressue in feet 0 to +50000.", "", BindingValueUnits.Numeric));
 
             #endregion
 
