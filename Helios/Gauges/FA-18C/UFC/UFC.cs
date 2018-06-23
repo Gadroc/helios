@@ -34,7 +34,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public UFC_FA18C()
             : base("Up Front Controller", new Size(645, 470))
         {
-
             AddButton("EMCON", 562, 129, new Size(50, 50));
             AddButton("1", 115, 112, new Size(50, 50));
             AddButton("2", 179, 112, new Size(50, 50));

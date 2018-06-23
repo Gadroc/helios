@@ -64,8 +64,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddKnobSMC1("Fuzing Options", new Point(582, 39), new Size(75, 75));
             AddKnobSMC2("Stores Jettison Switch", new Point(58, 150), new Size(100, 100));
             AddButton("Jettison Button", 77, 169, new Size(62, 62), true, true);
-
-
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize)
         {

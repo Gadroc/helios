@@ -649,8 +649,6 @@
     <Resource Include="Images\AV-8B\Heart Knob.png" />
     <Resource Include="Images\AV-8B\Hexagonal Switch Off.png" />
     <Resource Include="Images\AV-8B\Hexagonal Switch On.png" />
-    <Resource Include="Images\AV-8B\Jettison Button.png" />
-    <Resource Include="Images\AV-8B\Jettison Rotary Switch.png" />
     <Resource Include="Images\AV-8B\Knob 3.png" />
     <Resource Include="Images\AV-8B\Mic Volume Knob Lower.png" />
     <Resource Include="Images\AV-8B\Mic Volume Knob Upper.png" />
