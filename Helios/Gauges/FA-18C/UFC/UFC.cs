@@ -25,7 +25,12 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     [HeliosControl("Helios.FA18C.UFC", "Up Front Controller", "F/A-18C", typeof(FA18CDeviceRenderer))]
     class UFC_FA18C: FA18CDevice
     {
+        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
+        private Rect _scaledScreenRect = SCREEN_RECT;
+
         private string _aircraft;
+        //private String _font = "MS 33558";
+        private String _font = "Franklin Gothic";
         public UFC_FA18C()
             : base("Up Front Controller", new Size(645, 470))
         {
@@ -67,7 +72,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
         public override string BezelImage
         {
-            get { return "{ Helios}/Images/FA-18C/UFC 1080.png"; }
+            get { return "{Helios}/Images/FA-18C/UFC 1080.png"; }
         }
             
         private void AddTrigger(IBindingTrigger trigger, string device)
@@ -208,7 +213,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 indicator.TextFormat.FontSize = 12;
             }
-            indicator.TextFormat.FontFamily = new FontFamily("MS 33558");
+            indicator.TextFormat.FontFamily = new FontFamily(_font);
             indicator.TextFormat.PaddingLeft = 0;
             indicator.TextFormat.PaddingRight = 0;
             indicator.TextFormat.PaddingTop = 0;
@@ -246,7 +251,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             indicator.TextFormat.FontStyle = FontStyles.Normal;
             indicator.TextFormat.FontWeight = FontWeights.Normal;
             indicator.TextFormat.FontSize = 18;
-            indicator.TextFormat.FontFamily = new FontFamily("MS 33558");
+            indicator.TextFormat.FontFamily = new FontFamily(_font);
             indicator.TextFormat.PaddingLeft = 0;
             indicator.TextFormat.PaddingRight = 0;
             indicator.TextFormat.PaddingTop = 0;
@@ -277,21 +282,19 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             toggle.Name = name;
 
             Children.Add(toggle);
-            //foreach (IBindingTrigger trigger in toggle.Triggers)
-            //{
-            //    AddTrigger(trigger, name);
-            //}
+            foreach (IBindingTrigger trigger in toggle.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
             AddTrigger(toggle.Triggers["position.changed"], name);
-            //AddTrigger(toggle.Triggers["pushed"], name);
-            //AddTrigger(toggle.Triggers["released"], name);
             AddAction(toggle.Actions["set.position"], name);
         }
         public override bool HitTest(Point location)
         {
-            //if (_scaledScreenRect.Contains(location))
-            //{
-            //    return false;
-            //}
+            if (_scaledScreenRect.Contains(location))
+            {
+                return false;
+            }
 
             return true;
         }

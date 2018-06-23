@@ -34,6 +34,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
         private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
         private Rect _scaledScreenRectR = SCREEN_RECT_R;
+        //private String _font = "MS 33558";
+        private String _font = "Franklin Gothic";
+
         public UFC_AV8B()
             : base("Up Front Controller", new Size(808, 550))
         {
@@ -261,7 +264,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             {
                 indicator.TextFormat.FontSize = 12;
             }
-            indicator.TextFormat.FontFamily = new FontFamily("MS 33558");  // this probably needs to change before release
+            indicator.TextFormat.FontFamily = new FontFamily(_font);  // this probably needs to change before release
             indicator.TextFormat.PaddingLeft = 0;
             indicator.TextFormat.PaddingRight = 0;
             indicator.TextFormat.PaddingTop = 0;
@@ -302,7 +305,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             indicator.TextFormat.FontStyle = FontStyles.Normal;
             indicator.TextFormat.FontWeight = FontWeights.Normal;
             indicator.TextFormat.FontSize = 18;
-            indicator.TextFormat.FontFamily = new FontFamily("MS 33558");
+            indicator.TextFormat.FontFamily = new FontFamily(_font);
             indicator.TextFormat.PaddingLeft = 0;
             indicator.TextFormat.PaddingRight = 0;
             indicator.TextFormat.PaddingTop = 0;

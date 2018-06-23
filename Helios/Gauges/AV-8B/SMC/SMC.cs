@@ -80,7 +80,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{ Helios}/Images/AV-8B/AV-8B SMC faceplate.png"; }
+            get { return "{Helios}/Images/AV-8B/AV-8B SMC faceplate.png"; }
         }
             
         private void AddTrigger(IBindingTrigger trigger, string device)
