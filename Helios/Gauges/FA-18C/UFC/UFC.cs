@@ -199,7 +199,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 indicator.Text = name;
             }
-            indicator.Name = "Anunciator " + name;
+            indicator.Name = "Annunciator " + name;
             indicator.OnTextColor = Color.FromArgb(0xff, 0x24, 0x8D, 0x22);
             indicator.OffTextColor = Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C);
             indicator.TextFormat.FontStyle = FontStyles.Normal;

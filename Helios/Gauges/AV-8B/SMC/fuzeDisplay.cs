@@ -23,30 +23,33 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     [HeliosControl("Helios.AV8B.fuzeDisplay", "SMC Fuze Display", "AV-8B", typeof(GaugeRenderer))]
     public class fuzeDisplay : BaseGauge
     {
-        private HeliosValue _one_digit_display;
-        private GaugeDrumCounter _onesDrum;
+        private HeliosValue _fuze_display;
+        private GaugeDrumCounter _leftDrum;
+        private GaugeDrumCounter _rightDrum;
 
         public fuzeDisplay()
             : base("Fuze Mode Display", new Size(140, 50))
         {
             //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/SMC/fuze_digit_faceplate.xaml", new Rect(0d, 0d, 140d, 50d)));
 
-            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/SMC/fuze_mode_drum_tape.xaml", new Point(0d, 0d), "#", new Size(28d,10d), new Size(140d,50d));
-            _onesDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 140d, 50d));
-            Components.Add(_onesDrum);
+            _leftDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/SMC/fuze_mode_drum_tape_left.xaml", new Point(0d, 0d), "#", new Size(100d,100d), new Size(50d,50d));
+            _leftDrum.Clip = new RectangleGeometry(new Rect(0d, 0d, 50d, 50d));
+            Components.Add(_leftDrum);
+            _rightDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/SMC/fuze_mode_drum_tape_right.xaml", new Point(60d, 0d), "#", new Size(100d, 100d), new Size(50d, 50d));
+            _rightDrum.Clip = new RectangleGeometry(new Rect(60d, 0d, 50d, 50d));
+            Components.Add(_rightDrum);
 
-            _one_digit_display = new HeliosValue(this, new BindingValue(0d), "", "value", "Stores Management", "display for SMC fuze mode", BindingValueUnits.Numeric);
-            _one_digit_display.Execute += new HeliosActionHandler(DigitDisplay_Execute);
-            Actions.Add(_one_digit_display);
-
+            _fuze_display = new HeliosValue(this, new BindingValue(0d), "", "value", "Stores Management", "display for SMC fuze mode", BindingValueUnits.Numeric);
+            _fuze_display.Execute += new HeliosActionHandler(DigitDisplay_Execute);
+            Actions.Add(_fuze_display);
         }
 
         void DigitDisplay_Execute(object action, HeliosActionEventArgs e)
         {
-            if (e.Value.DoubleValue == 1)
-                _onesDrum.Value = 5;
-            else
-                _onesDrum.Value = e.Value.DoubleValue * 10;  // 386 returns values 0.1, 0.2 etc to multiply by 10 to get unit values
+            double _triggerVal = e.Value.DoubleValue;
+            if (_triggerVal == 110) _triggerVal = 77;  // 10 in both drums should be SAFE so we adjust for this.
+            _rightDrum.Value = _triggerVal;
+            _leftDrum.Value = _rightDrum.Value / 10d;
         }
     }
 }

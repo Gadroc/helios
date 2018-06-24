@@ -8,31 +8,31 @@
             <Path StrokeThickness="2.0" Stroke="#ff101010" StrokeMiterLimit="1.0" Fill="#ff4f5052" Data="F1 M 303.944,87.118 L 185.446,87.118 L 185.446,44.374 L 303.944,44.374 L 303.944,87.118 Z M 303.944,179.027 L 214.495,179.027 L 214.495,136.282 L 303.944,136.282 L 303.944,179.027 Z M 272.698,274.245 L 215.842,274.245 L 215.842,231.501 L 272.698,231.501 L 272.698,274.245 Z M 133.657,87.118 L 44.207,87.118 L 44.207,44.374 L 133.657,44.374 L 133.657,87.118 Z M 132.750,179.025 L 43.300,179.025 L 43.300,136.281 L 132.750,136.281 L 132.750,179.025 Z M 132.749,274.245 L 43.299,274.245 L 43.299,231.501 L 132.749,231.501 L 132.749,274.245 Z M 522.044,150.146 C 515.849,143.188 476.694,100.122 465.615,87.904 C 392.776,9.878 258.906,1.000 247.355,1.000 C 240.048,1.000 23.062,1.000 23.062,1.000 C 23.062,1.000 19.880,1.000 17.758,1.000 C 2.358,1.000 0.978,17.098 1.000,24.217 C 1.022,31.337 1.000,28.972 1.000,28.972 C 1.000,64.312 1.000,284.775 1.000,288.389 L 1.009,286.667 C 1.088,298.963 16.418,300.843 19.997,300.843 C 21.396,300.843 23.762,300.843 25.452,300.843 C 25.369,300.843 26.013,300.843 27.305,300.843 C 27.349,300.843 27.385,300.843 27.431,300.843 C 54.434,300.843 349.086,300.843 428.058,300.843 C 431.107,300.843 434.105,301.000 436.466,301.000 C 465.932,301.000 471.903,281.199 471.903,281.199 C 471.903,281.199 518.353,185.292 521.169,179.480 C 523.985,173.667 531.405,160.662 522.044,150.146 Z"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.5" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 461.413,126.933 C 462.326,130.931 462.809,135.095 462.809,139.371 C 462.809,170.095 437.903,195.003 407.177,195.003 C 386.665,195.003 368.745,183.899 359.098,167.378"/>
+            <Path StrokeThickness="2.5" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 461.413,126.933 C 462.326,130.931 462.809,135.095 462.809,139.371 C 462.809,170.095 437.903,195.003 407.177,195.003 C 386.665,195.003 368.745,183.899 359.098,167.378"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 462.809,139.371 L 482.610,139.371"/>
+            <Path StrokeThickness="2.0" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 462.809,139.371 L 482.610,139.371"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 458.580,160.662 L 476.869,168.236"/>
+            <Path StrokeThickness="2.0" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 458.580,160.662 L 476.869,168.236"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 446.522,178.713 L 460.519,192.710"/>
+            <Path StrokeThickness="2.0" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 446.522,178.713 L 460.519,192.710"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 428.472,190.774 L 436.048,209.061"/>
+            <Path StrokeThickness="2.0" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 428.472,190.774 L 436.048,209.061"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 407.177,195.004 L 407.179,214.805"/>
+            <Path StrokeThickness="2.0" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 407.177,195.004 L 407.179,214.805"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 385.888,190.778 L 378.316,209.063"/>
+            <Path StrokeThickness="2.0" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 385.888,190.778 L 378.316,209.063"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 367.842,178.712 L 353.844,192.712"/>
+            <Path StrokeThickness="2.0" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 367.842,178.712 L 353.844,192.712"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.1" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 398.759,128.528 L 461.750,128.528"/>
+            <Path StrokeThickness="2.1" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 398.759,128.528 L 461.750,128.528"/>
 
             <!-- Layer 1/<Path> -->
             <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 344.765,181.870"/>
@@ -47,7 +47,7 @@
             <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 359.787,168.517"/>
 
             <!-- Layer 1/<Path> -->
-            <Path StrokeThickness="2.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 400.291,128.007 L 359.787,168.517"/>
+            <Path StrokeThickness="2.0" Stroke="#ff699dc8" StrokeMiterLimit="1.0" Data="F1 M 400.291,128.007 L 359.787,168.517"/>
 
             <Canvas>
 

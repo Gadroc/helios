@@ -5,16 +5,7 @@ function ProcessHighImportance(mainPanelDevice)
 end
 
 function ProcessLowImportance(mainPanelDevice)
-    -- SMC Mode
-    local SMC_Mode = mainPanelDevice:get_argument_value(385)
-	if SMC_Mode >= 1.0 then SendData(2018, "AGM")
-	elseif SMC_Mode >= 0.8 then SendData(2018, "DIR")    -- SMC Mode
-	elseif SMC_Mode >= 0.6 then SendData(2018, "DSL")    -- SMC Mode
-	elseif SMC_Mode >= 0.4 then SendData(2018, "CIP")    -- SMC Mode
-	elseif SMC_Mode >= 0.2 then SendData(2018, "AUT")    -- SMC Mode
-	elseif SMC_Mode >= 0 then SendData(2018, " - ")      -- SMC Mode
-	end
-  
+ 
     SendData(2001, string.format("%.0f",mainPanelDevice:get_argument_value(253) * 1000+mainPanelDevice:get_argument_value(254) * 100+mainPanelDevice:get_argument_value(255) * 10))     -- Engine Duct
     SendData(2002, string.format("%.0f",mainPanelDevice:get_argument_value(256) * 10000+mainPanelDevice:get_argument_value(257) * 1000+mainPanelDevice:get_argument_value(258) * 100+mainPanelDevice:get_argument_value(259) * 10))     -- Engine RPM
     SendData(2003, string.format("%.0f",mainPanelDevice:get_argument_value(260) * 1000+mainPanelDevice:get_argument_value(261) * 100+mainPanelDevice:get_argument_value(262) * 10))    -- Engine FF
@@ -22,7 +13,6 @@ function ProcessLowImportance(mainPanelDevice)
     SendData(2005, string.format("%.0f",mainPanelDevice:get_argument_value(267) * 100+mainPanelDevice:get_argument_value(268) * 10)) -- Engine Stab
     SendData(2006, string.format("%.0f",mainPanelDevice:get_argument_value(269) * 100+mainPanelDevice:get_argument_value(270) * 10)) -- Engine H2O
     SendData(2019, string.format("%.4f",mainPanelDevice:get_argument_value(386) * 100+mainPanelDevice:get_argument_value(387) * 10)) -- SMC Fuze
-    --SendData(2019, string.format("%.f",mainPanelDevice:get_argument_value(386) * 10) .. string.format("%.0f",mainPanelDevice:get_argument_value(387) * 10)) -- SMC Fuze
     SendData(2020, string.format("%.0f",mainPanelDevice:get_argument_value(392) * 1000+mainPanelDevice:get_argument_value(393) * 100+mainPanelDevice:get_argument_value(394) * 10))    -- SMC Interval
     SendData(2022, string.format("%.0f",mainPanelDevice:get_argument_value(389) * 100+mainPanelDevice:get_argument_value(390) * 10))    -- SMC Quantity
     SendData(2021, string.format("%.0f",mainPanelDevice:get_argument_value(391) * 10))    -- SMC Mult

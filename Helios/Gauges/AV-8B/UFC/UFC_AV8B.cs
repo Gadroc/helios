@@ -243,7 +243,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             indicator.Height = size.Height;
             indicator.OnImage = "{Helios}/Images/Indicators/anunciator.png";
             indicator.OffImage = "{Helios}/Images/Indicators/anunciator.png";
-            if (name == "Unknown 1" | name == "Unknown 2")
+            if (name == "Unknown 1" || name == "Unknown 2")
             {
                 indicator.Text = ".";
             }
@@ -251,14 +251,20 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             {
                 indicator.Text = name;
             }
-            indicator.Name = "Anunciator " + name;
-            indicator.OnTextColor = Color.FromArgb(0xff, 0x24, 0x8D, 0x22);
-            indicator.OffTextColor = Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C);
+            indicator.Name = "Annunciator " + name;
+            indicator.OnTextColor = Color.FromArgb(0xff, 0x94, 0xEB, 0xA6);
+            indicator.OffTextColor = Color.FromArgb(0xff, 0x10, 0x10, 0x10);
             indicator.TextFormat.FontStyle = FontStyles.Normal;
             indicator.TextFormat.FontWeight = FontWeights.Normal;
             if (_vertical)
             {
-                indicator.TextFormat.FontSize = 8;
+                if (_font == "MS 33558")
+                {
+                    indicator.TextFormat.FontSize = 8;
+                } else
+                {
+                    indicator.TextFormat.FontSize = 11;
+                }
             }
             else
             {
@@ -345,8 +351,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             // No-Op
         }
-
-
 
     }
 }

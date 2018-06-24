@@ -160,6 +160,7 @@
     </Compile>
     <Compile Include="Controls\LineDecorationRenderer.cs" />
     <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
+    <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-2.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-1.cs" />
@@ -390,6 +391,7 @@
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder1.cs" />
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder3.cs" />
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder4.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\Functions\SMCFuzeDisplay.cs" />
     <Compile Include="Interfaces\DCS\FA18C\FA18CInterface.cs" />
     <Compile Include="Interfaces\DCS\FA18C\FA18CInterfaceEditor.xaml.cs">
       <DependentUpon>FA18CInterfaceEditor.xaml</DependentUpon>
@@ -786,7 +788,25 @@
     <None Include="Templates\Base\A-10\Vertical Rocker.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Templates\Base\AV-8B\2-way Toggle Domed.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\3-way Toggle Domed.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\AV-8B Canopy Lock Lever.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Templates\Base\AV-8B\AV-8B Flaps Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\AV-8B Pointy Toggle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\Comms Rotary Encoder.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\Flare Salvo Button.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Templates\Base\AV-8B\Fuel Cutoff Lever.htpl">
@@ -810,7 +830,28 @@
     <None Include="Templates\Base\AV-8B\Master Arm Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Templates\Base\AV-8B\MPCD Button Horizontal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\MPCD Button Vertical.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\MPCD Rocker Angled Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\MPCD Rocker Angled Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\MPCD Rocker Vertical.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Templates\Base\AV-8B\Rotary Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\SMC Square 3-way Toggle A.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Base\AV-8B\SMC Square 3-Way Toggle B.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Templates\Base\Buttons\MFD Lit.htpl">
@@ -2049,7 +2090,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\SMC\fuze_mode_drum_tape.xaml">
+    <Resource Include="Gauges\AV-8B\SMC\fuze_mode_drum_tape_left.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2126,6 +2167,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\AV-8B\Fuel Panel\fuel_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\fuze_mode_drum_tape_right.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2667,7 +2712,6 @@
     <Resource Include="Images\AV-8B\AV8BNA_Gear_R_Off.png" />
     <Resource Include="Images\AV-8B\Blank Panel 2.png" />
     <Resource Include="Images\AV-8B\Chan Freq Knob.png" />
-    <Resource Include="Images\AV-8B\Cockpit.png" />
     <Resource Include="Images\AV-8B\Combat Button Off.png" />
     <Resource Include="Images\AV-8B\Combat Button Pushed.png" />
     <Resource Include="Images\AV-8B\Combat Button SEL.png" />
@@ -2840,6 +2884,9 @@
     <Resource Include="Images\AV-8B\MFD Rocker V Dn.png" />
     <Resource Include="Images\AV-8B\MFD Rocker V Mid.png" />
     <Resource Include="Images\AV-8B\MFD Rocker V Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B\Advisory Panel Frame.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

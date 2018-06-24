@@ -330,8 +330,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, FLIGHTCONTROLS, "3448", "3448", "Landing Gear", "Gear Down Lock Override Button"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3447", "3447", "5.0", "Gear up", "0", "Gear down", "Landing Gear", "Emergency Landing Gear Lever", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3470", "3470", "5.0", "Up", "0", "Down", "Landing Gear", "Landing Gear Emergency Battery Lever", "%1d"));
-
-
             #endregion
 
             #region Left Hand Advisory Indicators
@@ -413,7 +411,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateToggleSwitch(this, VREST, "3516", "3516", "1", "On", "0", "Off", "Pilot Service", "LIDS Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3517", "3517", "1", "On", "0", "Off", "Pilot Service", "ENG RPM Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3518", "3518", "1", "On", "0", "Off", "Pilot Service", "EFC Switch", "%1d"));
-
             #endregion
 
             #region Stores Management Controller
@@ -448,12 +445,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits3Display(this, SMC, "2020", "Stores Management", "Stores interval display", "Interval value in metres"));
             AddFunction(new Digits2Display(this, SMC, "2022", "Stores Management", "Stores quantity display", "Quantity of stores"));
             AddFunction(new SMCMultipleDisplay(this));
-            AddFunction(new Text(this, "2018", "Stores Management", "SMC mode (Text)", "Stores management mode in text form"));
             AddFunction(new NetworkValue(this, "385", "Stores Management", "SMC mode (value)", "Current SMC mode in value form", "", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "386", "Stores Management", "Fuze mode 1 (value)", "Fuze mode (1st part)", "", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "387", "Stores Management", "Fuze mode 2 (value)", "Fuze mode (2nd part)", "", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "2019", "Stores Management", "Fuze Mode (combined 2019)", "Fuze mode in combined form", "", BindingValueUnits.Numeric));
-
+            AddFunction(new NetworkValue(this, "386", "Stores Management", "Fuze mode Left (value)", "Fuze mode (Left Drum)", "", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "387", "Stores Management", "Fuze mode Right (value)", "Fuze mode (Right Drum)", "", BindingValueUnits.Numeric));
+            AddFunction(new SMCFuzeDisplay(this, SMC, "2019", "Stores Management", "Fuze Mode", "Fuze mode in combined form"));
             #endregion
 
             #region Left Bulkhead
@@ -500,7 +495,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Interior Lights
-            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "3634", "1", "Compass", "0.5", "Off","0","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "3634", "0", "Compass", "0.5", "Off","1","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
             AddFunction(new Axis(this, LTINT, "3635", "3635", 0.03d, 0d, 1d, "Interior Lights", "Instruments Lights"));
             AddFunction(new Axis(this, LTINT, "3636", "3636", 0.03d, 0d, 1d, "Interior Lights", "Console Lights"));
             AddFunction(new Axis(this, LTINT, "3637", "3637", 0.03d, 0d, 1d, "Interior Lights", "Flood Lights"));
