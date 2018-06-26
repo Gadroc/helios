@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"   x:Name="svg2" Margin="0,0,0,0" Height="128" Width="128">
+    <Canvas Width="128.000" Height="128.000" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="0" Canvas.Top="0">
+        <Path StrokeThickness="3.7" Stroke="#ff65171c" StrokeMiterLimit="1.0" Data="F1 M 40.531,101.313 C 40.531,67.347 68.066,39.813 102.031,39.813 C 135.997,39.813 163.531,67.347 163.531,101.313 C 163.531,135.277 135.997,162.813 102.031,162.813 C 68.066,162.813 40.531,135.277 40.531,101.313 Z" Canvas.Left="-37.733" Canvas.Top="-37.733" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Path.Fill>
+                <RadialGradientBrush MappingMode="Absolute" GradientOrigin="112.975,-76.020" Center="52.241,-85.698" RadiusX="61.500" RadiusY="61.500">
+                    <RadialGradientBrush.Transform>
+                        <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,47.791,16.615" />
+                    </RadialGradientBrush.Transform>
+                    <GradientStop Offset="0.06" Color="#ffbd282e"/>
+                    <GradientStop Offset="0.16" Color="#ffc4302d"/>
+                    <GradientStop Offset="0.40" Color="#ffcc372c"/>
+                    <GradientStop Offset="0.53" Color="#ffdb3231"/>
+                    <GradientStop Offset="0.74" Color="#ffea2c35"/>
+                    <GradientStop Offset="1.00" Color="#ff811913"/>
+                </RadialGradientBrush>
+            </Path.Fill>
+        </Path>
+
+        <Path StrokeThickness="1.0" Stroke="#ffea2e4d" StrokeMiterLimit="1.0" Fill="#ffeeeff0" Data="F1 M 55.329,106.348 L 55.329,106.646 C 55.329,107.771 55.549,108.952 55.988,110.188 C 56.428,111.425 57.043,112.480 57.834,113.352 C 58.625,114.226 59.563,114.803 60.646,115.084 C 61.730,115.365 62.917,115.107 64.206,114.311 C 65.472,113.537 66.400,112.424 66.992,110.971 C 67.584,109.517 67.880,108.076 67.880,106.646 L 67.880,86.273 C 67.880,85.582 68.120,85.002 68.601,84.533 C 69.257,83.877 70.048,83.669 70.974,83.909 C 71.899,84.149 72.480,84.726 72.714,85.641 C 72.749,85.816 72.778,86.027 72.802,86.273 L 72.802,106.646 C 72.649,109.037 72.128,111.313 71.237,113.476 C 70.347,115.638 68.765,117.305 66.491,118.476 C 64.288,119.613 62.211,120.047 60.260,119.777 C 58.309,119.508 56.601,118.767 55.136,117.554 C 53.671,116.341 52.514,114.767 51.664,112.834 C 50.814,110.900 50.390,108.838 50.390,106.646 L 50.390,106.348 C 50.390,105.645 50.647,105.050 51.163,104.563 C 51.679,104.077 52.294,103.851 53.009,103.887 C 53.653,103.922 54.201,104.183 54.652,104.669 C 55.103,105.155 55.329,105.715 55.329,106.348 Z" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-40.751" Canvas.Top="-34.714" />
+        <Path StrokeThickness="1.0" Stroke="#ffea2e4d" StrokeMiterLimit="1.0" Fill="#ffeeeff0" Data="F1 M 96.339,88.717 L 81.767,88.717 L 81.767,98.332 L 92.876,98.332 C 94.540,98.578 95.369,99.413 95.363,100.837 C 95.357,102.261 94.528,103.090 92.876,103.324 L 81.767,103.324 L 81.767,114.873 L 96.339,114.873 C 97.991,115.119 98.817,115.945 98.817,117.351 C 98.817,118.758 97.991,119.578 96.339,119.813 L 79.323,119.813 C 77.858,119.625 77.026,118.793 76.827,117.316 L 76.827,86.273 C 77.050,84.726 77.882,83.906 79.323,83.813 L 96.339,83.813 C 97.991,83.941 98.814,84.765 98.809,86.282 C 98.803,87.800 97.980,88.611 96.339,88.717 Z" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-40.751" Canvas.Top="-34.714" />
+        <Path StrokeThickness="1.0" Stroke="#ffea2e4d" StrokeMiterLimit="1.0" Fill="#ffeeeff0" Data="F1 M 112.616,117.351 L 112.616,88.770 L 106.165,88.770 C 104.524,88.641 103.707,87.817 103.713,86.300 C 103.719,84.782 104.536,83.953 106.165,83.813 L 124.007,83.813 C 125.624,83.941 126.436,84.771 126.441,86.300 C 126.447,87.829 125.636,88.652 124.007,88.770 L 117.573,88.770 L 117.573,117.351 C 117.304,119.016 116.439,119.836 114.980,119.813 C 113.521,119.789 112.733,118.969 112.616,117.351 Z" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-40.751" Canvas.Top="-34.714"/>
+        <Path StrokeThickness="1.0" Stroke="#ffea2e4d" StrokeMiterLimit="1.0" Fill="#ffeeeff0" Data="F1 M 140.601,117.351 L 140.601,88.770 L 134.149,88.770 C 132.509,88.641 131.691,87.817 131.697,86.300 C 131.703,84.782 132.520,83.953 134.149,83.813 L 151.991,83.813 C 153.608,83.941 154.420,84.771 154.426,86.300 C 154.432,87.829 153.620,88.652 151.991,88.770 L 145.558,88.770 L 145.558,117.351 C 145.288,119.016 144.424,119.836 142.965,119.813 C 141.506,119.789 140.718,118.969 140.601,117.351 Z" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-40.751" Canvas.Top="-34.714"/>
+    </Canvas>
+</Canvas>

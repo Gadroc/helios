@@ -235,7 +235,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                 }
                 else
                 {
-                    ConfigManager.LogManager.LogWarning("UDP interface recieved data for missing function. (Key=\"" + _tokens[i] + "\")");
+                    ConfigManager.LogManager.LogWarning("UDP interface received data for missing function. (Key=\"" + _tokens[i] + "\")");
                 }
             }
 

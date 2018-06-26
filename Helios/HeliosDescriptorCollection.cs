@@ -53,9 +53,16 @@ namespace GadrocsWorkshop.Helios
 
         public void Add(HeliosDescriptor item)
         {
-            _controlDescriptors.Add(item);
-            _typeIdentifiers.Add(item.TypeIdentifier, item);
-            _types.Add(item.ControlType, item);
+            try
+            {
+                _controlDescriptors.Add(item);
+                _typeIdentifiers.Add(item.TypeIdentifier, item);
+                _types.Add(item.ControlType, item);
+            }
+            catch (Exception e)
+            {
+                ConfigManager.LogManager.LogError("Failed to add Helios Item: " + item.Name, e);
+            }
         }
 
         public void Clear()

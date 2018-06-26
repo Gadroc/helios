@@ -391,8 +391,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C
             #endregion
 
             #region Fuel Panel
-            AddFunction(new ScaledNetworkValue(this, "88", 6000d, "Fuel Gauge", "Left Quantity", "Qunatity displayed on the left needle", "", BindingValueUnits.Pounds));
-            AddFunction(new ScaledNetworkValue(this, "89", 6000d, "Fuel Gauge", "Right Quantity", "Qunatity displayed on the right needle", "", BindingValueUnits.Pounds));
+            AddFunction(new ScaledNetworkValue(this, "88", 6000d, "Fuel Gauge", "Left Quantity", "Quantity displayed on the left needle", "", BindingValueUnits.Pounds));
+            AddFunction(new ScaledNetworkValue(this, "89", 6000d, "Fuel Gauge", "Right Quantity", "Quantity displayed on the right needle", "", BindingValueUnits.Pounds));
             AddFunction(new TotalFuel(this));
             AddFunction(new Switch(this, FUEL_SYSTEM, "645", new SwitchPosition[] { new SwitchPosition("0.0", "Int", BUTTON_17), new SwitchPosition("0.1", "Main", BUTTON_17), new SwitchPosition("0.2", "Wing", BUTTON_17), new SwitchPosition("0.3", "Ext Wing", BUTTON_17), new SwitchPosition("0.4", "Ext Ctr", BUTTON_17) }, "Fuel System", "Fuel Display Selector", "%0.1f"));
             AddFunction(new PushButton(this, FUEL_SYSTEM, BUTTON_18, "646", "Fuel System", "Test Indicator"));
