@@ -29,8 +29,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private Rect _scaledScreenRect = SCREEN_RECT;
 
         private string _aircraft;
-        //private String _font = "MS 33558";
-        private String _font = "Franklin Gothic";
+        private String _font = "MS 33558";
+        //private String _font = "Franklin Gothic";
         public UFC_FA18C()
             : base("Up Front Controller", new Size(645, 470))
         {

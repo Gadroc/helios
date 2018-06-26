@@ -33,8 +33,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private Rect _scaledScreenRect1 = SCREEN_RECT1;
         private Rect _scaledScreenRect2 = SCREEN_RECT2;
 
-        //private String _font = "MS 33558";
-        private String _font = "Franklin Gothic";
+        private String _font = "MS 33558";
+        //private String _font = "Franklin Gothic";
 
         public advisoryPanel()
             : base("AV-8B Advisory Panel", new Size(555, 1024))
