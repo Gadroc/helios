@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.BaroAltimeter
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.BaroAltimeter
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig21.BarometricAltimeter", "Barometric Altimeter", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG21.BarometricAltimeter", "Barometric Altimeter", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class BarometricAltimeter : BaseGauge
     {
         private GaugeNeedle _qfeCard;
@@ -66,25 +66,25 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.BaroAltimeter
             _shortneedleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 30000d, 340d);
             _kmTriangleneedleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 30000d, 319d);
 
-            _qfeCard = new GaugeNeedle("{Helios}/Gauges/Mig-21/BaroAltimeter/baro_alt_qfe_card.xaml", center, new Size(264, 264), new Point(132, 132), 150d);
+            _qfeCard = new GaugeNeedle("{Helios}/Gauges/MiG-21/BaroAltimeter/baro_alt_qfe_card.xaml", center, new Size(264, 264), new Point(132, 132), 150d);
             Components.Add(_qfeCard);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/BaroAltimeter/baro_alt_faceplate.xaml", new Rect(0, 0, 340, 340)));
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/BaroAltimeter/baro_alt_innerfaceplate.xaml", new Rect(90, 90, 160, 160)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/BaroAltimeter/baro_alt_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/BaroAltimeter/baro_alt_innerfaceplate.xaml", new Rect(90, 90, 160, 160)));
 
-            _mTriangleNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/BaroAltimeter/baro_alt_triangle_m.xaml", center, new Size(40, 222), new Point(20, 152));
+            _mTriangleNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/BaroAltimeter/baro_alt_triangle_m.xaml", center, new Size(40, 222), new Point(20, 152));
             Components.Add(_mTriangleNeedle);
 
-            _kmTriangleNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/BaroAltimeter/baro_alt_triangle_m.xaml", center, new Size(21, 110), new Point(10.5, 79));
+            _kmTriangleNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/BaroAltimeter/baro_alt_triangle_m.xaml", center, new Size(21, 110), new Point(10.5, 79));
             Components.Add(_kmTriangleNeedle);
 
-            _shortNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/BaroAltimeter/baro_alt_short_needle.xaml", center, new Size(21, 110), new Point(10.5, 79));
+            _shortNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/BaroAltimeter/baro_alt_short_needle.xaml", center, new Size(21, 110), new Point(10.5, 79));
             Components.Add(_shortNeedle);
 
-            _longNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/BaroAltimeter/baro_alt_long_needle.xaml", center, new Size(40, 209), new Point(20, 139));
+            _longNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/BaroAltimeter/baro_alt_long_needle.xaml", center, new Size(40, 209), new Point(20, 139));
             Components.Add(_longNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _altitudeLong = new HeliosValue(this, BindingValue.Empty, "", "Altitude M", "Current barometric altitude M", "", BindingValueUnits.Meters);
             _altitudeLong.Execute += AltitudeLong_Execute;

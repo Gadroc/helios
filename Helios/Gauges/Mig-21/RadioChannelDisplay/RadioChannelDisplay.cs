@@ -13,14 +13,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.ChannelDisplay
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.ChannelDisplay
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.Mig-21.ChannelDisplay", "Radio/RSBN Land & Nav Channel Displays", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.ChannelDisplay", "Radio/RSBN Land & Nav Channel Displays", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class ChannelDisplay : BaseGauge
     {
         private HeliosValue _val;

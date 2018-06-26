@@ -14,14 +14,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
+namespace GadrocsWorkshop.Helios.Interfaces.DCS.MiG21
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
 
-    [HeliosInterface("Helios.Mig21", "DCS Mig21", typeof(Mig21InterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
-    public class Mig21Interface : BaseUDPInterface
+    [HeliosInterface("Helios.MiG21", "DCS MiG21", typeof(MiG21InterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
+    public class MiG21Interface : BaseUDPInterface
     {
         #region Devices
         private const string DC_BUS = "1";
@@ -380,8 +380,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
         private const string SORC_NIGHT_DAY = "3277";
         #endregion
 
-        public Mig21Interface()
-            : base("DCS Mig21")
+        public MiG21Interface()
+            : base("DCS MiG21")
         {
             #region DragChute
             AddFunction(new PushButton(this, CHUTE, DRAGCHUTE, "298", "Chute", "Release Drop Chute"));

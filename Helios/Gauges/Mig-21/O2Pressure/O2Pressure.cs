@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.O2Pressure
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.O2Pressure
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.O2Pressure", "O2 Pressure", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.O2Pressure", "O2 Pressure", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class O2Pressure : BaseGauge
     {
 
@@ -43,12 +43,12 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.O2Pressure
             _needleCalibration.Add(new CalibrationPointDouble(16d, 210.1d));
             _needleCalibration.Add(new CalibrationPointDouble(18d, 245d));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/O2Pressure/o2_pressure_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/O2Pressure/o2_pressure_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Common/small_needle.xaml", center, new Size(23, 164), new Point(11.5, 127), 222d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Common/small_needle.xaml", center, new Size(23, 164), new Point(11.5, 127), 222d);
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentO2Pressure = new HeliosValue(this, BindingValue.Empty, "", "Current O2 Pressure", "Current O2 Pressure", "", BindingValueUnits.Numeric);
             _currentO2Pressure.Execute += CurrentO2Pressure_Execute;

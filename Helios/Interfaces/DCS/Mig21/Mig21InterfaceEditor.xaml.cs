@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
+namespace GadrocsWorkshop.Helios.Interfaces.DCS.MiG21
 {
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
@@ -24,13 +24,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
     using System.Windows.Input;
 
     /// <summary>
-    /// Interaction logic for Mig21InterfaceEditor.xaml
+    /// Interaction logic for MiG21InterfaceEditor.xaml
     /// </summary>
-    public partial class Mig21InterfaceEditor : HeliosInterfaceEditor
+    public partial class MiG21InterfaceEditor : HeliosInterfaceEditor
     {
-        static Mig21InterfaceEditor()
+        static MiG21InterfaceEditor()
         {
-            Type ownerType = typeof(Mig21InterfaceEditor);
+            Type ownerType = typeof(MiG21InterfaceEditor);
 
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.AddDoFile, AddDoFile_Executed));
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.RemoveDoFile, RemoveDoFile_Executed));
@@ -38,7 +38,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
 
         private static void AddDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            Mig21InterfaceEditor editor = target as Mig21InterfaceEditor;
+            MiG21InterfaceEditor editor = target as MiG21InterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && !editor.Configuration.DoFiles.Contains(file))
             {
@@ -49,7 +49,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
 
         private static void RemoveDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            Mig21InterfaceEditor editor = target as Mig21InterfaceEditor;
+            MiG21InterfaceEditor editor = target as MiG21InterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && editor.Configuration.DoFiles.Contains(file))
             {
@@ -59,12 +59,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
 
         private string _dcsPath = null;
 
-        public Mig21InterfaceEditor()
+        public MiG21InterfaceEditor()
         {
             InitializeComponent();
-            Configuration = new DCSConfigurator("Mig21", "pack://application:,,,/Helios;component/Interfaces/DCS/Mig21/Export.lua", DCSPath, true);
+            Configuration = new DCSConfigurator("MiG21", "pack://application:,,,/Helios;component/Interfaces/DCS/MiG21/Export.lua", DCSPath, true);
             Configuration.ExportConfigPath = "Config\\Export";
-            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/Mig21/ExportFunctions.lua";
+            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/MiG21/ExportFunctions.lua";
         }
 
         #region Properties
@@ -77,7 +77,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
 
         // Using a DependencyProperty as the backing store for Configuration.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ConfigurationProperty =
-            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(Mig21InterfaceEditor), new PropertyMetadata(null));
+            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(MiG21InterfaceEditor), new PropertyMetadata(null));
 
         public string DCSPath
         {
@@ -95,7 +95,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
                         pathKey.Close();
-                        ConfigManager.LogManager.LogDebug("DCS Mig21 Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                        ConfigManager.LogManager.LogDebug("DCS MiG21 Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
                     }
                     else
                     {
@@ -122,11 +122,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mig21
         {
             if (Configuration.UpdateExportConfig())
             {
-                MessageBox.Show(Window.GetWindow(this), "DCS Mig21 has been configured.");
+                MessageBox.Show(Window.GetWindow(this), "DCS MiG21 has been configured.");
             }
             else
             {
-                MessageBox.Show(Window.GetWindow(this), "Error updating DCS Mig21 configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
+                MessageBox.Show(Window.GetWindow(this), "Error updating DCS MiG21 configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
             }
         }
 

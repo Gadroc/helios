@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.EngExhaustTempGauge
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.EngExhaustTempGauge
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.EngExhaustTempGauge", "Engine Temp Gauge", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.EngExhaustTempGauge", "Engine Temp Gauge", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class EngExhaustTempGauge : BaseGauge
     {
         private GaugeNeedle _currentNeedle;
@@ -42,12 +42,12 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.EngExhaustTempGauge
             _needleCalibration.Add(new CalibrationPointDouble(800d, 206d));
             _needleCalibration.Add(new CalibrationPointDouble(850d, 218d));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/EngExhaustTemp/EngExhaustTemp_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/EngExhaustTemp/EngExhaustTemp_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/EngExhaustTemp/EngExhaustTemp_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), 242d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/EngExhaustTemp/EngExhaustTemp_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), 242d);
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/EngExhaustTemp/EngExhaustTemp_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/EngExhaustTemp/EngExhaustTemp_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentTemp = new HeliosValue(this, BindingValue.Empty, "", "Engine Exhaust", "Current Temp", "", BindingValueUnits.Numeric);
             _currentTemp.Execute += CurrentFuel_Execute;

@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.RadioAltimeter
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.RadioAltimeter
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.RadioAltimeter", "Radio Altimeter", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.RadioAltimeter", "Radio Altimeter", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class RadioAltimeter : BaseGauge
     {
 
@@ -51,12 +51,12 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.RadioAltimeter
             _needleCalibration.Add(new CalibrationPointDouble(500d, 220.6d));
             _needleCalibration.Add(new CalibrationPointDouble(600d, 231d));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/RadioAltimeter/radalt_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/RadioAltimeter/radalt_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/RadioAltimeter/radalt_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), -120d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/RadioAltimeter/radalt_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), -120d);
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentRadAlt = new HeliosValue(this, BindingValue.Empty, "", "Current RadAlt", "Current RadAlt", "", BindingValueUnits.Numeric);
             _currentRadAlt.Execute += CurrentRadAlt_Execute;

@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.HydroPressure
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.HydroPressure
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.HydroPressure", "Hydraulic Pressure", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.HydroPressure", "Hydraulic Pressure", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class HydroPressure : BaseGauge
     {
         private GaugeNeedle _oneNeedle;
@@ -40,21 +40,21 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.HydroPressure
 
             _needleCalibration2 = new CalibrationPointCollectionDouble(0d, 0d, 300d, -131);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/HydroPressure/hydropressure_faceplate.xaml", new Rect(15, 15, 310, 310)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/HydroPressure/hydropressure_faceplate.xaml", new Rect(15, 15, 310, 310)));
 
             Point mainneedle = new Point(266, 266);
             Point secondneedle = new Point(71, 73);
 
-            _oneNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/HydroPressure/hydropressure_needle.xaml", mainneedle, new Size(20, 130), new Point(10, 120), 248);
+            _oneNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/HydroPressure/hydropressure_needle.xaml", mainneedle, new Size(20, 130), new Point(10, 120), 248);
             Components.Add(_oneNeedle);
 
-            _twoNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/HydroPressure/hydropressure_needle.xaml", secondneedle, new Size(20, 130), new Point(10, 120), 201);
+            _twoNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/HydroPressure/hydropressure_needle.xaml", secondneedle, new Size(20, 130), new Point(10, 120), 201);
             Components.Add(_twoNeedle);
  
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/HydroPressure/hydropressure_needle_cover.xaml", new Rect(235, 235, 70, 70)));
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/HydroPressure/hydropressure_needle_cover_second.xaml", new Rect(35, 35, 70, 70)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/HydroPressure/hydropressure_needle_cover.xaml", new Rect(235, 235, 70, 70)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/HydroPressure/hydropressure_needle_cover_second.xaml", new Rect(35, 35, 70, 70)));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _oneE = new HeliosValue(this, BindingValue.Empty, "", "Pressure Main", "Pressure Main", "", BindingValueUnits.Numeric);
             _oneE.Execute += OneEng_Execute;

@@ -14,13 +14,13 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.DA200
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.DA200
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.DA200", "DA200", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.DA200", "DA200", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class DA200 : BaseGauge
     {
         private GaugeNeedle _vviNeedle;
@@ -56,21 +56,21 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.DA200
             _vvineedleCalibration.Add(new CalibrationPointDouble(100d, 102d));
             _vvineedleCalibration.Add(new CalibrationPointDouble(200d, 121d));
 
-            _vviNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/DA200/da200vvi_needle.xaml", center, new Size(32, 185), new Point(16, 127), 270);
+            _vviNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/DA200/da200vvi_needle.xaml", center, new Size(32, 185), new Point(16, 127), 270);
 
             _slipBallCalibration = new CalibrationPointCollectionDouble(-1d, 57d, 1d, -57d);
             _slipBallCalibration.Add(new CalibrationPointDouble(0d, 0d));
-            _slipBallNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/DA200/da200_slip_ball.xaml", bottomCenter, new Size(23, 23), new Point(11.5, 11.5));
+            _slipBallNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/DA200/da200_slip_ball.xaml", bottomCenter, new Size(23, 23), new Point(11.5, 11.5));
 
             _turnneedleCalibration = new CalibrationPointCollectionDouble(-0.04433d, -26d, 0.04433d, 26d);
-            _turnNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/DA200/da200bank_needle.xaml", veryBottomCenter, new Size(34, 218), new Point(17, 208));
+            _turnNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/DA200/da200bank_needle.xaml", veryBottomCenter, new Size(34, 218), new Point(17, 208));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/DA200/da200_faceplate.xaml", new Rect(0, 0, 340, 340)));
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/DA200/da200slip_faceplate.xaml", new Rect(99, 222, 140, 36)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/DA200/da200_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/DA200/da200slip_faceplate.xaml", new Rect(99, 222, 140, 36)));
             Components.Add(_slipBallNeedle);
             Components.Add(_turnNeedle);
             Components.Add(_vviNeedle);
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _vviE = new HeliosValue(this, BindingValue.Empty, "", "VVI", "Velocity", "", BindingValueUnits.Numeric);
             _vviE.Execute += vvi_Execute;

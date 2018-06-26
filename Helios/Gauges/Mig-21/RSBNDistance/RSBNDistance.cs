@@ -13,14 +13,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.RSBNDistance
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.RSBNDistance
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.Mig-21.RSBNDistance", "RSBN Distance", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.RSBNDistance", "RSBN Distance", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class RSBNDistance : BaseGauge
     {
         private HeliosValue _ones;
@@ -33,7 +33,7 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.RSBNDistance
         public RSBNDistance()
             : base("RSBN Distance", new Size(262, 152))
         {
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/RSBNDistance/RSBNDistance.png", new Rect(0d, 0d, 262d, 152d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/RSBNDistance/RSBNDistance.png", new Rect(0d, 0d, 262d, 152d)));
   
             //======================================================================
             //need to create a new overload for GaugeDrumCounter to go the other way
@@ -41,15 +41,15 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.RSBNDistance
             //happy with it. Can live with the wrong rotation, still correct display.
             //=======================================================================
 
-            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/Mig-21/Common/drum_tape.xaml", new Point(180d, 21.5d), "%", new Size(10d, 15d), new Size(35d, 55d));
+            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/MiG-21/Common/drum_tape.xaml", new Point(180d, 21.5d), "%", new Size(10d, 15d), new Size(35d, 55d));
             _onesDrum.Clip = new RectangleGeometry(new Rect(180d, 21.5d, 35d, 55d));
             Components.Add(_onesDrum);
 
-            _tensDrum = new GaugeDrumCounter("{Helios}/Gauges/Mig-21/Common/drum_tape.xaml", new Point(111.5d, 21.5d), "#", new Size(10d, 15d), new Size(35d, 55d));
+            _tensDrum = new GaugeDrumCounter("{Helios}/Gauges/MiG-21/Common/drum_tape.xaml", new Point(111.5d, 21.5d), "#", new Size(10d, 15d), new Size(35d, 55d));
             _tensDrum.Clip = new RectangleGeometry(new Rect(111.5d, 21.5d, 35d, 55d));
             Components.Add(_tensDrum);
 
-            _hundredsDrum = new GaugeDrumCounter("{Helios}/Gauges/Mig-21/Common/drum_tape.xaml", new Point(45.5d, 21.5d), "#", new Size(10d, 15d), new Size(35d, 55d));
+            _hundredsDrum = new GaugeDrumCounter("{Helios}/Gauges/MiG-21/Common/drum_tape.xaml", new Point(45.5d, 21.5d), "#", new Size(10d, 15d), new Size(35d, 55d));
             _hundredsDrum.Clip = new RectangleGeometry(new Rect(45.5d, 21.5d, 35d, 55d));
             Components.Add(_hundredsDrum);
 

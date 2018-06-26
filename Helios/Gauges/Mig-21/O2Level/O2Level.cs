@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.O2Level
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.O2Level
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.O2Level", "O2 Level", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.O2Level", "O2 Level", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class O2Level : BaseGauge
     {
         private GaugeNeedle _currentNeedle;
@@ -39,18 +39,18 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.O2Level
             _needleCalibration.Add(new CalibrationPointDouble(50d, 47.8d));
             _needleCalibration.Add(new CalibrationPointDouble(100d, 103d));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/O2Level/o2_level_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/O2Level/o2_level_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Common/small_needle.xaml", center, new Size(23, 164), new Point(11.5, 127), 277.5d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Common/small_needle.xaml", center, new Size(23, 164), new Point(11.5, 127), 277.5d);
             Components.Add(_currentNeedle);
 
-            _lLungImage = new GaugeImage("{Helios}/Gauges/Mig-21/O2Level/o2_level_blinker_l.xaml", new Rect(136, 194, 25, 63.9));
+            _lLungImage = new GaugeImage("{Helios}/Gauges/MiG-21/O2Level/o2_level_blinker_l.xaml", new Rect(136, 194, 25, 63.9));
             Components.Add(_lLungImage);
 
-            _rLungImage = new GaugeImage("{Helios}/Gauges/Mig-21/O2Level/o2_level_blinker_r.xaml", new Rect(180, 194, 25, 63.9));
+            _rLungImage = new GaugeImage("{Helios}/Gauges/MiG-21/O2Level/o2_level_blinker_r.xaml", new Rect(180, 194, 25, 63.9));
             Components.Add(_rLungImage);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentO2Level = new HeliosValue(this, BindingValue.Empty, "", "O2 Level", "Current O2 Level", "", BindingValueUnits.Numeric);
             _currentO2Level.Execute += CurrentO2Level_Execute;

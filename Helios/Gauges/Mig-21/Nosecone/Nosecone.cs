@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.Nosecone
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.Nosecone
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.Nosecone", "Nosecone", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.Nosecone", "Nosecone", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class Nosecone : BaseGauge
     {
         private GaugeNeedle _currentNeedle;
@@ -37,15 +37,15 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.Nosecone
 
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 1d, 300d);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Nosecone/nosecone_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Nosecone/nosecone_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Common/generic_needle.xaml", center, new Size(32, 185), new Point(16, 127), 180d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Common/generic_needle.xaml", center, new Size(32, 185), new Point(16, 127), 180d);
             Components.Add(_currentNeedle);
 
-            _manualNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Nosecone/nosecone_outer_needle.xaml", center, new Size(32, 230), new Point(16, 132), 180d);
+            _manualNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Nosecone/nosecone_outer_needle.xaml", center, new Size(32, 230), new Point(16, 132), 180d);
             Components.Add(_manualNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
 
             _currentPosition = new HeliosValue(this, BindingValue.Empty, "", "Nosecone", "Current Position", "", BindingValueUnits.Numeric);

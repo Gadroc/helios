@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.BatteryCapacity
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.BatteryCapacity
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.BatteryCapacity", "Battery Capacity", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.BatteryCapacity", "Battery Capacity", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class BatteryCapacity : BaseGauge
     {
 
@@ -43,12 +43,12 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.BatteryCapacity
             _needleCalibration.Add(new CalibrationPointDouble(80d, 246d));
             _needleCalibration.Add(new CalibrationPointDouble(90d, 276d));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/BatteryCapacity/battery_capacity_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/BatteryCapacity/battery_capacity_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Common/generic_small_gray_needle.xaml", center, new Size(32, 185), new Point(16, 127), 210d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Common/generic_small_gray_needle.xaml", center, new Size(32, 185), new Point(16, 127), 210d);
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentBatteryCapacity = new HeliosValue(this, BindingValue.Empty, "", "Current Battery Capacity", "Current Battery Capacity", "", BindingValueUnits.Numeric);
             _currentBatteryCapacity.Execute += CurrentBatteryCapacity_Execute;

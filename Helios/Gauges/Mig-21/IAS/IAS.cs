@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.IAS
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.IAS
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.IAS", "IAS", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.IAS", "IAS", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class IAS : BaseGauge
     {
 
@@ -46,15 +46,15 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.IAS
             _backCalibration = new CalibrationPointCollectionDouble(0d, 0d, 555.55d, 90d);
             _backCalibration.Add(new CalibrationPointDouble(277, 90d));
             _backCalibration.Add(new CalibrationPointDouble(270, 0d));
-            _currentBack = new GaugeNeedle("{Helios}/Gauges/Mig-21/IAS/ias_back.xaml", center, new Size(340, 340), center, -90);
+            _currentBack = new GaugeNeedle("{Helios}/Gauges/MiG-21/IAS/ias_back.xaml", center, new Size(340, 340), center, -90);
             Components.Add(_currentBack);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/IAS/ias_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/IAS/ias_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Common/generic_needle.xaml", center, new Size(32, 185), new Point(16, 127));
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Common/generic_needle.xaml", center, new Size(32, 185), new Point(16, 127));
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentIas = new HeliosValue(this, BindingValue.Empty, "", "IAS", "Current IAS", "", BindingValueUnits.Numeric);
             _currentIas.Execute += CurrentIas_Execute;

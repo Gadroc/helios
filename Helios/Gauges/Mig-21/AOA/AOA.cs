@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.AOA
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.AOA
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.AOA", "AOA", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.AOA", "AOA", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class AOA : BaseGauge
     {
 
@@ -35,12 +35,12 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.AOA
             _needleCalibration = new CalibrationPointCollectionDouble(-0.1745d, -53d, 0.6108d, 195d);
             _needleCalibration.Add(new CalibrationPointDouble(0d, 0d));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/AOA/aoa_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/AOA/aoa_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Common/generic_needle.xaml", center, new Size(32, 185), new Point(16, 127), -154d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Common/generic_needle.xaml", center, new Size(32, 185), new Point(16, 127), -154d);
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentAoa = new HeliosValue(this, BindingValue.Empty, "", "Current AOA", "Current AOA", "", BindingValueUnits.Numeric);
             _currentAoa.Execute += CurrentAoa_Execute;

@@ -1301,7 +1301,7 @@ gKa50Trigger = 0
 gCurrentAircraft = "none"  -- not set yet.
 gFlamingCliffsAircraft = false
 gHawk = false
-gMig21 = false
+gMiG21 = false
 gKnownAircraft = false
 
 
@@ -1665,7 +1665,7 @@ end
 ----------------MIG-21Bis AIRCRAFT old using FC2 interface  now just for testing------
 --------------------------------------------------------------------------------------
 
-function ProcessMig21Exports()
+function ProcessMiG21Exports()
 	MainPanel = GetDevice(0)
 
 --compressed air aux
@@ -1789,8 +1789,8 @@ function LuaExportActivityNextEvent(t)
 	if gHawk then
 	    ProcessHawkExports()
 	end
-	if gMig21 then
-		ProcessMig21Exports()
+	if gMiG21 then
+		ProcessMiG21Exports()
 	end
 	if gCurrentAircraft == "P-51D" or gCurrentAircraft == "TF-51D" then	
 				ProcessP51Exports ()  --process P51 as FC
@@ -1954,7 +1954,7 @@ function SelectAircraft()
     gKnownAircraft = false
 	 gFlamingCliffsAircraft = false
 	 gHawk = false
-	 gMig21 = false
+	 gMiG21 = false
 
     -- DEBUGGING STUFF:
     if debug_output_file then
@@ -2018,8 +2018,8 @@ elseif gCurrentAircraft == "Hawk" then
 		ProcessLowImportance =  ProcessNoLowImportance
 
 elseif gCurrentAircraft == "MiG-21Bis" then  --name is correct i checked the export
-		--log_file:write("Mig21\n")
-		gMig21 = true
+		--log_file:write("MiG21\n")
+		gMiG21 = true
 	        gHawk = false
 		gKnownAircraft = true
 		gFlamingCliffsAircraft = false -- this isnt where it calls it then

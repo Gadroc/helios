@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.Voltmeter
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.Voltmeter
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.Voltmeter", "Voltmeter", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.Voltmeter", "Voltmeter", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class Voltmeter : BaseGauge
     {
         private GaugeNeedle _currentNeedle;
@@ -33,12 +33,12 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.Voltmeter
             Point center = new Point(170, 170);
 
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 30d, 267d);
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Voltmeter/voltmeter_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Voltmeter/voltmeter_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Common/generic_gray_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), 224.5d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Common/generic_gray_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), 224.5d);
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentVolts = new HeliosValue(this, BindingValue.Empty, "", "Volts", "Current volts", "", BindingValueUnits.Numeric);
             _currentVolts.Execute += CurrentFuel_Execute;

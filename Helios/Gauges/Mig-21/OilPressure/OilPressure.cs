@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.OilPressure
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.OilPressure
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.OilPressure", "Oil Pressure", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.OilPressure", "Oil Pressure", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class OilPressure : BaseGauge
     {
         private GaugeNeedle _currentNeedle;
@@ -36,12 +36,12 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.OilPressure
             _needleCalibration.Add(new CalibrationPointDouble(2.4d, 53d));
             _needleCalibration.Add(new CalibrationPointDouble(3.2d, 71d));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/OilPressure/oilpressure_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/OilPressure/oilpressure_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Common/generic_gray_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), 287.3d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Common/generic_gray_needle.xaml", center, new Size(69d, 178d), new Point(34.5d, 126.5d), 287.3d);
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/OilPressure/oilpressure_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/OilPressure/oilpressure_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentPressure = new HeliosValue(this, BindingValue.Empty, "", "Oil Pressure", "Current pressure", "", BindingValueUnits.Numeric);
             _currentPressure.Execute += CurrentOil_Execute;

@@ -13,14 +13,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.NPP
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.NPP
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.Mig-21.NPP", "NPP", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.NPP", "NPP", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class NPP : BaseGauge
     {
         private GaugeNeedle _glideslopeDeviationNeedle;
@@ -47,67 +47,67 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.NPP
         {
             Point center = new Point(200, 200);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/NPP/deviation_card.xaml", new Rect(145, 145, 110, 110)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/NPP/deviation_card.xaml", new Rect(145, 145, 110, 110)));
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/NPP/black_blinker.xaml", new Rect(170, 170, 10, 20)));
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/NPP/black_blinker.xaml", new Rect(220, 210, 10, 20)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/NPP/black_blinker.xaml", new Rect(170, 170, 10, 20)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/NPP/black_blinker.xaml", new Rect(220, 210, 10, 20)));
 
             //course (3, K -“kurs”) and glide slope (8, G - “glisada”) 
-            _kFlagImage = new GaugeImage("{Helios}/Gauges/Mig-21/NPP/k_flag.xaml", new Rect(170, 170, 10, 20));
+            _kFlagImage = new GaugeImage("{Helios}/Gauges/MiG-21/NPP/k_flag.xaml", new Rect(170, 170, 10, 20));
             Components.Add(_kFlagImage);
 
             _kFlag = new HeliosValue(this, new BindingValue(false), "", "Course (K) flag", "White when lit", "True if displayed.", BindingValueUnits.Boolean);
             _kFlag.Execute += KFlag_Execute;
             Actions.Add(_kFlag);
 
-            _gFlagImage = new GaugeImage("{Helios}/Gauges/Mig-21/NPP/g_flag.xaml", new Rect(220, 210, 10, 20));
+            _gFlagImage = new GaugeImage("{Helios}/Gauges/MiG-21/NPP/g_flag.xaml", new Rect(220, 210, 10, 20));
             Components.Add(_gFlagImage);
 
             _gFlag = new HeliosValue(this, new BindingValue(false), "", "Glide (G) flag", "White when lit", "True if displayed.", BindingValueUnits.Boolean);
             _gFlag.Execute += GFlag_Execute;
             Actions.Add(_gFlag);
 
-            _glideslopeDeviationNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/NPP/glideslope_deviation_needle.xaml", center, new Size(120, 5), new Point(60, 2.5));
+            _glideslopeDeviationNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/NPP/glideslope_deviation_needle.xaml", center, new Size(120, 5), new Point(60, 2.5));
             Components.Add(_glideslopeDeviationNeedle);
 
             _glideslopeDeviation = new HeliosValue(this, new BindingValue(1d), "", "Glideslope Deviaiton", "Offset of the glideslope deviation needle from center.", "-1 to 1 where -1 is full down.", BindingValueUnits.Numeric);
             _glideslopeDeviation.Execute += new HeliosActionHandler(GlideslopeDeviation_Execute);
             Actions.Add(_glideslopeDeviation);
 
-            _courseDeviationNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/NPP/course_deviation_needle.xaml", center, new Size(5, 120), new Point(3, 60));
+            _courseDeviationNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/NPP/course_deviation_needle.xaml", center, new Size(5, 120), new Point(3, 60));
             Components.Add(_courseDeviationNeedle);
 
             _courseDeviation = new HeliosValue(this, BindingValue.Empty, "", "Course Deviaiton Needle", "Offset of the course deviation needle from center.", "-1 to 1 where -1 is full right.", BindingValueUnits.Numeric);
             _courseDeviation.Execute += new HeliosActionHandler(CourseDeviation_Execute);
             Actions.Add(_courseDeviation);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/NPP/compass_card_bezel.xaml", new Rect(73, 73, 254, 254)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/NPP/compass_card_bezel.xaml", new Rect(73, 73, 254, 254)));
 
-            _compassCard = new GaugeNeedle("{Helios}/Gauges/Mig-21/NPP/compass_card.xaml", center, new Size(251, 251), new Point(125.5, 125.5));
+            _compassCard = new GaugeNeedle("{Helios}/Gauges/MiG-21/NPP/compass_card.xaml", center, new Size(251, 251), new Point(125.5, 125.5));
             Components.Add(_compassCard);
 
             _heading = new HeliosValue(this, BindingValue.Empty, "", "Heading", "Current heading of the aircraft", "", BindingValueUnits.Degrees);
             _heading.Execute += Heading_Execute;
             Actions.Add(_heading);
 
-            _bearingNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/NPP/bearing_needle.xaml", center, new Size(42, 238), new Point(21, 128));
+            _bearingNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/NPP/bearing_needle.xaml", center, new Size(42, 238), new Point(21, 128));
             Components.Add(_bearingNeedle);
 
             _bearing = new HeliosValue(this, BindingValue.Empty, "", "Bearing", "Current direction the bearing needle is pointing.", "", BindingValueUnits.Degrees);
             _bearing.Execute += Bearing_Execute;
             Actions.Add(_bearing);
 
-            _courseNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/NPP/course_needle.xaml", center, new Size(42, 238), new Point(21, 128));
+            _courseNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/NPP/course_needle.xaml", center, new Size(42, 238), new Point(21, 128));
             Components.Add(_courseNeedle);
 
             _course = new HeliosValue(this, BindingValue.Empty, "", "Commanded Course", "Current commanded course.", "", BindingValueUnits.Degrees);
             _course.Execute += Course_Execute;
             Actions.Add(_course);
 
-            _innerBezelMarkers = new GaugeNeedle("{Helios}/Gauges/Mig-21/NPP/inner_bezel_markers.xaml", center, new Size(166, 166), new Point(83, 83));
+            _innerBezelMarkers = new GaugeNeedle("{Helios}/Gauges/MiG-21/NPP/inner_bezel_markers.xaml", center, new Size(166, 166), new Point(83, 83));
             Components.Add(_innerBezelMarkers);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/NPP/outer_bezel.xaml", new Rect(0, 0, 400, 400)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/NPP/outer_bezel.xaml", new Rect(0, 0, 400, 400)));
         }
 
         private void GlideslopeDeviation_Execute(object action, HeliosActionEventArgs e)

@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.ARU3VM
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.ARU3VM
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.ARU3VM", "ARU", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.ARU3VM", "ARU", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class ARU3VM : BaseGauge
     {
 
@@ -34,12 +34,12 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.ARU3VM
 
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 1d, 204d);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/ARU3VM/ARU3VM_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/ARU3VM/ARU3VM_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/ARU3VM/aru3vm_needle.xaml", center, new Size(100, 185), new Point(50, 127), 246d);
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/ARU3VM/aru3vm_needle.xaml", center, new Size(100, 185), new Point(50, 127), 246d);
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Common/generic_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _currentARU3VM = new HeliosValue(this, BindingValue.Empty, "", "Current ARU3VM", "Current ARU3VM", "", BindingValueUnits.Numeric);
             _currentARU3VM.Execute += CurrentARU3VM_Execute;

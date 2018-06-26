@@ -13,13 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.Mig21.Accelerometer
+namespace GadrocsWorkshop.Helios.Gauges.MiG21.Accelerometer
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Mig-21.Accelerometer", "Accelerometer", "Mig-21 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.MiG-21.Accelerometer", "Accelerometer", "MiG-21 Gauges", typeof(GaugeRenderer))]
     public class Accelerometer : BaseGauge
     {
         private GaugeNeedle _lowNeedle;
@@ -46,18 +46,18 @@ namespace GadrocsWorkshop.Helios.Gauges.Mig21.Accelerometer
             //ACCELEROMETER.input = { -5.0, 1, 5, 8, 10.0 } 
             //ACCELEROMETER.output = { -0.41, 0.096, 0.5, 0.81, 1 }
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Accelerometer/accelerometer_faceplate.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Accelerometer/accelerometer_faceplate.xaml", new Rect(0, 0, 340, 340)));
 
-            _lowNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Accelerometer/accelerometer_limit_needleLow.xaml", center, new Size(32, 189), new Point(16, 161));
+            _lowNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Accelerometer/accelerometer_limit_needleLow.xaml", center, new Size(32, 189), new Point(16, 161));
             Components.Add(_lowNeedle);
 
-            _highNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Accelerometer/accelerometer_limit_needle.xaml", center, new Size(32, 189), new Point(16, 161));
+            _highNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Accelerometer/accelerometer_limit_needle.xaml", center, new Size(32, 189), new Point(16, 161));
             Components.Add(_highNeedle);
 
-            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/Mig-21/Accelerometer/accelerometer_needle.xaml", center, new Size(32, 185), new Point(16, 127));
+            _currentNeedle = new GaugeNeedle("{Helios}/Gauges/MiG-21/Accelerometer/accelerometer_needle.xaml", center, new Size(32, 185), new Point(16, 127));
             Components.Add(_currentNeedle);
 
-            Components.Add(new GaugeImage("{Helios}/Gauges/Mig-21/Accelerometer/accelerometer_bezel.xaml", new Rect(0, 0, 340, 340)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/MiG-21/Accelerometer/accelerometer_bezel.xaml", new Rect(0, 0, 340, 340)));
 
             _lowG = new HeliosValue(this, BindingValue.Empty, "", "Low G", "Lowest G attained", "", BindingValueUnits.Numeric);
             _lowG.Execute += LowG_Execute;
