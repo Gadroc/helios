@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="svg2" Width="25" Height="63.901">
+    <Canvas x:Name="piloto2Rblinker" HorizontalAlignment="Left" Height="64.289825" UseLayoutRounding="False" VerticalAlignment="Top" Width="23.199554">
+        <Path Data="F1M0.327,52.765L4.109,16.667C4.167,-5.747,25.632,-5.848,22.429,20.738L12.109,52.874C8.46,69.886,-0.911,65.183,0.327,52.765z" Fill="White" Height="64.232" Canvas.Left="0.114" Stroke="White" StrokeThickness="0.658" StrokeMiterLimit="4" Canvas.Top="-0.258" Width="23.081"/>
+    </Canvas>
+</Canvas>
