@@ -110,7 +110,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddEncoder(string name, Point posn, Size size)
         {
-            Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
+            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
             _knob.Name = name;
             _knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
             _knob.StepValue = 0.1;
@@ -125,9 +125,14 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 AddTrigger(trigger, name);
             }
-            AddAction(_knob.Actions["set.value"], name);
-            AddAction(_knob.Actions["push"], name);
-            AddAction(_knob.Actions["release"], name);
+            foreach (IBindingAction action in _knob.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddAction(_knob.Actions["set.value"], name);
+            //AddAction(_knob.Actions["push"], name);
+            //AddAction(_knob.Actions["release"], name);
         }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
          private void AddButton(string name, double x, double y, Size size, bool altImage)
@@ -285,7 +290,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 AddTrigger(trigger, name);
             }
-            AddTrigger(toggle.Triggers["position.changed"], name);
             AddAction(toggle.Actions["set.position"], name);
         }
         public override bool HitTest(Point location)
@@ -312,8 +316,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             // No-Op
         }
-
-
 
     }
 }

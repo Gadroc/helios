@@ -124,107 +124,87 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
             //Left MDI
 
-            AddFunction(new PushButton(this, MDI_LEFT, "3054", "3054", "Left MFCD", "OSB01", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3055", "3055", "Left MFCD", "OSB02", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3056", "3056", "Left MFCD", "OSB03", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3057", "3057", "Left MFCD", "OSB04", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3058", "3058", "Left MFCD", "OSB05", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3059", "3059", "Left MFCD", "OSB06", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3060", "3060", "Left MFCD", "OSB07", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3061", "3061", "Left MFCD", "OSB08", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3062", "3062", "Left MFCD", "OSB09", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3063", "3063", "Left MFCD", "OSB10", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3064", "3064", "Left MFCD", "OSB11", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3065", "3065", "Left MFCD", "OSB12", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3066", "3066", "Left MFCD", "OSB13", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3067", "3067", "Left MFCD", "OSB14", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3068", "3068", "Left MFCD", "OSB15", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3069", "3069", "Left MFCD", "OSB16", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3070", "3070", "Left MFCD", "OSB17", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3071", "3071", "Left MFCD", "OSB18", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3072", "3072", "Left MFCD", "OSB19", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3073", "3073", "Left MFCD", "OSB20", "1", "0", "%1d"));
-            //elements["pnt_51"] = default_3_position_tumb(_("Left MDI Brightness Selector Knob, OFF/NIGHT/DAY"), devices.MDI_LEFT, MDI_commands.MDI_off_night_day, 51, false, anim_speed_default, false, 0.1, { 0, 0.2})
-            //elements["pnt_52"] = default_axis_limited(_("Left MDI Brightness Control Knob"), devices.MDI_LEFT, MDI_commands.MDI_brightness, 52, 0.0, 0.1, false, false, { 0, 1})
-            //elements["pnt_53"] = default_axis_limited(_("Left MDI Contrast Control Knob"), devices.MDI_LEFT, MDI_commands.MDI_contrast, 53, 0.0, 0.1, false, false, { 0, 1})
-            AddFunction(new Axis(this, MDI_LEFT, "3194", "3194", 0.1d, 0d, 1d, "Left MFCD", "Off/Brightness Control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3220", "3220", "-1", "Day", "0", "Off", "1", "Night", "Left MFCD", "DAY/NIGHT Mode", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3221", "3221", "-1", "More", "0", "Off", "1", "Less", "Left MFCD", "Symbology", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3222", "3222", "-1", "Up", "0", "Off", "1", "Down", "Left MFCD", "Gain", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3223", "3223", "-1", "Up", "0", "Off", "1", "Down", "Left MFCD", "Contrast", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3054", "3054", "Left MDI", "OSB01", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3055", "3055", "Left MDI", "OSB02", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3056", "3056", "Left MDI", "OSB03", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3057", "3057", "Left MDI", "OSB04", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3058", "3058", "Left MDI", "OSB05", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3059", "3059", "Left MDI", "OSB06", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3060", "3060", "Left MDI", "OSB07", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3061", "3061", "Left MDI", "OSB08", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3062", "3062", "Left MDI", "OSB09", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3063", "3063", "Left MDI", "OSB10", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3064", "3064", "Left MDI", "OSB11", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3065", "3065", "Left MDI", "OSB12", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3066", "3066", "Left MDI", "OSB13", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3067", "3067", "Left MDI", "OSB14", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3068", "3068", "Left MDI", "OSB15", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3069", "3069", "Left MDI", "OSB16", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3070", "3070", "Left MDI", "OSB17", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3071", "3071", "Left MDI", "OSB18", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3072", "3072", "Left MDI", "OSB19", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3073", "3073", "Left MDI", "OSB20", "1", "0", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3051", "3051", "-1", "Off", "0", "Night", "1", "Day", "Left MDI", "Left MDI Brightness Selector Knob, OFF/NIGHT/DAY", "%1d"));
+            AddFunction(new Axis(this, MDI_LEFT, "3052", "3052", 0.1d, 0d, 1d, "Left MDI", "Brightness Control Knob"));
+            AddFunction(new Axis(this, MDI_LEFT, "3053", "3053", 0.1d, 0d, 1d, "Left MDI", "Contrast Control Knob"));
             #endregion
 
             #region Centre MFCD AMPCD
-            //elements["pnt_312"] = springloaded_3_pos_tumb2(_("Heading Set Switch"), devices.MDI_LEFT, MDI_commands.MDI_Left_HDG_Negative, MDI_commands.MDI_Left_HDG_Positive, 312)
-            //elements["pnt_313"] = springloaded_3_pos_tumb(_("Course Set Switch"), devices.MDI_LEFT, MDI_commands.MDI_Left_CRS_Negative, MDI_commands.MDI_Left_CRS_Positive, 313)
+            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3312", "3312", "-1", "Left", "0", "Centre", "1", "Right", "AMPCD", "Heading Set Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3313", "3313", "-1", "Left", "0", "Centre", "1", "Right", "AMPCD", "Course Set Switch", "%1d"));
 
-            AddFunction(new PushButton(this, AMPCD, "3183", "3183", "Centre MFD", "OSB01"));
-            AddFunction(new PushButton(this, AMPCD, "3184", "3184", "Centre MFD", "OSB02"));
-            AddFunction(new PushButton(this, AMPCD, "3185", "3185", "Centre MFD", "OSB03"));
-            AddFunction(new PushButton(this, AMPCD, "3186", "3186", "Centre MFD", "OSB04"));
-            AddFunction(new PushButton(this, AMPCD, "3187", "3187", "Centre MFD", "OSB05"));
-            AddFunction(new PushButton(this, AMPCD, "3188", "3188", "Centre MFD", "OSB06"));
-            AddFunction(new PushButton(this, AMPCD, "3189", "3189", "Centre MFD", "OSB07"));
-            AddFunction(new PushButton(this, AMPCD, "3190", "3190", "Centre MFD", "OSB08"));
-            AddFunction(new PushButton(this, AMPCD, "3191", "3191", "Centre MFD", "OSB09"));
-            AddFunction(new PushButton(this, AMPCD, "3192", "3192", "Centre MFD", "OSB10"));
-            AddFunction(new PushButton(this, AMPCD, "3193", "3193", "Centre MFD", "OSB11"));
-            AddFunction(new PushButton(this, AMPCD, "3194", "3194", "Centre MFD", "OSB12"));
-            AddFunction(new PushButton(this, AMPCD, "3195", "3195", "Centre MFD", "OSB13"));
-            AddFunction(new PushButton(this, AMPCD, "3196", "3196", "Centre MFD", "OSB14"));
-            AddFunction(new PushButton(this, AMPCD, "3197", "3197", "Centre MFD", "OSB15"));
-            AddFunction(new PushButton(this, AMPCD, "3198", "3198", "Centre MFD", "OSB16"));
-            AddFunction(new PushButton(this, AMPCD, "3199", "3199", "Centre MFD", "OSB17"));
-            AddFunction(new PushButton(this, AMPCD, "3200", "3200", "Centre MFD", "OSB18"));
-            AddFunction(new PushButton(this, AMPCD, "3201", "3201", "Centre MFD", "OSB19"));
-            AddFunction(new PushButton(this, AMPCD, "3202", "3202", "Centre MFD", "OSB20"));
-            AddFunction(new Axis(this, AMPCD, "3203", "3203", 0.1d, 0d, 1d, "Centre MFD", "Off/Brightness Control"));
-
-            //elements["pnt_177_2"] = AMPCD_switch_positive(_("AMPCD Night/Day Brightness Selector, DAY"), devices.AMPCD, AMPCD_commands.AMPCD_nite_day_DAY, 177)
-            //elements["pnt_177_1"] = AMPCD_switch_negative(_("AMPCD Night/Day Brightness Selector, NGT"), devices.AMPCD, AMPCD_commands.AMPCD_nite_day_NGT, 177)
-            //elements["pnt_179_2"] = AMPCD_switch_positive(_("AMPCD Symbology Control Switch, UP"), devices.AMPCD, AMPCD_commands.AMPCD_symbology_UP, 179)
-            //elements["pnt_179_1"] = AMPCD_switch_negative(_("AMPCD Symbology Control Switch, DOWN"), devices.AMPCD, AMPCD_commands.AMPCD_symbology_DOWN, 179)
-            //elements["pnt_182_2"] = AMPCD_switch_positive(_("AMPCD Contrast Control Switch, UP"), devices.AMPCD, AMPCD_commands.AMPCD_contrast_UP, 182)
-            //elements["pnt_182_1"] = AMPCD_switch_negative(_("AMPCD Contrast Control Switch, DOWN"), devices.AMPCD, AMPCD_commands.AMPCD_contrast_DOWN, 182)
-            //elements["pnt_180_2"] = AMPCD_switch_positive(_("AMPCD Gain Control Switch, UP"), devices.AMPCD, AMPCD_commands.AMPCD_gain_UP, 180)
-            //elements["pnt_180_1"] = AMPCD_switch_negative(_("AMPCD Gain Control Switch, DOWN"), devices.AMPCD, AMPCD_commands.AMPCD_gain_DOWN, 180)
-
-            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3244", "3244", "-1", "Day", "0", "Off", "1", "Night", "Centre MFD", "DAY/NIGHT Mode", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3245", "3245", "-1", "More", "0", "Off", "1", "Less", "Centre MFD", "Symbology", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3246", "3246", "-1", "Up", "0", "Off", "1", "Down", "Centre MFD", "Gain", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3247", "3247", "-1", "Up", "0", "Off", "1", "Down", "Centre MFD", "Contrast", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3183", "3183", "AMPCD", "OSB01"));
+            AddFunction(new PushButton(this, AMPCD, "3184", "3184", "AMPCD", "OSB02"));
+            AddFunction(new PushButton(this, AMPCD, "3185", "3185", "AMPCD", "OSB03"));
+            AddFunction(new PushButton(this, AMPCD, "3186", "3186", "AMPCD", "OSB04"));
+            AddFunction(new PushButton(this, AMPCD, "3187", "3187", "AMPCD", "OSB05"));
+            AddFunction(new PushButton(this, AMPCD, "3188", "3188", "AMPCD", "OSB06"));
+            AddFunction(new PushButton(this, AMPCD, "3189", "3189", "AMPCD", "OSB07"));
+            AddFunction(new PushButton(this, AMPCD, "3190", "3190", "AMPCD", "OSB08"));
+            AddFunction(new PushButton(this, AMPCD, "3191", "3191", "AMPCD", "OSB09"));
+            AddFunction(new PushButton(this, AMPCD, "3192", "3192", "AMPCD", "OSB10"));
+            AddFunction(new PushButton(this, AMPCD, "3193", "3193", "AMPCD", "OSB11"));
+            AddFunction(new PushButton(this, AMPCD, "3194", "3194", "AMPCD", "OSB12"));
+            AddFunction(new PushButton(this, AMPCD, "3195", "3195", "AMPCD", "OSB13"));
+            AddFunction(new PushButton(this, AMPCD, "3196", "3196", "AMPCD", "OSB14"));
+            AddFunction(new PushButton(this, AMPCD, "3197", "3197", "AMPCD", "OSB15"));
+            AddFunction(new PushButton(this, AMPCD, "3198", "3198", "AMPCD", "OSB16"));
+            AddFunction(new PushButton(this, AMPCD, "3199", "3199", "AMPCD", "OSB17"));
+            AddFunction(new PushButton(this, AMPCD, "3200", "3200", "AMPCD", "OSB18"));
+            AddFunction(new PushButton(this, AMPCD, "3201", "3201", "AMPCD", "OSB19"));
+            AddFunction(new PushButton(this, AMPCD, "3202", "3202", "AMPCD", "OSB20"));
+            AddFunction(new Axis(this, AMPCD, "3203", "3203", 0.1d, 0d, 1d, "AMPCD", "Off/Brightness Control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3177", "3177", "-1", "Day", "0", "Off", "1", "Night", "AMPCD", "DAY/NIGHT Mode", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3179", "3179", "-1", "More", "0", "Off", "1", "Less", "AMPCD", "Symbology", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3180", "3180", "-1", "Up", "0", "Off", "1", "Down", "AMPCD", "Gain", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3182", "3182", "-1", "Up", "0", "Off", "1", "Down", "AMPCD", "Contrast", "%1d"));
             #endregion
 
             #region Right MFCD MFD
 
-            AddFunction(new PushButton(this, MDI_RIGHT, "3079", "3079", "Right MFCD", "OSB01"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3080", "3080", "Right MFCD", "OSB02"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3081", "3081", "Right MFCD", "OSB03"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3082", "3082", "Right MFCD", "OSB04"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3083", "3083", "Right MFCD", "OSB05"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3084", "3084", "Right MFCD", "OSB06"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3085", "3085", "Right MFCD", "OSB07"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3086", "3086", "Right MFCD", "OSB08"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3087", "3087", "Right MFCD", "OSB09"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3088", "3088", "Right MFCD", "OSB10"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3089", "3089", "Right MFCD", "OSB11"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3090", "3090", "Right MFCD", "OSB12"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3091", "3091", "Right MFCD", "OSB13"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3092", "3092", "Right MFCD", "OSB14"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3093", "3093", "Right MFCD", "OSB15"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3094", "3094", "Right MFCD", "OSB16"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3095", "3095", "Right MFCD", "OSB17"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3096", "3096", "Right MFCD", "OSB18"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3097", "3097", "Right MFCD", "OSB19"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3098", "3098", "Right MFCD", "OSB20"));
-            //elements["pnt_76"] = default_3_position_tumb(_("Right MDI Brightness Selector Knob, OFF/NIGHT/DAY"), devices.MDI_RIGHT, MDI_commands.MDI_off_night_day, 76, false, anim_speed_default, false, 0.1, { 0, 0.2})
-            //elements["pnt_77"] = default_axis_limited(_("Right MDI Brightness Control Knob"), devices.MDI_RIGHT, MDI_commands.MDI_brightness, 77, 0.0, 0.1, false, false, { 0, 1})
-            //elements["pnt_78"] = default_axis_limited(_("Right MDI Contrast Control Knob"), devices.MDI_RIGHT, MDI_commands.MDI_contrast, 78, 0.0, 0.1, false, false, { 0, 1})
-            AddFunction(new Axis(this, MDI_RIGHT, "3195", "3195", 0.1d, 0d, 1d, "Right MFCD", "Off/Brightness Control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_RIGHT, "3244", "3244", "-1", "Day", "0", "Off", "1", "Night", "Right MFCD", "DAY/NIGHT Mode", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_RIGHT, "3245", "3245", "-1", "More", "0", "Off", "1", "Less", "Right MFCD", "Symbology", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_RIGHT, "3246", "3246", "-1", "Up", "0", "Off", "1", "Down", "Right MFCD", "Gain", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_RIGHT, "3247", "3247", "-1", "Up", "0", "Off", "1", "Down", "Right MFCD", "Contrast", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3079", "3079", "Right MDI", "OSB01"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3080", "3080", "Right MDI", "OSB02"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3081", "3081", "Right MDI", "OSB03"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3082", "3082", "Right MDI", "OSB04"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3083", "3083", "Right MDI", "OSB05"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3084", "3084", "Right MDI", "OSB06"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3085", "3085", "Right MDI", "OSB07"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3086", "3086", "Right MDI", "OSB08"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3087", "3087", "Right MDI", "OSB09"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3088", "3088", "Right MDI", "OSB10"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3089", "3089", "Right MDI", "OSB11"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3090", "3090", "Right MDI", "OSB12"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3091", "3091", "Right MDI", "OSB13"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3092", "3092", "Right MDI", "OSB14"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3093", "3093", "Right MDI", "OSB15"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3094", "3094", "Right MDI", "OSB16"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3095", "3095", "Right MDI", "OSB17"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3096", "3096", "Right MDI", "OSB18"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3097", "3097", "Right MDI", "OSB19"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3098", "3098", "Right MDI", "OSB20"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_RIGHT, "3076", "3076", "-1", "Off", "0", "Night", "1", "Day", "Right MDI", "Right MDI Brightness Selector Knob, OFF/NIGHT/DAY", "%1d"));
+            AddFunction(new Axis(this, MDI_RIGHT, "3077", "3077", 0.1d, 0d, 1d, "Right MDI", "Brightness Control Knob"));
+            AddFunction(new Axis(this, MDI_RIGHT, "3078", "3078", 0.1d, 0d, 1d, "Right MDI", "Contrast Control Knob"));
             #endregion
             #endregion
 

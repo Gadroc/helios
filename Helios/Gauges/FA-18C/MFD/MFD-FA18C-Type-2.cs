@@ -97,7 +97,7 @@ namespace GadrocsWorkshop.Helios.Controls
             if (!horizontal)
             {
                 button.Image = "{Helios}/Images/AV-8B/MFD Button 1 UpV.png";
-                button.PushedImage = "{Helios}/AV-8B/FA-18C/MFD Button 1 DnV.png";
+                button.PushedImage = "{Helios}/Images/AV-8B/MFD Button 1 DnV.png";
                 //button.Rotation = HeliosVisualRotation.CCW;
             }
             else

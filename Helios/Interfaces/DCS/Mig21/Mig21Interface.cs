@@ -784,7 +784,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.MiG21
             AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, PITANIE_34, "184", "1", "On", "0", "Off", "Weapon Control", "Pylon 3-4 Power On/Off", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, GS23, "185", "1", "On", "0", "Off", "Weapon Control", "GS-23 Gun On/Off", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, FKP, "187", "1", "On", "0", "Off", "Weapon Control", "Guncam On/Off", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, TAKT_SBROS_SAFETY_COVER, "227", "1", "On", "0", "Off", "Weapon Control", "Tactical Drop Cover", "%1d"));
+            // disabling due to duplicate function definition.  
+            //AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, TAKT_SBROS_SAFETY_COVER, "227", "1", "On", "0", "Off", "Weapon Control", "Tactical Drop Cover", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, TAKT_SBROS, "278", "1", "On", "0", "Off", "Weapon Control", "Tactical Drop Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, WEAPON_CONTROL, AVAR_PUSK_SAFETY_COVER, "275", "1", "On", "0", "Off", "Weapon Control", "Emergency Missile/Rocket Launcher Cover", "%1d"));
             AddFunction(new PushButton(this, WEAPON_CONTROL, AVAR_PUSK, "276", "Weapon Control", "Emergency Missile/Rocket Launcher"));
@@ -814,7 +815,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.MiG21
             #region HELMET_VISOR
             AddFunction(Switch.CreateToggleSwitch(this, HELMET_VISOR, HELMET_HEAT_MAN_AUT, "306", "1", "Manual", "0", "Auto", "Helmet Visor", "Helmet Heat - Manual/Auto", "%1d"));
             AddFunction(new PushButton(this, HELMET_VISOR, HELMET_QUICK_HEAT, "310", "Helmet Visor", "Helmet Quick Heat"));
-            AddFunction(Switch.CreateToggleSwitch(this, HELMET_VISOR, HELMET_VISOR_EXTRA, "369", "1", "On", "0", "Off", "Helmet Visor", "Helmet visor - off/on", "%1d"));
+            // commenting until this duplicate can be resolved.
+            //AddFunction(Switch.CreateToggleSwitch(this, HELMET_VISOR, HELMET_VISOR_EXTRA, "369", "1", "On", "0", "Off", "Helmet Visor", "Helmet visor - off/on", "%1d"));
             #endregion
 
             #region AIR CONDITIONING
@@ -832,7 +834,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.MiG21
             AddFunction(Switch.CreateThreeWaySwitch(this, avAChS, ACHS_LEFT_PULL, "265", "1.0", "In", "0.0", "Neutral", "-1.0", "Out", "avAChS", "Clock left push/pull springloaded", "%0.1f"));
             AddFunction(new Axis(this, avAChS, ACHS_LEFT_ROTATE, "264", 0.1d, -1d, 1d, "avAChS", "Clock left rotate"));
             AddFunction(Switch.CreateThreeWaySwitch(this, avAChS, ACHS_RIGHT_PUSH, "268", "-1.0", "Up", "0.0", "Neutral", "1.0", "Down", "avAChS", "Clock right push 3way", "%0.1f"));
-            AddFunction(new PushButton(this, avAChS, ACHS_RIGHT_PUSH, "268", "avAChS", "Clock right push button"));
+            // commenting until this duplicate can be resolved.
+            //AddFunction(new PushButton(this, avAChS, ACHS_RIGHT_PUSH, "268", "avAChS", "Clock right push button"));
             AddFunction(new Axis(this, avAChS, ACHS_RIGHT_ROTATE, "267", 0.1d, 0d, 1d, "avAChS", "Clock right rotate"));
             #endregion
 

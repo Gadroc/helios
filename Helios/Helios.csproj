@@ -162,6 +162,7 @@
     <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
+    <Compile Include="Gauges\FA-18C\Altimeter\FA-18C Altimeter.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-2.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-1.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-AV8B.cs" />
@@ -270,7 +271,7 @@
     </Compile>
     <Compile Include="Gauges\A-10\Hydraulic\Hydraulic.cs" />
     <Compile Include="Gauges\A-10\IAS\IAS.cs" />
-    <Compile Include="Gauges\A-10\ILSFrequencey\ILSFrequency.cs" />
+    <Compile Include="Gauges\A-10\ILSFrequency\ILSFrequency.cs" />
     <Compile Include="Gauges\A-10\LiquidOxygen\LiquidOxygen.cs" />
     <Compile Include="Gauges\A-10\OilPressure\OilPressure.cs" />
     <Compile Include="Gauges\A-10\OxygenPressure\OxygenPressure.cs" />
@@ -1499,7 +1500,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\A-10\ILSFrequencey\ils_frequency_faceplate.xaml">
+    <Resource Include="Gauges\A-10\ILSFrequency\ils_frequency_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
