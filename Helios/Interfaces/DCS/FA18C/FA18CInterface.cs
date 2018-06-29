@@ -384,8 +384,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             #endregion
 
             #region IFEI
-            AddFunction(new FlagValue(this, "468", "IFEI", "IFEI", ""));    //   IFEI_lt, create_simple_lamp(468 controllers.IfeiLights 0)
-            AddFunction(new FlagValue(this, "469", "IFEI", "IFEI buttons", ""));    //   IFEI buttons_lt, create_simple_lamp(469 controllers.IfeiLights 1)
+            AddFunction(new FlagValue(this, "468", "IFEI", "IFEI", ""));    //   IFEI_lt, create_simple_lamp(468 controllers.IFEILights 0)
+            AddFunction(new FlagValue(this, "469", "IFEI", "IFEI buttons", ""));    //   IFEI buttons_lt, create_simple_lamp(469 controllers.IFEILights 1)
 
             #endregion
 
@@ -406,7 +406,242 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "516", "CMDS", "ECM Jettison", ""));    //   ECM Jettison, create_simple_lamp(516 controllers.CMDS_JettLt)
 
             #endregion
+            #region Control System
+            AddFunction(new Axis(this, CONTROL_INTERFACE, "3345", "3345", 0.1d, 0d, 1d, "Controls", "RUD TRIM Control"));
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3346", "3346", "Controls", "T/O TRIM Button"));
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3349", "3349", "Controls", "FCS RESET Button"));
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3347", "3347", "1", "NORM", "0", "ORIDE", "Controls", "GAIN Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, CONTROL_INTERFACE, "3234", "3234", "1", "AUTO", "0", "HALF", "-1", "FULL", "Controls", "FLAP Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3138", "3138", "1", "RCVY", "0", "NORM", "Controls", "Spin Recovery Switch", "%0.1f"));
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3470", "3470", "Controls", "FCS BIT Switch"));
+            AddFunction(new Axis(this, CONTROL_INTERFACE, "3504", "3504", 0.1d, 0d, 1d, "Controls", "Throttles Friction Adjusting Lever"));
+            #endregion
+            #region Electric system
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3404", "3404", "1", "ON", "0", "OFF", "-1", "ORIDE", "Electrical", "Battery Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3402", "3402", "1", "NORM", "0", "OFF", "Electrical", "Left Generator Control Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3403", "3403", "1", "NORM", "0", "OFF", "Electrical", "Right Generator Control Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3378", "3378", "1", "NORM", "0", "RESET", "Electrical", "Generator TIE Control Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3336", "3336", "1", "RESET", "0", "NORM", "-1", "OFF", "Electrical", "External Power Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3332", "3332", "1", "A ON", "0", "AUTO", "-1", "B ON", "Electrical", "Ground Power Switch 1", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3333", "3333", "1", "A ON", "0", "AUTO", "-1", "B ON", "Electrical", "Ground Power Switch 2", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3334", "3334", "1", "A ON", "0", "AUTO", "-1", "B ON", "Electrical", "Ground Power Switch 3", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3335", "3335", "1", "A ON", "0", "AUTO", "-1", "B ON", "Electrical", "Ground Power Switch 4", "%0.1f"));
+            #endregion
+            #region Anti-Ice
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3409", "3409", "1", "ON", "0", "AUTO", "Electrical", "Pitot Heater Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ENGINES_INTERFACE, "3410", "3410", "1", "ON", "0", "OFF", "-1", "TEST", "Engine", "Engine Anti-Ice Switch", "%0.1f"));
+            #endregion
+            #region CB
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3381", "3381", "1", "ON", "0", "OFF", "Electrical", "CB FCS CHAN 1", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3382", "3382", "1", "ON", "0", "OFF", "Electrical", "CB FCS CHAN 2", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3383", "3383", "1", "ON", "0", "OFF", "Electrical", "CB SPD BRK", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3384", "3384", "1", "ON", "0", "OFF", "Electrical", "CB LAUNCH BAR", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3454", "3454", "1", "ON", "0", "OFF", "Electrical", "CB FCS CHAN 3", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3455", "3455", "1", "ON", "0", "OFF", "Electrical", "CB FCS CHAN 4", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3456", "3456", "1", "ON", "0", "OFF", "Electrical", "CB HOOK", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3457", "3457", "1", "ON", "0", "OFF", "Electrical", "CB LG", "%0.1f"));
+            #endregion
+            #region 
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3368", "3368", "1", "1 OFF", "0", "NORM", "-1", "2 OFF", "Electrical", "MC Switch", "%0.1f"));
+            #endregion
+            #region Power Plant
+            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3375", "3375", "Engine", "APU Control Switch"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ENGINES_INTERFACE, "3377", "3377", "1", "LEFT", "0", "OFF", "-1", "RIGHT", "Engine", "Engine Crank Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ENGINES_INTERFACE, "3331", "3331", "1", "(RMB) TEST A", "0", "(LMB) TEST B", "Engine", "Fire and Bleed Air Test Switch", "%0.1f"));
+            #endregion
+            #region Hydraulic system
+            AddFunction(Switch.CreateToggleSwitch(this, HYDRAULIC_INTERFACE, "3369", "3369", "1", "NORM", "0", "ORIDE", "Hydraulics", "Hydraulic Isolate Override Switch", "%0.1f"));
+            #endregion
+            #region Gear system
+            AddFunction(Switch.CreateThreeWaySwitch(this, GEAR_INTERFACE, "3226", "3226", "1", "UP", "0", "DOWN", "-1", "(MW)EMERGENCY DOWN", "Gear", "Landing Gear Control Handle", "%0.1f"));
+            AddFunction(new PushButton(this, GEAR_INTERFACE, "3229", "3229", "Gear", "Down Lock Override Button - Push to unlock"));
+            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3238", "3238", "1", "ON", "0", "OFF", "Gear", "Anti Skid Switch", "%0.1f"));
+            AddFunction(new PushButton(this, GEAR_INTERFACE, "3233", "3233", "Gear", "Launch Bar Control Switch"));
+            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3293", "3293", "1", "UP", "0", "DOWN", "Gear", "Arresting Hook Handle", "%0.1f"));
+            #endregion
+            #region Fuel system
+            AddFunction(Switch.CreateToggleSwitch(this, FUEL_INTERFACE, "3340", "3340", "1", "INHIBIT", "0", "NORM", "Fuel System", "Internal Wing Tank Fuel Control Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FUEL_INTERFACE, "3341", "3341", "1", "EXTEND", "0", "RETRACT", "-1", "EMERG EXTD", "Fuel System", "Probe Control Switch", "%0.1f"));
+            AddFunction(new PushButton(this, FUEL_INTERFACE, "3344", "3344", "Fuel System", "Fuel Dump Switch"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FUEL_INTERFACE, "3343", "3343", "1", "STOP", "0", "NORM", "-1", "ORIDE", "Fuel System", "External Centerline Tank Fuel Control Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FUEL_INTERFACE, "3342", "3342", "1", "STOP", "0", "NORM", "-1", "ORIDE", "Fuel System", "External Wing Tanks Fuel Control Switch", "%0.1f"));
+            #endregion
+            #region Cockpit Mechanics
+            AddFunction(Switch.CreateThreeWaySwitch(this, CPT_MECHANICS, "3453", "3453", "1", "OPEN", "0", "HOLD", "-1", "CLOSE", "Cockpit", "Canopy Control Switch", "%0.1f"));
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3043", "3043", "Cockpit", "Canopy Jettison Handle Unlock Button - Press to unlock"));
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3042", "3042", "Cockpit", "Canopy Jettison Handle - Pull to jettison"));
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3510", "3510", "Cockpit", "Ejection Control Handle (3 times)"));
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3511", "3511", "1", "SAFE", "0", "ARMED", "Cockpit", "Ejection Seat SAFE/ARMED Handle", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3512", "3512", "1", "PULL", "0", "PUSH", "Cockpit", "Ejection Seat Manual Override Handle", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3513", "3513", "1", "LOCK", "0", "UNLOCK", "Cockpit", "Shoulder Harness Control Handle", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, CPT_MECHANICS, "3514", "3514", "1", "UP", "0", "HOLD", "-1", "DOWN", "Cockpit", "Seat Height Adjustment Switch", "%0.1f"));
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3260", "3260", "Cockpit", "Rudder Pedal Adjust Lever"));
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3575", "3575", "Cockpit", "Hide Stick toggle"));
+            #endregion
+            #region Mirrors
+            //            --Mirrors
+            //497 = 2_position_tumb | Toggle Mirrors, 0, 3002, 0)
+            //498 = 2_position_tumb | Toggle Mirrors, 0, 3003, 0)
+            //499 = 2_position_tumb | Toggle Mirrors, 0, 3004, 0)
 
+            //AddFunction(Switch.CreateToggleSwitch(this, 3002, "3497", "3497", "3002", "Toggle Mirrors", "%0.1f"));
+            //AddFunction(Switch.CreateToggleSwitch(this, 3003, "3498", "3498", "3003", "Toggle Mirrors", "%0.1f"));
+            //AddFunction(Switch.CreateToggleSwitch(this, 3004, "3499", "3499", "3004", "Toggle Mirrors", "%0.1f"));
+            #endregion
+            #region Exterior Lights
+            AddFunction(new Axis(this, EXT_LIGHTS, "3338", "3338", 0.15d, 0d, 1d, "External Lights", "POSITION Lights Dimmer Control"));
+            AddFunction(new Axis(this, EXT_LIGHTS, "3337", "3337", 0.15d, 0d, 1d, "External Lights", "FORMATION Lights Dimmer Control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, EXT_LIGHTS, "3339", "3339", "1", "BRT", "0", "OFF", "-1", "DIM", "External Lights", "STROBE Lights Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, EXT_LIGHTS, "3237", "3237", "1", "ON", "0", "OFF", "External Lights", "LDG/TAXI LIGHT Switch", "%0.1f"));
+            #endregion
+            #region Cockpit Lights
+            AddFunction(new Axis(this, CPT_LIGTHS, "3413", "3413", 0.15d, 0d, 1d, "Cockpit Lights", "CONSOLES Lights Dimmer Control"));
+            AddFunction(new Axis(this, CPT_LIGTHS, "3414", "3414", 0.15d, 0d, 1d, "Cockpit Lights", "INST PNL Dimmer Control"));
+            AddFunction(new Axis(this, CPT_LIGTHS, "3415", "3415", 0.15d, 0d, 1d, "Cockpit Lights", "FLOOD Light Dimmer Control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, CPT_LIGTHS, "3419", "3419", "1", "NVG", "0", "NITE", "-1", "DAY", "Cockpit Lights", "MODE Switch", "%0.1f"));
+            AddFunction(new Axis(this, CPT_LIGTHS, "3418", "3418", 0.15d, 0d, 1d, "Cockpit Lights", "CHART Light Dimmer Control"));
+            AddFunction(new Axis(this, CPT_LIGTHS, "3417", "3417", 0.15d, 0d, 1d, "Cockpit Lights", "WARN/CAUTION Dimmer Control"));
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_LIGTHS, "3416", "3416", "1", "TEST", "0", "OFF", "Cockpit Lights", "Lights Test Switch", "%0.1f"));
+            AddFunction(new PushButton(this, CPT_LIGTHS, "3014", "3014", "Cockpit Lights", "MASTER CAUTION Reset Button - Press to reset"));
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_LIGTHS, "3239", "3239", "1", "FIELD", "0", "CARRIER", "Cockpit Lights", "HOOK BYPASS Switch", "%0.1f"));
+            #endregion
+            #region Oxygen System
+            AddFunction(Switch.CreateToggleSwitch(this, OXYGEN_INTERFACE, "3365", "3365", "1", "ON", "0", "OFF", "Oxygen System", "OBOGS Control Switch", "%0.1f"));
+            AddFunction(new Axis(this, OXYGEN_INTERFACE, "3366", "3366", 0.5d, 0d, 1d, "Oxygen System", "OXY Flow Knob"));
+            #endregion
+            #region ECS
+            AddFunction(new Switch(this, ECS_INTERFACE, "3411", new SwitchPosition[] { new SwitchPosition("1.0", "R OFF", "3411"), new SwitchPosition("0.0", "Norm", "3411"), new SwitchPosition("-1.0", "L Off", "3411"), new SwitchPosition("-2.0", "Off", "3411") }, "ECS", "Bleed Air Knob", "%0.1f"));
+            AddFunction(new PushButton(this, ECS_INTERFACE, "3412", "3412", "ECS", "Bleed Air Knob (Pull)"));
+            AddFunction(new Switch(this, ECS_INTERFACE, "3405", new SwitchPosition[] { new SwitchPosition("1.0", "Auto", "3405"), new SwitchPosition("0.0", "Man", "3405"), new SwitchPosition("-1.0", "Off", "3405"), new SwitchPosition("-2.0", "Ram", "3405") }, "ECS", "ECS Mode Switch", "%0.1f"));
+            AddFunction(new Switch(this, ECS_INTERFACE, "3408", new SwitchPosition[] { new SwitchPosition("1.0", "Norm", "3408"), new SwitchPosition("0.0", "Dump", "3408"), new SwitchPosition("-1.0", "Ram", "3408"), new SwitchPosition("-2.0", "Dump", "3408") }, "ECS", "Cabin Pressure Switch", "%0.1f"));
+            AddFunction(new Axis(this, ECS_INTERFACE, "3451", "3451", 0.1d, 0d, 1d, "ECS", "Defog Handle"));
+            AddFunction(new Axis(this, ECS_INTERFACE, "3407", "3407", 0.1d, 0d, 1d, "ECS", "Cabin Temperature Knob"));
+            AddFunction(new Axis(this, ECS_INTERFACE, "3406", "3406", 0.1d, 0d, 1d, "ECS", "Suit Temperature Knob"));
+            AddFunction(Switch.CreateToggleSwitch(this, ECS_INTERFACE, "3297", "3297", "1", "NORM", "0", "EMERG", "ECS", "AV COOL Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ECS_INTERFACE, "3452", "3452", "1", "ANTI ICE", "0", "OFF", "-1", "RAIN", "ECS", "Windshield Anti-Ice/Rain Switch", "%0.1f"));
+            AddFunction(new Axis(this, ECS_INTERFACE, "3505", "3505", 0.1d, 0d, 1d, "ECS", "Left Louver"));
+            AddFunction(new Axis(this, ECS_INTERFACE, "3506", "3506", 0.1d, 0d, 1d, "ECS", "Right Louver"));
+            #endregion
+            #region HOTAS
+            AddFunction(Switch.CreateToggleSwitch(this, HOTAS, "3494", "3494", "1", "ON", "0", "OFF", "HOTAS", "Exterior Lights Switch", "%0.1f"));
+            #endregion
+            #region Master Arm Panel
+            AddFunction(new PushButton(this, SMS, "3458", "3458","SMS", "A/A Master Mode Button"));
+            AddFunction(new PushButton(this, SMS, "3459", "3459","SMS", "A/G Master Mode Button"));
+            AddFunction(Switch.CreateToggleSwitch(this, SMS, "3049", "3049", "1", "ARM", "0", "SAFE","SMS", "Master Arm Switch", "%0.1f"));
+            AddFunction(new PushButton(this, SMS, "3050", "3050","SMS", "Emergency Jettison Button"));
+            AddFunction(Switch.CreateToggleSwitch(this, SMS, "3258", "3258", "1", "ENABLE", "0", "NORM","SMS", "Auxiliary Release Switch", "%0.1f"));
+            AddFunction(new PushButton(this, SMS, "3153", "3153","SMS", "Station Jettison Centre Select Button"));
+            AddFunction(new PushButton(this, SMS, "3155", "3155","SMS", "Station Jettison Left In Select Button"));
+            AddFunction(new PushButton(this, SMS, "3157", "3157","SMS", "Station Jettison Left Out Select Button"));
+            AddFunction(new PushButton(this, SMS, "3159", "3159","SMS", "Station Jettison Right In Select Button"));
+            AddFunction(new PushButton(this, SMS, "3161", "3161","SMS", "Station Jettison Right Out Select Button"));
+            AddFunction(new PushButton(this, SMS, "3235", "3235","SMS", "Selective Jettison Pushbutton"));
+            AddFunction(new Switch(this, SMS, "3236", new SwitchPosition[] { new SwitchPosition("1.0", "L FUS MSL", "3236"), new SwitchPosition("0.0", "Safe", "3236"), new SwitchPosition("-1.0", "R FUS MSL", "3236"), new SwitchPosition("-2.0", "Rack", "3236"), new SwitchPosition("-3.0", "LCHR", "3236"), new SwitchPosition("-4.0", "Stores", "3236") }, "SMS", "Selective Jettison Knob", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMS, "3135", "3135", "1", "ORIDE", "0", "NORM", "-1", "OFF","SMS", "IR Cooling Switch", "%0.1f"));
+            #endregion
+            #region Fire Systems
+            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3046", "3046", "Engine", "Fire Extinguisher Pushbutton"));
+            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3030", "3030", "Engine", "APU Fire Warning/Extinguisher Light"));
+            #endregion
+            #region Multipurpose Display Group -----------
+            #endregion
+            #region Head-Up Display
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUD, "3140", "3140", "1", "NORM", "0", "REJ 1", "-1", "REJ 2", "HUD", "HUD Symbology Reject Switch", "%0.1f"));
+            AddFunction(new Axis(this, HUD, "3141", "3141", 0.1d, 0d, 1d, "HUD", "HUD Symbology Brightness Control Knob"));
+            AddFunction(Switch.CreateToggleSwitch(this, HUD, "3142", "3142", "1", "DAY", "0", "NIGHT", "HUD", "HUD Symbology Brightness Selector Knob", "%0.1f"));
+            AddFunction(new Axis(this, HUD, "3143", "3143", 0.1d, 0d, 1d, "HUD", "Black Level Control Knob"));
+            AddFunction(new Switch(this, HUD, "3411", new SwitchPosition[] { new SwitchPosition("1.0", "W", "3411"), new SwitchPosition("0.0", "B", "3411"), new SwitchPosition("-1.0", "Vid", "3411"), new SwitchPosition("-2.0", "Off", "3411") }, "HUD", "HUD Video Control Switch", "%0.1f"));
+            AddFunction(new Axis(this, HUD, "3145", "3145", 0.1d, 0d, 1d, "HUD", "Balance Control Knob"));
+            AddFunction(new Axis(this, HUD, "3146", "3146", 0.1d, 0d, 1d, "HUD", "AOA Indexer Control Knob"));
+            AddFunction(Switch.CreateToggleSwitch(this, HUD, "3147", "3147", "1", "BARO", "0", "RDR", "HUD", "Altitude Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUD, "3148", "3148", "1", "INS", "0", "AUTO", "-1", "STBY", "HUD", "Attitude Selector Switch", "%0.1f"));
+            #endregion
+             #region Instruments
+            #endregion
+            #region Standby Pressure Altimeter AAU-52/A
+            AddFunction(new Axis(this, AAU52, "3224", "3224", 0.1d, 0.04d, 1d, "AAU52", "AAU-52 Altimeter Pressure Setting Knob"));
+            #endregion
+            #region Radar Altimeter Height Indicator
+            #endregion
+            #region tandby Attitude Indicator
+            AddFunction(new PushButton(this, SAI, "3215", "3215", "SAI", "SAI Test Button - Push to test"));
+            #endregion
+            #region Integrated Fuel/Engine Indicator (IFEI)
+            AddFunction(new PushButton(this, IFEI, "3168", "3168", "IFEI", "IFEI Mode Button"));
+            AddFunction(new PushButton(this, IFEI, "3169", "3169", "IFEI", "IFEI QTY Button"));
+            AddFunction(new PushButton(this, IFEI, "3170", "3170", "IFEI", "IFEI Up Arrow Button"));
+            AddFunction(new PushButton(this, IFEI, "3171", "3171", "IFEI", "IFEI Down Arrow Button"));
+            AddFunction(new PushButton(this, IFEI, "3172", "3172", "IFEI", "IFEI ZONE Button"));
+            AddFunction(new PushButton(this, IFEI, "3173", "3173", "IFEI", "IFEI ET Button"));
+            AddFunction(new Axis(this, IFEI, "3174", "3174", 0.1d, 0d, 1d, "IFEI", "IFEI Brightness Control Knob"));
+            #endregion
+            #region Sensor panel
+            AddFunction(new Switch(this, RADAR, "3440", new SwitchPosition[] { new SwitchPosition("1.0", "Off", "3440"), new SwitchPosition("0.0", "Standby", "3440"), new SwitchPosition("-1.0", "Opr", "3440"), new SwitchPosition("-2.0", "EMERG(PULL)", "3440")}, "RADAR", "RADAR Switch (MW to pull)", "%0.1f"));
+
+            #endregion
+            #region OLD
+            AddFunction(new Switch(this, INS, "3443", new SwitchPosition[] { new SwitchPosition("1.0", "Off", "3443"), new SwitchPosition("0.0", "CV", "3443"), new SwitchPosition("-1.0", "Gnd", "3443"), new SwitchPosition("-2.0", "Nav", "3443"), new SwitchPosition("-3.0", "IFA", "3443"), new SwitchPosition("-4.0", "Gyro", "3443"), new SwitchPosition("-5.0", "GB", "3443"), new SwitchPosition("-6.0", "Test", "3443") }, "INS", "INS Mode Switch", "%0.1f"));
+
+            #endregion
+            #region intercom
+            AddFunction(new Axis(this, INTERCOM, "3357", "3357", 0.1d, 0d, 1d, "Intercom", "VOX Volume Control Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3358", "3358", 0.1d, 0d, 1d, "Intercom", "ICS Volume Control Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3359", "3359", 0.1d, 0d, 1d, "Intercom", "RWR Volume Control Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3360", "3360", 0.1d, 0d, 1d, "Intercom", "WPN Volume Control Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3361", "3361", 0.1d, 0d, 1d, "Intercom", "MIDS B Volume Control Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3362", "3362", 0.1d, 0d, 1d, "Intercom", "MIDS A Volume Control Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3363", "3363", 0.1d, 0d, 1d, "Intercom", "TACAN Volume Control Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3364", "3364", 0.1d, 0d, 1d, "Intercom", "AUX Volume Control Knob"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, INTERCOM, "3350", "3350", "1", "CIPHER", "0", "OFF", "-1", "PLAIN", "Intercom", "Comm Relay Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, INTERCOM, "3351", "3351", "1", "COMM 1", "0", "OFF", "-1", "COMM 2", "Intercom", "COMM G XMT Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, INTERCOM, "3356", "3356", "1", "EMER", "0", "NORM", "Intercom", "IFF Master Switch", "%0.1f"));
+            AddFunction(new Switch(this, INTERCOM, "3355", new SwitchPosition[] { new SwitchPosition("1.0", "Dis", "3355"), new SwitchPosition("0.0", "Aud", "3355"), new SwitchPosition("-1.0", "Dis", "3355"), new SwitchPosition("-2.0", "Off", "3355") }, "Intercom", "IFF Mode 4 Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, INTERCOM, "3354", "3354", "1", "HOLD", "0", "NORM", "-1", "ZERO", "Intercom", "CRYPTO Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, INTERCOM, "3353", "3353", "1", "UFC", "0", "MAN", "Intercom", "ILS UFC/MAN Switch", "%0.1f"));
+            AddFunction(new Axis(this, INTERCOM, "3352", "3352", 0.05d, 0d, 1d, "Intercom", "ILS Channel Selector Switch"));
+            AddFunction(new Switch(this, KY58, "3444", new SwitchPosition[] { new SwitchPosition("1.0", "P", "3444"), new SwitchPosition("0.0", "C", "3444"), new SwitchPosition("-1.0", "LD", "3444"), new SwitchPosition("-2.0", "HV", "3444") }, "KY58", "KY-58 Mode Select Knob", "%0.1f"));
+            AddFunction(new Axis(this, KY58, "3445", "3445", 0.1d, 0d, 1d, "KY58", "KY-58 Volume Control Knob"));
+            AddFunction(new Switch(this, KY58, "3446", new SwitchPosition[] { new SwitchPosition("1.0", "Z 1-5", "3446"), new SwitchPosition("0.0", "1", "3446"), new SwitchPosition("-1.0", "2", "3446"), new SwitchPosition("-2.0", "3", "3446"), new SwitchPosition("-3.0", "4", "3446"), new SwitchPosition("-4.0", "5", "3446"), new SwitchPosition("-5.0", "6", "3446"), new SwitchPosition("-6.0", "Z All", "3446") }, "KY58", "KY-58 Fill Select Knob", "%0.1f"));
+            AddFunction(new Switch(this, KY58, "3447", new SwitchPosition[] { new SwitchPosition("1.0", "Off", "3447"), new SwitchPosition("0.0", "On", "3447"), new SwitchPosition("-1.0", "TD", "3447") }, "KY58", "KY-58 Power Select Knob", "%0.1f"));
+            AddFunction(new PushButton(this, INTERCOM, "3230", "3230", "Intercom", "Warning Tone Silence Button - Push to silence"));
+            #endregion
+            #region antenna selector
+            AddFunction(Switch.CreateThreeWaySwitch(this, ANTENNA_SELECTOR, "3373", "3373", "1", "UPPER", "0", "AUTO", "-1", "LOWER", "Antenna", "COMM 1 Antenna Selector Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ANTENNA_SELECTOR, "3374", "3374", "1", "UPPER", "0", "BOTH", "-1", "LOWER", "Antenna", "IFF Antenna Selector Switch", "%0.1f"));
+            #endregion
+            #region RWR
+            AddFunction(new PushButton(this, RWR, "3277", "3277", "RWR", "ALR-67 POWER Pushbutton"));
+            AddFunction(new PushButton(this, RWR, "3275", "3275", "RWR", "ALR-67 DISPLAY Pushbutton"));
+            AddFunction(new PushButton(this, RWR, "3272", "3272", "RWR", "ALR-67 SPECIAL Pushbutton"));
+            AddFunction(new PushButton(this, RWR, "3269", "3269", "RWR", "ALR-67 OFFSET Pushbutton"));
+            AddFunction(new PushButton(this, RWR, "3266", "3266", "RWR", "ALR-67 BIT Pushbutton"));
+            AddFunction(new Axis(this, RWR, "3263", "3263", 0.1d, 0d, 1d, "RWR", "ALR-67 DMR Control Knob"));
+            AddFunction(new Axis(this, RWR, "3262", "3262", 0.1d, 0d, 1d, "RWR", "ALR-67 AUDIO Control Knob (no function)"));
+            AddFunction(new Switch(this, RWR, "3261", new SwitchPosition[] { new SwitchPosition("1.0", "N", "3261"), new SwitchPosition("0.0", "I", "3261"), new SwitchPosition("-1.0", "A", "3261"), new SwitchPosition("-2.0", "U", "3261"), new SwitchPosition("-3.0", "F", "3261") }, "RWR", "ALR-67 DIS TYPE Switch", "%0.1f"));
+            AddFunction(new Axis(this, RWR, "3216", "3216", 0.1d, 0d, 1d, "RWR", "RWR Intensity Knob"));
+            #endregion
+            #region CMDS
+            AddFunction(new PushButton(this, CMDS, "3380", "3380", "CMDS", "Dispense Button - Push to dispense flares and chaff"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, CMDS, "3517", "3517", "1", "BYPASS", "0", "ON", "-1", "OFF", "CMDS", "DISPENSER Switch", "%0.1f"));
+            AddFunction(new PushButton(this, CMDS, "3515", "3515", "CMDS", "ECM - Push to jettison"));
+            #endregion
+            #region ICMCP
+            AddFunction(new Switch(this, CMDS, "3248", new SwitchPosition[] { new SwitchPosition("1.0", "Xmit", "3248"), new SwitchPosition("0.0", "Rcv", "3248"), new SwitchPosition("-1.0", "BIT", "3248"), new SwitchPosition("-2.0", "Stby", "3248"), new SwitchPosition("-3.0", "Off", "3248") }, "CMDS", "ECM Mode Switch", "%0.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, CMDS, "3507", "3507", "1", "ENABLE", "0", "DISABLE (no function)", "CMDS", "NUC WPN Switch", "%0.1f"));
+            #endregion
+            #region TODO list
+            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3175", "3175", "1", "HMD", "0", "LDDI", "-1", "RDDI", "Work In Progress", "Selector Switch", "%0.1f"));
+            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3176", "3176", "1", "HUD", "0", "LDIR", "-1", "RDDI", "Work In Progress", "Selector Switch", "%0.1f"));
+            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3314", "3314", "1", "MAN", "0", "OFF", "-1", "AUTO", "Work In Progress", "Mode Selector Switch", "%0.1f"));
+            //AddFunction(new PushButton(this, TODO, "3007", "3007", "Work In Progress", "Video BIT Initiate Pushbutton - Push to initiate BIT"));
+            //AddFunction(new Axis(this, TODO, "3136", "3136", 0.1d, 0d, 1d, "Work In Progress", "HMD OFF/BRT Knob"));
+            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3439", "3439", "1", "ON", "0", "STBY", "-1", "OFF", "Work In Progress", "FLIR Switch", "%0.1f"));
+            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3441", "3441", "1", "ARM", "0", "SAFE", "-1", "AFT", "Work In Progress", "LTD/R Switch", "%0.1f"));
+            //AddFunction(Switch.CreateToggleSwitch(this, TODO, "3442", "3442", "1", "ON", "0", "OFF", "Work In Progress", "LST/NFLR Switch", "%0.1f"));
+            //AddFunction(new PushButton(this, TODO, "3315", "3315", "Work In Progress", "Left Video Sensor BIT Initiate Pushbutton - Push to initiate BIT"));
+            //AddFunction(new PushButton(this, TODO, "3318", "3318", "Work In Progress", "Right Video Sensor BIT Initiate Pushbutton - Push to initiate BIT"));
+            #endregion
         }
 
         private string DCSPath
