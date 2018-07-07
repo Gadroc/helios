@@ -39,15 +39,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             Actions.Add(_verticalVelocity);
 
             _calibrationPoints = new CalibrationPointCollectionDouble(-6000d, -169d, 6000d, 169d);
-            _calibrationPoints.Add(new CalibrationPointDouble(-4000d, -141d));
-            _calibrationPoints.Add(new CalibrationPointDouble(-2000d, -103d));
-            _calibrationPoints.Add(new CalibrationPointDouble(-1000d, -68d));
-            _calibrationPoints.Add(new CalibrationPointDouble(-500d, -37d));
             _calibrationPoints.Add(new CalibrationPointDouble(0d, 0d));
-            _calibrationPoints.Add(new CalibrationPointDouble(500d, 37d));
-            _calibrationPoints.Add(new CalibrationPointDouble(1000d, 68d));
-            _calibrationPoints.Add(new CalibrationPointDouble(2000d, 103d));
-            _calibrationPoints.Add(new CalibrationPointDouble(4000d, 141d));
         }
         void VerticalVelocity_Execute(object action, HeliosActionEventArgs e)
         {

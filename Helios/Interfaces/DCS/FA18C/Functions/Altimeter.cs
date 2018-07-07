@@ -63,9 +63,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C.Functions
                     double tens = ClampedParse(parts[0], 10d);
                     double ones = ClampedParse(parts[1], 1d);
                     double tenths = ClampedParse(parts[2], .1d);
- 
+                    double hundredths = ClampedParse(parts[3], .1d);
 
-                    double pressure = tens + ones + tenths ;
+
+                    double pressure = tens + ones + tenths+ hundredths;
                     _pressure.SetValue(new BindingValue(pressure), false);
                     break;
             }

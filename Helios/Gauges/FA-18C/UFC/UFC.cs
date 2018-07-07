@@ -66,9 +66,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddPot("Radio Volume 1", new Point(20, 193), new Size(48, 48));
             AddPot("Radio Volume 2", new Point(481, 193), new Size(48, 48));
             AddEncoder("Radio 1", new Point(17, 359), new Size(75, 75));
-            AddButtonIP("Radio 1 Pull", 40, 382, new Size(28, 28),false);
+            AddButtonIP("Radio 1 Pull", 41, 383, new Size(28, 28),false);
             AddEncoder("Radio 2", new Point(462, 359), new Size(75, 75));
-            AddButtonIP("Radio 2 Pull", 485, 382, new Size(28, 28),false);
+            AddButtonIP("Radio 2 Pull", 485, 383, new Size(28, 28),false);
         }
 
         public override string BezelImage

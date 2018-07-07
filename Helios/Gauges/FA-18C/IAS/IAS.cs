@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.FA18C.IAS", "IAS", "F/A-18C Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.FA18C.IAS", "Indicated Air Speed", "F/A-18C Gauges", typeof(GaugeRenderer))]
     public class IAS : BaseGauge
     {
         private HeliosValue _indicatedAirSpeed;
@@ -33,16 +33,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
             Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/IAS/IAS.png", new Rect(0d, 0d, 300, 300)));
 
-            //_needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 850d, 346d);
-            //_needleCalibration.Add(new CalibrationPointDouble(100d, 50d));
-            //_needleCalibration.Add(new CalibrationPointDouble(150d, 118d));
-            //_needleCalibration.Add(new CalibrationPointDouble(200d, 202d));
-            //_needleCalibration.Add(new CalibrationPointDouble(300d, 234d));
-            //_needleCalibration.Add(new CalibrationPointDouble(400d, 260d));
-            //_needleCalibration.Add(new CalibrationPointDouble(500d, 282d));
-            //_needleCalibration.Add(new CalibrationPointDouble(600d, 300d));
-            //_needleCalibration.Add(new CalibrationPointDouble(700d, 320d));
-            //_needleCalibration.Add(new CalibrationPointDouble(800d, 336d));
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 360d, 346d);
             _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(150d, 150d), new Size(30, 128), new Point(15, 113), 0d);
             Components.Add(_needle);

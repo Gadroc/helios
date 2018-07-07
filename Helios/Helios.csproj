@@ -164,7 +164,12 @@
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\RADARAltimeter.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\BarometricAltimeter.cs" />
+    <Compile Include="Gauges\FA-18C\Battery\Battery.cs" />
+    <Compile Include="Gauges\FA-18C\BrakePressure\Brake_Pressure.cs" />
+    <Compile Include="Gauges\FA-18C\CabinPressure\CabinPressure.cs" />
+    <Compile Include="Gauges\FA-18C\HydraulicPressure\Hydraulic.cs" />
     <Compile Include="Gauges\FA-18C\IAS\IAS.cs" />
+    <Compile Include="Gauges\FA-18C\LOx\LOx.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-2.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-1.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-AV8B.cs" />
@@ -2634,9 +2639,12 @@
     <Resource Include="Gauges\FA-18C\CabinPressure\Cabin_Pressure_Faceplate.png" />
     <Resource Include="Gauges\FA-18C\Common\gauge_bezel.png" />
     <Resource Include="Gauges\FA-18C\Common\engine_bezel.png" />
-    <Content Include="Gauges\FA-18C\HydraulicPressure\Hyd_Pressure_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\Battery\Battery_Needle_Cover.png" />
+    <Resource Include="Gauges\FA-18C\BrakePressure\Brake_Pressure_Cover.png" />
+    <Resource Include="Gauges\FA-18C\BrakePressure\Brake_Pressure_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\HydraulicPressure\Hyd_Pressure_Faceplate.png" />
     <Resource Include="Gauges\FA-18C\IAS\IAS.png" />
-    <Content Include="Gauges\FA-18C\LOx\LOx_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\LOx\LOx_Faceplate.png" />
     <Resource Include="Gauges\FA-18C\VVI\VVI_Faceplate.png" />
   </ItemGroup>
   <ItemGroup>
