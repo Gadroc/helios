@@ -35,17 +35,17 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.Instruments
             : base("Barometric Altimeter", new Size(376, 376))
         {
  
-            _tensDrum = new GaugeDrumCounter("{Helios}/Gauges/FA-18C/Altimeter/alt_drum_tape.xaml", new Point(75d, 131d), "#", new Size(28d, 32d), new Size(28d, 32d));
-            _tensDrum.Clip = new RectangleGeometry(new Rect(71d, 144d, 150d, 81d));
+            _tensDrum = new GaugeDrumCounter("{Helios}/Gauges/FA-18C/Altimeter/alt_drum_tape.xaml", new Point(73d, 129d), "#", new Size(10d, 15d), new Size(31d, 38d));
+            _tensDrum.Clip = new RectangleGeometry(new Rect(71d, 144d, 31d, 38d));
             Components.Add(_tensDrum);
 
-            _drum = new GaugeDrumCounter("{Helios}/Gauges/FA-18C/Common/drum_tape.xaml", new Point(123d, 131d), "#%00", new Size(28d, 32d), new Size(28d, 32d));
-            _drum.Clip = new RectangleGeometry(new Rect(123d, 131d, 150d, 81d));
+            _drum = new GaugeDrumCounter("{Helios}/Gauges/FA-18C/Common/drum_tape.xaml", new Point(123d, 129d), "#%00", new Size(10d, 15d), new Size(31d, 38d));
+            _drum.Clip = new RectangleGeometry(new Rect(123d, 131d, 31d, 38d));
             Components.Add(_drum);
 
-            _airPressureDrum = new GaugeDrumCounter("{Helios}/Gauges/FA-18C/Common/drum_tape.xaml", new Point(135d, 277d), "###%", new Size(108d, 32d), new Size(108d, 32d));
+            _airPressureDrum = new GaugeDrumCounter("{Helios}/Gauges/FA-18C/Common/drum_tape.xaml", new Point(135d, 276d), "###%", new Size(10d, 15d), new Size(24d, 32d));
             _airPressureDrum.Value = 2992d;
-            _airPressureDrum.Clip = new RectangleGeometry(new Rect(135d, 277d, 108d, 32d));
+            _airPressureDrum.Clip = new RectangleGeometry(new Rect(135d, 276d,96d, 32d));
             Components.Add(_airPressureDrum);
 
             Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/Altimeter/Altimeter_Faceplate.png", new Rect(0d, 0d, 376d, 376d)));

@@ -90,126 +90,126 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             _phantomTop = config.PhantomFixTop;
 
             #region Left MCFD
-            AddFunction(new PushButton(this, MPCD_LEFT, "3200", "3200", "Left MFCD", "OSB01", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3201", "3201", "Left MFCD", "OSB02", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3202", "3202", "Left MFCD", "OSB03", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3203", "3203", "Left MFCD", "OSB04", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3204", "3204", "Left MFCD", "OSB05", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3205", "3205", "Left MFCD", "OSB06", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3206", "3206", "Left MFCD", "OSB07", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3207", "3207", "Left MFCD", "OSB08", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3208", "3208", "Left MFCD", "OSB09", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3209", "3209", "Left MFCD", "OSB10", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3210", "3210", "Left MFCD", "OSB11", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3211", "3211", "Left MFCD", "OSB12", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3212", "3212", "Left MFCD", "OSB13", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3213", "3213", "Left MFCD", "OSB14", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3214", "3214", "Left MFCD", "OSB15", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3215", "3215", "Left MFCD", "OSB16", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3216", "3216", "Left MFCD", "OSB17", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3217", "3217", "Left MFCD", "OSB18", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3218", "3218", "Left MFCD", "OSB19", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MPCD_LEFT, "3219", "3219", "Left MFCD", "OSB20", "1", "0", "%1d"));
-            AddFunction(new Axis(this, MPCD_LEFT, "3194", "3194", 0.1d, 0d, 1d, "Left MFCD", "Off/Brightness Control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3220", "3220", "-1", "Day", "0", "Off", "1", "Night", "Left MFCD", "DAY/NIGHT Mode", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3221", "3221", "-1", "More", "0", "Off", "1", "Less", "Left MFCD", "Symbology", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3222", "3222", "-1", "Up", "0", "Off", "1", "Down", "Left MFCD", "Gain", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3223", "3223", "-1", "Up", "0", "Off", "1", "Down", "Left MFCD", "Contrast", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3200", "200", "Left MFCD", "OSB01", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3201", "201", "Left MFCD", "OSB02", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3202", "202", "Left MFCD", "OSB03", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3203", "203", "Left MFCD", "OSB04", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3204", "204", "Left MFCD", "OSB05", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3205", "205", "Left MFCD", "OSB06", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3206", "206", "Left MFCD", "OSB07", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3207", "207", "Left MFCD", "OSB08", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3208", "208", "Left MFCD", "OSB09", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3209", "209", "Left MFCD", "OSB10", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3210", "210", "Left MFCD", "OSB11", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3211", "211", "Left MFCD", "OSB12", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3212", "212", "Left MFCD", "OSB13", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3213", "213", "Left MFCD", "OSB14", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3214", "214", "Left MFCD", "OSB15", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3215", "215", "Left MFCD", "OSB16", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3216", "216", "Left MFCD", "OSB17", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3217", "217", "Left MFCD", "OSB18", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3218", "218", "Left MFCD", "OSB19", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MPCD_LEFT, "3219", "219", "Left MFCD", "OSB20", "1", "0", "%1d"));
+            AddFunction(new Axis(this, MPCD_LEFT, "3194", "194", 0.1d, 0d, 1d, "Left MFCD", "Off/Brightness Control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3220", "220", "-1", "Day", "0", "Off", "1", "Night", "Left MFCD", "DAY/NIGHT Mode", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3221", "221", "-1", "More", "0", "Off", "1", "Less", "Left MFCD", "Symbology", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3222", "222", "-1", "Up", "0", "Off", "1", "Down", "Left MFCD", "Gain", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_LEFT, "3223", "223", "-1", "Up", "0", "Off", "1", "Down", "Left MFCD", "Contrast", "%1d"));
 
             #endregion
 
             #region Right MCFD
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3224", "3224", "Right MFCD", "OSB01"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3225", "3225", "Right MFCD", "OSB02"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3226", "3226", "Right MFCD", "OSB03"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3227", "3227", "Right MFCD", "OSB04"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3228", "3228", "Right MFCD", "OSB05"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3229", "3229", "Right MFCD", "OSB06"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3230", "3230", "Right MFCD", "OSB07"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3231", "3231", "Right MFCD", "OSB08"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3232", "3232", "Right MFCD", "OSB09"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3233", "3233", "Right MFCD", "OSB10"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3234", "3234", "Right MFCD", "OSB11"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3235", "3235", "Right MFCD", "OSB12"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3236", "3236", "Right MFCD", "OSB13"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3237", "3237", "Right MFCD", "OSB14"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3238", "3238", "Right MFCD", "OSB15"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3239", "3239", "Right MFCD", "OSB16"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3240", "3240", "Right MFCD", "OSB17"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3241", "3241", "Right MFCD", "OSB18"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3242", "3242", "Right MFCD", "OSB19"));
-            AddFunction(new PushButton(this, MPCD_RIGHT, "3243", "3243", "Right MFCD", "OSB20"));
-            AddFunction(new Axis(this, MPCD_RIGHT, "3195", "3195", 0.1d, 0d, 1d, "Right MFCD", "Off/Brightness Control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3244", "3244", "-1", "Day", "0", "Off", "1", "Night", "Right MFCD", "DAY/NIGHT Mode", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3245", "3245", "-1", "More", "0", "Off", "1", "Less", "Right MFCD", "Symbology", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3246", "3246", "-1", "Up", "0", "Off", "1", "Down", "Right MFCD", "Gain", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3247", "3247", "-1", "Up", "0", "Off", "1", "Down", "Right MFCD", "Contrast", "%1d"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3224", "224", "Right MFCD", "OSB01"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3225", "225", "Right MFCD", "OSB02"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3226", "226", "Right MFCD", "OSB03"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3227", "227", "Right MFCD", "OSB04"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3228", "228", "Right MFCD", "OSB05"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3229", "229", "Right MFCD", "OSB06"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3230", "230", "Right MFCD", "OSB07"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3231", "231", "Right MFCD", "OSB08"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3232", "232", "Right MFCD", "OSB09"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3233", "233", "Right MFCD", "OSB10"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3234", "234", "Right MFCD", "OSB11"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3235", "235", "Right MFCD", "OSB12"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3236", "236", "Right MFCD", "OSB13"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3237", "237", "Right MFCD", "OSB14"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3238", "238", "Right MFCD", "OSB15"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3239", "239", "Right MFCD", "OSB16"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3240", "240", "Right MFCD", "OSB17"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3241", "241", "Right MFCD", "OSB18"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3242", "242", "Right MFCD", "OSB19"));
+            AddFunction(new PushButton(this, MPCD_RIGHT, "3243", "243", "Right MFCD", "OSB20"));
+            AddFunction(new Axis(this, MPCD_RIGHT, "3195", "195", 0.1d, 0d, 1d, "Right MFCD", "Off/Brightness Control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3244", "244", "-1", "Day", "0", "Off", "1", "Night", "Right MFCD", "DAY/NIGHT Mode", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3245", "245", "-1", "More", "0", "Off", "1", "Less", "Right MFCD", "Symbology", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3246", "246", "-1", "Up", "0", "Off", "1", "Down", "Right MFCD", "Gain", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MPCD_RIGHT, "3247", "247", "-1", "Up", "0", "Off", "1", "Down", "Right MFCD", "Contrast", "%1d"));
 
 
             #endregion
 
             #region UFC
-            AddFunction(new PushButton(this, UFCCONTROL, "3302", "3302", "UFC", "1"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3303", "3303", "UFC", "2/N"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3304", "3304", "UFC", "3"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3306", "3306", "UFC", "4/W"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3307", "3307", "UFC", "5"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3308", "3308", "UFC", "6/E"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3310", "3310", "UFC", "7"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3311", "3311", "UFC", "8/S"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3312", "3312", "UFC", "9"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3315", "3315", "UFC", "0"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3316", "3316", "UFC", "."));
-            AddFunction(new PushButton(this, UFCCONTROL, "3313", "3313", "UFC", "-"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3314", "3314", "UFC", "Enter"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3305", "3305", "UFC", "Clear"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3294", "3294", "UFC", "Timer"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3324", "3324", "UFC", "Altitude"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3318", "3318", "UFC", "IFF"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3319", "3319", "UFC", "TACAN"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3320", "3320", "UFC", "All Weather Landing"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3317", "3317", "UFC", "On/Off"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3325", "3325", "UFC", "Emmission Control"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3296", "3296", "UFC", "Target of Opportunity"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3322", "3322", "UFC", "Waypoint Overfly"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3321", "3321", "UFC", "Weapons"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3323", "3323", "UFC", "RADAR Beacon"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3297", "3297", "UFC", "I/P"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3309", "3309", "UFC", "Save"));
-            AddFunction(new PushButton(this, LTWCA, "3198", "3198", "Caution/Warning", "Master Caution Button"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3302", "302", "UFC", "1"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3303", "303", "UFC", "2/N"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3304", "304", "UFC", "3"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3306", "306", "UFC", "4/W"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3307", "307", "UFC", "5"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3308", "308", "UFC", "6/E"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3310", "310", "UFC", "7"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3311", "311", "UFC", "8/S"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3312", "312", "UFC", "9"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3315", "315", "UFC", "0"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3316", "316", "UFC", "."));
+            AddFunction(new PushButton(this, UFCCONTROL, "3313", "313", "UFC", "-"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3314", "314", "UFC", "Enter"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3305", "305", "UFC", "Clear"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3294", "294", "UFC", "Timer"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3324", "324", "UFC", "Altitude"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3318", "318", "UFC", "IFF"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3319", "319", "UFC", "TACAN"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3320", "320", "UFC", "All Weather Landing"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3317", "317", "UFC", "On/Off"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3325", "325", "UFC", "Emmission Control"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3296", "296", "UFC", "Target of Opportunity"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3322", "322", "UFC", "Waypoint Overfly"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3321", "321", "UFC", "Weapons"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3323", "323", "UFC", "RADAR Beacon"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3297", "297", "UFC", "I/P"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3309", "309", "UFC", "Save"));
+            AddFunction(new PushButton(this, LTWCA, "3198", "198", "Caution/Warning", "Master Caution Button"));
             AddFunction(new FlagValue(this, "196", "Caution/Warning", "Master Caution", "Master Caution indicator"));
-            AddFunction(new PushButton(this, LTWCA, "3199", "3199", "Caution/Warning", "Master Warning Button"));
+            AddFunction(new PushButton(this, LTWCA, "3199", "199", "Caution/Warning", "Master Warning Button"));
             AddFunction(new FlagValue(this, "197", "Caution/Warning", "Master Warning", "Master warning indicator"));
-            AddFunction(new Axis(this, UFCCONTROL, "3295", "3295", 0.1d, 0d, 1d, "UFC", "Display Brightness"));
-            AddFunction(new Axis(this, UFCCONTROL, "3298", "3298", 0.1d, 0d, 1d, "UFC", "Comm 1 Volume"));
-            AddFunction(new Axis(this, UFCCONTROL, "3299", "3299", 0.1d, 0d, 1d, "UFC", "Comm 2 Volume"));
-            AddFunction(new Axis(this, UFCCONTROL, "3300", "3300", 0.1d, 0d, 1d, "UFC", "Comm 1 Channel selector"));
-            AddFunction(new Axis(this, UFCCONTROL, "3301", "3301", 0.1d, 0d, 1d, "UFC", "Comm 2 Channel selector"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3178", "3178", "UFC", "Comm 1 Channel selector button"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3179", "3179", "UFC", "Comm 2 Channel selector button"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "3288", "0", "Norm", "0.5", "Reject 1", "1", "Reject 2", "HUD Control", "Declutter switch", "%.1f"));
-            AddFunction(new Axis(this, HUDCONTROL, "3289", "3289", 0.1d, 0d, 1d, "HUD Control", "Off/Brightness control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "3290", "0", "Day", "0.5", "Auto", "1", "Night", "HUD Control", "Display Mode switch", "%.1f"));
-            AddFunction(new Axis(this, HUDCONTROL, "3291", "3291", 0.1d, 0d, 1d, "HUD Control", "Video Brightness"));
-            AddFunction(new Axis(this, HUDCONTROL, "3292", "3292", 0.1d, 0d, 1d, "HUD Control", "Video Contrast"));
-            AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "3293", "0", "RDR", "1", "Baro", "HUD Control", "Altimeter Mode Switch", "%1d"));
+            AddFunction(new Axis(this, UFCCONTROL, "3295", "295", 0.1d, 0d, 1d, "UFC", "Display Brightness"));
+            AddFunction(new Axis(this, UFCCONTROL, "3298", "298", 0.1d, 0d, 1d, "UFC", "Comm 1 Volume"));
+            AddFunction(new Axis(this, UFCCONTROL, "3299", "299", 0.1d, 0d, 1d, "UFC", "Comm 2 Volume"));
+            AddFunction(new Axis(this, UFCCONTROL, "3300", "300", 0.1d, 0d, 1d, "UFC", "Comm 1 Channel selector"));
+            AddFunction(new Axis(this, UFCCONTROL, "3301", "301", 0.1d, 0d, 1d, "UFC", "Comm 2 Channel selector"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3178", "178", "UFC", "Comm 1 Channel selector button"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3179", "179", "UFC", "Comm 2 Channel selector button"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "288", "0", "Norm", "0.5", "Reject 1", "1", "Reject 2", "HUD Control", "Declutter switch", "%.1f"));
+            AddFunction(new Axis(this, HUDCONTROL, "3289", "289", 0.1d, 0d, 1d, "HUD Control", "Off/Brightness control"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "290", "0", "Day", "0.5", "Auto", "1", "Night", "HUD Control", "Display Mode switch", "%.1f"));
+            AddFunction(new Axis(this, HUDCONTROL, "3291", "291", 0.1d, 0d, 1d, "HUD Control", "Video Brightness"));
+            AddFunction(new Axis(this, HUDCONTROL, "3292", "292", 0.1d, 0d, 1d, "HUD Control", "Video Contrast"));
+            AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "293", "0", "RDR", "1", "Baro", "HUD Control", "Altimeter Mode Switch", "%1d"));
             #endregion
 
             #region Master Modes
-            AddFunction(new PushButton(this, MSC, "3282", "3282", "Master Modes", "NAV Button"));
+            AddFunction(new PushButton(this, MSC, "3282", "282", "Master Modes", "NAV Button"));
             AddFunction(new FlagValue(this, "283", "Master Modes", "Nav Indicator", "Nav Master Mode Indicator"));
-            AddFunction(new PushButton(this, MSC, "3284", "3284", "Master Modes", "VSTOL Button"));
+            AddFunction(new PushButton(this, MSC, "3284", "284", "Master Modes", "VSTOL Button"));
             AddFunction(new FlagValue(this, "285", "Master Modes", "VSTOL Indicator", "VSTOL Master Mode Indicator"));
-            AddFunction(new PushButton(this, MSC, "3280", "3280", "Master Modes", "A/G Button"));
+            AddFunction(new PushButton(this, MSC, "3280", "280", "Master Modes", "A/G Button"));
             AddFunction(new FlagValue(this, "281", "Master Modes", "A/G Indicator", "A/G Master Mode Indicator"));
             #endregion
 
             #region ODU
-            AddFunction(new PushButton(this, ODUCONTROL, "3250", "3250", "ODU", "1"));
-            AddFunction(new PushButton(this, ODUCONTROL, "3251", "3251", "ODU", "2"));
-            AddFunction(new PushButton(this, ODUCONTROL, "3252", "3252", "ODU", "3"));
-            AddFunction(new PushButton(this, ODUCONTROL, "3248", "3248", "ODU", "4"));
-            AddFunction(new PushButton(this, ODUCONTROL, "3249", "3249", "ODU", "5"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3250", "250", "ODU", "1"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3251", "251", "ODU", "2"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3252", "252", "ODU", "3"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3248", "248", "ODU", "4"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3249", "249", "ODU", "5"));
             #endregion
 
             #region Threat Indicators
@@ -249,7 +249,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Fuel Quantity Indicator System
-            AddFunction(new Axis(this, FQIS, "3380", "3380", 0.001d, 0d, 1d, "Fuel Quantity", "Bingo Fuel Set Knob", true, "%.3f"));  //looping axis
+            AddFunction(new Axis(this, FQIS, "3380", "380", 0.001d, 0d, 1d, "Fuel Quantity", "Bingo Fuel Set Knob", true, "%.3f"));  //looping axis
             AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3379"), new SwitchPosition("-0.66", "FEED", "3379"), new SwitchPosition("-0.33", "TOTAL", "3379"), new SwitchPosition("0.0", "INT", "3379"), new SwitchPosition("0.33", "WING", "3379"), new SwitchPosition("0.66", "INBD", "3379"), new SwitchPosition("0.99", "OUTBD", "3379") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
             AddFunction(new Digits4Display(this, FQIS, "2011", "Fuel Quantity", "Left Tank display", "Fuel left tank quantity"));
             AddFunction(new Digits4Display(this, FQIS, "2012", "Fuel Quantity", "Right Tank display", "Fuel right tank quantity"));
@@ -325,122 +325,122 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             //AddFunction(new FlagValue(this, "469", "Landing Gear", "Main", "Main Gear Ready"));
             AddFunction(new FlagValue(this, "469", "Landing Gear", "Main Wrn", "Main Gear Warning"));   // I think the codes are switched for this and might get corrected in future by Bazbam
             AddFunction(new FlagValue(this, "468", "Landing Gear", "Main", "Main Gear Ready"));         // I think the codes are switched for this and might get corrected in future by Bazbam
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3461", "3461", "1", "Gear up", "0", "Gear down", "Landing Gear", "lever", "%1d"));
-            AddFunction(new PushButton(this, SMC, "3458", "3458", "Landing Gear", "Emergency Jettison Button"));
-            AddFunction(new PushButton(this, FLIGHTCONTROLS, "3448", "3448", "Landing Gear", "Gear Down Lock Override Button"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3447", "3447", "5.0", "Gear up", "0", "Gear down", "Landing Gear", "Emergency Landing Gear Lever", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3470", "3470", "5.0", "Up", "0", "Down", "Landing Gear", "Landing Gear Emergency Battery Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3461", "461", "1", "Gear up", "0", "Gear down", "Landing Gear", "lever", "%1d"));
+            AddFunction(new PushButton(this, SMC, "3458", "458", "Landing Gear", "Emergency Jettison Button"));
+            AddFunction(new PushButton(this, FLIGHTCONTROLS, "3448", "448", "Landing Gear", "Gear Down Lock Override Button"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3447", "447", "5.0", "Gear up", "0", "Gear down", "Landing Gear", "Emergency Landing Gear Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3470", "470", "5.0", "Up", "0", "Down", "Landing Gear", "Landing Gear Emergency Battery Lever", "%1d"));
             #endregion
 
             #region Left Hand Advisory Indicators
             AddFunction(new FlagValue(this, "451", "LH Flaps & Water", "SEL indicator", "Combat thrust limiter selected"));
             AddFunction(new FlagValue(this, "452", "LH Flaps & Water", "CMBT indicator", "Combat thrust activated. Flashes after 2 ½ minutes"));
             AddFunction(new FlagValue(this, "453", "LH Flaps & Water", "STO indicator", "Flap switch in STOL"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3449", "3449", "1", "Take Off", "0.5", "Off", "0", "Landing", "LH Flaps & Water", "H2O Mode Switch", "%.1f"));
-            AddFunction(new PushButton(this, DECS, "3450", "3450", "LH Flaps & Water", "Combat Thrust Button"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3454", "3454", "1", "Cruise", "0.5", "Auto", "0", "STOL", "LH Flaps & Water", "Flaps Mode Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3449", "449", "1", "Take Off", "0.5", "Off", "0", "Landing", "LH Flaps & Water", "H2O Mode Switch", "%.1f"));
+            AddFunction(new PushButton(this, DECS, "3450", "450", "LH Flaps & Water", "Combat Thrust Button"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3454", "454", "1", "Cruise", "0.5", "Auto", "0", "STOL", "LH Flaps & Water", "Flaps Mode Switch", "%.1f"));
             AddFunction(new Digits2Display(this, SMC, "2014", "LH Flaps & Water", "Flaps position", "Position of the flaps in degrees"));
-            AddFunction(new PushButton(this, VREST, "3460", "3460", "LH Flaps & Water", "Flaps BIT"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3457", "3457", "0", "Off", "0.5", "On", "1", "Reset", "LH Flaps & Water", "Flaps Power Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3459", "3459", "1", "Test", "0.5", "On", "0", "NWS", "LH Flaps & Water", "Anti-Skid Switch", "%.1f"));
+            AddFunction(new PushButton(this, VREST, "3460", "460", "LH Flaps & Water", "Flaps BIT"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, VREST, "3457", "457", "0", "Off", "0.5", "On", "1", "Reset", "LH Flaps & Water", "Flaps Power Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3459", "459", "1", "Test", "0.5", "On", "0", "NWS", "LH Flaps & Water", "Anti-Skid Switch", "%.1f"));
             #endregion
 
             #region Centre Console
 
             //-- Misc Switch Panel
-            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3422", "3422", "0", "Auto", "1", "Run", "Centre Console", "Video Recorder System Mode Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3423", "3423", "0", "MPCD", "1", "HUD", "Centre Console", "Video Recorder System Display Selector Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DMT, "3424", "3424", "1", "DMT", "0", "Off", "Centre Console", "DMT Toggle On/Off", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3425", "3425", "1", "DP Prim", "0.5", "Alter", "0", "Alter", "Centre Console", "Dual Processor Mode Selector Switch", "%.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTINSTRUMENTS, "3426", "3426", "1", "Probe Heat", "0", "Auto", "Centre Console", "Probe Heat Mode Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3427", "3427", "1", "Mission Computer OVerride", "0.5", "Auto", "0", "Off", "Centre Console", "Mission Computer Mode Switch", "%.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3429", "3429", "1", "FLIR", "0", "Off", "Centre Console", "FLIR Power Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3422", "422", "0", "Auto", "1", "Run", "Centre Console", "Video Recorder System Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3423", "423", "0", "MPCD", "1", "HUD", "Centre Console", "Video Recorder System Display Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DMT, "3424", "424", "1", "DMT", "0", "Off", "Centre Console", "DMT Toggle On/Off", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3425", "425", "1", "DP Prim", "0.5", "Alter", "0", "Alter", "Centre Console", "Dual Processor Mode Selector Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTINSTRUMENTS, "3426", "426", "1", "Probe Heat", "0", "Auto", "Centre Console", "Probe Heat Mode Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, MSC, "3427", "427", "1", "Mission Computer OVerride", "0.5", "Auto", "0", "Off", "Centre Console", "Mission Computer Mode Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, NAVFLIR, "3429", "429", "1", "FLIR", "0", "Off", "Centre Console", "FLIR Power Switch", "%1d"));
             AddFunction(new Switch(this, NAV_INS, "3421", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3421"), new SwitchPosition("0.1", "Sea", "3421"), new SwitchPosition("0.2", "INS GND", "3421"), new SwitchPosition("0.3", "Nav", "3421"), new SwitchPosition("0.4", "IFA", "3421"), new SwitchPosition("0.5", "Gyro", "3421"), new SwitchPosition("0.6", "GB", "3421"), new SwitchPosition("0.7", "Test", "3421") }, "Centre Console", "INS Mode Switch", "%.1f"));
 
             #endregion
 
             #region Throttle Quadrant
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3481", "3481", "1", "On", "0", "Off", "Throttle Quadrant", "JPTL Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3482", "3482", "1", "On", "0", "Off", "Throttle Quadrant", "EMS Button", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3484", "3484", "1", "On", "0", "Off", "Throttle Quadrant", "Manual Fuel Switch", "%1d"));
-            AddFunction(new Axis(this, FLIGHTCONTROLS, "3485", "3485", 0.1d, 0d, 1d, "Throttle Quadrant", "Throttle Lever Friction Knob"));
-            AddFunction(new Axis(this, FLIGHTCONTROLS, "3486", "3486", 0.1d, 0d, 1d, "Throttle Quadrant", "Nozzle Lever Friction Knob"));
-            AddFunction(new Axis(this, DECS, "3490", "3490", 0.1d, 0d, 1d, "Throttle Quadrant", "Throttle Cutoff Lever"));
-            AddFunction(new Axis(this, FLIGHTCONTROLS, "3489", "3489", 0.1d, 0d, 1d, "Throttle Quadrant", "Parking Brake Lever"));
-            AddFunction(new Axis(this, VREST, "3487", "3487", 0.1d, 0d, 1d, "Throttle Quadrant", "Nozzle Control Lever"));
-            AddFunction(new Axis(this, VREST, "3488", "3488", 0.1d, 0d, 1d, "Throttle Quadrant", "STO Stop Lever"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3481", "481", "1", "On", "0", "Off", "Throttle Quadrant", "JPTL Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3482", "482", "1", "On", "0", "Off", "Throttle Quadrant", "EMS Button", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3484", "484", "1", "On", "0", "Off", "Throttle Quadrant", "Manual Fuel Switch", "%1d"));
+            AddFunction(new Axis(this, FLIGHTCONTROLS, "3485", "485", 0.1d, 0d, 1d, "Throttle Quadrant", "Throttle Lever Friction Knob"));
+            AddFunction(new Axis(this, FLIGHTCONTROLS, "3486", "486", 0.1d, 0d, 1d, "Throttle Quadrant", "Nozzle Lever Friction Knob"));
+            AddFunction(new Axis(this, DECS, "3490", "490", 0.1d, 0d, 1d, "Throttle Quadrant", "Throttle Cutoff Lever"));
+            AddFunction(new Axis(this, FLIGHTCONTROLS, "3489", "489", 0.1d, 0d, 1d, "Throttle Quadrant", "Parking Brake Lever"));
+            AddFunction(new Axis(this, VREST, "3487", "487", 0.1d, 0d, 1d, "Throttle Quadrant", "Nozzle Control Lever"));
+            AddFunction(new Axis(this, VREST, "3488", "488", 0.1d, 0d, 1d, "Throttle Quadrant", "STO Stop Lever"));
 
             #endregion
 
 
             #region Left Hand Left Hand Switches Fuel External Lights SAAHS
             ////         --Trim Panel
-            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "3471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "3483", "1", "Left", "0", "Centre", "-1", "Right", "SAAHS", "Rudder trim switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3483", "483", "1", "Left", "0", "Centre", "-1", "Right", "SAAHS", "Rudder trim switch", "%.1f"));
 
             CalibrationPointCollectionDouble trimScale = new CalibrationPointCollectionDouble(-1.0d, -1d, 1.0d, 1d);
             AddFunction(new ScaledNetworkValue(this, "473", trimScale, "SAAHS", "Aileron trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
             AddFunction(new ScaledNetworkValue(this, "474", trimScale, "SAAHS", "Rudder trim", "Position in degrees","", BindingValueUnits.Degrees));  // values at -1 to 1
             //         --SAAHS Panel
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3476", "3476", "1", "Hold", "0", "Off", "SAAHS", "Altitude hold switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3477", "3477", "2", "On", "1", "Off", "0", "Reset", "SAAHS", "AFC Switch", "%.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3475", "3475", "1", "On", "0", "Off", "SAAHS", "Q Feel switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3478", "3478", "1", "On", "0", "Off", "SAAHS", "SAS Yaw Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3479", "3479", "1", "On", "0", "Off", "SAAHS", "SAS Roll Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3480", "3480", "1", "On", "0", "Off", "SAAHS", "SAS Pitch Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3476", "476", "1", "Hold", "0", "Off", "SAAHS", "Altitude hold switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3477", "477", "2", "On", "1", "Off", "0", "Reset", "SAAHS", "AFC Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3475", "475", "1", "On", "0", "Off", "SAAHS", "Q Feel switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3478", "478", "1", "On", "0", "Off", "SAAHS", "SAS Yaw Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3479", "479", "1", "On", "0", "Off", "SAAHS", "SAS Roll Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3480", "480", "1", "On", "0", "Off", "SAAHS", "SAS Pitch Switch", "%1d"));
             //         --Fuel Panel
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3504", "3504", "1", "On", "0", "Off", "Fuel", "Fuel Proportioner", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3508", "3508", "1", "Dump", "0", "Off", "Fuel", "Fuel Dump L Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3509", "3509", "1", "Dump", "0", "Off", "Fuel", "Fuel Dump R Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3505", "3505", "1", "Norm", "0.5", "Off", "0", "DC Oper", "Fuel", "Fuel Pump L Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3506", "3506", "1", "Norm", "0.5", "Off", "0", "DC Oper", "Fuel", "Fuel Pump R Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3507", "3507", "1", "Press", "0.5", "Out", "0", "In", "Fuel", "Air Refueling Probe Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3504", "504", "1", "On", "0", "Off", "Fuel", "Fuel Proportioner", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3508", "508", "1", "Dump", "0", "Off", "Fuel", "Fuel Dump L Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3509", "509", "1", "Dump", "0", "Off", "Fuel", "Fuel Dump R Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3505", "505", "1", "Norm", "0.5", "Off", "0", "DC Oper", "Fuel", "Fuel Pump L Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3506", "506", "1", "Norm", "0.5", "Off", "0", "DC Oper", "Fuel", "Fuel Pump R Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, DECS, "3507", "507", "1", "Press", "0.5", "Out", "0", "In", "Fuel", "Air Refueling Probe Switch", "%.1f"));
 
             //          -- External Lights Panel
-            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3472", "3472", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "Landing/Taxi Lights Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3503", "3503", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "External Lights Mode Switch", "%.1f"));
-            AddFunction(new Axis(this, LTEXT, "3510", "3510", 0.1d, 0d, 1d, "External Lights", "Formation Lights brightness"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3511", "3511", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "Position Lights Switch", "%.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, LTEXT, "3512", "3512", "1", "On", "0", "Off", "External Lights", "Anti-Collision Lights Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, LTEXT, "3513", "3513", "1", "On", "0", "Off", "External Lights", "External Auxiliary Lights Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3472", "472", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "Landing/Taxi Lights Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3503", "503", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "External Lights Mode Switch", "%.1f"));
+            AddFunction(new Axis(this, LTEXT, "3510", "510", 0.1d, 0d, 1d, "External Lights", "Formation Lights brightness"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTEXT, "3511", "511", "1", "Bright", "0.5", "Dim", "0", "Off", "External Lights", "Position Lights Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, LTEXT, "3512", "512", "1", "On", "0", "Off", "External Lights", "Anti-Collision Lights Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, LTEXT, "3513", "513", "1", "On", "0", "Off", "External Lights", "External Auxiliary Lights Switch", "%1d"));
 
             //          -- Pilot Service Panel
-            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3514", "3514", "1", "On", "0", "Off", "Pilot Service", "Oxygen Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3515", "3515", "1", "Dump", "0", "Off", "Pilot Service", "H2O Dump Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3514", "514", "1", "On", "0", "Off", "Pilot Service", "Oxygen Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3515", "515", "1", "Dump", "0", "Off", "Pilot Service", "H2O Dump Switch", "%1d"));
             // need proper labels
-            AddFunction(Switch.CreateToggleSwitch(this, VREST, "3516", "3516", "1", "On", "0", "Off", "Pilot Service", "LIDS Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3517", "3517", "1", "On", "0", "Off", "Pilot Service", "ENG RPM Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3518", "3518", "1", "On", "0", "Off", "Pilot Service", "EFC Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, VREST, "3516", "516", "1", "On", "0", "Off", "Pilot Service", "LIDS Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3517", "517", "1", "On", "0", "Off", "Pilot Service", "ENG RPM Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3518", "518", "1", "On", "0", "Off", "Pilot Service", "EFC Switch", "%1d"));
             #endregion
 
             #region Stores Management Controller
-            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3287", "3287", "1", "Armed", "0", "Safe", "Stores Management", "Master Arm Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3396", "3396", "1", "Up", "0", "Off", "-1", "Dn", "Stores Management", "Armament Mode control", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "3397", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Fuzing control", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "3398", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Tens", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "3399", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Units", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "3400", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Multiple Release", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "3401", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval hundreds", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "3402", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval tens", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "3403", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval units", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3420", "3420", "1", "Cooling", "0", "Off", "Stores Management", "IR Cool Switch", "%1d"));
-            AddFunction(new PushButton(this, SMC, "3407", "3407", "Stores Management", "Select station 1"));
+            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3287", "287", "1", "Armed", "0", "Safe", "Stores Management", "Master Arm Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3396", "396", "1", "Up", "0", "Off", "-1", "Dn", "Stores Management", "Armament Mode control", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "397", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Fuzing control", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "398", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "399", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Units", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "400", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Multiple Release", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "401", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval hundreds", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "402", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "403", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval units", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, SMC, "3420", "420", "1", "Cooling", "0", "Off", "Stores Management", "IR Cool Switch", "%1d"));
+            AddFunction(new PushButton(this, SMC, "3407", "407", "Stores Management", "Select station 1"));
             AddFunction(new FlagValue(this, "406", "Stores Management", "Station 1 Selected", "Station 1 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3409", "3409", "Stores Management", "Select station 2"));
+            AddFunction(new PushButton(this, SMC, "3409", "409", "Stores Management", "Select station 2"));
             AddFunction(new FlagValue(this, "408", "Stores Management", "Station 2 Selected", "station 2 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3411", "3411", "Stores Management", "Select station 3"));
+            AddFunction(new PushButton(this, SMC, "3411", "411", "Stores Management", "Select station 3"));
             AddFunction(new FlagValue(this, "410", "Stores Management", "Station 3 Selected", "station 3 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3413", "3413", "Stores Management", "Select station 4"));
+            AddFunction(new PushButton(this, SMC, "3413", "413", "Stores Management", "Select station 4"));
             AddFunction(new FlagValue(this, "412", "Stores Management", "Station 4 Selected", "station 4 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3415", "3415", "Stores Management", "Select station 5"));
+            AddFunction(new PushButton(this, SMC, "3415", "415", "Stores Management", "Select station 5"));
             AddFunction(new FlagValue(this, "414", "Stores Management", "Station 5 Selected", "station 5 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3417", "3417", "Stores Management", "Select station 6"));
+            AddFunction(new PushButton(this, SMC, "3417", "417", "Stores Management", "Select station 6"));
             AddFunction(new FlagValue(this, "416", "Stores Management", "Station 6 Selected", "station 6 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3419", "3419", "Stores Management", "Select station 7"));
+            AddFunction(new PushButton(this, SMC, "3419", "419", "Stores Management", "Select station 7"));
             AddFunction(new FlagValue(this, "418", "Stores Management", "Station 7 Selected", "station 7 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3286", "3286", "Stores Management", "Launch Flare Salvo"));
+            AddFunction(new PushButton(this, SMC, "3286", "286", "Stores Management", "Launch Flare Salvo"));
             AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("-1.0", "STA", "3404"), new SwitchPosition("-0.5", "STOR", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("1.0", "FUEL", "3404") },  "Stores Management", "Jettison Mode Selector", "%0.1f"));
-            AddFunction(new PushButton(this, SMC, "3405", "3405", "Stores Management", "Jettison Stores"));
+            AddFunction(new PushButton(this, SMC, "3405", "405", "Stores Management", "Jettison Stores"));
             AddFunction(new Switch(this, SMC, "3395", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3395"), new SwitchPosition("0.33", "N/T", "3395"), new SwitchPosition("0.66", "N", "3395"), new SwitchPosition("1.0", "T", "3395")  }, "Stores Management", "Manual Fuzing Release Control", "%0.2f"));
             AddFunction(new Digits3Display(this, SMC, "2020", "Stores Management", "Stores interval display", "Interval value in metres"));
             AddFunction(new Digits2Display(this, SMC, "2022", "Stores Management", "Stores quantity display", "Quantity of stores"));
@@ -453,92 +453,92 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Left Bulkhead
             // switch positions still need to be labeled
-            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3502", "3502", "1", "Pressed", "0", "Off", "Left Bulkhead", "Seat adjustment switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3519", "3519", "0", "Off", "1", "Pressed", "Left Bulkhead", "Fuel Shutoff Lever", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3520", "3520", "1", "On", "0", "Off", "Left Bulkhead", "DECS switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3502", "502", "1", "Pressed", "0", "Off", "Left Bulkhead", "Seat adjustment switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3519", "519", "0", "Off", "1", "Pressed", "Left Bulkhead", "Fuel Shutoff Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3520", "520", "1", "On", "0", "Off", "Left Bulkhead", "DECS switch", "%1d"));
 
             #endregion
 
             #region V/UHF Radio
             // switch positions still need to be labeled
-            AddFunction(new Axis(this, RSC, "3614", "3614", 0.03d, 0d, 1d, "V/UHF Radio", "Volume Knob"));
-            AddFunction(new Axis(this, RSC, "3615", "3615", 0.03d, 0d, 1d, "V/UHF Radio", "Chan/Freq Knob"));
+            AddFunction(new Axis(this, RSC, "3614", "614", 0.03d, 0d, 1d, "V/UHF Radio", "Volume Knob"));
+            AddFunction(new Axis(this, RSC, "3615", "615", 0.03d, 0d, 1d, "V/UHF Radio", "Chan/Freq Knob"));
             AddFunction(new Switch(this, RSC, "3616", new SwitchPosition[] {new SwitchPosition("-0.20", "Zero", "3616"), new SwitchPosition("0.0", "Off", "3616"), new SwitchPosition("0.0", "Test", "3616"), new SwitchPosition("0.20", "TR+G", "3616"), new SwitchPosition("0.40", "TR", "3616"), new SwitchPosition("0.60", "ADF", "3616"), new SwitchPosition("0.80", "Chng PRST", "3616"), new SwitchPosition("1.0", "Norm", "3616") }, "V/UHF Radio", "Operational Mode Switch", "%0.1f"));
-            AddFunction(new PushButton(this, RSC, "3617", "3617", "V/UHF Radio", "Ancillary Mode Pointer A mode"));
-            AddFunction(new PushButton(this, RSC, "3618", "3618", "V/UHF Radio", "Ancillary Mode Switch P mode"));
+            AddFunction(new PushButton(this, RSC, "3617", "617", "V/UHF Radio", "Ancillary Mode Pointer A mode"));
+            AddFunction(new PushButton(this, RSC, "3618", "618", "V/UHF Radio", "Ancillary Mode Switch P mode"));
             AddFunction(new Switch(this, RSC, "3619", new SwitchPosition[] { new SwitchPosition("0.0", "AJ/M", "3619"), new SwitchPosition("0.0", "AJ", "3619"), new SwitchPosition("0.15", "MAR", "3619"), new SwitchPosition("0.30", "PRST", "3619"), new SwitchPosition("0.45", "MAN", "3619"), new SwitchPosition("0.60", "234", "3619"), new SwitchPosition("0.75", "121", "3619"), new SwitchPosition("0.90", "Norm", "3619"), new SwitchPosition("1.00", "Norm", "3619") }, "V/UHF Radio", "Frequency Mode Switch", "%0.2f"));
-            AddFunction(new PushButton(this, RSC, "3620", "3620", "V/UHF Radio", "LOAD/OFST Switch"));
+            AddFunction(new PushButton(this, RSC, "3620", "620", "V/UHF Radio", "LOAD/OFST Switch"));
 
             #endregion
 
             #region ACNIP
             // switch positions still need to be labeled
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3621", "3621", "1", "MAN", "0", "UFC", "ACNIP", "ACNIP Mode Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3622", "3622", "1", "DIPH", "0", "BB", "ACNIP", "KY-1 Cipher Type Selector Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3623", "3623", "1", "DIPH", "0", "BB", "ACNIP", "KY-2 Cipher Type Selector Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3624", "3624", "1", "Code", "0", "Mode", "ACNIP", "KY-1 Code/Mode Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3625", "3625", "1", "Code", "0", "Mode", "ACNIP", "KY-2 Code/Mode Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3626", "3626", "1", "On", "0", "Off", "ACNIP", "ACNIP Radio Selector Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3627", "3627", "1", "On", "0", "Off", "ACNIP", "KY-58 Codes Clear Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "3628", "1", "On", "0", "Off", "-1", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3632", "3632", "1", "On", "0", "Off", "ACNIP", "IFF Operational Mode Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "3633", "1", "On", "0.5", "Mid", "0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3621", "621", "1", "MAN", "0", "UFC", "ACNIP", "ACNIP Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3622", "622", "1", "DIPH", "0", "BB", "ACNIP", "KY-1 Cipher Type Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3623", "623", "1", "DIPH", "0", "BB", "ACNIP", "KY-2 Cipher Type Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3624", "624", "1", "Code", "0", "Mode", "ACNIP", "KY-1 Code/Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3625", "625", "1", "Code", "0", "Mode", "ACNIP", "KY-2 Code/Mode Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3626", "626", "1", "On", "0", "Off", "ACNIP", "ACNIP Radio Selector Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3627", "627", "1", "On", "0", "Off", "ACNIP", "KY-58 Codes Clear Switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "628", "1", "On", "0", "Off", "-1", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3632", "632", "1", "On", "0", "Off", "ACNIP", "IFF Operational Mode Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "633", "1", "On", "0.5", "Mid", "0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%.1f"));
 
             #endregion
 
             #region ICS IFF
             // switch positions still need to be labeled
-            AddFunction(new Axis(this, INTERCOM, "3629", "3629", 0.03d, 0d, 1d, "Intercomm", "Aux Volume Knob"));
-            AddFunction(new Axis(this, INTERCOM, "3630", "3630", 0.03d, 0d, 1d, "Intercomm", "Ground Volume Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3629", "629", 0.03d, 0d, 1d, "Intercomm", "Aux Volume Knob"));
+            AddFunction(new Axis(this, INTERCOM, "3630", "630", 0.03d, 0d, 1d, "Intercomm", "Ground Volume Knob"));
             AddFunction(new Switch(this, RSC, "3631", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3631"), new SwitchPosition("0.5", "Norm", "3631"), new SwitchPosition("1.0", "Norm", "3631") }, "Intercomm", "Mic Operational Mode Switch", "%0.1f"));
 
             #endregion
 
             #region Interior Lights
-            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "3634", "0", "Compass", "0.5", "Off","1","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
-            AddFunction(new Axis(this, LTINT, "3635", "3635", 0.03d, 0d, 1d, "Interior Lights", "Instruments Lights"));
-            AddFunction(new Axis(this, LTINT, "3636", "3636", 0.03d, 0d, 1d, "Interior Lights", "Console Lights"));
-            AddFunction(new Axis(this, LTINT, "3637", "3637", 0.03d, 0d, 1d, "Interior Lights", "Flood Lights"));
-            AddFunction(new Axis(this, LTINT, "3638", "3638", 0.03d, 0d, 1d, "Interior Lights", "Annunciator Lights"));
-            AddFunction(new Axis(this, LTINT, "3150", "3150", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Canopy Frame Top"));
-            AddFunction(new Axis(this, LTINT, "3151", "3151", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Canopy Frame Bottom"));
-            AddFunction(new Axis(this, LTINT, "3152", "3152", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Forward"));
-            AddFunction(new Axis(this, LTINT, "3153", "3153", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Aft Front"));
-            AddFunction(new Axis(this, LTINT, "3154", "3154", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Aft Back"));
-            AddFunction(new Axis(this, LTINT, "3155", "3155", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Aft Back"));
-            AddFunction(new Axis(this, LTINT, "3156", "3156", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Aft Front"));
-            AddFunction(new Axis(this, LTINT, "3157", "3157", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Forward"));
-            AddFunction(new Axis(this, LTINT, "3158", "3158", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Canopy Frame Bottom"));
-            AddFunction(new Axis(this, LTINT, "3159", "3159", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Canopy Frame Top"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, LTINT, "3634", "634", "0", "Compass", "0.5", "Off","1","Lights Test","Interior Lights", "Compass Light/Test Lights","%.1f")); //default_tumb_button(_("Compass Light/Test Lights") * * * Not sure if this is correct
+            AddFunction(new Axis(this, LTINT, "3635", "635", 0.03d, 0d, 1d, "Interior Lights", "Instruments Lights"));
+            AddFunction(new Axis(this, LTINT, "3636", "636", 0.03d, 0d, 1d, "Interior Lights", "Console Lights"));
+            AddFunction(new Axis(this, LTINT, "3637", "637", 0.03d, 0d, 1d, "Interior Lights", "Flood Lights"));
+            AddFunction(new Axis(this, LTINT, "3638", "638", 0.03d, 0d, 1d, "Interior Lights", "Annunciator Lights"));
+            AddFunction(new Axis(this, LTINT, "3150", "150", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Canopy Frame Top"));
+            AddFunction(new Axis(this, LTINT, "3151", "151", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Canopy Frame Bottom"));
+            AddFunction(new Axis(this, LTINT, "3152", "152", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Forward"));
+            AddFunction(new Axis(this, LTINT, "3153", "153", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Aft Front"));
+            AddFunction(new Axis(this, LTINT, "3154", "154", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Right Bulkhead Aft Back"));
+            AddFunction(new Axis(this, LTINT, "3155", "155", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Aft Back"));
+            AddFunction(new Axis(this, LTINT, "3156", "156", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Aft Front"));
+            AddFunction(new Axis(this, LTINT, "3157", "157", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Bulkhead Forward"));
+            AddFunction(new Axis(this, LTINT, "3158", "158", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Canopy Frame Bottom"));
+            AddFunction(new Axis(this, LTINT, "3159", "159", 0.03d, -1d, 1d, "Interior Lights", "Flood Lamp Left Canopy Frame Top"));
 
             #endregion
 
             #region Canopy Controls
             // switch positions still need to be labeled
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3801", "3801", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Left", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3802", "3802", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Right", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3803", "3803", "1", "On", "0", "Off", "Canopy Controls", "Canopy Locking Lever", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3800", "3800", "1", "On", "0", "Off", "Canopy Controls", "Seat Ground Safety Lever", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3501", "3501", "1", "On", "0", "Off", "Canopy Controls", "MFS Emergency Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3801", "801", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Left", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3802", "802", "1", "On", "0", "Off", "Canopy Controls", "Canopy Handle Right", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3803", "803", "1", "On", "0", "Off", "Canopy Controls", "Canopy Locking Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, MSC, "3800", "800", "1", "On", "0", "Off", "Canopy Controls", "Seat Ground Safety Lever", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, FLIGHTCONTROLS, "3501", "501", "1", "On", "0", "Off", "Canopy Controls", "MFS Emergency Lever", "%1d"));
             #endregion
 
             #region Stopwatch
-            AddFunction(new PushButton(this, MSC, "4121", "4121", "Stop Watch", "Stopwatch Start/Stop"));
-            AddFunction(new PushButton(this, MSC, "4122", "4122", "Stop Watch", "Stopwatch Lap/Reset"));
+            AddFunction(new PushButton(this, MSC, "4121", "121", "Stop Watch", "Stopwatch Start/Stop"));
+            AddFunction(new PushButton(this, MSC, "4122", "122", "Stop Watch", "Stopwatch Lap/Reset"));
             #endregion
 
             #region ECS
-            AddFunction(new Axis(this, ECS, "3639", "3639", 0.03d, 0d, 1d, "Environment Control", "Temperature Control Knob"));
-            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3640", "3640", "0", "Norm", "1", "Reset", "Environment Control", "Fwd Equipment Bay ECS Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3641", "3641", "1", "Norm", "0.5", "Defog", "0", "Max", "Environment Control", "Cabin Defog Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3642", "3642", "1", "Reset", "0.5", "On", "0", "Off", "Environment Control", "Aft Equipment Bay ECS Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3643", "3643", "1", "Press Norm", "0.5", "Dump", "0", "Ram", "Environment Control", "Cabin Pressure Switch", "%0.1f"));
+            AddFunction(new Axis(this, ECS, "3639", "639", 0.03d, 0d, 1d, "Environment Control", "Temperature Control Knob"));
+            AddFunction(Switch.CreateToggleSwitch(this, ECS, "3640", "640", "0", "Norm", "1", "Reset", "Environment Control", "Fwd Equipment Bay ECS Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3641", "641", "1", "Norm", "0.5", "Defog", "0", "Max", "Environment Control", "Cabin Defog Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3642", "642", "1", "Reset", "0.5", "On", "0", "Off", "Environment Control", "Aft Equipment Bay ECS Switch", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ECS, "3643", "643", "1", "Press Norm", "0.5", "Dump", "0", "Ram", "Environment Control", "Cabin Pressure Switch", "%0.1f"));
             #endregion
 
             #region Engine Display Panel
             AddFunction(new ScaledNetworkValue(this, "271", 0.94d, "EDP", "Nozzle Position", "Current Nozzle position.", "Nozzle position in degrees", BindingValueUnits.Degrees));
-            AddFunction(new PushButton(this, EDP, "3655", "3655", "EDP", "BIT"));
-            AddFunction(new Axis(this, EDP, "3272", "3272", 0.1d, 0d, 1d, "EDP", "Off/Brightness Control"));
+            AddFunction(new PushButton(this, EDP, "3655", "655", "EDP", "BIT"));
+            AddFunction(new Axis(this, EDP, "3272", "272", 0.1d, 0d, 1d, "EDP", "Off/Brightness Control"));
             AddFunction(new Digits2Display(this, EDP, "2006", "EDP", "H2O display", "Amount of H2O available"));
             AddFunction(new Digits4Display(this, EDP, "2002", "EDP", "RPM display", "Engine RPM percentage"));
             AddFunction(new Digits3Display(this, EDP, "2001", "EDP", "Duct pressure display", "Engine Duct pressure"));
@@ -553,11 +553,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             //Battery
             CalibrationPointCollectionDouble batteryScale = new CalibrationPointCollectionDouble(0.0d, 0d, 0.30d, 30d);
             AddFunction(new ScaledNetworkValue(this, "608", batteryScale, "Electrical", "Battery Voltage", "Voltage of battery 15v to 30v", "", BindingValueUnits.Volts));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3613", "3613", "1", "On", "0.5", "Off", "0", "Alert", "Electrical", "Battery switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3612", "3612", "1", "On", "0.5", "Off", "0", "Test", "Electrical", "Generator switch", "%.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELECTRIC, "3611", "3611", "1", "Start", "0", "Off", "Electrical", "Engine start switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3610", "3610", "1", "Reset", "0.5", "On", "0", "Off", "Electrical", "APU generator switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3609", "3609", "0", "Main", "0.5", "Off", "1", "Standby", "Electrical", "DC Test switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3613", "613", "1", "On", "0.5", "Off", "0", "Alert", "Electrical", "Battery switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3612", "612", "1", "On", "0.5", "Off", "0", "Test", "Electrical", "Generator switch", "%.1f"));
+            AddFunction(Switch.CreateToggleSwitch(this, ELECTRIC, "3611", "611", "1", "Start", "0", "Off", "Electrical", "Engine start switch", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3610", "610", "1", "Reset", "0.5", "On", "0", "Off", "Electrical", "APU generator switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELECTRIC, "3609", "609", "0", "Main", "0.5", "Off", "1", "Standby", "Electrical", "DC Test switch", "%.1f"));
             #endregion
 
             #region Brake / Hydraulic Pressures
@@ -578,7 +578,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Flight Instruments
 
             AddFunction(new Altimeter(this,"Altimeter","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Pressure", "Manually set barometric altitude.",""));
-            AddFunction(new Axis(this, ADC, "3653", "3653", 0.01d, 0d, 1d, "Altimeter", "Barometric pressure calibration adjust", true, "%.3f"));
+            AddFunction(new Axis(this, ADC, "3653", "653", 0.01d, 0d, 1d, "Altimeter", "Barometric pressure calibration adjust", true, "%.3f"));
 
             CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-0.6d, -6000d, 0.6d, 6000d);
             vviScale.Add(new CalibrationPointDouble(0d, 0d));
@@ -592,12 +592,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             CalibrationPointCollectionDouble airspeedScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 1000d);
             AddFunction(new ScaledNetworkValue(this, "346", airspeedScale, "Flight Instruments", "IAS Airspeed", "Current indicated air speed of the aircraft.", "", BindingValueUnits.Knots));
 
-            AddFunction(new Axis(this, NAV_INS, "3364", "3364", 0.01d,0d,1d, "NAV course", "Course Setting",true, "%.3f"));
+            AddFunction(new Axis(this, NAV_INS, "3364", "364", 0.01d,0d,1d, "NAV course", "Course Setting",true, "%.3f"));
 
             AddFunction(new ScaledNetworkValue(this, "349", 90d, "Flight Instruments", "SAI Pitch", "Current pitch displayed on the SAI.", "", BindingValueUnits.Degrees));
             AddFunction(new ScaledNetworkValue(this, "348", -180d, "Flight Instruments", "SAI Bank", "Current bank displayed on the SAI.", "", BindingValueUnits.Degrees));
             AddFunction(new FlagValue(this, "347", "Flight Instruments", "SAI Warning Flag", "Displayed when SAI is caged or non-functional."));
-            AddFunction(new Axis(this, ADC, "3351", "3351", 0.01d, 0d, 1d, "Flight Instruments", "SAI Cage/Pitch Adjust Knob", true, "%.3f"));
+            AddFunction(new Axis(this, ADC, "3351", "351", 0.01d, 0d, 1d, "Flight Instruments", "SAI Cage/Pitch Adjust Knob", true, "%.3f"));
 
             AddFunction(new NetworkValue(this, "363", "Flight Instruments", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
 

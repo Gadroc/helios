@@ -164,6 +164,7 @@
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\RADARAltimeter.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\BarometricAltimeter.cs" />
+    <Compile Include="Gauges\FA-18C\IAS\IAS.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-2.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-1.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-AV8B.cs" />
@@ -308,6 +309,7 @@
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDeviceRenderer.cs" />
     <Compile Include="Gauges\FA-18C\UFC\UFC.cs" />
+    <Compile Include="Gauges\FA-18C\VVI\VVI.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
     <Compile Include="Gauges\F-16\ADI\ADI.cs" />
     <Compile Include="Gauges\F-16\Airspeed\Airspeed.cs" />
@@ -458,6 +460,7 @@
     <Compile Include="Interfaces\DCS\Common\Switch.cs" />
     <Compile Include="Interfaces\DCS\Common\SwitchPosition.cs" />
     <Compile Include="Interfaces\DCS\Common\Text.cs" />
+    <Compile Include="Interfaces\DCS\FA18C\Functions\Altimeter.cs" />
     <Compile Include="Interfaces\DCS\FC2\FC2Interface.cs" />
     <Compile Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml.cs">
       <DependentUpon>FC2InterfaceEditor.xaml</DependentUpon>
@@ -2619,10 +2622,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\DCS\FA18C\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
+    <Resource Include="Images\FA-18C\MPCD Knob.png" />
+    <Resource Include="Images\FA-18C\UFC Rotator_U.png" />
     <Resource Include="Gauges\FA-18C\Altimeter\Altimeter_Faceplate.png" />
     <Resource Include="Gauges\FA-18C\Altimeter\RADAR_Altimeter_Faceplate.png" />
     <Resource Include="Gauges\FA-18C\Battery\Battery_Faceplate.png" />
@@ -2630,9 +2635,9 @@
     <Resource Include="Gauges\FA-18C\Common\gauge_bezel.png" />
     <Resource Include="Gauges\FA-18C\Common\engine_bezel.png" />
     <Content Include="Gauges\FA-18C\HydraulicPressure\Hyd_Pressure_Faceplate.png" />
-    <Content Include="Gauges\FA-18C\IAS\IAS.png" />
+    <Resource Include="Gauges\FA-18C\IAS\IAS.png" />
     <Content Include="Gauges\FA-18C\LOx\LOx_Faceplate.png" />
-    <Content Include="Gauges\FA-18C\VSI\VSI_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\VVI\VVI_Faceplate.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />

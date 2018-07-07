@@ -57,8 +57,8 @@ namespace GadrocsWorkshop.Helios.Controls
             AddRocker("Gain", "MFD Rocker", "V", 39, 650);
             AddRocker("Contrast", "MFD Rocker", "V", 645, 650);
 
-            AddThreeWayToggle("Heading", 28, 25, new Size(50, 100));
-            AddThreeWayToggle("Course", 651, 25, new Size(50, 100));
+            AddThreeWayToggle("Heading", 26, 27, new Size(50, 100));
+            AddThreeWayToggle("Course", 649, 27, new Size(50, 100));
 
             Helios.Controls.RotarySwitch knob = new Helios.Controls.RotarySwitch();
             AddKnob("Mode Knob",new Point(336,37),new Size(60,60));
@@ -209,7 +209,7 @@ namespace GadrocsWorkshop.Helios.Controls
             toggle.PositionThreeImage = "{Helios}/Images/Toggles/orange-round-down.png";
             toggle.SwitchType = ThreeWayToggleSwitchType.MomOnMom;
             toggle.Name = name;
-
+            toggle.Orientation = ToggleSwitchOrientation.Horizontal;
             Children.Add(toggle);
             foreach (IBindingTrigger trigger in toggle.Triggers)
             {

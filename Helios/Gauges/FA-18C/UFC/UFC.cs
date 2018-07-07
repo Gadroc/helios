@@ -32,46 +32,48 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private String _font = "MS 33558";
         //private String _font = "Franklin Gothic";
         public UFC_FA18C()
-            : base("Up Front Controller", new Size(645, 470))
+            : base("Up Front Controller", new Size(552, 431))
         {
-            AddButton("EMCON", 562, 129, new Size(50, 50));
-            AddButton("1", 115, 112, new Size(50, 50));
-            AddButton("2", 179, 112, new Size(50, 50));
-            AddButton("3", 243, 112, new Size(50, 50));
-            AddButton("4", 115, 174, new Size(50, 50));
-            AddButton("5", 179, 174, new Size(50, 50));
-            AddButton("6", 243, 174, new Size(50, 50));
-            AddButton("7", 115, 237, new Size(50, 50));
-            AddButton("8", 179, 237, new Size(50, 50));
-            AddButton("9", 243, 237, new Size(50, 50));
-            AddButton("CLR", 115, 299, new Size(50, 50));
-            AddButton("0", 179, 299, new Size(50, 50),true);
-            AddButton("ENT", 243, 299, new Size(50, 50));
-            AddButton("AP", 112, 397, new Size(50, 50),true);
-            AddButton("IFF", 170, 397, new Size(50, 50));
-            AddButton("TCN", 231, 397, new Size(50, 50));
-            AddButton("ILS", 292, 397, new Size(50, 50),true);
-            AddButton("DL", 353, 397, new Size(50, 50), true);
-            AddButton("BCN", 416, 397, new Size(50, 50));
-            AddButton("ONOFF", 479, 397, new Size(50, 50));
-            AddButtonIP("IP", 37, 54, new Size(40, 40));
-            AddButtonIP("ODU 1", 323, 36, new Size(40, 40));
-            AddButtonIP("ODU 2", 323, 102, new Size(40, 40));
-            AddButtonIP("ODU 3", 323, 172, new Size(40, 40));
-            AddButtonIP("ODU 4", 323, 240, new Size(40, 40));
-            AddButtonIP("ODU 5", 323, 310, new Size(40, 40));
-            AddThreeWayToggle("ADF", 41, 116, new Size(30, 60));
+            AddButton("EMCON", 483, 115, new Size(48, 48));
+            AddButton("1", 95, 105, new Size(48, 48));
+            AddButton("2", 152, 105, new Size(48, 48));
+            AddButton("3", 208, 105, new Size(48, 48));
+            AddButton("4", 95, 161, new Size(48, 48));
+            AddButton("5", 152, 161, new Size(48, 48));
+            AddButton("6", 208, 161, new Size(48, 48));
+            AddButton("7", 95, 218, new Size(48, 48));
+            AddButton("8", 152, 218, new Size(48, 48));
+            AddButton("9", 208, 218, new Size(48, 48));
+            AddButton("CLR", 95, 275, new Size(48, 48));
+            AddButton("0", 152, 275, new Size(48, 48),true);
+            AddButton("ENT", 208, 275, new Size(48, 48));
+            AddButton("AP", 107, 363, new Size(48, 48),true);
+            AddButton("IFF", 157, 363, new Size(48, 48));
+            AddButton("TCN", 207, 363, new Size(48, 48));
+            AddButton("ILS", 257, 363, new Size(48, 48),true);
+            AddButton("DL", 307, 363, new Size(48, 48), true);
+            AddButton("BCN", 357, 363, new Size(48, 48));
+            AddButton("ONOFF", 407, 363, new Size(48, 48));
+            AddButtonIP("IP", 25, 52, new Size(40, 40));
+            AddButtonIP("ODU 1", 276, 36, new Size(40, 40));
+            AddButtonIP("ODU 2", 276, 96, new Size(40, 40));
+            AddButtonIP("ODU 3", 276, 159, new Size(40, 40));
+            AddButtonIP("ODU 4", 276, 219, new Size(40, 40));
+            AddButtonIP("ODU 5", 276, 281, new Size(40, 40));
+            AddThreeWayToggle("ADF", 30, 108, new Size(30, 60));
 
-            AddPot("UFC Display Brightness", new Point(566, 58), new Size(50, 50));
-            AddPot("Radio Volume 1", new Point(28, 212), new Size(50, 50));
-            AddPot("Radio Volume 2", new Point(566, 212), new Size(50, 50));
-            AddEncoder("Radio 1", new Point(20, 385), new Size(75, 75));
-            AddEncoder("Radio 2", new Point(540, 385), new Size(75, 75));
+            AddPot("UFC Display Brightness", new Point(480, 58), new Size(48, 48));
+            AddPot("Radio Volume 1", new Point(20, 193), new Size(48, 48));
+            AddPot("Radio Volume 2", new Point(481, 193), new Size(48, 48));
+            AddEncoder("Radio 1", new Point(17, 359), new Size(75, 75));
+            AddButtonIP("Radio 1 Pull", 40, 382, new Size(28, 28),false);
+            AddEncoder("Radio 2", new Point(462, 359), new Size(75, 75));
+            AddButtonIP("Radio 2 Pull", 485, 382, new Size(28, 28),false);
         }
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/FA-18C/UFC 1080.png"; }
+            get { return "{Helios}/Gauges/FA-18C/UFC/UFC Faceplate.png"; }
         }
             
         private void AddTrigger(IBindingTrigger trigger, string device)
@@ -112,7 +114,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
+            //_knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
+            _knob.KnobImage = "{Helios}/Images/FA-18C/UFC Rotator_U.png";
             _knob.StepValue = 0.1;
             _knob.RotationStep = 5;
             _knob.Top = posn.Y;
@@ -164,6 +167,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddAction(button.Actions["set.physical state"], "UFC Key " + name);
         }
         private void AddButtonIP(string name, double x, double y, Size size)
+        { AddButtonIP(name, x, y, size, true); }
+        private void AddButtonIP(string name, double x, double y, Size size,Boolean glyph)
         {
             Helios.Controls.PushButton button = new Helios.Controls.PushButton();
             button.Top = y;
@@ -174,9 +179,12 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             button.PushedImage = "{Helios}/Images/Buttons/tactile-dark-round-in.png";
             button.Text = "";
             button.Name = "UFC Key " + name;
-            button.Glyph = PushButtonGlyph.Circle;
-            button.GlyphThickness = 3;
-            button.GlyphColor = Color.FromArgb( 0xFF,0xC0, 0xC0, 0xC0);
+            if (glyph)
+            {
+                button.Glyph = PushButtonGlyph.Circle;
+                button.GlyphThickness = 3;
+                button.GlyphColor = Color.FromArgb(0xFF, 0xC0, 0xC0, 0xC0);
+            }
             Children.Add(button);
 
             AddTrigger(button.Triggers["pushed"], "UFC Key " + name);

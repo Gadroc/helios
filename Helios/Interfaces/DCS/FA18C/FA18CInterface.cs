@@ -17,7 +17,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions;
-    //using GadrocsWorkshop.Helios.Interfaces.DCS.FA18C.Functions;
+    using GadrocsWorkshop.Helios.Interfaces.DCS.FA18C;
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
     using Microsoft.Win32;
@@ -118,96 +118,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             _phantomLeft = config.PhantomFixLeft;
             _phantomTop = config.PhantomFixTop;
 
-            #region MFD
-
-            #region Left MFCD MFD
-
-            //Left MDI
-
-            AddFunction(new PushButton(this, MDI_LEFT, "3054", "3054", "Left MDI", "OSB01", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3055", "3055", "Left MDI", "OSB02", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3056", "3056", "Left MDI", "OSB03", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3057", "3057", "Left MDI", "OSB04", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3058", "3058", "Left MDI", "OSB05", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3059", "3059", "Left MDI", "OSB06", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3060", "3060", "Left MDI", "OSB07", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3061", "3061", "Left MDI", "OSB08", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3062", "3062", "Left MDI", "OSB09", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3063", "3063", "Left MDI", "OSB10", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3064", "3064", "Left MDI", "OSB11", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3065", "3065", "Left MDI", "OSB12", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3066", "3066", "Left MDI", "OSB13", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3067", "3067", "Left MDI", "OSB14", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3068", "3068", "Left MDI", "OSB15", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3069", "3069", "Left MDI", "OSB16", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3070", "3070", "Left MDI", "OSB17", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3071", "3071", "Left MDI", "OSB18", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3072", "3072", "Left MDI", "OSB19", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, MDI_LEFT, "3073", "3073", "Left MDI", "OSB20", "1", "0", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3051", "3051", "-1", "Off", "0", "Night", "1", "Day", "Left MDI", "Left MDI Brightness Selector Knob, OFF/NIGHT/DAY", "%1d"));
-            AddFunction(new Axis(this, MDI_LEFT, "3052", "3052", 0.1d, 0d, 1d, "Left MDI", "Brightness Control Knob"));
-            AddFunction(new Axis(this, MDI_LEFT, "3053", "3053", 0.1d, 0d, 1d, "Left MDI", "Contrast Control Knob"));
-            #endregion
-
-            #region Centre MFCD AMPCD
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3312", "3312", "-1", "Left", "0", "Centre", "1", "Right", "AMPCD", "Heading Set Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3313", "3313", "-1", "Left", "0", "Centre", "1", "Right", "AMPCD", "Course Set Switch", "%1d"));
-
-            AddFunction(new PushButton(this, AMPCD, "3183", "3183", "AMPCD", "OSB01"));
-            AddFunction(new PushButton(this, AMPCD, "3184", "3184", "AMPCD", "OSB02"));
-            AddFunction(new PushButton(this, AMPCD, "3185", "3185", "AMPCD", "OSB03"));
-            AddFunction(new PushButton(this, AMPCD, "3186", "3186", "AMPCD", "OSB04"));
-            AddFunction(new PushButton(this, AMPCD, "3187", "3187", "AMPCD", "OSB05"));
-            AddFunction(new PushButton(this, AMPCD, "3188", "3188", "AMPCD", "OSB06"));
-            AddFunction(new PushButton(this, AMPCD, "3189", "3189", "AMPCD", "OSB07"));
-            AddFunction(new PushButton(this, AMPCD, "3190", "3190", "AMPCD", "OSB08"));
-            AddFunction(new PushButton(this, AMPCD, "3191", "3191", "AMPCD", "OSB09"));
-            AddFunction(new PushButton(this, AMPCD, "3192", "3192", "AMPCD", "OSB10"));
-            AddFunction(new PushButton(this, AMPCD, "3193", "3193", "AMPCD", "OSB11"));
-            AddFunction(new PushButton(this, AMPCD, "3194", "3194", "AMPCD", "OSB12"));
-            AddFunction(new PushButton(this, AMPCD, "3195", "3195", "AMPCD", "OSB13"));
-            AddFunction(new PushButton(this, AMPCD, "3196", "3196", "AMPCD", "OSB14"));
-            AddFunction(new PushButton(this, AMPCD, "3197", "3197", "AMPCD", "OSB15"));
-            AddFunction(new PushButton(this, AMPCD, "3198", "3198", "AMPCD", "OSB16"));
-            AddFunction(new PushButton(this, AMPCD, "3199", "3199", "AMPCD", "OSB17"));
-            AddFunction(new PushButton(this, AMPCD, "3200", "3200", "AMPCD", "OSB18"));
-            AddFunction(new PushButton(this, AMPCD, "3201", "3201", "AMPCD", "OSB19"));
-            AddFunction(new PushButton(this, AMPCD, "3202", "3202", "AMPCD", "OSB20"));
-            AddFunction(new Axis(this, AMPCD, "3203", "3203", 0.1d, 0d, 1d, "AMPCD", "Off/Brightness Control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3177", "3177", "-1", "Day", "0", "Off", "1", "Night", "AMPCD", "DAY/NIGHT Mode", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3179", "3179", "-1", "More", "0", "Off", "1", "Less", "AMPCD", "Symbology", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3180", "3180", "-1", "Up", "0", "Off", "1", "Down", "AMPCD", "Gain", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3182", "3182", "-1", "Up", "0", "Off", "1", "Down", "AMPCD", "Contrast", "%1d"));
-            #endregion
-
-            #region Right MFCD MFD
-
-            AddFunction(new PushButton(this, MDI_RIGHT, "3079", "3079", "Right MDI", "OSB01"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3080", "3080", "Right MDI", "OSB02"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3081", "3081", "Right MDI", "OSB03"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3082", "3082", "Right MDI", "OSB04"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3083", "3083", "Right MDI", "OSB05"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3084", "3084", "Right MDI", "OSB06"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3085", "3085", "Right MDI", "OSB07"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3086", "3086", "Right MDI", "OSB08"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3087", "3087", "Right MDI", "OSB09"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3088", "3088", "Right MDI", "OSB10"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3089", "3089", "Right MDI", "OSB11"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3090", "3090", "Right MDI", "OSB12"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3091", "3091", "Right MDI", "OSB13"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3092", "3092", "Right MDI", "OSB14"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3093", "3093", "Right MDI", "OSB15"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3094", "3094", "Right MDI", "OSB16"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3095", "3095", "Right MDI", "OSB17"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3096", "3096", "Right MDI", "OSB18"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3097", "3097", "Right MDI", "OSB19"));
-            AddFunction(new PushButton(this, MDI_RIGHT, "3098", "3098", "Right MDI", "OSB20"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_RIGHT, "3076", "3076", "-1", "Off", "0", "Night", "1", "Day", "Right MDI", "Right MDI Brightness Selector Knob, OFF/NIGHT/DAY", "%1d"));
-            AddFunction(new Axis(this, MDI_RIGHT, "3077", "3077", 0.1d, 0d, 1d, "Right MDI", "Brightness Control Knob"));
-            AddFunction(new Axis(this, MDI_RIGHT, "3078", "3078", 0.1d, 0d, 1d, "Right MDI", "Contrast Control Knob"));
-            #endregion
-            #endregion
-
             #region Caution Indicators
             // Caution Light Indicator Panel
             AddFunction(new FlagValue(this, "298", "Caution Indicators", "CK_SEAT", ""));       // create_caution_lamp(298,CautionLights.CPT_LTS_CK_SEAT)
@@ -251,11 +161,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "36", "Caution Indicators", "SPARE_RH4", ""));      // create_caution_lamp(36,CautionLights.CPT_LTS_SPARE_RH4)
             AddFunction(new FlagValue(this, "37", "Caution Indicators", "SPARE_RH5", ""));      // create_caution_lamp(37,CautionLights.CPT_LTS_SPARE_RH5)
             // Flaps Landing Gear and Stores Indicator Panel
-            AddFunction(new FlagValue(this, "152", "Caution Indicators", "CTR", ""));           // create_caution_lamp(152,CautionLights.CPT_LTS_CTR)
-            AddFunction(new FlagValue(this, "154", "Caution Indicators", "LI", ""));            // create_caution_lamp(154,CautionLights.CPT_LTS_LI)
-            AddFunction(new FlagValue(this, "156", "Caution Indicators", "LO", ""));            // create_caution_lamp(156,CautionLights.CPT_LTS_LO)
-            AddFunction(new FlagValue(this, "158", "Caution Indicators", "RI", ""));            // create_caution_lamp(158,CautionLights.CPT_LTS_RI)
-            AddFunction(new FlagValue(this, "160", "Caution Indicators", "RO", ""));            // create_caution_lamp(160,CautionLights.CPT_LTS_RO)
+            AddFunction(new FlagValue(this, "152", "Caution Indicators", "CTR", "Centre Stores Indicator for Jettison"));           // create_caution_lamp(152,CautionLights.CPT_LTS_CTR)
+            AddFunction(new FlagValue(this, "154", "Caution Indicators", "LI", "Left Inner Stores Indicator for Jettison"));            // create_caution_lamp(154,CautionLights.CPT_LTS_LI)
+            AddFunction(new FlagValue(this, "156", "Caution Indicators", "LO", "Left Outer Stores Indicator for Jettison"));            // create_caution_lamp(156,CautionLights.CPT_LTS_LO)
+            AddFunction(new FlagValue(this, "158", "Caution Indicators", "RI", "Right Inner Stores Indicator for Jettison"));            // create_caution_lamp(158,CautionLights.CPT_LTS_RI)
+            AddFunction(new FlagValue(this, "160", "Caution Indicators", "RO", "Right Outer Stores Indicator for Jettison"));            // create_caution_lamp(160,CautionLights.CPT_LTS_RO)
             AddFunction(new FlagValue(this, "166", "Caution Indicators", "NOSE_GEAR", ""));     // create_caution_lamp(166,CautionLights.CPT_LTS_NOSE_GEAR)
             AddFunction(new FlagValue(this, "165", "Caution Indicators", "LEFT_GEAR", ""));     // create_caution_lamp(165,CautionLights.CPT_LTS_LEFT_GEAR)
             AddFunction(new FlagValue(this, "167", "Caution Indicators", "RIGHT_GEAR", ""));    // create_caution_lamp(167,CautionLights.CPT_LTS_RIGHT_GEAR)
@@ -267,8 +177,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "2", "Caution Indicators", "SHOOT", ""));           // create_caution_lamp(2,CautionLights.CPT_LTS_SHOOT)
             AddFunction(new FlagValue(this, "3", "Caution Indicators", "SHOOT_STROBE", ""));    // create_caution_lamp(3,CautionLights.CPT_LTS_SHOOT_STROBE)
             // Master Arm Control
-            AddFunction(new FlagValue(this, "47", "Caution Indicators", "AA", ""));             // create_caution_lamp(47,CautionLights.CPT_LTS_AA)
-            AddFunction(new FlagValue(this, "48", "Caution Indicators", "AG", ""));             // create_caution_lamp(48,CautionLights.CPT_LTS_AG)
+            AddFunction(new FlagValue(this, "47", "Caution Indicators", "AA", "Air to Air Master Mode Indicator"));             // create_caution_lamp(47,CautionLights.CPT_LTS_AA)
+            AddFunction(new FlagValue(this, "48", "Caution Indicators", "AG", "Air to Ground Master Mode Indicator"));             // create_caution_lamp(48,CautionLights.CPT_LTS_AG)
             AddFunction(new FlagValue(this, "45", "Caution Indicators", "DISCH", ""));          // create_caution_lamp(45,CautionLights.CPT_LTS_DISCH)
             AddFunction(new FlagValue(this, "44", "Caution Indicators", "READY", ""));          // create_caution_lamp(44,CautionLights.CPT_LTS_READY)
             // Arresting Hook Control Handle
@@ -282,7 +192,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             // Map Gain Control Panel Assy
             AddFunction(new FlagValue(this, "137", "Caution Indicators", "SPN", ""));           // create_caution_lamp(137,CautionLights.CPT_LTS_SPN)
             // Height Indicator
-            AddFunction(new FlagValue(this, "290", "Caution Indicators", "LOW_ALT_WARN", ""));  // create_caution_lamp(290,CautionLights.CPT_LTS_LOW_ALT_WARN)
+            //AddFunction(new FlagValue(this, "290", "Caution Indicators", "LOW_ALT_WARN", ""));  // create_caution_lamp(290,CautionLights.CPT_LTS_LOW_ALT_WARN)
             // AoA Indexer Lights
             AddFunction(new FlagValue(this, "4", "Caution Indicators", "AOA_HIGH", ""));        // create_caution_lamp(4,CautionLights.CPT_LTS_AOA_HIGH)
             AddFunction(new FlagValue(this, "5", "Caution Indicators", "AOA_CENTER", ""));      // create_caution_lamp(5,CautionLights.CPT_LTS_AOA_CENTER)
@@ -386,7 +296,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             #region IFEI
             AddFunction(new FlagValue(this, "468", "IFEI", "IFEI", ""));    //   IFEI_lt, create_simple_lamp(468 controllers.IFEILights 0)
             AddFunction(new FlagValue(this, "469", "IFEI", "IFEI buttons", ""));    //   IFEI buttons_lt, create_simple_lamp(469 controllers.IFEILights 1)
-
             #endregion
 
             #region RWR
@@ -399,248 +308,408 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "264", "RWR", "Fail", ""));    //   Fail_lt, create_simple_lamp(264 controllers.RWR_FailLt)
             AddFunction(new FlagValue(this, "265", "RWR", "BIT", ""));    //   BIT_lt, create_simple_lamp(265 controllers.RWR_LowerLt)
             AddFunction(new FlagValue(this, "520", "RWR", "RWR Lights Brightness ", ""));    //   RWR Lights Brightness , create_simple_lamp(520 controllers.RWR_LowerLt)
-
             #endregion
-
             #region CMDS
             AddFunction(new FlagValue(this, "516", "CMDS", "ECM Jettison", ""));    //   ECM Jettison, create_simple_lamp(516 controllers.CMDS_JettLt)
+            #endregion
+            #region  Control System
+            AddFunction(new Axis(this, CONTROL_INTERFACE, "3001", "345", 0.15d, 0d, 1d, "Control System", "RUD TRIM Control"));    // elements["pnt_345"]     = default_axis_limited(_("RUD TRIM Control"),                       devices.CONTROL_INTERFACE, ctrl_commands.RudderTrim,    345, 0, 0.05, false, false, {-1, 1})
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3002", "346", "Control System", "T/O TRIM Button", "1", "0", "%1d"));    // elements["pnt_346"]     = default_button(_("T|O TRIM Button"),                              devices.CONTROL_INTERFACE, ctrl_commands.TOTrimSw,      346)
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3003", "349", "Control System", "FCS RESET Button", "1", "0", "%1d"));    // elements["pnt_349"]     = default_button(_("FCS RESET Button"),                             devices.CONTROL_INTERFACE, ctrl_commands.ResetSw,       349)
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3005", "348", "1.0", "OPEN", "0.0", "CLOSE", "Control System", "GAIN Switch Cover", "%0.1f"));    // elements["pnt_348"]     = default_red_cover(_("GAIN Switch Cover, OPEN/CLOSE"),             devices.CONTROL_INTERFACE, ctrl_commands.GainSwCover,   348)
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3006", "347", "1.0", "NORM", "0.0", "ORIDE", "Control System", "GAIN Switch", "%0.1f"));    // elements["pnt_347"]     = default_2_position_tumb(_("GAIN Switch, NORM/ORIDE"),             devices.CONTROL_INTERFACE, ctrl_commands.GainSw,        347)
+            AddFunction(new Switch(this, CONTROL_INTERFACE, "234", new SwitchPosition[] { new SwitchPosition("1.0", "AUTO", "3007"), new SwitchPosition("0.0", "HALF", "3007"), new SwitchPosition("-1.0", "FULL", "3007") }, "Control System", "FLAP Switch", "%0.1f"));    // elements["pnt_234"]     = default_3_position_tumb(_("FLAP Switch, AUTO/HALF/FULL"),         devices.CONTROL_INTERFACE, ctrl_commands.FlapSw,        234)
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3008", "139", "1.0", "OPEN", "0.0", "CLOSE", "Control System", "Spin Recovery Switch Cover", "%0.1f"));    // elements["pnt_139"]     = default_red_cover(_("Spin Recovery Switch Cover, OPEN/CLOSE"),    devices.CONTROL_INTERFACE, ctrl_commands.SpinRecCover,  139)
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3009", "138", "1.0", "RCVY", "0.0", "NORM", "Control System", "Spin Recovery Switch", "%0.1f"));    // elements["pnt_138"]     = default_2_position_tumb(_("Spin Recovery Switch, RCVY/NORM"),     devices.CONTROL_INTERFACE, ctrl_commands.SpinRec,       138)
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3004", "470", "Control System", "FCS BIT Switch", "1", "0", "%1d"));    // elements["pnt_470"]     = default_button2(_("FCS BIT Switch"),                              devices.CONTROL_INTERFACE, ctrl_commands.FcsBitSw,      470)
+            AddFunction(new Axis(this, CONTROL_INTERFACE, "3012", "504", 0.15d, 0d, 1d, "Control System", "Throttles Friction Adjusting Lever"));    // elements["pnt_504"]     = default_axis_limited(_("Throttles Friction Adjusting Lever"),     devices.CONTROL_INTERFACE, ctrl_commands.FrictionLever, 504, 0, 0.1, false, false, {0, 1})
+            #endregion
+            #region  Electric system
+            AddFunction(new Switch(this, ELEC_INTERFACE, "404", new SwitchPosition[] { new SwitchPosition("1.0", "ON", "3001"), new SwitchPosition("0.5", "OFF", "3001"), new SwitchPosition("0.0", "ORIDE", "3001") }, "Electric system", "Battery Switch", "%0.1f"));    // elements["pnt_404"]     = default_3_position_tumb(_("Battery Switch, ON/OFF/ORIDE"),                devices.ELEC_INTERFACE, elec_commands.BattSw,               404)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3002", "402", "1.0", "NORM", "0.0", "OFF", "Electric system", "Left Generator Control Switch", "%0.1f"));    // elements["pnt_402"]     = default_2_position_tumb(_("Left Generator Control Switch, NORM/OFF"),     devices.ELEC_INTERFACE, elec_commands.LGenSw,               402)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3003", "403", "1.0", "NORM", "0.0", "OFF", "Electric system", "Right Generator Control Switch", "%0.1f"));    // elements["pnt_403"]     = default_2_position_tumb(_("Right Generator Control Switch, NORM/OFF"),    devices.ELEC_INTERFACE, elec_commands.RGenSw,               403)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3007", "379", "1.0", "OPEN", "0.0", "CLOSE", "Electric system", "Generator TIE Control Switch Cover", "%0.1f"));    // elements["pnt_379"]     = default_red_cover(_("Generator TIE Control Switch Cover, OPEN/CLOSE"),    devices.ELEC_INTERFACE, elec_commands.GenTieControlSwCover, 379)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3006", "378", "1.0", "NORM", "0.0", "RESET", "Electric system", "Generator TIE Control Switch", "%0.1f"));    // elements["pnt_378"]     = default_2_position_tumb(_("Generator TIE Control Switch, NORM/RESET"),    devices.ELEC_INTERFACE, elec_commands.GenTieControlSw,      378)
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3004", "336", "1.0", "RESET", "0.5", "NORM", "0.0", "OFF", "Electric system", "External Power Switch", "%0.1f"));    // elements["pnt_336"]     = default_button_tumb_v2(_("External Power Switch, RESET/NORM/OFF"),        devices.ELEC_INTERFACE, elec_commands.ExtPwrSw, elec_commands.ExtPwrReset,  336)
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3009", "332", "1.0", "A ON", "0.5", "AUTO", "0.0", "B ON", "Electric system", "Ground Power Switch 1", "%0.1f"));    // elements["pnt_332"]     = springloaded_3_pos_tumb2(_("Ground Power Switch 1, A ON/AUTO/B ON"),      devices.ELEC_INTERFACE, elec_commands.GndPwr1SwB, elec_commands.GndPwr1SwA, 332)
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3011", "333", "1.0", "A ON", "0.5", "AUTO", "0.0", "B ON", "Electric system", "Ground Power Switch 2", "%0.1f"));    // elements["pnt_333"]     = springloaded_3_pos_tumb2(_("Ground Power Switch 2, A ON/AUTO/B ON"),      devices.ELEC_INTERFACE, elec_commands.GndPwr2SwB, elec_commands.GndPwr2SwA, 333)
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3013", "334", "1.0", "A ON", "0.5", "AUTO", "0.0", "B ON", "Electric system", "Ground Power Switch 3", "%0.1f"));    // elements["pnt_334"]     = springloaded_3_pos_tumb2(_("Ground Power Switch 3, A ON/AUTO/B ON"),      devices.ELEC_INTERFACE, elec_commands.GndPwr3SwB, elec_commands.GndPwr3SwA, 334)
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3015", "335", "1.0", "A ON", "0.5", "AUTO", "0.0", "B ON", "Electric system", "Ground Power Switch 4", "%0.1f"));    // elements["pnt_335"]     = springloaded_3_pos_tumb2(_("Ground Power Switch 4, A ON/AUTO/B ON"),      devices.ELEC_INTERFACE, elec_commands.GndPwr4SwB, elec_commands.GndPwr4SwA, 335)
+            #endregion
+            #region  Anti-Ice
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3016", "409", "1.0", "ON", "0.0", "AUTO", "Anti-Ice", "Pitot Heater Switch", "%0.1f"));    // elements["pnt_409"]     = springloaded_2_pos_tumb2(_("Pitot Heater Switch, ON/AUTO"),               devices.ELEC_INTERFACE, elec_commands.PitotHeater,          409)
+            AddFunction(new Switch(this, ENGINES_INTERFACE, "410", new SwitchPosition[] { new SwitchPosition("1.0", "ON", "3014"), new SwitchPosition("0.5", "OFF", "3014"), new SwitchPosition("0.0", "TEST", "3014") }, "Anti-Ice", "Engine Anti-Ice Switch", "%0.1f"));    // elements["pnt_410"]     = default_3_position_tumb(_("Engine Anti-Ice Switch, ON/OFF/TEST"),         devices.ENGINES_INTERFACE, engines_commands.AntiIceSw,      410)
+            #endregion
+            #region  CB
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3017", "381", "1.0", "ON", "0.0", "OFF", "CB", "CB FCS CHAN 1", "%0.1f"));    // elements["pnt_381"]     = default_CB_button(_("CB FCS CHAN 1, ON/OFF"),     devices.ELEC_INTERFACE, elec_commands.CB_FCS_CHAN1,     381)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3018", "382", "1.0", "ON", "0.0", "OFF", "CB", "CB FCS CHAN 2", "%0.1f"));    // elements["pnt_382"]     = default_CB_button(_("CB FCS CHAN 2, ON/OFF"),     devices.ELEC_INTERFACE, elec_commands.CB_FCS_CHAN2,     382)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3019", "383", "1.0", "ON", "0.0", "OFF", "CB", "CB SPD BRK", "%0.1f"));    // elements["pnt_383"]     = default_CB_button(_("CB SPD BRK, ON/OFF"),        devices.ELEC_INTERFACE, elec_commands.CB_SPD_BRK,       383)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3020", "384", "1.0", "ON", "0.0", "OFF", "CB", "CB LAUNCH BAR", "%0.1f"));    // elements["pnt_384"]     = default_CB_button(_("CB LAUNCH BAR, ON/OFF"),     devices.ELEC_INTERFACE, elec_commands.CB_LAUNCH_BAR,    384)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3021", "454", "1.0", "ON", "0.0", "OFF", "CB", "CB FCS CHAN 3", "%0.1f"));    // elements["pnt_454"]     = default_CB_button(_("CB FCS CHAN 3, ON/OFF"),     devices.ELEC_INTERFACE, elec_commands.CB_FCS_CHAN3,     454)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3022", "455", "1.0", "ON", "0.0", "OFF", "CB", "CB FCS CHAN 4", "%0.1f"));    // elements["pnt_455"]     = default_CB_button(_("CB FCS CHAN 4, ON/OFF"),     devices.ELEC_INTERFACE, elec_commands.CB_FCS_CHAN4,     455)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3023", "456", "1.0", "ON", "0.0", "OFF", "CB", "CB HOOK", "%0.1f"));    // elements["pnt_456"]     = default_CB_button(_("CB HOOK, ON/OFF"),           devices.ELEC_INTERFACE, elec_commands.CB_HOOK,          456)
+            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3024", "457", "1.0", "ON", "0.0", "OFF", "CB", "CB LG", "%0.1f"));    // elements["pnt_457"]     = default_CB_button(_("CB LG, ON/OFF"),             devices.ELEC_INTERFACE, elec_commands.CB_LG,            457)
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3026", "368", "1.0", "1 OFF", "0.5", "NORM", "0.0", "2 OFF", "CB", "MC Switch", "%0.1f"));    // elements["pnt_368"]     = springloaded_3_pos_tumb2(_("MC Switch, 1 OFF/NORM/2 OFF"),        devices.ELEC_INTERFACE, elec_commands.MC2OffSw, elec_commands.MC1OffSw, 368)
+            #endregion
+            #region  Power Plant
+            AddFunction(Switch.CreateToggleSwitch(this, ENGINES_INTERFACE, "3001", "375", "1.0", "ON", "0.0", "OFF", "Power Plant", "APU Control Switch", "%0.1f"));    // elements["pnt_375"]     = default_button2(_("APU Control Switch, ON/OFF"),  devices.ENGINES_INTERFACE, engines_commands.APU_ControlSw,  375)
+            AddFunction(Switch.CreateThreeWaySwitch(this, ENGINES_INTERFACE, "3002", "377", "1.0", "LEFT", "0.5", "OFF", "0.0", "RIGHT", "Power Plant", "Engine Crank Switch", "%0.1f"));    // elements["pnt_377"]     = springloaded_3_pos_tumb2(_("Engine Crank Switch, LEFT/OFF/RIGHT"),                            devices.ENGINES_INTERFACE, engines_commands.EngineCrankLSw, engines_commands.EngineCrankRSw, 377)
+            AddFunction(Switch.CreateThreeWaySwitch(this, ENGINES_INTERFACE, "3007", "331", "1.0", "TEST A", "0.0", "Off","-1.0","TEST B", "Power Plant", "Fire and Bleed Air Test Switch", "%0.1f"));    // elements["pnt_331"]     = springloaded_3_pos_tumb2(_("Fire and Bleed Air Test Switch, (RMB) TEST A/(LMB) TEST B"),  devices.ENGINES_INTERFACE, engines_commands.FireTestBSw, engines_commands.FireTestASw,  331)
+            #endregion
+            #region  Hydraulic system
+            AddFunction(Switch.CreateToggleSwitch(this, HYDRAULIC_INTERFACE, "3001", "369", "1.0", "NORM", "0.0", "ORIDE", "Hydraulic system", "Hydraulic Isolate Override Switch", "%0.1f"));    // elements["pnt_369"]     = default_2_position_tumb(_("Hydraulic Isolate Override Switch, NORM/ORIDE"),   devices.HYDRAULIC_INTERFACE, hydro_commands.HydIsolSw,  369)
+            #endregion
+            #region  Gear system
+            //AddFunction(Switch.CreateThreeWaySwitch(this, GEAR_INTERFACE, "3001", "226", "1.0", "(RMB)UP", "0.5", "(LMB)DOWN", "0.0", "(MW)EMERGENCY DOWN", "Gear system", "Landing Gear Control Handle", "%0.1f"));    // elements["pnt_226"]     = LDG_Gear_Control_Handle(_("Landing Gear Control Handle, (RMB)UP/(LMB)DOWN/(MW)EMERGENCY DOWN"),   devices.GEAR_INTERFACE, gear_commands.GearHandle, 226, gear_commands.EmergDown, 228, 4.5)
+            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3001", "226", "1.0", "UP", "0.0", "DOWN", "Gear system", "Landing Gear Control Handle", "%0.1f"));    // elements["pnt_226"]     = LDG_Gear_Control_Handle(_("Landing Gear Control Handle, (RMB)UP/(LMB)DOWN/(MW)EMERGENCY DOWN"),   devices.GEAR_INTERFACE, gear_commands.GearHandle, 226, gear_commands.EmergDown, 228, 4.5)
+            AddFunction(new PushButton(this, GEAR_INTERFACE, "3003", "229", "Gear system", "Down Lock Override Button - Push to unlock", "1", "0", "%1d"));    // elements["pnt_229"]     = default_button(_("Down Lock Override Button - Push to unlock"),   devices.GEAR_INTERFACE, gear_commands.DownLockOverrideBtn,  229)
+            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3004", "238", "1.0", "ON", "0.0", "OFF", "Gear system", "Anti Skid Switch", "%0.1f"));    // elements["pnt_238"]     = default_2_position_tumb(_("Anti Skid Switch, ON/OFF"),            devices.GEAR_INTERFACE, gear_commands.AntiSkidSw,           238)
+            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3008", "233", "0.0", "RETRACT", "1.0", "EXTEND", "Gear system", "Launch Bar Control Switch", "%0.1f"));    // elements["pnt_233"]     = default_button2(_("Launch Bar Control Switch, EXTEND/RETRACT"),   devices.GEAR_INTERFACE, gear_commands.LaunchBarSw, 233, anim_speed_default)
+            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3009", "293", "1.0", "UP", "0.0", "DOWN", "Gear system", "Arresting Hook Handle", "%0.1f"));    // elements["pnt_293"]     = default_2_position_tumb(_("Arresting Hook Handle, UP/DOWN"),      devices.GEAR_INTERFACE, gear_commands.HookHandle,   293)
+            #endregion
+            #region  Fuel system
+            AddFunction(Switch.CreateToggleSwitch(this, FUEL_INTERFACE, "3001", "340", "1.0", "INHIBIT", "0.0", "NORM", "Fuel system", "Internal Wing Tank Fuel Control Switch", "%0.1f"));    // elements["pnt_340"]     = default_2_position_tumb(_("Internal Wing Tank Fuel Control Switch, INHIBIT/NORM"),            devices.FUEL_INTERFACE, fuel_commands.IntrWingInhibitSw,    340)
+            AddFunction(new Switch(this, FUEL_INTERFACE, "341", new SwitchPosition[] { new SwitchPosition("1.0", "EXTEND", "3002"), new SwitchPosition("0.5", "RETRACT", "3002"), new SwitchPosition("0.0", "EMERG EXTD", "3002") }, "Fuel system", "Probe Control Switch", "%0.1f"));    // elements["pnt_341"]     = default_3_position_tumb(_("Probe Control Switch, EXTEND/RETRACT/EMERG EXTD"),                 devices.FUEL_INTERFACE, fuel_commands.ProbeControlSw,       341)
+            AddFunction(Switch.CreateToggleSwitch(this, FUEL_INTERFACE, "3003", "344", "1.0", "ON", "0.0", "OFF", "Fuel system", "Fuel Dump Switch", "%0.1f"));    // elements["pnt_344"]     = default_button2(_("Fuel Dump Switch, ON/OFF"),                                                    devices.FUEL_INTERFACE, fuel_commands.DumpSw,               344, anim_speed_default)
+            AddFunction(new Switch(this, FUEL_INTERFACE, "343", new SwitchPosition[] { new SwitchPosition("1.0", "STOP", "3004"), new SwitchPosition("0.5", "NORM", "3004"), new SwitchPosition("0.0", "ORIDE", "3004") }, "Fuel system", "External Centerline Tank Fuel Control Switch", "%0.1f"));    // elements["pnt_343"]     = default_3_position_tumb(_("External Centerline Tank Fuel Control Switch, STOP/NORM/ORIDE"),   devices.FUEL_INTERFACE, fuel_commands.ExtTanksCtrSw,        343)
+            AddFunction(new Switch(this, FUEL_INTERFACE, "342", new SwitchPosition[] { new SwitchPosition("1.0", "STOP", "3005"), new SwitchPosition("0.5", "NORM", "3005"), new SwitchPosition("0.0", "ORIDE", "3005") }, "Fuel system", "External Wing Tanks Fuel Control Switch", "%0.1f"));    // elements["pnt_342"]     = default_3_position_tumb(_("External Wing Tanks Fuel Control Switch, STOP/NORM/ORIDE"),        devices.FUEL_INTERFACE, fuel_commands.ExtTanksWingSw,       342)
+            #endregion
+            #region  Cockpit Mechanics
+            AddFunction(Switch.CreateThreeWaySwitch(this, CPT_MECHANICS, "3002", "453", "1.0", "OPEN", "0.5", "HOLD", "0.0", "CLOSE", "Cockpit Mechanics", "Canopy Control Switch", "%0.1f"));    // elements["pnt_453"]     = springloaded_3_pos_tumb(_("Canopy Control Switch, OPEN/HOLD/CLOSE"),          devices.CPT_MECHANICS,  cpt_commands.CanopySwitchClose, cpt_commands.CanopySwitchOpen, 453)
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3004", "43", "Cockpit Mechanics", "Canopy Jettison Handle Unlock Button - Press to unlock", "1", "0", "%1d"));    // elements["pnt_43"]      = default_button(_("Canopy Jettison Handle Unlock Button - Press to unlock"),   devices.CPT_MECHANICS,  cpt_commands.CanopyJettLeverButton, 43)
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3003", "42", "Cockpit Mechanics", "Canopy Jettison Handle - Pull to jettison", "1", "0", "%1d"));    // elements["pnt_42"]      = default_2_position_tumb(_("Canopy Jettison Handle - Pull to jettison"),       devices.CPT_MECHANICS,  cpt_commands.CanopyJettLever,       42)
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3008", "510", "Cockpit Mechanics", "Ejection Control Handle (3 times)", "1", "0", "%1d"));    // elements["pnt_510"]     = default_button(_("Ejection Control Handle (3 times)"),                        devices.CPT_MECHANICS,  cpt_commands.SeatEjectionControlHandle,         510)
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3006", "511", "1.0", "SAFE", "0.0", "ARMED", "Cockpit Mechanics", "Ejection Seat SAFE/ARMED Handle", "%0.1f"));    // elements["pnt_511"]     = default_2_position_tumb(_("Ejection Seat SAFE/ARMED Handle, SAFE/ARMED"),     devices.CPT_MECHANICS,  cpt_commands.EjectionSeatSafeArmedHandle,       511)
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3009", "513", "1.0", "LOCK", "0.0", "UNLOCK", "Cockpit Mechanics", "Shoulder Harness Control Handle", "%0.1f"));    // elements["pnt_513"]     = default_2_position_tumb(_("Shoulder Harness Control Handle, LOCK/UNLOCK"),    devices.CPT_MECHANICS,  cpt_commands.ShoulderHarnessControlHandle,      513)
+            AddFunction(Switch.CreateThreeWaySwitch(this, CPT_MECHANICS, "3010", "514", "1.0", "UP", "0.5", "HOLD", "0.0", "DOWN", "Cockpit Mechanics", "Seat Height Adjustment Switch", "%0.1f"));    // elements["pnt_514"]     = springloaded_3_pos_tumb(_("Seat Height Adjustment Switch, UP/HOLD/DOWN"),     devices.CPT_MECHANICS,  cpt_commands.SeatHeightAdjustmentSwitchUp, cpt_commands.SeatHeightAdjustmentSwitchDn, 514)
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3012", "260", "Cockpit Mechanics", "Rudder Pedal Adjust Lever", "1", "0", "%1d"));    // elements["pnt_260"]     = default_button(_("Rudder Pedal Adjust Lever"),                                devices.CPT_MECHANICS,  cpt_commands.RudderPedalAdjustLever,    260)
+            AddFunction(new PushButton(this, CPT_MECHANICS, "3013", "575", "Cockpit Mechanics", "Hide Stick toggle", "1", "0", "%1d"));    // elements["pnt_575"]     = default_2_position_tumb(_("Hide Stick toggle"),                               devices.CPT_MECHANICS,  cpt_commands.StickHide,                 575)
+            #endregion
+            #region  Mirrors
+            //AddFunction(new PushButton(this,, "", "497", "Mirrors","Toggle Mirrors"));    // elements["pnt_497"]             = default_2_position_tumb(_("Toggle Mirrors"), 0, 3002, 0)
+            //AddFunction(new PushButton(this,, "", "498", "Mirrors","Toggle Mirrors"));    // elements["pnt_498"]             = default_2_position_tumb(_("Toggle Mirrors"), 0, 3003, 0)
+            //AddFunction(new PushButton(this,, "", "499", "Mirrors","Toggle Mirrors"));    // elements["pnt_499"]             = default_2_position_tumb(_("Toggle Mirrors"), 0, 3004, 0)
+            #endregion
+            #region  Exterior Lights
+            AddFunction(new Axis(this, EXT_LIGHTS, "3005", "338", 0.15d, 0d, 1d, "Exterior Lights", "POSITION Lights Dimmer Control"));    // elements["pnt_338"]     = default_axis_limited(_("POSITION Lights Dimmer Control"),         devices.EXT_LIGHTS,     extlights_commands.Position,    338, 0, 0.15)
+            AddFunction(new Axis(this, EXT_LIGHTS, "3002", "337", 0.15d, 0d, 1d, "Exterior Lights", "FORMATION Lights Dimmer Control"));    // elements["pnt_337"]     = default_axis_limited(_("FORMATION Lights Dimmer Control"),        devices.EXT_LIGHTS,     extlights_commands.Formation,   337, 0, 0.15)
+            AddFunction(new Switch(this, EXT_LIGHTS, "339", new SwitchPosition[] { new SwitchPosition("1.0", "BRT", "3003"), new SwitchPosition("0.5", "OFF", "3003"), new SwitchPosition("0.0", "DIM", "3003") }, "Exterior Lights", "STROBE Lights Switch", "%0.1f"));    // elements["pnt_339"]     = default_3_position_tumb(_("STROBE Lights Switch, BRT/OFF/DIM"),   devices.EXT_LIGHTS,     extlights_commands.Strobe,      339)
+            AddFunction(Switch.CreateToggleSwitch(this, EXT_LIGHTS, "3004", "237", "1.0", "ON", "0.0", "OFF", "Exterior Lights", "LDG/TAXI LIGHT Switch", "%0.1f"));    // elements["pnt_237"]     = default_2_position_tumb(_("LDG/TAXI LIGHT Switch, ON/OFF"),       devices.EXT_LIGHTS,     extlights_commands.LdgTaxi,     237)
+            #endregion
+            #region  Cockpit Lights
+            AddFunction(new Axis(this, CPT_LIGTHS, "3001", "413", 0.15d, 0d, 1d, "Cockpit Lights", "CONSOLES Lights Dimmer Control"));    // elements["pnt_413"]     = default_axis_limited(_("CONSOLES Lights Dimmer Control"),         devices.CPT_LIGTHS,     cptlights_commands.Consoles,    413, 0, 0.15)
+            AddFunction(new Axis(this, CPT_LIGTHS, "3002", "414", 0.15d, 0d, 1d, "Cockpit Lights", "INST PNL Dimmer Control"));    // elements["pnt_414"]     = default_axis_limited(_("INST PNL Dimmer Control"),                devices.CPT_LIGTHS,     cptlights_commands.InstPnl,     414, 0, 0.15)
+            AddFunction(new Axis(this, CPT_LIGTHS, "3003", "415", 0.15d, 0d, 1d, "Cockpit Lights", "FLOOD Light Dimmer Control"));    // elements["pnt_415"]     = default_axis_limited(_("FLOOD Light Dimmer Control"),             devices.CPT_LIGTHS,     cptlights_commands.Flood,       415, 0, 0.15)
+            AddFunction(new Switch(this, CPT_LIGTHS, "419", new SwitchPosition[] { new SwitchPosition("1.0", "NVG", "3004"), new SwitchPosition("0.5", "NITE", "3004"), new SwitchPosition("0.0", "DAY", "3004") }, "Cockpit Lights", "MODE Switch", "%0.1f"));    // elements["pnt_419"]     = default_3_position_tumb(_("MODE Switch, NVG/NITE/DAY"),           devices.CPT_LIGTHS,     cptlights_commands.ModeSw,      419)
+            AddFunction(new Axis(this, CPT_LIGTHS, "3005", "418", 0.15d, 0d, 1d, "Cockpit Lights", "CHART Light Dimmer Control"));    // elements["pnt_418"]     = default_axis_limited(_("CHART Light Dimmer Control"),             devices.CPT_LIGTHS,     cptlights_commands.Chart,       418, 0, 0.15)
+            AddFunction(new Axis(this, CPT_LIGTHS, "3006", "417", 0.15d, 0d, 1d, "Cockpit Lights", "WARN/CAUTION Dimmer Control"));    // elements["pnt_417"]     = default_axis_limited(_("WARN/CAUTION Dimmer Control"),            devices.CPT_LIGTHS,     cptlights_commands.WarnCaution, 417, 0, 0.15)
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_LIGTHS, "3007", "416", "1.0", "TEST", "0.0", "OFF", "Cockpit Lights", "Lights Test Switch", "%0.1f"));    // elements["pnt_416"]     = springloaded_2_pos_tumb2(_("Lights Test Switch, TEST/OFF"),       devices.CPT_LIGTHS,     cptlights_commands.LtTestSw,    416)
+            AddFunction(new PushButton(this, CPT_LIGTHS, "3008", "14", "Cockpit Lights", "MASTER CAUTION Reset Button - Press to reset", "1", "0", "%1d"));    // elements["pnt_14"]      = default_button(_("MASTER CAUTION Reset Button - Press to reset"), devices.CPT_LIGTHS,     cptlights_commands.MasterCaution,   14, anim_speed_def_buttons * 1.2)
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_LIGTHS, "3009", "239", "1.0", "FIELD", "0.0", "CARRIER", "Cockpit Lights", "HOOK BYPASS Switch", "%0.1f"));    // elements["pnt_239"]     = springloaded_2_pos_tumb2(_("HOOK BYPASS Switch, FIELD/CARRIER"),  devices.CPT_LIGTHS,     cptlights_commands.HookBypass,  239)
+            #endregion
+            #region  Oxygen System
+            AddFunction(Switch.CreateToggleSwitch(this, OXYGEN_INTERFACE, "3001", "365", "1.0", "ON", "0.0", "OFF", "Oxygen System", "OBOGS Control Switch", "%0.1f"));    // elements["pnt_365"]     = default_2_position_tumb(_("OBOGS Control Switch, ON/OFF"),        devices.OXYGEN_INTERFACE,   oxygen_commands.OBOGS_ControlSw,        365)
+            AddFunction(new Axis(this, OXYGEN_INTERFACE, "3002", "366", 0.15d, 0d, 1d, "Oxygen System", "OXY Flow Knob"));    // elements["pnt_366"]     = default_axis_limited(_("OXY Flow Knob"),                          devices.OXYGEN_INTERFACE,   oxygen_commands.OxyFlowControlValve,    366, 1.0, 0.5, false, false, {0,1})
+            #endregion
+            #region  ECS
+            AddFunction(new Switch(this, ECS_INTERFACE, "411", new SwitchPosition[] { new SwitchPosition("1.0", "R OFF", "3001"), new SwitchPosition("0.7", "NORM", "3001"), new SwitchPosition("0.3", "L OFF", "3001"), new SwitchPosition("0.0", "OFF", "3001") }, "ECS", "Bleed Air Knob", "%0.1f"));    // elements["pnt_411"]     = multiposition_switch_cl(_("Bleed Air Knob, R OFF/NORM/L OFF/OFF"),                devices.ECS_INTERFACE, ECS_commands.BleedAirSw, 411, 4, 0.1, false, 0.0, anim_speed_default * 0.1, true)
+            AddFunction(new PushButton(this, ECS_INTERFACE, "3002", "412", "ECS", "Bleed Air Knob AUG PULL", "1", "0", "%1d"));    // elements["pnt_412"]     = default_button(_("Bleed Air Knob, AUG PULL"),                                     devices.ECS_INTERFACE, ECS_commands.BleedAirSwAugPull, 412)
+            AddFunction(new Switch(this, ECS_INTERFACE, "405", new SwitchPosition[] { new SwitchPosition("1.0", "AUTO", "3003"), new SwitchPosition("0.7", "MAN", "3003"), new SwitchPosition("0.3", "OFF", "3003"), new SwitchPosition("0.0", "RAM", "3003") }, "ECS", "ECS Mode Switch", "%0.1f"));    // elements["pnt_405"]     = default_3_position_tumb(_("ECS Mode Switch, AUTO/MAN/ OFF/RAM"),                  devices.ECS_INTERFACE, ECS_commands.ECSModeSw, 405)
+            AddFunction(new Switch(this, ECS_INTERFACE, "408", new SwitchPosition[] { new SwitchPosition("1.0", "NORM", "3004"), new SwitchPosition("0.7", "DUMP", "3004"), new SwitchPosition("0.3", "RAM", "3004"), new SwitchPosition("0.0", "DUMP", "3004") }, "ECS", "Cabin Pressure Switch", "%0.1f"));    // elements["pnt_408"]     = default_3_position_tumb(_("Cabin Pressure Switch, NORM/DUMP/ RAM/DUMP"),          devices.ECS_INTERFACE, ECS_commands.CabinPressSw, 408)
+            AddFunction(new Axis(this, ECS_INTERFACE, "3005", "451", 0.15d, 0d, 1d, "ECS", "Defog Handle"));    // elements["pnt_451"]     = default_axis_limited(_("Defog Handle"),                                           devices.ECS_INTERFACE, ECS_commands.DefogHandle, 451, 0.0, 0.1, true, false, {-1,1})
+            AddFunction(new Axis(this, ECS_INTERFACE, "3006", "407", 0.15d, 0d, 1d, "ECS", "Cabin Temperature Knob"));    // elements["pnt_407"]     = default_axis_limited(_("Cabin Temperature Knob"),                                 devices.ECS_INTERFACE, ECS_commands.CabinTemperatureRst, 407, 0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, ECS_INTERFACE, "3007", "406", 0.15d, 0d, 1d, "ECS", "Suit Temperature Knob"));    // elements["pnt_406"]     = default_axis_limited(_("Suit Temperature Knob"),                                  devices.ECS_INTERFACE, ECS_commands.SuitTemperatureRst, 406, 0.0, 0.1, false, false, {0,1})
+            AddFunction(Switch.CreateToggleSwitch(this, ECS_INTERFACE, "3008", "297", "1.0", "NORM", "0.0", "EMERG", "ECS", "AV COOL Switch", "%0.1f"));    // elements["pnt_297"]     = default_2_position_tumb(_("AV COOL Switch, NORM/EMERG"),                          devices.ECS_INTERFACE, ECS_commands.AV_COOL_Sw, 297)
+            AddFunction(new Switch(this, ECS_INTERFACE, "452", new SwitchPosition[] { new SwitchPosition("1.0", "ANTI ICE", "3009"), new SwitchPosition("0.5", "OFF", "3009"), new SwitchPosition("0.0", "RAIN", "3009") }, "ECS", "Windshield Anti-Ice/Rain Switch", "%0.1f"));    // elements["pnt_452"]     = default_3_position_tumb(_("Windshield Anti-Ice/Rain Switch, ANTI ICE/OFF/RAIN"),  devices.ECS_INTERFACE, ECS_commands.WindshieldSw, 452)
+            AddFunction(new Axis(this, ECS_INTERFACE, "3010", "505", 0.15d, 0d, 1d, "ECS", "Left Louver"));    // elements["pnt_505"]     = default_axis_limited(_("Left Louver"),                                            devices.ECS_INTERFACE, ECS_commands.LeftLouver, 505, 0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, ECS_INTERFACE, "3011", "506", 0.15d, 0d, 1d, "ECS", "Right Louver"));    // elements["pnt_506"]     = default_axis_limited(_("Right Louver"),                                           devices.ECS_INTERFACE, ECS_commands.RightLouver, 506, 0.0, 0.1, false, false, {0,1})
+            #endregion
+            #region  HOTAS
+            AddFunction(Switch.CreateToggleSwitch(this, HOTAS, "3041", "494", "1.0", "ON", "0.0", "OFF", "HOTAS", "Exterior Lights Switch", "%0.1f"));    // elements["pnt_494"]         = default_2_position_tumb(_("Exterior Lights Switch, ON/OFF"),          devices.HOTAS,  hotas_commands.THROTTLE_EXTERIOR_LIGTHS,    494)
+            #endregion
+            #region  Master Arm Panel
+            AddFunction(new PushButton(this, SMS, "3001", "458", "Master Arm Panel", "Master Mode Button A/A", "1", "0", "%1d"));    // elements["pnt_458"]     = default_button(_("Master Mode Button, A|A"),                          devices.SMS, SMS_commands.AA_MasterModeSw, 458)
+            AddFunction(new PushButton(this, SMS, "3002", "459", "Master Arm Panel", "Master Mode Button A/G", "1", "0", "%1d"));    // elements["pnt_459"]     = default_button(_("Master Mode Button, A|G"),                          devices.SMS, SMS_commands.AG_MasterModeSw, 459)
+            AddFunction(Switch.CreateToggleSwitch(this, SMS, "3003", "49", "1.0", "ARM", "0.0", "SAFE", "Master Arm Panel", "Master Arm Switch", "%0.1f"));    // elements["pnt_49"]      = default_2_position_tumb(_("Master Arm Switch, ARM/SAFE"),             devices.SMS, SMS_commands.MasterArmSw, 49)
+            AddFunction(new PushButton(this, SMS, "3004", "50", "Master Arm Panel", "Emergency Jettison Button", "1", "0", "%1d"));    // elements["pnt_50"]      = default_button(_("Emergency Jettison Button"),                        devices.SMS, SMS_commands.EmerJettSw, 50)
+            AddFunction(Switch.CreateToggleSwitch(this, SMS, "3012", "258", "1.0", "ENABLE", "0.0", "NORM", "Master Arm Panel", "Auxiliary Release Switch", "%0.1f"));    // elements["pnt_258"]     = default_2_position_tumb(_("Auxiliary Release Switch, ENABLE/NORM"),   devices.SMS, SMS_commands.AuxRelSw, 258)
+            AddFunction(new PushButton(this, SMS, "3005", "153", "Master Arm Panel", "Station Jettison Select Button CENTER", "1", "0", "%1d"));    // elements["pnt_153"]     = default_2_position_tumb(_("Station Jettison Select Button, CENTER"),      devices.SMS, SMS_commands.JettStationCntrBtn, 153)
+            AddFunction(new PushButton(this, SMS, "3006", "155", "Master Arm Panel", "Station Jettison Select Button LEFT IN", "1", "0", "%1d"));    // elements["pnt_155"]     = default_2_position_tumb(_("Station Jettison Select Button, LEFT IN"),     devices.SMS, SMS_commands.JettStationLIBtn, 155)
+            AddFunction(new PushButton(this, SMS, "3007", "157", "Master Arm Panel", "Station Jettison Select Button LEFT OUT", "1", "0", "%1d"));    // elements["pnt_157"]     = default_2_position_tumb(_("Station Jettison Select Button, LEFT OUT"),    devices.SMS, SMS_commands.JettStationLOBtn, 157)
+            AddFunction(new PushButton(this, SMS, "3008", "159", "Master Arm Panel", "Station Jettison Select Button RIGHT IN", "1", "0", "%1d"));    // elements["pnt_159"]     = default_2_position_tumb(_("Station Jettison Select Button, RIGHT IN"),    devices.SMS, SMS_commands.JettStationRIBtn, 159)
+            AddFunction(new PushButton(this, SMS, "3009", "161", "Master Arm Panel", "Station Jettison Select Button RIGHT OUT", "1", "0", "%1d"));    // elements["pnt_161"]     = default_2_position_tumb(_("Station Jettison Select Button, RIGHT OUT"),   devices.SMS, SMS_commands.JettStationROBtn, 161)
+            AddFunction(new PushButton(this, SMS, "3010", "235", "Master Arm Panel", "Selective Jettison Pushbutton"));    // elements["pnt_235"]     = default_button(_("Selective Jettison Pushbutton"),                    devices.SMS, SMS_commands.SelJettBtn, 235)
+            AddFunction(new Switch(this, SMS, "236", new SwitchPosition[] { new SwitchPosition("1.0", "L FUS MSL", "3011"), new SwitchPosition("0.8", "SAFE", "3011"), new SwitchPosition("0.6", "R FUS MSL", "3011"), new SwitchPosition("0.4", "RACK", "3011"), new SwitchPosition("0.2", "LCHR", "3011"), new SwitchPosition("0.0", "STORES", "3011") }, "Master Arm Panel", "Selective Jettison Knob", "%0.1f"));    // elements["pnt_236"]     = multiposition_switch(_("Selective Jettison Knob, L FUS MSL/SAFE/R FUS MSL/ RACK/LCHR /STORES"),   devices.SMS, SMS_commands.SelJettLvr, 236, 5, 0.1, false, -0.1, 1.5)
+            AddFunction(new Switch(this, SMS, "135", new SwitchPosition[] { new SwitchPosition("1.0", "ORIDE", "3013"), new SwitchPosition("0.5", "NORM", "3013"), new SwitchPosition("0.0", "OFF", "3013") }, "Master Arm Panel", "IR Cooling Switch", "%0.1f"));    // elements["pnt_135"]     = default_3_position_tumb(_("IR Cooling Switch, ORIDE/NORM/OFF"),           devices.SMS, SMS_commands.IRCoolingSw, 135, false, anim_speed_default, false, 0.1, {0, 0.2})
+            #endregion
+            #region  Fire Systems
+            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3008", "46", "Fire Systems", "Fire Extinguisher Pushbutton", "1", "0", "%1d"));    // elements["pnt_46"]      = default_button(_("Fire Extinguisher Pushbutton"),                     devices.ENGINES_INTERFACE, engines_commands.FireExtghDischSw, 46)
+            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3009", "30", "Fire Systems", "APU Fire Warning/Extinguisher Light", "1", "0", "%1d"));    // elements["pnt_30"]      = default_2_position_tumb(_("APU Fire Warning/Extinguisher Light"),     devices.ENGINES_INTERFACE, engines_commands.APU_FireSw, 30)
+            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3010", "11", "Fire Systems", "Left Engine/AMAD Fire Warning/Extinguisher Light - (LMB) depress/(RMB) cover control", "1", "0", "%1d"));    // elements["pnt_11"]      = default_double_tumb(_("Left Engine/AMAD Fire Warning/Extinguisher Light - (LMB) depress/(RMB) cover control"),    devices.ENGINES_INTERFACE, engines_commands.LENG_FireSw, engines_commands.LENG_FireSwCover, 11, 12)
+            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3011", "27", "Fire Systems", "Right Engine/AMAD Fire Warning/Extinguisher Light - (LMB) depress/(RMB) cover control", "1", "0", "%1d"));    // elements["pnt_27"]      = default_double_tumb(_("Right Engine/AMAD Fire Warning/Extinguisher Light - (LMB) depress/(RMB) cover control"),   devices.ENGINES_INTERFACE, engines_commands.RENG_FireSw, engines_commands.RENG_FireSwCover, 27, 28)
+            #endregion
+            #region  Multipurpose Display Group
+            #endregion
+            #region  Head-Up Display
+            AddFunction(new Switch(this, HUD, "140", new SwitchPosition[] { new SwitchPosition("1.0", "NORM", "3001"), new SwitchPosition("0.5", "REJ 1", "3001"), new SwitchPosition("0.0", "REJ 2", "3001") }, "Head-Up Display", "HUD Symbology Reject Switch", "%0.1f"));    // elements["pnt_140"]     = default_3_position_tumb(_("HUD Symbology Reject Switch, NORM/REJ 1/REJ 2"),       devices.HUD, HUD_commands.HUD_SymbRejectSw, 140, false, anim_speed_default, false, 0.1, {0, 0.2})
+            AddFunction(new Axis(this, HUD, "3002", "141", 0.15d, 0d, 1d, "Head-Up Display", "HUD Symbology Brightness Control Knob"));    // elements["pnt_141"]     = default_axis_limited(_("HUD Symbology Brightness Control Knob"),                  devices.HUD, HUD_commands.HUD_SymbBrightCtrl, 141, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(Switch.CreateToggleSwitch(this, HUD, "3003", "142", "1.0", "DAY", "0.0", "NIGHT", "Head-Up Display", "HUD Symbology Brightness Selector Knob", "%0.1f"));    // elements["pnt_142"]     = default_2_position_tumb(_("HUD Symbology Brightness Selector Knob, DAY/NIGHT"),   devices.HUD, HUD_commands.HUD_SymbBrightSelKnob, 142)
+            AddFunction(new Axis(this, HUD, "3004", "143", 0.15d, 0d, 1d, "Head-Up Display", "Black Level Control Knob"));    // elements["pnt_143"]     = default_axis_limited(_("Black Level Control Knob"),                               devices.HUD, HUD_commands.HUD_BlackLevelCtrl, 143, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(new Switch(this, HUD, "144", new SwitchPosition[] { new SwitchPosition("1.0", "W", "3005"), new SwitchPosition("0.7", "B", "3005"), new SwitchPosition("0.3", "VID", "3005"), new SwitchPosition("0.0", "OFF", "3005") }, "Head-Up Display", "HUD Video Control Switch", "%0.1f"));    // elements["pnt_144"]     = default_3_position_tumb(_("HUD Video Control Switch, W/B /VID/OFF"),              devices.HUD, HUD_commands.HUD_VideoCtrlSw, 144, false, anim_speed_default, false, 0.1, {0, 0.2})
+            AddFunction(new Axis(this, HUD, "3006", "145", 0.15d, 0d, 1d, "Head-Up Display", "Balance Control Knob"));    // elements["pnt_145"]     = default_axis_limited(_("Balance Control Knob"),                                   devices.HUD, HUD_commands.HUD_BalanceCtrl, 145, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(new Axis(this, HUD, "3007", "146", 0.15d, 0d, 1d, "Head-Up Display", "AOA Indexer Control Knob"));    // elements["pnt_146"]     = default_axis_limited(_("AOA Indexer Control Knob"),                               devices.HUD, HUD_commands.HUD_AoA_IndexerCtrl, 146, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(Switch.CreateToggleSwitch(this, HUD, "3008", "147", "1.0", "BARO", "0.0", "RDR", "Head-Up Display", "Altitude Switch", "%0.1f"));    // elements["pnt_147"]     = default_2_position_tumb(_("Altitude Switch, BARO/RDR"),                           devices.HUD, HUD_commands.HUD_AltitudeSw, 147)
+            AddFunction(new Switch(this, HUD, "148", new SwitchPosition[] { new SwitchPosition("1.0", "INS", "3009"), new SwitchPosition("0.5", "AUTO", "3009"), new SwitchPosition("0.0", "STBY", "3009") }, "Head-Up Display", "Attitude Selector Switch", "%0.1f"));    // elements["pnt_148"]     = default_3_position_tumb(_("Attitude Selector Switch, INS/AUTO/STBY"),             devices.HUD, HUD_commands.HUD_AttitudeSelSw, 148)
+            #endregion
+            #region  Left MDI
+            AddFunction(new Switch(this, MDI_LEFT, "51", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.5", "NIGHT", "3001"), new SwitchPosition("1.0", "DAY", "3001") }, "Left MDI", "Left MDI Brightness Selector Knob", "%0.1f"));    // elements["pnt_51"]      = default_3_position_tumb(_("Left MDI Brightness Selector Knob, OFF/NIGHT/DAY"),    devices.MDI_LEFT, MDI_commands.MDI_off_night_day, 51, false, anim_speed_default, false, 0.1, {0, 0.2})
+            AddFunction(new Axis(this, MDI_LEFT, "3002", "52", 0.15d, 0d, 1d, "Left MDI", "Left MDI Brightness Control Knob"));    // elements["pnt_52"]      = default_axis_limited(_("Left MDI Brightness Control Knob"),                       devices.MDI_LEFT, MDI_commands.MDI_brightness, 52, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(new Axis(this, MDI_LEFT, "3003", "53", 0.15d, 0d, 1d, "Left MDI", "Left MDI Contrast Control Knob"));    // elements["pnt_53"]      = default_axis_limited(_("Left MDI Contrast Control Knob"),                         devices.MDI_LEFT, MDI_commands.MDI_contrast, 53, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(new PushButton(this, MDI_LEFT, "3011", "54", "Left MDI", "OSB 01", "1", "0", "%1d"));    // elements["pnt_54"]      = short_way_button(_("Left MDI PB 1"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_1, 54)
+            AddFunction(new PushButton(this, MDI_LEFT, "3012", "55", "Left MDI", "OSB 02", "1", "0", "%1d"));    // elements["pnt_55"]      = short_way_button(_("Left MDI PB 2"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_2, 55)
+            AddFunction(new PushButton(this, MDI_LEFT, "3013", "56", "Left MDI", "OSB 03", "1", "0", "%1d"));    // elements["pnt_56"]      = short_way_button(_("Left MDI PB 3"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_3, 56)
+            AddFunction(new PushButton(this, MDI_LEFT, "3014", "57", "Left MDI", "OSB 04", "1", "0", "%1d"));    // elements["pnt_57"]      = short_way_button(_("Left MDI PB 4"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_4, 57)
+            AddFunction(new PushButton(this, MDI_LEFT, "3015", "58", "Left MDI", "OSB 05", "1", "0", "%1d"));    // elements["pnt_58"]      = short_way_button(_("Left MDI PB 5"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_5, 58)
+            AddFunction(new PushButton(this, MDI_LEFT, "3016", "59", "Left MDI", "OSB 06", "1", "0", "%1d"));    // elements["pnt_59"]      = short_way_button(_("Left MDI PB 6"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_6, 59)
+            AddFunction(new PushButton(this, MDI_LEFT, "3017", "60", "Left MDI", "OSB 07", "1", "0", "%1d"));    // elements["pnt_60"]      = short_way_button(_("Left MDI PB 7"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_7, 60)
+            AddFunction(new PushButton(this, MDI_LEFT, "3018", "61", "Left MDI", "OSB 08", "1", "0", "%1d"));    // elements["pnt_61"]      = short_way_button(_("Left MDI PB 8"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_8, 61)
+            AddFunction(new PushButton(this, MDI_LEFT, "3019", "62", "Left MDI", "OSB 09", "1", "0", "%1d"));    // elements["pnt_62"]      = short_way_button(_("Left MDI PB 9"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_9, 62)
+            AddFunction(new PushButton(this, MDI_LEFT, "3020", "63", "Left MDI", "OSB 10", "1", "0", "%1d"));    // elements["pnt_63"]      = short_way_button(_("Left MDI PB 10"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_10, 63)
+            AddFunction(new PushButton(this, MDI_LEFT, "3021", "64", "Left MDI", "OSB 11", "1", "0", "%1d"));    // elements["pnt_64"]      = short_way_button(_("Left MDI PB 11"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_11, 64)
+            AddFunction(new PushButton(this, MDI_LEFT, "3022", "65", "Left MDI", "OSB 12", "1", "0", "%1d"));    // elements["pnt_65"]      = short_way_button(_("Left MDI PB 12"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_12, 65)
+            AddFunction(new PushButton(this, MDI_LEFT, "3023", "66", "Left MDI", "OSB 13", "1", "0", "%1d"));    // elements["pnt_66"]      = short_way_button(_("Left MDI PB 13"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_13, 66)
+            AddFunction(new PushButton(this, MDI_LEFT, "3024", "67", "Left MDI", "OSB 14", "1", "0", "%1d"));    // elements["pnt_67"]      = short_way_button(_("Left MDI PB 14"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_14, 67)
+            AddFunction(new PushButton(this, MDI_LEFT, "3025", "68", "Left MDI", "OSB 15", "1", "0", "%1d"));    // elements["pnt_68"]      = short_way_button(_("Left MDI PB 15"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_15, 68)
+            AddFunction(new PushButton(this, MDI_LEFT, "3026", "69", "Left MDI", "OSB 16", "1", "0", "%1d"));    // elements["pnt_69"]      = short_way_button(_("Left MDI PB 16"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_16, 69)
+            AddFunction(new PushButton(this, MDI_LEFT, "3027", "70", "Left MDI", "OSB 17", "1", "0", "%1d"));    // elements["pnt_70"]      = short_way_button(_("Left MDI PB 17"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_17, 70)
+            AddFunction(new PushButton(this, MDI_LEFT, "3028", "72", "Left MDI", "OSB 18", "1", "0", "%1d"));    // elements["pnt_72"]      = short_way_button(_("Left MDI PB 18"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_18, 72)
+            AddFunction(new PushButton(this, MDI_LEFT, "3029", "73", "Left MDI", "OSB 19", "1", "0", "%1d"));    // elements["pnt_73"]      = short_way_button(_("Left MDI PB 19"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_19, 73)
+            AddFunction(new PushButton(this, MDI_LEFT, "3030", "75", "Left MDI", "OSB 20", "1", "0", "%1d"));    // elements["pnt_75"]      = short_way_button(_("Left MDI PB 20"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_20, 75)
+            #endregion
+            #region  Right MDI
+            AddFunction(new Switch(this, MDI_RIGHT, "76", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.5", "NIGHT", "3001"), new SwitchPosition("1.0", "DAY", "3001") }, "Right MDI", "Right MDI Brightness Selector Knob", "%0.1f"));    // elements["pnt_76"]      = default_3_position_tumb(_("Right MDI Brightness Selector Knob, OFF/NIGHT/DAY"),   devices.MDI_RIGHT, MDI_commands.MDI_off_night_day, 76, false, anim_speed_default, false, 0.1, {0, 0.2})
+            AddFunction(new Axis(this, MDI_RIGHT, "3002", "77", 0.15d, 0d, 1d, "Right MDI", "Right MDI Brightness Control Knob"));    // elements["pnt_77"]      = default_axis_limited(_("Right MDI Brightness Control Knob"),                      devices.MDI_RIGHT, MDI_commands.MDI_brightness, 77, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(new Axis(this, MDI_RIGHT, "3003", "78", 0.15d, 0d, 1d, "Right MDI", "Right MDI Contrast Control Knob"));    // elements["pnt_78"]      = default_axis_limited(_("Right MDI Contrast Control Knob"),                        devices.MDI_RIGHT, MDI_commands.MDI_contrast, 78, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(new PushButton(this, MDI_RIGHT, "3011", "79", "Right MDI", "OSB 01", "1", "0", "%1d"));    // elements["pnt_79"]      = short_way_button(_("Right MDI PB 1"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_1, 79)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3012", "80", "Right MDI", "OSB 02", "1", "0", "%1d"));    // elements["pnt_80"]      = short_way_button(_("Right MDI PB 2"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_2, 80)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3013", "81", "Right MDI", "OSB 03", "1", "0", "%1d"));    // elements["pnt_81"]      = short_way_button(_("Right MDI PB 3"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_3, 81)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3014", "82", "Right MDI", "OSB 04", "1", "0", "%1d"));    // elements["pnt_82"]      = short_way_button(_("Right MDI PB 4"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_4, 82)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3015", "83", "Right MDI", "OSB 05", "1", "0", "%1d"));    // elements["pnt_83"]      = short_way_button(_("Right MDI PB 5"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_5, 83)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3016", "84", "Right MDI", "OSB 06", "1", "0", "%1d"));    // elements["pnt_84"]      = short_way_button(_("Right MDI PB 6"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_6, 84)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3017", "85", "Right MDI", "OSB 07", "1", "0", "%1d"));    // elements["pnt_85"]      = short_way_button(_("Right MDI PB 7"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_7, 85)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3018", "86", "Right MDI", "OSB 08", "1", "0", "%1d"));    // elements["pnt_86"]      = short_way_button(_("Right MDI PB 8"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_8, 86)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3019", "87", "Right MDI", "OSB 09", "1", "0", "%1d"));    // elements["pnt_87"]      = short_way_button(_("Right MDI PB 9"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_9, 87)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3020", "88", "Right MDI", "OSB 10", "1", "0", "%1d"));    // elements["pnt_88"]      = short_way_button(_("Right MDI PB 10"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_10, 88)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3021", "89", "Right MDI", "OSB 11", "1", "0", "%1d"));    // elements["pnt_89"]      = short_way_button(_("Right MDI PB 11"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_11, 89)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3022", "90", "Right MDI", "OSB 12", "1", "0", "%1d"));    // elements["pnt_90"]      = short_way_button(_("Right MDI PB 12"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_12, 90)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3023", "91", "Right MDI", "OSB 13", "1", "0", "%1d"));    // elements["pnt_91"]      = short_way_button(_("Right MDI PB 13"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_13, 91)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3024", "92", "Right MDI", "OSB 14", "1", "0", "%1d"));    // elements["pnt_92"]      = short_way_button(_("Right MDI PB 14"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_14, 92)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3025", "93", "Right MDI", "OSB 15", "1", "0", "%1d"));    // elements["pnt_93"]      = short_way_button(_("Right MDI PB 15"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_15, 93)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3026", "94", "Right MDI", "OSB 16", "1", "0", "%1d"));    // elements["pnt_94"]      = short_way_button(_("Right MDI PB 16"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_16, 94)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3027", "95", "Right MDI", "OSB 17", "1", "0", "%1d"));    // elements["pnt_95"]      = short_way_button(_("Right MDI PB 17"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_17, 95)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3028", "96", "Right MDI", "OSB 18", "1", "0", "%1d"));    // elements["pnt_96"]      = short_way_button(_("Right MDI PB 18"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_18, 96)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3029", "97", "Right MDI", "OSB 19", "1", "0", "%1d"));    // elements["pnt_97"]      = short_way_button(_("Right MDI PB 19"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_19, 97)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3030", "98", "Right MDI", "OSB 20", "1", "0", "%1d"));    // elements["pnt_98"]      = short_way_button(_("Right MDI PB 20"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_20, 98)
+            #endregion
+            #region  AMPCD
+            AddFunction(new Axis(this, AMPCD, "3001", "203", 0.15d, 0d, 1d, "AMPCD", "AMPCD Off/Brightness Control Knob"));    // elements["pnt_203"]     = default_axis_limited(_("AMPCD Off/Brightness Control Knob"),          devices.AMPCD, AMPCD_commands.AMPCD_off_brightness, 203, 0.0, 0.1, false, false, {0, 1})
+            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3002", "177", "1.0", "Day", "0.0", "NORM", "-1.0", "Night", "AMPCD", "AMPCD Night/Day Brightness Selector DAY", "%0.1f"));    // elements["pnt_177_2"]   = AMPCD_switch_positive(_("AMPCD Night/Day Brightness Selector, DAY"),  devices.AMPCD, AMPCD_commands.AMPCD_nite_day_DAY, 177)
+            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3004", "179", "1.0", "Up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Symbology Control Switch UP", "%0.1f"));    // elements["pnt_179_2"]   = AMPCD_switch_positive(_("AMPCD Symbology Control Switch, UP"),        devices.AMPCD, AMPCD_commands.AMPCD_symbology_UP, 179)
+            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3006", "182", "1.0", "up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Contrast Control Switch UP", "%0.1f"));    // elements["pnt_182_2"]   = AMPCD_switch_positive(_("AMPCD Contrast Control Switch, UP"),         devices.AMPCD, AMPCD_commands.AMPCD_contrast_UP, 182)
+            AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3008", "180", "1.0", "Up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Gain Control Switch UP", "%0.1f"));    // elements["pnt_180_2"]   = AMPCD_switch_positive(_("AMPCD Gain Control Switch, UP"),             devices.AMPCD, AMPCD_commands.AMPCD_gain_UP, 180)
+            AddFunction(new PushButton(this, AMPCD, "3011", "183", "AMPCD", "OSB 01", "1", "0", "%1d"));    // elements["pnt_183"]     = short_way_button(_("AMPCD PB 1"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_1, 183)
+            AddFunction(new PushButton(this, AMPCD, "3012", "184", "AMPCD", "OSB 02", "1", "0", "%1d"));    // elements["pnt_184"]     = short_way_button(_("AMPCD PB 2"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_2, 184)
+            AddFunction(new PushButton(this, AMPCD, "3013", "185", "AMPCD", "OSB 03", "1", "0", "%1d"));    // elements["pnt_185"]     = short_way_button(_("AMPCD PB 3"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_3, 185)
+            AddFunction(new PushButton(this, AMPCD, "3014", "186", "AMPCD", "OSB 04", "1", "0", "%1d"));    // elements["pnt_186"]     = short_way_button(_("AMPCD PB 4"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_4, 186)
+            AddFunction(new PushButton(this, AMPCD, "3015", "187", "AMPCD", "OSB 05", "1", "0", "%1d"));    // elements["pnt_187"]     = short_way_button(_("AMPCD PB 5"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_5, 187)
+            AddFunction(new PushButton(this, AMPCD, "3016", "188", "AMPCD", "OSB 06", "1", "0", "%1d"));    // elements["pnt_188"]     = short_way_button(_("AMPCD PB 6"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_6, 188)
+            AddFunction(new PushButton(this, AMPCD, "3017", "189", "AMPCD", "OSB 07", "1", "0", "%1d"));    // elements["pnt_189"]     = short_way_button(_("AMPCD PB 7"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_7, 189)
+            AddFunction(new PushButton(this, AMPCD, "3018", "190", "AMPCD", "OSB 08", "1", "0", "%1d"));    // elements["pnt_190"]     = short_way_button(_("AMPCD PB 8"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_8, 190)
+            AddFunction(new PushButton(this, AMPCD, "3019", "191", "AMPCD", "OSB 09", "1", "0", "%1d"));    // elements["pnt_191"]     = short_way_button(_("AMPCD PB 9"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_9, 191)
+            AddFunction(new PushButton(this, AMPCD, "3020", "192", "AMPCD", "OSB 10", "1", "0", "%1d"));    // elements["pnt_192"]     = short_way_button(_("AMPCD PB 10"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_10, 192)
+            AddFunction(new PushButton(this, AMPCD, "3021", "193", "AMPCD", "OSB 11", "1", "0", "%1d"));    // elements["pnt_193"]     = short_way_button(_("AMPCD PB 11"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_11, 193)
+            AddFunction(new PushButton(this, AMPCD, "3022", "194", "AMPCD", "OSB 12", "1", "0", "%1d"));    // elements["pnt_194"]     = short_way_button(_("AMPCD PB 12"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_12, 194)
+            AddFunction(new PushButton(this, AMPCD, "3023", "195", "AMPCD", "OSB 13", "1", "0", "%1d"));    // elements["pnt_195"]     = short_way_button(_("AMPCD PB 13"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_13, 195)
+            AddFunction(new PushButton(this, AMPCD, "3024", "196", "AMPCD", "OSB 14", "1", "0", "%1d"));    // elements["pnt_196"]     = short_way_button(_("AMPCD PB 14"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_14, 196)
+            AddFunction(new PushButton(this, AMPCD, "3025", "197", "AMPCD", "OSB 15", "1", "0", "%1d"));    // elements["pnt_197"]     = short_way_button(_("AMPCD PB 15"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_15, 197)
+            AddFunction(new PushButton(this, AMPCD, "3026", "198", "AMPCD", "OSB 16", "1", "0", "%1d"));    // elements["pnt_198"]     = short_way_button(_("AMPCD PB 16"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_16, 198)
+            AddFunction(new PushButton(this, AMPCD, "3027", "199", "AMPCD", "OSB 17", "1", "0", "%1d"));    // elements["pnt_199"]     = short_way_button(_("AMPCD PB 17"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_17, 199)
+            AddFunction(new PushButton(this, AMPCD, "3028", "200", "AMPCD", "OSB 18", "1", "0", "%1d"));    // elements["pnt_200"]     = short_way_button(_("AMPCD PB 18"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_18, 200)
+            AddFunction(new PushButton(this, AMPCD, "3029", "201", "AMPCD", "OSB 19", "1", "0", "%1d"));    // elements["pnt_201"]     = short_way_button(_("AMPCD PB 19"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_19, 201)
+            AddFunction(new PushButton(this, AMPCD, "3030", "202", "AMPCD", "OSB 20", "1", "0", "%1d"));    // elements["pnt_202"]     = short_way_button(_("AMPCD PB 20"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_20, 202)
+            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3005", "312", "1.0", "Up", "0.0", "NORM", "-1.0", "Down", "AMPCD", "Heading Set Switch", "%0.1f"));    // elements["pnt_312"]     = springloaded_3_pos_tumb2(_("Heading Set Switch"),                                 devices.MDI_LEFT, MDI_commands.MDI_Left_HDG_Negative, MDI_commands.MDI_Left_HDG_Positive, 312)
+            AddFunction(Switch.CreateThreeWaySwitch(this, MDI_LEFT, "3007", "313", "1.0", "Up", "0.0", "NORM", "-1.0", "Down", "AMPCD", "Course Set Switch", "%0.1f"));    // elements["pnt_313"]     = springloaded_3_pos_tumb(_("Course Set Switch"),                                   devices.MDI_LEFT, MDI_commands.MDI_Left_CRS_Negative, MDI_commands.MDI_Left_CRS_Positive, 313)
 
             #endregion
-            #region Control System
-            AddFunction(new Axis(this, CONTROL_INTERFACE, "3345", "3345", 0.1d, 0d, 1d, "Controls", "RUD TRIM Control"));
-            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3346", "3346", "Controls", "T/O TRIM Button"));
-            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3349", "3349", "Controls", "FCS RESET Button"));
-            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3347", "3347", "1", "NORM", "0", "ORIDE", "Controls", "GAIN Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, CONTROL_INTERFACE, "3234", "3234", "1", "AUTO", "0", "HALF", "-1", "FULL", "Controls", "FLAP Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3138", "3138", "1", "RCVY", "0", "NORM", "Controls", "Spin Recovery Switch", "%0.1f"));
-            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3470", "3470", "Controls", "FCS BIT Switch"));
-            AddFunction(new Axis(this, CONTROL_INTERFACE, "3504", "3504", 0.1d, 0d, 1d, "Controls", "Throttles Friction Adjusting Lever"));
+            #region  Instruments
             #endregion
-            #region Electric system
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3404", "3404", "1", "ON", "0", "OFF", "-1", "ORIDE", "Electrical", "Battery Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3402", "3402", "1", "NORM", "0", "OFF", "Electrical", "Left Generator Control Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3403", "3403", "1", "NORM", "0", "OFF", "Electrical", "Right Generator Control Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3378", "3378", "1", "NORM", "0", "RESET", "Electrical", "Generator TIE Control Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3336", "3336", "1", "RESET", "0", "NORM", "-1", "OFF", "Electrical", "External Power Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3332", "3332", "1", "A ON", "0", "AUTO", "-1", "B ON", "Electrical", "Ground Power Switch 1", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3333", "3333", "1", "A ON", "0", "AUTO", "-1", "B ON", "Electrical", "Ground Power Switch 2", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3334", "3334", "1", "A ON", "0", "AUTO", "-1", "B ON", "Electrical", "Ground Power Switch 3", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3335", "3335", "1", "A ON", "0", "AUTO", "-1", "B ON", "Electrical", "Ground Power Switch 4", "%0.1f"));
+            #region  Integrated Fuel/Engine Indicator (IFEI)
+            AddFunction(new PushButton(this, IFEI, "3001", "168", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Mode Button", "1", "0", "%1d"));    // elements["pnt_168"] = short_way_button(_("IFEI Mode Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_MODE,          168)
+            AddFunction(new PushButton(this, IFEI, "3002", "169", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI QTY Button", "1", "0", "%1d"));    // elements["pnt_169"] = short_way_button(_("IFEI QTY Button"),            devices.IFEI, IFEI_commands.IFEI_BTN_QTY,           169)
+            AddFunction(new PushButton(this, IFEI, "3003", "170", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Up Arrow Button", "1", "0", "%1d"));    // elements["pnt_170"] = short_way_button(_("IFEI Up Arrow Button"),       devices.IFEI, IFEI_commands.IFEI_BTN_UP_ARROW,      170)
+            AddFunction(new PushButton(this, IFEI, "3004", "171", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Down Arrow Button", "1", "0", "%1d"));    // elements["pnt_171"] = short_way_button(_("IFEI Down Arrow Button"),     devices.IFEI, IFEI_commands.IFEI_BTN_DOWN_ARROW,    171)
+            AddFunction(new PushButton(this, IFEI, "3005", "172", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI ZONE Button", "1", "0", "%1d"));    // elements["pnt_172"] = short_way_button(_("IFEI ZONE Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_ZONE,          172)
+            AddFunction(new PushButton(this, IFEI, "3006", "173", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI ET Button", "1", "0", "%1d"));    // elements["pnt_173"] = short_way_button(_("IFEI ET Button"),             devices.IFEI, IFEI_commands.IFEI_BTN_ET,            173)
+            AddFunction(new Axis(this, IFEI, "3007", "174", 0.1d, 0.5d, 1d, "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Brightness Control Knob"));    // elements["pnt_174"] = default_axis(_("IFEI Brightness Control Knob"),   devices.IFEI, IFEI_commands.IFEI_Brightness,        174, 0.5, 0.1)
             #endregion
-            #region Anti-Ice
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3409", "3409", "1", "ON", "0", "AUTO", "Electrical", "Pitot Heater Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ENGINES_INTERFACE, "3410", "3410", "1", "ON", "0", "OFF", "-1", "TEST", "Engine", "Engine Anti-Ice Switch", "%0.1f"));
+            #region  Sensor panel
+            //AddFunction(new Switch(this, , "440", new SwitchPosition[]{new SwitchPosition("1.0","OFF", ""), new SwitchPosition("0.7","STBY", ""), new SwitchPosition("0.3","OPR", ""), new SwitchPosition("0.0","EMERG(PULL)", "")}, "Sensor panel","RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),
             #endregion
-            #region CB
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3381", "3381", "1", "ON", "0", "OFF", "Electrical", "CB FCS CHAN 1", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3382", "3382", "1", "ON", "0", "OFF", "Electrical", "CB FCS CHAN 2", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3383", "3383", "1", "ON", "0", "OFF", "Electrical", "CB SPD BRK", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3384", "3384", "1", "ON", "0", "OFF", "Electrical", "CB LAUNCH BAR", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3454", "3454", "1", "ON", "0", "OFF", "Electrical", "CB FCS CHAN 3", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3455", "3455", "1", "ON", "0", "OFF", "Electrical", "CB FCS CHAN 4", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3456", "3456", "1", "ON", "0", "OFF", "Electrical", "CB HOOK", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, "3457", "3457", "1", "ON", "0", "OFF", "Electrical", "CB LG", "%0.1f"));
+            #region  OLD
             #endregion
-            #region 
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, "3368", "3368", "1", "1 OFF", "0", "NORM", "-1", "2 OFF", "Electrical", "MC Switch", "%0.1f"));
+            #region  NEW - still buggy
             #endregion
-            #region Power Plant
-            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3375", "3375", "Engine", "APU Control Switch"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ENGINES_INTERFACE, "3377", "3377", "1", "LEFT", "0", "OFF", "-1", "RIGHT", "Engine", "Engine Crank Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, ENGINES_INTERFACE, "3331", "3331", "1", "(RMB) TEST A", "0", "(LMB) TEST B", "Engine", "Fire and Bleed Air Test Switch", "%0.1f"));
+            #region  UFC
+            AddFunction(new PushButton(this, UFC, "3001", "128", "UFC", "UFC Function Selector Pushbutton A/P", "1", "0", "%1d"));    // elements["pnt_128"]     = short_way_button(_("UFC Function Selector Pushbutton, A|P"),          devices.UFC, UFC_commands.FuncSwAP,     128)
+            AddFunction(new PushButton(this, UFC, "3002", "129", "UFC", "UFC Function Selector Pushbutton IFF", "1", "0", "%1d"));    // elements["pnt_129"]     = short_way_button(_("UFC Function Selector Pushbutton, IFF"),          devices.UFC, UFC_commands.FuncSwIFF,    129)
+            AddFunction(new PushButton(this, UFC, "3003", "130", "UFC", "UFC Function Selector Pushbutton TCN", "1", "0", "%1d"));    // elements["pnt_130"]     = short_way_button(_("UFC Function Selector Pushbutton, TCN"),          devices.UFC, UFC_commands.FuncSwTCN,    130)
+            AddFunction(new PushButton(this, UFC, "3004", "131", "UFC", "UFC Function Selector Pushbutton ILS", "1", "0", "%1d"));    // elements["pnt_131"]     = short_way_button(_("UFC Function Selector Pushbutton, ILS"),          devices.UFC, UFC_commands.FuncSwILS,    131)
+            AddFunction(new PushButton(this, UFC, "3005", "132", "UFC", "UFC Function Selector Pushbutton D/L", "1", "0", "%1d"));    // elements["pnt_132"]     = short_way_button(_("UFC Function Selector Pushbutton, D|L"),          devices.UFC, UFC_commands.FuncSwDL,     132)
+            AddFunction(new PushButton(this, UFC, "3006", "133", "UFC", "UFC Function Selector Pushbutton BCN", "1", "0", "%1d"));    // elements["pnt_133"]     = short_way_button(_("UFC Function Selector Pushbutton, BCN"),          devices.UFC, UFC_commands.FuncSwBCN,    133)
+            AddFunction(new PushButton(this, UFC, "3007", "134", "UFC", "UFC Function Selector Pushbutton ON/OFF", "1", "0", "%1d"));    // elements["pnt_134"]     = short_way_button(_("UFC Function Selector Pushbutton, ON|OFF"),       devices.UFC, UFC_commands.FuncSwOnOff,  134)
+            AddFunction(new PushButton(this, UFC, "3010", "100", "UFC", "UFC Option Select Pushbutton 1", "1", "0", "%1d"));    // elements["pnt_100"]     = short_way_button(_("UFC Option Select Pushbutton 1"),                 devices.UFC, UFC_commands.OptSw1,       100)
+            AddFunction(new PushButton(this, UFC, "3011", "101", "UFC", "UFC Option Select Pushbutton 2", "1", "0", "%1d"));    // elements["pnt_101"]     = short_way_button(_("UFC Option Select Pushbutton 2"),                 devices.UFC, UFC_commands.OptSw2,       101)
+            AddFunction(new PushButton(this, UFC, "3012", "102", "UFC", "UFC Option Select Pushbutton 3", "1", "0", "%1d"));    // elements["pnt_102"]     = short_way_button(_("UFC Option Select Pushbutton 3"),                 devices.UFC, UFC_commands.OptSw3,       102)
+            AddFunction(new PushButton(this, UFC, "3013", "103", "UFC", "UFC Option Select Pushbutton 4", "1", "0", "%1d"));    // elements["pnt_103"]     = short_way_button(_("UFC Option Select Pushbutton 4"),                 devices.UFC, UFC_commands.OptSw4,       103)
+            AddFunction(new PushButton(this, UFC, "3014", "106", "UFC", "UFC Option Select Pushbutton 5", "1", "0", "%1d"));    // elements["pnt_106"]     = short_way_button(_("UFC Option Select Pushbutton 5"),                 devices.UFC, UFC_commands.OptSw5,       106)
+            AddFunction(new PushButton(this, UFC, "3019", "111", "UFC", "UFC Keyboard Pushbutton 1", "1", "0", "%1d"));    // elements["pnt_111"]     = short_way_button(_("UFC Keyboard Pushbutton, 1"),                     devices.UFC, UFC_commands.KbdSw1,       111)
+            AddFunction(new PushButton(this, UFC, "3020", "112", "UFC", "UFC Keyboard Pushbutton 2", "1", "0", "%1d"));    // elements["pnt_112"]     = short_way_button(_("UFC Keyboard Pushbutton, 2"),                     devices.UFC, UFC_commands.KbdSw2,       112)
+            AddFunction(new PushButton(this, UFC, "3021", "113", "UFC", "UFC Keyboard Pushbutton 3", "1", "0", "%1d"));    // elements["pnt_113"]     = short_way_button(_("UFC Keyboard Pushbutton, 3"),                     devices.UFC, UFC_commands.KbdSw3,       113)
+            AddFunction(new PushButton(this, UFC, "3022", "114", "UFC", "UFC Keyboard Pushbutton 4", "1", "0", "%1d"));    // elements["pnt_114"]     = short_way_button(_("UFC Keyboard Pushbutton, 4"),                     devices.UFC, UFC_commands.KbdSw4,       114)
+            AddFunction(new PushButton(this, UFC, "3023", "115", "UFC", "UFC Keyboard Pushbutton 5", "1", "0", "%1d"));    // elements["pnt_115"]     = short_way_button(_("UFC Keyboard Pushbutton, 5"),                     devices.UFC, UFC_commands.KbdSw5,       115)
+            AddFunction(new PushButton(this, UFC, "3024", "116", "UFC", "UFC Keyboard Pushbutton 6", "1", "0", "%1d"));    // elements["pnt_116"]     = short_way_button(_("UFC Keyboard Pushbutton, 6"),                     devices.UFC, UFC_commands.KbdSw6,       116)
+            AddFunction(new PushButton(this, UFC, "3025", "117", "UFC", "UFC Keyboard Pushbutton 7", "1", "0", "%1d"));    // elements["pnt_117"]     = short_way_button(_("UFC Keyboard Pushbutton, 7"),                     devices.UFC, UFC_commands.KbdSw7,       117)
+            AddFunction(new PushButton(this, UFC, "3026", "118", "UFC", "UFC Keyboard Pushbutton 8", "1", "0", "%1d"));    // elements["pnt_118"]     = short_way_button(_("UFC Keyboard Pushbutton, 8"),                     devices.UFC, UFC_commands.KbdSw8,       118)
+            AddFunction(new PushButton(this, UFC, "3027", "119", "UFC", "UFC Keyboard Pushbutton 9", "1", "0", "%1d"));    // elements["pnt_119"]     = short_way_button(_("UFC Keyboard Pushbutton, 9"),                     devices.UFC, UFC_commands.KbdSw9,       119)
+            AddFunction(new PushButton(this, UFC, "3018", "120", "UFC", "UFC Keyboard Pushbutton 0", "1", "0", "%1d"));    // elements["pnt_120"]     = short_way_button(_("UFC Keyboard Pushbutton, 0"),                     devices.UFC, UFC_commands.KbdSw0,       120)
+            AddFunction(new PushButton(this, UFC, "3028", "121", "UFC", "UFC Keyboard Pushbutton CLR", "1", "0", "%1d"));    // elements["pnt_47_121"]  = short_way_button(_("UFC Keyboard Pushbutton, CLR"),                   devices.UFC, UFC_commands.KbdSwCLR,     121)
+            AddFunction(new PushButton(this, UFC, "3029", "122", "UFC", "UFC Keyboard Pushbutton ENT", "1", "0", "%1d"));    // elements["pnt_47_122"]  = short_way_button(_("UFC Keyboard Pushbutton, ENT"),                   devices.UFC, UFC_commands.KbdSwENT,     122)
+            AddFunction(new PushButton(this, UFC, "3015", "99", "UFC", "UFC I/P Pushbutton", "1", "0", "%1d"));    // elements["pnt_99"]      = short_way_button(_("UFC I/P Pushbutton"),                             devices.UFC, UFC_commands.SwIP,         99)
+            AddFunction(new PushButton(this, UFC, "3017", "110", "UFC", "UFC Emission Control Pushbutton", "1", "0", "%1d"));    // elements["pnt_110"]     = short_way_button(_("UFC Emission Control Pushbutton"),                devices.UFC, UFC_commands.SwEMCON,      110)
+            AddFunction(new Switch(this, UFC, "107", new SwitchPosition[] { new SwitchPosition("1.0", "1", "3016"), new SwitchPosition("0.5", "OFF", "3016"), new SwitchPosition("0.0", "2", "3016") }, "UFC", "UFC ADF Function Select Switch", "%0.1f"));    // elements["pnt_107"]     = default_3_position_tumb(_("UFC ADF Function Select Switch, 1/OFF/2"), devices.UFC, UFC_commands.SwADF,        107,    false, anim_speed_default, false)
+            AddFunction(new Axis(this, UFC, "3030", "108", 0.1d, 0d, 1d, "UFC", "UFC COMM 1 Volume Control Knob"));    // elements["pnt_108"]     = default_axis_limited(_("UFC COMM 1 Volume Control Knob"),             devices.UFC, UFC_commands.Comm1Vol,     108,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, UFC, "3031", "123", 0.1d, 0d, 1d, "UFC", "UFC COMM 2 Volume Control Knob"));    // elements["pnt_123"]     = default_axis_limited(_("UFC COMM 2 Volume Control Knob"),             devices.UFC, UFC_commands.Comm2Vol,     123,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, UFC, "3032", "109", 0.1d, 0d, 1d, "UFC", "UFC Brightness Control Knob"));    // elements["pnt_109"]     = default_axis_limited(_("UFC Brightness Control Knob"),                devices.UFC, UFC_commands.BrtDim,       109,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, UFC, "3008", "124", 0.2d, 0d, 1d, "UFC", "UFC COMM 1 Channel Selector Knob"));    // elements["pnt_124"]     = default_button_axis_extended(_("UFC COMM 1 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm1Fcn, UFC_commands.Comm1Ch,   125, 124,   0.2, true, anim_speed_default)
+            AddFunction(new Axis(this, UFC, "3009", "126", 0.2d, 0d, 1d, "UFC", "UFC COMM 2 Channel Selector Knob"));    // elements["pnt_126"]     = default_button_axis_extended(_("UFC COMM 2 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm2Fcn, UFC_commands.Comm2Ch,   127, 126,   0.2, true, anim_speed_default)
             #endregion
-            #region Hydraulic system
-            AddFunction(Switch.CreateToggleSwitch(this, HYDRAULIC_INTERFACE, "3369", "3369", "1", "NORM", "0", "ORIDE", "Hydraulics", "Hydraulic Isolate Override Switch", "%0.1f"));
+            #region  Intercom
+            AddFunction(new Axis(this, INTERCOM, "3002", "357", 0.1d, 0d, 1d, "Intercom", "VOX Volume Control Knob"));    // elements["pnt_357"]     = default_axis_limited(_("VOX Volume Control Knob"),                            devices.INTERCOM, Intercom_commands.VOX_Volume,     357,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, INTERCOM, "3003", "358", 0.1d, 0d, 1d, "Intercom", "ICS Volume Control Knob"));    // elements["pnt_358"]     = default_axis_limited(_("ICS Volume Control Knob"),                            devices.INTERCOM, Intercom_commands.ICS_Volume,     358,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, INTERCOM, "3004", "359", 0.1d, 0d, 1d, "Intercom", "RWR Volume Control Knob"));    // elements["pnt_359"]     = default_axis_limited(_("RWR Volume Control Knob"),                            devices.INTERCOM, Intercom_commands.RWR_Volume,     359,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, INTERCOM, "3005", "360", 0.1d, 0d, 1d, "Intercom", "WPN Volume Control Knob"));    // elements["pnt_360"]     = default_axis_limited(_("WPN Volume Control Knob"),                            devices.INTERCOM, Intercom_commands.WPN_Volume,     360,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, INTERCOM, "3007", "361", 0.1d, 0d, 1d, "Intercom", "MIDS B Volume Control Knob"));    // elements["pnt_361"]     = default_axis_limited(_("MIDS B Volume Control Knob"),                         devices.INTERCOM, Intercom_commands.MIDS_B_Volume,  361,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, INTERCOM, "3006", "362", 0.1d, 0d, 1d, "Intercom", "MIDS A Volume Control Knob"));    // elements["pnt_362"]     = default_axis_limited(_("MIDS A Volume Control Knob"),                         devices.INTERCOM, Intercom_commands.MIDS_A_Volume,  362,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, INTERCOM, "3008", "363", 0.1d, 0d, 1d, "Intercom", "TACAN Volume Control Knob"));    // elements["pnt_363"]     = default_axis_limited(_("TACAN Volume Control Knob"),                          devices.INTERCOM, Intercom_commands.TCN_Volume,     363,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, INTERCOM, "3009", "364", 0.1d, 0d, 1d, "Intercom", "AUX Volume Control Knob"));    // elements["pnt_364"]     = default_axis_limited(_("AUX Volume Control Knob"),                            devices.INTERCOM, Intercom_commands.AUX_Volume,     364,    0.0, 0.1, false, false, {0,1})
+            AddFunction(new Switch(this, INTERCOM, "350", new SwitchPosition[] { new SwitchPosition("1.0", "CIPHER", "3010"), new SwitchPosition("0.5", "OFF", "3010"), new SwitchPosition("0.0", "PLAIN", "3010") }, "Intercom", "Comm Relay Switch", "%0.1f"));    // elements["pnt_350"]     = default_3_position_tumb(_("Comm Relay Switch, CIPHER/OFF/PLAIN"),             devices.INTERCOM, Intercom_commands.COMM_RLY_Sw,    350,    false, anim_speed_default, false)
+            AddFunction(new Switch(this, INTERCOM, "351", new SwitchPosition[] { new SwitchPosition("1.0", "COMM 1", "3011"), new SwitchPosition("0.5", "OFF", "3011"), new SwitchPosition("0.0", "COMM 2", "3011") }, "Intercom", "COMM G XMT Switch", "%0.1f"));    // elements["pnt_351"]     = default_3_position_tumb(_("COMM G XMT Switch, COMM 1/OFF/COMM 2"),            devices.INTERCOM, Intercom_commands.G_XMT_Sw,       351,    false, anim_speed_default, false)
+            AddFunction(Switch.CreateToggleSwitch(this, INTERCOM, "3012", "356", "1.0", "EMER", "0.0", "NORM", "Intercom", "IFF Master Switch", "%0.1f"));    // elements["pnt_356"]     = default_2_position_tumb(_("IFF Master Switch, EMER/NORM"),                    devices.INTERCOM, Intercom_commands.IFF_MasterSw,   356)
+            AddFunction(new Switch(this, INTERCOM, "355", new SwitchPosition[] { new SwitchPosition("1.0", "DIS", "3013"), new SwitchPosition("0.7", "AUD", "3013"), new SwitchPosition("0.3", "DIS", "3013"), new SwitchPosition("0.0", "OFF", "3013") }, "Intercom", "IFF Mode 4 Switch", "%0.1f"));    // elements["pnt_355"]     = default_3_position_tumb(_("IFF Mode 4 Switch, DIS/AUD /DIS/OFF"),             devices.INTERCOM, Intercom_commands.IFF_Mode4Sw,    355,    false, anim_speed_default, false)
+            AddFunction(Switch.CreateThreeWaySwitch(this, INTERCOM, "3014", "354", "1.0", "HOLD", "0.5", "NORM", "0.0", "ZERO", "Intercom", "CRYPTO Switch", "%0.1f"));    // elements["pnt_354"]     = springloaded_3_pos_tumb2(_("CRYPTO Switch, HOLD/NORM/ZERO"),                  devices.INTERCOM, Intercom_commands.IFF_CryptoSw_Zero, Intercom_commands.IFF_CryptoSw_Hold, 354,    anim_speed_default)
+            AddFunction(Switch.CreateToggleSwitch(this, INTERCOM, "3016", "353", "1.0", "UFC", "0.0", "MAN", "Intercom", "ILS UFC/MAN Switch", "%0.1f"));    // elements["pnt_353"]     = default_2_position_tumb(_("ILS UFC/MAN Switch, UFC/MAN"),                     devices.INTERCOM, Intercom_commands.ILS_UFC_MAN_Sw, 353)
+            AddFunction(new Switch(this, INTERCOM, "352", new SwitchPosition[] { }, "Intercom", "ILS Channel Selector Switch", "%0.1f"));    // elements["pnt_352"]     = multiposition_switch(_("ILS Channel Selector Switch"),                        devices.INTERCOM, Intercom_commands.ILS_ChannelSelector,    352, 20, 0.05, false, 0.0, anim_speed_default * 0.05, false)
+            AddFunction(new Switch(this, KY58, "444", new SwitchPosition[] { new SwitchPosition("1.0", "P", "3001"), new SwitchPosition("0.7", "C", "3001"), new SwitchPosition("0.3", "LD", "3001"), new SwitchPosition("0.0", "RV", "3001") }, "Intercom", "KY-58 Mode Select Knob", "%0.1f"));    // elements["pnt_444"]     = multiposition_switch(_("KY-58 Mode Select Knob, P/C/LD/RV"),                  devices.KY58, ky58_commands.KY58_ModeSw,            444, 4, 0.1, false, 0.0, anim_speed_default * 0.1, false)
+            AddFunction(new Axis(this, KY58, "3005", "445", 0.15d, 0d, 1d, "Intercom", "KY-58 Volume Control Knob"));    // elements["pnt_445"]     = default_axis_limited(_("KY-58 Volume Control Knob"),                          devices.KY58, ky58_commands.KY58_Volume,            445, 0.0, 0.1, false, false, {0,1})
+            AddFunction(new Switch(this, KY58, "446", new SwitchPosition[] { new SwitchPosition("1.0", "Z 1-5", "3002"), new SwitchPosition("0.9", "1", "3002"), new SwitchPosition("0.7", "2", "3002"), new SwitchPosition("0.6", "3", "3002"), new SwitchPosition("0.4", "4", "3002"), new SwitchPosition("0.3", "5", "3002"), new SwitchPosition("0.1", "6", "3002"), new SwitchPosition("0.0", "Z ALL", "3002") }, "Intercom", "KY-58 Fill Select Knob", "%0.1f"));    // elements["pnt_446"]     = multiposition_switch(_("KY-58 Fill Select Knob, Z 1-5/1/2/3/4/5/6/Z ALL"),    devices.KY58, ky58_commands.KY58_FillSw,            446, 8, 0.1, false, 0.0, anim_speed_default * 0.1, false)
+            AddFunction(new Switch(this, KY58, "447", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3004"), new SwitchPosition("0.5", "ON", "3004"), new SwitchPosition("0.0", "TD", "3004") }, "Intercom", "KY-58 Power Select Knob", "%0.1f"));    // elements["pnt_447"]     = multiposition_switch(_("KY-58 Power Select Knob, OFF/ON/TD"),                 devices.KY58, ky58_commands.KY58_PowerSw,           447, 3, 0.1, false, 0.0, anim_speed_default * 0.1, false)
+            AddFunction(new PushButton(this, INTERCOM, "3018", "230", "Intercom", "Warning Tone Silence Button - Push to silence", "1", "0", "%1d"));    // elements["pnt_230"]     = default_button(_("Warning Tone Silence Button - Push to silence"),            devices.INTERCOM, Intercom_commands.WarnToneSilBtn, 230)
             #endregion
-            #region Gear system
-            AddFunction(Switch.CreateThreeWaySwitch(this, GEAR_INTERFACE, "3226", "3226", "1", "UP", "0", "DOWN", "-1", "(MW)EMERGENCY DOWN", "Gear", "Landing Gear Control Handle", "%0.1f"));
-            AddFunction(new PushButton(this, GEAR_INTERFACE, "3229", "3229", "Gear", "Down Lock Override Button - Push to unlock"));
-            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3238", "3238", "1", "ON", "0", "OFF", "Gear", "Anti Skid Switch", "%0.1f"));
-            AddFunction(new PushButton(this, GEAR_INTERFACE, "3233", "3233", "Gear", "Launch Bar Control Switch"));
-            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3293", "3293", "1", "UP", "0", "DOWN", "Gear", "Arresting Hook Handle", "%0.1f"));
+            #region  antenna selector
+            AddFunction(new Switch(this, ANTENNA_SELECTOR, "373", new SwitchPosition[] { new SwitchPosition("1.0", "UPPER", "3001"), new SwitchPosition("0.5", "AUTO", "3001"), new SwitchPosition("0.0", "LOWER", "3001") }, "antenna selector", "COMM 1 Antenna Selector Switch", "%0.1f"));    // elements["pnt_373"]     = default_3_position_tumb(_("COMM 1 Antenna Selector Switch, UPPER/AUTO/LOWER"),    devices.ANTENNA_SELECTOR, antsel_commands.Comm1AntSelSw,    373,    false, anim_speed_default, false)
+            AddFunction(new Switch(this, ANTENNA_SELECTOR, "374", new SwitchPosition[] { new SwitchPosition("1.0", "UPPER", "3002"), new SwitchPosition("0.5", "BOTH", "3002"), new SwitchPosition("0.0", "LOWER", "3002") }, "antenna selector", "IFF Antenna Selector Switch", "%0.1f"));    // elements["pnt_374"]     = default_3_position_tumb(_("IFF Antenna Selector Switch, UPPER/BOTH/LOWER"),       devices.ANTENNA_SELECTOR, antsel_commands.AntSelIFFSw,      374,    false, anim_speed_default, false)
             #endregion
-            #region Fuel system
-            AddFunction(Switch.CreateToggleSwitch(this, FUEL_INTERFACE, "3340", "3340", "1", "INHIBIT", "0", "NORM", "Fuel System", "Internal Wing Tank Fuel Control Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FUEL_INTERFACE, "3341", "3341", "1", "EXTEND", "0", "RETRACT", "-1", "EMERG EXTD", "Fuel System", "Probe Control Switch", "%0.1f"));
-            AddFunction(new PushButton(this, FUEL_INTERFACE, "3344", "3344", "Fuel System", "Fuel Dump Switch"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FUEL_INTERFACE, "3343", "3343", "1", "STOP", "0", "NORM", "-1", "ORIDE", "Fuel System", "External Centerline Tank Fuel Control Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, FUEL_INTERFACE, "3342", "3342", "1", "STOP", "0", "NORM", "-1", "ORIDE", "Fuel System", "External Wing Tanks Fuel Control Switch", "%0.1f"));
+            #region  RWR
+            AddFunction(new PushButton(this, RWR, "3001", "277", "RWR", "ALR-67 POWER Pushbutton", "1", "0", "%1d"));    // elements["pnt_277"]     = short_way_button(_("ALR-67 POWER Pushbutton"),                                devices.RWR, rwr_commands.Power, 277)
+            AddFunction(new PushButton(this, RWR, "3002", "275", "RWR", "ALR-67 DISPLAY Pushbutton", "1", "0", "%1d"));    // elements["pnt_275"]     = short_way_button(_("ALR-67 DISPLAY Pushbutton"),                              devices.RWR, rwr_commands.Display, 275)
+            AddFunction(new PushButton(this, RWR, "3003", "272", "RWR", "ALR-67 SPECIAL Pushbutton", "1", "0", "%1d"));    // elements["pnt_272"]     = short_way_button(_("ALR-67 SPECIAL Pushbutton"),                              devices.RWR, rwr_commands.Special, 272)
+            AddFunction(new PushButton(this, RWR, "3004", "269", "RWR", "ALR-67 OFFSET Pushbutton", "1", "0", "%1d"));    // elements["pnt_269"]     = short_way_button(_("ALR-67 OFFSET Pushbutton"),                               devices.RWR, rwr_commands.Offset, 269)
+            AddFunction(new PushButton(this, RWR, "3005", "266", "RWR", "ALR-67 BIT Pushbutton", "1", "0", "%1d"));    // elements["pnt_266"]     = short_way_button(_("ALR-67 BIT Pushbutton"),                                  devices.RWR, rwr_commands.Bit, 266)
+            AddFunction(new Axis(this, RWR, "3006", "263", 0.15d, 0d, 1d, "RWR", "ALR-67 DMR Control Knob"));    // elements["pnt_263"]     = default_axis_limited(_("ALR-67 DMR Control Knob"),                            devices.RWR, rwr_commands.DmrControl, 263, 0.0, 0.1, false, false, {0,1})
+            AddFunction(new Axis(this, RWR, "3009", "262", 0.15d, 0d, 1d, "RWR", "ALR-67 AUDIO Control Knob (no function)"));    // elements["pnt_262"]     = default_axis_limited(_("ALR-67 AUDIO Control Knob (no function)"),            0, 3130, 262, 0.0, 0.1, false, false, {0,1})
+            AddFunction(new Switch(this, RWR, "261", new SwitchPosition[] { new SwitchPosition("1.0", "N", "3007"), new SwitchPosition("0.8", "I", "3007"), new SwitchPosition("0.5", "A", "3007"), new SwitchPosition("0.3", "U", "3007"), new SwitchPosition("0.0", "F", "3007") }, "RWR", "ALR-67 DIS TYPE Switch", "%0.1f"));    // elements["pnt_261"]     = multiposition_switch(_("ALR-67 DIS TYPE Switch, N/I/A/U/F"),                  devices.RWR, rwr_commands.DisType, 261, 5, 0.1, false, 0.0, anim_speed_default * 0.1, false)
+            AddFunction(new Axis(this, RWR, "3008", "216", 0.15d, 0d, 1d, "RWR", "RWR Intensity Knob"));    // elements["pnt_216"]     = default_axis_limited(_("RWR Intensity Knob"),                                 devices.RWR, rwr_commands.IntControl, 216, 0.0, 0.1, false, false, {0,1})
             #endregion
-            #region Cockpit Mechanics
-            AddFunction(Switch.CreateThreeWaySwitch(this, CPT_MECHANICS, "3453", "3453", "1", "OPEN", "0", "HOLD", "-1", "CLOSE", "Cockpit", "Canopy Control Switch", "%0.1f"));
-            AddFunction(new PushButton(this, CPT_MECHANICS, "3043", "3043", "Cockpit", "Canopy Jettison Handle Unlock Button - Press to unlock"));
-            AddFunction(new PushButton(this, CPT_MECHANICS, "3042", "3042", "Cockpit", "Canopy Jettison Handle - Pull to jettison"));
-            AddFunction(new PushButton(this, CPT_MECHANICS, "3510", "3510", "Cockpit", "Ejection Control Handle (3 times)"));
-            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3511", "3511", "1", "SAFE", "0", "ARMED", "Cockpit", "Ejection Seat SAFE/ARMED Handle", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3512", "3512", "1", "PULL", "0", "PUSH", "Cockpit", "Ejection Seat Manual Override Handle", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3513", "3513", "1", "LOCK", "0", "UNLOCK", "Cockpit", "Shoulder Harness Control Handle", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, CPT_MECHANICS, "3514", "3514", "1", "UP", "0", "HOLD", "-1", "DOWN", "Cockpit", "Seat Height Adjustment Switch", "%0.1f"));
-            AddFunction(new PushButton(this, CPT_MECHANICS, "3260", "3260", "Cockpit", "Rudder Pedal Adjust Lever"));
-            AddFunction(new PushButton(this, CPT_MECHANICS, "3575", "3575", "Cockpit", "Hide Stick toggle"));
+            #region  CMDS
+            AddFunction(new PushButton(this, CMDS, "3002", "380", "CMDS", "Dispense Button - Push to dispense flares and chaff", "1", "0", "%1d"));    // elements["pnt_380"]     = default_button(_("Dispense Button - Push to dispense flares and chaff"),  devices.CMDS, cmds_commands.EcmDisp, 380)
+            AddFunction(new Switch(this, CMDS, "517", new SwitchPosition[] { new SwitchPosition("1.0", "BYPASS", "3001"), new SwitchPosition("0.5", "ON", "3001"), new SwitchPosition("0.0", "OFF", "3001") }, "CMDS", "DISPENSER Switch", "%0.1f"));    // elements["pnt_517"]     = default_3_position_tumb(_("DISPENSER Switch, BYPASS/ON/OFF"),             devices.CMDS, cmds_commands.Dispenser, 517, false, anim_speed_default, false, 0.1, {0.0, 0.2})
+            AddFunction(new PushButton(this, CMDS, "3003", "515", "CMDS", "ECM JETT JETT SEL Button - Push to jettison", "1", "0", "%1d"));    // elements["pnt_515"]     = default_2_position_tumb(_("ECM JETT JETT SEL Button - Push to jettison"), devices.CMDS, cmds_commands.EcmJett, 515)
             #endregion
-            #region Mirrors
-            //            --Mirrors
-            //497 = 2_position_tumb | Toggle Mirrors, 0, 3002, 0)
-            //498 = 2_position_tumb | Toggle Mirrors, 0, 3003, 0)
-            //499 = 2_position_tumb | Toggle Mirrors, 0, 3004, 0)
+            #region  ICMCP
+            //AddFunction(new Switch(this, , "248", new SwitchPosition[]{new SwitchPosition("1.0","XMIT", ""), new SwitchPosition("0.8","REC", ""), new SwitchPosition("0.5","BIT", ""), new SwitchPosition("0.3","STBY", ""), new SwitchPosition("0.0","OFF", "")}, "ICMCP","ECM Mode Switch", "%0.1f"));    // elements["pnt_248"]     = multiposition_switch(_("ECM Mode Switch, XMIT/REC/BIT/STBY/OFF"),     0, 3116, 248, 5, 0.1, false, 0.0, anim_speed_default * 0.1, false)
+            //AddFunction(new PushButton(this,, "", "507","1.0","ENABLE","0.0","DISABLE (no function)", "ICMCP","NUC WPN Switch"));    // elements["pnt_507"]     = default_2_position_tumb(_("NUC WPN Switch, ENABLE/DISABLE (no function)"),        0, 3100, 507)
+            #endregion
+            #region  TODO list
+            //AddFunction(new Switch(this, , "175", new SwitchPosition[]{new SwitchPosition("1.0","HMD", ""), new SwitchPosition("0.5","LDDI", ""), new SwitchPosition("0.0","RDDI", "")}, "TODO list","Selector Switch", "%0.1f"));    // elements["pnt_175"]     = default_3_position_tumb(_("Selector Switch, HMD/LDDI/RDDI"),                  0, 3104, 175)
+            //AddFunction(new Switch(this, , "176", new SwitchPosition[]{new SwitchPosition("1.0","HUD", ""), new SwitchPosition("0.5","LDIR", ""), new SwitchPosition("0.0","RDDI", "")}, "TODO list","Selector Switch", "%0.1f"));    // elements["pnt_176"]     = default_3_position_tumb(_("Selector Switch, HUD/LDIR/RDDI"),                  0, 3105, 176)
+            //AddFunction(new Switch(this, , "314", new SwitchPosition[]{new SwitchPosition("1.0","MAN", ""), new SwitchPosition("0.5","OFF", ""), new SwitchPosition("0.0","AUTO", "")}, "TODO list","Mode Selector Switch", "%0.1f"));    // elements["pnt_314"]     = default_3_position_tumb(_("Mode Selector Switch, MAN/OFF/AUTO"),              0, 3106, 314)
+            //AddFunction(new PushButton(this,, "", "7", "TODO list","HUD Video BIT Initiate Pushbutton - Push to initiate BIT"));    // elements["pnt_07"]      = default_button(_("HUD Video BIT Initiate Pushbutton - Push to initiate BIT"), 0, 3107, 7)
+            //AddFunction(new Axis(this,, "", "136",0.15d,0d,1d, "TODO list","HMD OFF/BRT Knob"));    // elements["pnt_136"]     = default_axis_limited(_("HMD OFF/BRT Knob"),                                   0, 3108, 136, 0.0, 0.1, false, false, {0,1})
+            //AddFunction(new Switch(this, , "439", new SwitchPosition[]{new SwitchPosition("1.0","ON", ""), new SwitchPosition("0.5","STBY", ""), new SwitchPosition("0.0","OFF", "")}, "TODO list","FLIR Switch", "%0.1f"));    // elements["pnt_439"]     = default_3_position_tumb(_("FLIR Switch, ON/STBY/OFF"),                        0, 3110, 439, false, anim_speed_default * 0.5, false, 0.5, {0,1})
+            //AddFunction(new Switch(this, , "441", new SwitchPosition[]{new SwitchPosition("1.0","ARM", ""), new SwitchPosition("0.5","SAFE", ""), new SwitchPosition("0.0","AFT", "")}, "TODO list","LTD/R Switch", "%0.1f"));    // elements["pnt_441"]     = default_3_position_tumb(_("LTD/R Switch, ARM/SAFE/AFT"),                      0, 3111, 441, false, anim_speed_default * 0.5, false, 0.5, {0,1})
+            //AddFunction(new PushButton(this,, "", "442","1.0","ON","0.0","OFF", "TODO list","LST/NFLR Switch"));    // elements["pnt_442"]     = default_2_position_tumb(_("LST/NFLR Switch, ON/OFF"),                         0, 3112, 442)
+            //AddFunction(new PushButton(this,, "", "315", "TODO list","Left Video Sensor BIT Initiate Pushbutton - Push to initiate BIT"));    // elements["pnt_315"]     = default_button(_("Left Video Sensor BIT Initiate Pushbutton - Push to initiate BIT"),     0, 3127, 315)
+            //AddFunction(new PushButton(this,, "", "318", "TODO list","Right Video Sensor BIT Initiate Pushbutton - Push to initiate BIT"));    // elements["pnt_318"]     = default_button(_("Right Video Sensor BIT Initiate Pushbutton - Push to initiate BIT"),    0, 3128, 318)
+            #endregion
 
-            //AddFunction(Switch.CreateToggleSwitch(this, 3002, "3497", "3497", "3002", "Toggle Mirrors", "%0.1f"));
-            //AddFunction(Switch.CreateToggleSwitch(this, 3003, "3498", "3498", "3003", "Toggle Mirrors", "%0.1f"));
-            //AddFunction(Switch.CreateToggleSwitch(this, 3004, "3499", "3499", "3004", "Toggle Mirrors", "%0.1f"));
+            #region  Instruments
+            #region  Standby Pressure Altimeter AAU-52/A
+            AddFunction(new Axis(this, AAU52, "3001", "224", 0.15d, 0d, 1d, "Standby Pressure Altimeter AAU-52/A", "AAU-52 Altimeter Pressure Setting Knob"));    // elements["pnt_224"]     = default_axis(_("AAU-52 Altimeter Pressure Setting Knob"), devices.AAU52, aau52_commands.AAU52_ClkCmd_ZeroSetting, 224, 0.04, 0.1, false, true)
             #endregion
-            #region Exterior Lights
-            AddFunction(new Axis(this, EXT_LIGHTS, "3338", "3338", 0.15d, 0d, 1d, "External Lights", "POSITION Lights Dimmer Control"));
-            AddFunction(new Axis(this, EXT_LIGHTS, "3337", "3337", 0.15d, 0d, 1d, "External Lights", "FORMATION Lights Dimmer Control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, EXT_LIGHTS, "3339", "3339", "1", "BRT", "0", "OFF", "-1", "DIM", "External Lights", "STROBE Lights Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, EXT_LIGHTS, "3237", "3237", "1", "ON", "0", "OFF", "External Lights", "LDG/TAXI LIGHT Switch", "%0.1f"));
+            #region  Radar Altimeter Height Indicator
+            AddFunction(new Axis(this, ID2163A, "3001", "291", 0.15d, 0d, 1d, "Radar Altimeter Height Indicator", "Push to Test Switch"));    // elements["pnt_291"]     = default_button_axis_extended(_("Push to Test Switch, (LMB) activate BIT checks/(MW) rotate clockwise to apply power and set low altitude index pointer"), devices.ID2163A, id2163a_commands.ID2163A_PushToTest, id2163a_commands.ID2163A_SetMinAlt, 292, 291, 0.1, true)
             #endregion
-            #region Cockpit Lights
-            AddFunction(new Axis(this, CPT_LIGTHS, "3413", "3413", 0.15d, 0d, 1d, "Cockpit Lights", "CONSOLES Lights Dimmer Control"));
-            AddFunction(new Axis(this, CPT_LIGTHS, "3414", "3414", 0.15d, 0d, 1d, "Cockpit Lights", "INST PNL Dimmer Control"));
-            AddFunction(new Axis(this, CPT_LIGTHS, "3415", "3415", 0.15d, 0d, 1d, "Cockpit Lights", "FLOOD Light Dimmer Control"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, CPT_LIGTHS, "3419", "3419", "1", "NVG", "0", "NITE", "-1", "DAY", "Cockpit Lights", "MODE Switch", "%0.1f"));
-            AddFunction(new Axis(this, CPT_LIGTHS, "3418", "3418", 0.15d, 0d, 1d, "Cockpit Lights", "CHART Light Dimmer Control"));
-            AddFunction(new Axis(this, CPT_LIGTHS, "3417", "3417", 0.15d, 0d, 1d, "Cockpit Lights", "WARN/CAUTION Dimmer Control"));
-            AddFunction(Switch.CreateToggleSwitch(this, CPT_LIGTHS, "3416", "3416", "1", "TEST", "0", "OFF", "Cockpit Lights", "Lights Test Switch", "%0.1f"));
-            AddFunction(new PushButton(this, CPT_LIGTHS, "3014", "3014", "Cockpit Lights", "MASTER CAUTION Reset Button - Press to reset"));
-            AddFunction(Switch.CreateToggleSwitch(this, CPT_LIGTHS, "3239", "3239", "1", "FIELD", "0", "CARRIER", "Cockpit Lights", "HOOK BYPASS Switch", "%0.1f"));
+            #region  Standby Attitude Indicator
+            AddFunction(new PushButton(this, SAI, "3001", "215", "Standby Attitude Indicator", "SAI Test Button - Push to test", "1", "0", "%1d"));    // elements["pnt_215"] = default_button(_("SAI Test Button - Push to test"),   devices.SAI, sai_commands.SAI_test, 215)
             #endregion
-            #region Oxygen System
-            AddFunction(Switch.CreateToggleSwitch(this, OXYGEN_INTERFACE, "3365", "3365", "1", "ON", "0", "OFF", "Oxygen System", "OBOGS Control Switch", "%0.1f"));
-            AddFunction(new Axis(this, OXYGEN_INTERFACE, "3366", "3366", 0.5d, 0d, 1d, "Oxygen System", "OXY Flow Knob"));
             #endregion
-            #region ECS
-            AddFunction(new Switch(this, ECS_INTERFACE, "3411", new SwitchPosition[] { new SwitchPosition("1.0", "R OFF", "3411"), new SwitchPosition("0.0", "Norm", "3411"), new SwitchPosition("-1.0", "L Off", "3411"), new SwitchPosition("-2.0", "Off", "3411") }, "ECS", "Bleed Air Knob", "%0.1f"));
-            AddFunction(new PushButton(this, ECS_INTERFACE, "3412", "3412", "ECS", "Bleed Air Knob (Pull)"));
-            AddFunction(new Switch(this, ECS_INTERFACE, "3405", new SwitchPosition[] { new SwitchPosition("1.0", "Auto", "3405"), new SwitchPosition("0.0", "Man", "3405"), new SwitchPosition("-1.0", "Off", "3405"), new SwitchPosition("-2.0", "Ram", "3405") }, "ECS", "ECS Mode Switch", "%0.1f"));
-            AddFunction(new Switch(this, ECS_INTERFACE, "3408", new SwitchPosition[] { new SwitchPosition("1.0", "Norm", "3408"), new SwitchPosition("0.0", "Dump", "3408"), new SwitchPosition("-1.0", "Ram", "3408"), new SwitchPosition("-2.0", "Dump", "3408") }, "ECS", "Cabin Pressure Switch", "%0.1f"));
-            AddFunction(new Axis(this, ECS_INTERFACE, "3451", "3451", 0.1d, 0d, 1d, "ECS", "Defog Handle"));
-            AddFunction(new Axis(this, ECS_INTERFACE, "3407", "3407", 0.1d, 0d, 1d, "ECS", "Cabin Temperature Knob"));
-            AddFunction(new Axis(this, ECS_INTERFACE, "3406", "3406", 0.1d, 0d, 1d, "ECS", "Suit Temperature Knob"));
-            AddFunction(Switch.CreateToggleSwitch(this, ECS_INTERFACE, "3297", "3297", "1", "NORM", "0", "EMERG", "ECS", "AV COOL Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ECS_INTERFACE, "3452", "3452", "1", "ANTI ICE", "0", "OFF", "-1", "RAIN", "ECS", "Windshield Anti-Ice/Rain Switch", "%0.1f"));
-            AddFunction(new Axis(this, ECS_INTERFACE, "3505", "3505", 0.1d, 0d, 1d, "ECS", "Left Louver"));
-            AddFunction(new Axis(this, ECS_INTERFACE, "3506", "3506", 0.1d, 0d, 1d, "ECS", "Right Louver"));
-            #endregion
-            #region HOTAS
-            AddFunction(Switch.CreateToggleSwitch(this, HOTAS, "3494", "3494", "1", "ON", "0", "OFF", "HOTAS", "Exterior Lights Switch", "%0.1f"));
-            #endregion
-            #region Master Arm Panel
-            AddFunction(new PushButton(this, SMS, "3458", "3458","SMS", "A/A Master Mode Button"));
-            AddFunction(new PushButton(this, SMS, "3459", "3459","SMS", "A/G Master Mode Button"));
-            AddFunction(Switch.CreateToggleSwitch(this, SMS, "3049", "3049", "1", "ARM", "0", "SAFE","SMS", "Master Arm Switch", "%0.1f"));
-            AddFunction(new PushButton(this, SMS, "3050", "3050","SMS", "Emergency Jettison Button"));
-            AddFunction(Switch.CreateToggleSwitch(this, SMS, "3258", "3258", "1", "ENABLE", "0", "NORM","SMS", "Auxiliary Release Switch", "%0.1f"));
-            AddFunction(new PushButton(this, SMS, "3153", "3153","SMS", "Station Jettison Centre Select Button"));
-            AddFunction(new PushButton(this, SMS, "3155", "3155","SMS", "Station Jettison Left In Select Button"));
-            AddFunction(new PushButton(this, SMS, "3157", "3157","SMS", "Station Jettison Left Out Select Button"));
-            AddFunction(new PushButton(this, SMS, "3159", "3159","SMS", "Station Jettison Right In Select Button"));
-            AddFunction(new PushButton(this, SMS, "3161", "3161","SMS", "Station Jettison Right Out Select Button"));
-            AddFunction(new PushButton(this, SMS, "3235", "3235","SMS", "Selective Jettison Pushbutton"));
-            AddFunction(new Switch(this, SMS, "3236", new SwitchPosition[] { new SwitchPosition("1.0", "L FUS MSL", "3236"), new SwitchPosition("0.0", "Safe", "3236"), new SwitchPosition("-1.0", "R FUS MSL", "3236"), new SwitchPosition("-2.0", "Rack", "3236"), new SwitchPosition("-3.0", "LCHR", "3236"), new SwitchPosition("-4.0", "Stores", "3236") }, "SMS", "Selective Jettison Knob", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMS, "3135", "3135", "1", "ORIDE", "0", "NORM", "-1", "OFF","SMS", "IR Cooling Switch", "%0.1f"));
-            #endregion
-            #region Fire Systems
-            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3046", "3046", "Engine", "Fire Extinguisher Pushbutton"));
-            AddFunction(new PushButton(this, ENGINES_INTERFACE, "3030", "3030", "Engine", "APU Fire Warning/Extinguisher Light"));
-            #endregion
-            #region Multipurpose Display Group -----------
-            #endregion
-            #region Head-Up Display
-            AddFunction(Switch.CreateThreeWaySwitch(this, HUD, "3140", "3140", "1", "NORM", "0", "REJ 1", "-1", "REJ 2", "HUD", "HUD Symbology Reject Switch", "%0.1f"));
-            AddFunction(new Axis(this, HUD, "3141", "3141", 0.1d, 0d, 1d, "HUD", "HUD Symbology Brightness Control Knob"));
-            AddFunction(Switch.CreateToggleSwitch(this, HUD, "3142", "3142", "1", "DAY", "0", "NIGHT", "HUD", "HUD Symbology Brightness Selector Knob", "%0.1f"));
-            AddFunction(new Axis(this, HUD, "3143", "3143", 0.1d, 0d, 1d, "HUD", "Black Level Control Knob"));
-            AddFunction(new Switch(this, HUD, "3411", new SwitchPosition[] { new SwitchPosition("1.0", "W", "3411"), new SwitchPosition("0.0", "B", "3411"), new SwitchPosition("-1.0", "Vid", "3411"), new SwitchPosition("-2.0", "Off", "3411") }, "HUD", "HUD Video Control Switch", "%0.1f"));
-            AddFunction(new Axis(this, HUD, "3145", "3145", 0.1d, 0d, 1d, "HUD", "Balance Control Knob"));
-            AddFunction(new Axis(this, HUD, "3146", "3146", 0.1d, 0d, 1d, "HUD", "AOA Indexer Control Knob"));
-            AddFunction(Switch.CreateToggleSwitch(this, HUD, "3147", "3147", "1", "BARO", "0", "RDR", "HUD", "Altitude Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, HUD, "3148", "3148", "1", "INS", "0", "AUTO", "-1", "STBY", "HUD", "Attitude Selector Switch", "%0.1f"));
-            #endregion
-             #region Instruments
-            #endregion
-            #region Standby Pressure Altimeter AAU-52/A
-            AddFunction(new Axis(this, AAU52, "3224", "3224", 0.1d, 0.04d, 1d, "AAU52", "AAU-52 Altimeter Pressure Setting Knob"));
-            #endregion
-            #region Radar Altimeter Height Indicator
-            #endregion
-            #region tandby Attitude Indicator
-            AddFunction(new PushButton(this, SAI, "3215", "3215", "SAI", "SAI Test Button - Push to test"));
-            #endregion
-            #region Integrated Fuel/Engine Indicator (IFEI)
-            AddFunction(new PushButton(this, IFEI, "3168", "3168", "IFEI", "IFEI Mode Button"));
-            AddFunction(new PushButton(this, IFEI, "3169", "3169", "IFEI", "IFEI QTY Button"));
-            AddFunction(new PushButton(this, IFEI, "3170", "3170", "IFEI", "IFEI Up Arrow Button"));
-            AddFunction(new PushButton(this, IFEI, "3171", "3171", "IFEI", "IFEI Down Arrow Button"));
-            AddFunction(new PushButton(this, IFEI, "3172", "3172", "IFEI", "IFEI ZONE Button"));
-            AddFunction(new PushButton(this, IFEI, "3173", "3173", "IFEI", "IFEI ET Button"));
-            AddFunction(new Axis(this, IFEI, "3174", "3174", 0.1d, 0d, 1d, "IFEI", "IFEI Brightness Control Knob"));
-            #endregion
-            #region Sensor panel
-            AddFunction(new Switch(this, RADAR, "3440", new SwitchPosition[] { new SwitchPosition("1.0", "Off", "3440"), new SwitchPosition("0.0", "Standby", "3440"), new SwitchPosition("-1.0", "Opr", "3440"), new SwitchPosition("-2.0", "EMERG(PULL)", "3440")}, "RADAR", "RADAR Switch (MW to pull)", "%0.1f"));
+            #region Flight Instruments
+            //  Altimeter AAU-52
+            AddFunction(new Altimeter(this, "Altimeter", "2051", "Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059", "Pressure", "Manually set barometric altitude.", ""));
 
-            #endregion
-            #region OLD
-            AddFunction(new Switch(this, INS, "3443", new SwitchPosition[] { new SwitchPosition("1.0", "Off", "3443"), new SwitchPosition("0.0", "CV", "3443"), new SwitchPosition("-1.0", "Gnd", "3443"), new SwitchPosition("-2.0", "Nav", "3443"), new SwitchPosition("-3.0", "IFA", "3443"), new SwitchPosition("-4.0", "Gyro", "3443"), new SwitchPosition("-5.0", "GB", "3443"), new SwitchPosition("-6.0", "Test", "3443") }, "INS", "INS Mode Switch", "%0.1f"));
+            //  RADAR Altimeter ID-2163
 
+            AddFunction(new ScaledNetworkValue(this, "287", 90d, "ID2163A", "Minimum Height Indicator", "Minimum Altitude in Feet.", "", BindingValueUnits.Feet));
+            AddFunction(new ScaledNetworkValue(this, "286", -180d, "ID2163A", "RADAR Altitude", "Altitude in feet measured by RADAR.", "", BindingValueUnits.Feet));
+
+            AddFunction(new FlagValue(this, "288", "ID2163A", "Off Flag", ""));
+            AddFunction(new FlagValue(this, "289", "ID2163A", "RADAR Altimeter Green Lamp", ""));
+            AddFunction(new FlagValue(this, "290", "ID2163A", "RADAR Altimeter Red Lamp", ""));
+
+            // SAI ARU-48
+            AddFunction(new ScaledNetworkValue(this, "205", 90d, "SAI", "Pitch", "Current pitch displayed on the SAI.", "", BindingValueUnits.Degrees));
+            AddFunction(new ScaledNetworkValue(this, "206", -180d, "SAI", "Bank", "Current bank displayed on the SAI.", "", BindingValueUnits.Degrees));
+            AddFunction(new FlagValue(this, "209", "SAI", "Warning Flag", "Displayed when SAI is caged or non-functional."));
+            AddFunction(new RotaryEncoder(this, SAI, "3210", "3210", 0.1d, "SAI", "Pitch Trim / Cage"));
+            AddFunction(new NetworkValue(this, "207", "SAI", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "208", "SAI", "Rate of Turn", "Turn indicator position", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+
+            //  VVI
+            CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-1.0d, -6000d, 1.0d, 6000d);
+            vviScale.Add(new CalibrationPointDouble(0d, 0d));
+            AddFunction(new ScaledNetworkValue(this, "225", vviScale, "Flight Instruments", "VVI", "Vertical velocity indicator -6000 to +6000.", "", BindingValueUnits.FeetPerMinute));
+
+            //  IAS
+            CalibrationPointCollectionDouble airspeedScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 360d);
+            AddFunction(new ScaledNetworkValue(this, "217", airspeedScale, "Flight Instruments", "IAS Airspeed", "Current indicated air speed of the aircraft.", "", BindingValueUnits.Knots));
             #endregion
-            #region intercom
-            AddFunction(new Axis(this, INTERCOM, "3357", "3357", 0.1d, 0d, 1d, "Intercom", "VOX Volume Control Knob"));
-            AddFunction(new Axis(this, INTERCOM, "3358", "3358", 0.1d, 0d, 1d, "Intercom", "ICS Volume Control Knob"));
-            AddFunction(new Axis(this, INTERCOM, "3359", "3359", 0.1d, 0d, 1d, "Intercom", "RWR Volume Control Knob"));
-            AddFunction(new Axis(this, INTERCOM, "3360", "3360", 0.1d, 0d, 1d, "Intercom", "WPN Volume Control Knob"));
-            AddFunction(new Axis(this, INTERCOM, "3361", "3361", 0.1d, 0d, 1d, "Intercom", "MIDS B Volume Control Knob"));
-            AddFunction(new Axis(this, INTERCOM, "3362", "3362", 0.1d, 0d, 1d, "Intercom", "MIDS A Volume Control Knob"));
-            AddFunction(new Axis(this, INTERCOM, "3363", "3363", 0.1d, 0d, 1d, "Intercom", "TACAN Volume Control Knob"));
-            AddFunction(new Axis(this, INTERCOM, "3364", "3364", 0.1d, 0d, 1d, "Intercom", "AUX Volume Control Knob"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, INTERCOM, "3350", "3350", "1", "CIPHER", "0", "OFF", "-1", "PLAIN", "Intercom", "Comm Relay Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, INTERCOM, "3351", "3351", "1", "COMM 1", "0", "OFF", "-1", "COMM 2", "Intercom", "COMM G XMT Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, INTERCOM, "3356", "3356", "1", "EMER", "0", "NORM", "Intercom", "IFF Master Switch", "%0.1f"));
-            AddFunction(new Switch(this, INTERCOM, "3355", new SwitchPosition[] { new SwitchPosition("1.0", "Dis", "3355"), new SwitchPosition("0.0", "Aud", "3355"), new SwitchPosition("-1.0", "Dis", "3355"), new SwitchPosition("-2.0", "Off", "3355") }, "Intercom", "IFF Mode 4 Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, INTERCOM, "3354", "3354", "1", "HOLD", "0", "NORM", "-1", "ZERO", "Intercom", "CRYPTO Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, INTERCOM, "3353", "3353", "1", "UFC", "0", "MAN", "Intercom", "ILS UFC/MAN Switch", "%0.1f"));
-            AddFunction(new Axis(this, INTERCOM, "3352", "3352", 0.05d, 0d, 1d, "Intercom", "ILS Channel Selector Switch"));
-            AddFunction(new Switch(this, KY58, "3444", new SwitchPosition[] { new SwitchPosition("1.0", "P", "3444"), new SwitchPosition("0.0", "C", "3444"), new SwitchPosition("-1.0", "LD", "3444"), new SwitchPosition("-2.0", "HV", "3444") }, "KY58", "KY-58 Mode Select Knob", "%0.1f"));
-            AddFunction(new Axis(this, KY58, "3445", "3445", 0.1d, 0d, 1d, "KY58", "KY-58 Volume Control Knob"));
-            AddFunction(new Switch(this, KY58, "3446", new SwitchPosition[] { new SwitchPosition("1.0", "Z 1-5", "3446"), new SwitchPosition("0.0", "1", "3446"), new SwitchPosition("-1.0", "2", "3446"), new SwitchPosition("-2.0", "3", "3446"), new SwitchPosition("-3.0", "4", "3446"), new SwitchPosition("-4.0", "5", "3446"), new SwitchPosition("-5.0", "6", "3446"), new SwitchPosition("-6.0", "Z All", "3446") }, "KY58", "KY-58 Fill Select Knob", "%0.1f"));
-            AddFunction(new Switch(this, KY58, "3447", new SwitchPosition[] { new SwitchPosition("1.0", "Off", "3447"), new SwitchPosition("0.0", "On", "3447"), new SwitchPosition("-1.0", "TD", "3447") }, "KY58", "KY-58 Power Select Knob", "%0.1f"));
-            AddFunction(new PushButton(this, INTERCOM, "3230", "3230", "Intercom", "Warning Tone Silence Button - Push to silence"));
-            #endregion
-            #region antenna selector
-            AddFunction(Switch.CreateThreeWaySwitch(this, ANTENNA_SELECTOR, "3373", "3373", "1", "UPPER", "0", "AUTO", "-1", "LOWER", "Antenna", "COMM 1 Antenna Selector Switch", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ANTENNA_SELECTOR, "3374", "3374", "1", "UPPER", "0", "BOTH", "-1", "LOWER", "Antenna", "IFF Antenna Selector Switch", "%0.1f"));
-            #endregion
-            #region RWR
-            AddFunction(new PushButton(this, RWR, "3277", "3277", "RWR", "ALR-67 POWER Pushbutton"));
-            AddFunction(new PushButton(this, RWR, "3275", "3275", "RWR", "ALR-67 DISPLAY Pushbutton"));
-            AddFunction(new PushButton(this, RWR, "3272", "3272", "RWR", "ALR-67 SPECIAL Pushbutton"));
-            AddFunction(new PushButton(this, RWR, "3269", "3269", "RWR", "ALR-67 OFFSET Pushbutton"));
-            AddFunction(new PushButton(this, RWR, "3266", "3266", "RWR", "ALR-67 BIT Pushbutton"));
-            AddFunction(new Axis(this, RWR, "3263", "3263", 0.1d, 0d, 1d, "RWR", "ALR-67 DMR Control Knob"));
-            AddFunction(new Axis(this, RWR, "3262", "3262", 0.1d, 0d, 1d, "RWR", "ALR-67 AUDIO Control Knob (no function)"));
-            AddFunction(new Switch(this, RWR, "3261", new SwitchPosition[] { new SwitchPosition("1.0", "N", "3261"), new SwitchPosition("0.0", "I", "3261"), new SwitchPosition("-1.0", "A", "3261"), new SwitchPosition("-2.0", "U", "3261"), new SwitchPosition("-3.0", "F", "3261") }, "RWR", "ALR-67 DIS TYPE Switch", "%0.1f"));
-            AddFunction(new Axis(this, RWR, "3216", "3216", 0.1d, 0d, 1d, "RWR", "RWR Intensity Knob"));
-            #endregion
-            #region CMDS
-            AddFunction(new PushButton(this, CMDS, "3380", "3380", "CMDS", "Dispense Button - Push to dispense flares and chaff"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, CMDS, "3517", "3517", "1", "BYPASS", "0", "ON", "-1", "OFF", "CMDS", "DISPENSER Switch", "%0.1f"));
-            AddFunction(new PushButton(this, CMDS, "3515", "3515", "CMDS", "ECM - Push to jettison"));
-            #endregion
-            #region ICMCP
-            AddFunction(new Switch(this, CMDS, "3248", new SwitchPosition[] { new SwitchPosition("1.0", "Xmit", "3248"), new SwitchPosition("0.0", "Rcv", "3248"), new SwitchPosition("-1.0", "BIT", "3248"), new SwitchPosition("-2.0", "Stby", "3248"), new SwitchPosition("-3.0", "Off", "3248") }, "CMDS", "ECM Mode Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, CMDS, "3507", "3507", "1", "ENABLE", "0", "DISABLE (no function)", "CMDS", "NUC WPN Switch", "%0.1f"));
-            #endregion
-            #region TODO list
-            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3175", "3175", "1", "HMD", "0", "LDDI", "-1", "RDDI", "Work In Progress", "Selector Switch", "%0.1f"));
-            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3176", "3176", "1", "HUD", "0", "LDIR", "-1", "RDDI", "Work In Progress", "Selector Switch", "%0.1f"));
-            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3314", "3314", "1", "MAN", "0", "OFF", "-1", "AUTO", "Work In Progress", "Mode Selector Switch", "%0.1f"));
-            //AddFunction(new PushButton(this, TODO, "3007", "3007", "Work In Progress", "Video BIT Initiate Pushbutton - Push to initiate BIT"));
-            //AddFunction(new Axis(this, TODO, "3136", "3136", 0.1d, 0d, 1d, "Work In Progress", "HMD OFF/BRT Knob"));
-            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3439", "3439", "1", "ON", "0", "STBY", "-1", "OFF", "Work In Progress", "FLIR Switch", "%0.1f"));
-            //AddFunction(Switch.CreateThreeWaySwitch(this, TODO, "3441", "3441", "1", "ARM", "0", "SAFE", "-1", "AFT", "Work In Progress", "LTD/R Switch", "%0.1f"));
-            //AddFunction(Switch.CreateToggleSwitch(this, TODO, "3442", "3442", "1", "ON", "0", "OFF", "Work In Progress", "LST/NFLR Switch", "%0.1f"));
-            //AddFunction(new PushButton(this, TODO, "3315", "3315", "Work In Progress", "Left Video Sensor BIT Initiate Pushbutton - Push to initiate BIT"));
-            //AddFunction(new PushButton(this, TODO, "3318", "3318", "Work In Progress", "Right Video Sensor BIT Initiate Pushbutton - Push to initiate BIT"));
+
+            #region System Gauges
+            //Cabin Altitude Pressure 
+            CalibrationPointCollectionDouble cabinScale = new CalibrationPointCollectionDouble(-0.003d, -300d, 0.5000d, 50000d);
+            cabinScale.Add(new CalibrationPointDouble(0d, 0d));
+            AddFunction(new ScaledNetworkValue(this, "285", cabinScale, "System Gauges", "Cabin Altitude", "Cabin altitude pressue in feet 0 to +50000.", "", BindingValueUnits.Numeric));
+
+            //  Hydraulic Pressure
+            AddFunction(new Digits3Display(this, HYDRAULIC_INTERFACE, "242", "System Gauges", "Brake pressure", "Brake pressure in psi"));
+            AddFunction(new Digits3Display(this, HYDRAULIC_INTERFACE, "310", "System Gauges", "Left Hyd pressure display", "Left Hydraulic system 1 pressure in psi"));
+            AddFunction(new Digits3Display(this, HYDRAULIC_INTERFACE, "311", "System Gauges", "Right Hyd pressure display", "Right Hydraulic system 2 pressure in psi"));
+
+            //  Battery Voltage
+            CalibrationPointCollectionDouble voltageScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 32d);
+            AddFunction(new ScaledNetworkValue(this, "400", voltageScale, "System Gauges", "Voltage U", "Battery Voltage U", "", BindingValueUnits.Volts));
+            AddFunction(new ScaledNetworkValue(this, "401", voltageScale, "System Gauges", "Voltage E", "Battery Voltage E", "", BindingValueUnits.Volts));
+
             #endregion
         }
 

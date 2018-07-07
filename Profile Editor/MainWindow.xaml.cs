@@ -79,11 +79,17 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             if (Profile != null && e.Model is LayoutDocument)
             {
                 HeliosObject profileObject = HeliosSerializer.ResolveReferenceName(Profile, e.Model.ContentId);
-                HeliosEditorDocument editor =  CreateDocumentEditor(profileObject);
-                profileObject.PropertyChanged += DocumentObject_PropertyChanged;
-                e.Content = CreateDocumentContent(editor);
-                e.Model.Closed += Document_Closed;
-                AddDocumentMeta(profileObject, (LayoutDocument)e.Model, editor);
+                if (profileObject != null)
+                {
+                    HeliosEditorDocument editor = CreateDocumentEditor(profileObject);
+                    profileObject.PropertyChanged += DocumentObject_PropertyChanged;
+                    e.Content = CreateDocumentContent(editor);
+                    e.Model.Closed += Document_Closed;
+                    AddDocumentMeta(profileObject, (LayoutDocument)e.Model, editor);
+                } else
+                {
+                    ConfigManager.LogManager.LogDebug("Unable to resolve Layout Document " + e.Model.ContentId);
+                }
             }
         }
 
@@ -526,10 +532,16 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 Dispatcher.Invoke(DispatcherPriority.Background, (System.Threading.SendOrPostCallback)delegate { SetValue(StatusBarMessageProperty, ""); }, "");
 
                 // TODO Restore docking panel layout
-                string layoutFileName = Path.ChangeExtension(profile.Path, "layout");
-                if (File.Exists(layoutFileName))
+                if (profile != null)
                 {
-                    Dispatcher.Invoke(DispatcherPriority.Background, (LayoutDelegate)_layoutSerializer.Deserialize, layoutFileName);
+                    string layoutFileName = Path.ChangeExtension(profile.Path, "layout");
+                    if (File.Exists(layoutFileName))
+                    {
+                        Dispatcher.Invoke(DispatcherPriority.Background, (LayoutDelegate)_layoutSerializer.Deserialize, layoutFileName);
+                    }
+                } else
+                {
+                    ConfigManager.LogManager.LogDebug("Docking Panel Layout Problem.  Profile Object Null during restore of layout for " + path);
                 }
 
                 GC.Collect();
