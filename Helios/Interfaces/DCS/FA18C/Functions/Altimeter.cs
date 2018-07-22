@@ -23,19 +23,23 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C.Functions
 
     class Altimeter : NetworkFunction
     {
-        private static DCSDataElement[] _dataElements = new DCSDataElement[] { new DCSDataElement("2051", null, true), new DCSDataElement("2059", null, true) };
-
+        private static DCSDataElement[] _dataElements;
         private HeliosValue _altitude;
         private HeliosValue _pressure;
+        private string _altID;
+        private string _pressID;
 
-        public Altimeter(BaseUDPInterface sourceInterface)
+        public Altimeter(BaseUDPInterface sourceInterface, string instrumentClass, string altitudeDeviceId, string altitudeName, string altitudeDescription, string altitudeComments, string pressureDeviceId, string pressureName, string pressureDescription, string pressureComments)
             : base(sourceInterface)
         {
-            _altitude = new HeliosValue(sourceInterface, BindingValue.Empty, "Altimeter", "Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", BindingValueUnits.Feet);
+            _dataElements = new DCSDataElement[] { new DCSDataElement(altitudeDeviceId, null, true), new DCSDataElement(pressureDeviceId, null, true) };
+            _altID = altitudeDeviceId;
+            _pressID = pressureDeviceId;
+            _altitude = new HeliosValue(sourceInterface, BindingValue.Empty, "Standby Baro Altimeter AAU-52/A", "Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", BindingValueUnits.Feet);
             Values.Add(_altitude);
             Triggers.Add(_altitude);
 
-            _pressure = new HeliosValue(sourceInterface, BindingValue.Empty, "Altimeter", "Pressure", "Manually set barometric altitude.", "", BindingValueUnits.InchesOfMercury);
+            _pressure = new HeliosValue(sourceInterface, BindingValue.Empty, "Standby Baro Altimeter AAU-52/A", "Pressure", "Manually set barometric altitude.", "", BindingValueUnits.InchesOfMercury);
             Values.Add(_pressure);
             Triggers.Add(_pressure);
         }
@@ -49,26 +53,19 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C.Functions
         {
             string[] parts = value.Split(';');
 
-            switch (id)
+            if (id == _altID)
             {
-                case "2051":
-                    double tenThousands = ClampedParse(parts[0], 10000d);
-                    double thousands = ClampedParse(parts[1], 1000d);
-                    double hundreds = Parse(parts[2], 100d);
-
-                    double altitude = tenThousands + thousands + hundreds;
-                    _altitude.SetValue(new BindingValue(altitude), false);
-                    break;
-                case "2059":
-                    double tens = ClampedParse(parts[0], 10d);
-                    double ones = ClampedParse(parts[1], 1d);
-                    double tenths = ClampedParse(parts[2], .1d);
-                    double hundredths = ClampedParse(parts[3], .1d);
-
-
-                    double pressure = tens + ones + tenths+ hundredths;
-                    _pressure.SetValue(new BindingValue(pressure), false);
-                    break;
+                double altitude = ClampedParse(parts[0], 10000d) + ClampedParse(parts[1], 1000d) + Parse(parts[2], 100d);
+                //ConfigManager.LogManager.LogDebug("F/A-18C Interface Argument " + id.ToString() + " value = " + altitude.ToString());
+                _altitude.SetValue(new BindingValue(altitude), false);
+            }
+            else if (id == _pressID)
+            {
+                double pressure = ClampedParse(parts[0], 1d, 26d, 5d) + ClampedParse(parts[1], .1d) + ClampedParse(parts[2], .01d);
+                //ConfigManager.LogManager.LogDebug("F/A-18C Interface Argument " + id.ToString() + " value = " + pressure.ToString());
+                _pressure.SetValue(new BindingValue(pressure), false);
+            } else
+            {
             }
         }
 
@@ -97,6 +94,22 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C.Functions
                 if (scaledValue < 1.0d)
                 {
                     scaledValue = Math.Truncate(scaledValue * 10d) * scale;
+                }
+                else
+                {
+                    scaledValue = 0d;
+                }
+            }
+            return scaledValue;
+        }
+        private double ClampedParse(string value, double scale, double offset, double mult)
+        {
+            double scaledValue = 0d;
+            if (double.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture.NumberFormat, out scaledValue))
+            {
+                if (scaledValue < 1.0d)
+                {
+                    scaledValue = (Math.Truncate(scaledValue * mult)+ offset) * scale;
                 }
                 else
                 {

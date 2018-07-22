@@ -1,3 +1,4 @@
+-- Exports.Lua from Helios F/A-18C Interface
 function ProcessHighImportance(mainPanelDevice)
 	-- Send Altimeter Values	
 	SendData(2051, string.format("%0.4f;%0.4f;%0.4f", mainPanelDevice:get_argument_value(220), mainPanelDevice:get_argument_value(219), mainPanelDevice:get_argument_value(218)))

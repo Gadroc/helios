@@ -89,8 +89,8 @@ namespace GadrocsWorkshop.Helios.Controls
             _knob.Positions.Add(new RotarySwitchPosition(_knob, 0, "Off", 270d));
             _knob.Positions.Add(new RotarySwitchPosition(_knob, 1, "Night", 330d));
             _knob.Positions.Add(new RotarySwitchPosition(_knob, 2, "Day", 30d));
-            _knob.CurrentPosition = 0;
-            _knob.DefaultPosition = 0;
+            _knob.CurrentPosition = 1;
+            _knob.DefaultPosition = 1;
             _knob.Top = posn.Y;
             _knob.Left = posn.X;
             _knob.Width = size.Width;

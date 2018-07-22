@@ -20,39 +20,46 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.Instruments
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.FA18C.Instruments.RAltimeter", "RADAR Altimeter", "F/A-18C Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.FA18C.Instruments", "RADAR Altimeter", "F/A-18C Gauges", typeof(GaugeRenderer))]
     public class RAltimeter : BaseGauge
     {
         private HeliosValue _altitdue;
         private GaugeNeedle _needle;
+        private HeliosValue _min_altitdue;
+        private GaugeNeedle _minimum_needle;
         private CalibrationPointCollectionDouble _needleCalibration;
-        private GaugeDrumCounter _drum;
 
         public RAltimeter()
-            : base("RADAR Altimeter", new Size(400, 400))
+            : base("RADAR Altimeter", new Size(420, 420))
         {
+            Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/Altimeter/RADAR_Altimeter_Faceplate.png", new Rect(0d, 0d, 420d, 420d)));
 
-            _drum = new GaugeDrumCounter("{Helios}/Gauges/FA-18C/Common/drum_tape.xaml", new Point(165d, 276d), "###%00", new Size(65d, 26d), new Size(65d, 26d));
-            _drum.Clip = new RectangleGeometry(new Rect(165d, 276d, 65d, 26d));
-            Components.Add(_drum);
-
-            Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/Altimeter/RADAR_Altimeter_Faceplate.png", new Rect(0d, 0d, 400d, 400d)));
-
-            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 1000d, 360d);
-            _needle = new GaugeNeedle("{Helios}/Gauges/FA-18C/Altimeter/altimeter_needle.xaml", new Point(200d, 200d), new Size(16d, 250d), new Point(8d, 200d));
+            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 5000d, 330d);
+            _needle = new GaugeNeedle("{Helios}/Gauges/FA-18C/Altimeter/altimeter_needle.xaml", new Point(210d, 210d), new Size(16d, 250d), new Point(8d, 200d),0d);
             Components.Add(_needle);
+            _minimum_needle = new GaugeNeedle("{Helios}/Gauges/FA-18C/Altimeter/RADAR_Altimeter_Min_Needle.xaml", new Point(210d, 210d), new Size(46d, 205d), new Point(23d, 205d),-10d);
+            Components.Add(_minimum_needle);
+
+            Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/Altimeter/RADAR_Altimeter_Cover.png", new Rect(94d, 11d, 89d, 88d)));  // this is the needle cover
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/Common/engine_bezel.png", new Rect(0d, 0d, 400d, 400d)));
 
-            _altitdue = new HeliosValue(this, new BindingValue(0d), "", "RADAR altitude", "Current RADAR altitude of the aricraft.", "", BindingValueUnits.Feet);
+            _altitdue = new HeliosValue(this, new BindingValue(0d), "", "RADAR altitude", "Current RADAR altitude of the aircraft.", "", BindingValueUnits.Feet);
             _altitdue.Execute += new HeliosActionHandler(Altitude_Execute);
             Actions.Add(_altitdue);
+            _min_altitdue = new HeliosValue(this, new BindingValue(0d), "", "RADAR Altimeter Minimum", "Minimum Altitude setting for the aricraft in feet.", "", BindingValueUnits.Feet);
+            _min_altitdue.Execute += new HeliosActionHandler(Min_Altitude_Execute);
+            Actions.Add(_min_altitdue);
+
         }
 
         void Altitude_Execute(object action, HeliosActionEventArgs e)
         {
-            _needle.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue % 1000d);
-            _drum.Value = e.Value.DoubleValue;
+            _needle.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue);
         }
-     }
+        void Min_Altitude_Execute(object action, HeliosActionEventArgs e)
+        {
+            _minimum_needle.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue);
+        }
+    }
 }

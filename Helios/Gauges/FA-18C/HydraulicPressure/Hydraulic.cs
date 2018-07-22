@@ -22,8 +22,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.Hydraulic
     [HeliosControl("Helios.FA18C.Hydraulic", "Hydraulic Pressure", "F/A-18C Gauges", typeof(GaugeRenderer))]
     public class Hydraulic : BaseGauge
     {
-        private HeliosValue _pressure;
-        private GaugeNeedle _needle;
+        private HeliosValue _pressure1;
+        private HeliosValue _pressure2;
+        private GaugeNeedle _needle1;
+        private GaugeNeedle _needle2;
         private CalibrationPointCollectionDouble _needleCalibration;
 
         public Hydraulic()
@@ -31,17 +33,28 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.Hydraulic
         {
             Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/HydraulicPressure/Hyd_Pressure_Faceplate.png", new Rect(0d, 0d, 300d, 300d)));
 
-            _needleCalibration = new CalibrationPointCollectionDouble(0d, 80d, 5000d, 40d);
-            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(150d, 150d), new Size(30, 128), new Point(15, 113), 80d);
-            Components.Add(_needle);
-            _pressure = new HeliosValue(this, new BindingValue(0d), "", "pressure", "Current pressure for the hydraulic system.", "", BindingValueUnits.PoundsPerSquareInch);
-            _pressure.Execute += new HeliosActionHandler(Pressure_Execute);
-            Actions.Add(_pressure);
+            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 5000d, 315d);
+            _needle1 = new GaugeNeedle("{Helios}/Gauges/FA-18C/HydraulicPressure/PRESS_1.png", new Point(150d, 150d), new Size(40, 146), new Point(20, 126), 80d);
+            Components.Add(_needle1);
+            _pressure1 = new HeliosValue(this, new BindingValue(0d), "", "Hydraulic pressure left", "Current pressure for the left hydraulic system.", "", BindingValueUnits.PoundsPerSquareInch);
+            _pressure1.Execute += new HeliosActionHandler(Pressure1_Execute);
+            Actions.Add(_pressure1);
+
+            _needle2 = new GaugeNeedle("{Helios}/Gauges/FA-18C/HydraulicPressure/PRESS_2.png", new Point(150d, 150d), new Size(40, 146), new Point(20, 126), 80d);
+            Components.Add(_needle2);
+            _pressure2 = new HeliosValue(this, new BindingValue(0d), "", "Hydraulic pressure right", "Current pressure for the right hydraulic system.", "", BindingValueUnits.PoundsPerSquareInch);
+            _pressure2.Execute += new HeliosActionHandler(Pressure2_Execute);
+            Actions.Add(_pressure2);
+
         }
 
-        void Pressure_Execute(object action, HeliosActionEventArgs e)
+        void Pressure1_Execute(object action, HeliosActionEventArgs e)
         {
-            _needle.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue);
+            _needle1.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue);
+        }
+        void Pressure2_Execute(object action, HeliosActionEventArgs e)
+        {
+            _needle2.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue);
         }
     }
 }

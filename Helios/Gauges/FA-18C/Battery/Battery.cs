@@ -33,25 +33,25 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             : base("voltage", new Size(300, 300))
         {
             Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/Battery/Battery_Faceplate.png", new Rect(0d, 0d, 300d, 300d)));
-            _needleU = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(150d, 150d), new Size(36, 154), new Point(18, 136), -150d);
-            _needleE = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(150d, 150d), new Size(36, 154), new Point(18, 136), 150d);
+            _needleU = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(150d, 150d), new Size(36, 154), new Point(18, 136), -180d);
+            _needleE = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(150d, 150d), new Size(36, 154), new Point(18, 136), 180d);
             Components.Add(_needleU);
             Components.Add(_needleE);
             Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/Battery/Battery_Needle_Cover.png", new Rect(118d, 115d, 62d, 162d)));
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
 
-            _voltageU = new HeliosValue(this, new BindingValue(0d), "", "Battery Voltage U", "This is the voltage of the battery in volts", "(15 to 30)", BindingValueUnits.Volts);
+            _voltageU = new HeliosValue(this, new BindingValue(0d), "", "Battery Voltage U", "This is the voltage of the battery in volts", "(16 to 30)", BindingValueUnits.Volts);
             _voltageU.Execute += new HeliosActionHandler(voltageU_Execute);
             Actions.Add(_voltageU);
-            _voltageE = new HeliosValue(this, new BindingValue(0d), "", "Battery Voltage E", "This is the voltage of the battery in volts", "(15 to 30)", BindingValueUnits.Volts);
+            _voltageE = new HeliosValue(this, new BindingValue(0d), "", "Battery Voltage E", "This is the voltage of the battery in volts", "(16 to 30)", BindingValueUnits.Volts);
             _voltageE.Execute += new HeliosActionHandler(voltageE_Execute);
             Actions.Add(_voltageE);
 
-            _calibrationPointsU = new CalibrationPointCollectionDouble(16d, -150d, 30d, -30d);
-            _calibrationPointsU.Add(new CalibrationPointDouble(0d, -150d));  // used to set an end stop at 15v
-            _calibrationPointsE = new CalibrationPointCollectionDouble(16d, 150d, 30d, 30d);
-            _calibrationPointsE.Add(new CalibrationPointDouble(0d, 150d));  // used to set an end stop at 15v
+            _calibrationPointsU = new CalibrationPointCollectionDouble(16d, 30d, 30d, 150d);
+            _calibrationPointsU.Add(new CalibrationPointDouble(15d, 30d));  // used to set an end stop at 16v
+            _calibrationPointsE = new CalibrationPointCollectionDouble(16d, -30d, 30d, -150d);
+            _calibrationPointsE.Add(new CalibrationPointDouble(15d, -30d));  // used to set an end stop at 16v
 
         }
 
