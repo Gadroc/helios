@@ -204,7 +204,7 @@ namespace GadrocsWorkshop.Helios.Controls
             toggle.Width = size.Width;
             toggle.Height = size.Height;
             toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
-            toggle.Orientation = ToggleSwitchOrientation.Horizontal; // this seems to just control the swipe direction
+            toggle.Orientation = ToggleSwitchOrientation.Vertical; // this seems to just control the swipe direction
             toggle.Rotation = HeliosVisualRotation.CW;
             toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
             toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-norm.png";

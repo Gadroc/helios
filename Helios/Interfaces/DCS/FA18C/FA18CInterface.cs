@@ -79,32 +79,34 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         private const string MDI_RIGHT = "36";                  // Right Multipurpose Display Indicator (DDI) - IP-1556/A
         private const string AMPCD = "37";                      // Advanced Multipurpose Color Display - ???
         //  Stick and throttle grips
-        private const string HOTASA = "38";                     // Stick and throttle grips //  Is this a duplicate of 13
+        //private const string HOTASA = "38";                     // Stick and throttle grips //  Is this a duplicate of 13
         //  Radio & Comm
-        private const string UHF1 = "39";                       // VHF/UHF Receiver-Transmitter - ARC 210
-        private const string UHF2 = "40";                       // VHF/UHF Receiver-Transmitter - ARC 210 DCS
-        private const string INTERCOM = "41";                   // Intercommunication Amplifier-Control - AM-7360/A
-        private const string KY58 = "42";                       // KY-58 Secure Speech System
+        private const string UHF1 = "38";                       // VHF/UHF Receiver-Transmitter - ARC 210
+        private const string UHF2 = "39";                       // VHF/UHF Receiver-Transmitter - ARC 210 DCS
+        private const string INTERCOM = "40";                   // Intercommunication Amplifier-Control - AM-7360/A
+        private const string KY58 = "41";                       // KY-58 Secure Speech System
         //  Sensors
-        private const string RADAR = "43";                      // Radar - AN/APG-73, interfaced to the rest of avionic system via the Radar Data Processor CP-2062/APG-73
-        private const string FLIR = "44";                       // Forward Looking Infrared Pod interface
+        private const string RADAR = "42";                      // Radar - AN/APG-73, interfaced to the rest of avionic system via the Radar Data Processor CP-2062/APG-73
+        private const string FLIR = "43";                       // Forward Looking Infrared Pod interface
         //  INS/GPS
-        private const string INS = "45";                        // INS, AN/ASN-139
-        private const string GPS = "46";                        // GPS, AN/ASN-163
-        private const string MAD = "47";                        // Magnetic Azimuth Detector, DT-604/A
+        private const string INS = "44";                        // INS, AN/ASN-139
+        private const string GPS = "45";                        // GPS, AN/ASN-163
+        private const string MAD = "46";                        // Magnetic Azimuth Detector, DT-604/A
         //  Armament
-        private const string SIDEWINDER_INTERFACE = "48";
-        private const string MAVERICK_INTERFACE = "49";
+        private const string SIDEWINDER_INTERFACE = "47";
+        private const string MAVERICK_INTERFACE = "48";
         //  RNAV
-        private const string ADF = "50";                        //  Direction Finder OA-8697/ARD
-        private const string ANTENNA_SELECTOR = "51";
-        private const string MIDS = "52";                       // MIDS-LVT (implements Link 16 and TACAN)
-        private const string ILS = "53";                        // AN/ARA-63D, airborne segment of US NAVY ACLS, and US Marines MRAALS
+        private const string ADF = "49";                        //  Direction Finder OA-8697/ARD
+        private const string ANTENNA_SELECTOR = "50";
+        private const string MIDS = "51";                       // MIDS-LVT (implements Link 16 and TACAN)
+        private const string ILS = "52";                        // AN/ARA-63D, airborne segment of US NAVY ACLS, and US Marines MRAALS
         //  TEWS
-        private const string RWR = "54";                        // AN/ALR-67(V)
-        private const string CMDS = "55";                       //  Countermeasures dispenser System
+        private const string RWR = "53";                        // AN/ALR-67(V)
+        private const string CMDS = "54";                       //  Countermeasures dispenser System
 
-        private const string MACROS = "56";
+        private const string MACROS = "55";
+        private const string IFF = "56";                        // IFF, AN/APX-111(V) CIT
+        private const string NVG = "57";
         #endregion
 
         public FA18CInterface()
@@ -313,16 +315,18 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "516", "CMDS", "ECM Jettison", ""));    //   ECM Jettison, create_simple_lamp(516 controllers.CMDS_JettLt)
             #endregion
             #region  Control System
-            AddFunction(new Axis(this, CONTROL_INTERFACE, "3001", "345", 0.05d, -1.00d, 1.00d, "Control System", "RUD TRIM Control"));    // elements["pnt_345"]= default_axis_limited(_("RUD TRIM Control"),devices.CONTROL_INTERFACE, ctrl_commands.RudderTrim,345, 0, 0.05, false, false, {-1, 1})
-            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3002", "346", "Control System", "T/O TRIM Button", "1", "0", "%1d"));    // elements["pnt_346"]     = default_button(_("T|O TRIM Button"),                              devices.CONTROL_INTERFACE, ctrl_commands.TOTrimSw,      346)
-            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3003", "349", "Control System", "FCS RESET Button", "1", "0", "%1d"));    // elements["pnt_349"]     = default_button(_("FCS RESET Button"),                             devices.CONTROL_INTERFACE, ctrl_commands.ResetSw,       349)
-            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3005", "348", "1.0", "OPEN", "0.0", "CLOSE", "Control System", "GAIN Switch Cover", "%0.1f"));    // elements["pnt_348"]     = default_red_cover(_("GAIN Switch Cover, OPEN/CLOSE"),             devices.CONTROL_INTERFACE, ctrl_commands.GainSwCover,   348)
-            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3006", "347", "1.0", "NORM", "0.0", "ORIDE", "Control System", "GAIN Switch", "%0.1f"));    // elements["pnt_347"]     = default_2_position_tumb(_("GAIN Switch, NORM/ORIDE"),             devices.CONTROL_INTERFACE, ctrl_commands.GainSw,        347)
-            AddFunction(new Switch(this, CONTROL_INTERFACE, "234", new SwitchPosition[] { new SwitchPosition("1.0", "AUTO", "3007"), new SwitchPosition("0.0", "HALF", "3007"), new SwitchPosition("-1.0", "FULL", "3007") }, "Control System", "FLAP Switch", "%0.1f"));    // elements["pnt_234"]     = default_3_position_tumb(_("FLAP Switch, AUTO/HALF/FULL"),         devices.CONTROL_INTERFACE, ctrl_commands.FlapSw,        234)
-            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3008", "139", "1.0", "OPEN", "0.0", "CLOSE", "Control System", "Spin Recovery Switch Cover", "%0.1f"));    // elements["pnt_139"]     = default_red_cover(_("Spin Recovery Switch Cover, OPEN/CLOSE"),    devices.CONTROL_INTERFACE, ctrl_commands.SpinRecCover,  139)
-            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3009", "138", "1.0", "RCVY", "0.0", "NORM", "Control System", "Spin Recovery Switch", "%0.1f"));    // elements["pnt_138"]     = default_2_position_tumb(_("Spin Recovery Switch, RCVY/NORM"),     devices.CONTROL_INTERFACE, ctrl_commands.SpinRec,       138)
-            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3004", "470", "Control System", "FCS BIT Switch", "1", "0", "%1d"));    // elements["pnt_470"]     = default_button2(_("FCS BIT Switch"),                              devices.CONTROL_INTERFACE, ctrl_commands.FcsBitSw,      470)
-            AddFunction(new Axis(this, CONTROL_INTERFACE, "3012", "504", 0.15d, 0d, 1d, "Control System", "Throttles Friction Adjusting Lever"));    // elements["pnt_504"]     = default_axis_limited(_("Throttles Friction Adjusting Lever"),     devices.CONTROL_INTERFACE, ctrl_commands.FrictionLever, 504, 0, 0.1, false, false, {0, 1})
+            AddFunction(new Axis(this, CONTROL_INTERFACE, "3001", "345", 0.05d, -1.00d, 1.00d, "Control system", "RUD TRIM Control"));    // elements["pnt_345"]= default_axis_limited(_("RUD TRIM Control"),devices.CONTROL_INTERFACE, ctrl_commands.RudderTrim,345, 0, 0.05, false, false, {-1, 1})
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3002", "346", "Control system", "T/O TRIM Button", "1", "0", "%1d"));    // elements["pnt_346"]     = default_button(_("T|O TRIM Button"),                              devices.CONTROL_INTERFACE, ctrl_commands.TOTrimSw,      346)
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3003", "349", "Control system", "FCS RESET Button", "1", "0", "%1d"));    // elements["pnt_349"]     = default_button(_("FCS RESET Button"),                             devices.CONTROL_INTERFACE, ctrl_commands.ResetSw,       349)
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3005", "348", "1.0", "OPEN", "0.0", "CLOSE", "Control system", "GAIN Switch Cover", "%0.1f"));    // elements["pnt_348"]     = default_red_cover(_("GAIN Switch Cover, OPEN/CLOSE"),             devices.CONTROL_INTERFACE, ctrl_commands.GainSwCover,   348)
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3006", "347", "1.0", "NORM", "0.0", "ORIDE", "Control system", "GAIN Switch", "%0.1f"));    // elements["pnt_347"]     = default_2_position_tumb(_("GAIN Switch, NORM/ORIDE"),             devices.CONTROL_INTERFACE, ctrl_commands.GainSw,        347)
+            AddFunction(new Switch(this, CONTROL_INTERFACE, "234", new SwitchPosition[] { new SwitchPosition("1.0", "AUTO", "3007"), new SwitchPosition("0.0", "HALF", "3007"), new SwitchPosition("-1.0", "FULL", "3007") }, "Control system", "FLAP Switch", "%0.1f"));    // elements["pnt_234"]     = default_3_position_tumb(_("FLAP Switch, AUTO/HALF/FULL"),         devices.CONTROL_INTERFACE, ctrl_commands.FlapSw,        234)
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3008", "139", "1.0", "OPEN", "0.0", "CLOSE", "Control system", "Spin Recovery Switch Cover", "%0.1f"));    // elements["pnt_139"]     = default_red_cover(_("Spin Recovery Switch Cover, OPEN/CLOSE"),    devices.CONTROL_INTERFACE, ctrl_commands.SpinRecCover,  139)
+            AddFunction(Switch.CreateToggleSwitch(this, CONTROL_INTERFACE, "3009", "138", "1.0", "RCVY", "0.0", "NORM", "Control system", "Spin Recovery Switch", "%0.1f"));    // elements["pnt_138"]     = default_2_position_tumb(_("Spin Recovery Switch, RCVY/NORM"),     devices.CONTROL_INTERFACE, ctrl_commands.SpinRec,       138)
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3004", "470", "Control system", "FCS BIT Switch", "1", "0", "%1d"));    // elements["pnt_470"]     = default_button2(_("FCS BIT Switch"),                              devices.CONTROL_INTERFACE, ctrl_commands.FcsBitSw,      470)
+            AddFunction(new Axis(this, CONTROL_INTERFACE, "3012", "504", 0.15d, 0d, 1d, "Control system", "Throttles Friction Adjusting Lever"));    // elements["pnt_504"]     = default_axis_limited(_("Throttles Friction Adjusting Lever"),     devices.CONTROL_INTERFACE, ctrl_commands.FrictionLever, 504, 0, 0.1, false, false, {0, 1})
+            AddFunction(new Switch(this, CONTROL_INTERFACE, "295", new SwitchPosition[] { new SwitchPosition("-1.0", "Fold", "3011"), new SwitchPosition("0.0", "Hold", "3011"), new SwitchPosition("1.0", "Spread", "3011") }, "Control system", "Wing Fold Lever", "%0.1f"));
+            AddFunction(new PushButton(this, CONTROL_INTERFACE, "3010", "296", "Control system", "Wing Fold Lever Stow/Pull", "1", "0", "%1d"));
             #endregion
             #region  Electric system
             AddFunction(new Switch(this, ELEC_INTERFACE, "404", new SwitchPosition[] { new SwitchPosition("1.0", "ON", "3001"), new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("-1.0", "ORIDE", "3001") }, "Electric system", "Battery Switch", "%0.1f"));    // elements["pnt_404"]     = default_3_position_tumb(_("Battery Switch, ON/OFF/ORIDE"),                devices.ELEC_INTERFACE, elec_commands.BattSw,               404)
@@ -362,19 +366,22 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             #region  Power Plant
             AddFunction(Switch.CreateToggleSwitch(this, ENGINES_INTERFACE, "3001", "375", "1.0", "ON", "0.0", "OFF", "Power Plant", "APU Control Switch", "%0.1f"));    // elements["pnt_375"] = default_button2(_("APU Control Switch, ON/OFF"),  devices.ENGINES_INTERFACE, engines_commands.APU_ControlSw,  375)
             AddFunction(new Switch(this, ENGINES_INTERFACE, "377", new SwitchPosition[] { new SwitchPosition("1", "Right", "3003", "3003", "0"), new SwitchPosition("0", "Off", "3002"), new SwitchPosition("-1", "Left", "3002","3002","0") }, "Power Plant", "Engine Crank Switch", "%1d"));      // elements["pnt_377"] = springloaded_3_pos_tumb2(_("Engine Crank Switch, LEFT/OFF/RIGHT"),devices.ENGINES_INTERFACE, engines_commands.EngineCrankLSw, engines_commands.EngineCrankRSw, 377)
-            AddFunction(new Switch(this, ENGINES_INTERFACE, "331", new SwitchPosition[] { new SwitchPosition("1", "Test A", "3007", "3007", "0"), new SwitchPosition("0", "Off", "3008"), new SwitchPosition("-1", "Test B", "3008", "3008", "0") }, "Power Plant", "Fire and Bleed Air Test Switch", "%1d")); // elements["pnt_331"] = springloaded_3_pos_tumb2(_("Fire and Bleed Air Test Switch, (RMB) TEST A/(LMB) TEST B"),  devices.ENGINES_INTERFACE, engines_commands.FireTestBSw, engines_commands.FireTestASw,  331)
-            //AddFunction(Switch.CreateThreeWaySwitch(this, ENGINES_INTERFACE, "3007", "331", "1.0", "TEST A", "0.0", "Off","-1.0","TEST B", "Power Plant", "Fire and Bleed Air Test Switch", "%0.1f"));    
+            AddFunction(new Switch(this, ENGINES_INTERFACE, "331", new SwitchPosition[] { new SwitchPosition("1", "Test A", "3006", "3006", "0"), new SwitchPosition("0", "Off", "3007"), new SwitchPosition("-1", "Test B", "3007", "3007", "0") }, "Power Plant", "Fire and Bleed Air Test Switch", "%1d")); // elements["pnt_331"] = springloaded_3_pos_tumb2(_("Fire and Bleed Air Test Switch, (RMB) TEST A/(LMB) TEST B"),  devices.ENGINES_INTERFACE, engines_commands.FireTestBSw, engines_commands.FireTestASw,  331)
             #endregion
             #region  Hydraulic system
             AddFunction(Switch.CreateToggleSwitch(this, HYDRAULIC_INTERFACE, "3001", "369", "1.0", "NORM", "0.0", "ORIDE", "Hydraulic system", "Hydraulic Isolate Override Switch", "%0.1f"));    // elements["pnt_369"]     = default_2_position_tumb(_("Hydraulic Isolate Override Switch, NORM/ORIDE"),   devices.HYDRAULIC_INTERFACE, hydro_commands.HydIsolSw,  369)
             #endregion
             #region  Gear system
-            //AddFunction(Switch.CreateThreeWaySwitch(this, GEAR_INTERFACE, "3001", "226", "1.0", "(RMB)UP", "0.5", "(LMB)DOWN", "0.0", "(MW)EMERGENCY DOWN", "Gear system", "Landing Gear Control Handle", "%0.1f"));    // elements["pnt_226"]     = LDG_Gear_Control_Handle(_("Landing Gear Control Handle, (RMB)UP/(LMB)DOWN/(MW)EMERGENCY DOWN"),   devices.GEAR_INTERFACE, gear_commands.GearHandle, 226, gear_commands.EmergDown, 228, 4.5)
             AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3001", "226", "1.0", "UP", "0.0", "DOWN", "Gear system", "Landing Gear Control Handle", "%0.1f"));    // elements["pnt_226"]     = LDG_Gear_Control_Handle(_("Landing Gear Control Handle, (RMB)UP/(LMB)DOWN/(MW)EMERGENCY DOWN"),   devices.GEAR_INTERFACE, gear_commands.GearHandle, 226, gear_commands.EmergDown, 228, 4.5)
+            AddFunction(new PushButton(this, GEAR_INTERFACE, "3002", "228", "Gear system", "Emergency Down - Push to unlock", "1", "0", "%1d"));
             AddFunction(new PushButton(this, GEAR_INTERFACE, "3003", "229", "Gear system", "Down Lock Override Button - Push to unlock", "1", "0", "%1d"));    // elements["pnt_229"]     = default_button(_("Down Lock Override Button - Push to unlock"),   devices.GEAR_INTERFACE, gear_commands.DownLockOverrideBtn,  229)
             AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3004", "238", "1.0", "ON", "0.0", "OFF", "Gear system", "Anti Skid Switch", "%0.1f"));    // elements["pnt_238"]     = default_2_position_tumb(_("Anti Skid Switch, ON/OFF"),            devices.GEAR_INTERFACE, gear_commands.AntiSkidSw,           238)
-            AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3008", "233", "0.0", "RETRACT", "1.0", "EXTEND", "Gear system", "Launch Bar Control Switch", "%0.1f"));    // elements["pnt_233"]     = default_button2(_("Launch Bar Control Switch, EXTEND/RETRACT"),   devices.GEAR_INTERFACE, gear_commands.LaunchBarSw, 233, anim_speed_default)
+            //AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3008", "233", "0.0", "RETRACT", "1.0", "EXTEND", "Gear system", "Launch Bar Control Switch", "%0.1f"));    // elements["pnt_233"]     = default_button2(_("Launch Bar Control Switch, EXTEND/RETRACT"),   devices.GEAR_INTERFACE, gear_commands.LaunchBarSw, 233, anim_speed_default)
+            AddFunction(new Switch(this, GEAR_INTERFACE, "233", new SwitchPosition[] { new SwitchPosition("0.0", "Retract", "3008", "3008", "0.3"), new SwitchPosition("1.0", "Extend", "3008") }, "Gear system", "Launch Bar Control Switch", "%0.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3009", "293", "1.0", "UP", "0.0", "DOWN", "Gear system", "Arresting Hook Handle", "%0.1f"));    // elements["pnt_293"]     = default_2_position_tumb(_("Arresting Hook Handle, UP/DOWN"),      devices.GEAR_INTERFACE, gear_commands.HookHandle,   293)
+            //AddFunction(new Switch(this, GEAR_INTERFACE, "241", new SwitchPosition[] { new SwitchPosition("-1", "Park", "3006", "3006", "0"), new SwitchPosition("0", "Emergency", "3007") }, "Gear system", "Emergency / Parking Brake Handle Park/Emergency", "%1d"));
+            AddFunction(new PushButton(this, GEAR_INTERFACE, "3006", "241", "Gear system", "Brake Handle Park/Emergency","1","0", "%0.1f"));
+            AddFunction(new Switch(this, GEAR_INTERFACE, "240", new SwitchPosition[] { new SwitchPosition("1", "On", "3005"), new SwitchPosition("0", "Off", "3005") }, "Gear system", "Emergency / Parking Brake Handle On/Off", "%0.1f"));
             #endregion
             #region  Fuel system
             AddFunction(Switch.CreateToggleSwitch(this, FUEL_INTERFACE, "3001", "340", "1.0", "INHIBIT", "0.0", "NORM", "Fuel system", "Internal Wing Tank Fuel Control Switch", "%0.1f"));    // elements["pnt_340"]     = default_2_position_tumb(_("Internal Wing Tank Fuel Control Switch, INHIBIT/NORM"),            devices.FUEL_INTERFACE, fuel_commands.IntrWingInhibitSw,    340)
@@ -402,8 +409,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             //AddFunction(new PushButton(this,, "", "499", "Mirrors","Toggle Mirrors"));    // elements["pnt_499"]             = default_2_position_tumb(_("Toggle Mirrors"), 0, 3004, 0)
             #endregion
             #region  Exterior Lights
-            AddFunction(new Axis(this, EXT_LIGHTS, "3005", "338", 0.15d, 0d, 1d, "Exterior Lights", "POSITION Lights Dimmer Control"));    // elements["pnt_338"]     = default_axis_limited(_("POSITION Lights Dimmer Control"),         devices.EXT_LIGHTS,     extlights_commands.Position,    338, 0, 0.15)
-            AddFunction(new Axis(this, EXT_LIGHTS, "3002", "337", 0.15d, 0d, 1d, "Exterior Lights", "FORMATION Lights Dimmer Control"));    // elements["pnt_337"]     = default_axis_limited(_("FORMATION Lights Dimmer Control"),        devices.EXT_LIGHTS,     extlights_commands.Formation,   337, 0, 0.15)
+            AddFunction(new Axis(this, EXT_LIGHTS, "3001", "338", 0.15d, 0d, 1d, "Exterior Lights", "Position Lights Dimmer Control"));    // elements["pnt_338"]     = default_axis_limited(_("POSITION Lights Dimmer Control"),         devices.EXT_LIGHTS,     extlights_commands.Position,    338, 0, 0.15)
+            AddFunction(new Axis(this, EXT_LIGHTS, "3002", "337", 0.10d, 0d, 1d, "Exterior Lights", "Formation Lights Dimmer Control"));    // elements["pnt_337"]     = default_axis_limited(_("FORMATION Lights Dimmer Control"),        devices.EXT_LIGHTS,     extlights_commands.Formation,   337, 0, 0.15)
             AddFunction(new Switch(this, EXT_LIGHTS, "339", new SwitchPosition[] { new SwitchPosition("1.0", "BRT", "3003"), new SwitchPosition("0.5", "OFF", "3003"), new SwitchPosition("0.0", "DIM", "3003") }, "Exterior Lights", "STROBE Lights Switch", "%0.1f"));    // elements["pnt_339"]     = default_3_position_tumb(_("STROBE Lights Switch, BRT/OFF/DIM"),   devices.EXT_LIGHTS,     extlights_commands.Strobe,      339)
             AddFunction(Switch.CreateToggleSwitch(this, EXT_LIGHTS, "3004", "237", "1.0", "ON", "0.0", "OFF", "Exterior Lights", "LDG/TAXI LIGHT Switch", "%0.1f"));    // elements["pnt_237"]     = default_2_position_tumb(_("LDG/TAXI LIGHT Switch, ON/OFF"),       devices.EXT_LIGHTS,     extlights_commands.LdgTaxi,     237)
             #endregion
@@ -419,15 +426,15 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(Switch.CreateToggleSwitch(this, CPT_LIGTHS, "3009", "239", "1.0", "Field", "0.0", "Carrier", "Gear system", "Hook Bypass Switch", "%0.1f"));    // elements["pnt_239"]= springloaded_2_pos_tumb2(_("HOOK BYPASS Switch, FIELD/CARRIER"),  devices.CPT_LIGTHS,     cptlights_commands.HookBypass,  239)
             #endregion
             #region  Oxygen System
-            AddFunction(Switch.CreateToggleSwitch(this, OXYGEN_INTERFACE, "3001", "365", "1.0", "ON", "0.0", "OFF", "Oxygen System", "OBOGS Control Switch", "%0.1f"));    // elements["pnt_365"]     = default_2_position_tumb(_("OBOGS Control Switch, ON/OFF"),        devices.OXYGEN_INTERFACE,   oxygen_commands.OBOGS_ControlSw,        365)
-            AddFunction(new Axis(this, OXYGEN_INTERFACE, "3002", "366", 0.15d, 0d, 1d, "Oxygen System", "OXY Flow Knob"));    // elements["pnt_366"]     = default_axis_limited(_("OXY Flow Knob"),                          devices.OXYGEN_INTERFACE,   oxygen_commands.OxyFlowControlValve,    366, 1.0, 0.5, false, false, {0,1})
+            AddFunction(Switch.CreateToggleSwitch(this, OXYGEN_INTERFACE, "3001", "365", "1.0", "ON", "0.0", "OFF", "Oxygen system", "OBOGS Control Switch", "%0.1f"));    // elements["pnt_365"]     = default_2_position_tumb(_("OBOGS Control Switch, ON/OFF"),        devices.OXYGEN_INTERFACE,   oxygen_commands.OBOGS_ControlSw,        365)
+            AddFunction(new Axis(this, OXYGEN_INTERFACE, "3002", "366", 0.15d, 0d, 1d, "Oxygen system", "OXY Flow Knob"));    // elements["pnt_366"]     = default_axis_limited(_("OXY Flow Knob"),                          devices.OXYGEN_INTERFACE,   oxygen_commands.OxyFlowControlValve,    366, 1.0, 0.5, false, false, {0,1})
             #endregion
             #region  ECS
             AddFunction(new Switch(this, ECS_INTERFACE, "411", new SwitchPosition[] { new SwitchPosition("1.0", "R OFF", "3001"), new SwitchPosition("0.7", "NORM", "3001"), new SwitchPosition("0.3", "L OFF", "3001"), new SwitchPosition("0.0", "OFF", "3001") }, "ECS", "Bleed Air Knob", "%0.1f"));    // elements["pnt_411"]     = multiposition_switch_cl(_("Bleed Air Knob, R OFF/NORM/L OFF/OFF"),                devices.ECS_INTERFACE, ECS_commands.BleedAirSw, 411, 4, 0.1, false, 0.0, anim_speed_default * 0.1, true)
             AddFunction(new PushButton(this, ECS_INTERFACE, "3002", "412", "ECS", "Bleed Air Knob AUG PULL", "1", "0", "%1d"));    // elements["pnt_412"]     = default_button(_("Bleed Air Knob, AUG PULL"),                                     devices.ECS_INTERFACE, ECS_commands.BleedAirSwAugPull, 412)
             AddFunction(new Switch(this, ECS_INTERFACE, "405", new SwitchPosition[] { new SwitchPosition("1.0", "AUTO", "3003"), new SwitchPosition("0.7", "MAN", "3003"), new SwitchPosition("0.3", "OFF", "3003"), new SwitchPosition("0.0", "RAM", "3003") }, "ECS", "ECS Mode Switch", "%0.1f"));    // elements["pnt_405"]     = default_3_position_tumb(_("ECS Mode Switch, AUTO/MAN/ OFF/RAM"),                  devices.ECS_INTERFACE, ECS_commands.ECSModeSw, 405)
             AddFunction(new Switch(this, ECS_INTERFACE, "408", new SwitchPosition[] { new SwitchPosition("1.0", "NORM", "3004"), new SwitchPosition("0.7", "DUMP", "3004"), new SwitchPosition("0.3", "RAM", "3004"), new SwitchPosition("0.0", "DUMP", "3004") }, "ECS", "Cabin Pressure Switch", "%0.1f"));    // elements["pnt_408"]     = default_3_position_tumb(_("Cabin Pressure Switch, NORM/DUMP/ RAM/DUMP"),          devices.ECS_INTERFACE, ECS_commands.CabinPressSw, 408)
-            AddFunction(new Axis(this, ECS_INTERFACE, "3005", "451", 0.15d, 0d, 1d, "ECS", "Defog Handle"));    // elements["pnt_451"]     = default_axis_limited(_("Defog Handle"),                                           devices.ECS_INTERFACE, ECS_commands.DefogHandle, 451, 0.0, 0.1, true, false, {-1,1})
+            AddFunction(new Axis(this, ECS_INTERFACE, "3005", "451", 0.50d, 0d, 1d, "ECS", "Defog Handle"));    // elements["pnt_451"]     = default_axis_limited(_("Defog Handle"),                                           devices.ECS_INTERFACE, ECS_commands.DefogHandle, 451, 0.0, 0.1, true, false, {-1,1})
             AddFunction(new Axis(this, ECS_INTERFACE, "3006", "407", 0.15d, 0d, 1d, "ECS", "Cabin Temperature Knob"));    // elements["pnt_407"]     = default_axis_limited(_("Cabin Temperature Knob"),                                 devices.ECS_INTERFACE, ECS_commands.CabinTemperatureRst, 407, 0.0, 0.1, false, false, {0,1})
             AddFunction(new Axis(this, ECS_INTERFACE, "3007", "406", 0.15d, 0d, 1d, "ECS", "Suit Temperature Knob"));    // elements["pnt_406"]     = default_axis_limited(_("Suit Temperature Knob"),                                  devices.ECS_INTERFACE, ECS_commands.SuitTemperatureRst, 406, 0.0, 0.1, false, false, {0,1})
             AddFunction(Switch.CreateToggleSwitch(this, ECS_INTERFACE, "3008", "297", "1.0", "NORM", "0.0", "EMERG", "ECS", "AV COOL Switch", "%0.1f"));    // elements["pnt_297"]     = default_2_position_tumb(_("AV COOL Switch, NORM/EMERG"),                          devices.ECS_INTERFACE, ECS_commands.AV_COOL_Sw, 297)
@@ -450,7 +457,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new PushButton(this, SMS, "3008", "159", "Master Arm Panel", "Station Jettison Select Button RIGHT IN", "1", "0", "%1d"));    // elements["pnt_159"]     = default_2_position_tumb(_("Station Jettison Select Button, RIGHT IN"),    devices.SMS, SMS_commands.JettStationRIBtn, 159)
             AddFunction(new PushButton(this, SMS, "3009", "161", "Master Arm Panel", "Station Jettison Select Button RIGHT OUT", "1", "0", "%1d"));    // elements["pnt_161"]     = default_2_position_tumb(_("Station Jettison Select Button, RIGHT OUT"),   devices.SMS, SMS_commands.JettStationROBtn, 161)
             AddFunction(new PushButton(this, SMS, "3010", "235", "Master Arm Panel", "Selective Jettison Pushbutton"));    // elements["pnt_235"]     = default_button(_("Selective Jettison Pushbutton"),                    devices.SMS, SMS_commands.SelJettBtn, 235)
-            AddFunction(new Switch(this, SMS, "236", new SwitchPosition[] { new SwitchPosition("1.0", "L FUS MSL", "3011"), new SwitchPosition("0.8", "SAFE", "3011"), new SwitchPosition("0.6", "R FUS MSL", "3011"), new SwitchPosition("0.4", "RACK", "3011"), new SwitchPosition("0.2", "LCHR", "3011"), new SwitchPosition("0.0", "STORES", "3011") }, "Master Arm Panel", "Selective Jettison Knob", "%0.1f"));    // elements["pnt_236"]     = multiposition_switch(_("Selective Jettison Knob, L FUS MSL/SAFE/R FUS MSL/ RACK/LCHR /STORES"),   devices.SMS, SMS_commands.SelJettLvr, 236, 5, 0.1, false, -0.1, 1.5)
+            AddFunction(new Switch(this, SMS, "236", new SwitchPosition[] { new SwitchPosition("-0.1", "L FUS MSL", "3011"), new SwitchPosition("0.0", "SAFE", "3011"), new SwitchPosition("0.1", "R FUS MSL", "3011"), new SwitchPosition("0.2", "Rack / LCHR", "3011"),  new SwitchPosition("0.3", "STORES", "3011") }, "Master Arm Panel", "Selective Jettison Knob", "%0.1f"));    // elements["pnt_236"]     = multiposition_switch(_("Selective Jettison Knob, L FUS MSL/SAFE/R FUS MSL/ RACK/LCHR /STORES"),   devices.SMS, SMS_commands.SelJettLvr, 236, 5, 0.1, false, -0.1, 1.5)
             AddFunction(new Switch(this, SMS, "135", new SwitchPosition[] { new SwitchPosition("1.0", "ORIDE", "3013"), new SwitchPosition("0.5", "NORM", "3013"), new SwitchPosition("0.0", "OFF", "3013") }, "Master Arm Panel", "IR Cooling Switch", "%0.1f"));    // elements["pnt_135"]     = default_3_position_tumb(_("IR Cooling Switch, ORIDE/NORM/OFF"),           devices.SMS, SMS_commands.IRCoolingSw, 135, false, anim_speed_default, false, 0.1, {0, 0.2})
             #endregion
             #region  Fire Systems
@@ -555,8 +562,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Switch(this, MDI_LEFT, "312", new SwitchPosition[] { new SwitchPosition("1", "+ve", "3004", "3004", "0"), new SwitchPosition("0", "Off", "3005"), new SwitchPosition("-1", "-ve", "3005", "3005", "0") }, "AMPCD", "Heading Set Switch", "%1d")); // elements["pnt_312"]     = springloaded_3_pos_tumb2(_("Heading Set Switch"),devices.MDI_LEFT, MDI_commands.MDI_Left_HDG_Negative, MDI_commands.MDI_Left_HDG_Positive, 312)
             AddFunction(new Switch(this, MDI_LEFT, "313", new SwitchPosition[] { new SwitchPosition("1", "+ve", "3006", "3006", "0"), new SwitchPosition("0", "Off", "3007"), new SwitchPosition("-1", "-ve", "3007", "3007", "0") }, "AMPCD", "Course Set Switch", "%1d"));  // elements["pnt_313"]= springloaded_3_pos_tumb(_("Course Set Switch"),devices.MDI_LEFT, MDI_commands.MDI_Left_CRS_Negative, MDI_commands.MDI_Left_CRS_Positive, 313)
             #endregion
-            #region  Instruments
-            #endregion
+
             #region  Integrated Fuel/Engine Indicator (IFEI)
             AddFunction(new PushButton(this, IFEI, "3001", "168", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Mode Button", "1", "0", "%1d"));    // elements["pnt_168"] = short_way_button(_("IFEI Mode Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_MODE,          168)
             AddFunction(new PushButton(this, IFEI, "3002", "169", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI QTY Button", "1", "0", "%1d"));    // elements["pnt_169"] = short_way_button(_("IFEI QTY Button"),            devices.IFEI, IFEI_commands.IFEI_BTN_QTY,           169)
@@ -567,9 +573,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Axis(this, IFEI, "3007", "174", 0.1d, 0.5d, 1d, "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Brightness Control Knob"));    // elements["pnt_174"] = default_axis(_("IFEI Brightness Control Knob"),   devices.IFEI, IFEI_commands.IFEI_Brightness,        174, 0.5, 0.1)
             #endregion
             #region  Sensor panel
-            //AddFunction(new Switch(this, , "440", new SwitchPosition[]{new SwitchPosition("1.0","OFF", ""), new SwitchPosition("0.7","STBY", ""), new SwitchPosition("0.3","OPR", ""), new SwitchPosition("0.0","EMERG(PULL)", "")}, "Sensor panel","RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),
+            AddFunction(new Switch(this, RADAR, "440", new SwitchPosition[]{new SwitchPosition("0.0","OFF", "3001"), new SwitchPosition("0.1","STBY", "3001"), new SwitchPosition("0.2","OPR", "3001"), new SwitchPosition("0.3","EMERG(PULL)", "3002")}, "Sensor panel","RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),
             #endregion
-            #region  OLD
+            #region  INS
+            AddFunction(new Switch(this, INS, "443", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3001"), new SwitchPosition("0.1", "CV", "3001"), new SwitchPosition("0.2", "GND", "3001"), new SwitchPosition("0.3", "IFA", "3001"), new SwitchPosition("0.4", "GYRO", "3001"), new SwitchPosition("0.5", "GB", "3001"), new SwitchPosition("0.6", "Test", "3001") }, "INS", "Inertial Navigation System Switch", "%0.1f")); // 
+
             #endregion
             #region  NEW - still buggy
             #endregion
@@ -631,8 +639,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new PushButton(this, INTERCOM, "3018", "230", "Intercom", "Warning Tone Silence Button - Push to silence", "1", "0", "%1d"));    // elements["pnt_230"]     = default_button(_("Warning Tone Silence Button - Push to silence"),            devices.INTERCOM, Intercom_commands.WarnToneSilBtn, 230)
             #endregion
             #region  antenna selector
-            AddFunction(new Switch(this, ANTENNA_SELECTOR, "373", new SwitchPosition[] { new SwitchPosition("1.0", "UPPER", "3001"), new SwitchPosition("0.5", "AUTO", "3001"), new SwitchPosition("0.0", "LOWER", "3001") }, "antenna selector", "COMM 1 Antenna Selector Switch", "%0.1f"));    // elements["pnt_373"]     = default_3_position_tumb(_("COMM 1 Antenna Selector Switch, UPPER/AUTO/LOWER"),    devices.ANTENNA_SELECTOR, antsel_commands.Comm1AntSelSw,    373,    false, anim_speed_default, false)
-            AddFunction(new Switch(this, ANTENNA_SELECTOR, "374", new SwitchPosition[] { new SwitchPosition("1.0", "UPPER", "3002"), new SwitchPosition("0.5", "BOTH", "3002"), new SwitchPosition("0.0", "LOWER", "3002") }, "antenna selector", "IFF Antenna Selector Switch", "%0.1f"));    // elements["pnt_374"]     = default_3_position_tumb(_("IFF Antenna Selector Switch, UPPER/BOTH/LOWER"),       devices.ANTENNA_SELECTOR, antsel_commands.AntSelIFFSw,      374,    false, anim_speed_default, false)
+            AddFunction(new Switch(this, ANTENNA_SELECTOR, "373", new SwitchPosition[] { new SwitchPosition("1.0", "UPPER", "3001"), new SwitchPosition("0.5", "AUTO", "3001"), new SwitchPosition("0.0", "LOWER", "3001") }, "Antenna Selector", "COMM 1 Antenna Selector Switch", "%0.1f"));    // elements["pnt_373"]     = default_3_position_tumb(_("COMM 1 Antenna Selector Switch, UPPER/AUTO/LOWER"),    devices.ANTENNA_SELECTOR, antsel_commands.Comm1AntSelSw,    373,    false, anim_speed_default, false)
+            AddFunction(new Switch(this, ANTENNA_SELECTOR, "374", new SwitchPosition[] { new SwitchPosition("1.0", "UPPER", "3002"), new SwitchPosition("0.5", "BOTH", "3002"), new SwitchPosition("0.0", "LOWER", "3002") }, "Antenna Selector", "IFF Antenna Selector Switch", "%0.1f"));    // elements["pnt_374"]     = default_3_position_tumb(_("IFF Antenna Selector Switch, UPPER/BOTH/LOWER"),       devices.ANTENNA_SELECTOR, antsel_commands.AntSelIFFSw,      374,    false, anim_speed_default, false)
             #endregion
             #region  RWR
             AddFunction(new PushButton(this, RWR, "3001", "277", "RWR", "ALR-67 POWER Pushbutton", "1", "0", "%1d"));    // elements["pnt_277"]     = short_way_button(_("ALR-67 POWER Pushbutton"),                                devices.RWR, rwr_commands.Power, 277)
@@ -669,16 +677,15 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
             #region  Instruments
             #region  Standby Baro Altimeter AAU-52/A
-            AddFunction(new Axis(this, AAU52, "3001", "224", 0.04d, 0d, 0.1d, "Standby Baro Altimeter AAU-52/A", "Pressure Setting Knob"));    // elements["pnt_224"]     = default_axis(_("AAU-52 Altimeter Pressure Setting Knob"), devices.AAU52, aau52_commands.AAU52_ClkCmd_ZeroSetting, 224, 0.04, 0.1, false, true)
+            AddFunction(new Axis(this, AAU52, "3001", "224", 0.01d, 0d, 1d, "Standby Baro Altimeter AAU-52/A", "Pressure Setting Knob", true, "%.3f"));    // elements["pnt_224"]     = default_axis(_("AAU-52 Altimeter Pressure Setting Knob"), devices.AAU52, aau52_commands.AAU52_ClkCmd_ZeroSetting, 224, 0.04, 0.1, false, true)
             AddFunction(new Altimeter(this, "Standby Baro Altimeter AAU-52/A", "2051", "Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059", "Pressure", "Manually set barometric altitude.", ""));
+            //AddFunction(new Axis(this, ADC, "3653", "653", 0.01d, 0d, 1d, "Altimeter", "Barometric pressure calibration adjust", true, "%.3f"));  // not sure what this is
             #endregion
             #region  Radar Altimeter Height Indicator
             AddFunction(new PushButton(this, ID2163A, "3001", "292", "Radar Altimeter ID2163A", "Push to Test Button"));    // elements["pnt_291"]     = default_button_axis_extended(_("Push to Test Switch, (LMB) activate BIT checks/(MW) rotate clockwise to apply power and set low altitude index pointer"), devices.ID2163A, id2163a_commands.ID2163A_PushToTest, id2163a_commands.ID2163A_SetMinAlt, 292, 291, 0.1, true)
-            AddFunction(new Axis(this, ID2163A, "3002", "291", 0.10d, 0d, 1d, "Radar Altimeter ID2163A", "Set Minimum Altitude"));    // elements["pnt_291"]     = default_button_axis_extended(_("Push to Test Switch, (LMB) activate BIT checks/(MW) rotate clockwise to apply power and set low altitude index pointer"), devices.ID2163A, id2163a_commands.ID2163A_PushToTest, id2163a_commands.ID2163A_SetMinAlt, 292, 291, 0.1, true)
-            CalibrationPointCollectionDouble ID2163AScale = new CalibrationPointCollectionDouble(0.0d, 0d, 1.0d, 50000d);
-            //ID2163AScale.Add(new CalibrationPointDouble(0d, 0d));
-            AddFunction(new ScaledNetworkValue(this, "287", ID2163AScale, "Radar Altimeter ID2163A", "Minimum Height Indicator", "Minimum Altitude in Feet.", "", BindingValueUnits.Feet));
-            AddFunction(new ScaledNetworkValue(this, "286", ID2163AScale, "Radar Altimeter ID2163A", "RADAR Altitude", "Altitude in feet measured by RADAR.", "", BindingValueUnits.Feet));
+            AddFunction(new Axis(this, ID2163A, "3002", "291", 0.001d, 0d, 1d, "Radar Altimeter ID2163A", "Set Minimum Altitude", true, "%.3f"));    // elements["pnt_291"]     = default_button_axis_extended(_("Push to Test Switch, (LMB) activate BIT checks/(MW) rotate clockwise to apply power and set low altitude index pointer"), devices.ID2163A, id2163a_commands.ID2163A_PushToTest, id2163a_commands.ID2163A_SetMinAlt, 292, 291, 0.1, true)
+            AddFunction(new NetworkValue(this, "287", "Radar Altimeter ID2163A", "Minimum Height Indicator", "Minimum Altitude in Feet.", "", BindingValueUnits.Feet));
+            AddFunction(new NetworkValue(this, "286", "Radar Altimeter ID2163A", "RADAR Altitude", "Altitude in feet measured by RADAR.", "", BindingValueUnits.Feet));
             AddFunction(new FlagValue(this, "288", "Radar Altimeter ID2163A", "Off Flag", ""));
             AddFunction(new FlagValue(this, "289", "Radar Altimeter ID2163A", "Green Lamp", ""));
             AddFunction(new FlagValue(this, "290", "Radar Altimeter ID2163A", "Red Lamp", ""));
@@ -706,13 +713,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
             #region System Gauges
             //Cabin Altitude Pressure 
-            CalibrationPointCollectionDouble cabinScale = new CalibrationPointCollectionDouble(-0.003d, -300d, 0.5000d, 50000d);
+            //CalibrationPointCollectionDouble cabinScale = new CalibrationPointCollectionDouble(-0.003d, -300d, 0.5000d, 50000d);
+            CalibrationPointCollectionDouble cabinScale = new CalibrationPointCollectionDouble(-0.003d, -300d, 1.0d, 50000d);
             cabinScale.Add(new CalibrationPointDouble(0d, 0d));
             AddFunction(new ScaledNetworkValue(this, "285", cabinScale, "System Gauges", "Cabin Altitude", "Cabin altitude pressue in feet 0 to +50000.", "", BindingValueUnits.Numeric));
 
             //  Hydraulic Pressure
-            CalibrationPointCollectionDouble brakepressScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 5000.0d);
-            AddFunction(new ScaledNetworkValue(this, "242", brakepressScale, "System Gauges", "Brake pressure", "Brake pressure in psi", "", BindingValueUnits.PoundsPerSquareInch, "%0.2f"));
+            AddFunction(new NetworkValue(this, "242", "System Gauges", "Brake pressure", "Brake pressure in psi", "", BindingValueUnits.PoundsPerSquareInch, "%0.2f"));
             CalibrationPointCollectionDouble hydpressScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 5000.0d);
             AddFunction(new ScaledNetworkValue(this, "310", hydpressScale, "System Gauges", "Left Hyd pressure display", "Left Hydraulic system pressure in psi", "", BindingValueUnits.PoundsPerSquareInch));
             AddFunction(new ScaledNetworkValue(this, "311", hydpressScale, "System Gauges", "Right Hyd pressure display", "Right Hydraulic system pressure in psi", "", BindingValueUnits.PoundsPerSquareInch));

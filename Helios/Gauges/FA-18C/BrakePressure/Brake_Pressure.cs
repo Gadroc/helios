@@ -32,11 +32,12 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/BrakePressure/Brake_Pressure_Faceplate.png", new Rect(0d, 0d, 280d, 280d)));
 
-            _needleCalibration = new CalibrationPointCollectionDouble(1000d, -30d, 4000d, 30d);
-            _needleCalibration.Add(new CalibrationPointDouble(0d, -50d));
-            _needleCalibration.Add(new CalibrationPointDouble(5000d, 35d));
-
-            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(140d, 220d), new Size(36, 154), new Point(18, 136), -50d);
+            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 1d, 80d);
+            _needleCalibration.Add(new CalibrationPointDouble(0.036d, 10d));
+            _needleCalibration.Add(new CalibrationPointDouble(0.338d, 30d));
+            _needleCalibration.Add(new CalibrationPointDouble(0.636d, 50d));
+            _needleCalibration.Add(new CalibrationPointDouble(0.924d, 70d));
+            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(140d, 220d), new Size(36, 154), new Point(18, 136), -40d);
             Components.Add(_needle);
             Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/BrakePressure/Brake_Pressure_Cover.png", new Rect(29d, 182d, 226d, 98d)));
 

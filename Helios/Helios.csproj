@@ -162,6 +162,7 @@
     <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
+    <Compile Include="Gauges\FA-18C\ADI\ADI.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\BarometricAltimeter.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\RADARAltimeter.cs" />
     <Compile Include="Gauges\FA-18C\Battery\Battery.cs" />
@@ -2553,6 +2554,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_bank_pointer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_guides.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_inner_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_outer_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -3305,6 +3326,37 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\FA-18C\Push to Test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FA-18C\indicator_green.png" />
+    <Resource Include="Images\FA-18C\indicator_red.png" />
+    <Resource Include="Images\FA-18C\indicator_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FA-18C\Radar Altimeter Off Flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FA-18C\Radar Altimeter Blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FA-18C\brake_PULLED_1.png" />
+    <Resource Include="Images\FA-18C\brake_PULLED_2.png" />
+    <Resource Include="Images\FA-18C\brake_PULLED_3.png" />
+    <Resource Include="Images\FA-18C\brake_PUSHED_1.png" />
+    <Resource Include="Images\FA-18C\brake_PUSHED_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\ADI\adi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\ADI\adi_glass.png" />
+    <Resource Include="Gauges\FA-18C\ADI\adi_inner_ring.png" />
+    <Resource Include="Gauges\FA-18C\ADI\adi_slip_bezel.png" />
+    <Resource Include="Gauges\FA-18C\ADI\adi_off_flag.png" />
+    <Resource Include="Gauges\FA-18C\ADI\adi_wings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\ADI\adi_ball.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
