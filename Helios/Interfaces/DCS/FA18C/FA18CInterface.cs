@@ -199,87 +199,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "4", "Caution Indicators", "AOA_HIGH", ""));        // create_caution_lamp(4,CautionLights.CPT_LTS_AOA_HIGH)
             AddFunction(new FlagValue(this, "5", "Caution Indicators", "AOA_CENTER", ""));      // create_caution_lamp(5,CautionLights.CPT_LTS_AOA_CENTER)
             AddFunction(new FlagValue(this, "6", "Caution Indicators", "AOA_LOW", ""));         // create_caution_lamp(6,CautionLights.CPT_LTS_AOA_LOW)
-            #region Declarations for Caution Lights numbers from Lamps.lua
-            // Caution Light Indicator Panel
-            // CPT_LTS_CK_SEAT = 0
-            // CPT_LTS_APU_ACC = 1
-            // CPT_LTS_BATT_SW = 2
-            // CPT_LTS_FCS_HOT = 3
-            // CPT_LTS_GEN_TIE = 4
-            // CPT_LTS_SPARE_CTN1 = 5
-            // CPT_LTS_FUEL_LO = 6
-            // CPT_LTS_FCES = 7
-            // CPT_LTS_SPARE_CTN2 = 8
-            // CPT_LTS_L_GEN = 9
-            // CPT_LTS_R_GEN = 10
-            // CPT_LTS_SPARE_CTN3 = 11
-            // LH Advisory and Threat Warning Indicator Panel
-            // CPT_LTS_MASTER_CAUTION = 12
-            // CPT_LTS_FIRE_LEFT = 13
-            // CPT_LTS_GO = 14
-            // CPT_LTS_NO_GO = 15
-            // CPT_LTS_L_BLEED = 16
-            // CPT_LTS_R_BLEED = 17
-            // CPT_LTS_SPD_BRK = 18
-            // CPT_LTS_STBY = 19
-            // CPT_LTS_L_BAR_RED = 20
-            // CPT_LTS_REC = 21
-            // CPT_LTS_L_BAR_GREEN = 22
-            // CPT_LTS_XMIT = 23
-            // CPT_LTS_ASPJ_OH = 24
-            // RH Advisory and Threat Warning Indicator Panel
-            // CPT_LTS_FIRE_APU = 25
-            // CPT_LTS_FIRE_RIGHT = 26
-            // CPT_LTS_RCDR_ON = 27
-            // CPT_LTS_DISP = 28
-            // CPT_LTS_SAM = 29
-            // CPT_LTS_AI = 30
-            // CPT_LTS_AAA = 31
-            // CPT_LTS_CW = 32
-            // CPT_LTS_SPARE_RH1 = 33
-            // CPT_LTS_SPARE_RH2 = 34
-            // CPT_LTS_SPARE_RH3 = 35
-            // CPT_LTS_SPARE_RH4 = 36
-            // CPT_LTS_SPARE_RH5 = 37
-            // Flaps Landing Gear and Stores Indicator Panel
-            // CPT_LTS_CTR = 38
-            // CPT_LTS_LI = 39
-            // CPT_LTS_LO = 40
-            // CPT_LTS_RI = 41
-            // CPT_LTS_RO = 42
-            // CPT_LTS_NOSE_GEAR = 43
-            // CPT_LTS_LEFT_GEAR = 44
-            // CPT_LTS_RIGHT_GEAR = 45
-            // CPT_LTS_HALF_FLAPS = 46
-            // CPT_LTS_FULL_FLAPS = 47
-            // CPT_LTS_FLAPS = 48
-            // Lock/Shoot Light Assy
-            // CPT_LTS_LOCK = 49
-            // CPT_LTS_SHOOT = 50
-            // CPT_LTS_SHOOT_STROBE = 51
-            // Master Arm Control
-            // CPT_LTS_AA = 52
-            // CPT_LTS_AG = 53
-            // CPT_LTS_DISCH = 54
-            // CPT_LTS_READY = 55
-            // Arresting Hook Control Handle
-            // CPT_LTS_HOOK = 56
-            // Landing Gear 
-            // CPT_LTS_LDG_GEAR_HANDLE = 57
-            // APU Control Panel
-            // CPT_LTS_APU_READY = 58
-            // ECM Control Panel Assy
-            // CPT_LTS_SEL = 59
-            // Map Gain Control Panel Assy
-            // CPT_LTS_SPN = 60
-            // Height Indicator
-            // CPT_LTS_LOW_ALT_WARN = 61
-            // AMAC Control
-            // CautionLightsNumber = 62
-            // CPT_LTS_AOA_HIGH = 63
-            // CPT_LTS_AOA_CENTER = 64
-            // CPT_LTS_AOA_LOW = 65
-            #endregion
+            // Declarations for Caution Lights numbers from Lamps.lua
             #endregion
 
             #region Internal Lights
@@ -483,51 +403,51 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Switch(this, MDI_LEFT, "51", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.5", "NIGHT", "3001"), new SwitchPosition("1.0", "DAY", "3001") }, "Left MDI", "Left MDI Brightness Selector Knob", "%0.1f"));    // elements["pnt_51"]      = default_3_position_tumb(_("Left MDI Brightness Selector Knob, OFF/NIGHT/DAY"),    devices.MDI_LEFT, MDI_commands.MDI_off_night_day, 51, false, anim_speed_default, false, 0.1, {0, 0.2})
             AddFunction(new Axis(this, MDI_LEFT, "3002", "52", 0.15d, 0d, 1d, "Left MDI", "Left MDI Brightness Control Knob"));    // elements["pnt_52"]      = default_axis_limited(_("Left MDI Brightness Control Knob"),                       devices.MDI_LEFT, MDI_commands.MDI_brightness, 52, 0.0, 0.1, false, false, {0, 1})
             AddFunction(new Axis(this, MDI_LEFT, "3003", "53", 0.15d, 0d, 1d, "Left MDI", "Left MDI Contrast Control Knob"));    // elements["pnt_53"]      = default_axis_limited(_("Left MDI Contrast Control Knob"),                         devices.MDI_LEFT, MDI_commands.MDI_contrast, 53, 0.0, 0.1, false, false, {0, 1})
-            AddFunction(new PushButton(this, MDI_LEFT, "3011", "54", "Left MDI", "OSB 01", "1", "0", "%1d"));    // elements["pnt_54"]      = short_way_button(_("Left MDI PB 1"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_1, 54)
-            AddFunction(new PushButton(this, MDI_LEFT, "3012", "55", "Left MDI", "OSB 02", "1", "0", "%1d"));    // elements["pnt_55"]      = short_way_button(_("Left MDI PB 2"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_2, 55)
-            AddFunction(new PushButton(this, MDI_LEFT, "3013", "56", "Left MDI", "OSB 03", "1", "0", "%1d"));    // elements["pnt_56"]      = short_way_button(_("Left MDI PB 3"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_3, 56)
-            AddFunction(new PushButton(this, MDI_LEFT, "3014", "57", "Left MDI", "OSB 04", "1", "0", "%1d"));    // elements["pnt_57"]      = short_way_button(_("Left MDI PB 4"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_4, 57)
-            AddFunction(new PushButton(this, MDI_LEFT, "3015", "58", "Left MDI", "OSB 05", "1", "0", "%1d"));    // elements["pnt_58"]      = short_way_button(_("Left MDI PB 5"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_5, 58)
-            AddFunction(new PushButton(this, MDI_LEFT, "3016", "59", "Left MDI", "OSB 06", "1", "0", "%1d"));    // elements["pnt_59"]      = short_way_button(_("Left MDI PB 6"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_6, 59)
-            AddFunction(new PushButton(this, MDI_LEFT, "3017", "60", "Left MDI", "OSB 07", "1", "0", "%1d"));    // elements["pnt_60"]      = short_way_button(_("Left MDI PB 7"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_7, 60)
-            AddFunction(new PushButton(this, MDI_LEFT, "3018", "61", "Left MDI", "OSB 08", "1", "0", "%1d"));    // elements["pnt_61"]      = short_way_button(_("Left MDI PB 8"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_8, 61)
-            AddFunction(new PushButton(this, MDI_LEFT, "3019", "62", "Left MDI", "OSB 09", "1", "0", "%1d"));    // elements["pnt_62"]      = short_way_button(_("Left MDI PB 9"),                                              devices.MDI_LEFT, MDI_commands.MDI_PB_9, 62)
-            AddFunction(new PushButton(this, MDI_LEFT, "3020", "63", "Left MDI", "OSB 10", "1", "0", "%1d"));    // elements["pnt_63"]      = short_way_button(_("Left MDI PB 10"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_10, 63)
-            AddFunction(new PushButton(this, MDI_LEFT, "3021", "64", "Left MDI", "OSB 11", "1", "0", "%1d"));    // elements["pnt_64"]      = short_way_button(_("Left MDI PB 11"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_11, 64)
-            AddFunction(new PushButton(this, MDI_LEFT, "3022", "65", "Left MDI", "OSB 12", "1", "0", "%1d"));    // elements["pnt_65"]      = short_way_button(_("Left MDI PB 12"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_12, 65)
-            AddFunction(new PushButton(this, MDI_LEFT, "3023", "66", "Left MDI", "OSB 13", "1", "0", "%1d"));    // elements["pnt_66"]      = short_way_button(_("Left MDI PB 13"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_13, 66)
-            AddFunction(new PushButton(this, MDI_LEFT, "3024", "67", "Left MDI", "OSB 14", "1", "0", "%1d"));    // elements["pnt_67"]      = short_way_button(_("Left MDI PB 14"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_14, 67)
-            AddFunction(new PushButton(this, MDI_LEFT, "3025", "68", "Left MDI", "OSB 15", "1", "0", "%1d"));    // elements["pnt_68"]      = short_way_button(_("Left MDI PB 15"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_15, 68)
-            AddFunction(new PushButton(this, MDI_LEFT, "3026", "69", "Left MDI", "OSB 16", "1", "0", "%1d"));    // elements["pnt_69"]      = short_way_button(_("Left MDI PB 16"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_16, 69)
-            AddFunction(new PushButton(this, MDI_LEFT, "3027", "70", "Left MDI", "OSB 17", "1", "0", "%1d"));    // elements["pnt_70"]      = short_way_button(_("Left MDI PB 17"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_17, 70)
-            AddFunction(new PushButton(this, MDI_LEFT, "3028", "72", "Left MDI", "OSB 18", "1", "0", "%1d"));    // elements["pnt_72"]      = short_way_button(_("Left MDI PB 18"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_18, 72)
-            AddFunction(new PushButton(this, MDI_LEFT, "3029", "73", "Left MDI", "OSB 19", "1", "0", "%1d"));    // elements["pnt_73"]      = short_way_button(_("Left MDI PB 19"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_19, 73)
-            AddFunction(new PushButton(this, MDI_LEFT, "3030", "75", "Left MDI", "OSB 20", "1", "0", "%1d"));    // elements["pnt_75"]      = short_way_button(_("Left MDI PB 20"),                                             devices.MDI_LEFT, MDI_commands.MDI_PB_20, 75)
+            AddFunction(new PushButton(this, MDI_LEFT, "3011", "54", "Left MDI", "OSB 01", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3012", "55", "Left MDI", "OSB 02", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3013", "56", "Left MDI", "OSB 03", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3014", "57", "Left MDI", "OSB 04", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3015", "58", "Left MDI", "OSB 05", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3016", "59", "Left MDI", "OSB 06", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3017", "60", "Left MDI", "OSB 07", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3018", "61", "Left MDI", "OSB 08", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3019", "62", "Left MDI", "OSB 09", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3020", "63", "Left MDI", "OSB 10", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3021", "64", "Left MDI", "OSB 11", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3022", "65", "Left MDI", "OSB 12", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3023", "66", "Left MDI", "OSB 13", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3024", "67", "Left MDI", "OSB 14", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3025", "68", "Left MDI", "OSB 15", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3026", "69", "Left MDI", "OSB 16", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3027", "70", "Left MDI", "OSB 17", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3028", "72", "Left MDI", "OSB 18", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3029", "73", "Left MDI", "OSB 19", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3030", "75", "Left MDI", "OSB 20", "1", "0", "%1d"));    
             #endregion
             #region  Right MDI
             AddFunction(new Switch(this, MDI_RIGHT, "76", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.5", "NIGHT", "3001"), new SwitchPosition("1.0", "DAY", "3001") }, "Right MDI", "Right MDI Brightness Selector Knob", "%0.1f"));    // elements["pnt_76"]      = default_3_position_tumb(_("Right MDI Brightness Selector Knob, OFF/NIGHT/DAY"),   devices.MDI_RIGHT, MDI_commands.MDI_off_night_day, 76, false, anim_speed_default, false, 0.1, {0, 0.2})
             AddFunction(new Axis(this, MDI_RIGHT, "3002", "77", 0.15d, 0d, 1d, "Right MDI", "Right MDI Brightness Control Knob"));    // elements["pnt_77"]      = default_axis_limited(_("Right MDI Brightness Control Knob"),                      devices.MDI_RIGHT, MDI_commands.MDI_brightness, 77, 0.0, 0.1, false, false, {0, 1})
             AddFunction(new Axis(this, MDI_RIGHT, "3003", "78", 0.15d, 0d, 1d, "Right MDI", "Right MDI Contrast Control Knob"));    // elements["pnt_78"]      = default_axis_limited(_("Right MDI Contrast Control Knob"),                        devices.MDI_RIGHT, MDI_commands.MDI_contrast, 78, 0.0, 0.1, false, false, {0, 1})
-            AddFunction(new PushButton(this, MDI_RIGHT, "3011", "79", "Right MDI", "OSB 01", "1", "0", "%1d"));    // elements["pnt_79"]      = short_way_button(_("Right MDI PB 1"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_1, 79)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3012", "80", "Right MDI", "OSB 02", "1", "0", "%1d"));    // elements["pnt_80"]      = short_way_button(_("Right MDI PB 2"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_2, 80)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3013", "81", "Right MDI", "OSB 03", "1", "0", "%1d"));    // elements["pnt_81"]      = short_way_button(_("Right MDI PB 3"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_3, 81)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3014", "82", "Right MDI", "OSB 04", "1", "0", "%1d"));    // elements["pnt_82"]      = short_way_button(_("Right MDI PB 4"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_4, 82)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3015", "83", "Right MDI", "OSB 05", "1", "0", "%1d"));    // elements["pnt_83"]      = short_way_button(_("Right MDI PB 5"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_5, 83)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3016", "84", "Right MDI", "OSB 06", "1", "0", "%1d"));    // elements["pnt_84"]      = short_way_button(_("Right MDI PB 6"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_6, 84)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3017", "85", "Right MDI", "OSB 07", "1", "0", "%1d"));    // elements["pnt_85"]      = short_way_button(_("Right MDI PB 7"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_7, 85)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3018", "86", "Right MDI", "OSB 08", "1", "0", "%1d"));    // elements["pnt_86"]      = short_way_button(_("Right MDI PB 8"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_8, 86)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3019", "87", "Right MDI", "OSB 09", "1", "0", "%1d"));    // elements["pnt_87"]      = short_way_button(_("Right MDI PB 9"),                                             devices.MDI_RIGHT, MDI_commands.MDI_PB_9, 87)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3020", "88", "Right MDI", "OSB 10", "1", "0", "%1d"));    // elements["pnt_88"]      = short_way_button(_("Right MDI PB 10"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_10, 88)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3021", "89", "Right MDI", "OSB 11", "1", "0", "%1d"));    // elements["pnt_89"]      = short_way_button(_("Right MDI PB 11"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_11, 89)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3022", "90", "Right MDI", "OSB 12", "1", "0", "%1d"));    // elements["pnt_90"]      = short_way_button(_("Right MDI PB 12"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_12, 90)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3023", "91", "Right MDI", "OSB 13", "1", "0", "%1d"));    // elements["pnt_91"]      = short_way_button(_("Right MDI PB 13"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_13, 91)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3024", "92", "Right MDI", "OSB 14", "1", "0", "%1d"));    // elements["pnt_92"]      = short_way_button(_("Right MDI PB 14"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_14, 92)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3025", "93", "Right MDI", "OSB 15", "1", "0", "%1d"));    // elements["pnt_93"]      = short_way_button(_("Right MDI PB 15"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_15, 93)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3026", "94", "Right MDI", "OSB 16", "1", "0", "%1d"));    // elements["pnt_94"]      = short_way_button(_("Right MDI PB 16"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_16, 94)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3027", "95", "Right MDI", "OSB 17", "1", "0", "%1d"));    // elements["pnt_95"]      = short_way_button(_("Right MDI PB 17"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_17, 95)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3028", "96", "Right MDI", "OSB 18", "1", "0", "%1d"));    // elements["pnt_96"]      = short_way_button(_("Right MDI PB 18"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_18, 96)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3029", "97", "Right MDI", "OSB 19", "1", "0", "%1d"));    // elements["pnt_97"]      = short_way_button(_("Right MDI PB 19"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_19, 97)
-            AddFunction(new PushButton(this, MDI_RIGHT, "3030", "98", "Right MDI", "OSB 20", "1", "0", "%1d"));    // elements["pnt_98"]      = short_way_button(_("Right MDI PB 20"),                                            devices.MDI_RIGHT, MDI_commands.MDI_PB_20, 98)
+            AddFunction(new PushButton(this, MDI_RIGHT, "3011", "79", "Right MDI", "OSB 01", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3012", "80", "Right MDI", "OSB 02", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3013", "81", "Right MDI", "OSB 03", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3014", "82", "Right MDI", "OSB 04", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3015", "83", "Right MDI", "OSB 05", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3016", "84", "Right MDI", "OSB 06", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3017", "85", "Right MDI", "OSB 07", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3018", "86", "Right MDI", "OSB 08", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3019", "87", "Right MDI", "OSB 09", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3020", "88", "Right MDI", "OSB 10", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3021", "89", "Right MDI", "OSB 11", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3022", "90", "Right MDI", "OSB 12", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3023", "91", "Right MDI", "OSB 13", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3024", "92", "Right MDI", "OSB 14", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3025", "93", "Right MDI", "OSB 15", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3026", "94", "Right MDI", "OSB 16", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3027", "95", "Right MDI", "OSB 17", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3028", "96", "Right MDI", "OSB 18", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3029", "97", "Right MDI", "OSB 19", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3030", "98", "Right MDI", "OSB 20", "1", "0", "%1d"));    
             #endregion
             #region  AMPCD
             AddFunction(new Axis(this, AMPCD, "3001", "203", 0.15d, 0d, 1d, "AMPCD", "AMPCD Off/Brightness Control Knob"));    // elements["pnt_203"]     = default_axis_limited(_("AMPCD Off/Brightness Control Knob"),          devices.AMPCD, AMPCD_commands.AMPCD_off_brightness, 203, 0.0, 0.1, false, false, {0, 1})
@@ -539,26 +459,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             //AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3004", "179", "1.0", "Up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Symbology Control Switch UP", "%0.1f"));    // elements["pnt_179_2"]   = AMPCD_switch_positive(_("AMPCD Symbology Control Switch, UP"),        devices.AMPCD, AMPCD_commands.AMPCD_symbology_UP, 179)
             //AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3006", "182", "1.0", "up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Contrast Control Switch UP", "%0.1f"));    // elements["pnt_182_2"]   = AMPCD_switch_positive(_("AMPCD Contrast Control Switch, UP"),         devices.AMPCD, AMPCD_commands.AMPCD_contrast_UP, 182)
             //AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3008", "180", "1.0", "Up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Gain Control Switch UP", "%0.1f"));    // elements["pnt_180_2"]   = AMPCD_switch_positive(_("AMPCD Gain Control Switch, UP"),             devices.AMPCD, AMPCD_commands.AMPCD_gain_UP, 180)
-            AddFunction(new PushButton(this, AMPCD, "3011", "183", "AMPCD", "OSB 01", "1", "0", "%1d"));    // elements["pnt_183"]     = short_way_button(_("AMPCD PB 1"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_1, 183)
-            AddFunction(new PushButton(this, AMPCD, "3012", "184", "AMPCD", "OSB 02", "1", "0", "%1d"));    // elements["pnt_184"]     = short_way_button(_("AMPCD PB 2"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_2, 184)
-            AddFunction(new PushButton(this, AMPCD, "3013", "185", "AMPCD", "OSB 03", "1", "0", "%1d"));    // elements["pnt_185"]     = short_way_button(_("AMPCD PB 3"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_3, 185)
-            AddFunction(new PushButton(this, AMPCD, "3014", "186", "AMPCD", "OSB 04", "1", "0", "%1d"));    // elements["pnt_186"]     = short_way_button(_("AMPCD PB 4"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_4, 186)
-            AddFunction(new PushButton(this, AMPCD, "3015", "187", "AMPCD", "OSB 05", "1", "0", "%1d"));    // elements["pnt_187"]     = short_way_button(_("AMPCD PB 5"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_5, 187)
-            AddFunction(new PushButton(this, AMPCD, "3016", "188", "AMPCD", "OSB 06", "1", "0", "%1d"));    // elements["pnt_188"]     = short_way_button(_("AMPCD PB 6"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_6, 188)
-            AddFunction(new PushButton(this, AMPCD, "3017", "189", "AMPCD", "OSB 07", "1", "0", "%1d"));    // elements["pnt_189"]     = short_way_button(_("AMPCD PB 7"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_7, 189)
-            AddFunction(new PushButton(this, AMPCD, "3018", "190", "AMPCD", "OSB 08", "1", "0", "%1d"));    // elements["pnt_190"]     = short_way_button(_("AMPCD PB 8"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_8, 190)
-            AddFunction(new PushButton(this, AMPCD, "3019", "191", "AMPCD", "OSB 09", "1", "0", "%1d"));    // elements["pnt_191"]     = short_way_button(_("AMPCD PB 9"),                                     devices.AMPCD, AMPCD_commands.AMPCD_PB_9, 191)
-            AddFunction(new PushButton(this, AMPCD, "3020", "192", "AMPCD", "OSB 10", "1", "0", "%1d"));    // elements["pnt_192"]     = short_way_button(_("AMPCD PB 10"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_10, 192)
-            AddFunction(new PushButton(this, AMPCD, "3021", "193", "AMPCD", "OSB 11", "1", "0", "%1d"));    // elements["pnt_193"]     = short_way_button(_("AMPCD PB 11"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_11, 193)
-            AddFunction(new PushButton(this, AMPCD, "3022", "194", "AMPCD", "OSB 12", "1", "0", "%1d"));    // elements["pnt_194"]     = short_way_button(_("AMPCD PB 12"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_12, 194)
-            AddFunction(new PushButton(this, AMPCD, "3023", "195", "AMPCD", "OSB 13", "1", "0", "%1d"));    // elements["pnt_195"]     = short_way_button(_("AMPCD PB 13"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_13, 195)
-            AddFunction(new PushButton(this, AMPCD, "3024", "196", "AMPCD", "OSB 14", "1", "0", "%1d"));    // elements["pnt_196"]     = short_way_button(_("AMPCD PB 14"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_14, 196)
-            AddFunction(new PushButton(this, AMPCD, "3025", "197", "AMPCD", "OSB 15", "1", "0", "%1d"));    // elements["pnt_197"]     = short_way_button(_("AMPCD PB 15"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_15, 197)
-            AddFunction(new PushButton(this, AMPCD, "3026", "198", "AMPCD", "OSB 16", "1", "0", "%1d"));    // elements["pnt_198"]     = short_way_button(_("AMPCD PB 16"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_16, 198)
-            AddFunction(new PushButton(this, AMPCD, "3027", "199", "AMPCD", "OSB 17", "1", "0", "%1d"));    // elements["pnt_199"]     = short_way_button(_("AMPCD PB 17"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_17, 199)
-            AddFunction(new PushButton(this, AMPCD, "3028", "200", "AMPCD", "OSB 18", "1", "0", "%1d"));    // elements["pnt_200"]     = short_way_button(_("AMPCD PB 18"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_18, 200)
-            AddFunction(new PushButton(this, AMPCD, "3029", "201", "AMPCD", "OSB 19", "1", "0", "%1d"));    // elements["pnt_201"]     = short_way_button(_("AMPCD PB 19"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_19, 201)
-            AddFunction(new PushButton(this, AMPCD, "3030", "202", "AMPCD", "OSB 20", "1", "0", "%1d"));    // elements["pnt_202"]     = short_way_button(_("AMPCD PB 20"),                                    devices.AMPCD, AMPCD_commands.AMPCD_PB_20, 202)
+            AddFunction(new PushButton(this, AMPCD, "3011", "183", "AMPCD", "OSB 01", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3012", "184", "AMPCD", "OSB 02", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3013", "185", "AMPCD", "OSB 03", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3014", "186", "AMPCD", "OSB 04", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3015", "187", "AMPCD", "OSB 05", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3016", "188", "AMPCD", "OSB 06", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3017", "189", "AMPCD", "OSB 07", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3018", "190", "AMPCD", "OSB 08", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3019", "191", "AMPCD", "OSB 09", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3020", "192", "AMPCD", "OSB 10", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3021", "193", "AMPCD", "OSB 11", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3022", "194", "AMPCD", "OSB 12", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3023", "195", "AMPCD", "OSB 13", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3024", "196", "AMPCD", "OSB 14", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3025", "197", "AMPCD", "OSB 15", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3026", "198", "AMPCD", "OSB 16", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3027", "199", "AMPCD", "OSB 17", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3028", "200", "AMPCD", "OSB 18", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3029", "201", "AMPCD", "OSB 19", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3030", "202", "AMPCD", "OSB 20", "1", "0", "%1d"));    
             AddFunction(new Switch(this, MDI_LEFT, "312", new SwitchPosition[] { new SwitchPosition("1", "+ve", "3004", "3004", "0"), new SwitchPosition("0", "Off", "3005"), new SwitchPosition("-1", "-ve", "3005", "3005", "0") }, "AMPCD", "Heading Set Switch", "%1d")); // elements["pnt_312"]     = springloaded_3_pos_tumb2(_("Heading Set Switch"),devices.MDI_LEFT, MDI_commands.MDI_Left_HDG_Negative, MDI_commands.MDI_Left_HDG_Positive, 312)
             AddFunction(new Switch(this, MDI_LEFT, "313", new SwitchPosition[] { new SwitchPosition("1", "+ve", "3006", "3006", "0"), new SwitchPosition("0", "Off", "3007"), new SwitchPosition("-1", "-ve", "3007", "3007", "0") }, "AMPCD", "Course Set Switch", "%1d"));  // elements["pnt_313"]= springloaded_3_pos_tumb(_("Course Set Switch"),devices.MDI_LEFT, MDI_commands.MDI_Left_CRS_Negative, MDI_commands.MDI_Left_CRS_Positive, 313)
             #endregion
