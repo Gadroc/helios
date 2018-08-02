@@ -534,14 +534,14 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 // TODO Restore docking panel layout
                 if (profile != null)
                 {
-                    string layoutFileName = Path.ChangeExtension(profile.Path, "layout");
+                    string layoutFileName = Path.ChangeExtension(profile.Path, "hplayout");
                     if (File.Exists(layoutFileName))
                     {
                         Dispatcher.Invoke(DispatcherPriority.Background, (LayoutDelegate)_layoutSerializer.Deserialize, layoutFileName);
                     }
                 } else
                 {
-                    ConfigManager.LogManager.LogDebug("Docking Panel Layout Problem.  Profile Object Null during restore of layout for " + path);
+                    ConfigManager.LogManager.LogDebug("Docking Panel Layout Problem.  Profile Object Null during restore of hplayout for " + path);
                 }
 
                 GC.Collect();
@@ -597,7 +597,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 Dispatcher.Invoke(DispatcherPriority.Background, new Action(RemoveLoadingAdorner));
                 Dispatcher.Invoke(DispatcherPriority.Background, (System.Threading.SendOrPostCallback)delegate { SetValue(StatusBarMessageProperty, ""); }, "");
 
-                string layoutFileName = Path.ChangeExtension(profile.Path, "layout");
+                string layoutFileName = Path.ChangeExtension(profile.Path, "hplayout");
                 if (File.Exists(layoutFileName))
                 {
                     File.Delete(layoutFileName);
