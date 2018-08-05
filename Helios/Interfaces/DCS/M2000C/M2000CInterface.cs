@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
     using Microsoft.Win32;
     using System;
 
-    [HeliosInterface("Helios.M2000C", "DCS M-2000C", typeof(M2000CInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
+    [HeliosInterface("Helios.M2000C", "DCS M2000C", typeof(M2000CInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
     public class M2000CInterface : BaseUDPInterface
     {
         private string _dcsPath;
@@ -527,32 +527,32 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, TACAN, "625", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 1 Selector", "%0.1f"));    // elements["PTN_625"] = default_multiposition_knob(_("TACAN Channel 1 Selector"),devices.TACAN,device_commands.Button_625,625, 10, 0.1, false, 0)
             AddFunction(new Switch(this, TACAN, "626", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Mode Select", "%0.1f"));    // elements["PTN_626"] = multiposition_switch_limited(_("TACAN Mode Select"), devices.TACAN, device_commands.Button_626, 626, 4, 0.33, false, 0)
             #endregion  
-            #region  Miscelaneous Left Panel
-            AddFunction(new PushButton(this, MISCPANELS, "3400", "400", "Miscelaneous Left Panel", "Cockpit Clock"));    // elements["PTN_400"] = default_2_position_tumb(_("Cockpit Clock"), devices.MISCPANELS, device_commands.Button_400, 400)
-            AddFunction(new PushButton(this, SYSLIGHTS, "", "191", "Miscelaneous Left Panel", "Audio Warning Reset"));    // elements["PTN_191"] = default_button(_("Audio Warning Reset"), devices.SYSLIGHTS, Keys.PlaneResetMasterWarning, 191, 0, 1)
-            AddFunction(new PushButton(this, MISCPANELS, "3458", "458", "Miscelaneous Left Panel", "Anti-Skid Switch Cover"));    // elements["PTN_458"] = default_2_position_tumb(_("Anti-Skid Switch Cover"), devices.MISCPANELS, device_commands.Button_458, 458)
-            AddFunction(new PushButton(this, MISCPANELS, "3459", "459", "Miscelaneous Left Panel", "Anti-Skid Switch"));    // elements["PTN_459"] = default_2_position_tumb(_("Anti-Skid Switch"), devices.MISCPANELS, device_commands.Button_459, 459)
-            //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3666", "666", "Miscelaneous Left Panel", "Parking Brake Lever", "%0.1f"));    // elements["PTN_666"] = default_animated_lever(_("Parking Brake Lever"), devices.MISCPANELS, device_commands.Button_666, 666,5.0)
-            //AddFunction(Switch.CreateToggleSwitch(this, SUBSYSTEMS, "3456", "456", "Miscelaneous Left Panel", "Canopy Jettison", "%0.1f"));    // elements["PTN_456"] = default_animated_lever(_("Canopy Jettison"),devices.SUBSYSTEMS, device_commands.Button_456, 456,5.0)
-            //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3457", "457", "Miscelaneous Left Panel", "Drag Chute Lever", "%0.1f"));    // elements["PTN_457"] = default_animated_lever(_("Drag Chute Lever"), devices.MISCPANELS, device_commands.Button_457, 457,5.0)
-            //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3807", "807", "Miscelaneous Left Panel", "Nose Wheel Steering / IFF Interrogation Button", "%0.1f"));    // elements["PTN_807"] = default_2_way_spring_switch(_("Nose Wheel Steering / IFF Interrogation Button"), devices.MISCPANELS, device_commands.Button_807, 807)
-            AddFunction(new PushButton(this, SUBSYSTEMS, "3655", "655", "Miscelaneous Left Panel", "Canopy Rest"));    // elements["PTN_655"] = default_2_position_tumb(_("Canopy Rest"),devices.SUBSYSTEMS, device_commands.Button_655, 655)
-            //AddFunction((this, SUBSYSTEMS, "3656", "656", "Miscelaneous Left Panel", "Canopy Lock/Neutral/Lower Lever"));    // elements["PTN_656"] = default_multiposition_animated_lever(_("Canopy Lock/Neutral/Lower Lever"), devices.SUBSYSTEMS, device_commands.Button_656, 656, 3, 0.5, false, 0,2.5)
-            AddFunction(new PushButton(this, PCN_NAV, "3905", "905", "Miscelaneous Left Panel", "Emergency Compass"));    // elements["PTN_905"] = default_2_position_tumb(_("Emergency Compass"),devices.PCN_NAV, device_commands.Button_905, 905)
-            AddFunction(new PushButton(this, SUBSYSTEMS, "3907", "907", "Miscelaneous Left Panel", "Canopy Handle"));    // elements["PTN_907"] = default_2_position_tumb(_("Canopy Handle"),devices.SUBSYSTEMS, device_commands.Button_907, 907)
-            AddFunction(new PushButton(this, SUBSYSTEMS, "3908", "908", "Miscelaneous Left Panel", "Canopy Handle"));    // elements["PTN_908"] = default_2_position_tumb(_("Canopy Handle"),devices.SUBSYSTEMS, device_commands.Button_908, 908)
-            AddFunction(new PushButton(this, MISCPANELS, "3909", "909", "Miscelaneous Left Panel", "Mirror Rendering Toggle"));    // elements["PTN_909"] = default_2_position_tumb(_("Mirror Rendering Toggle"), devices.MISCPANELS, device_commands.Button_909, 909)
+            #region  Miscellaneous Left Panel
+            AddFunction(new PushButton(this, MISCPANELS, "3400", "400", "Miscellaneous Left Panel", "Cockpit Clock"));    // elements["PTN_400"] = default_2_position_tumb(_("Cockpit Clock"), devices.MISCPANELS, device_commands.Button_400, 400)
+            AddFunction(new PushButton(this, SYSLIGHTS, "", "191", "Miscellaneous Left Panel", "Audio Warning Reset"));    // elements["PTN_191"] = default_button(_("Audio Warning Reset"), devices.SYSLIGHTS, Keys.PlaneResetMasterWarning, 191, 0, 1)
+            AddFunction(new PushButton(this, MISCPANELS, "3458", "458", "Miscellaneous Left Panel", "Anti-Skid Switch Cover"));    // elements["PTN_458"] = default_2_position_tumb(_("Anti-Skid Switch Cover"), devices.MISCPANELS, device_commands.Button_458, 458)
+            AddFunction(new PushButton(this, MISCPANELS, "3459", "459", "Miscellaneous Left Panel", "Anti-Skid Switch"));    // elements["PTN_459"] = default_2_position_tumb(_("Anti-Skid Switch"), devices.MISCPANELS, device_commands.Button_459, 459)
+            //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3666", "666", "Miscellaneous Left Panel", "Parking Brake Lever", "%0.1f"));    // elements["PTN_666"] = default_animated_lever(_("Parking Brake Lever"), devices.MISCPANELS, device_commands.Button_666, 666,5.0)
+            //AddFunction(Switch.CreateToggleSwitch(this, SUBSYSTEMS, "3456", "456", "Miscellaneous Left Panel", "Canopy Jettison", "%0.1f"));    // elements["PTN_456"] = default_animated_lever(_("Canopy Jettison"),devices.SUBSYSTEMS, device_commands.Button_456, 456,5.0)
+            //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3457", "457", "Miscellaneous Left Panel", "Drag Chute Lever", "%0.1f"));    // elements["PTN_457"] = default_animated_lever(_("Drag Chute Lever"), devices.MISCPANELS, device_commands.Button_457, 457,5.0)
+            //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3807", "807", "Miscellaneous Left Panel", "Nose Wheel Steering / IFF Interrogation Button", "%0.1f"));    // elements["PTN_807"] = default_2_way_spring_switch(_("Nose Wheel Steering / IFF Interrogation Button"), devices.MISCPANELS, device_commands.Button_807, 807)
+            AddFunction(new PushButton(this, SUBSYSTEMS, "3655", "655", "Miscellaneous Left Panel", "Canopy Rest"));    // elements["PTN_655"] = default_2_position_tumb(_("Canopy Rest"),devices.SUBSYSTEMS, device_commands.Button_655, 655)
+            //AddFunction((this, SUBSYSTEMS, "3656", "656", "Miscellaneous Left Panel", "Canopy Lock/Neutral/Lower Lever"));    // elements["PTN_656"] = default_multiposition_animated_lever(_("Canopy Lock/Neutral/Lower Lever"), devices.SUBSYSTEMS, device_commands.Button_656, 656, 3, 0.5, false, 0,2.5)
+            AddFunction(new PushButton(this, PCN_NAV, "3905", "905", "Miscellaneous Left Panel", "Emergency Compass"));    // elements["PTN_905"] = default_2_position_tumb(_("Emergency Compass"),devices.PCN_NAV, device_commands.Button_905, 905)
+            AddFunction(new PushButton(this, SUBSYSTEMS, "3907", "907", "Miscellaneous Left Panel", "Canopy Handle"));    // elements["PTN_907"] = default_2_position_tumb(_("Canopy Handle"),devices.SUBSYSTEMS, device_commands.Button_907, 907)
+            AddFunction(new PushButton(this, SUBSYSTEMS, "3908", "908", "Miscellaneous Left Panel", "Canopy Handle (alt?)"));    // elements["PTN_908"] = default_2_position_tumb(_("Canopy Handle"),devices.SUBSYSTEMS, device_commands.Button_908, 908)
+            AddFunction(new PushButton(this, MISCPANELS, "3909", "909", "Miscellaneous Left Panel", "Mirror Rendering Toggle"));    // elements["PTN_909"] = default_2_position_tumb(_("Mirror Rendering Toggle"), devices.MISCPANELS, device_commands.Button_909, 909)
             #endregion  
-            #region  Miscelaneous Right Panel
-            AddFunction(new Switch(this, ENGINE, "657", new SwitchPosition[] { }, "Miscelaneous Right Panel", "Emergency Hydraulic Pump Switch", "%0.1f"));    // elements["PTN_657"] = multiposition_switch_spring(_("Emergency Hydraulic Pump Switch"), devices.ENGINE, device_commands.Button_657, device_commands.Button_657, 657)
-            AddFunction(new PushButton(this, SYSLIGHTS, "3658", "658", "Miscelaneous Right Panel", "Audio Warning Switch"));    // elements["PTN_658"] = default_2_position_tumb(_("Audio Warning Switch"), devices.SYSLIGHTS, device_commands.Button_658, 658)
-            AddFunction(new PushButton(this, MISCPANELS, "3659", "659", "Miscelaneous Right Panel", "Pitot Heat Cover"));    // elements["PTN_659"] = default_2_position_tumb(_("Pitot Heat Cover"), devices.MISCPANELS, device_commands.Button_659, 659)
-            AddFunction(new PushButton(this, MISCPANELS, "3660", "660", "Miscelaneous Right Panel", "Pitot Heat Switch"));    // elements["PTN_660"] = default_2_position_tumb(_("Pitot Heat Switch"), devices.MISCPANELS, device_commands.Button_660, 660)
+            #region  Miscellaneous Right Panel
+            AddFunction(new Switch(this, ENGINE, "657", new SwitchPosition[] { }, "Miscellaneous Right Panel", "Emergency Hydraulic Pump Switch", "%0.1f"));    // elements["PTN_657"] = multiposition_switch_spring(_("Emergency Hydraulic Pump Switch"), devices.ENGINE, device_commands.Button_657, device_commands.Button_657, 657)
+            AddFunction(new PushButton(this, SYSLIGHTS, "3658", "658", "Miscellaneous Right Panel", "Audio Warning Switch"));    // elements["PTN_658"] = default_2_position_tumb(_("Audio Warning Switch"), devices.SYSLIGHTS, device_commands.Button_658, 658)
+            AddFunction(new PushButton(this, MISCPANELS, "3659", "659", "Miscellaneous Right Panel", "Pitot Heat Cover"));    // elements["PTN_659"] = default_2_position_tumb(_("Pitot Heat Cover"), devices.MISCPANELS, device_commands.Button_659, 659)
+            AddFunction(new PushButton(this, MISCPANELS, "3660", "660", "Miscellaneous Right Panel", "Pitot Heat Switch"));    // elements["PTN_660"] = default_2_position_tumb(_("Pitot Heat Switch"), devices.MISCPANELS, device_commands.Button_660, 660)
             #endregion  
-            #region  Miscelaneous Seat
-            //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3900", "900", "Miscelaneous Seat", "Seat Adjustment Switch", "%0.1f"));    // elements["PTN_900"] = default_2_way_spring_switch(_("Seat Adjustment Switch"), devices.MISCPANELS, device_commands.Button_900, 900,true)
-            AddFunction(new PushButton(this, ECS, "3910", "910", "Miscelaneous Seat", "LOX Dilution Lever"));    // elements["PTN_910"] = default_2_position_tumb(_("LOX Dilution Lever"),devices.ECS, device_commands.Button_910,  910)
-            AddFunction(new PushButton(this, ECS, "3912", "912", "Miscelaneous Seat", "LOX Emergency Supply"));    // elements["PTN_912"] = default_2_position_tumb(_("LOX Emergency Supply"), devices.ECS, device_commands.Button_912, 912)
+            #region  Miscellaneous Seat
+            //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3900", "900", "Miscellaneous Seat", "Seat Adjustment Switch", "%0.1f"));    // elements["PTN_900"] = default_2_way_spring_switch(_("Seat Adjustment Switch"), devices.MISCPANELS, device_commands.Button_900, 900,true)
+            AddFunction(new PushButton(this, ECS, "3910", "910", "Miscellaneous Seat", "LOX Dilution Lever"));    // elements["PTN_910"] = default_2_position_tumb(_("LOX Dilution Lever"),devices.ECS, device_commands.Button_910,  910)
+            AddFunction(new PushButton(this, ECS, "3912", "912", "Miscellaneous Seat", "LOX Emergency Supply"));    // elements["PTN_912"] = default_2_position_tumb(_("LOX Emergency Supply"), devices.ECS, device_commands.Button_912, 912)
             #endregion  
             #region  Sound Panel
             AddFunction(new PushButton(this, SYSLIGHTS, "3700", "700", "Sound Panel", "AMPLIS Selector Knob"));    // elements["PTN_700"] = default_2_position_tumb(_("AMPLIS Selector Knob"), devices.SYSLIGHTS, device_commands.Button_700, 700)
