@@ -471,6 +471,10 @@
     <Compile Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml.cs">
       <DependentUpon>FC2InterfaceEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\DCS\M2000C\M2000CInterface.cs" />
+    <Compile Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml.cs">
+      <DependentUpon>M2000CInterfaceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\DCS\MiG21\MiG21Interface.cs" />
     <Compile Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml.cs">
       <DependentUpon>MiG21InterfaceEditor.xaml</DependentUpon>
@@ -705,6 +709,7 @@
     <Resource Include="Interfaces\DCS\MiG21\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\AV8B\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions.lua" />
+    <None Include="Interfaces\DCS\M2000C\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2594,6 +2599,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2653,11 +2662,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\Controls\" />
+    <Folder Include="Interfaces\DCS\M2000C\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
     <Folder Include="Templates\Base\FA-18C\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
     <Resource Include="Images\FA-18C\MPCD Knob.png" />
     <Resource Include="Images\FA-18C\UFC Rotator_U.png" />
     <Resource Include="Gauges\FA-18C\Altimeter\Altimeter_Faceplate.png" />
@@ -3280,7 +3289,6 @@
     <Resource Include="Images\AV-8B\UFC Button Dn TOO.png" />
     <Resource Include="Images\AV-8B\UFC Button Dn WOF.png" />
     <Resource Include="Images\AV-8B\UFC Button Dn WPN.png" />
-    <Resource Include="Images\FA-18C\UFC 1080.png" />
     <Resource Include="Images\FA-18C\UFC Button Up AP.png" />
     <Resource Include="Images\FA-18C\UFC Button Up DL.png" />
     <Resource Include="Images\FA-18C\UFC Button Up ILS.png" />
@@ -3357,6 +3365,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\ADI\adi_ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

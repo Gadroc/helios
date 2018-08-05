@@ -32,43 +32,43 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private String _font = "MS 33558";
         //private String _font = "Franklin Gothic";
         public UFC_FA18C()
-            : base("Up Front Controller", new Size(552, 431))
+            : base("Up Front Controller", new Size(602, 470))
         {
-            AddButton("EMCON", 483, 115, new Size(48, 48));
-            AddButton("1", 95, 105, new Size(48, 48));
-            AddButton("2", 152, 105, new Size(48, 48));
-            AddButton("3", 208, 105, new Size(48, 48));
-            AddButton("4", 95, 161, new Size(48, 48));
-            AddButton("5", 152, 161, new Size(48, 48));
-            AddButton("6", 208, 161, new Size(48, 48));
-            AddButton("7", 95, 218, new Size(48, 48));
-            AddButton("8", 152, 218, new Size(48, 48));
-            AddButton("9", 208, 218, new Size(48, 48));
-            AddButton("CLR", 95, 275, new Size(48, 48));
-            AddButton("0", 152, 275, new Size(48, 48),true);
-            AddButton("ENT", 208, 275, new Size(48, 48));
-            AddButton("AP", 107, 363, new Size(48, 48),true);
-            AddButton("IFF", 157, 363, new Size(48, 48));
-            AddButton("TCN", 207, 363, new Size(48, 48));
-            AddButton("ILS", 257, 363, new Size(48, 48),true);
-            AddButton("DL", 307, 363, new Size(48, 48), true);
-            AddButton("BCN", 357, 363, new Size(48, 48));
-            AddButton("ONOFF", 407, 363, new Size(48, 48));
-            AddButtonIP("IP", 25, 52, new Size(40, 40));
-            AddButtonIP("ODU 1", 276, 36, new Size(40, 40));
-            AddButtonIP("ODU 2", 276, 96, new Size(40, 40));
-            AddButtonIP("ODU 3", 276, 159, new Size(40, 40));
-            AddButtonIP("ODU 4", 276, 219, new Size(40, 40));
-            AddButtonIP("ODU 5", 276, 281, new Size(40, 40));
-            AddThreeWayToggle("ADF", 30, 108, new Size(30, 60));
+            AddButton("EMCON", 527, 129, new Size(48, 48));
+            AddButton("1", 105, 116, new Size(48, 48));
+            AddButton("2", 167, 116, new Size(48, 48));
+            AddButton("3", 229, 116, new Size(48, 48));
+            AddButton("4", 105, 179, new Size(48, 48));
+            AddButton("5", 167, 179, new Size(48, 48));
+            AddButton("6", 229, 179, new Size(48, 48));
+            AddButton("7", 105, 240, new Size(48, 48));
+            AddButton("8", 167, 240, new Size(48, 48));
+            AddButton("9", 229, 240, new Size(48, 48));
+            AddButton("CLR", 105, 303, new Size(48, 48));
+            AddButton("0", 167, 303, new Size(48, 48),true);
+            AddButton("ENT", 229, 303, new Size(48, 48));
+            AddButton("AP", 125, 400, new Size(40, 40),true);
+            AddButton("IFF", 176, 400, new Size(40, 40));
+            AddButton("TCN", 229, 400, new Size(40, 40));
+            AddButton("ILS", 284, 400, new Size(40, 40),true);
+            AddButton("DL", 337, 400, new Size(40, 40), true);
+            AddButton("BCN", 393, 400, new Size(40, 40));
+            AddButton("ONOFF", 447, 400, new Size(40, 40));
+            AddButtonIP("IP", 28, 60, new Size(40, 40));
+            AddButtonIP("ODU 1", 302, 42, new Size(40, 40));
+            AddButtonIP("ODU 2", 302, 107, new Size(40, 40));
+            AddButtonIP("ODU 3", 302, 175, new Size(40, 40));
+            AddButtonIP("ODU 4", 302, 241, new Size(40, 40));
+            AddButtonIP("ODU 5", 302, 310, new Size(40, 40));
+            AddThreeWayToggle("ADF", 33, 122, new Size(30, 60));
 
-            AddPot("UFC Display Brightness", new Point(480, 58), new Size(48, 48));
-            AddPot("Radio Volume 1", new Point(20, 193), new Size(48, 48));
-            AddPot("Radio Volume 2", new Point(481, 193), new Size(48, 48));
-            AddEncoder("Radio 1", new Point(17, 359), new Size(75, 75));
-            AddButtonIP("Radio 1 Pull", 41, 383, new Size(28, 28),false);
-            AddEncoder("Radio 2", new Point(462, 359), new Size(75, 75));
-            AddButtonIP("Radio 2 Pull", 485, 383, new Size(28, 28),false);
+            AddPot("UFC Display Brightness", new Point(528, 66), new Size(48, 48));
+            AddPot("Radio Volume 1", new Point(25, 213), new Size(48, 48));
+            AddPot("Radio Volume 2", new Point(528, 213), new Size(48, 48));
+            AddEncoder("Radio 1", new Point(29, 383), new Size(75, 75));
+            AddButtonIP("Radio 1 Pull", 52, 408, new Size(28, 28),false);
+            AddEncoder("Radio 2", new Point(500, 383), new Size(75, 75));
+            AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28),false);
         }
 
         public override string BezelImage

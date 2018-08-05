@@ -40,6 +40,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.ADI
 
         private GaugeNeedle _ball;
         private GaugeNeedle _bankNeedle;
+        private GaugeNeedle _wingsNeedle;
         private GaugeNeedle _slipBallNeedle;
         private GaugeNeedle _pitchSteeringNeedle;
         private GaugeNeedle _bankSteeringNeedle;
@@ -60,6 +61,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.ADI
             _ball = new GaugeNeedle("{Helios}/Gauges/FA-18C/ADI/adi_ball.png", center, new Size(225d, 1350d), new Point(112.5d, 677d));
             _ball.Clip = new EllipseGeometry(center, 113d, 113d);
             Components.Add(_ball);
+
+            _wingsNeedle = new GaugeNeedle("{Helios}/Gauges/FA-18C/ADI/adi_wings.png", new Point(75d, 155d), new Size(200d, 40d), new Point(0d, 0d));
+            Components.Add(_wingsNeedle);
 
             Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/ADI/adi_inner_ring.xaml", new Rect(0d, 0d, 350d, 350d)));
 

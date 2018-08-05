@@ -71,7 +71,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             _layoutSerializer = new XmlLayoutSerializer(this.DockManager);
             _layoutSerializer.LayoutSerializationCallback += LayoutSerializer_LayoutSerializationCallback;
 
-            _defalutLayoutFile = System.IO.Path.Combine(ConfigManager.DocumentPath, "DefaultLayout.hly");
+            _defalutLayoutFile = System.IO.Path.Combine(ConfigManager.DocumentPath, "DefaultLayout.hply");
         }
 
         void LayoutSerializer_LayoutSerializationCallback(object sender, LayoutSerializationCallbackEventArgs e)
@@ -84,6 +84,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                     HeliosEditorDocument editor = CreateDocumentEditor(profileObject);
                     profileObject.PropertyChanged += DocumentObject_PropertyChanged;
                     e.Content = CreateDocumentContent(editor);
+                    //DocumentPane.Children.Add((LayoutDocument)e.Model);
                     e.Model.Closed += Document_Closed;
                     AddDocumentMeta(profileObject, (LayoutDocument)e.Model, editor);
                 } else
@@ -467,7 +468,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
         {
             if (ConfigManager.UndoManager.CanUndo || (Profile != null && Profile.IsDirty))
             {
-                MessageBoxResult result = MessageBox.Show(this, "There are changes to the current profile if you continue with out saving your changes will be lost.  Would you like to save the current profile?", "Save Changes", MessageBoxButton.YesNoCancel);
+                MessageBoxResult result = MessageBox.Show(this, "There are changes to the current profile.  If you continue without saving your changes, they will be lost.  Would you like to save the current profile?", "Save Changes", MessageBoxButton.YesNoCancel);
                 if (result == MessageBoxResult.Yes)
                 {
                     return SaveProfile();
@@ -534,14 +535,14 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 // TODO Restore docking panel layout
                 if (profile != null)
                 {
-                    string layoutFileName = Path.ChangeExtension(profile.Path, "hplayout");
+                    string layoutFileName = Path.ChangeExtension(profile.Path, "hply");
                     if (File.Exists(layoutFileName))
                     {
                         Dispatcher.Invoke(DispatcherPriority.Background, (LayoutDelegate)_layoutSerializer.Deserialize, layoutFileName);
                     }
                 } else
                 {
-                    ConfigManager.LogManager.LogDebug("Docking Panel Layout Problem.  Profile Object Null during restore of hplayout for " + path);
+                    ConfigManager.LogManager.LogDebug("Docking Panel Layout Problem.  Profile Object Null during restore of hply for " + path);
                 }
 
                 GC.Collect();
@@ -597,7 +598,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 Dispatcher.Invoke(DispatcherPriority.Background, new Action(RemoveLoadingAdorner));
                 Dispatcher.Invoke(DispatcherPriority.Background, (System.Threading.SendOrPostCallback)delegate { SetValue(StatusBarMessageProperty, ""); }, "");
 
-                string layoutFileName = Path.ChangeExtension(profile.Path, "hplayout");
+                string layoutFileName = Path.ChangeExtension(profile.Path, "hply");
                 if (File.Exists(layoutFileName))
                 {
                     File.Delete(layoutFileName);
