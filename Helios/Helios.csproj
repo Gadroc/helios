@@ -2662,6 +2662,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\Controls\" />
+    <Folder Include="Gauges\M-2000C\" />
+    <Folder Include="Images\M-2000C\" />
     <Folder Include="Interfaces\DCS\M2000C\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
     <Folder Include="Templates\Base\FA-18C\" />
