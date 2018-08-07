@@ -2667,6 +2667,7 @@
     <Folder Include="Interfaces\DCS\M2000C\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
     <Folder Include="Templates\Base\FA-18C\" />
+    <Folder Include="Templates\Base\M-2000C\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\FA-18C\MPCD Knob.png" />
