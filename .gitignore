@@ -6,3 +6,7 @@ obj
 TestResults
 *.suo
 /packages
+Helios *.zip
+"/.vs"
+"NL Assets"
+/installer
