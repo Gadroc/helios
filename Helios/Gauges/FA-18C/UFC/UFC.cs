@@ -29,49 +29,51 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private Rect _scaledScreenRect = SCREEN_RECT;
 
         private string _aircraft;
-        //private String _font = "MS 33558";
-        private String _font = "Franklin Gothic";
+        private String _font = "MS 33558";
+        //private String _font = "Franklin Gothic";
         public UFC_FA18C()
-            : base("Up Front Controller", new Size(645, 470))
+            : base("Up Front Controller", new Size(602, 470))
         {
-            AddButton("EMCON", 562, 129, new Size(50, 50));
-            AddButton("1", 115, 112, new Size(50, 50));
-            AddButton("2", 179, 112, new Size(50, 50));
-            AddButton("3", 243, 112, new Size(50, 50));
-            AddButton("4", 115, 174, new Size(50, 50));
-            AddButton("5", 179, 174, new Size(50, 50));
-            AddButton("6", 243, 174, new Size(50, 50));
-            AddButton("7", 115, 237, new Size(50, 50));
-            AddButton("8", 179, 237, new Size(50, 50));
-            AddButton("9", 243, 237, new Size(50, 50));
-            AddButton("CLR", 115, 299, new Size(50, 50));
-            AddButton("0", 179, 299, new Size(50, 50),true);
-            AddButton("ENT", 243, 299, new Size(50, 50));
-            AddButton("AP", 112, 397, new Size(50, 50),true);
-            AddButton("IFF", 170, 397, new Size(50, 50));
-            AddButton("TCN", 231, 397, new Size(50, 50));
-            AddButton("ILS", 292, 397, new Size(50, 50),true);
-            AddButton("DL", 353, 397, new Size(50, 50), true);
-            AddButton("BCN", 416, 397, new Size(50, 50));
-            AddButton("ONOFF", 479, 397, new Size(50, 50));
-            AddButtonIP("IP", 37, 54, new Size(40, 40));
-            AddButtonIP("ODU 1", 323, 36, new Size(40, 40));
-            AddButtonIP("ODU 2", 323, 102, new Size(40, 40));
-            AddButtonIP("ODU 3", 323, 172, new Size(40, 40));
-            AddButtonIP("ODU 4", 323, 240, new Size(40, 40));
-            AddButtonIP("ODU 5", 323, 310, new Size(40, 40));
-            AddThreeWayToggle("ADF", 41, 116, new Size(30, 60));
+            AddButton("EMCON", 527, 129, new Size(48, 48));
+            AddButton("1", 105, 116, new Size(48, 48));
+            AddButton("2", 167, 116, new Size(48, 48));
+            AddButton("3", 229, 116, new Size(48, 48));
+            AddButton("4", 105, 179, new Size(48, 48));
+            AddButton("5", 167, 179, new Size(48, 48));
+            AddButton("6", 229, 179, new Size(48, 48));
+            AddButton("7", 105, 240, new Size(48, 48));
+            AddButton("8", 167, 240, new Size(48, 48));
+            AddButton("9", 229, 240, new Size(48, 48));
+            AddButton("CLR", 105, 303, new Size(48, 48));
+            AddButton("0", 167, 303, new Size(48, 48),true);
+            AddButton("ENT", 229, 303, new Size(48, 48));
+            AddButton("AP", 125, 400, new Size(40, 40),true);
+            AddButton("IFF", 176, 400, new Size(40, 40));
+            AddButton("TCN", 229, 400, new Size(40, 40));
+            AddButton("ILS", 284, 400, new Size(40, 40),true);
+            AddButton("DL", 337, 400, new Size(40, 40), true);
+            AddButton("BCN", 393, 400, new Size(40, 40));
+            AddButton("ONOFF", 447, 400, new Size(40, 40));
+            AddButtonIP("IP", 28, 60, new Size(40, 40));
+            AddButtonIP("ODU 1", 302, 42, new Size(40, 40));
+            AddButtonIP("ODU 2", 302, 107, new Size(40, 40));
+            AddButtonIP("ODU 3", 302, 175, new Size(40, 40));
+            AddButtonIP("ODU 4", 302, 241, new Size(40, 40));
+            AddButtonIP("ODU 5", 302, 310, new Size(40, 40));
+            AddThreeWayToggle("ADF", 33, 122, new Size(30, 60));
 
-            AddPot("UFC Display Brightness", new Point(566, 58), new Size(50, 50));
-            AddPot("Radio Volume 1", new Point(28, 212), new Size(50, 50));
-            AddPot("Radio Volume 2", new Point(566, 212), new Size(50, 50));
-            AddEncoder("Radio 1", new Point(20, 385), new Size(75, 75));
-            AddEncoder("Radio 2", new Point(540, 385), new Size(75, 75));
+            AddPot("UFC Display Brightness", new Point(528, 66), new Size(48, 48));
+            AddPot("Radio Volume 1", new Point(25, 213), new Size(48, 48));
+            AddPot("Radio Volume 2", new Point(528, 213), new Size(48, 48));
+            AddEncoder("Radio 1", new Point(29, 383), new Size(75, 75));
+            AddButtonIP("Radio 1 Pull", 52, 408, new Size(28, 28),false);
+            AddEncoder("Radio 2", new Point(500, 383), new Size(75, 75));
+            AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28),false);
         }
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/FA-18C/UFC 1080.png"; }
+            get { return "{Helios}/Gauges/FA-18C/UFC/UFC Faceplate.png"; }
         }
             
         private void AddTrigger(IBindingTrigger trigger, string device)
@@ -110,9 +112,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddEncoder(string name, Point posn, Size size)
         {
-            Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
+            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
+            //_knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
+            _knob.KnobImage = "{Helios}/Images/FA-18C/UFC Rotator_U.png";
             _knob.StepValue = 0.1;
             _knob.RotationStep = 5;
             _knob.Top = posn.Y;
@@ -125,9 +128,14 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 AddTrigger(trigger, name);
             }
-            AddAction(_knob.Actions["set.value"], name);
-            AddAction(_knob.Actions["push"], name);
-            AddAction(_knob.Actions["release"], name);
+            foreach (IBindingAction action in _knob.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddAction(_knob.Actions["set.value"], name);
+            //AddAction(_knob.Actions["push"], name);
+            //AddAction(_knob.Actions["release"], name);
         }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
          private void AddButton(string name, double x, double y, Size size, bool altImage)
@@ -159,6 +167,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddAction(button.Actions["set.physical state"], "UFC Key " + name);
         }
         private void AddButtonIP(string name, double x, double y, Size size)
+        { AddButtonIP(name, x, y, size, true); }
+        private void AddButtonIP(string name, double x, double y, Size size,Boolean glyph)
         {
             Helios.Controls.PushButton button = new Helios.Controls.PushButton();
             button.Top = y;
@@ -169,9 +179,12 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             button.PushedImage = "{Helios}/Images/Buttons/tactile-dark-round-in.png";
             button.Text = "";
             button.Name = "UFC Key " + name;
-            button.Glyph = PushButtonGlyph.Circle;
-            button.GlyphThickness = 3;
-            button.GlyphColor = Color.FromArgb( 0xFF,0xC0, 0xC0, 0xC0);
+            if (glyph)
+            {
+                button.Glyph = PushButtonGlyph.Circle;
+                button.GlyphThickness = 3;
+                button.GlyphColor = Color.FromArgb(0xFF, 0xC0, 0xC0, 0xC0);
+            }
             Children.Add(button);
 
             AddTrigger(button.Triggers["pushed"], "UFC Key " + name);
@@ -285,7 +298,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 AddTrigger(trigger, name);
             }
-            AddTrigger(toggle.Triggers["position.changed"], name);
             AddAction(toggle.Actions["set.position"], name);
         }
         public override bool HitTest(Point location)
@@ -312,8 +324,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             // No-Op
         }
-
-
 
     }
 }

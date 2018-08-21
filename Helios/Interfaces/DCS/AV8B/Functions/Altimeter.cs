@@ -24,13 +24,16 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions
     class Altimeter : NetworkFunction
     {
         private static DCSDataElement[] _dataElements;
-
         private HeliosValue _altitude;
         private HeliosValue _pressure;
+        private string _altID;
+        private string _pressID;
 
         public Altimeter(BaseUDPInterface sourceInterface, string instrumentClass, string altitudeDeviceId, string altitudeName, string altitudeDescription,string altitudeComments, string pressureDeviceId,string pressureName,string pressureDescription, string pressureComments)
             : base(sourceInterface)
         {
+            _altID = altitudeDeviceId;
+            _pressID = pressureDeviceId;
             _dataElements = new DCSDataElement[] { new DCSDataElement(altitudeDeviceId, null, true), new DCSDataElement(pressureDeviceId, null, true) };
             _altitude = new HeliosValue(sourceInterface, BindingValue.Empty, instrumentClass, altitudeName, altitudeDescription, altitudeComments, BindingValueUnits.Feet);
             Values.Add(_altitude);
@@ -50,25 +53,24 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B.Functions
         {
             string[] parts = value.Split(';');
 
-            switch (id)
-            {
-                case "2051":
-                    double tenThousands = ClampedParse(parts[0], 10000d);
-                    double thousands = ClampedParse(parts[1], 1000d);
-                    double hundreds = Parse(parts[2], 100d);
+            if (id == _altID) {
+                double tenThousands = ClampedParse(parts[0], 10000d);
+                double thousands = ClampedParse(parts[1], 1000d);
+                double hundreds = Parse(parts[2], 100d);
 
-                    double altitude = tenThousands + thousands + hundreds;
-                    _altitude.SetValue(new BindingValue(altitude), false);
-                    break;
-                case "2059":
-                    double tens = ClampedParse(parts[0], 10d);
-                    double ones = ClampedParse(parts[1], 1d);
-                    double tenths = ClampedParse(parts[2], .1d);
-                    double hundredths = Parse(parts[3], .01d);
+                double altitude = tenThousands + thousands + hundreds;
+                _altitude.SetValue(new BindingValue(altitude), false);
+            }
+            else if (id == _pressID) {
+                double tens = ClampedParse(parts[0], 10d);
+                double ones = ClampedParse(parts[1], 1d);
+                double tenths = ClampedParse(parts[2], .1d);
+                double hundredths = Parse(parts[3], .01d);
 
-                    double pressure = tens + ones + tenths + hundredths;
-                    _pressure.SetValue(new BindingValue(pressure), false);
-                    break;
+                double pressure = tens + ones + tenths + hundredths;
+                _pressure.SetValue(new BindingValue(pressure), false);
+            }
+            else {
             }
         }
 

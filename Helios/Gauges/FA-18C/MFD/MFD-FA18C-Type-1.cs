@@ -53,9 +53,10 @@ namespace GadrocsWorkshop.Helios.Controls
             AddButton("OSB19", 230, 652, false);
             AddButton("OSB20", 150, 652, false);
 
-            AddKnob("Mode Knob", new Point(298, 14), new Size(50, 50));
-            AddKnob("Brightness Knob",  new Point(14, 632), new Size(50, 50));
-            AddKnob("Contrast Knob",   new Point(592, 632), new Size(50, 50));
+            //AddKnob("Mode Knob", new Point(298, 14), new Size(50, 50));
+            AddRotarySwitch("Mode Knob", new Point(298, 14), new Size(50, 50));
+            AddKnob("Brightness Knob",  new Point(14, 632), new Size(50, 50),1);
+            AddKnob("Contrast Knob",   new Point(592, 632), new Size(50, 50),1);
         }
 
         #region Properties
@@ -77,12 +78,42 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             base.OnPropertyChanged(args);
         }
+        private void AddRotarySwitch(string name, Point posn, Size size)
+        {
+            Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
+            _knob.Name = name;
+            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.DrawLabels = false;
+            _knob.DrawLines = false;
+            _knob.Positions.Clear();
+            _knob.Positions.Add(new RotarySwitchPosition(_knob, 0, "Off", 270d));
+            _knob.Positions.Add(new RotarySwitchPosition(_knob, 1, "Night", 330d));
+            _knob.Positions.Add(new RotarySwitchPosition(_knob, 2, "Day", 30d));
+            _knob.CurrentPosition = 1;
+            _knob.DefaultPosition = 1;
+            _knob.Top = posn.Y;
+            _knob.Left = posn.X;
+            _knob.Width = size.Width;
+            _knob.Height = size.Height;
 
-        private void AddKnob(string name, Point posn, Size size)
+            Children.Add(_knob);
+            AddTrigger(_knob.Triggers["position.changed"], name);
+            AddAction(_knob.Actions["set.position"], name);
+        }
+        private void AddKnob(string name, Point posn, Size size) { AddKnob(name, posn, size, 0); }
+        private void AddKnob(string name, Point posn, Size size, Int16 knobType)
         {
             Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            switch (knobType)
+            {
+                case 1:
+                    _knob.KnobImage = "{Helios}/Images/FA-18C/MPCD Knob.png";
+                    break;
+                default:
+                    _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+                    break;                
+            }
             _knob.InitialRotation = 219;
             _knob.RotationTravel = 291;
             _knob.MinValue = 0;
@@ -99,7 +130,10 @@ namespace GadrocsWorkshop.Helios.Controls
             {
                 AddTrigger(trigger, name);
             }
-            AddAction(_knob.Actions["set.value"], name);
+            foreach (IBindingAction action in _knob.Actions)
+            {
+                AddAction(action, name);
+            }
         }
 
         private void AddButton(string name, double x, double y, bool horizontal)

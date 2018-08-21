@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg3224" Width="130" Height="20">
+
+    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4526" Fill="LightGray" Data="M 159.96349 350.5 C 153.34827 350.55757 148 356.57938 148 363.9988 c 0 7.45518 5.39841 13.49881 12.05769 13.49881 0.032 0 0.0623 2.8e-4 0.0941 0 l 0 0.0649 80.57302 0 0 -0.0649 C 247.2518 377.32717 252.5 371.34674 252.5 363.9988 c 0 -7.45518 -5.39841 -13.4988 -12.05769 -13.4988 -0.0213 0 -0.0415 -1.2e-4 -0.0628 0 l -80.41602 0 z" Canvas.Left="2" Canvas.Top="2" Height="16.001" Stretch="Fill" Width="127.333"/>
+    <Rectangle Height="16.001" Canvas.Left="53.167" Width="25" Stroke="black" Canvas.Top="2"/>
+</Canvas>
+

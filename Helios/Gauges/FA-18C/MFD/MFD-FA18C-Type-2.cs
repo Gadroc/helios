@@ -57,8 +57,8 @@ namespace GadrocsWorkshop.Helios.Controls
             AddRocker("Gain", "MFD Rocker", "V", 39, 650);
             AddRocker("Contrast", "MFD Rocker", "V", 645, 650);
 
-            AddThreeWayToggle("Heading", 28, 25, new Size(50, 100));
-            AddThreeWayToggle("Course", 651, 25, new Size(50, 100));
+            AddThreeWayToggle("Heading", 1, 51, new Size(50, 100));
+            AddThreeWayToggle("Course", 622, 50, new Size(50, 100));
 
             Helios.Controls.RotarySwitch knob = new Helios.Controls.RotarySwitch();
             AddKnob("Mode Knob",new Point(336,37),new Size(60,60));
@@ -97,7 +97,7 @@ namespace GadrocsWorkshop.Helios.Controls
             if (!horizontal)
             {
                 button.Image = "{Helios}/Images/AV-8B/MFD Button 1 UpV.png";
-                button.PushedImage = "{Helios}/AV-8B/FA-18C/MFD Button 1 DnV.png";
+                button.PushedImage = "{Helios}/Images/AV-8B/MFD Button 1 DnV.png";
                 //button.Rotation = HeliosVisualRotation.CCW;
             }
             else
@@ -204,12 +204,13 @@ namespace GadrocsWorkshop.Helios.Controls
             toggle.Width = size.Width;
             toggle.Height = size.Height;
             toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
+            toggle.Orientation = ToggleSwitchOrientation.Vertical; // this seems to just control the swipe direction
+            toggle.Rotation = HeliosVisualRotation.CW;
             toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
             toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-norm.png";
             toggle.PositionThreeImage = "{Helios}/Images/Toggles/orange-round-down.png";
             toggle.SwitchType = ThreeWayToggleSwitchType.MomOnMom;
             toggle.Name = name;
-
             Children.Add(toggle);
             foreach (IBindingTrigger trigger in toggle.Triggers)
             {

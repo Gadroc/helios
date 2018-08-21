@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="svg2" Width="42" Height="238">
+    <Canvas.Resources>
+        <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient3755" MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="1,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FF070707" Offset="0"/>
+                    <GradientStop Color="#FF303030" Offset="0.8888889"/>
+                    <GradientStop Color="#FF151515" Offset="1"/>
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        <RadialGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="radialGradient3761" MappingMode="Absolute" Center="200,200" GradientOrigin="200,200" RadiusX="55" RadiusY="55">
+            <RadialGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FF070707" Offset="0"/>
+                    <GradientStop Color="#FF303030" Offset="0.8888889"/>
+                    <GradientStop Color="#FF151515" Offset="1"/>
+                </GradientStopCollection>
+            </RadialGradientBrush.GradientStops>
+        </RadialGradientBrush>
+    </Canvas.Resources>
+    <Canvas x:Name="layer12">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-178.875" Y="-72"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+        </Canvas>
+    </Canvas>
+    <Canvas x:Name="HSIneedle" HorizontalAlignment="Left" Height="190.399994" UseLayoutRounding="False" VerticalAlignment="Top" Width="33.599998">
+        <Path Data="M0.637,6.372L0.637,15.789z" Height="50" Canvas.Left="19.093" Stroke="WhiteSmoke" StrokeThickness="4" StrokeMiterLimit="4" Canvas.Top="5.538" Width="4" Stretch="Fill"/>
+        <Path Data="M0.8,8.494C4.949,-2.697,8.367,-0.85,11.375,8.494L11.375,33.924 0.8,33.924z" Height="18.293" Canvas.Left="13.545" Stroke="WhiteSmoke" StrokeThickness="4" StrokeMiterLimit="4" Canvas.Top="53.541" Width="15" Fill="WhiteSmoke" Stretch="Fill"/>
+        <Path Data="M0.75,7.496L0.75,40.3z" Height="18" Canvas.Left="19.76" Stroke="WhiteSmoke" StrokeThickness="4" StrokeMiterLimit="4" Canvas.Top="219.574" Width="4"/>
+        <Path Data="M0.75,7.496L0.75,40.3z" Height="8" Canvas.Left="19.76" Stroke="WhiteSmoke" StrokeThickness="4" StrokeMiterLimit="4" Canvas.Top="183.284" Width="4"/>
+    </Canvas>
+    <Ellipse Height="30" Canvas.Left="6.267" Stroke="White" StrokeThickness="4" Canvas.Top="190.4" Width="30"/>
+    <Path Data="M68,33.5" Height="4" Canvas.Left="66" Stretch="Fill" Stroke="White" StrokeThickness="4" StrokeMiterLimit="4" Canvas.Top="31.5" Width="4"/>
+</Canvas>

@@ -1,3 +1,4 @@
+-- Exports.Lua from Helios AV-8B interface
 function ProcessHighImportance(mainPanelDevice)
 	-- Send Altimeter Values	
 	SendData(2051, string.format("%0.4f;%0.4f;%0.4f", mainPanelDevice:get_argument_value(355), mainPanelDevice:get_argument_value(354), mainPanelDevice:get_argument_value(352)))

@@ -34,8 +34,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
         private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
         private Rect _scaledScreenRectR = SCREEN_RECT_R;
-        //private String _font = "MS 33558";
-        private String _font = "Franklin Gothic";
+        private String _font = "MS 33558";
+        //private String _font = "Franklin Gothic";
 
         public UFC_AV8B()
             : base("Up Front Controller", new Size(808, 550))

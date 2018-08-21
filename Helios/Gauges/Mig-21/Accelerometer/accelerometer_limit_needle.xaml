@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="32" Height="189">
+    <Canvas.Resources/>
+    <Canvas Name="layer11">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-154.02143" Y="-38.699947"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+        </Canvas>
+    </Canvas>
+    <Path Data="F1M0.129,0.129L7.871,0.129 7.871,35.871 0.129,35.871z" Fill="Red" Height="36.001" Canvas.Left="12.053" Stroke="Red" StrokeThickness="0.259" StrokeMiterLimit="4" Width="6"/>
+    <Path Data="F1M21.828,0.101L21.828,7.839 0.101,7.839 0.101,0.101z" Fill="Red" Height="6" Stroke="Red" StrokeThickness="0.202" StrokeMiterLimit="4" Canvas.Top="30.001" Width="18" Stretch="Fill" Canvas.Left="12"/>
+</Canvas>
+    

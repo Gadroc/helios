@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="svg2" Width="70" Height="185">
+    <Canvas x:Name="layer4">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-154.02143" Y="-42.572612"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="rect3876" Fill="#FFF5F5F5" Stroke="#FF000000" StrokeThickness="1" Data="M 165.11118 53.512051 170 43.180901 l 4.88882 10.33115 0 108.987949 -9.77764 0 z" Canvas.Left="19.5" Canvas.Top="2"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="path3879" Fill="#FF282828" Stroke="#FF000000" StrokeThickness="2" StrokeMiterLimit="4" Data="m 189.5 171 a 19 19 0 1 1 -38 0 19 19 0 1 1 38 0 z" Canvas.Left="19.5" Canvas.Top="2">
+                <!--path-->
+                <Path.RenderTransform>
+                    <MatrixTransform Matrix="0.80904159,0,0,0.80904159,32.058409,31.653888"/>
+                </Path.RenderTransform>
+            </Path>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="path3881" Fill="#FF282828" Stroke="#FF000000" StrokeThickness="2" StrokeMiterLimit="4" Data="m 206 197 a 9.5 9.5 0 1 1 -19 0 9.5 9.5 0 1 1 19 0 z" Canvas.Left="19.5" Canvas.Top="2">
+                <!--path-->
+                <Path.RenderTransform>
+                    <MatrixTransform Matrix="0.90801394,0,0,0.90801394,-8.4247387,-8.8787456"/>
+                </Path.RenderTransform>
+            </Path>
+
+        </Canvas>
+    </Canvas>
+    <Path x:Name="path4344" Fill="Black" Stroke="#FF000000" StrokeThickness="2" StrokeMiterLimit="4" Data="m 189.5 171 a 19 19 0 1 1 -38 0 19 19 0 1 1 38 0 z" Canvas.Left="-134.5" Canvas.Top="-40.5">
+        <!--path-->
+        <Path.RenderTransform>
+            <MatrixTransform Matrix="1.6075949,0,0,1.6075949,-104.09494,-104.89873"/>
+        </Path.RenderTransform>
+    </Path>
+</Canvas>
