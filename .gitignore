@@ -10,3 +10,4 @@ Helios *.zip
 "/.vs"
 "NL Assets"
 /installer
+/.vs/helios/v15/Server/sqlite3
