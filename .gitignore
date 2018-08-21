@@ -8,3 +8,4 @@ TestResults
 *.suo
 /packages
 /.vs
+/*.zip
