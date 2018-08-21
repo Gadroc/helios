@@ -24,7 +24,6 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
-    using System.Linq;
     using System.Runtime.InteropServices;
     using System.Windows;
     using System.Windows.Controls;
@@ -355,17 +354,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 document.IsSelected = true;
                 document.ContentId = HeliosSerializer.GetReferenceName(profileObject);
                 document.Content = CreateDocumentContent(editor);
-
-                // Since a new LayoutRoot object is created upon de-serialization, the Child LayoutDocumentPane no longer belongs to the LayoutRoot 
-                // therefore the LayoutDocumentPane 'DocumentPane' must be referred to dynamically
-
-                LayoutDocumentPane DocumentPane = this.DockManager.Layout.Descendents().OfType<LayoutDocumentPane>().FirstOrDefault();
-                if (DocumentPane != null)
-                {
-                    DocumentPane.Children.Add(document);
-                }
-
-
+                DocumentPane.Children.Add(document);
                 document.Closed += Document_Closed;
 
                 meta = AddDocumentMeta(profileObject, document, editor);
