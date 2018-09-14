@@ -471,6 +471,10 @@
     <Compile Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml.cs">
       <DependentUpon>FC2InterfaceEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\DCS\Generic\GenericInterface.cs" />
+    <Compile Include="Interfaces\DCS\Generic\GenericInterfaceEditor.xaml.cs">
+      <DependentUpon>GenericInterfaceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\DCS\M2000C\M2000CInterface.cs" />
     <Compile Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml.cs">
       <DependentUpon>M2000CInterfaceEditor.xaml</DependentUpon>
@@ -709,6 +713,7 @@
     <Resource Include="Interfaces\DCS\MiG21\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\AV8B\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\Generic\ExportFunctions.lua" />
     <None Include="Interfaces\DCS\M2000C\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -2596,6 +2601,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\Generic\GenericInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
