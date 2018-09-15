@@ -38,7 +38,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Generic
         #endregion
 
         public GenericInterface()
-            : base("Generic")
+            : base("DCS Generic Interface")
         {
             DCSConfigurator config = new DCSConfigurator("DCSGENERIC", DCSPath);
             config.ExportConfigPath = "Config\\Export";

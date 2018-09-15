@@ -5,7 +5,7 @@
                                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                  xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls"
                                  xmlns:dcs="clr-namespace:GadrocsWorkshop.Helios.Interfaces.DCS.Common"
-                                 x:Name="GenericPropertiesWindow" Height="596.166" Width="Auto" Background="{StaticResource ToolBackground}" Padding="5">
+                                 x:Name="GenericPropertiesWindow" Height="Auto" Width="Auto" Background="{StaticResource ToolBackground}" Padding="5">
     <FrameworkElement.Resources>
         <Style x:Key="PathInvalid" TargetType="{x:Type StackPanel}">
             <Setter Property="UIElement.Visibility" Value="Collapsed"/>
@@ -52,36 +52,29 @@
         </DataTemplate>
     </FrameworkElement.Resources>
     <StackPanel Margin="0,0,0,77">
-        <GroupBox Header="About the DCS Generic Interface" Height="110">
+        <GroupBox Header="About the DCS Generic Interface" Height="Auto" BorderBrush="#80F80000">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Column="1" Grid.Row="1" FontSize="10" FontStyle="Normal" TextWrapping="Wrap">
-          This is a generic interface intended to be used for communication between DCS and Helios when there is no interface for a particular DCS aircraft type.  As such, it requires a higher level of understanding of how DCS exports work with Helios is required by those implementing profiles.
-                </TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="2" FontSize="10" FontStyle="Normal" TextWrapping="Wrap">
-                </TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="3" FontSize="10" FontStyle="Normal" TextWrapping="Wrap">
-          The first published examples of profiles which make use of this interface are expected to be from Captain Zeen so check out his website at http://www.captzeen.com/helios/index.asp
-                </TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="4" FontSize="10" FontStyle="Normal" TextWrapping="Wrap">
-                </TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="5" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">
+                <TextBlock Grid.Column="1" Grid.Row="1" FontSize="12" FontStyle="Normal" TextWrapping="Wrap">
+                    This is a generic interface used for communication between DCS and Helios when there is no interface for a particular DCS aircraft type.  As such, it requires a higher level of understanding about how Helios interacts with DCS in order to exploit the interface in profiles.</TextBlock>
+                <!--<TextBlock Grid.Column="1" Grid.Row="3" FontSize="12" FontStyle="Normal" TextWrapping="Wrap">The first published examples of profiles which make use of this interface are expected to be from Captain Zeen, so check out his website at http://www.captzeen.com/helios/index.asp</TextBlock>-->
+                <TextBlock Grid.Column="1" Grid.Row="5" FontSize="12" FontStyle="Italic" TextWrapping="Wrap">
           Requests for inclusion of new functionality can be made by contacting the current active Helios development team.  The DCS Generic interface is maintained to be backwardly compatible with previous revisions of the interface.
                 </TextBlock>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Properties" Height="185">
+        <GroupBox Header="Properties" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

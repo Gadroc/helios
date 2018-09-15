@@ -64,7 +64,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         private const string WEAPONS_CONTROL = "29";
         #endregion
         public M2000CInterface()
-            : base("DCS M-2000C")
+            : base("DCS Mirage-2000C")
         {
             DCSConfigurator config = new DCSConfigurator("DCSM2000C", DCSPath);
             config.ExportConfigPath = "Config\\Export";

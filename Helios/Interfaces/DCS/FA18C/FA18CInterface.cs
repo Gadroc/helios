@@ -110,7 +110,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         #endregion
 
         public FA18CInterface()
-            : base("DCS FA18C")
+            : base("DCS F/A-18C")
         {
             DCSConfigurator config = new DCSConfigurator("DCSFA18C", DCSPath);
             config.ExportConfigPath = "Config\\Export";
