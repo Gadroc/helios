@@ -50,6 +50,12 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>..\Helios.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EosSharp, Version=1.1.5488.21795, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -3380,6 +3386,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Helios.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

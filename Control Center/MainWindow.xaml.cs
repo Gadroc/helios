@@ -23,6 +23,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
     using System.Runtime.InteropServices;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Reflection;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Data;
@@ -109,6 +110,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             AutoHideCheckBox.IsChecked = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "AutoHide", false);
 
             SetLicenseMessage();
+            SetProjectReleaseMessage();
         }
 
         #region Properties
@@ -803,6 +805,12 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             Message = "";
         }
 
+        private void SetProjectReleaseMessage()
+        {
+            Message = Assembly.GetEntryAssembly().GetName().Version.ToString() +
+                " (Beta 3)\nProject Fork: BlueFinBima\n" +
+                "Contributors: Gadroc BlueFinBima Cylution yzfanimal damien022";
+        }
         #endregion
 
         private void Button_Click(object sender, RoutedEventArgs e)
