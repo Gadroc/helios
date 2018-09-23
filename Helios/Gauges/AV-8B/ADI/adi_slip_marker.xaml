@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Height="18" Width="14">
-    <Canvas Name="Slipball_Canvas" Margin="0,0,0,0">
-        <Path Name="Marker_Path" Data="M108.43838,30.000001 L115,30 114.92643,36.397308 118.23528,39.485663 118.23529,45.000583 104.88959,45.110882 104.77929,39.70626 108.30873,36.397308 108.41902,30" Height="17.125" Stretch="Fill" VerticalAlignment="Top" Fill="#FFD4CEBF" Stroke="#A05E5D54" Canvas.Left="0" Canvas.Top="0"/>
-    </Canvas>
-
-</Canvas>

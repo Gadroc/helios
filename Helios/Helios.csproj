@@ -302,7 +302,7 @@
     <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BDeviceRenderer.cs" />
     <Compile Include="Gauges\AV-8B\stabiliser display\stabilizerDisplay.cs" />
     <Compile Include="Gauges\AV-8B\1 Digit Display\1DigitDisplay.cs" />
-    <Compile Include="Gauges\AV-8B\ADI\SlipBall.cs" />
+    <Compile Include="Gauges\AV-8B\ADI\SlipTurn.cs" />
     <Compile Include="Gauges\AV-8B\ADI\BackupADI.cs" />
     <Compile Include="Gauges\AV-8B\AOA\AOA.cs" />
     <Compile Include="Gauges\AV-8B\Trim Position\trimPositionRudder.cs" />
@@ -2482,7 +2482,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\ADI\adi_slip_marker.xaml">
+    <Resource Include="Gauges\AV-8B\ADI\adi_turn_marker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>

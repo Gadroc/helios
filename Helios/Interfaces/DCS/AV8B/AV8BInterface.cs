@@ -546,7 +546,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits3Display(this, EDP, "2004", "EDP", "JPT display", "Engine Jet pipe temperature"));
             AddFunction(new Digits2Display(this, EDP, "2005", "EDP", "Stabiliser display", "Amount of Stabiliser"));
             AddFunction(new NetworkValue(this, "266", "EDP", "Stabilzer Arrow", "Up/Down Arrow for the stabilizer"," value -1 to 1", BindingValueUnits.Numeric));
-            AddFunction(new FlagValue(this, "179", "EDP", "H2O Control indicator", ""));  // not sure this is the correct code!!
+            AddFunction(new FlagValue(this, "177", "EDP", "H2O flow indicator", "")); 
             #endregion
 
             #region Electrical Panel
@@ -600,6 +600,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Axis(this, ADC, "3351", "351", 0.01d, 0d, 1d, "Flight Instruments", "SAI Cage/Pitch Adjust Knob", true, "%.3f"));
 
             AddFunction(new NetworkValue(this, "363", "Flight Instruments", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "652", "Flight Instruments", "Turn Indicator", "Current position of the turn indicator.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "654", "Flight Instruments", "Slip/Turn Off", "OFF Flag for the Slip / Turn gauge.", ".", BindingValueUnits.Numeric));
 
             #endregion
 

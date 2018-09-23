@@ -35,7 +35,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddDisplay("Stabilizer Direction Indicator", new Helios.Gauges.AV8B.stabilizerDisplay(), new Point(44, 232), new Size(30, 42));
             AddDisplay("Stabilizer Angle Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(73, 232), new Size(60, 42));
             AddDisplay("Water Amount Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(214, 232), new Size(60, 42));
-            AddIndicator("Water Light Indicator",new Point(158,234),new Size(32,32));
+            AddIndicator("H2O Flow Indicator",new Point(158,234),new Size(32,32));
 
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize)
