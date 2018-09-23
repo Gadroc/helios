@@ -601,7 +601,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             AddFunction(new NetworkValue(this, "363", "Flight Instruments", "Slip Ball", "Current position of the slip ball relative to the center of the tube.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
             AddFunction(new NetworkValue(this, "652", "Flight Instruments", "Turn Indicator", "Current position of the turn indicator.", "(-1 to 1) -1 is full left and 1 is full right.", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "654", "Flight Instruments", "Slip/Turn Off", "OFF Flag for the Slip / Turn gauge.", ".", BindingValueUnits.Numeric));
+            AddFunction(new FlagValue(this, "654", "Flight Instruments", "Slip/Turn Flag", "OFF Flag for the Slip / Turn gauge."));
 
             #endregion
 

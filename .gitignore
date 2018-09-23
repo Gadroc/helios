@@ -9,3 +9,5 @@ TestResults
 /packages
 /.vs
 Helios *.zip
+Helios*.msi
+setup.exe

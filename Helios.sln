@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Control Center", "Control C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phidgets", "Phidgets\Phidgets.csproj", "{06BA10F4-279C-4E82-B77C-333706A617B9}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,13 @@ Global
 		{06BA10F4-279C-4E82-B77C-333706A617B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06BA10F4-279C-4E82-B77C-333706A617B9}.Release|x64.ActiveCfg = Release|x64
 		{06BA10F4-279C-4E82-B77C-333706A617B9}.Release|x64.Build.0 = Release|x64
+		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Debug|Any CPU.ActiveCfg = Debug
+		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Debug|Any CPU.Build.0 = Debug
+		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Debug|x64.ActiveCfg = Debug
+		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Debug|x64.Build.0 = Debug
+		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Release|Any CPU.ActiveCfg = Release
+		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Release|x64.ActiveCfg = Release
+		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Release|x64.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

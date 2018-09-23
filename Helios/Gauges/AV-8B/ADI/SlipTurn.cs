@@ -61,7 +61,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.SlipBall
             _turnIndicator.Execute += new HeliosActionHandler(turnIndicator_Execute);
             Actions.Add(_turnIndicator);
         
-            _warningFlag = new HeliosValue(this, new BindingValue(false), "", "Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
+            _warningFlag = new HeliosValue(this, new BindingValue(false), "", "Slip Turn Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
             _warningFlag.Execute += new HeliosActionHandler(OffFlag_Execute);
             Actions.Add(_warningFlag);
 

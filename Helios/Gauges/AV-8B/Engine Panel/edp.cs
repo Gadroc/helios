@@ -34,7 +34,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddDisplay("Jet Pipe Temp Indicator", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(214, 137), new Size(90, 42));
             AddDisplay("Stabilizer Direction Indicator", new Helios.Gauges.AV8B.stabilizerDisplay(), new Point(44, 232), new Size(30, 42));
             AddDisplay("Stabilizer Angle Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(73, 232), new Size(60, 42));
-            AddDisplay("Water Amount Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(214, 232), new Size(60, 42));
+            AddDisplay("H2O Amount Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(214, 232), new Size(60, 42));
             AddIndicator("H2O Flow Indicator",new Point(158,234),new Size(32,32));
 
         }
