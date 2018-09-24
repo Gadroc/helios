@@ -54,7 +54,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>..\Helios.ico</ApplicationIcon>
+    <ApplicationIcon>Helios.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EosSharp, Version=1.1.5488.21795, Culture=neutral, processorArchitecture=MSIL">

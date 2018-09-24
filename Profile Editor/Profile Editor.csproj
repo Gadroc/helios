@@ -24,8 +24,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>915</ApplicationRevision>
-    <ApplicationVersion>1.4.2018.915</ApplicationVersion>
+    <ApplicationRevision>923</ApplicationRevision>
+    <ApplicationVersion>1.4.2018.923</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -70,6 +70,9 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GadrocsWorkshop.Helios.ProfileEditor.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandLine">
