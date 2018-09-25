@@ -134,6 +134,14 @@
     </Compile>
     <Compile Include="Controls\GuardedToggleSwitchRenderer.cs" />
     <Compile Include="Controls\GuardPosition.cs" />
+    <Compile Include="Controls\GuardedSwitch.cs" />
+    <Compile Include="Controls\GuardedSwitchAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>GuardedSwitchAppearancePropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GuardedSwitchBehaviorPropertyEditor.xaml.cs">
+      <DependentUpon>GuardedSwitchBehaviorPropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GuardedSwitchRenderer.cs" />
     <Compile Include="Controls\HatSwitch.cs" />
     <Compile Include="Controls\HatSwitchAppearanceEditor.xaml.cs">
       <DependentUpon>HatSwitchAppearanceEditor.xaml</DependentUpon>
@@ -485,6 +493,10 @@
     <Compile Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml.cs">
       <DependentUpon>M2000CInterfaceEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\DCS\Mi8\Mi8Interface.cs" />
+    <Compile Include="Interfaces\DCS\Mi8\Mi8InterfaceEditor.xaml.cs">
+      <DependentUpon>Mi8InterfaceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\DCS\MiG21\MiG21Interface.cs" />
     <Compile Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml.cs">
       <DependentUpon>MiG21InterfaceEditor.xaml</DependentUpon>
@@ -721,6 +733,7 @@
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Generic\ExportFunctions.lua" />
     <None Include="Interfaces\DCS\M2000C\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\Mi8\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1199,6 +1212,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\GuardedToggleSwitchBehaviorPropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GuardedSwitchAppearancePropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GuardedSwitchBehaviorPropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -2618,6 +2639,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Interfaces\DCS\Mi8\Mi8InterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2680,6 +2705,7 @@
     <Folder Include="Gauges\M-2000C\" />
     <Folder Include="Images\M-2000C\" />
     <Folder Include="Interfaces\DCS\M2000C\Functions\" />
+    <Folder Include="Interfaces\DCS\Mi8\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
     <Folder Include="Templates\Base\FA-18C\" />
     <Folder Include="Templates\Base\M-2000C\" />
@@ -3389,6 +3415,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Helios.ico" />
+    <Content Include="_Documents\changelog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_Documents\Helios.Read.Me.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
