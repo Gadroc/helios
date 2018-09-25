@@ -67,7 +67,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Column="1" Grid.Row="1" FontSize="12" FontStyle="Normal" TextWrapping="Wrap">
-                    This is a generic interface used for communication between DCS and Helios when there is no interface for a particular DCS aircraft type.  As such, it requires a higher level of understanding about how Helios interacts with DCS in order to exploit the interface in profiles.</TextBlock>
+                    This is a generic interface intended to be used for communication between DCS and Helios when there is no interface for a particular DCS aircraft type.  As such, it requires a higher level of understanding about how DCS exports work with Helios in order to implement profiles.</TextBlock>
                 <!--<TextBlock Grid.Column="1" Grid.Row="3" FontSize="12" FontStyle="Normal" TextWrapping="Wrap">The first published examples of profiles which make use of this interface are expected to be from Captain Zeen, so check out his website at http://www.captzeen.com/helios/index.asp</TextBlock>-->
                 <TextBlock Grid.Column="1" Grid.Row="5" FontSize="12" FontStyle="Italic" TextWrapping="Wrap">
           Requests for inclusion of new functionality can be made by contacting the current active Helios development team.  The DCS Generic interface is maintained to be backwardly compatible with previous revisions of the interface.
