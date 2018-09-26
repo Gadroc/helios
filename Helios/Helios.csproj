@@ -493,10 +493,6 @@
     <Compile Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml.cs">
       <DependentUpon>M2000CInterfaceEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\DCS\Mi8\Mi8Interface.cs" />
-    <Compile Include="Interfaces\DCS\Mi8\Mi8InterfaceEditor.xaml.cs">
-      <DependentUpon>Mi8InterfaceEditor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\DCS\MiG21\MiG21Interface.cs" />
     <Compile Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml.cs">
       <DependentUpon>MiG21InterfaceEditor.xaml</DependentUpon>
@@ -733,7 +729,6 @@
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Generic\ExportFunctions.lua" />
     <None Include="Interfaces\DCS\M2000C\ExportFunctions.lua" />
-    <Resource Include="Interfaces\DCS\Mi8\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2639,10 +2634,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Interfaces\DCS\Mi8\Mi8InterfaceEditor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2705,7 +2696,6 @@
     <Folder Include="Gauges\M-2000C\" />
     <Folder Include="Images\M-2000C\" />
     <Folder Include="Interfaces\DCS\M2000C\Functions\" />
-    <Folder Include="Interfaces\DCS\Mi8\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
     <Folder Include="Templates\Base\FA-18C\" />
     <Folder Include="Templates\Base\M-2000C\" />

@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Controls
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.Base.GuardedSwitch", "Guard Empty", "Toggle Switches", typeof(GuardedSwitchRenderer))]
+    [HeliosControl("Helios.Base.GuardedSwitch", "Guard Empty", "Miscellaneous", typeof(GuardedSwitchRenderer))]
     class GuardedSwitch : HeliosVisual
     {
         private static readonly Rect GuardUpRegion = new Rect(0, 0, 65, 123);
@@ -68,13 +68,13 @@ namespace GadrocsWorkshop.Helios.Controls
             _positionTwoGuardUpImage = "{Helios}/Images/Toggles/guard-up-off.png";
             _positionTwoGuardDownImage = "{Helios}/Images/Toggles/guard-down-off.png";
 
-            _positionOneEnterAction = new HeliosTrigger(this, "", "position one", "entered", "DO NOT USE.");
+            _positionOneEnterAction = new HeliosTrigger(this, "", "position one", "entered", "Deprecated Trigger. DO NOT USE.");
             //Triggers.Add(_positionOneEnterAction);
-            _positionOneExitAction = new HeliosTrigger(this, "", "position one", "exited", "DO NOT USE.");
+            _positionOneExitAction = new HeliosTrigger(this, "", "position one", "exited", "Deprecated Trigger. DO NOT USE.");
             //Triggers.Add(_positionOneExitAction);
-            _positionTwoEnterAction = new HeliosTrigger(this, "", "position two", "entered", "DO NOT USE.");
+            _positionTwoEnterAction = new HeliosTrigger(this, "", "position two", "entered", "Deprecated Trigger. DO NOT USE.");
             //Triggers.Add(_positionTwoEnterAction);
-            _positionTwoExitAction = new HeliosTrigger(this, "", "position two", "exited", "DO NOT USE.");
+            _positionTwoExitAction = new HeliosTrigger(this, "", "position two", "exited", "Deprecated Trigger. DO NOT USE.");
             //Triggers.Add(_positionTwoExitAction);
             _guardUpAction = new HeliosTrigger(this, "", "guard", "up", "Triggered when guard is moved up.");
             Triggers.Add(_guardUpAction);
@@ -83,11 +83,8 @@ namespace GadrocsWorkshop.Helios.Controls
             _releaseTrigger = new HeliosTrigger(this, "", "", "released", "This trigger is fired when the user releases pressure on the switch (lifts finger or mouse button.).");
             Triggers.Add(_releaseTrigger);
 
-            _positionValue = new HeliosValue(this, new BindingValue((double)SwitchPosition), "", "position", "DO NOT USE.", "Position number 1 or 2.  Positions are numbered from top to bottom.", BindingValueUnits.Numeric);
+            _positionValue = new HeliosValue(this, new BindingValue((double)SwitchPosition), "", "position", "Deprecated Value. DO NOT USE.", "Position number 1 or 2.  Positions are numbered from top to bottom.", BindingValueUnits.Numeric);
             _positionValue.Execute += new HeliosActionHandler(SetPositionAction_Execute);
-            //Values.Add(_positionValue);
-            //Actions.Add(_positionValue);
-            //Triggers.Add(_positionValue);
 
             _guardPositionValue = new HeliosValue(this, new BindingValue((double)GuardPosition), "", "guard position", "Current position of the switch guard.", "1 = Up, 2 = Down.", BindingValueUnits.Numeric);
             _guardPositionValue.Execute += new HeliosActionHandler(SetGuardPositionAction_Execute);

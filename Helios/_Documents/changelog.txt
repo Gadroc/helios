@@ -1,6 +1,6 @@
 1.4.2018.0926 Beta 4 Release
 ----------------------------
-* Mi-8 (Specialised) interface added
+* DCS Generic interface added.  This is an enabler for complex aircraft profiles from authors such as Capt Zeen.
 * Guard Switch (without Toggle) added to tool box controls
 
 1.4.2018.0924 Beta 3 Release

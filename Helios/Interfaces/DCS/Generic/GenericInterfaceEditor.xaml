@@ -67,7 +67,10 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Column="1" Grid.Row="1" FontSize="12" FontStyle="Normal" TextWrapping="Wrap">
-                    This is a generic interface intended to be used for communication between DCS and Helios when there is no interface for a particular DCS aircraft type.  As such, it requires a higher level of understanding about how DCS exports work with Helios in order to implement profiles.</TextBlock>
+                    This is a generic interface intended to be used for communication between DCS and Helios when there is no interface for a particular DCS aircraft type.</TextBlock>
+                <!--<TextBlock Grid.Column="1" Grid.Row="3" FontSize="12" FontStyle="Normal" TextWrapping="Wrap">The first published examples of profiles which make use of this interface are expected to be from Captain Zeen, so check out his website at http://www.captzeen.com/helios/index.asp</TextBlock>-->
+                <TextBlock Grid.Column="1" Grid.Row="3" FontSize="12" FontStyle="Normal" TextWrapping="Wrap">
+                    The interface creates abstract functions which cannot be used without supporting code.  As such, it requires a higher level of understanding about how DCS exports work with Helios in order to implement profiles.</TextBlock>
                 <!--<TextBlock Grid.Column="1" Grid.Row="3" FontSize="12" FontStyle="Normal" TextWrapping="Wrap">The first published examples of profiles which make use of this interface are expected to be from Captain Zeen, so check out his website at http://www.captzeen.com/helios/index.asp</TextBlock>-->
                 <TextBlock Grid.Column="1" Grid.Row="5" FontSize="12" FontStyle="Italic" TextWrapping="Wrap">
           Requests for inclusion of new functionality can be made by contacting the current active Helios development team.  The DCS Generic interface is maintained to be backwardly compatible with previous revisions of the interface.
@@ -155,12 +158,12 @@
                     <TextBlock Margin="4" Foreground="Red" TextWrapping="Wrap"><Run Text="Can not find game install."/></TextBlock>
                 </StackPanel>
                 <StackPanel Style="{StaticResource UpToDateStyle}">
-                    <TextBlock Margin="4" TextWrapping="Wrap"><Run Text="Your DCS Generic configuration is up to date."/></TextBlock>
-                    <Button Click="Remove_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2" Content="Remove Helios Setup"/>
+                    <TextBlock Margin="4" TextWrapping="Wrap"><Run Text="Your DCS Generic template configuration is up to date."/></TextBlock>
+                    <Button Click="Remove_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2" Content="Remove Template"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource OutOfDateStyle}">
-                    <TextBlock Margin="4" TextWrapping="Wrap"><Run Text="In order for Helios to interface with DCS Generic, an updated Export.lua file must be installed. This will back up and existing Export.lua file and deploy the necessary Helios configuration."/></TextBlock>
-                    <Button Click="Configure_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2" Content="Setup DCS Generic"/>
+                    <TextBlock Margin="4" TextWrapping="Wrap"><Run Text="In order for Helios to interface with DCS Generic, an updated Export.lua file must be installed. This will create a template showing controls supported by the interface."/></TextBlock>
+                    <Button Click="Configure_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2" Content="Create Template"/>
                 </StackPanel>
             </StackPanel>
         </GroupBox>

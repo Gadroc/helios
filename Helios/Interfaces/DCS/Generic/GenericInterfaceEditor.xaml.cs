@@ -120,13 +120,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Generic
 
         private void Configure_Click(object sender, RoutedEventArgs e)
         {
-            if (Configuration.UpdateExportConfig())
+            if (Configuration.UpdateExportConfig("Generic_Export_Template.lua"))
             {
-                MessageBox.Show(Window.GetWindow(this), "DCS Generic has been configured.");
+                MessageBox.Show(Window.GetWindow(this), "DCS Generic template has been created.");
             }
             else
             {
-                MessageBox.Show(Window.GetWindow(this), "Error updating DCS Generic configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
+                MessageBox.Show(Window.GetWindow(this), "Error writing DCS Generic configuration template.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
             }
         }
 
@@ -140,7 +140,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Generic
 
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
-            Configuration.RestoreConfig();
+            Configuration.RestoreConfig("Generic_Export_Template.lua");
         }
     }
 }
