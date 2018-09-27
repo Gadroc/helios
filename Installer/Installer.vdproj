@@ -1651,7 +1651,7 @@
             "SourcePath" = "8:..\\bin\\Release\\x86\\lua52.dll"
             "TargetName" = "8:lua52.dll"
             "Tag" = "8:"
-            "Folder" = "8:_6C2790D37C964B98A2372ADE527AEB83"
+            "Folder" = "8:_DF417BFABD2A4DDFA275A231C929A2B9"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1762,7 +1762,7 @@
             "SourcePath" = "8:SharpDX.DirectInput.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1833,7 +1833,7 @@
             "SourcePath" = "8:NLua.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1904,7 +1904,7 @@
             "SourcePath" = "8:Xceed.Wpf.AvalonDock.Themes.Metro.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1955,7 +1955,7 @@
             "SourcePath" = "8:Phidget21.NET.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2046,7 +2046,7 @@
             "SourcePath" = "8:..\\bin\\Release\\pt-BR\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_AC77F9C93EF044EA87E2F68A79F2BB63"
+            "Folder" = "8:_E6463A94202A48E2B0F1ECAA867A8B2C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2146,7 +2146,7 @@
             "SourcePath" = "8:..\\bin\\Release\\x64\\lua52.dll"
             "TargetName" = "8:lua52.dll"
             "Tag" = "8:"
-            "Folder" = "8:_BB2897D84A7D4A9A9FB1FB90BD863ECD"
+            "Folder" = "8:_30CAA9AA2DD843B4A7D799198DF63DDE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2177,7 +2177,7 @@
             "SourcePath" = "8:..\\bin\\Release\\fr\\Xceed.Wpf.Toolkit.LiveExplorer.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_8F90DD53541342C9BD830CE097E9E579"
+            "Folder" = "8:_B15D128BE5EC4DD99CC3C9837C4D8EAF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2388,7 +2388,7 @@
             "SourcePath" = "8:..\\bin\\Release\\sv\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_2728CF87756148C0AF688375A6F6FB1A"
+            "Folder" = "8:_5BAA597154384475976073141F141EDA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2419,7 +2419,7 @@
             "SourcePath" = "8:..\\bin\\Release\\zh-Hans\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5CA8E992A670403AA958959AF27703D5"
+            "Folder" = "8:_2D0A8003DAEA4A40A01EA9BA6F57291E"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2470,7 +2470,7 @@
             "SourcePath" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2621,7 +2621,7 @@
             "SourcePath" = "8:..\\bin\\Release\\hu\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_464E8D87B1044E0699C062F6BAD88288"
+            "Folder" = "8:_A652DB293C2D44FBAA3A9ED990F6079C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2672,7 +2672,7 @@
             "SourcePath" = "8:Xceed.Wpf.AvalonDock.Themes.Aero.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2923,7 +2923,7 @@
             "SourcePath" = "8:..\\bin\\Release\\fr\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_8F90DD53541342C9BD830CE097E9E579"
+            "Folder" = "8:_B15D128BE5EC4DD99CC3C9837C4D8EAF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2994,7 +2994,7 @@
             "SourcePath" = "8:..\\bin\\Release\\ru\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_C4D0EF41818544F3A013ACEE5CAB6FE6"
+            "Folder" = "8:_D364D571EEA74C9DA837D0A977F112BA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3065,7 +3065,7 @@
             "SourcePath" = "8:EosSharp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3356,7 +3356,7 @@
             "SourcePath" = "8:..\\bin\\Release\\de\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_D7CDF2C345484F46AAED508C597413A8"
+            "Folder" = "8:_83E4F04807604CBBBA5584982F6253CD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3627,7 +3627,7 @@
             "SourcePath" = "8:Xceed.Wpf.AvalonDock.Themes.Expression.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3738,7 +3738,7 @@
             "SourcePath" = "8:..\\bin\\Release\\it\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_D4C203E1FE9344FDAD874BE1DE9D12A3"
+            "Folder" = "8:_E48BD8F1B97049B59DB0D087D11ECAE7"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3817,7 +3817,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2018.923, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2018.926, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_9274F4C50CC50F560D572438444CF10F"
@@ -4300,7 +4300,7 @@
             "SourcePath" = "8:..\\Helios.Read.Me.txt"
             "TargetName" = "8:Helios.Read.Me.txt"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4331,7 +4331,7 @@
             "SourcePath" = "8:HidSharp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4362,7 +4362,7 @@
             "SourcePath" = "8:EosSharp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4513,7 +4513,7 @@
             "SourcePath" = "8:..\\bin\\Release\\es\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_E325EED682934913B8759BAB29B6DCDB"
+            "Folder" = "8:_EFA13363E4FE4542A85DF59A261E7E5B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4684,7 +4684,7 @@
             "SourcePath" = "8:SharpDX.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4755,7 +4755,7 @@
             "SourcePath" = "8:KeraLua.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4866,7 +4866,7 @@
             "SourcePath" = "8:Xceed.Wpf.AvalonDock.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5257,7 +5257,7 @@
             "SourcePath" = "8:..\\bin\\Release\\ro\\Xceed.Wpf.AvalonDock.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_7BC17883A7D64FB0B39C76B68CC35785"
+            "Folder" = "8:_2F07FFF71B28427FA896730A9B0AD206"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5548,7 +5548,7 @@
             "SourcePath" = "8:CommandLine.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5579,7 +5579,7 @@
             "SourcePath" = "8:HidSharp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5669,160 +5669,6 @@
             "Property" = "8:ProgramFilesFolder"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_DBE1904A564042E28774008F6012786A"
-                    {
-                    "Name" = "8:Gadrocs Workshop"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_F412B99DD9004C9BB95A3579B8AF9761"
-                        "Folders"
-                        {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_5129BB67B5B1431C8208EBAF27E3DE9D"
-                            {
-                            "Name" = "8:Helios"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_30FC1643DAF04AB7946C7611148D32E0"
-                                "Folders"
-                                {
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_2728CF87756148C0AF688375A6F6FB1A"
-                                    {
-                                    "Name" = "8:sv"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_C4B64EEFD85D45149D43BEEFAE7823F1"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_464E8D87B1044E0699C062F6BAD88288"
-                                    {
-                                    "Name" = "8:hu"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_12668B54D9814140B221AD8ED396A044"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5CA8E992A670403AA958959AF27703D5"
-                                    {
-                                    "Name" = "8:zh-Hans"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_3D4F2E2B149D49CE889B1698C377A986"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6C2790D37C964B98A2372ADE527AEB83"
-                                    {
-                                    "Name" = "8:x86"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_C949ED2691A64239892DB5EA4F3FA6B5"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_7BC17883A7D64FB0B39C76B68CC35785"
-                                    {
-                                    "Name" = "8:ro"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_69FB5CFF231144308054843957FE44B7"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_8F90DD53541342C9BD830CE097E9E579"
-                                    {
-                                    "Name" = "8:fr"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_F67C3454FB0A44F299D44D5A9558219D"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_AC77F9C93EF044EA87E2F68A79F2BB63"
-                                    {
-                                    "Name" = "8:pt-BR"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_C8B8B94F508D4775B1E2E0DC5BF6C18E"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BB2897D84A7D4A9A9FB1FB90BD863ECD"
-                                    {
-                                    "Name" = "8:x64"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_B13D44A45DEF47B1A51F5F9EC8EB1139"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_C4D0EF41818544F3A013ACEE5CAB6FE6"
-                                    {
-                                    "Name" = "8:ru"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_8D50F875CD9B4AAE9ABE0FFC4F88D36E"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D4C203E1FE9344FDAD874BE1DE9D12A3"
-                                    {
-                                    "Name" = "8:it"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_65601C4449C24FEA94E872F742CE213A"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D7CDF2C345484F46AAED508C597413A8"
-                                    {
-                                    "Name" = "8:de"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_CB715AFB836C462FA211420BCC534AC3"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_E325EED682934913B8759BAB29B6DCDB"
-                                    {
-                                    "Name" = "8:es"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_6CB4BF10B7D14595AD12889F3E25F62E"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_AD59734AD6DF48A39047EBE90EC7C76E"
@@ -6077,6 +5923,160 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_2D0A8003DAEA4A40A01EA9BA6F57291E"
+                    {
+                    "Name" = "8:zh-Hans"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_3D4F2E2B149D49CE889B1698C377A986"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_2F07FFF71B28427FA896730A9B0AD206"
+                    {
+                    "Name" = "8:ro"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_69FB5CFF231144308054843957FE44B7"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_30CAA9AA2DD843B4A7D799198DF63DDE"
+                    {
+                    "Name" = "8:x64"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_B13D44A45DEF47B1A51F5F9EC8EB1139"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5BAA597154384475976073141F141EDA"
+                    {
+                    "Name" = "8:sv"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_C4B64EEFD85D45149D43BEEFAE7823F1"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_83E4F04807604CBBBA5584982F6253CD"
+                    {
+                    "Name" = "8:de"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_CB715AFB836C462FA211420BCC534AC3"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A652DB293C2D44FBAA3A9ED990F6079C"
+                    {
+                    "Name" = "8:hu"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_12668B54D9814140B221AD8ED396A044"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_B15D128BE5EC4DD99CC3C9837C4D8EAF"
+                    {
+                    "Name" = "8:fr"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_F67C3454FB0A44F299D44D5A9558219D"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_B2F433E5F25D4775B39486E42B2DFD4D"
+                    {
+                    "Name" = "8:Gadrocs Workshop"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_F412B99DD9004C9BB95A3579B8AF9761"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_5129BB67B5B1431C8208EBAF27E3DE9D"
+                            {
+                            "Name" = "8:Helios"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_30FC1643DAF04AB7946C7611148D32E0"
+                                "Folders"
+                                {
+                                }
+                            }
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D364D571EEA74C9DA837D0A977F112BA"
+                    {
+                    "Name" = "8:ru"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_8D50F875CD9B4AAE9ABE0FFC4F88D36E"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_DF417BFABD2A4DDFA275A231C929A2B9"
+                    {
+                    "Name" = "8:x86"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_C949ED2691A64239892DB5EA4F3FA6B5"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_E48BD8F1B97049B59DB0D087D11ECAE7"
+                    {
+                    "Name" = "8:it"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_65601C4449C24FEA94E872F742CE213A"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_E6463A94202A48E2B0F1ECAA867A8B2C"
+                    {
+                    "Name" = "8:pt-BR"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_C8B8B94F508D4775B1E2E0DC5BF6C18E"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_EFA13363E4FE4542A85DF59A261E7E5B"
+                    {
+                    "Name" = "8:es"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_6CB4BF10B7D14595AD12889F3E25F62E"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
         }
@@ -6216,20 +6216,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_02A4ED0547AC4FC99FAC670E89F01AD7"
-            {
-            "Name" = "8:Helios Control Center"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:32512"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_80A510498A90463B948A51AD3876BD90"
-            "Folder" = "8:_AD59734AD6DF48A39047EBE90EC7C76E"
-            "WorkingFolder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
-            "Icon" = "8:_80A510498A90463B948A51AD3876BD90"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_126FD15E69A54E4199A08D77B6230FC3"
             {
             "Name" = "8:Profile Editor"
@@ -6244,21 +6230,7 @@
             "Icon" = "8:_FA987369A3EA4F739E46E3E94BA7D12B"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3176C9433DBC43C884D133FBCBBB1095"
-            {
-            "Name" = "8:Helios Read Me"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:32512"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_B557B0599E0E49F0953CFF41CCD2474C"
-            "Folder" = "8:_AD59734AD6DF48A39047EBE90EC7C76E"
-            "WorkingFolder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
-            "Icon" = "8:_80A510498A90463B948A51AD3876BD90"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3A787DDDDA5347699DE7852B21186EE2"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1B306E9D48DF476997462080D31587D1"
             {
             "Name" = "8:Helios Profile Editor"
             "Arguments" = "8:"
@@ -6268,7 +6240,7 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_FA987369A3EA4F739E46E3E94BA7D12B"
             "Folder" = "8:_AD59734AD6DF48A39047EBE90EC7C76E"
-            "WorkingFolder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "WorkingFolder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Icon" = "8:_FA987369A3EA4F739E46E3E94BA7D12B"
             "Feature" = "8:"
             }
@@ -6283,6 +6255,34 @@
             "Target" = "8:_80A510498A90463B948A51AD3876BD90"
             "Folder" = "8:_937487924C53439892F37CF38F2AF25A"
             "WorkingFolder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Icon" = "8:_80A510498A90463B948A51AD3876BD90"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_82F6A682CD9F45F0A304206F6F5CCE19"
+            {
+            "Name" = "8:Helios Control Center"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:32512"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_80A510498A90463B948A51AD3876BD90"
+            "Folder" = "8:_AD59734AD6DF48A39047EBE90EC7C76E"
+            "WorkingFolder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
+            "Icon" = "8:_80A510498A90463B948A51AD3876BD90"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BD8E0FBEC75246AD87556F0F9E7D777E"
+            {
+            "Name" = "8:Helios.Read.Me.txt"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:32512"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_B557B0599E0E49F0953CFF41CCD2474C"
+            "Folder" = "8:_AD59734AD6DF48A39047EBE90EC7C76E"
+            "WorkingFolder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Icon" = "8:_80A510498A90463B948A51AD3876BD90"
             "Feature" = "8:"
             }
@@ -6699,7 +6699,7 @@
             "SourcePath" = "8:..\\Phidgets\\obj\\Release\\Phidgets.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -6727,7 +6727,7 @@
             "SourcePath" = "8:..\\Control Center\\obj\\Release\\Control Center.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -6757,7 +6757,7 @@
             "SourcePath" = "8:..\\Helios\\obj\\Release\\Helios.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -6785,7 +6785,7 @@
             "SourcePath" = "8:..\\Profile Editor\\obj\\Release\\Profile Editor.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5129BB67B5B1431C8208EBAF27E3DE9D"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
