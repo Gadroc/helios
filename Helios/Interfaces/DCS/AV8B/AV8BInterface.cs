@@ -46,8 +46,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         private const string ACNIP = "8";
         private const string DECS = "9";
         private const string ADC = "10";
-        private const string MSC = "11";
-        private const string NAV_INS = "12";
+        private const string NAV_INS = "11";
+        private const string MSC = "12";
         private const string VREST = "13";
         private const string NAVFLIR = "14";
         private const string TGTPOD = "15";
@@ -360,7 +360,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Throttle Quadrant
-            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3481", "481", "1", "On", "0", "Off", "Throttle Quadrant", "JPTL Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, DECS, "3481", "481", "1", "Off", "0", "On", "Throttle Quadrant", "JPTL Switch", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3482", "482", "1", "On", "0", "Off", "Throttle Quadrant", "EMS Button", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, DECS, "3484", "484", "1", "On", "0", "Off", "Throttle Quadrant", "Manual Fuel Switch", "%1d"));
             AddFunction(new Axis(this, FLIGHTCONTROLS, "3485", "485", 0.1d, 0d, 1d, "Throttle Quadrant", "Throttle Lever Friction Knob"));
@@ -463,10 +463,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             // switch positions still need to be labeled
             AddFunction(new Axis(this, RSC, "3614", "614", 0.03d, 0d, 1d, "V/UHF Radio", "Volume Knob"));
             AddFunction(new Axis(this, RSC, "3615", "615", 0.03d, 0d, 1d, "V/UHF Radio", "Chan/Freq Knob"));
-            AddFunction(new Switch(this, RSC, "3616", new SwitchPosition[] {new SwitchPosition("-0.20", "Zero", "3616"), new SwitchPosition("0.0", "Off", "3616"), new SwitchPosition("0.0", "Test", "3616"), new SwitchPosition("0.20", "TR+G", "3616"), new SwitchPosition("0.40", "TR", "3616"), new SwitchPosition("0.60", "ADF", "3616"), new SwitchPosition("0.80", "Chng PRST", "3616"), new SwitchPosition("1.0", "Norm", "3616") }, "V/UHF Radio", "Operational Mode Switch", "%0.1f"));
+            AddFunction(new Switch(this, RSC, "3616", new SwitchPosition[] {new SwitchPosition("-0.20", "Zero", "3616"), new SwitchPosition("0.0", "Off", "3616"), new SwitchPosition("0.20", "Test", "3616"), new SwitchPosition("0.40", "TR+G", "3616"), new SwitchPosition("0.60", "TR", "3616"), new SwitchPosition("0.80", "ADF", "3616"), new SwitchPosition("1.00", "Chng PRST", "3616")}, "V/UHF Radio", "Operational Mode Switch", "%0.1f"));
             AddFunction(new PushButton(this, RSC, "3617", "617", "V/UHF Radio", "Ancillary Mode Pointer A mode"));
             AddFunction(new PushButton(this, RSC, "3618", "618", "V/UHF Radio", "Ancillary Mode Switch P mode"));
-            AddFunction(new Switch(this, RSC, "3619", new SwitchPosition[] { new SwitchPosition("0.0", "AJ/M", "3619"), new SwitchPosition("0.0", "AJ", "3619"), new SwitchPosition("0.15", "MAR", "3619"), new SwitchPosition("0.30", "PRST", "3619"), new SwitchPosition("0.45", "MAN", "3619"), new SwitchPosition("0.60", "234", "3619"), new SwitchPosition("0.75", "121", "3619"), new SwitchPosition("0.90", "Norm", "3619"), new SwitchPosition("1.00", "Norm", "3619") }, "V/UHF Radio", "Frequency Mode Switch", "%0.2f"));
+            AddFunction(new Switch(this, RSC, "3619", new SwitchPosition[] {new SwitchPosition("0.0", "AJ/M", "3619"), new SwitchPosition("0.15", "AJ", "3619"), new SwitchPosition("0.30", "MAR", "3619"), new SwitchPosition("0.45", "PRST", "3619"), new SwitchPosition("0.60", "MAN", "3619"), new SwitchPosition("0.75", "243", "3619"), new SwitchPosition("0.90", "121", "3619")}, "V/UHF Radio", "Frequency Mode Switch", "%0.2f"));
             AddFunction(new PushButton(this, RSC, "3620", "620", "V/UHF Radio", "LOAD/OFST Switch"));
 
             #endregion
