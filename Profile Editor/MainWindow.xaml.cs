@@ -885,13 +885,13 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                         }
                         foreach (MonitorResetItem item in resetDialog.MonitorResets)
                         {
-                            ConfigManager.LogManager.LogDebug("Placeing controls for old monitor " + item.OldMonitor);
+                            ConfigManager.LogManager.LogDebug("Placing controls for old monitor " + item.OldMonitor);
                             Dispatcher.Invoke(DispatcherPriority.Background, new Action<Monitor>(item.PlaceControls), profile.Monitors[item.NewMonitor]);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error encountered while reseting monitors, please contact support via forums at www.scsimulations.com", "Error");
+                        MessageBox.Show("Error encountered while resetting monitors, please contact support via forums at www.scsimulations.com", "Error");
                         ConfigManager.LogManager.LogError("Reset Monitors - Unhandled exception", ex);
                     }
 

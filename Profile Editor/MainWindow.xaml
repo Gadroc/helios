@@ -51,7 +51,7 @@
                 <MenuItem Header="_Add Interface" Command="local:ProfileEditorCommands.AddInterface" />
                 <Separator />
                 <MenuItem Header="_Reset Monitors" Command="local:ProfileEditorCommands.ResetMonitors">
-                    <MenuItem.ToolTip>Rests this profiles monitor configuration to match the current system configuration.</MenuItem.ToolTip>
+                    <MenuItem.ToolTip>Resets this profiles monitor configuration to match the current system configuration.</MenuItem.ToolTip>
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="E_xit" Command="Close" />
