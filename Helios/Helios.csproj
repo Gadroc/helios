@@ -2739,9 +2739,8 @@
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\Controls\" />
     <Folder Include="Gauges\M-2000C\" />
-    <Folder Include="Gauges\Mi8\" />
     <Folder Include="Images\M-2000C\" />
-    <Folder Include="Images\Mi8\" />
+    <Folder Include="Images\Mi-8\" />
     <Folder Include="Interfaces\DCS\M2000CSimple\Functions\" />
     <Folder Include="Interfaces\DCS\Mi8_Simple\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
