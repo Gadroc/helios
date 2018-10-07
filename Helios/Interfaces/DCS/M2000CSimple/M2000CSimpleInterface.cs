@@ -13,17 +13,17 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
+namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 {
     using GadrocsWorkshop.Helios.ComponentModel;
-    //using GadrocsWorkshop.Helios.Interfaces.DCS.M2000C.Functions;
+    //using GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple.Functions;
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
     using Microsoft.Win32;
     using System;
 
-    [HeliosInterface("Helios.M2000C", "DCS M2000C", typeof(M2000CInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
-    public class M2000CInterface : BaseUDPInterface
+    [HeliosInterface("Helios.M2000CSimple", "DCS M2000C (Simple)", typeof(M2000CSimpleInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
+    public class M2000CSimpleInterface : BaseUDPInterface
     {
         private string _dcsPath;
 
@@ -63,10 +63,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         private const string DDM_IND = "28";
         private const string WEAPONS_CONTROL = "29";
         #endregion
-        public M2000CInterface()
+        public M2000CSimpleInterface()
             : base("DCS Mirage-2000C")
         {
-            DCSConfigurator config = new DCSConfigurator("DCSM2000C", DCSPath);
+            DCSConfigurator config = new DCSConfigurator("DCSM2000CSIMPLE", DCSPath);
             config.ExportConfigPath = "Config\\Export";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000C/ExportFunctions.lua";
             Port = config.Port;
@@ -138,25 +138,25 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "367", "Indicators", "Indicators 367", "Fuel Left V"));
             AddFunction(new FlagValue(this, "368", "Indicators", "Indicators 368", "Fuel Right V"));
             AddFunction(new FlagValue(this, "405", "Indicators", "Indicators 405", "Gearhandle Innenleuchte, red"));
-            AddFunction(new FlagValue(this, "410", "Indicators", "Indicators 410", "„A“ Warnlamp"));
-            AddFunction(new FlagValue(this, "411", "Indicators", "Indicators 411", "„F“ Warnlamp"));
-            AddFunction(new FlagValue(this, "412", "Indicators", "Indicators 412", "„DIRA“ Warnlamp, blau"));
-            AddFunction(new FlagValue(this, "413", "Indicators", "Indicators 413", "„FREIN“"));
-            AddFunction(new FlagValue(this, "414", "Indicators", "Indicators 414", "„Cross“"));
-            AddFunction(new FlagValue(this, "415", "Indicators", "Indicators 415", "„SPAD“"));
-            AddFunction(new FlagValue(this, "416", "Indicators", "Indicators 416", "Red Warnlamp under „BIP“"));
+            AddFunction(new FlagValue(this, "410", "Indicators", "Indicators 410", "A Warnlamp"));
+            AddFunction(new FlagValue(this, "411", "Indicators", "Indicators 411", "F Warnlamp"));
+            AddFunction(new FlagValue(this, "412", "Indicators", "Indicators 412", "DIRA Warnlamp, blau"));
+            AddFunction(new FlagValue(this, "413", "Indicators", "Indicators 413", "FREIN"));
+            AddFunction(new FlagValue(this, "414", "Indicators", "Indicators 414", "Cross"));
+            AddFunction(new FlagValue(this, "415", "Indicators", "Indicators 415", "SPAD"));
+            AddFunction(new FlagValue(this, "416", "Indicators", "Indicators 416", "Red Warnlamp under BIP"));
             AddFunction(new FlagValue(this, "417", "Indicators", "Indicators 417", "Left Gear"));
             AddFunction(new FlagValue(this, "418", "Indicators", "Indicators 418", "Nose Gear"));
             AddFunction(new FlagValue(this, "419", "Indicators", "Indicators 419", "Right Gear"));
             AddFunction(new FlagValue(this, "677", "Indicators", "Indicators 677", "COM left green lamp"));
             AddFunction(new FlagValue(this, "519", "Indicators", "Indicators 519", "Oxy flow lamp"));
-            AddFunction(new FlagValue(this, "490", "Indicators", "Indicators 490", "Left consule „VAL”"));
-            AddFunction(new FlagValue(this, "492", "Indicators", "Indicators 492", "Left consule „A“"));
-            AddFunction(new FlagValue(this, "494", "Indicators", "Indicators 494", "Left consule „DEC“"));
-            AddFunction(new FlagValue(this, "496", "Indicators", "Indicators 496", "Left consule „VISU“"));
-            AddFunction(new FlagValue(this, "505", "Indicators", "Indicators 505", "Left consule „PSIC“"));
-            AddFunction(new FlagValue(this, "510", "Indicators", "Indicators 510", "Left consule „ELEC“"));
-            AddFunction(new FlagValue(this, "511", "Indicators", "Indicators 511", "Left consule „HYD“"));
+            AddFunction(new FlagValue(this, "490", "Indicators", "Indicators 490", "Left consule VAL"));
+            AddFunction(new FlagValue(this, "492", "Indicators", "Indicators 492", "Left consule A"));
+            AddFunction(new FlagValue(this, "494", "Indicators", "Indicators 494", "Left consule DEC"));
+            AddFunction(new FlagValue(this, "496", "Indicators", "Indicators 496", "Left consule VISU"));
+            AddFunction(new FlagValue(this, "505", "Indicators", "Indicators 505", "Left consule PSIC"));
+            AddFunction(new FlagValue(this, "510", "Indicators", "Indicators 510", "Left consule ELEC"));
+            AddFunction(new FlagValue(this, "511", "Indicators", "Indicators 511", "Left consule HYD"));
             AddFunction(new FlagValue(this, "512", "Indicators", "Indicators 512", "Left consule Red"));
             AddFunction(new FlagValue(this, "513", "Indicators", "Indicators 513", "Left consule Green"));
             AddFunction(new FlagValue(this, "525", "Indicators", "Indicators 525", "WP BATT"));
@@ -198,24 +198,24 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "561", "Indicators", "Indicators 561", "RPM"));
             AddFunction(new FlagValue(this, "562", "Indicators", "Indicators 562", "DECOL"));
             AddFunction(new FlagValue(this, "563", "Indicators", "Indicators 563", "PARK."));
-            AddFunction(new FlagValue(this, "564", "Indicators", "Indicators 564", "Right Console “PRET”"));
-            AddFunction(new FlagValue(this, "565", "Indicators", "Indicators 565", "„ALN“"));
-            AddFunction(new FlagValue(this, "566", "Indicators", "Indicators 566", "„MIP“"));
-            AddFunction(new FlagValue(this, "567", "Indicators", "Indicators 567", "„N.DEG“"));
-            AddFunction(new FlagValue(this, "568", "Indicators", "Indicators 568", "„SEC“"));
-            AddFunction(new FlagValue(this, "569", "Indicators", "Indicators 569", "„UNI“"));
-            AddFunction(new FlagValue(this, "669", "Indicators", "Indicators 669", "„M01”"));
-            AddFunction(new FlagValue(this, "670", "Indicators", "Indicators 670", "„M02“"));
-            AddFunction(new FlagValue(this, "671", "Indicators", "Indicators 671", "„M03“"));
-            AddFunction(new FlagValue(this, "571", "Indicators", "Indicators 571", "“PREP”"));
-            AddFunction(new FlagValue(this, "573", "Indicators", "Indicators 573", "“DEST”"));
-            AddFunction(new FlagValue(this, "577", "Indicators", "Indicators 577", "“BAD”"));
-            AddFunction(new FlagValue(this, "579", "Indicators", "Indicators 579", "“REC”"));
-            AddFunction(new FlagValue(this, "581", "Indicators", "Indicators 581", "“VAL”"));
-            AddFunction(new FlagValue(this, "583", "Indicators", "Indicators 583", "“MRC”"));
-            AddFunction(new FlagValue(this, "595", "Indicators", "Indicators 595", "“EFF”"));
-            AddFunction(new FlagValue(this, "597", "Indicators", "Indicators 597", "“INS”"));
-            AddFunction(new FlagValue(this, "668", "Indicators", "Indicators 668", "“ENC”"));
+            AddFunction(new FlagValue(this, "564", "Indicators", "Indicators 564", "Right Console PRET"));
+            AddFunction(new FlagValue(this, "565", "Indicators", "Indicators 565", "ALN"));
+            AddFunction(new FlagValue(this, "566", "Indicators", "Indicators 566", "MIP"));
+            AddFunction(new FlagValue(this, "567", "Indicators", "Indicators 567", "N.DEG"));
+            AddFunction(new FlagValue(this, "568", "Indicators", "Indicators 568", "SEC"));
+            AddFunction(new FlagValue(this, "569", "Indicators", "Indicators 569", "UNI"));
+            AddFunction(new FlagValue(this, "669", "Indicators", "Indicators 669", "M01"));
+            AddFunction(new FlagValue(this, "670", "Indicators", "Indicators 670", "M02"));
+            AddFunction(new FlagValue(this, "671", "Indicators", "Indicators 671", "M03"));
+            AddFunction(new FlagValue(this, "571", "Indicators", "Indicators 571", "PREP"));
+            AddFunction(new FlagValue(this, "573", "Indicators", "Indicators 573", "DEST"));
+            AddFunction(new FlagValue(this, "577", "Indicators", "Indicators 577", "BAD"));
+            AddFunction(new FlagValue(this, "579", "Indicators", "Indicators 579", "REC"));
+            AddFunction(new FlagValue(this, "581", "Indicators", "Indicators 581", "VAL"));
+            AddFunction(new FlagValue(this, "583", "Indicators", "Indicators 583", "MRC"));
+            AddFunction(new FlagValue(this, "595", "Indicators", "Indicators 595", "EFF"));
+            AddFunction(new FlagValue(this, "597", "Indicators", "Indicators 597", "INS"));
+            AddFunction(new FlagValue(this, "668", "Indicators", "Indicators 668", "ENC"));
             AddFunction(new FlagValue(this, "632", "Indicators", "Indicators 632", "TACAN C"));
             AddFunction(new FlagValue(this, "634", "Indicators", "Indicators 634", "TACAN F"));
             AddFunction(new FlagValue(this, "675", "Indicators", "Indicators 675", "COM Panel, lamp red"));
