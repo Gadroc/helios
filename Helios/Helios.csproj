@@ -489,9 +489,9 @@
     <Compile Include="Interfaces\DCS\Generic\GenericInterfaceEditor.xaml.cs">
       <DependentUpon>GenericInterfaceEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\DCS\M2000C\M2000CInterface.cs" />
-    <Compile Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml.cs">
-      <DependentUpon>M2000CInterfaceEditor.xaml</DependentUpon>
+    <Compile Include="Interfaces\DCS\M2000CSimple\M2000CSimpleInterface.cs" />
+    <Compile Include="Interfaces\DCS\M2000CSimple\M2000CSimpleInterfaceEditor.xaml.cs">
+      <DependentUpon>M2000CSimpleInterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\DCS\MiG21\MiG21Interface.cs" />
     <Compile Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml.cs">
@@ -728,7 +728,7 @@
     <Resource Include="Interfaces\DCS\AV8B\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Generic\ExportFunctions.lua" />
-    <None Include="Interfaces\DCS\M2000C\ExportFunctions.lua" />
+    <None Include="Interfaces\DCS\M2000CSimple\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2630,7 +2630,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml">
+    <Page Include="Interfaces\DCS\M2000CSimple\M2000CSimpleInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -2694,8 +2694,11 @@
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\Controls\" />
     <Folder Include="Gauges\M-2000C\" />
+    <Folder Include="Gauges\Mi8\" />
     <Folder Include="Images\M-2000C\" />
-    <Folder Include="Interfaces\DCS\M2000C\Functions\" />
+    <Folder Include="Images\Mi8\" />
+    <Folder Include="Interfaces\DCS\M2000CSimple\Functions\" />
+    <Folder Include="Interfaces\DCS\Mi8_Simple\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
     <Folder Include="Templates\Base\FA-18C\" />
     <Folder Include="Templates\Base\M-2000C\" />

@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
+namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 {
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
@@ -24,13 +24,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
     using System.Windows.Input;
 
     /// <summary>
-    /// Interaction logic for M2000CInterfaceEditor.xaml
+    /// Interaction logic for M2000CSimpleInterfaceEditor.xaml
     /// </summary>
-    public partial class M2000CInterfaceEditor : HeliosInterfaceEditor
+    public partial class M2000CSimpleInterfaceEditor : HeliosInterfaceEditor
     {
-        static M2000CInterfaceEditor()
+        static M2000CSimpleInterfaceEditor()
         {
-            Type ownerType = typeof(M2000CInterfaceEditor);
+            Type ownerType = typeof(M2000CSimpleInterfaceEditor);
 
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.AddDoFile, AddDoFile_Executed));
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.RemoveDoFile, RemoveDoFile_Executed));
@@ -38,7 +38,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
         private static void AddDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            M2000CInterfaceEditor editor = target as M2000CInterfaceEditor;
+            M2000CSimpleInterfaceEditor editor = target as M2000CSimpleInterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && !editor.Configuration.DoFiles.Contains(file))
             {
@@ -49,7 +49,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
         private static void RemoveDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            M2000CInterfaceEditor editor = target as M2000CInterfaceEditor;
+            M2000CSimpleInterfaceEditor editor = target as M2000CSimpleInterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && editor.Configuration.DoFiles.Contains(file))
             {
@@ -59,7 +59,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
         private string _dcsPath = null;
 
-        public M2000CInterfaceEditor()
+        public M2000CSimpleInterfaceEditor()
         {
             InitializeComponent();
             Configuration = new DCSConfigurator("DCSM2000C", DCSPath);
@@ -77,7 +77,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
         // Using a DependencyProperty as the backing store for Configuration.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ConfigurationProperty =
-            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(M2000CInterfaceEditor), new PropertyMetadata(null));
+            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(M2000CSimpleInterfaceEditor), new PropertyMetadata(null));
 
         public string DCSPath
         {
@@ -95,7 +95,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
                         pathKey.Close();
-                        ConfigManager.LogManager.LogDebug("DCS M-2000C Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                        ConfigManager.LogManager.LogDebug("DCS M-2000C (Simple) Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
                     }
                     else
                     {
@@ -122,11 +122,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         {
             if (Configuration.UpdateExportConfig())
             {
-                MessageBox.Show(Window.GetWindow(this), "DCS M-2000C has been configured.");
+                MessageBox.Show(Window.GetWindow(this), "DCS M-2000C (Simple) has been configured.");
             }
             else
             {
-                MessageBox.Show(Window.GetWindow(this), "Error updating DCS M-2000C configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
+                MessageBox.Show(Window.GetWindow(this), "Error updating DCS M-2000C (Simple) configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
             }
         }
 
