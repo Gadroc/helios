@@ -44,9 +44,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Generic
         private const string ROTARY_ENCODER = "9";
         private const string ROCKER_AABB = "10";
         private const string INDICATOR_PUSHBUTTON = "11";
-        #endregion
+		private const string TOGGLE_SWITCH_B = "12";
 
-        public GenericInterface()
+		#endregion
+
+		public GenericInterface()
             : base("DCS Generic")
         {
             DCSConfigurator config = new DCSConfigurator("DCSGeneric", DCSPath);
@@ -87,7 +89,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Generic
             indice = 4000;
             for (int i = 1; i < 250; i++)       // 250 Toggle Switch 1, -1
             {
-                AddFunction(Switch.CreateToggleSwitch(this, TOGGLE_SWITCH, (3000 + i).ToString(), (indice + i).ToString(), "1", "UP", "-1", "DOWN", "Toggle Switch 1,-1", "TSwitch_B_" + i.ToString(), "%1d"));
+                AddFunction(Switch.CreateToggleSwitch(this, TOGGLE_SWITCH_B, (3000 + i).ToString(), (indice + i).ToString(), "1", "UP", "-1", "DOWN", "Toggle Switch 1,-1", "TSwitch_B_" + i.ToString(), "%1d"));
             }
 
 
@@ -117,7 +119,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Generic
             }
 
             indice = 6000;
-            for (int i = 101; i < 200; i++)  // 100 axis 0.05...ñññññ...ñ
+            for (int i = 101; i < 200; i++)  // 100 axis 0.05
             {
                 AddFunction(new Axis(this, AXIS, (3000 + i).ToString(), (indice + i).ToString(), 0.05d, 0.0d, 1.0d, "Axis 0.05", "Axis_B_" + i.ToString()));
             }
@@ -177,7 +179,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Generic
 
             indice = 8000;
             contador = 1;
-            for (int i = 1; i < 200; i = i + 3)   // 50 rockers ABCC
+            for (int i = 1; i < 150; i = i + 3)   // 50 rockers ABCC
             {
                 AddFunction(new Rocker(this, ROCKER_ABCC, (3000 + i).ToString(), (3001 + i).ToString(), (3002 + i).ToString(), (3002 + i).ToString(), (indice + contador).ToString(), "Rocker type ABCC", "Rocker_A_" + contador.ToString(), true));
                 contador++;
