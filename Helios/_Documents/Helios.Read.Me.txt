@@ -1,7 +1,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
-* *                       Helios 1.4.2018.0926 Beta 4                       * * 
+* *                       Helios 1.4.2018.1008                              * * 
 * *                                                                         * * 
 * *                                READ.ME                                  * * 
 * *                                                                         * * 
@@ -25,12 +25,10 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Helios 1.4.2018.0926 Beta is not an explicit collaboration with Craig Courtney, 
+Helios 1.4.2018.1008 is not an explicit collaboration with Craig Courtney, 
 but it relies heavily on the original Helios.  This distribution is not endorsed 
 by Craig Courtney.  
                                                                      
-This code is beta code, as is the installer.
-
 If you encounter problems, please check for known issues here 
 https://github.com/BlueFinBima/helios/issues and if nothing appears to be 
 relevant then open a new issue.
@@ -66,8 +64,8 @@ and risk if you ignore warnings.
 
 * * * After Installation * * *
 
-1) If you add the AV-8B or MiG-21Bis Interface into a profile, you will need to 
-deploy the Exports.lua for the AV-8B or MiG-21Bis interface for it to 
+1) If you add an aircraft Interface into a profile, you will need to 
+deploy the Exports.lua from the aircraft interface panel in profile editor for it to 
 communicate between DCS and the Helios Control Center.  If you leave the Helios 
 A-10C Exports.lua in place, then the result will not be pleasant.  
 

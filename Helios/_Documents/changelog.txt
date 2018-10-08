@@ -1,7 +1,11 @@
-1.4.2018.0926 Beta 4 Release
+1.4.2018.1008 Release
 ----------------------------
+* F/A-18C Interface
 * DCS Generic interface added.  This is an enabler for complex aircraft profiles from authors such as Capt Zeen.
+* Prototype "Simple" interfaces for the Mirage 2000 and Mi-8
 * Guard Switch (without Toggle) added to tool box controls
+* A-10 NMSP and UFC Toolbox contents moved into "A-10"
+* Mi-8 ADI gauge added
 
 1.4.2018.0924 Beta 3 Release
 ----------------------------

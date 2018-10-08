@@ -34,7 +34,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
         {
             VersionBlock.Text = Assembly.GetEntryAssembly().GetName().Version.ToString();
             ContributionBlock.Text = ContributionBlock.Text + " Cylution CaptZeen yzfanimal damien022";
-            StatusBlock.Text = "Beta 4";
+            StatusBlock.Text = "Released";
             base.OnActivated(e);
         }
 

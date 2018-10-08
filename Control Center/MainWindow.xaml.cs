@@ -808,7 +808,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
         private void SetProjectReleaseMessage()
         {
             Message = Assembly.GetEntryAssembly().GetName().Version.ToString() +
-                " (Beta 3)\nProject Fork: BlueFinBima\n" +
+                "\nProject Fork: BlueFinBima\n" +
                 "Contributors: Gadroc BlueFinBima Cylution CaptZeen yzfanimal damien022";
         }
         #endregion
