@@ -1,4 +1,4 @@
-//  Copyright 2014 Craig Courtney
+﻿//  Copyright 2014 Craig Courtney
 //    
 //  Helios is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
+namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mi8Simple
 {
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
@@ -24,13 +24,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
     using System.Windows.Input;
 
     /// <summary>
-    /// Interaction logic for M2000CSimpleInterfaceEditor.xaml
+    /// Interaction logic for Mi8SimpleInterfaceEditor.xaml
     /// </summary>
-    public partial class M2000CSimpleInterfaceEditor : HeliosInterfaceEditor
+    public partial class Mi8SimpleInterfaceEditor : HeliosInterfaceEditor
     {
-        static M2000CSimpleInterfaceEditor()
+        static Mi8SimpleInterfaceEditor()
         {
-            Type ownerType = typeof(M2000CSimpleInterfaceEditor);
+            Type ownerType = typeof(Mi8SimpleInterfaceEditor);
 
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.AddDoFile, AddDoFile_Executed));
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.RemoveDoFile, RemoveDoFile_Executed));
@@ -38,7 +38,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         private static void AddDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            M2000CSimpleInterfaceEditor editor = target as M2000CSimpleInterfaceEditor;
+            Mi8SimpleInterfaceEditor editor = target as Mi8SimpleInterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && !editor.Configuration.DoFiles.Contains(file))
             {
@@ -49,7 +49,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         private static void RemoveDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            M2000CSimpleInterfaceEditor editor = target as M2000CSimpleInterfaceEditor;
+            Mi8SimpleInterfaceEditor editor = target as Mi8SimpleInterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && editor.Configuration.DoFiles.Contains(file))
             {
@@ -59,12 +59,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         private string _dcsPath = null;
 
-        public M2000CSimpleInterfaceEditor()
+        public Mi8SimpleInterfaceEditor()
         {
             InitializeComponent();
-            Configuration = new DCSConfigurator("DCSM2000C", DCSPath);
+            Configuration = new DCSConfigurator("DCSMi8", DCSPath);
             Configuration.ExportConfigPath = "Config\\Export";
-            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000CSimple/ExportFunctions.lua";
+            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/Mi8Simple/ExportFunctions.lua";
         }
 
         #region Properties
@@ -77,7 +77,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         // Using a DependencyProperty as the backing store for Configuration.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ConfigurationProperty =
-            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(M2000CSimpleInterfaceEditor), new PropertyMetadata(null));
+            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(Mi8SimpleInterfaceEditor), new PropertyMetadata(null));
 
         public string DCSPath
         {
@@ -88,14 +88,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
                     RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey == null)
                     {
-                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS M2000C");
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS Mi-8");
                     }
 
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
                         pathKey.Close();
-                        ConfigManager.LogManager.LogDebug("DCS Mirage 2000C (Simple) Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                        ConfigManager.LogManager.LogDebug("DCS Mi-8 (Simple) Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
                     }
                     else
                     {
@@ -122,11 +122,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
         {
             if (Configuration.UpdateExportConfig())
             {
-                MessageBox.Show(Window.GetWindow(this), "DCS M-2000C (Simple) has been configured.");
+                MessageBox.Show(Window.GetWindow(this), "DCS Mi-8 (Simple) has been configured.");
             }
             else
             {
-                MessageBox.Show(Window.GetWindow(this), "Error updating DCS M-2000C (Simple) configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
+                MessageBox.Show(Window.GetWindow(this), "Error updating DCS Mi-8 (Simple) configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
             }
         }
 

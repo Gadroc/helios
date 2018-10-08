@@ -1,4 +1,4 @@
-﻿//  Copyright 2014 Craig Courtney
+//  Copyright 2014 Craig Courtney
 //    
 //  Helios is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -64,11 +64,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
         private const string WEAPONS_CONTROL = "29";
         #endregion
         public M2000CSimpleInterface()
-            : base("DCS Mirage-2000C")
+            : base("DCS Mirage-2000C (Simple)")
         {
             DCSConfigurator config = new DCSConfigurator("DCSM2000CSIMPLE", DCSPath);
             config.ExportConfigPath = "Config\\Export";
-            config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000C/ExportFunctions.lua";
+            config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000CSimple/ExportFunctions.lua";
             Port = config.Port;
             _phantomFix = config.PhantomFix;
             _phantomLeft = config.PhantomFixLeft;
@@ -596,59 +596,59 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         private string DCSPath
         {
-        get
-        {
-            if (_dcsPath == null)
+            get
             {
-                RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS M-2000C");
-                if (pathKey != null)
+                if (_dcsPath == null)
                 {
-                    _dcsPath = (string)pathKey.GetValue("Path");
-                    pathKey.Close();
-                    ConfigManager.LogManager.LogDebug("DCS M-2000C Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS M-2000C");
+                    if (pathKey != null)
+                    {
+                        _dcsPath = (string)pathKey.GetValue("Path");
+                        pathKey.Close();
+                        ConfigManager.LogManager.LogDebug("DCS M-2000C Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                    }
+                    else
+                    {
+                        _dcsPath = "";
+                    }
                 }
-                else
-                {
-                    _dcsPath = "";
-                }
+                return _dcsPath;
             }
-            return _dcsPath;
-        }
-    }
-
-    protected override void OnProfileChanged(HeliosProfile oldProfile)
-    {
-        base.OnProfileChanged(oldProfile);
-
-        if (oldProfile != null)
-        {
-            oldProfile.ProfileTick -= Profile_Tick;
         }
 
-        if (Profile != null)
+        protected override void OnProfileChanged(HeliosProfile oldProfile)
         {
-            Profile.ProfileTick += Profile_Tick;
-        }
-    }
+            base.OnProfileChanged(oldProfile);
 
-    void Profile_Tick(object sender, EventArgs e)
-    {
-        if (_phantomFix && System.Environment.TickCount - _nextCheck >= 0)
-        {
-            System.Diagnostics.Process[] dcs = System.Diagnostics.Process.GetProcessesByName("DCS");
-            if (dcs.Length == 1)
+            if (oldProfile != null)
             {
-                IntPtr hWnd = dcs[0].MainWindowHandle;
-                NativeMethods.Rect dcsRect;
-                NativeMethods.GetWindowRect(hWnd, out dcsRect);
-
-                if (dcsRect.Width > 640 && (dcsRect.Left != _phantomLeft || dcsRect.Top != _phantomTop))
-                {
-                    NativeMethods.MoveWindow(hWnd, _phantomLeft, _phantomTop, dcsRect.Width, dcsRect.Height, true);
-                }
+                oldProfile.ProfileTick -= Profile_Tick;
             }
-            _nextCheck = System.Environment.TickCount + 5000;
+
+            if (Profile != null)
+            {
+                Profile.ProfileTick += Profile_Tick;
+            }
+        }
+
+        void Profile_Tick(object sender, EventArgs e)
+        {
+            if (_phantomFix && System.Environment.TickCount - _nextCheck >= 0)
+            {
+                System.Diagnostics.Process[] dcs = System.Diagnostics.Process.GetProcessesByName("DCS");
+                if (dcs.Length == 1)
+                {
+                    IntPtr hWnd = dcs[0].MainWindowHandle;
+                    NativeMethods.Rect dcsRect;
+                    NativeMethods.GetWindowRect(hWnd, out dcsRect);
+
+                    if (dcsRect.Width > 640 && (dcsRect.Left != _phantomLeft || dcsRect.Top != _phantomTop))
+                    {
+                        NativeMethods.MoveWindow(hWnd, _phantomLeft, _phantomTop, dcsRect.Width, dcsRect.Height, true);
+                    }
+                }
+                _nextCheck = System.Environment.TickCount + 5000;
+            }
         }
     }
-}
 }

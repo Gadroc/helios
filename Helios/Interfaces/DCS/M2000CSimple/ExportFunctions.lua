@@ -1,4 +1,4 @@
--- Exports.Lua from Helios M-2000C Simple interface
+-- Exports.Lua from Helios Mirage-2000C (Simple) interface
 function ProcessHighImportance(mainPanelDevice)
 	-- Send Altimeter Values	
 	SendData(2051, string.format("%0.4f;%0.4f;%0.4f", mainPanelDevice:get_argument_value(355), mainPanelDevice:get_argument_value(354), mainPanelDevice:get_argument_value(352)))

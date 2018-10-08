@@ -494,6 +494,10 @@
     <Compile Include="Interfaces\DCS\M2000CSimple\M2000CSimpleInterfaceEditor.xaml.cs">
       <DependentUpon>M2000CSimpleInterfaceEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\DCS\Mi8Simple\Mi8SimpleInterface.cs" />
+    <Compile Include="Interfaces\DCS\Mi8Simple\Mi8SimpleInterfaceEditor.xaml.cs">
+      <DependentUpon>Mi8SimpleInterfaceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\DCS\MiG21\MiG21Interface.cs" />
     <Compile Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml.cs">
       <DependentUpon>MiG21InterfaceEditor.xaml</DependentUpon>
@@ -729,7 +733,8 @@
     <Resource Include="Interfaces\DCS\AV8B\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Generic\ExportFunctions.lua" />
-    <None Include="Interfaces\DCS\M2000CSimple\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\M2000CSimple\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\Mi8Simple\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2679,6 +2684,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Interfaces\DCS\Mi8Simple\Mi8SimpleInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2742,7 +2751,7 @@
     <Folder Include="Images\M-2000C\" />
     <Folder Include="Images\Mi-8\" />
     <Folder Include="Interfaces\DCS\M2000CSimple\Functions\" />
-    <Folder Include="Interfaces\DCS\Mi8_Simple\Functions\" />
+    <Folder Include="Interfaces\DCS\Mi8Simple\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
     <Folder Include="Templates\Base\FA-18C\" />
     <Folder Include="Templates\Base\M-2000C\" />
