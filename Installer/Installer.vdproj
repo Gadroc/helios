@@ -375,6 +375,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_496F0522629B464B8F983CD92618EF22"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4B540E537164577E2F7A8D890E35389B"
         "OwnerKey" = "8:_FA987369A3EA4F739E46E3E94BA7D12B"
         "MsmSig" = "8:_UNDEFINED"
@@ -831,6 +837,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9DFD2AA5EE8E4A2EADB0D881248C3BE8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A0A0386175BD479A98CF1DB3058845AC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -928,12 +940,6 @@
         "Entry"
         {
         "MsmKey" = "8:_B25A40941EAF434794710A2A568E56A4"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B557B0599E0E49F0953CFF41CCD2474C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2636,6 +2642,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_496F0522629B464B8F983CD92618EF22"
+            {
+            "SourcePath" = "8:..\\Helios\\_Documents\\changelog.txt"
+            "TargetName" = "8:changelog.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4B540E537164577E2F7A8D890E35389B"
             {
             "AssemblyRegister" = "3:1"
@@ -3468,9 +3494,14 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2018.926, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2018.1008, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_7B127A837248912DC2FB5DC794167997"
+                    {
+                    "Name" = "8:Helios.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Helios.dll"
             "TargetName" = "8:"
@@ -4112,6 +4143,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9DFD2AA5EE8E4A2EADB0D881248C3BE8"
+            {
+            "SourcePath" = "8:..\\Helios\\_Documents\\Helios.Read.Me.txt"
+            "TargetName" = "8:Helios.Read.Me.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A0A0386175BD479A98CF1DB3058845AC"
             {
             "SourcePath" = "8:..\\bin\\Release\\Templates\\Base\\AV-8B\\Flare Salvo Button.htpl"
@@ -4369,26 +4420,6 @@
             "TargetName" = "8:Plus Minus - Light.htpl"
             "Tag" = "8:"
             "Folder" = "8:_1B4DBC198CC847669FFCB86DA15E69CE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B557B0599E0E49F0953CFF41CCD2474C"
-            {
-            "SourcePath" = "8:..\\Helios.Read.Me.txt"
-            "TargetName" = "8:Helios.Read.Me.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -6267,18 +6298,18 @@
             "Icon" = "8:_80A510498A90463B948A51AD3876BD90"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BD8E0FBEC75246AD87556F0F9E7D777E"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FCBB6E6F2968476B81D434499FA96C9B"
             {
-            "Name" = "8:Helios.Read.Me.txt"
+            "Name" = "8:Helios.Read.Me"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:32512"
+            "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_B557B0599E0E49F0953CFF41CCD2474C"
+            "Target" = "8:_9DFD2AA5EE8E4A2EADB0D881248C3BE8"
             "Folder" = "8:_AD59734AD6DF48A39047EBE90EC7C76E"
             "WorkingFolder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
-            "Icon" = "8:_80A510498A90463B948A51AD3876BD90"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -6386,7 +6417,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests.  Key features in this level is an interface and other artefacts for Razbam's AV-8B N/A on DCS."
+                            "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests.  Key features in this level is an interface and other artefacts for Razbam's AV-8B N/A and ED's F/A-18C on DCS.  There is also a generic interface for when no aircraft specific interface is available."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -6588,7 +6619,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests.  Key features in this level is an interface and other artefacts for Razbam's AV-8B N/A on DCS."
+                            "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests.  Key features in this level is an interface and other artefacts for Razbam's AV-8B N/A and ED's F/A-18C on DCS.  There is also a generic interface for when no aircraft specific interface is available."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }
