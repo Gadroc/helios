@@ -118,6 +118,13 @@ function round(num, idp)
   return math.floor(num * mult + 0.5) / mult
 end
 
+function check(s)
+    if type(s) == "string" then 
+        return s
+    else
+	    return "*"
+    end
+end
 -- Status Gathering Functions
 function ProcessArguments(device, arguments)
 	local lArgument , lFormat , lArgumentValue
@@ -126,6 +133,19 @@ function ProcessArguments(device, arguments)
 		lArgumentValue = string.format(lFormat,device:get_argument_value(lArgument))
 		SendData(lArgument, lArgumentValue)
 	end
+end
+
+function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
+	local ret = {}
+	local li = list_indication(indicator_id)
+	if li == "" then return nil end
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+	local name, value = m()
+	if not name then break end
+		ret[name] = value
+	end
+	return ret
 end
 
 -- Network Functions
