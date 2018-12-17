@@ -20,6 +20,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
 
     class BMSFalconDataExporter : FalconDataExporter
     {
+        private const int PHASE_LENGTH = 1;
+        private const int MAX_SECONDS = 60 * 60 * 24;
+
         private SharedMemory _sharedMemory = null;
         private SharedMemory _sharedMemory2 = null;
 
@@ -27,6 +30,46 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
 
         private FlightData _lastFlightData;
         private FlightData2 _lastFlightData2;
+
+        protected enum LightState
+        {
+            OFF,
+            ON,
+            TempOFF,
+        }
+
+        private int _outerMarkerLastTick;
+        private LightState _outerMarkerState;
+
+        private int _middleMarkerLastTick;
+        private LightState _middleMarkerState;
+
+        private int _probeheatLastTick;
+        private LightState _probeheatState;
+
+        private int _auxsrchLastTick;
+        private LightState _auxsrchState;
+
+        private int _launchLastTick;
+        private LightState _launchState;
+
+        private int _primodeLastTick;
+        private LightState _primodeState;
+
+        private int _unkLastTick;
+        private LightState _unkState;
+
+        private int _elecFaultLastTick;
+        private LightState _elecFaultState;
+
+        private int _oxyBrowLastTick;
+        private LightState _oxyBrowState;
+
+        private int _epuOnLastTick;
+        private LightState _epuOnState;
+
+        private int _jfsOnLastTick;
+        private LightState _jfsOnState;
 
         public BMSFalconDataExporter(FalconInterface falconInterface)
             : base(falconInterface)
@@ -46,11 +89,60 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             AddValue("Caution", "cadc indicator", "CADC indicator lamp on the caution panel.", "True if lit", BindingValueUnits.Boolean);
             AddValue("General", "speed barke", "Indicates if the speed brake is deployed.", "True if speed breake is in any other position than stowed.", BindingValueUnits.Boolean);
 
+            AddValue("HSI", "Outer marker indicator", "Outer marker indicator on HSI", "True if lit", BindingValueUnits.Boolean);
+            AddValue("HSI", "Middle marker indicator", "Middle marker indicator on HSI", "True if lit", BindingValueUnits.Boolean);
+
             AddValue("HSI", "nav mode", "Nav mode currently selected for the HSI/eHSI", "", BindingValueUnits.Numeric);
             AddValue("Tacan", "ufc tacan band", "Tacan band set with the UFC.", "1 = X, 2 = Y", BindingValueUnits.Numeric);
             AddValue("Tacan", "aux tacan band", "Tacan band set with the AUX COM panel.", "1 = X, 2 = Y", BindingValueUnits.Numeric);
             AddValue("Tacan", "ufc tacan mode", "Tacan mode set with the UFC.", "1 = TR, 2 = AA", BindingValueUnits.Numeric);
             AddValue("Tacan", "aux tacan mode", "Tacan mode set with the AUX COM panel.", "1 = TR, 2 = AA", BindingValueUnits.Numeric);
+
+            //BMS 4.33 addition
+            AddValue("Engine", "nozzle 2 position", "Current engine nozzle2.", "Percent open (0-100)", BindingValueUnits.Numeric);
+            AddValue("Engine", "rpm2", "Current engine rpm2.", "Percent (0-103)", BindingValueUnits.Numeric);
+            AddValue("Engine", "ftit2", "Current forward turbine inlet temp2", "Degrees C", BindingValueUnits.Numeric);
+            AddValue("Engine", "oil pressure 2", "Current oil pressure 2 in the engine.", "Percent (0-100)", BindingValueUnits.Numeric);
+            AddValue("CMDS", "CMDS Mode", "Current CMDS mode", "(0 off, 1 stby, 2 Man, 3 Semi, 4 Auto, 5 BYP)", BindingValueUnits.Numeric);
+            AddValue("UHF", "Backup channel", "Current Backup UHF channel", "", BindingValueUnits.Numeric);
+            AddValue("UHF", "Backup frequency", "Current Backup UHF frequency", "", BindingValueUnits.Numeric);
+            AddValue("UHF", "Backup frequency digit 1", "Current Backup UHF frequency digit 1", "", BindingValueUnits.Numeric);
+            AddValue("UHF", "Backup frequency digit 2", "Current Backup UHF frequency digit 2", "", BindingValueUnits.Numeric);
+            AddValue("UHF", "Backup frequency digit 3", "Current Backup UHF frequency digit 3", "", BindingValueUnits.Numeric);
+            AddValue("UHF", "Backup frequency digit 4", "Current Backup UHF frequency digit 4", "", BindingValueUnits.Numeric);
+            AddValue("UHF", "Backup frequency digit 5,6", "Current Backup UHF frequency digit 5,6", "", BindingValueUnits.Numeric);
+            AddValue("Altitude", "Cabin Altitude", "Current cabin altitude", "", BindingValueUnits.Numeric);
+            AddValue("HYD", "Pressure A", "Current hydraulic pressure a", "", BindingValueUnits.Numeric);
+            AddValue("HYD", "Pressure B", "Current hydraulic pressure b", "", BindingValueUnits.Numeric);
+            AddValue("Time", "Time", "Current tine in seconds", "(max 60 * 60 * 24)", BindingValueUnits.Numeric);
+            AddValue("Engine", "fuel flow 2", "Current fuel flow to the engine 2.", "", BindingValueUnits.PoundsPerHour);
+
+            //AltBits
+            AddValue("AltBits", "altimeter calibration type", "", "True if hg otherwise hpa.", BindingValueUnits.Boolean);
+            AddValue("AltBits", "altimeter pneu flag", "", "True if visible", BindingValueUnits.Boolean);
+
+            //PowerBits
+            AddValue("POWER", "bus power battery", "at least the battery bus is powered", "True if powered", BindingValueUnits.Boolean);
+            AddValue("POWER", "bus power emergency", "at least the emergency bus is powered", "True if powered", BindingValueUnits.Boolean);
+            AddValue("POWER", "bus power essential", "at least the essential bus is powered", "True if powered", BindingValueUnits.Boolean);
+            AddValue("POWER", "bus power non essential", "at least the non-essential bus is powered", "True if powered", BindingValueUnits.Boolean);
+            AddValue("POWER", "main generator", "main generator is online", "True if online", BindingValueUnits.Boolean);
+            AddValue("POWER", "standby generator", "standby generator is online", "True if online", BindingValueUnits.Boolean);
+            AddValue("POWER", "Jetfuel starter", "JFS is running, can be used for magswitch", "True if running", BindingValueUnits.Boolean);
+
+            //BlinkBits
+            //AddValue("Blink", "Outer marker", "slow flashing for outer marker", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "Middle marker", "fast flashing for middle marker", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "probeheat", "probeheat system is tested", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "aux search", "search function in NOT activated and a search radar is painting ownship", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "launch", "missile is fired at ownship", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "primary mode", "priority mode is enabled but more than 5 threat emitters are detected", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "unknown", "unknown is not active but EWS detects unknown radar", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "elec fault", "non-resetting fault", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "oxy brow", "monitor fault during Obogs", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "epu on", "abnormal EPU operation", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "JFS on_slow", "slow blinking: non-critical failure", "True if blinking", BindingValueUnits.Boolean);
+            //AddValue("Blink", "JFS on_fast", "fast blinking: critical failure", "True if blinking", BindingValueUnits.Boolean);
         }
 
         internal override void InitData()
@@ -68,7 +160,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             {
                 _lastFlightData = (FlightData)_sharedMemory.MarshalTo(typeof(FlightData));
 
-                SetValue("Altimeter", "altitidue", new BindingValue(Math.Abs(_lastFlightData.z)));
+                float altitidue = _lastFlightData.z;
+                if (_lastFlightData.z < 0)
+                {
+                    altitidue = 99999.99f - _lastFlightData.z;
+                }
+                SetValue("Altimeter", "altitidue", new BindingValue(altitidue));
+                SetValue("Altimeter", "barometric pressure", new BindingValue(29.92));
                 SetValue("ADI", "pitch", new BindingValue(_lastFlightData.pitch));
                 SetValue("ADI", "roll", new BindingValue(_lastFlightData.roll));
                 SetValue("ADI", "ils horizontal", new BindingValue((_lastFlightData.AdiIlsHorPos / 2.5f) - 1f));
@@ -112,24 +210,47 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
                 SetValue("Tacan", "ufc tacan chan", new BindingValue(_lastFlightData.UFCTChan));
                 SetValue("Tacan", "aux tacan chan", new BindingValue(_lastFlightData.AUXTChan));
 
-                ProcessHsiBits(_lastFlightData.hsiBits, _lastFlightData.desiredCourse, _lastFlightData.bearingToBeacon);
-                ProcessLightBits(_lastFlightData.lightBits);
-                ProcessLightBits2(_lastFlightData.lightBits2);
-                ProcessLightBits3(_lastFlightData.lightBits3);
-
                 ProcessContacts(_lastFlightData);
             }
             if(_sharedMemory2 != null & _sharedMemory2.IsDataAvailable)
             {
                 _lastFlightData2 = (FlightData2)_sharedMemory2.MarshalTo(typeof(FlightData2));
-                SetValue("Altimeter", "indicated altitude", new BindingValue(Math.Abs(_lastFlightData2.aauz)));
-                SetValue("Altimeter", "barimetric pressure", new BindingValue(_lastFlightData2.AltCalReading));
-
-                SetValue("HSI", "nav mode", new BindingValue(_lastFlightData2.navMode));
+                SetValue("Altimeter", "indicated altitude", new BindingValue(-_lastFlightData2.aauz));
+                SetValue("HSI", "nav mode", new BindingValue((int)_lastFlightData2.navMode));
                 SetValue("Tacan", "ufc tacan band", new BindingValue(_lastFlightData2.tacanInfo[(int)TacanSources.UFC].HasFlag(TacanBits.band) ? 1 : 2));
                 SetValue("Tacan", "aux tacan band", new BindingValue(_lastFlightData2.tacanInfo[(int)TacanSources.AUX].HasFlag(TacanBits.mode) ? 2 : 1));
                 SetValue("Tacan", "ufc tacan mode", new BindingValue(_lastFlightData2.tacanInfo[(int)TacanSources.UFC].HasFlag(TacanBits.band) ? 1 : 2));
                 SetValue("Tacan", "aux tacan mode", new BindingValue(_lastFlightData2.tacanInfo[(int)TacanSources.AUX].HasFlag(TacanBits.mode) ? 2 : 1));
+
+                //BMS 4.33 addition
+                SetValue("Engine", "nozzle 2 position", new BindingValue(_lastFlightData2.nozzlePos2));
+                SetValue("Engine", "rpm 2 position", new BindingValue(_lastFlightData2.rpm2));
+                SetValue("Engine", "ftit 2 position", new BindingValue(_lastFlightData2.ftit2));
+                SetValue("Engine", "oil pressure 2", new BindingValue(_lastFlightData2.oilPressure2));
+                SetValue("Engine", "fuel flow 2", new BindingValue(_lastFlightData2.fuelFlow2));
+                SetValue("Altimeter", "barometric pressure", new BindingValue(_lastFlightData2.AltCalReading));
+
+                ProcessAltBits(_lastFlightData2.altBits);
+                ProcessPowerBits(_lastFlightData2.powerBits);
+                //ProcessBlinkBits(_lastFlightData2.blinkBits);
+
+                SetValue("CMDS", "CMDS Mode", new BindingValue((int)_lastFlightData2.cmdsMode));
+                SetValue("UHF", "Backup channel", new BindingValue(_lastFlightData2.BupUhfPreset));
+                SetValue("UHF", "Backup frequency", new BindingValue(_lastFlightData2.BupUhfFreq));
+                SetValue("UHF", "Backup frequency digit 1", new BindingValue(_lastFlightData2.BupUhfFreq / 100000 % 10));
+                SetValue("UHF", "Backup frequency digit 2", new BindingValue(_lastFlightData2.BupUhfFreq / 10000 % 10));
+                SetValue("UHF", "Backup frequency digit 3", new BindingValue(_lastFlightData2.BupUhfFreq / 1000 % 10));
+                SetValue("UHF", "Backup frequency digit 4", new BindingValue(_lastFlightData2.BupUhfFreq / 100 % 10));
+                SetValue("UHF", "Backup frequency digit 5,6", new BindingValue(_lastFlightData2.BupUhfFreq % 100));
+                SetValue("Altitude", "Cabin Altitude", new BindingValue(_lastFlightData2.cabinAlt));
+                SetValue("HYD", "Pressure A", new BindingValue(_lastFlightData2.hydPressureA));
+                SetValue("HYD", "Pressure B", new BindingValue(_lastFlightData2.hydPressureB));
+                SetValue("Time", "Time", new BindingValue(_lastFlightData2.currentTime));
+
+                ProcessHsiBits(_lastFlightData.hsiBits, _lastFlightData.desiredCourse, _lastFlightData.bearingToBeacon, _lastFlightData2.blinkBits, _lastFlightData2.currentTime);
+                ProcessLightBits(_lastFlightData.lightBits);
+                ProcessLightBits2(_lastFlightData.lightBits2, _lastFlightData2.blinkBits, _lastFlightData2.currentTime);
+                ProcessLightBits3(_lastFlightData.lightBits3);
             }
         }
 
@@ -166,20 +287,23 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Autopilot", "on indicator", new BindingValue(bits.HasFlag(BMSLightBits.AutoPilotOn)));
             SetValue("Misc", "tfs stanby indicator", new BindingValue(bits.HasFlag(BMSLightBits.TFR_STBY)));
             SetValue("Test Panel", "FLCS channel lamps", new BindingValue(bits.HasFlag(BMSLightBits.Flcs_ABCD)));
+
+            //UpdateLightState(time, bits.HasFlag(BMSLightBits.OXY_BROW), blinkBits.HasFlag(BlinkBits.OXY_BROW), ref _oxyBrowLastTick, ref _oxyBrowState);
+            //SetValue("Right Eyebrow", "oxy low indicator", new BindingValue(_oxyBrowState == LightState.ON));
         }
 
-        protected void ProcessLightBits2(LightBits2 bits)
+        protected void ProcessLightBits2(LightBits2 bits, BlinkBits blinkBits, int time)
         {
             bool rwrPower = bits.HasFlag(LightBits2.AuxPwr);
 
             SetValue("Threat Warning Prime", "handoff indicator", new BindingValue(bits.HasFlag(LightBits2.HandOff)));
-            SetValue("Threat Warning Prime", "launch indicator", new BindingValue(bits.HasFlag(LightBits2.Launch)));
-            SetValue("Threat Warning Prime", "prioirty mode indicator", new BindingValue(bits.HasFlag(LightBits2.PriMode)));
+            //SetValue("Threat Warning Prime", "launch indicator", new BindingValue(bits.HasFlag(LightBits2.Launch)));
+            //SetValue("Threat Warning Prime", "prioirty mode indicator", new BindingValue(bits.HasFlag(LightBits2.PriMode)));
             SetValue("Threat Warning Prime", "open mode indicator", new BindingValue(bits.HasFlag(LightBits2.AuxPwr) && !bits.HasFlag(LightBits2.PriMode)));
             SetValue("Threat Warning Prime", "naval indicator", new BindingValue(bits.HasFlag(LightBits2.Naval)));
-            SetValue("Threat Warning Prime", "unknown mode indicator", new BindingValue(bits.HasFlag(LightBits2.Unk)));
+            //SetValue("Threat Warning Prime", "unknown mode indicator", new BindingValue(bits.HasFlag(LightBits2.Unk)));
             SetValue("Threat Warning Prime", "target step indicator", new BindingValue(bits.HasFlag(LightBits2.TgtSep)));
-            SetValue("Aux Threat Warning", "search indicator", new BindingValue(bits.HasFlag(LightBits2.AuxSrch)));
+            //SetValue("Aux Threat Warning", "search indicator", new BindingValue(bits.HasFlag(LightBits2.AuxSrch)));
             SetValue("Aux Threat Warning", "activity indicator", new BindingValue(bits.HasFlag(LightBits2.AuxAct)));
             SetValue("Aux Threat Warning", "low altitude indicator", new BindingValue(bits.HasFlag(LightBits2.AuxLow)));
             SetValue("Aux Threat Warning", "power indicator", new BindingValue(bits.HasFlag(LightBits2.AuxPwr)));
@@ -199,7 +323,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("JFS", "run indicator", new BindingValue(bits.HasFlag(LightBits2.JFSOn)));
             SetValue("Caution", "second engine compressor indicator", new BindingValue(bits.HasFlag(LightBits2.SEC)));
             SetValue("Caution", "oxygen low indicator", new BindingValue(bits.HasFlag(LightBits2.OXY_LOW)));
-            SetValue("Caution", "probe heat indicator", new BindingValue(bits.HasFlag(LightBits2.PROBEHEAT)));
+            //SetValue("Caution", "probe heat indicator", new BindingValue(bits.HasFlag(LightBits2.PROBEHEAT)));
             SetValue("Caution", "seat arm indicator", new BindingValue(bits.HasFlag(LightBits2.SEAT_ARM)));
             SetValue("Caution", "backup fuel control indicator", new BindingValue(bits.HasFlag(LightBits2.BUC)));
             SetValue("Caution", "fuel oil hot indicator", new BindingValue(bits.HasFlag(LightBits2.FUEL_OIL_HOT)));
@@ -207,6 +331,21 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Misc", "tfs engaged indicator", new BindingValue(bits.HasFlag(LightBits2.TFR_ENGAGED)));
             SetValue("Gear Handle", "handle indicator", new BindingValue(bits.HasFlag(LightBits2.GEARHANDLE)));
             SetValue("Right Eyebrow", "engine indicator", new BindingValue(bits.HasFlag(LightBits2.ENGINE)));
+
+            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.PROBEHEAT), blinkBits.HasFlag(BlinkBits.PROBEHEAT), ref _probeheatLastTick, ref _probeheatState);
+            SetValue("Caution", "probe heat indicator", new BindingValue(_probeheatState == LightState.ON));
+
+            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.AuxSrch), blinkBits.HasFlag(BlinkBits.AuxSrch), ref _auxsrchLastTick, ref _auxsrchState);
+            SetValue("Aux Threat Warning", "search indicator", new BindingValue(_auxsrchState == LightState.ON));
+
+            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.Launch), blinkBits.HasFlag(BlinkBits.Launch), ref _launchLastTick, ref _launchState);
+            SetValue("Threat Warning Prime", "launch indicator", new BindingValue(_launchState == LightState.ON));
+
+            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.PriMode), blinkBits.HasFlag(BlinkBits.PriMode), ref _primodeLastTick, ref _primodeState);
+            SetValue("Threat Warning Prime", "open mode indicator", new BindingValue(_primodeState == LightState.ON));
+
+            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.Unk), blinkBits.HasFlag(BlinkBits.Unk), ref _unkLastTick, ref _unkState);
+            SetValue("Threat Warning Prime", "unknown mode indicator", new BindingValue(_unkState == LightState.ON));
         }
 
         protected void ProcessLightBits3(BMSLightBits3 bits)
@@ -237,9 +376,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Landing Gear", "right gear indicator", new BindingValue(bits.HasFlag(BMSLightBits3.RightGearDown)));
             SetValue("General", "power off", new BindingValue(bits.HasFlag(BMSLightBits3.Power_Off)));
 
+            //UpdateLightState(time, bits.HasFlag(BMSLightBits3.Elec_Fault), blinkBits.HasFlag(BlinkBits.Elec_Fault), ref _elecFaultLastTick, ref _elecFaultState);
+            //SetValue("Blinklight State", "elec fault", new BindingValue(_elecFaultState == LightState.ON));
+
+            //UpdateLightState(time, bits.HasFlag(LightBits2.EPUOn), blinkBits.HasFlag(BlinkBits.EPUOn), ref _epuOnLastTick, ref _epuOnState);
+            //SetValue("Blinklight State", "epu on", new BindingValue(_epuOnState == LightState.ON));
+
+            //UpdateLightState(time, bits.HasFlag(LightBits2.JFSOn), blinkBits.HasFlag(BlinkBits.JFSOn_Slow) | blinkBits.HasFlag(BlinkBits.JFSOn_Fast), ref _jfsOnLastTick, ref _jfsOnState);
+            //SetValue("Blinklight State", "JFS on", new BindingValue(_jfsOnState == LightState.ON));
         }
 
-        protected void ProcessHsiBits(HsiBits bits, float desiredCourse, float bearingToBeacon)
+        protected void ProcessHsiBits(HsiBits bits, float desiredCourse, float bearingToBeacon, BlinkBits blinkBits, int time)
         {
             SetValue("HSI", "to flag", new BindingValue(bits.HasFlag(HsiBits.ToTrue)));
             SetValue("HSI", "from flag", new BindingValue(bits.HasFlag(HsiBits.FromTrue)));
@@ -255,6 +402,92 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Backup ADI", "off flag", new BindingValue(bits.HasFlag(HsiBits.BUP_ADI_OFF)));
             SetValue("VVI", "off flag", new BindingValue(bits.HasFlag(HsiBits.VVI)));
             SetValue("AOA", "off flag", new BindingValue(bits.HasFlag(HsiBits.AOA)));
+
+            UpdateBlinkingLightState(time, bits.HasFlag(HsiBits.OuterMarker), blinkBits.HasFlag(BlinkBits.OuterMarker), ref _outerMarkerLastTick, ref _outerMarkerState);
+            SetValue("HSI", "Outer marker indicator", new BindingValue(_outerMarkerState == LightState.ON));
+
+            UpdateBlinkingLightState(time, bits.HasFlag(HsiBits.MiddleMarker), blinkBits.HasFlag(BlinkBits.MiddleMarker), ref _middleMarkerLastTick, ref _middleMarkerState);
+            SetValue("HSI", "Middle marker indicator", new BindingValue(_middleMarkerState == LightState.ON));
+        }
+
+        protected void ProcessAltBits(AltBits bits)
+        {
+            SetValue("AltBits", "calibration in inches of mercury (hg) otherwise hector pascal (hPa) ", new BindingValue(bits.HasFlag(AltBits.CalType)));
+            SetValue("AltBits", "pneu flag is visible", new BindingValue(bits.HasFlag(AltBits.PneuFlag)));
+        }
+
+        protected void ProcessPowerBits(PowerBits bits)
+        {
+            SetValue("POWER", "bus power battery", new BindingValue(bits.HasFlag(PowerBits.BusPowerBattery)));
+            SetValue("POWER", "bus power emergency", new BindingValue(bits.HasFlag(PowerBits.BusPowerEmergency)));
+            SetValue("POWER", "bus power essential", new BindingValue(bits.HasFlag(PowerBits.BusPowerEssential)));
+            SetValue("POWER", "bus power non essential", new BindingValue(bits.HasFlag(PowerBits.BusPowerNonEssential)));
+            SetValue("POWER", "main generator", new BindingValue(bits.HasFlag(PowerBits.MainGenerator)));
+            SetValue("POWER", "standby generator", new BindingValue(bits.HasFlag(PowerBits.StandbyGenerator)));
+            SetValue("POWER", "Jetfuel starter", new BindingValue(bits.HasFlag(PowerBits.JetFuelStarter)));
+        }
+
+        //protected void ProcessBlinkBits(BlinkBits bits)
+        //{
+        //    SetValue("Blink", "Outer marker", new BindingValue(bits.HasFlag(BlinkBits.OuterMarker)));
+        //    SetValue("Blink", "Middle marker", new BindingValue(bits.HasFlag(BlinkBits.MiddleMarker)));
+        //    SetValue("Blink", "probeheat", new BindingValue(bits.HasFlag(BlinkBits.PROBEHEAT)));
+        //    SetValue("Blink", "aux search", new BindingValue(bits.HasFlag(BlinkBits.AuxSrch)));
+        //    SetValue("Blink", "launch", new BindingValue(bits.HasFlag(BlinkBits.Launch)));
+        //    SetValue("Blink", "primary mode", new BindingValue(bits.HasFlag(BlinkBits.PriMode)));
+        //    SetValue("Blink", "unknown", new BindingValue(bits.HasFlag(BlinkBits.Unk)));
+        //    SetValue("Blink", "elec fault", new BindingValue(bits.HasFlag(BlinkBits.Elec_Fault)));
+        //    SetValue("Blink", "oxy brow", new BindingValue(bits.HasFlag(BlinkBits.OXY_BROW)));
+        //    SetValue("Blink", "epu on", new BindingValue(bits.HasFlag(BlinkBits.EPUOn)));
+        //    SetValue("Blink", "JFS on_slow", new BindingValue(bits.HasFlag(BlinkBits.JFSOn_Slow)));
+        //    SetValue("Blink", "JFS on_fast", new BindingValue(bits.HasFlag(BlinkBits.JFSOn_Fast)));
+        //}
+
+        protected void UpdateBlinkingLightState(int time, bool on, bool blinking, ref int lastTick, ref LightState state)
+        {
+            switch (state)
+            {
+                case LightState.OFF:
+                    if(on)
+                    {
+                        state = LightState.ON;
+                        lastTick = time;
+                    }
+                    break;
+                case LightState.ON:
+                    if(!on)
+                        state = LightState.OFF;
+                    else if (blinking)
+                    {
+                        int delta = negMod(time - lastTick, MAX_SECONDS);
+
+                        if (delta > PHASE_LENGTH)
+                        {
+                            state = LightState.TempOFF;
+                            lastTick = time;
+                        }
+                    }
+                    break;
+                case LightState.TempOFF:
+                    if (!on)
+                        state = LightState.OFF;
+                    else if (blinking)
+                    {
+                        int delta = negMod(time - lastTick, MAX_SECONDS);
+
+                        if (delta > PHASE_LENGTH)
+                        {
+                            state = LightState.ON;
+                            lastTick = time;
+                        }
+                    }
+                    else
+                    {
+                        state = LightState.ON;
+                        lastTick = time;
+                    }
+                    break;
+            }
         }
 
         private float ClampValue(float value, float min, float max)
@@ -297,6 +530,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
                 _contacts[i].NewDetection = flightData.newDetection[i] > 0;
                 _contacts[i].Visible = i < flightData.RwrObjectCount;
             }
+        }
+
+        //https://stackoverflow.com/questions/1878907/the-smallest-difference-between-2-angles
+        private int negMod(int a, int n)
+        {
+            return (a % n + n) % n;
         }
     }
 }
