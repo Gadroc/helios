@@ -98,6 +98,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             AddValue("Tacan", "ufc tacan mode", "Tacan mode set with the UFC.", "1 = TR, 2 = AA", BindingValueUnits.Numeric);
             AddValue("Tacan", "aux tacan mode", "Tacan mode set with the AUX COM panel.", "1 = TR, 2 = AA", BindingValueUnits.Numeric);
 
+            AddValue("AVTR", "avtr indicator", "Indicates whether the acmi is recording", "True if lit", BindingValueUnits.Boolean);
+
             //BMS 4.33 addition
             AddValue("Engine", "nozzle 2 position", "Current engine nozzle2.", "Percent open (0-100)", BindingValueUnits.Numeric);
             AddValue("Engine", "rpm2", "Current engine rpm2.", "Percent (0-103)", BindingValueUnits.Numeric);
@@ -402,6 +404,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Backup ADI", "off flag", new BindingValue(bits.HasFlag(HsiBits.BUP_ADI_OFF)));
             SetValue("VVI", "off flag", new BindingValue(bits.HasFlag(HsiBits.VVI)));
             SetValue("AOA", "off flag", new BindingValue(bits.HasFlag(HsiBits.AOA)));
+            SetValue("AVTR", "avtr indicator", new BindingValue(bits.HasFlag(HsiBits.AVTR)));
 
             UpdateBlinkingLightState(time, bits.HasFlag(HsiBits.OuterMarker), blinkBits.HasFlag(BlinkBits.OuterMarker), ref _outerMarkerLastTick, ref _outerMarkerState);
             SetValue("HSI", "Outer marker indicator", new BindingValue(_outerMarkerState == LightState.ON));
