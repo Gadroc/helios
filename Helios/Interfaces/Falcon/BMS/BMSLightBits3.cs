@@ -53,5 +53,19 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
 
         // Left Aux console
         SpeedBrake = 0x800000,  // True if speed brake is in anything other than stowed position
+
+        // Threat Warning Prime - additional bits
+        SysTest = 0x1000000,
+
+        // Master Caution WILL come up (actual lightBit has 3sec delay like in RL),
+        // usable for cockpit builders with RL equipment which has a delay on its own.
+        // Will be set to false again as soon as the MasterCaution bit is set.
+        MCAnnounced = 0x2000000,
+
+        //MLGWOW is only for AFM , it means WOW switches on MLG are triggered => FLCS switches to WOWPitchRockGain
+        MLGWOW = 0x4000000,
+        NLGWOW = 0x8000000,
+
+        ATF_Not_Engaged = 0x10000000,
     }
 }

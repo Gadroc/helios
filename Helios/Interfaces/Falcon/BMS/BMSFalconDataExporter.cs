@@ -20,6 +20,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
 
     class BMSFalconDataExporter : FalconDataExporter
     {
+        private const int SLOW_BLINK_LENGTH_MS = 500;
+        private const int FAST_BLINK_LENGTH_MS = 200;
         private const int PHASE_LENGTH = 1;
         private const int MAX_SECONDS = 60 * 60 * 24;
 
@@ -31,45 +33,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         private FlightData _lastFlightData;
         private FlightData2 _lastFlightData2;
 
-        protected enum LightState
-        {
-            OFF,
-            ON,
-            TempOFF,
-        }
+        private DateTime _outerMarkerLastTick;
+        private bool _outerMarkerOnState;
 
-        private int _outerMarkerLastTick;
-        private LightState _outerMarkerState;
+        private DateTime _middleMarkerLastTick;
+        private bool _middleMarkerOnState;
 
-        private int _middleMarkerLastTick;
-        private LightState _middleMarkerState;
+        private DateTime _probeheatLastTick;
+        private bool _probeheatOnState;
 
-        private int _probeheatLastTick;
-        private LightState _probeheatState;
+        private DateTime _auxsrchLastTick;
+        private bool _auxsrchOnState;
 
-        private int _auxsrchLastTick;
-        private LightState _auxsrchState;
+        private DateTime _launchLastTick;
+        private bool _launchOnState;
 
-        private int _launchLastTick;
-        private LightState _launchState;
+        private DateTime _primodeLastTick;
+        private bool _primodeOnState;
 
-        private int _primodeLastTick;
-        private LightState _primodeState;
-
-        private int _unkLastTick;
-        private LightState _unkState;
-
-        private int _elecFaultLastTick;
-        private LightState _elecFaultState;
-
-        private int _oxyBrowLastTick;
-        private LightState _oxyBrowState;
-
-        private int _epuOnLastTick;
-        private LightState _epuOnState;
-
-        private int _jfsOnLastTick;
-        private LightState _jfsOnState;
+        private DateTime _unkLastTick;
+        private bool _unkOnState;
 
         public BMSFalconDataExporter(FalconInterface falconInterface)
             : base(falconInterface)
@@ -101,6 +84,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             AddValue("AVTR", "avtr indicator", "Indicates whether the acmi is recording", "True if lit", BindingValueUnits.Boolean);
 
             //BMS 4.33 addition
+            AddValue("Threat Warning Prime", "systest indicator", "Threat warning prime systest indicator", "True if lit", BindingValueUnits.Boolean);
             AddValue("Engine", "nozzle 2 position", "Current engine nozzle2.", "Percent open (0-100)", BindingValueUnits.Numeric);
             AddValue("Engine", "rpm2", "Current engine rpm2.", "Percent (0-103)", BindingValueUnits.Numeric);
             AddValue("Engine", "ftit2", "Current forward turbine inlet temp2", "Degrees C", BindingValueUnits.Numeric);
@@ -289,9 +273,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Autopilot", "on indicator", new BindingValue(bits.HasFlag(BMSLightBits.AutoPilotOn)));
             SetValue("Misc", "tfs stanby indicator", new BindingValue(bits.HasFlag(BMSLightBits.TFR_STBY)));
             SetValue("Test Panel", "FLCS channel lamps", new BindingValue(bits.HasFlag(BMSLightBits.Flcs_ABCD)));
-
-            //UpdateLightState(time, bits.HasFlag(BMSLightBits.OXY_BROW), blinkBits.HasFlag(BlinkBits.OXY_BROW), ref _oxyBrowLastTick, ref _oxyBrowState);
-            //SetValue("Right Eyebrow", "oxy low indicator", new BindingValue(_oxyBrowState == LightState.ON));
         }
 
         protected void ProcessLightBits2(LightBits2 bits, BlinkBits blinkBits, int time)
@@ -334,20 +315,20 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Gear Handle", "handle indicator", new BindingValue(bits.HasFlag(LightBits2.GEARHANDLE)));
             SetValue("Right Eyebrow", "engine indicator", new BindingValue(bits.HasFlag(LightBits2.ENGINE)));
 
-            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.PROBEHEAT), blinkBits.HasFlag(BlinkBits.PROBEHEAT), ref _probeheatLastTick, ref _probeheatState);
-            SetValue("Caution", "probe heat indicator", new BindingValue(_probeheatState == LightState.ON));
+            UpdateBlinkingLightState(bits.HasFlag(LightBits2.PROBEHEAT), blinkBits.HasFlag(BlinkBits.PROBEHEAT), ref _probeheatLastTick, ref _probeheatOnState);
+            SetValue("Caution", "probe heat indicator", new BindingValue(_probeheatOnState));
 
-            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.AuxSrch), blinkBits.HasFlag(BlinkBits.AuxSrch), ref _auxsrchLastTick, ref _auxsrchState);
-            SetValue("Aux Threat Warning", "search indicator", new BindingValue(_auxsrchState == LightState.ON));
+            UpdateBlinkingLightState(bits.HasFlag(LightBits2.AuxSrch), blinkBits.HasFlag(BlinkBits.AuxSrch), ref _auxsrchLastTick, ref _auxsrchOnState);
+            SetValue("Aux Threat Warning", "search indicator", new BindingValue(_auxsrchOnState));
 
-            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.Launch), blinkBits.HasFlag(BlinkBits.Launch), ref _launchLastTick, ref _launchState);
-            SetValue("Threat Warning Prime", "launch indicator", new BindingValue(_launchState == LightState.ON));
+            UpdateBlinkingLightState(bits.HasFlag(LightBits2.Launch), blinkBits.HasFlag(BlinkBits.Launch), ref _launchLastTick, ref _launchOnState);
+            SetValue("Threat Warning Prime", "launch indicator", new BindingValue(_launchOnState));
 
-            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.PriMode), blinkBits.HasFlag(BlinkBits.PriMode), ref _primodeLastTick, ref _primodeState);
-            SetValue("Threat Warning Prime", "open mode indicator", new BindingValue(_primodeState == LightState.ON));
+            UpdateBlinkingLightState(bits.HasFlag(LightBits2.PriMode), blinkBits.HasFlag(BlinkBits.PriMode), ref _primodeLastTick, ref _primodeOnState);
+            SetValue("Threat Warning Prime", "prioirty mode indicator", new BindingValue(_primodeOnState));
 
-            UpdateBlinkingLightState(time, bits.HasFlag(LightBits2.Unk), blinkBits.HasFlag(BlinkBits.Unk), ref _unkLastTick, ref _unkState);
-            SetValue("Threat Warning Prime", "unknown mode indicator", new BindingValue(_unkState == LightState.ON));
+            UpdateBlinkingLightState(bits.HasFlag(LightBits2.Unk), blinkBits.HasFlag(BlinkBits.Unk), ref _unkLastTick, ref _unkOnState);
+            SetValue("Threat Warning Prime", "unknown mode indicator", new BindingValue(_unkOnState));
         }
 
         protected void ProcessLightBits3(BMSLightBits3 bits)
@@ -378,14 +359,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Landing Gear", "right gear indicator", new BindingValue(bits.HasFlag(BMSLightBits3.RightGearDown)));
             SetValue("General", "power off", new BindingValue(bits.HasFlag(BMSLightBits3.Power_Off)));
 
-            //UpdateLightState(time, bits.HasFlag(BMSLightBits3.Elec_Fault), blinkBits.HasFlag(BlinkBits.Elec_Fault), ref _elecFaultLastTick, ref _elecFaultState);
-            //SetValue("Blinklight State", "elec fault", new BindingValue(_elecFaultState == LightState.ON));
-
-            //UpdateLightState(time, bits.HasFlag(LightBits2.EPUOn), blinkBits.HasFlag(BlinkBits.EPUOn), ref _epuOnLastTick, ref _epuOnState);
-            //SetValue("Blinklight State", "epu on", new BindingValue(_epuOnState == LightState.ON));
-
-            //UpdateLightState(time, bits.HasFlag(LightBits2.JFSOn), blinkBits.HasFlag(BlinkBits.JFSOn_Slow) | blinkBits.HasFlag(BlinkBits.JFSOn_Fast), ref _jfsOnLastTick, ref _jfsOnState);
-            //SetValue("Blinklight State", "JFS on", new BindingValue(_jfsOnState == LightState.ON));
+            SetValue("Threat Warning Prime", "systest indicator", new BindingValue(bits.HasFlag(BMSLightBits3.SysTest)));
         }
 
         protected void ProcessHsiBits(HsiBits bits, float desiredCourse, float bearingToBeacon, BlinkBits blinkBits, int time)
@@ -406,11 +380,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("AOA", "off flag", new BindingValue(bits.HasFlag(HsiBits.AOA)));
             SetValue("AVTR", "avtr indicator", new BindingValue(bits.HasFlag(HsiBits.AVTR)));
 
-            UpdateBlinkingLightState(time, bits.HasFlag(HsiBits.OuterMarker), blinkBits.HasFlag(BlinkBits.OuterMarker), ref _outerMarkerLastTick, ref _outerMarkerState);
-            SetValue("HSI", "Outer marker indicator", new BindingValue(_outerMarkerState == LightState.ON));
+            UpdateBlinkingLightState(bits.HasFlag(HsiBits.OuterMarker), blinkBits.HasFlag(BlinkBits.OuterMarker), ref _outerMarkerLastTick, ref _outerMarkerOnState);
+            SetValue("HSI", "Outer marker indicator", new BindingValue(_outerMarkerOnState));
 
-            UpdateBlinkingLightState(time, bits.HasFlag(HsiBits.MiddleMarker), blinkBits.HasFlag(BlinkBits.MiddleMarker), ref _middleMarkerLastTick, ref _middleMarkerState);
-            SetValue("HSI", "Middle marker indicator", new BindingValue(_middleMarkerState == LightState.ON));
+            UpdateBlinkingLightState(bits.HasFlag(HsiBits.MiddleMarker), blinkBits.HasFlag(BlinkBits.MiddleMarker), ref _middleMarkerLastTick, ref _middleMarkerOnState);
+            SetValue("HSI", "Middle marker indicator", new BindingValue(_middleMarkerOnState));
         }
 
         protected void ProcessAltBits(AltBits bits)
@@ -446,52 +420,31 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         //    SetValue("Blink", "JFS on_fast", new BindingValue(bits.HasFlag(BlinkBits.JFSOn_Fast)));
         //}
 
-        protected void UpdateBlinkingLightState(int time, bool on, bool blinking, ref int lastTick, ref LightState state)
+        
+        protected void UpdateBlinkingLightState(bool on, bool blinking, ref DateTime lastTick, ref bool onState)
         {
-            switch (state)
+            if (blinking)
             {
-                case LightState.OFF:
-                    if(on)
-                    {
-                        state = LightState.ON;
-                        lastTick = time;
-                    }
-                    break;
-                case LightState.ON:
-                    if(!on)
-                        state = LightState.OFF;
-                    else if (blinking)
-                    {
-                        int delta = negMod(time - lastTick, MAX_SECONDS);
+                DateTime current = DateTime.Now;
+                TimeSpan span = current - lastTick;
 
-                        if (delta > PHASE_LENGTH)
-                        {
-                            state = LightState.TempOFF;
-                            lastTick = time;
-                        }
-                    }
-                    break;
-                case LightState.TempOFF:
-                    if (!on)
-                        state = LightState.OFF;
-                    else if (blinking)
-                    {
-                        int delta = negMod(time - lastTick, MAX_SECONDS);
-
-                        if (delta > PHASE_LENGTH)
-                        {
-                            state = LightState.ON;
-                            lastTick = time;
-                        }
-                    }
-                    else
-                    {
-                        state = LightState.ON;
-                        lastTick = time;
-                    }
-                    break;
+                if (span.Milliseconds > SLOW_BLINK_LENGTH_MS)
+                {
+                    onState = !onState;
+                    lastTick = current;
+                }
+            }
+            else
+            {
+                onState = on;
             }
         }
+
+        ////https://stackoverflow.com/questions/1878907/the-smallest-difference-between-2-angles
+        //private int negMod(int a, int n)
+        //{
+        //    return (a % n + n) % n;
+        //}
 
         private float ClampValue(float value, float min, float max)
         {
@@ -533,12 +486,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
                 _contacts[i].NewDetection = flightData.newDetection[i] > 0;
                 _contacts[i].Visible = i < flightData.RwrObjectCount;
             }
-        }
-
-        //https://stackoverflow.com/questions/1878907/the-smallest-difference-between-2-angles
-        private int negMod(int a, int n)
-        {
-            return (a % n + n) % n;
         }
     }
 }
