@@ -72,8 +72,15 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28),false);
 
             /// adding the diplays
-            AddTextDisplay16Segment("ScratchPad1", 90, 25, new Size(30, 50));
+            int heightDisp = 35;
+            int SPWidth = 30;
+            int SPHeight = 50;
+            int SPStart = 90;
+            AddTextDisplay16Segment("ScratchPad1", SPStart, heightDisp, new Size(SPWidth + 1, SPHeight), "+");
+            AddTextDisplay16Segment("ScratchPad2", SPStart + SPWidth, heightDisp, new Size(SPWidth + 1, SPHeight), "1");
+            AddTextDisplay7Segment("Scratchpad Number", SPStart + 2 * SPWidth, heightDisp, new Size(150, SPHeight), "305.000");
 
+            AddTextDisplay16Segment("Radio Channel 1", 25, 314, new Size(42, 42), "+");
         }
 
         public override string BezelImage
@@ -147,7 +154,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             //AddAction(_knob.Actions["release"], name);
         }
 
-        private void AddTextDisplay16Segment(string name, double x, double y, Size size) {
+        private void AddTextDisplay16Segment(string name, double x, double y, Size size, string testDisp) {
             Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
             {
                 Top = y,
@@ -159,15 +166,43 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             // display.FontSize = 20;
             TextFormat textFormat = new TextFormat
             {
-                // FontFamily = new FontFamily("SF Digital Readout"),
+                FontFamily = new FontFamily("Hornet_UFC"),
                 HorizontalAlignment = TextHorizontalAlignment.Center,
                 VerticalAlignment = TextVerticalAlignment.Center,
-                FontSize = 10
+                FontSize = 30
             };
-            textFormat.PaddingRight = 3;
+            // textFormat.PaddingRight = 3;
             display.TextFormat = textFormat;
             display.OnTextColor = Color.FromRgb(10, 200, 10);
-            display.OnImage = "{Helios}/Images/Indicators/indicator.png";
+            display.textValueTest = testDisp;
+            // display.OnImage = "{Helios}/Images/Indicators/indicator.png";
+            Children.Add(display);
+            AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
+        }
+
+        private void AddTextDisplay7Segment(string name, double x, double y, Size size, string testText)
+        {
+            Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
+            {
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                Name = name
+            };
+            // display.FontSize = 20;
+            TextFormat textFormat = new TextFormat
+            {
+                FontFamily = new FontFamily("Hornet_UFC Numeral"),
+                HorizontalAlignment = TextHorizontalAlignment.Left,
+                VerticalAlignment = TextVerticalAlignment.Center,
+                FontSize = 30
+            };
+            textFormat.PaddingRight = 0.02;
+            display.TextFormat = textFormat;
+            display.OnTextColor = Color.FromRgb(10, 200, 10);
+            display.textValueTest = testText;
+            // display.OnImage = "{Helios}/Images/Indicators/indicator.png";
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
         }

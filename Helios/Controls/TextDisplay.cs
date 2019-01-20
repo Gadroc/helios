@@ -25,7 +25,7 @@ namespace GadrocsWorkshop.Helios.Controls
     public class TextDisplay : HeliosVisual
     {
         private string _textValue = "0";
-
+        public string textValueTest = "NA";
         private string _onImage = "{Helios}/Images/Indicators/anunciator.png";
         
         private Color _onTextColor = Color.FromRgb(179, 162, 41);
@@ -177,9 +177,11 @@ namespace GadrocsWorkshop.Helios.Controls
 
         protected override void PostUpdateRectangle(Rect previous, Rect current)
         {
+            if (previous.Height == 0)
+                return;
             double scale = current.Height / previous.Height;
             TextFormat.FontSize = Clamp(scale*TextFormat.FontSize, 1, 100);
-            ConfigManager.LogManager.LogWarning("Font Size " + TextFormat.FontSize);
+            // ConfigManager.LogManager.LogWarning("Font Size " + TextFormat.FontSize);
         }
 
         public override void ScaleChildren(double scaleX, double scaleY)
@@ -190,7 +192,7 @@ namespace GadrocsWorkshop.Helios.Controls
         public override void Reset()
         {
             BeginTriggerBypass(true);
-            TextValue = "R";
+            TextValue = "";
             EndTriggerBypass(true);
         }
 
@@ -198,7 +200,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             if (DesignMode)
             {
-                TextValue = "d";
+                TextValue = textValueTest;
             }
         }
 
