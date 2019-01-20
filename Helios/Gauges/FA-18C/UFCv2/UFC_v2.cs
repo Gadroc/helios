@@ -171,6 +171,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 VerticalAlignment = TextVerticalAlignment.Center,
                 FontSize = 30
             };
+            // textFormat.FontFamily.Baseline = 0.01;
             // textFormat.PaddingRight = 3;
             display.TextFormat = textFormat;
             display.OnTextColor = Color.FromRgb(10, 200, 10);
