@@ -24,6 +24,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
         private ImageSource _onImage;
         private Brush _onBrush;
+        private Brush _backgroundBrush;
         private Rect _imageRect;
 
         protected override void OnPropertyChanged(Helios.ComponentModel.PropertyNotificationEventArgs args)
@@ -37,7 +38,8 @@ namespace GadrocsWorkshop.Helios.Controls
 
         protected override void OnRender(DrawingContext drawingContext)
         {
-            drawingContext.DrawImage(_onImage, _imageRect);
+            // drawingContext.DrawImage(_onImage, _imageRect);
+            drawingContext.DrawRectangle(new SolidColorBrush(_textDisplay.BackgroundColor), null, _imageRect);
             _textDisplay.TextFormat.RenderText(drawingContext, _onBrush , _textDisplay.TextValue, _imageRect);
         }
 
@@ -49,6 +51,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 _imageRect.Height = _textDisplay.Height;
                 _onImage = ConfigManager.ImageManager.LoadImage(_textDisplay.OnImage);
                 _onBrush = new SolidColorBrush(_textDisplay.OnTextColor);
+                _backgroundBrush = new SolidColorBrush(_textDisplay.BackgroundColor);
             }
             else
             {

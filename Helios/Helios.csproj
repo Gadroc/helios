@@ -158,11 +158,14 @@
       <DependentUpon>ImageDecorationAppearanceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageDecorationRenderer.cs" />
+    <Compile Include="Controls\IndicatorAppearancePropertyEditor - Copy.xaml.cs">
+      <DependentUpon>IndicatorAppearancePropertyEditor - Copy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TextDisplayRenderer.cs" />
     <Compile Include="Controls\TextDisplay.cs" />
     <Compile Include="Controls\Indicator.cs" />
-    <Compile Include="Controls\IndicatorAppearancePropertyEditor.xaml.cs">
-      <DependentUpon>IndicatorAppearancePropertyEditor.xaml</DependentUpon>
+    <Compile Include="Controls\TextDisplayAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>TextDisplayAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\IndicatorPushButton.cs" />
     <Compile Include="Controls\IndicatorPushButtonAppearanceEditor.xaml.cs">
@@ -175,6 +178,7 @@
       <DependentUpon>LineDecorationAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\LineDecorationRenderer.cs" />
+    <Compile Include="FontManager.cs" />
     <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
@@ -333,7 +337,6 @@
     <Compile Include="Gauges\FA-18C\UFCv2\UFC_v2.cs" />
     <Compile Include="Gauges\FA-18C\UFC\UFC.cs" />
     <Compile Include="Gauges\FA-18C\VVI\VVI.cs" />
-    <Compile Include="Gauges\GaugeText.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
     <Compile Include="Gauges\F-16\ADI\ADI.cs" />
     <Compile Include="Gauges\F-16\Airspeed\Airspeed.cs" />
@@ -1240,7 +1243,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\IndicatorAppearancePropertyEditor.xaml">
+    <Page Include="Controls\IndicatorAppearancePropertyEditor - Copy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TextDisplayAppearancePropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

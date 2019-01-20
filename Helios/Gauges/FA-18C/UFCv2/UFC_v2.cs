@@ -71,6 +71,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddEncoder("Radio 2", new Point(500, 383), new Size(75, 75));
             AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28),false);
 
+            /// adding the diplays
+            AddTextDisplay16Segment("ScratchPad1", 90, 25, new Size(30, 50));
+
         }
 
         public override string BezelImage
@@ -143,8 +146,34 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             //AddAction(_knob.Actions["push"], name);
             //AddAction(_knob.Actions["release"], name);
         }
+
+        private void AddTextDisplay16Segment(string name, double x, double y, Size size) {
+            Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
+            {
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                Name = name
+            };
+            // display.FontSize = 20;
+            TextFormat textFormat = new TextFormat
+            {
+                // FontFamily = new FontFamily("SF Digital Readout"),
+                HorizontalAlignment = TextHorizontalAlignment.Center,
+                VerticalAlignment = TextVerticalAlignment.Center,
+                FontSize = 10
+            };
+            textFormat.PaddingRight = 3;
+            display.TextFormat = textFormat;
+            display.OnTextColor = Color.FromRgb(10, 200, 10);
+            display.OnImage = "{Helios}/Images/Indicators/indicator.png";
+            Children.Add(display);
+            AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
+        }
+
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
-         private void AddButton(string name, double x, double y, Size size, bool altImage)
+        private void AddButton(string name, double x, double y, Size size, bool altImage)
         {
         Helios.Controls.PushButton button = new Helios.Controls.PushButton();
             if (altImage)

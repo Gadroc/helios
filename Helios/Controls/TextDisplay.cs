@@ -24,11 +24,12 @@ namespace GadrocsWorkshop.Helios.Controls
     [HeliosControl("Helios.Base.TextDisplay", "Text Display", "Text Displays", typeof(TextDisplayRenderer))]
     public class TextDisplay : HeliosVisual
     {
-        private string _textValue = "No Text";
+        private string _textValue = "0";
 
-        private string _onImage = "{Helios}/Images/Indicators/caution-indicator-on.png";
+        private string _onImage = "{Helios}/Images/Indicators/anunciator.png";
         
         private Color _onTextColor = Color.FromRgb(179, 162, 41);
+        private Color _backgroundColor = Color.FromRgb(0, 0, 0);
         private TextFormat _textFormat = new TextFormat();
 
         private HeliosValue _value;
@@ -37,8 +38,9 @@ namespace GadrocsWorkshop.Helios.Controls
             : base("TextDisplay", new System.Windows.Size(100, 50))
         {
             _textFormat.VerticalAlignment = TextVerticalAlignment.Center;
+            _textFormat.HorizontalAlignment = TextHorizontalAlignment.Left;
             _textFormat.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(TextFormat_PropertyChanged);
-
+            // _textFormat.FontFamily = FontManager.Instance.GetFontFamilyByName("SF Digital Readout");
             _value = new HeliosValue(this, new BindingValue(false), "", "TextDisplay", "Value of this Text Display", "String Value Unit.", BindingValueUnits.Text);
             _value.Execute += new HeliosActionHandler(On_Execute);
             Values.Add(_value);
@@ -86,6 +88,24 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
+        public Color BackgroundColor
+        {
+            get
+            {
+                return _backgroundColor;
+            }
+            set
+            {
+                if (!_backgroundColor.Equals(value))
+                {
+                    Color oldValue = _backgroundColor;
+                    _backgroundColor = value;
+                    OnPropertyChanged("BackgroundColor", oldValue, value, true);
+                    Refresh();
+                }
+            }
+        }
+
         public Color OnTextColor
         {
             get
@@ -109,6 +129,27 @@ namespace GadrocsWorkshop.Helios.Controls
             get
             {
                 return _textFormat;
+            }
+            set
+            {
+                TextFormat oldValue = _textFormat;
+                _textFormat = value;
+                OnPropertyChanged("TextFormat", oldValue, value, true);
+                Refresh();
+            }
+        }
+
+        public double FontSize
+        {
+            get
+            {
+                return _textFormat.FontSize;
+            }
+            set {
+                double oldValue = _textFormat.FontSize;
+                _textFormat.FontSize = value;
+                OnPropertyChanged("FontSize", oldValue, value, true);
+                Refresh();
             }
         }
 
@@ -134,16 +175,22 @@ namespace GadrocsWorkshop.Helios.Controls
             EndTriggerBypass(e.BypassCascadingTriggers);
         }
 
+        protected override void PostUpdateRectangle(Rect previous, Rect current)
+        {
+            double scale = current.Height / previous.Height;
+            TextFormat.FontSize = Clamp(scale*TextFormat.FontSize, 1, 100);
+            ConfigManager.LogManager.LogWarning("Font Size " + TextFormat.FontSize);
+        }
+
         public override void ScaleChildren(double scaleX, double scaleY)
         {
             double scale = scaleX > scaleY ? scaleX : scaleY;
-            TextFormat.FontSize *= scale;
         }
 
         public override void Reset()
         {
             BeginTriggerBypass(true);
-            TextValue = "Reset";
+            TextValue = "R";
             EndTriggerBypass(true);
         }
 
@@ -151,7 +198,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             if (DesignMode)
             {
-                TextValue = "100";
+                TextValue = "d";
             }
         }
 
@@ -169,7 +216,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             TypeConverter colorConverter = TypeDescriptor.GetConverter(typeof(Color));
 
-            writer.WriteElementString("OnImage", OnImage);
+            // writer.WriteElementString("OnImage", OnImage);
             writer.WriteStartElement("Font");
             _textFormat.WriteXml(writer);
             writer.WriteEndElement();
@@ -181,12 +228,25 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             TypeConverter colorConverter = TypeDescriptor.GetConverter(typeof(Color));
 
-            OnImage = reader.ReadElementString("OnImage");
+            // OnImage = reader.ReadElementString("OnImage");
             reader.ReadStartElement("Font");
             _textFormat.ReadXml(reader);
             reader.ReadEndElement();
             OnTextColor = (Color)colorConverter.ConvertFromString(null, System.Globalization.CultureInfo.InvariantCulture, reader.ReadElementString("OnTextColor"));
             base.ReadXml(reader);
+        }
+
+        private double Clamp(double value, double min, double max)
+        {
+            if (value < min)
+            {
+                return min;
+            }
+            if (value > max)
+            {
+                return max;
+            }
+            return value;
         }
     }
 }

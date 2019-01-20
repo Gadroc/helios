@@ -465,9 +465,17 @@ namespace GadrocsWorkshop.Helios
                     newRect.Transform(m1);
                     break;
             }
-
+            PostUpdateRectangle(DisplayRectangle, newRect);
             DisplayRectangle = newRect;
         }
+
+        /// 
+        /// Method that can be implemented by sub classes
+        /// 
+        protected virtual void PostUpdateRectangle(Rect previous, Rect current) {
+
+        }
+
 
         /// <summary>
         /// Method call used to linear scale this control and it's components.
