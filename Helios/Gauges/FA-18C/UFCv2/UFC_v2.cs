@@ -77,7 +77,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             int SPHeight = 50;
             int SPStart = 90;
             AddTextDisplay16Segment("ScratchPad1", SPStart, heightDisp, new Size(SPWidth + 1, SPHeight), "+");
-            AddTextDisplay16Segment("ScratchPad2", SPStart + SPWidth, heightDisp, new Size(SPWidth + 1, SPHeight), "1");
+            AddTextDisplay16Segment("ScratchPad2", SPStart + SPWidth, heightDisp, new Size(SPWidth + 1, SPHeight), "-");
             AddTextDisplay7Segment("Scratchpad Number", SPStart + 2 * SPWidth, heightDisp, new Size(150, SPHeight), "305.000");
 
             AddTextDisplay16Segment("Radio Channel 1", 25, 314, new Size(42, 42), "+");
@@ -169,7 +169,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 FontFamily = new FontFamily("Hornet_UFC"),
                 HorizontalAlignment = TextHorizontalAlignment.Center,
                 VerticalAlignment = TextVerticalAlignment.Center,
-                FontSize = 30
+                FontSize = 25
             };
             // textFormat.FontFamily.Baseline = 0.01;
             // textFormat.PaddingRight = 3;
@@ -194,10 +194,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             // display.FontSize = 20;
             TextFormat textFormat = new TextFormat
             {
-                FontFamily = new FontFamily("Hornet_UFC Numeral"),
+                FontFamily = new FontFamily("Hornet_UFC Numerals"),
                 HorizontalAlignment = TextHorizontalAlignment.Left,
                 VerticalAlignment = TextVerticalAlignment.Center,
-                FontSize = 30
+                FontSize = 25
             };
             textFormat.PaddingRight = 0.02;
             display.TextFormat = textFormat;
