@@ -102,5 +102,14 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
+        private void HeliosTestTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            HeliosTextBox texBox = sender as HeliosTextBox;
+            TextDisplay textDisplay = Control as TextDisplay;
+            if (textDisplay != null)
+            {
+                textDisplay.TextValue = texBox.Text;
+            }
+        }
     }
 }

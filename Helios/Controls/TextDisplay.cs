@@ -24,10 +24,10 @@ namespace GadrocsWorkshop.Helios.Controls
     [HeliosControl("Helios.Base.TextDisplay", "Text Display", "Text Displays", typeof(TextDisplayRenderer))]
     public class TextDisplay : HeliosVisual
     {
-        private string _textValue = "0";
-        public string textValueTest = "NA";
+        private string _textValue = "";
+        private string _textValueTest = "NA";
         private string _onImage = "{Helios}/Images/Indicators/anunciator.png";
-        
+        private bool _useBackground = false;    // displaying the background or not
         private Color _onTextColor = Color.FromRgb(179, 162, 41);
         private Color _backgroundColor = Color.FromRgb(0, 0, 0);
         private TextFormat _textFormat = new TextFormat();
@@ -45,7 +45,6 @@ namespace GadrocsWorkshop.Helios.Controls
             _value.Execute += new HeliosActionHandler(On_Execute);
             Values.Add(_value);
             Actions.Add(_value);
-
         }
 
         #region Properties
@@ -66,6 +65,21 @@ namespace GadrocsWorkshop.Helios.Controls
                     OnPropertyChanged("TextValue", oldValue, value, false);
                     OnDisplayUpdate();
                 }
+            }
+        }
+
+        public string TextTestValue
+        {
+            get
+            {
+                return _textValueTest;
+            }
+            set
+            {
+                string oldValue = _textValueTest;
+                _textValueTest = value;
+                OnPropertyChanged("TextTestValue", oldValue, value, false);
+                OnDisplayUpdate();
             }
         }
 
@@ -200,7 +214,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             if (DesignMode)
             {
-                TextValue = textValueTest;
+                TextValue = _textValueTest;
             }
         }
 
@@ -223,6 +237,7 @@ namespace GadrocsWorkshop.Helios.Controls
             _textFormat.WriteXml(writer);
             writer.WriteEndElement();
             writer.WriteElementString("OnTextColor", colorConverter.ConvertToString(null, System.Globalization.CultureInfo.InvariantCulture, OnTextColor));
+            writer.WriteElementString("TextText", _textValueTest);
             base.WriteXml(writer);
         }
 
@@ -235,6 +250,7 @@ namespace GadrocsWorkshop.Helios.Controls
             _textFormat.ReadXml(reader);
             reader.ReadEndElement();
             OnTextColor = (Color)colorConverter.ConvertFromString(null, System.Globalization.CultureInfo.InvariantCulture, reader.ReadElementString("OnTextColor"));
+            TextTestValue = reader.ReadElementString("TextTest");
             base.ReadXml(reader);
         }
 

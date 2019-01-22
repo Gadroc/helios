@@ -175,7 +175,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             // textFormat.PaddingRight = 3;
             display.TextFormat = textFormat;
             display.OnTextColor = Color.FromRgb(10, 200, 10);
-            display.textValueTest = testDisp;
+            display.TextTestValue = testDisp;
             // display.OnImage = "{Helios}/Images/Indicators/indicator.png";
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
@@ -202,7 +202,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             textFormat.PaddingRight = 0.02;
             display.TextFormat = textFormat;
             display.OnTextColor = Color.FromRgb(10, 200, 10);
-            display.textValueTest = testText;
+            display.TextTestValue = testText;
             // display.OnImage = "{Helios}/Images/Indicators/indicator.png";
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
