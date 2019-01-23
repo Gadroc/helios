@@ -158,8 +158,8 @@
       <DependentUpon>ImageDecorationAppearanceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageDecorationRenderer.cs" />
-    <Compile Include="Controls\IndicatorAppearancePropertyEditor - Copy.xaml.cs">
-      <DependentUpon>IndicatorAppearancePropertyEditor - Copy.xaml</DependentUpon>
+    <Compile Include="Controls\IndicatorAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>IndicatorAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextDisplayRenderer.cs" />
     <Compile Include="Controls\TextDisplay.cs" />
@@ -1243,7 +1243,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\IndicatorAppearancePropertyEditor - Copy.xaml">
+    <Page Include="Controls\IndicatorAppearancePropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

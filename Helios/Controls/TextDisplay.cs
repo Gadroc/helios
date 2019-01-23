@@ -16,7 +16,10 @@
 namespace GadrocsWorkshop.Helios.Controls
 {
     using GadrocsWorkshop.Helios.ComponentModel;
+    using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq;
+    using System.Text;
     using System.Windows;
     using System.Windows.Media;
     using System.Xml;
@@ -24,19 +27,21 @@ namespace GadrocsWorkshop.Helios.Controls
     [HeliosControl("Helios.Base.TextDisplay", "Text Display", "Text Displays", typeof(TextDisplayRenderer))]
     public class TextDisplay : HeliosVisual
     {
-        private string _textValue = "0";
-        public string textValueTest = "NA";
+        private string _textValue = "";
+        private string _rawValue = "";
+        private string _textValueTest = "NA";
         private string _onImage = "{Helios}/Images/Indicators/anunciator.png";
-        
+        private bool _useBackground = false;    // displaying the background or not
         private Color _onTextColor = Color.FromRgb(179, 162, 41);
         private Color _backgroundColor = Color.FromRgb(0, 0, 0);
         private TextFormat _textFormat = new TextFormat();
-
+        private Dictionary<string, string> _parserDictionary = new Dictionary<string, string>(); // the list of input -> output string modifications
         private HeliosValue _value;
 
         public TextDisplay()
             : base("TextDisplay", new System.Windows.Size(100, 50))
         {
+            _parserDictionary["A"] = "B";
             _textFormat.VerticalAlignment = TextVerticalAlignment.Center;
             _textFormat.HorizontalAlignment = TextHorizontalAlignment.Left;
             _textFormat.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(TextFormat_PropertyChanged);
@@ -45,7 +50,6 @@ namespace GadrocsWorkshop.Helios.Controls
             _value.Execute += new HeliosActionHandler(On_Execute);
             Values.Add(_value);
             Actions.Add(_value);
-
         }
 
         #region Properties
@@ -58,14 +62,81 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             set
             {
-                if (!_textValue.Equals(value))
+                if (!_rawValue.Equals(value))
                 {
+                    _rawValue = value;
+                    // parse the value
+                    string parsedValue = value;
+                    foreach (KeyValuePair<string, string> entry in _parserDictionary)
+                    {
+                        parsedValue = parsedValue.Replace(entry.Key, entry.Value);
+                    }
                     string oldValue = _textValue;
-                    _textValue = value;
+                    _textValue = parsedValue;
                     _value.SetValue(new BindingValue(_textValue), BypassTriggers);
-                    OnPropertyChanged("TextValue", oldValue, value, false);
+                    OnPropertyChanged("TextValue", oldValue, parsedValue, false);
                     OnDisplayUpdate();
                 }
+            }
+        }
+        public bool UseBackground {
+            get
+            {
+                return _useBackground;
+            }
+            set
+            {
+                if (!_useBackground.Equals(value))
+                {
+                    bool oldValue = _useBackground;
+                    _useBackground = value;
+                    OnPropertyChanged("UseBackground", oldValue, value, true);
+                    OnDisplayUpdate();
+                }
+            }
+        }
+        public string ParserDictionary
+        {
+            get
+            { /// convert the dictionary to a string
+                var stringBuilder = new StringBuilder();
+                bool first = true;
+                foreach (KeyValuePair<string, string> pair in _parserDictionary)
+                {
+                    if (first)
+                    {
+                        first = false;
+                    }
+                    else
+                    {
+                        stringBuilder.Append(";");
+                    }
+
+                    stringBuilder.AppendFormat("{0}={1}", pair.Key, pair.Value);
+                }
+                return stringBuilder.ToString();
+            }
+            set /// convert the string to a dictionary
+            {
+                Dictionary<string, string> oldValue = _parserDictionary;
+                _parserDictionary = value.TrimEnd(';').Split(';').ToDictionary(item => item.Split('=')[0], item => item.Split('=')[1]);
+                OnPropertyChanged("ParserDictionary", oldValue, value, false);
+                OnDisplayUpdate();
+            }
+        }
+
+        public string TextTestValue
+        {
+            get
+            {
+                return _textValueTest;
+            }
+            set
+            {
+                string oldValue = _textValueTest;
+                _textValueTest = value;
+                OnPropertyChanged("TextTestValue", oldValue, value, false);
+                OnDisplayUpdate();
             }
         }
 
@@ -200,7 +271,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             if (DesignMode)
             {
-                TextValue = textValueTest;
+                TextValue = _textValueTest;
             }
         }
 
@@ -217,24 +288,32 @@ namespace GadrocsWorkshop.Helios.Controls
         public override void WriteXml(XmlWriter writer)
         {
             TypeConverter colorConverter = TypeDescriptor.GetConverter(typeof(Color));
-
+            TypeConverter boolConverter = TypeDescriptor.GetConverter(typeof(bool));
             // writer.WriteElementString("OnImage", OnImage);
             writer.WriteStartElement("Font");
             _textFormat.WriteXml(writer);
             writer.WriteEndElement();
             writer.WriteElementString("OnTextColor", colorConverter.ConvertToString(null, System.Globalization.CultureInfo.InvariantCulture, OnTextColor));
+            writer.WriteElementString("BackgroundColor", colorConverter.ConvertToString(null, System.Globalization.CultureInfo.InvariantCulture, BackgroundColor));
+            writer.WriteElementString("TextTest", _textValueTest);
+            writer.WriteElementString("ParserDictionary", ParserDictionary);
+            writer.WriteElementString("UseBackground", boolConverter.ConvertToInvariantString(UseBackground));
             base.WriteXml(writer);
         }
 
         public override void ReadXml(XmlReader reader)
         {
             TypeConverter colorConverter = TypeDescriptor.GetConverter(typeof(Color));
-
+            TypeConverter boolConverter = TypeDescriptor.GetConverter(typeof(bool));
             // OnImage = reader.ReadElementString("OnImage");
             reader.ReadStartElement("Font");
             _textFormat.ReadXml(reader);
             reader.ReadEndElement();
             OnTextColor = (Color)colorConverter.ConvertFromString(null, System.Globalization.CultureInfo.InvariantCulture, reader.ReadElementString("OnTextColor"));
+            BackgroundColor = (Color)colorConverter.ConvertFromString(null, System.Globalization.CultureInfo.InvariantCulture, reader.ReadElementString("BackgroundColor"));
+            TextTestValue = reader.ReadElementString("TextTest");
+            ParserDictionary = reader.ReadElementString("ParserDictionary");
+            UseBackground = (bool)boolConverter.ConvertFromInvariantString(reader.ReadElementString("UseBackground"));
             base.ReadXml(reader);
         }
 
