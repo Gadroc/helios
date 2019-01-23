@@ -34,11 +34,11 @@ namespace GadrocsWorkshop.Helios.Controls
 
         private void TurnTextDisplayOn(object sender, RoutedEventArgs e)
         {
-            TextDisplay textDisplay = Control as TextDisplay;
-            if (textDisplay != null)
-            {
-                textDisplay.TextValue = "NA";
-            }
+            //TextDisplay textDisplay = Control as TextDisplay;
+            //if (textDisplay != null)
+            //{
+            //    textDisplay.TextValue = "NA";
+            //}
         }
 
         private void TurnTextDisplayOff(object sender, RoutedEventArgs e)
@@ -110,6 +110,10 @@ namespace GadrocsWorkshop.Helios.Controls
             {
                 textDisplay.TextValue = texBox.Text;
             }
+        }
+
+        private void HeliosTestParserBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
         }
     }
 }
