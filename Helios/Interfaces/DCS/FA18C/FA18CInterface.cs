@@ -64,9 +64,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         private const string DIGITAL_MAP_COMPUTER = "24";       //  Digital Map Computer - CP-1802/ASQ-196
         private const string UFC = "25";                        // Electronic Equipment Control (UFC) - C-10380/ASQ
         // Instruments
-        private const string AAU52    = "26";                   //  Standby Pressure Altimeter - AAU-52/A
-        private const string AVU35    = "27";                   //  Indicated Airspeed Indicator - AVU-35/A
-        private const string AVU53    = "28";                   //  Vertical Speed Indicator - AVU-53/A
+        private const string AAU52 = "26";                   //  Standby Pressure Altimeter - AAU-52/A
+        private const string AVU35 = "27";                   //  Indicated Airspeed Indicator - AVU-35/A
+        private const string AVU53 = "28";                   //  Vertical Speed Indicator - AVU-53/A
         private const string STANDBY_COMPASS = "29";            // Standby Compass - AQU-3/A
         private const string ID2163A = "30";                    // Radar Altimeter Height Indicator - ID-2163/A
         private const string RADAR_ALTIMETER = "31";            // Radar Altimeter - APN-194(V)
@@ -185,13 +185,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "44", "Caution Indicators", "READY", ""));          // create_caution_lamp(44,CautionLights.CPT_LTS_READY)
             // Arresting Hook Control Handle
             AddFunction(new FlagValue(this, "294", "Caution Indicators", "HOOK", ""));          // create_caution_lamp(294,CautionLights.CPT_LTS_HOOK)
-            // Landing Gear 
-                //create_caution_lamp(CautionLights.CPT_LTS_LDG_GEAR_HANDLE)
-            // APU Control Panel
+                                                                                                // Landing Gear 
+                                                                                                //create_caution_lamp(CautionLights.CPT_LTS_LDG_GEAR_HANDLE)
+                                                                                                // APU Control Panel
             AddFunction(new FlagValue(this, "376", "Caution Indicators", "APU_READY", ""));    // create_caution_lamp(376,CautionLights.CPT_LTS_APU_READY)
-            // ECM Control Panel Assy
-                       //create_caution_lamp(CautionLights.CPT_LTS_SEL)
-            // Map Gain Control Panel Assy
+                                                                                               // ECM Control Panel Assy
+                                                                                               //create_caution_lamp(CautionLights.CPT_LTS_SEL)
+                                                                                               // Map Gain Control Panel Assy
             AddFunction(new FlagValue(this, "137", "Caution Indicators", "SPN", ""));           // create_caution_lamp(137,CautionLights.CPT_LTS_SPN)
             // Height Indicator
             //AddFunction(new FlagValue(this, "290", "Caution Indicators", "LOW_ALT_WARN", ""));  // create_caution_lamp(290,CautionLights.CPT_LTS_LOW_ALT_WARN)
@@ -285,7 +285,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             #endregion
             #region  Power Plant
             AddFunction(Switch.CreateToggleSwitch(this, ENGINES_INTERFACE, "3001", "375", "1.0", "ON", "0.0", "OFF", "Power Plant", "APU Control Switch", "%0.1f"));    // elements["pnt_375"] = default_button2(_("APU Control Switch, ON/OFF"),  devices.ENGINES_INTERFACE, engines_commands.APU_ControlSw,  375)
-            AddFunction(new Switch(this, ENGINES_INTERFACE, "377", new SwitchPosition[] { new SwitchPosition("1", "Right", "3003", "3003", "0"), new SwitchPosition("0", "Off", "3002"), new SwitchPosition("-1", "Left", "3002","3002","0") }, "Power Plant", "Engine Crank Switch", "%1d"));      // elements["pnt_377"] = springloaded_3_pos_tumb2(_("Engine Crank Switch, LEFT/OFF/RIGHT"),devices.ENGINES_INTERFACE, engines_commands.EngineCrankLSw, engines_commands.EngineCrankRSw, 377)
+            AddFunction(new Switch(this, ENGINES_INTERFACE, "377", new SwitchPosition[] { new SwitchPosition("1", "Right", "3003", "3003", "0"), new SwitchPosition("0", "Off", "3002"), new SwitchPosition("-1", "Left", "3002", "3002", "0") }, "Power Plant", "Engine Crank Switch", "%1d"));      // elements["pnt_377"] = springloaded_3_pos_tumb2(_("Engine Crank Switch, LEFT/OFF/RIGHT"),devices.ENGINES_INTERFACE, engines_commands.EngineCrankLSw, engines_commands.EngineCrankRSw, 377)
             AddFunction(new Switch(this, ENGINES_INTERFACE, "331", new SwitchPosition[] { new SwitchPosition("1", "Test A", "3006", "3006", "0"), new SwitchPosition("0", "Off", "3007"), new SwitchPosition("-1", "Test B", "3007", "3007", "0") }, "Power Plant", "Fire and Bleed Air Test Switch", "%1d")); // elements["pnt_331"] = springloaded_3_pos_tumb2(_("Fire and Bleed Air Test Switch, (RMB) TEST A/(LMB) TEST B"),  devices.ENGINES_INTERFACE, engines_commands.FireTestBSw, engines_commands.FireTestASw,  331)
             #endregion
             #region  Hydraulic system
@@ -300,7 +300,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Switch(this, GEAR_INTERFACE, "233", new SwitchPosition[] { new SwitchPosition("0.0", "Retract", "3008", "3008", "0.3"), new SwitchPosition("1.0", "Extend", "3008") }, "Gear system", "Launch Bar Control Switch", "%0.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, GEAR_INTERFACE, "3009", "293", "1.0", "UP", "0.0", "DOWN", "Gear system", "Arresting Hook Handle", "%0.1f"));    // elements["pnt_293"]     = default_2_position_tumb(_("Arresting Hook Handle, UP/DOWN"),      devices.GEAR_INTERFACE, gear_commands.HookHandle,   293)
             //AddFunction(new Switch(this, GEAR_INTERFACE, "241", new SwitchPosition[] { new SwitchPosition("-1", "Park", "3006", "3006", "0"), new SwitchPosition("0", "Emergency", "3007") }, "Gear system", "Emergency / Parking Brake Handle Park/Emergency", "%1d"));
-            AddFunction(new PushButton(this, GEAR_INTERFACE, "3006", "241", "Gear system", "Brake Handle Park/Emergency","1","0", "%0.1f"));
+            AddFunction(new PushButton(this, GEAR_INTERFACE, "3006", "241", "Gear system", "Brake Handle Park/Emergency", "1", "0", "%0.1f"));
             AddFunction(new Switch(this, GEAR_INTERFACE, "240", new SwitchPosition[] { new SwitchPosition("1", "On", "3005"), new SwitchPosition("0", "Off", "3005") }, "Gear system", "Emergency / Parking Brake Handle On/Off", "%0.1f"));
             #endregion
             #region  Fuel system
@@ -321,7 +321,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Switch(this, ENGINES_INTERFACE, "514", new SwitchPosition[] { new SwitchPosition("1", "Up", "3010", "3010", "0"), new SwitchPosition("0", "Hold", "3011"), new SwitchPosition("-1", "Down", "3011", "3011", "0") }, "Cockpit Mechanics", "Seat Height Adjustment Switch", "%1d")); // elements["pnt_514"]     = springloaded_3_pos_tumb(_("Seat Height Adjustment Switch, UP/HOLD/DOWN"),     devices.CPT_MECHANICS,  cpt_commands.SeatHeightAdjustmentSwitchUp, cpt_commands.SeatHeightAdjustmentSwitchDn, 514)
             //AddFunction(Switch.CreateThreeWaySwitch(this, CPT_MECHANICS, "3010", "514", "1.0", "UP", "0.5", "HOLD", "0.0", "DOWN", "Cockpit Mechanics", "Seat Height Adjustment Switch", "%0.1f"));    
             AddFunction(new PushButton(this, CPT_MECHANICS, "3012", "260", "Cockpit Mechanics", "Rudder Pedal Adjust Lever", "1", "0", "%1d"));    // elements["pnt_260"]     = default_button(_("Rudder Pedal Adjust Lever"),                                devices.CPT_MECHANICS,  cpt_commands.RudderPedalAdjustLever,    260)
-            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3013", "575", "1","Hide","0","Show","Cockpit Mechanics", "Hide Stick toggle", "%1d"));    // elements["pnt_575"]     = default_2_position_tumb(_("Hide Stick toggle"),                               devices.CPT_MECHANICS,  cpt_commands.StickHide,                 575)
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECHANICS, "3013", "575", "1", "Hide", "0", "Show", "Cockpit Mechanics", "Hide Stick toggle", "%1d"));    // elements["pnt_575"]     = default_2_position_tumb(_("Hide Stick toggle"),                               devices.CPT_MECHANICS,  cpt_commands.StickHide,                 575)
             #endregion
             #region  Mirrors
             //AddFunction(new PushButton(this,, "", "497", "Mirrors","Toggle Mirrors"));    // elements["pnt_497"]             = default_2_position_tumb(_("Toggle Mirrors"), 0, 3002, 0)
@@ -377,7 +377,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new PushButton(this, SMS, "3008", "159", "Master Arm Panel", "Station Jettison Select Button RIGHT IN", "1", "0", "%1d"));    // elements["pnt_159"]     = default_2_position_tumb(_("Station Jettison Select Button, RIGHT IN"),    devices.SMS, SMS_commands.JettStationRIBtn, 159)
             AddFunction(new PushButton(this, SMS, "3009", "161", "Master Arm Panel", "Station Jettison Select Button RIGHT OUT", "1", "0", "%1d"));    // elements["pnt_161"]     = default_2_position_tumb(_("Station Jettison Select Button, RIGHT OUT"),   devices.SMS, SMS_commands.JettStationROBtn, 161)
             AddFunction(new PushButton(this, SMS, "3010", "235", "Master Arm Panel", "Selective Jettison Pushbutton"));    // elements["pnt_235"]     = default_button(_("Selective Jettison Pushbutton"),                    devices.SMS, SMS_commands.SelJettBtn, 235)
-            AddFunction(new Switch(this, SMS, "236", new SwitchPosition[] { new SwitchPosition("-0.1", "L FUS MSL", "3011"), new SwitchPosition("0.0", "SAFE", "3011"), new SwitchPosition("0.1", "R FUS MSL", "3011"), new SwitchPosition("0.2", "Rack / LCHR", "3011"),  new SwitchPosition("0.3", "STORES", "3011") }, "Master Arm Panel", "Selective Jettison Knob", "%0.1f"));    // elements["pnt_236"]     = multiposition_switch(_("Selective Jettison Knob, L FUS MSL/SAFE/R FUS MSL/ RACK/LCHR /STORES"),   devices.SMS, SMS_commands.SelJettLvr, 236, 5, 0.1, false, -0.1, 1.5)
+            AddFunction(new Switch(this, SMS, "236", new SwitchPosition[] { new SwitchPosition("-0.1", "L FUS MSL", "3011"), new SwitchPosition("0.0", "SAFE", "3011"), new SwitchPosition("0.1", "R FUS MSL", "3011"), new SwitchPosition("0.2", "Rack / LCHR", "3011"), new SwitchPosition("0.3", "STORES", "3011") }, "Master Arm Panel", "Selective Jettison Knob", "%0.1f"));    // elements["pnt_236"]     = multiposition_switch(_("Selective Jettison Knob, L FUS MSL/SAFE/R FUS MSL/ RACK/LCHR /STORES"),   devices.SMS, SMS_commands.SelJettLvr, 236, 5, 0.1, false, -0.1, 1.5)
             AddFunction(new Switch(this, SMS, "135", new SwitchPosition[] { new SwitchPosition("1.0", "ORIDE", "3013"), new SwitchPosition("0.5", "NORM", "3013"), new SwitchPosition("0.0", "OFF", "3013") }, "Master Arm Panel", "IR Cooling Switch", "%0.1f"));    // elements["pnt_135"]     = default_3_position_tumb(_("IR Cooling Switch, ORIDE/NORM/OFF"),           devices.SMS, SMS_commands.IRCoolingSw, 135, false, anim_speed_default, false, 0.1, {0, 0.2})
             #endregion
             #region  Fire Systems
@@ -403,51 +403,51 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Switch(this, MDI_LEFT, "51", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.5", "NIGHT", "3001"), new SwitchPosition("1.0", "DAY", "3001") }, "Left MDI", "Left MDI Brightness Selector Knob", "%0.1f"));    // elements["pnt_51"]      = default_3_position_tumb(_("Left MDI Brightness Selector Knob, OFF/NIGHT/DAY"),    devices.MDI_LEFT, MDI_commands.MDI_off_night_day, 51, false, anim_speed_default, false, 0.1, {0, 0.2})
             AddFunction(new Axis(this, MDI_LEFT, "3002", "52", 0.15d, 0d, 1d, "Left MDI", "Left MDI Brightness Control Knob"));    // elements["pnt_52"]      = default_axis_limited(_("Left MDI Brightness Control Knob"),                       devices.MDI_LEFT, MDI_commands.MDI_brightness, 52, 0.0, 0.1, false, false, {0, 1})
             AddFunction(new Axis(this, MDI_LEFT, "3003", "53", 0.15d, 0d, 1d, "Left MDI", "Left MDI Contrast Control Knob"));    // elements["pnt_53"]      = default_axis_limited(_("Left MDI Contrast Control Knob"),                         devices.MDI_LEFT, MDI_commands.MDI_contrast, 53, 0.0, 0.1, false, false, {0, 1})
-            AddFunction(new PushButton(this, MDI_LEFT, "3011", "54", "Left MDI", "OSB 01", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3012", "55", "Left MDI", "OSB 02", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3013", "56", "Left MDI", "OSB 03", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3014", "57", "Left MDI", "OSB 04", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3015", "58", "Left MDI", "OSB 05", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3016", "59", "Left MDI", "OSB 06", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3017", "60", "Left MDI", "OSB 07", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3018", "61", "Left MDI", "OSB 08", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3019", "62", "Left MDI", "OSB 09", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3020", "63", "Left MDI", "OSB 10", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3021", "64", "Left MDI", "OSB 11", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3022", "65", "Left MDI", "OSB 12", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3023", "66", "Left MDI", "OSB 13", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3024", "67", "Left MDI", "OSB 14", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3025", "68", "Left MDI", "OSB 15", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3026", "69", "Left MDI", "OSB 16", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3027", "70", "Left MDI", "OSB 17", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3028", "72", "Left MDI", "OSB 18", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3029", "73", "Left MDI", "OSB 19", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_LEFT, "3030", "75", "Left MDI", "OSB 20", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_LEFT, "3011", "54", "Left MDI", "OSB 01", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3012", "55", "Left MDI", "OSB 02", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3013", "56", "Left MDI", "OSB 03", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3014", "57", "Left MDI", "OSB 04", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3015", "58", "Left MDI", "OSB 05", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3016", "59", "Left MDI", "OSB 06", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3017", "60", "Left MDI", "OSB 07", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3018", "61", "Left MDI", "OSB 08", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3019", "62", "Left MDI", "OSB 09", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3020", "63", "Left MDI", "OSB 10", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3021", "64", "Left MDI", "OSB 11", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3022", "65", "Left MDI", "OSB 12", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3023", "66", "Left MDI", "OSB 13", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3024", "67", "Left MDI", "OSB 14", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3025", "68", "Left MDI", "OSB 15", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3026", "69", "Left MDI", "OSB 16", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3027", "70", "Left MDI", "OSB 17", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3028", "72", "Left MDI", "OSB 18", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3029", "73", "Left MDI", "OSB 19", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_LEFT, "3030", "75", "Left MDI", "OSB 20", "1", "0", "%1d"));
             #endregion
             #region  Right MDI
             AddFunction(new Switch(this, MDI_RIGHT, "76", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.5", "NIGHT", "3001"), new SwitchPosition("1.0", "DAY", "3001") }, "Right MDI", "Right MDI Brightness Selector Knob", "%0.1f"));    // elements["pnt_76"]      = default_3_position_tumb(_("Right MDI Brightness Selector Knob, OFF/NIGHT/DAY"),   devices.MDI_RIGHT, MDI_commands.MDI_off_night_day, 76, false, anim_speed_default, false, 0.1, {0, 0.2})
             AddFunction(new Axis(this, MDI_RIGHT, "3002", "77", 0.15d, 0d, 1d, "Right MDI", "Right MDI Brightness Control Knob"));    // elements["pnt_77"]      = default_axis_limited(_("Right MDI Brightness Control Knob"),                      devices.MDI_RIGHT, MDI_commands.MDI_brightness, 77, 0.0, 0.1, false, false, {0, 1})
             AddFunction(new Axis(this, MDI_RIGHT, "3003", "78", 0.15d, 0d, 1d, "Right MDI", "Right MDI Contrast Control Knob"));    // elements["pnt_78"]      = default_axis_limited(_("Right MDI Contrast Control Knob"),                        devices.MDI_RIGHT, MDI_commands.MDI_contrast, 78, 0.0, 0.1, false, false, {0, 1})
-            AddFunction(new PushButton(this, MDI_RIGHT, "3011", "79", "Right MDI", "OSB 01", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3012", "80", "Right MDI", "OSB 02", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3013", "81", "Right MDI", "OSB 03", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3014", "82", "Right MDI", "OSB 04", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3015", "83", "Right MDI", "OSB 05", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3016", "84", "Right MDI", "OSB 06", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3017", "85", "Right MDI", "OSB 07", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3018", "86", "Right MDI", "OSB 08", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3019", "87", "Right MDI", "OSB 09", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3020", "88", "Right MDI", "OSB 10", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3021", "89", "Right MDI", "OSB 11", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3022", "90", "Right MDI", "OSB 12", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3023", "91", "Right MDI", "OSB 13", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3024", "92", "Right MDI", "OSB 14", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3025", "93", "Right MDI", "OSB 15", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3026", "94", "Right MDI", "OSB 16", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3027", "95", "Right MDI", "OSB 17", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3028", "96", "Right MDI", "OSB 18", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3029", "97", "Right MDI", "OSB 19", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, MDI_RIGHT, "3030", "98", "Right MDI", "OSB 20", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, MDI_RIGHT, "3011", "79", "Right MDI", "OSB 01", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3012", "80", "Right MDI", "OSB 02", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3013", "81", "Right MDI", "OSB 03", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3014", "82", "Right MDI", "OSB 04", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3015", "83", "Right MDI", "OSB 05", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3016", "84", "Right MDI", "OSB 06", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3017", "85", "Right MDI", "OSB 07", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3018", "86", "Right MDI", "OSB 08", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3019", "87", "Right MDI", "OSB 09", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3020", "88", "Right MDI", "OSB 10", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3021", "89", "Right MDI", "OSB 11", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3022", "90", "Right MDI", "OSB 12", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3023", "91", "Right MDI", "OSB 13", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3024", "92", "Right MDI", "OSB 14", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3025", "93", "Right MDI", "OSB 15", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3026", "94", "Right MDI", "OSB 16", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3027", "95", "Right MDI", "OSB 17", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3028", "96", "Right MDI", "OSB 18", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3029", "97", "Right MDI", "OSB 19", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, MDI_RIGHT, "3030", "98", "Right MDI", "OSB 20", "1", "0", "%1d"));
             #endregion
             #region  AMPCD
             AddFunction(new Axis(this, AMPCD, "3001", "203", 0.15d, 0d, 1d, "AMPCD", "AMPCD Off/Brightness Control Knob"));    // elements["pnt_203"]     = default_axis_limited(_("AMPCD Off/Brightness Control Knob"),          devices.AMPCD, AMPCD_commands.AMPCD_off_brightness, 203, 0.0, 0.1, false, false, {0, 1})
@@ -459,26 +459,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             //AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3004", "179", "1.0", "Up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Symbology Control Switch UP", "%0.1f"));    // elements["pnt_179_2"]   = AMPCD_switch_positive(_("AMPCD Symbology Control Switch, UP"),        devices.AMPCD, AMPCD_commands.AMPCD_symbology_UP, 179)
             //AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3006", "182", "1.0", "up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Contrast Control Switch UP", "%0.1f"));    // elements["pnt_182_2"]   = AMPCD_switch_positive(_("AMPCD Contrast Control Switch, UP"),         devices.AMPCD, AMPCD_commands.AMPCD_contrast_UP, 182)
             //AddFunction(Switch.CreateThreeWaySwitch(this, AMPCD, "3008", "180", "1.0", "Up", "0.0", "Off", "-1.0", "Down", "AMPCD", "AMPCD Gain Control Switch UP", "%0.1f"));    // elements["pnt_180_2"]   = AMPCD_switch_positive(_("AMPCD Gain Control Switch, UP"),             devices.AMPCD, AMPCD_commands.AMPCD_gain_UP, 180)
-            AddFunction(new PushButton(this, AMPCD, "3011", "183", "AMPCD", "OSB 01", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3012", "184", "AMPCD", "OSB 02", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3013", "185", "AMPCD", "OSB 03", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3014", "186", "AMPCD", "OSB 04", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3015", "187", "AMPCD", "OSB 05", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3016", "188", "AMPCD", "OSB 06", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3017", "189", "AMPCD", "OSB 07", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3018", "190", "AMPCD", "OSB 08", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3019", "191", "AMPCD", "OSB 09", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3020", "192", "AMPCD", "OSB 10", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3021", "193", "AMPCD", "OSB 11", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3022", "194", "AMPCD", "OSB 12", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3023", "195", "AMPCD", "OSB 13", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3024", "196", "AMPCD", "OSB 14", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3025", "197", "AMPCD", "OSB 15", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3026", "198", "AMPCD", "OSB 16", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3027", "199", "AMPCD", "OSB 17", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3028", "200", "AMPCD", "OSB 18", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3029", "201", "AMPCD", "OSB 19", "1", "0", "%1d"));    
-            AddFunction(new PushButton(this, AMPCD, "3030", "202", "AMPCD", "OSB 20", "1", "0", "%1d"));    
+            AddFunction(new PushButton(this, AMPCD, "3011", "183", "AMPCD", "OSB 01", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3012", "184", "AMPCD", "OSB 02", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3013", "185", "AMPCD", "OSB 03", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3014", "186", "AMPCD", "OSB 04", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3015", "187", "AMPCD", "OSB 05", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3016", "188", "AMPCD", "OSB 06", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3017", "189", "AMPCD", "OSB 07", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3018", "190", "AMPCD", "OSB 08", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3019", "191", "AMPCD", "OSB 09", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3020", "192", "AMPCD", "OSB 10", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3021", "193", "AMPCD", "OSB 11", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3022", "194", "AMPCD", "OSB 12", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3023", "195", "AMPCD", "OSB 13", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3024", "196", "AMPCD", "OSB 14", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3025", "197", "AMPCD", "OSB 15", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3026", "198", "AMPCD", "OSB 16", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3027", "199", "AMPCD", "OSB 17", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3028", "200", "AMPCD", "OSB 18", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3029", "201", "AMPCD", "OSB 19", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, AMPCD, "3030", "202", "AMPCD", "OSB 20", "1", "0", "%1d"));
             AddFunction(new Switch(this, MDI_LEFT, "312", new SwitchPosition[] { new SwitchPosition("1", "+ve", "3004", "3004", "0"), new SwitchPosition("0", "Off", "3005"), new SwitchPosition("-1", "-ve", "3005", "3005", "0") }, "AMPCD", "Heading Set Switch", "%1d")); // elements["pnt_312"]     = springloaded_3_pos_tumb2(_("Heading Set Switch"),devices.MDI_LEFT, MDI_commands.MDI_Left_HDG_Negative, MDI_commands.MDI_Left_HDG_Positive, 312)
             AddFunction(new Switch(this, MDI_LEFT, "313", new SwitchPosition[] { new SwitchPosition("1", "+ve", "3006", "3006", "0"), new SwitchPosition("0", "Off", "3007"), new SwitchPosition("-1", "-ve", "3007", "3007", "0") }, "AMPCD", "Course Set Switch", "%1d"));  // elements["pnt_313"]= springloaded_3_pos_tumb(_("Course Set Switch"),devices.MDI_LEFT, MDI_commands.MDI_Left_CRS_Negative, MDI_commands.MDI_Left_CRS_Positive, 313)
             #endregion
@@ -493,7 +493,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Axis(this, IFEI, "3007", "174", 0.1d, 0.5d, 1d, "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Brightness Control Knob"));    // elements["pnt_174"] = default_axis(_("IFEI Brightness Control Knob"),   devices.IFEI, IFEI_commands.IFEI_Brightness,        174, 0.5, 0.1)
             #endregion
             #region  Sensor panel
-            AddFunction(new Switch(this, RADAR, "440", new SwitchPosition[]{new SwitchPosition("0.0","OFF", "3001"), new SwitchPosition("0.1","STBY", "3001"), new SwitchPosition("0.2","OPR", "3001"), new SwitchPosition("0.3","EMERG(PULL)", "3002")}, "Sensor panel","RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),
+            AddFunction(new Switch(this, RADAR, "440", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.1", "STBY", "3001"), new SwitchPosition("0.2", "OPR", "3001"), new SwitchPosition("0.3", "EMERG(PULL)", "3002") }, "Sensor panel", "RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),
             #endregion
             #region  INS
             AddFunction(new Switch(this, INS, "443", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3001"), new SwitchPosition("0.1", "CV", "3001"), new SwitchPosition("0.2", "GND", "3001"), new SwitchPosition("0.3", "IFA", "3001"), new SwitchPosition("0.4", "GYRO", "3001"), new SwitchPosition("0.5", "GB", "3001"), new SwitchPosition("0.6", "Test", "3001") }, "INS", "Inertial Navigation System Switch", "%0.1f")); // 
@@ -532,8 +532,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Axis(this, UFC, "3030", "108", 0.1d, 0d, 1d, "UFC", "UFC COMM 1 Volume Control Knob"));    // elements["pnt_108"]     = default_axis_limited(_("UFC COMM 1 Volume Control Knob"),             devices.UFC, UFC_commands.Comm1Vol,     108,    0.0, 0.1, false, false, {0,1})
             AddFunction(new Axis(this, UFC, "3031", "123", 0.1d, 0d, 1d, "UFC", "UFC COMM 2 Volume Control Knob"));    // elements["pnt_123"]     = default_axis_limited(_("UFC COMM 2 Volume Control Knob"),             devices.UFC, UFC_commands.Comm2Vol,     123,    0.0, 0.1, false, false, {0,1})
             AddFunction(new Axis(this, UFC, "3032", "109", 0.1d, 0d, 1d, "UFC", "UFC Brightness Control Knob"));    // elements["pnt_109"]     = default_axis_limited(_("UFC Brightness Control Knob"),                devices.UFC, UFC_commands.BrtDim,       109,    0.0, 0.1, false, false, {0,1})
-            AddFunction(new Axis(this, UFC, "3008", "124", 0.2d, 0d, 1d, "UFC", "UFC COMM 1 Channel Selector Knob"));    // elements["pnt_124"]     = default_button_axis_extended(_("UFC COMM 1 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm1Fcn, UFC_commands.Comm1Ch,   125, 124,   0.2, true, anim_speed_default)
-            AddFunction(new Axis(this, UFC, "3009", "126", 0.2d, 0d, 1d, "UFC", "UFC COMM 2 Channel Selector Knob"));    // elements["pnt_126"]     = default_button_axis_extended(_("UFC COMM 2 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm2Fcn, UFC_commands.Comm2Ch,   127, 126,   0.2, true, anim_speed_default)
+            AddFunction(new Axis(this, UFC, "3033", "124", 0.1d, 0d, 1d, "UFC", "UFC COMM 1 Channel Selector Knob"));    // elements["pnt_124"]     = default_button_axis_extended(_("UFC COMM 1 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm1Fcn, UFC_commands.Comm1Ch,   125, 124,   0.2, true, anim_speed_default)
+            AddFunction(new Axis(this, UFC, "3034", "126", 0.1d, 0d, 1d, "UFC", "UFC COMM 2 Channel Selector Knob"));    // elements["pnt_126"]     = default_button_axis_extended(_("UFC COMM 2 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm2Fcn, UFC_commands.Comm2Ch,   127, 126,   0.2, true, anim_speed_default)
+            AddFunction(new PushButton(this, UFC, "3008", "125", "UFC", "UFC COMM 1 Channel Selector Pull", "1", "0", "%1d"));    // elements["pnt_124"]     = default_button_axis_extended(_("UFC COMM 1 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm1Fcn, UFC_commands.Comm1Ch,   125, 124,   0.2, true, anim_speed_default)
+            AddFunction(new PushButton(this, UFC, "3009", "127", "UFC", "UFC COMM 2 Channel Selector Pull", "1", "0", "%1d"));    // elements["pnt_126"]     = default_button_axis_extended(_("UFC COMM 2 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm2Fcn, UFC_commands.Comm2Ch,   127, 126,   0.2, true, anim_speed_default)
             #endregion
             #region  Intercom
             AddFunction(new Axis(this, INTERCOM, "3002", "357", 0.1d, 0d, 1d, "Intercom", "VOX Volume Control Knob"));    // elements["pnt_357"]     = default_axis_limited(_("VOX Volume Control Knob"),                            devices.INTERCOM, Intercom_commands.VOX_Volume,     357,    0.0, 0.1, false, false, {0,1})
