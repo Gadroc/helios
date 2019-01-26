@@ -1,3 +1,11 @@
+1.4.2019.0229 Release
+----------------------------
+* TextDisplay Control Added
+* Hornet UFC updated to remove the need for a viewport
+* MS33558 Font incorporated (c) Derek Higgs 2000 which some sites claim is postcardware but I was unable to find an address / email
+* Seven Segment font incorporated (free for personal use) http://www.kraftilab.com/portfolio/7-segment-display-font/
+ 
+
 1.4.2018.1008 Release
 ----------------------------
 * F/A-18C Interface

@@ -16,6 +16,7 @@
 namespace GadrocsWorkshop.Helios.Gauges.FA18C
 {
     using GadrocsWorkshop.Helios.Gauges.FA18C;
+    using GadrocsWorkshop.Helios.Gauges;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
     using System;
@@ -23,7 +24,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows;
 
     [HeliosControl("Helios.FA18C.UFC", "Up Front Controller", "F/A-18C", typeof(FA18CDeviceRenderer))]
-    class UFC_FA18C: FA18CDevice
+    class UFC_FA18C : FA18CDevice
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
@@ -45,12 +46,12 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButton("8", 167, 240, new Size(48, 48));
             AddButton("9", 229, 240, new Size(48, 48));
             AddButton("CLR", 105, 303, new Size(48, 48));
-            AddButton("0", 167, 303, new Size(48, 48),true);
+            AddButton("0", 167, 303, new Size(48, 48), true);
             AddButton("ENT", 229, 303, new Size(48, 48));
-            AddButton("AP", 125, 400, new Size(40, 40),true);
+            AddButton("AP", 125, 400, new Size(40, 40), true);
             AddButton("IFF", 176, 400, new Size(40, 40));
             AddButton("TCN", 229, 400, new Size(40, 40));
-            AddButton("ILS", 284, 400, new Size(40, 40),true);
+            AddButton("ILS", 284, 400, new Size(40, 40), true);
             AddButton("DL", 337, 400, new Size(40, 40), true);
             AddButton("BCN", 393, 400, new Size(40, 40));
             AddButton("ONOFF", 447, 400, new Size(40, 40));
@@ -66,16 +67,32 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddPot("Radio Volume 1", new Point(25, 213), new Size(48, 48));
             AddPot("Radio Volume 2", new Point(528, 213), new Size(48, 48));
             AddEncoder("Radio 1", new Point(29, 383), new Size(75, 75));
-            AddButtonIP("Radio 1 Pull", 52, 408, new Size(28, 28),false);
+            AddButtonIP("Radio 1 Pull", 52, 408, new Size(28, 28), false);
             AddEncoder("Radio 2", new Point(500, 383), new Size(75, 75));
-            AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28),false);
+            AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28), false);
+
+            /// adding the diplays
+            AddTextDisplay("OptionCueing1", 347, 41, new Size(48, 42));
+            AddTextDisplay("OptionDisplay1", 380, 41, new Size(130, 42));
+            AddTextDisplay("OptionCueing2", 347, 111, new Size(48, 42));
+            AddTextDisplay("OptionDisplay2", 380, 111, new Size(130, 42));
+            AddTextDisplay("OptionCueing3", 347, 175, new Size(48, 42));
+            AddTextDisplay("OptionDisplay3", 380, 175, new Size(130, 42));
+            AddTextDisplay("OptionCueing4", 347, 240, new Size(48, 42));
+            AddTextDisplay("OptionDisplay4", 380, 240, new Size(130,42));
+            AddTextDisplay("OptionCueing5", 347, 309, new Size(48, 42));
+            AddTextDisplay("OptionDisplay5", 380, 309, new Size(130,42));
+            AddTextDisplay("ScratchPadString1", 92, 35, new Size(66, 48), 28);
+            AddTextDisplay("ScratchPadNumber", 131, 35, new Size(156, 48), 28);
+            AddTextDisplay("Comm1", 26, 307, new Size(40, 49));
+            AddTextDisplay("Comm2", 538, 304, new Size(40, 49));
         }
 
         public override string BezelImage
         {
             get { return "{Helios}/Gauges/FA-18C/UFC/UFC Faceplate.png"; }
         }
-            
+
         private void AddTrigger(IBindingTrigger trigger, string device)
         {
             trigger.Device = device;
@@ -89,19 +106,21 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddPot(string name, Point posn, Size size)
         {
-            Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer();
-            _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
-            _knob.InitialRotation = 219;
-            _knob.RotationTravel = 291;
-            _knob.MinValue = 0;
-            _knob.MaxValue = 1;
-            _knob.InitialValue = 0;
-            _knob.StepValue = 0.1;
-            _knob.Top = posn.Y;
-            _knob.Left = posn.X;
-            _knob.Width = size.Width;
-            _knob.Height = size.Height;
+            Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer
+            {
+                Name = name,
+                KnobImage = "{Helios}/Images/AV-8B/Common Knob.png",
+                InitialRotation = 219,
+                RotationTravel = 291,
+                MinValue = 0,
+                MaxValue = 1,
+                InitialValue = 0,
+                StepValue = 0.1,
+                Top = posn.Y,
+                Left = posn.X,
+                Width = size.Width,
+                Height = size.Height
+            };
 
             Children.Add(_knob);
             foreach (IBindingTrigger trigger in _knob.Triggers)
@@ -112,16 +131,18 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddEncoder(string name, Point posn, Size size)
         {
-            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
-            _knob.Name = name;
-            //_knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
-            _knob.KnobImage = "{Helios}/Images/FA-18C/UFC Rotator_U.png";
-            _knob.StepValue = 0.1;
-            _knob.RotationStep = 5;
-            _knob.Top = posn.Y;
-            _knob.Left = posn.X;
-            _knob.Width = size.Width;
-            _knob.Height = size.Height;
+            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder
+            {
+                Name = name,
+                //_knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
+                KnobImage = "{Helios}/Images/FA-18C/UFC Rotator_U.png",
+                StepValue = 0.1,
+                RotationStep = 5,
+                Top = posn.Y,
+                Left = posn.X,
+                Width = size.Width,
+                Height = size.Height
+            };
 
             Children.Add(_knob);
             foreach (IBindingTrigger trigger in _knob.Triggers)
@@ -137,14 +158,67 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             //AddAction(_knob.Actions["push"], name);
             //AddAction(_knob.Actions["release"], name);
         }
-        private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
-         private void AddButton(string name, double x, double y, Size size, bool altImage)
+
+        private void AddTextDisplay(string name, double x, double y, Size size, string testDisp)
         {
-        Helios.Controls.PushButton button = new Helios.Controls.PushButton();
+            AddTextDisplay(name, x, y, size, 32, testDisp, false);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize)
+        {
+            AddTextDisplay(name, x, y, size, baseFontsize, "M", false);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size, Boolean hTextAlignedRight)
+        {
+            AddTextDisplay(name, x, y, size, 32, "M", hTextAlignedRight);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size)
+        {
+            AddTextDisplay(name, x, y, size, 32, "M", false);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size,double baseFontsize, string testDisp,Boolean hTextAlignedRight)
+        {
+            Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
+            {
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                Name = name
+            };
+            // display.FontSize = 20;
+            TextFormat textFormat = new TextFormat
+            {
+                FontFamily = new FontFamily("Hornet_UFC"),
+                HorizontalAlignment = TextHorizontalAlignment.Left,
+                VerticalAlignment = TextVerticalAlignment.Top,
+                FontSize = baseFontsize
+            };
+            if (hTextAlignedRight)
+            {
+                textFormat.HorizontalAlignment = TextHorizontalAlignment.Right;
+            }
+            // textFormat.FontFamily.Baseline = 0.01;
+            // textFormat.PaddingRight = 3;
+            display.TextFormat = textFormat;
+            display.OnTextColor = Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
+            display.BackgroundColor = Color.FromArgb(0xff, 0x00, 0x00, 0x00);
+            display.UseBackground = true;
+            display.ParserDictionary = "A=A";
+            display.TextTestValue = testDisp;
+            // display.OnImage = "{Helios}/Images/Indicators/indicator.png";
+            Children.Add(display);
+            AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
+        }
+
+        private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
+        private void AddButton(string name, double x, double y, Size size, bool altImage)
+        {
+            Helios.Controls.PushButton button = new Helios.Controls.PushButton();
             if (altImage)
             {
                 _aircraft = "FA-18C";
-            } else
+            }
+            else
             {
                 _aircraft = "AV-8B";
             }
@@ -168,17 +242,19 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddButtonIP(string name, double x, double y, Size size)
         { AddButtonIP(name, x, y, size, true); }
-        private void AddButtonIP(string name, double x, double y, Size size,Boolean glyph)
+        private void AddButtonIP(string name, double x, double y, Size size, Boolean glyph)
         {
-            Helios.Controls.PushButton button = new Helios.Controls.PushButton();
-            button.Top = y;
-            button.Left = x;
-            button.Width = size.Width;
-            button.Height = size.Height;
-            button.Image = "{Helios}/Images/Buttons/tactile-dark-round.png";
-            button.PushedImage = "{Helios}/Images/Buttons/tactile-dark-round-in.png";
-            button.Text = "";
-            button.Name = "UFC Key " + name;
+            Helios.Controls.PushButton button = new Helios.Controls.PushButton
+            {
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                Image = "{Helios}/Images/Buttons/tactile-dark-round.png",
+                PushedImage = "{Helios}/Images/Buttons/tactile-dark-round-in.png",
+                Text = "",
+                Name = "UFC Key " + name
+            };
             if (glyph)
             {
                 button.Glyph = PushButtonGlyph.Circle;
@@ -197,14 +273,16 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private void AddIndicator(string name, double x, double y, Size size) { AddIndicator(name, x, y, size, false); }
         private void AddIndicator(string name, double x, double y, Size size, bool _vertical)
         {
-            Helios.Controls.Indicator indicator = new Helios.Controls.Indicator();
-            indicator.Top = y;
-            indicator.Left = x;
-            indicator.Width = size.Width;
-            indicator.Height = size.Height;
-            indicator.OnImage = "{Helios}/Images/Indicators/anunciator.png";
-            indicator.OffImage = "{Helios}/Images/Indicators/anunciator.png";
-            if(name == "Unknown 1")
+            Helios.Controls.Indicator indicator = new Helios.Controls.Indicator
+            {
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                OnImage = "{Helios}/Images/Indicators/anunciator.png",
+                OffImage = "{Helios}/Images/Indicators/anunciator.png"
+            };
+            if (name == "Unknown 1")
             {
                 indicator.Text = ". . .";
             }
@@ -242,15 +320,17 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddIndicatorPushButton(string name, double x, double y, Size size)
         {
-            Helios.Controls.IndicatorPushButton indicator = new Helios.Controls.IndicatorPushButton();
-            indicator.Top = y;
-            indicator.Left = x;
-            indicator.Width = size.Width;
-            indicator.Height = size.Height;
-            indicator.Image = "{Helios}/Images/Indicators/indicator.png";
-            indicator.PushedImage = "{Helios}/Images/Indicators/indicator-push.png";
-            indicator.Text = name;
-            indicator.Name = name;
+            Helios.Controls.IndicatorPushButton indicator = new Helios.Controls.IndicatorPushButton
+            {
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                Image = "{Helios}/Images/Indicators/indicator.png",
+                PushedImage = "{Helios}/Images/Indicators/indicator-push.png",
+                Text = name,
+                Name = name
+            };
             if (name == "MASTER WARNING")
             {
                 indicator.OnTextColor = Color.FromArgb(0xff, 0xc7, 0x1e, 0x1e);
@@ -278,20 +358,22 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddAction(indicator.Actions["push"], name);
             AddAction(indicator.Actions["release"], name);
             AddAction(indicator.Actions["set.indicator"], name);
-         }
+        }
         private void AddThreeWayToggle(string name, double x, double y, Size size)
         {
-            Helios.Controls.ThreeWayToggleSwitch toggle = new Helios.Controls.ThreeWayToggleSwitch();
-            toggle.Top = y;
-            toggle.Left = x;
-            toggle.Width = size.Width;
-            toggle.Height = size.Height;
-            toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
-            toggle.PositionOneImage = "{Helios}/Images/Toggles/round-up.png";
-            toggle.PositionTwoImage = "{Helios}/Images/Toggles/round-norm.png";
-            toggle.PositionThreeImage = "{Helios}/Images/Toggles/round-down.png";
-            toggle.SwitchType = ThreeWayToggleSwitchType.OnOnOn;
-            toggle.Name = name;
+            Helios.Controls.ThreeWayToggleSwitch toggle = new Helios.Controls.ThreeWayToggleSwitch
+            {
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                DefaultPosition = ThreeWayToggleSwitchPosition.Two,
+                PositionOneImage = "{Helios}/Images/Toggles/round-up.png",
+                PositionTwoImage = "{Helios}/Images/Toggles/round-norm.png",
+                PositionThreeImage = "{Helios}/Images/Toggles/round-down.png",
+                SwitchType = ThreeWayToggleSwitchType.OnOnOn,
+                Name = name
+            };
 
             Children.Add(toggle);
             foreach (IBindingTrigger trigger in toggle.Triggers)
@@ -300,6 +382,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             }
             AddAction(toggle.Actions["set.position"], name);
         }
+
         public override bool HitTest(Point location)
         {
             if (_scaledScreenRect.Contains(location))
