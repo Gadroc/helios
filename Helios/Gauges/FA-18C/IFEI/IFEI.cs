@@ -33,14 +33,14 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private String _font = "MS 33558";
         //private String _font = "Franklin Gothic";
         public IFEI_FA18C()
-            : base("IFEI", new Size(602, 470))
+            : base("IFEI", new Size(458, 400))
         {
  
         }
 
         public override string BezelImage
         {
-            get { return "{Helios}/Gauges/FA-18C/UFC/UFC Faceplate.png"; }
+            get { return "{Helios}/Gauges/FA-18C/IFEI/IFEI.png"; }
         }
 
         public override bool HitTest(Point location)

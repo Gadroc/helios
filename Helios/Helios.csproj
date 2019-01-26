@@ -3473,6 +3473,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI.png" />
     <Content Include="Helios.ico" />
     <Resource Include="Images\FA-18C\UFC Button Dn 0 a.png" />
     <Resource Include="Images\FA-18C\UFC Button Dn 1.png" />
