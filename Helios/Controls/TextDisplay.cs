@@ -125,10 +125,12 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             set /// convert the string to a dictionary
             {
-                Dictionary<string, string> oldValue = _parserDictionary;
-                _parserDictionary = value.TrimEnd(';').Split(';').ToDictionary(item => item.Split('=')[0], item => item.Split('=')[1]);
-                OnPropertyChanged("ParserDictionary", oldValue, value, false);
-                OnDisplayUpdate();
+                if (!value.Equals("")) {
+                    Dictionary<string, string> oldValue = _parserDictionary;
+                    _parserDictionary = value.TrimEnd(';').Split(';').ToDictionary(item => item.Split('=')[0], item => item.Split('=')[1]);
+                    OnPropertyChanged("ParserDictionary", oldValue, value, false);
+                    OnDisplayUpdate();
+                }
             }
         }
 

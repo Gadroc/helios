@@ -23,8 +23,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.UFC", "Up Front Controller", "F/A-18C", typeof(FA18CDeviceRenderer))]
-    class UFC_FA18C : FA18CDevice
+    [HeliosControl("Helios.FA18C.IFEI", "FA18C Integrated Fuel & Engine Indicator", "F/A-18C", typeof(FA18CDeviceRenderer))]
+    class IFEI_FA18C : FA18CDevice
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
@@ -32,8 +32,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private string _aircraft;
         private String _font = "MS 33558";
         //private String _font = "Franklin Gothic";
-        public UFC_FA18C()
-            : base("Up Front Controller", new Size(602, 470))
+        public IFEI_FA18C()
+            : base("IFEI", new Size(602, 470))
         {
             AddButton("EMCON", 527, 129, new Size(48, 48));
             AddButton("1", 105, 116, new Size(48, 48));
@@ -93,29 +93,70 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             get { return "{Helios}/Gauges/FA-18C/UFC/UFC Faceplate.png"; }
         }
 
-        private void AddPot(string name, Point posn, Size size)
+        private void AddTrigger(IBindingTrigger trigger, string device)
         {
-            AddPot(name: name, 
-                posn: posn, 
-                size: size, 
-                knobImage: "{Helios}/Images/AV-8B/Common Knob.png", 
-                initialRotation: 219, 
-                rotationTravel: 291, 
-                minValue: 0, 
-                maxValue: 1, 
-                initialValue: 0, 
-                stepValue: 0.1);
+            trigger.Device = device;
+            Triggers.Add(trigger);
         }
 
+        private void AddAction(IBindingAction action, string device)
+        {
+            action.Device = device;
+            Actions.Add(action);
+        }
+        private void AddPot(string name, Point posn, Size size)
+        {
+            Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer
+            {
+                Name = name,
+                KnobImage = "{Helios}/Images/AV-8B/Common Knob.png",
+                InitialRotation = 219,
+                RotationTravel = 291,
+                MinValue = 0,
+                MaxValue = 1,
+                InitialValue = 0,
+                StepValue = 0.1,
+                Top = posn.Y,
+                Left = posn.X,
+                Width = size.Width,
+                Height = size.Height
+            };
+
+            Children.Add(_knob);
+            foreach (IBindingTrigger trigger in _knob.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            AddAction(_knob.Actions["set.value"], name);
+        }
         private void AddEncoder(string name, Point posn, Size size)
         {
-            AddEncoder(
-                name: name,
-                size: size,
-                posn: posn,
-                knobImage: "{Helios}/Images/FA-18C/UFC Rotator_U.png",
-                stepValue: 0.1,
-                rotationStep: 5);
+            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder
+            {
+                Name = name,
+                //_knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
+                KnobImage = "{Helios}/Images/FA-18C/UFC Rotator_U.png",
+                StepValue = 0.1,
+                RotationStep = 5,
+                Top = posn.Y,
+                Left = posn.X,
+                Width = size.Width,
+                Height = size.Height
+            };
+
+            Children.Add(_knob);
+            foreach (IBindingTrigger trigger in _knob.Triggers)
+            {
+                AddTrigger(trigger, name);
+            }
+            foreach (IBindingAction action in _knob.Actions)
+            {
+                AddAction(action, name);
+            }
+
+            //AddAction(_knob.Actions["set.value"], name);
+            //AddAction(_knob.Actions["push"], name);
+            //AddAction(_knob.Actions["release"], name);
         }
 
         private void AddTextDisplay(string name, double x, double y, Size size, string testDisp)
@@ -172,38 +213,62 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
         private void AddButton(string name, double x, double y, Size size, bool altImage)
         {
-            Point pos = new Point(x, y);
-            AddButton(
-                name: "UFC Key " + name,
-                posn: pos,
-                size: size,
-                image: "{Helios}/Images/FA-18C/UFC Button Up " + name + ".png",
-                pushedImage: "{Helios}/Images/FA-18C/UFC Button Dn " + name + ".png",
-                buttonText: ""
-                );
-        }
+            Helios.Controls.PushButton button = new Helios.Controls.PushButton();
+            if (altImage)
+            {
+                _aircraft = "FA-18C";
+            }
+            else
+            {
+                _aircraft = "AV-8B";
+            }
+            button.Top = y;
+            button.Left = x;
+            button.Width = size.Width;
+            button.Height = size.Height;
+            button.Image = "{Helios}/Images/" + _aircraft + "/UFC Button Up " + name + ".png";
+            button.PushedImage = "{Helios}/Images/" + _aircraft + "/UFC Button Dn " + name + ".png";
+            button.Text = "";
+            button.Name = "UFC Key " + name;
 
+            Children.Add(button);
+
+            AddTrigger(button.Triggers["pushed"], "UFC Key " + name);
+            AddTrigger(button.Triggers["released"], "UFC Key " + name);
+
+            AddAction(button.Actions["push"], "UFC Key " + name);
+            AddAction(button.Actions["release"], "UFC Key " + name);
+            AddAction(button.Actions["set.physical state"], "UFC Key " + name);
+        }
         private void AddButtonIP(string name, double x, double y, Size size)
         { AddButtonIP(name, x, y, size, true); }
         private void AddButtonIP(string name, double x, double y, Size size, Boolean glyph)
         {
-            Point pos = new Point(x, y);
-            Helios.Controls.PushButton button = AddButton(
-                name: name,
-                posn: pos,
-                size: size,
-                image: "{Helios}/Images/FA-18C/UFC Button Up " + name + ".png",
-                pushedImage: "{Helios}/Images/FA-18C/UFC Button Dn " + name + ".png",
-                buttonText: ""
-                );
-
+            Helios.Controls.PushButton button = new Helios.Controls.PushButton
+            {
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                Image = "{Helios}/Images/Buttons/tactile-dark-round.png",
+                PushedImage = "{Helios}/Images/Buttons/tactile-dark-round-in.png",
+                Text = "",
+                Name = "UFC Key " + name
+            };
             if (glyph)
             {
                 button.Glyph = PushButtonGlyph.Circle;
                 button.GlyphThickness = 3;
                 button.GlyphColor = Color.FromArgb(0xFF, 0xC0, 0xC0, 0xC0);
             }
+            Children.Add(button);
 
+            AddTrigger(button.Triggers["pushed"], "UFC Key " + name);
+            AddTrigger(button.Triggers["released"], "UFC Key " + name);
+
+            AddAction(button.Actions["push"], "UFC Key " + name);
+            AddAction(button.Actions["release"], "UFC Key " + name);
+            AddAction(button.Actions["set.physical state"], "UFC Key " + name);
         }
         private void AddIndicator(string name, double x, double y, Size size) { AddIndicator(name, x, y, size, false); }
         private void AddIndicator(string name, double x, double y, Size size, bool _vertical)
