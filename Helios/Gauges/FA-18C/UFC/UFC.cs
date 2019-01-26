@@ -83,7 +83,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddTextDisplay("OptionCueing5", 347, 309, new Size(48, 42));
             AddTextDisplay("OptionDisplay5", 380, 309, new Size(130,42));
             AddTextDisplay("ScratchPadString1", 92, 35, new Size(66, 48), 28);
-            AddTextDisplay("ScratchPadNumber", 131, 35, new Size(156, 48), 28);
+            AddTextDisplay("ScratchPadNumber", 131, 35, new Size(156, 48), 28,true);
             AddTextDisplay("Comm1", 26, 307, new Size(40, 49));
             AddTextDisplay("Comm2", 538, 304, new Size(40, 49));
         }
@@ -163,6 +163,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             AddTextDisplay(name, x, y, size, 32, testDisp, false);
         }
+        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, Boolean hTextAlignedRight)
+        {
+            AddTextDisplay(name, x, y, size, baseFontsize, "M",  hTextAlignedRight);
+        }
         private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize)
         {
             AddTextDisplay(name, x, y, size, baseFontsize, "M", false);
@@ -197,15 +201,17 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             {
                 textFormat.HorizontalAlignment = TextHorizontalAlignment.Right;
             }
-            // textFormat.FontFamily.Baseline = 0.01;
-            // textFormat.PaddingRight = 3;
+            textFormat.FontFamily.Baseline = 0;
+            textFormat.PaddingRight = 0;
+            textFormat.PaddingLeft = 0;
+            textFormat.PaddingTop = 0;
+            textFormat.PaddingBottom = 0;
             display.TextFormat = textFormat;
             display.OnTextColor = Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
             display.BackgroundColor = Color.FromArgb(0xff, 0x00, 0x00, 0x00);
             display.UseBackground = true;
-            display.ParserDictionary = "A=A";
+            display.ParserDictionary = " ";
             display.TextTestValue = testDisp;
-            // display.OnImage = "{Helios}/Images/Indicators/indicator.png";
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
         }
