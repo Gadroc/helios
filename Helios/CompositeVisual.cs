@@ -20,6 +20,7 @@ namespace GadrocsWorkshop.Helios
     using System.Windows;
     using System.Windows.Media;
     using GadrocsWorkshop.Helios.ComponentModel;
+    using GadrocsWorkshop.Helios.Controls;
 
     public abstract class CompositeVisual : HeliosVisual
     {
@@ -110,6 +111,10 @@ namespace GadrocsWorkshop.Helios
             Actions.Add(action);
         }
 
+        private string GetComponentName(string name) {
+            return Name + "_" + name;
+        }
+
         /// <summary>
         ///  method to add a Pot to the Composite visual
         /// </summary>
@@ -126,9 +131,10 @@ namespace GadrocsWorkshop.Helios
         protected Helios.Controls.Potentiometer AddPot(string name, Point posn, Size size, string knobImage,
             double initialRotation, double rotationTravel, double minValue, double maxValue, double initialValue, double stepValue)
         {
-            Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer
+            string componentName = GetComponentName(name);
+            Potentiometer _knob = new Helios.Controls.Potentiometer
             {
-                Name = name,
+                Name = componentName,
                 KnobImage = knobImage,
                 InitialRotation = initialRotation,
                 RotationTravel = rotationTravel,
@@ -145,9 +151,9 @@ namespace GadrocsWorkshop.Helios
             Children.Add(_knob);
             foreach (IBindingTrigger trigger in _knob.Triggers)
             {
-                AddTrigger(trigger, name);
+                AddTrigger(trigger, componentName);
             }
-            AddAction(_knob.Actions["set.value"], name);
+            AddAction(_knob.Actions["set.value"], componentName);
 
             return _knob;
         }
@@ -163,9 +169,10 @@ namespace GadrocsWorkshop.Helios
         /// <param name="rotationStep"></param>
         protected Helios.Controls.RotaryEncoder AddEncoder(string name, Point posn, Size size, string knobImage, double stepValue, double rotationStep)
         {
-            Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder
+            string componentName = GetComponentName(name);
+            RotaryEncoder _knob = new RotaryEncoder
             {
-                Name = name,
+                Name = componentName,
                 KnobImage = knobImage,
                 StepValue = stepValue,
                 RotationStep = rotationStep,
@@ -178,45 +185,71 @@ namespace GadrocsWorkshop.Helios
             Children.Add(_knob);
             foreach (IBindingTrigger trigger in _knob.Triggers)
             {
-                AddTrigger(trigger, name);
+                AddTrigger(trigger, componentName);
             }
             foreach (IBindingAction action in _knob.Actions)
             {
-                AddAction(action, name);
+                AddAction(action, componentName);
             }
             return _knob;
         }
 
-        protected Helios.Controls.PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="posn"></param>
+        /// <param name="size"></param>
+        /// <param name="image"></param>
+        /// <param name="pushedImage"></param>
+        /// <param name="buttonText"></param>
+        /// <returns></returns>
+        protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
             string buttonText)
         {
-            Helios.Controls.PushButton button = new Helios.Controls.PushButton();
-
-            button.Top = posn.Y;
-            button.Left = posn.X;
-            button.Width = size.Width;
-            button.Height = size.Height;
-            button.Image = image;
-            button.PushedImage = pushedImage;
-            button.Text = buttonText;
-            button.Name = name;
+            string componentName = GetComponentName(name);
+            PushButton button = new PushButton
+            {
+                Top = posn.Y,
+                Left = posn.X,
+                Width = size.Width,
+                Height = size.Height,
+                Image = image,
+                PushedImage = pushedImage,
+                Text = buttonText,
+                Name = componentName
+            };
 
             Children.Add(button);
 
-            AddTrigger(button.Triggers["pushed"], name);
-            AddTrigger(button.Triggers["released"], name);
+            AddTrigger(button.Triggers["pushed"], componentName);
+            AddTrigger(button.Triggers["released"], componentName);
 
-            AddAction(button.Actions["push"], name);
-            AddAction(button.Actions["release"], name);
-            AddAction(button.Actions["set.physical state"], name);
+            AddAction(button.Actions["push"], componentName);
+            AddAction(button.Actions["release"], componentName);
+            AddAction(button.Actions["set.physical state"], componentName);
 
             return button;
         }
 
-        protected Helios.Controls.Indicator AddIndicator(string name, Point pos, Size size,
+        /// <summary>
+        /// Adding an Indicator to the composite image
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pos"></param>
+        /// <param name="size"></param>
+        /// <param name="onImage"></param>
+        /// <param name="offImage"></param>
+        /// <param name="onTextColor"></param>
+        /// <param name="offTextColor"></param>
+        /// <param name="font"></param>
+        /// <param name="vertical"></param>
+        /// <returns></returns>
+        protected Indicator AddIndicator(string name, Point pos, Size size,
             string onImage, string offImage, Color onTextColor, Color offTextColor, string font,
             bool vertical)
         {
+            string componentName = GetComponentName("Annunciator " + name);
             Helios.Controls.Indicator indicator = new Helios.Controls.Indicator
             {
                 Top = pos.Y,
@@ -228,7 +261,7 @@ namespace GadrocsWorkshop.Helios
             };
 
             indicator.Text = name;
-            indicator.Name = "Annunciator " + name;
+            indicator.Name = componentName;
             indicator.OnTextColor = onTextColor;
             indicator.OffTextColor = offTextColor;
             indicator.TextFormat.FontStyle = FontStyles.Normal;
@@ -252,12 +285,163 @@ namespace GadrocsWorkshop.Helios
             Children.Add(indicator);
             foreach (IBindingTrigger trigger in indicator.Triggers)
             {
-                AddTrigger(trigger, name);
+                AddTrigger(trigger, componentName);
             }
-            AddAction(indicator.Actions["set.indicator"], name);
+            AddAction(indicator.Actions["set.indicator"], componentName);
 
             return indicator;
-
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pos"></param>
+        /// <param name="size"></param>
+        /// <param name="image"></param>
+        /// <param name="pushedImage"></param>
+        /// <param name="textColor"></param>
+        /// <param name="onTextColor"></param>
+        /// <param name="font"></param>
+        /// <returns></returns>
+        protected IndicatorPushButton AddIndicatorPushButton(string name, Point pos, Size size,
+            string image, string pushedImage, Color textColor, Color onTextColor, string font)
+        {
+            string componentName = GetComponentName(name);
+            IndicatorPushButton indicator = new Helios.Controls.IndicatorPushButton
+            {
+                Top = pos.Y,
+                Left = pos.X,
+                Width = size.Width,
+                Height = size.Height,
+                Image = image,
+                PushedImage = pushedImage,
+                Text = name,
+                Name = componentName,
+                OnTextColor = onTextColor,
+                TextColor = textColor
+            };
+            indicator.TextFormat.FontStyle = FontStyles.Normal;
+            indicator.TextFormat.FontWeight = FontWeights.Normal;
+            indicator.TextFormat.FontSize = 18;
+            indicator.TextFormat.FontFamily = new FontFamily(font);
+            indicator.TextFormat.PaddingLeft = 0;
+            indicator.TextFormat.PaddingRight = 0;
+            indicator.TextFormat.PaddingTop = 0;
+            indicator.TextFormat.PaddingBottom = 0;
+            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
+            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
+
+            Children.Add(indicator);
+            AddTrigger(indicator.Triggers["pushed"], componentName);
+            AddTrigger(indicator.Triggers["released"], componentName);
+
+            AddAction(indicator.Actions["push"], componentName);
+            AddAction(indicator.Actions["release"], componentName);
+            AddAction(indicator.Actions["set.indicator"], componentName);
+            return indicator;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pos"></param>
+        /// <param name="size"></param>
+        /// <param name="defaultPosition"></param>
+        /// <param name="switchType"></param>
+        /// <param name="positionOneImage"></param>
+        /// <param name="positionTwoImage"></param>
+        /// <param name="positionThreeImage"></param>
+        /// <returns></returns>
+        protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
+            ThreeWayToggleSwitchPosition defaultPosition, ThreeWayToggleSwitchType switchType,
+            string positionOneImage = "{Helios}/Images/Toggles/round-up.png", 
+            string positionTwoImage = "{Helios}/Images/Toggles/round-norm.png", 
+            string positionThreeImage = "{Helios}/Images/Toggles/round-down.png")
+        {
+            string componentName = GetComponentName(name);
+            ThreeWayToggleSwitch toggle = new ThreeWayToggleSwitch
+            {
+                Top = pos.Y,
+                Left =  pos.X,
+                Width = size.Width,
+                Height = size.Height,
+                DefaultPosition = defaultPosition,
+                PositionOneImage = "{Helios}/Images/Toggles/round-up.png",
+                PositionTwoImage = "{Helios}/Images/Toggles/round-norm.png",
+                PositionThreeImage = "{Helios}/Images/Toggles/round-down.png",
+                SwitchType = ThreeWayToggleSwitchType.OnOnOn,
+                Name = componentName
+            };
+
+            Children.Add(toggle);
+            foreach (IBindingTrigger trigger in toggle.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(toggle.Actions["set.position"], componentName);
+            return toggle;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pos"></param>
+        /// <param name="size"></param>
+        /// <param name="font"></param>
+        /// <param name="horizontalAlignment"></param>
+        /// <param name="verticalAligment"></param>
+        /// <param name="baseFontsize"></param>
+        /// <param name="testTextDisplay"></param>
+        /// <param name="textColor"></param>
+        /// <param name="backgroundColor"></param>
+        /// <param name="useBackground"></param>
+        /// <returns></returns>
+        protected TextDisplay AddTextDisplay(
+            string name, 
+            Point pos, 
+            Size size, 
+            string font, 
+            TextHorizontalAlignment horizontalAlignment,
+            TextVerticalAlignment verticalAligment,
+            double baseFontsize, 
+            string testTextDisplay,
+            Color textColor,
+            Color backgroundColor,
+            bool useBackground
+            )
+        {
+            string componentName = GetComponentName(name);
+            TextDisplay display = new TextDisplay
+            {
+                Top = pos.Y,
+                Left = pos.X,
+                Width = size.Width,
+                Height = size.Height,
+                Name = componentName
+            };
+            TextFormat textFormat = new TextFormat
+            {
+                FontFamily = new FontFamily(font),
+                HorizontalAlignment = horizontalAlignment,
+                VerticalAlignment = verticalAligment,
+                FontSize = baseFontsize
+            };
+
+            display.TextFormat = textFormat;
+            display.OnTextColor = Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
+            display.BackgroundColor = Color.FromArgb(0xff, 0x00, 0x00, 0x00);
+            display.UseBackground = useBackground;
+            display.ParserDictionary = "A=A";
+            display.TextTestValue = testTextDisplay;
+            Children.Add(display);
+            AddAction(display.Actions["set.TextDisplay"], componentName);
+
+            return display;
+        }
+
     }
+
 }

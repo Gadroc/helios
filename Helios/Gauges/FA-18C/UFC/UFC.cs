@@ -28,12 +28,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
-
-        private string _aircraft;
         private String _font = "MS 33558";
         //private String _font = "Franklin Gothic";
         public UFC_FA18C()
-            : base("Up Front Controller", new Size(602, 470))
+            : base("UFC", new Size(602, 470))
         {
             AddButton("EMCON", 527, 129, new Size(48, 48));
             AddButton("1", 105, 116, new Size(48, 48));
@@ -46,13 +44,13 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButton("8", 167, 240, new Size(48, 48));
             AddButton("9", 229, 240, new Size(48, 48));
             AddButton("CLR", 105, 303, new Size(48, 48));
-            AddButton("0", 167, 303, new Size(48, 48), true);
+            AddButton("0", 167, 303, new Size(48, 48));
             AddButton("ENT", 229, 303, new Size(48, 48));
-            AddButton("AP", 125, 400, new Size(40, 40), true);
+            AddButton("AP", 125, 400, new Size(40, 40));
             AddButton("IFF", 176, 400, new Size(40, 40));
             AddButton("TCN", 229, 400, new Size(40, 40));
-            AddButton("ILS", 284, 400, new Size(40, 40), true);
-            AddButton("DL", 337, 400, new Size(40, 40), true);
+            AddButton("ILS", 284, 400, new Size(40, 40));
+            AddButton("DL", 337, 400, new Size(40, 40));
             AddButton("BCN", 393, 400, new Size(40, 40));
             AddButton("ONOFF", 447, 400, new Size(40, 40));
             AddButtonIP("IP", 28, 60, new Size(40, 40));
@@ -63,7 +61,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButtonIP("ODU 5", 302, 310, new Size(40, 40));
             AddThreeWayToggle("ADF", 33, 122, new Size(30, 60));
 
-            AddPot("UFC Display Brightness", new Point(528, 66), new Size(48, 48));
+            AddPot("Display Brightness", new Point(528, 66), new Size(48, 48));
             AddPot("Radio Volume 1", new Point(25, 213), new Size(48, 48));
             AddPot("Radio Volume 2", new Point(528, 213), new Size(48, 48));
             AddEncoder("Radio 1", new Point(29, 383), new Size(75, 75));
@@ -134,47 +132,33 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             AddTextDisplay(name, x, y, size, 32, "M", false);
         }
-        private void AddTextDisplay(string name, double x, double y, Size size,double baseFontsize, string testDisp,Boolean hTextAlignedRight)
+        private void AddTextDisplay(string name, double x, double y, Size size,double baseFontsize, string testDisp, Boolean hTextAlignedRight)
         {
-            Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
-            {
-                Top = y,
-                Left = x,
-                Width = size.Width,
-                Height = size.Height,
-                Name = name
-            };
-            // display.FontSize = 20;
-            TextFormat textFormat = new TextFormat
-            {
-                FontFamily = new FontFamily("Hornet_UFC"),
-                HorizontalAlignment = TextHorizontalAlignment.Left,
-                VerticalAlignment = TextVerticalAlignment.Top,
-                FontSize = baseFontsize
-            };
+            TextDisplay display = AddTextDisplay(
+                name: name,
+                pos: new Point(x, y),
+                size: size,
+                font: "Hornet_UFC",
+                baseFontsize: baseFontsize,
+                horizontalAlignment: TextHorizontalAlignment.Left,
+                verticalAligment: TextVerticalAlignment.Top,
+                testTextDisplay: testDisp,
+                textColor: Color.FromArgb(0xff, 0x40, 0xb3, 0x29),
+                backgroundColor: Color.FromArgb(0xff, 0x00, 0x00, 0x00),
+                useBackground: true
+                );
+
             if (hTextAlignedRight)
             {
-                textFormat.HorizontalAlignment = TextHorizontalAlignment.Right;
+                display.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Right;
             }
-            // textFormat.FontFamily.Baseline = 0.01;
-            // textFormat.PaddingRight = 3;
-            display.TextFormat = textFormat;
-            display.OnTextColor = Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
-            display.BackgroundColor = Color.FromArgb(0xff, 0x00, 0x00, 0x00);
-            display.UseBackground = true;
-            display.ParserDictionary = "A=A";
-            display.TextTestValue = testDisp;
-            // display.OnImage = "{Helios}/Images/Indicators/indicator.png";
-            Children.Add(display);
-            AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
         }
 
-        private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
-        private void AddButton(string name, double x, double y, Size size, bool altImage)
+        private void AddButton(string name, double x, double y, Size size)
         {
             Point pos = new Point(x, y);
             AddButton(
-                name: "UFC Key " + name,
+                name: name,
                 posn: pos,
                 size: size,
                 image: "{Helios}/Images/FA-18C/UFC Button Up " + name + ".png",
@@ -188,12 +172,12 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private void AddButtonIP(string name, double x, double y, Size size, Boolean glyph)
         {
             Point pos = new Point(x, y);
-            Helios.Controls.PushButton button = AddButton(
+            PushButton button = AddButton(
                 name: name,
                 posn: pos,
                 size: size,
-                image: "{Helios}/Images/FA-18C/UFC Button Up " + name + ".png",
-                pushedImage: "{Helios}/Images/FA-18C/UFC Button Dn " + name + ".png",
+                image: "{Helios}/Images/Buttons/tactile-dark-round.png",
+                pushedImage: "{Helios}/Images/Buttons/tactile-dark-round-in.png",
                 buttonText: ""
                 );
 
@@ -208,114 +192,53 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private void AddIndicator(string name, double x, double y, Size size) { AddIndicator(name, x, y, size, false); }
         private void AddIndicator(string name, double x, double y, Size size, bool _vertical)
         {
-            Helios.Controls.Indicator indicator = new Helios.Controls.Indicator
-            {
-                Top = y,
-                Left = x,
-                Width = size.Width,
-                Height = size.Height,
-                OnImage = "{Helios}/Images/Indicators/anunciator.png",
-                OffImage = "{Helios}/Images/Indicators/anunciator.png"
-            };
-            if (name == "Unknown 1")
-            {
-                indicator.Text = ". . .";
-            }
-            else
-            {
-                indicator.Text = name;
-            }
-            indicator.Name = "Annunciator " + name;
-            indicator.OnTextColor = Color.FromArgb(0xff, 0x24, 0x8D, 0x22);
-            indicator.OffTextColor = Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C);
-            indicator.TextFormat.FontStyle = FontStyles.Normal;
-            indicator.TextFormat.FontWeight = FontWeights.Normal;
-            if (_vertical)
-            {
-                indicator.TextFormat.FontSize = 8;
-            }
-            else
-            {
-                indicator.TextFormat.FontSize = 12;
-            }
-            indicator.TextFormat.FontFamily = new FontFamily(_font);
-            indicator.TextFormat.PaddingLeft = 0;
-            indicator.TextFormat.PaddingRight = 0;
-            indicator.TextFormat.PaddingTop = 0;
-            indicator.TextFormat.PaddingBottom = 0;
-            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
-
-            Children.Add(indicator);
-            foreach (IBindingTrigger trigger in indicator.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            AddAction(indicator.Actions["set.indicator"], name);
+            Helios.Controls.Indicator indicator = AddIndicator(
+                name: name,
+                pos: new Point(x, y),
+                size: size,
+                onImage: "{Helios}/Images/Indicators/anunciator.png",
+                offImage: "{Helios}/Images/Indicators/anunciator.png",
+                onTextColor: Color.FromArgb(0xff, 0x24, 0x8D, 0x22),
+                offTextColor: Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C),
+                font: _font,
+                vertical: _vertical
+                );
         }
+
         private void AddIndicatorPushButton(string name, double x, double y, Size size)
         {
-            Helios.Controls.IndicatorPushButton indicator = new Helios.Controls.IndicatorPushButton
-            {
-                Top = y,
-                Left = x,
-                Width = size.Width,
-                Height = size.Height,
-                Image = "{Helios}/Images/Indicators/indicator.png",
-                PushedImage = "{Helios}/Images/Indicators/indicator-push.png",
-                Text = name,
-                Name = name
-            };
+            Color onTextColor;
             if (name == "MASTER WARNING")
             {
-                indicator.OnTextColor = Color.FromArgb(0xff, 0xc7, 0x1e, 0x1e);
+                onTextColor = Color.FromArgb(0xff, 0xc7, 0x1e, 0x1e);
             }
             else
             {
-                indicator.OnTextColor = Color.FromArgb(0xff, 0xb3, 0xa2, 0x29);
+                onTextColor = Color.FromArgb(0xff, 0xb3, 0xa2, 0x29);
             }
-            indicator.TextColor = Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C);
-            indicator.TextFormat.FontStyle = FontStyles.Normal;
-            indicator.TextFormat.FontWeight = FontWeights.Normal;
-            indicator.TextFormat.FontSize = 18;
-            indicator.TextFormat.FontFamily = new FontFamily(_font);
-            indicator.TextFormat.PaddingLeft = 0;
-            indicator.TextFormat.PaddingRight = 0;
-            indicator.TextFormat.PaddingTop = 0;
-            indicator.TextFormat.PaddingBottom = 0;
-            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
 
-            Children.Add(indicator);
-            AddTrigger(indicator.Triggers["pushed"], name);
-            AddTrigger(indicator.Triggers["released"], name);
+            AddIndicatorPushButton(
+                name: name,
+                pos: new Point(x, y),
+                size: size,
+                image: "{Helios}/Images/Indicators/indicator.png",
+                pushedImage: "{Helios}/Images/Indicators/indicator-push.png",
+                textColor: Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C),
+                onTextColor: onTextColor,
+                font: _font
+                );
 
-            AddAction(indicator.Actions["push"], name);
-            AddAction(indicator.Actions["release"], name);
-            AddAction(indicator.Actions["set.indicator"], name);
         }
         private void AddThreeWayToggle(string name, double x, double y, Size size)
         {
-            Helios.Controls.ThreeWayToggleSwitch toggle = new Helios.Controls.ThreeWayToggleSwitch
-            {
-                Top = y,
-                Left = x,
-                Width = size.Width,
-                Height = size.Height,
-                DefaultPosition = ThreeWayToggleSwitchPosition.Two,
-                PositionOneImage = "{Helios}/Images/Toggles/round-up.png",
-                PositionTwoImage = "{Helios}/Images/Toggles/round-norm.png",
-                PositionThreeImage = "{Helios}/Images/Toggles/round-down.png",
-                SwitchType = ThreeWayToggleSwitchType.OnOnOn,
-                Name = name
-            };
 
-            Children.Add(toggle);
-            foreach (IBindingTrigger trigger in toggle.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            AddAction(toggle.Actions["set.position"], name);
+            AddThreeWayToggle(
+                name: name,
+                pos: new Point(x, y),
+                size: size,
+                defaultPosition: ThreeWayToggleSwitchPosition.Two,
+                switchType: ThreeWayToggleSwitchType.OnOnOn
+                );
         }
 
         public override bool HitTest(Point location)

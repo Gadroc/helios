@@ -27,6 +27,7 @@ namespace GadrocsWorkshop.Helios.Controls
     [HeliosControl("Helios.Base.TextDisplay", "Text Display", "Text Displays", typeof(TextDisplayRenderer))]
     public class TextDisplay : HeliosVisual
     {
+        private bool _useParseDicationary = false;
         private string _textValue = "";
         private string _rawValue = "";
         private string _textValueTest = "NA";
@@ -41,7 +42,6 @@ namespace GadrocsWorkshop.Helios.Controls
         public TextDisplay()
             : base("TextDisplay", new System.Windows.Size(100, 50))
         {
-            _parserDictionary["A"] = "B";
             _textFormat.VerticalAlignment = TextVerticalAlignment.Center;
             _textFormat.HorizontalAlignment = TextHorizontalAlignment.Left;
             _textFormat.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(TextFormat_PropertyChanged);
@@ -62,30 +62,56 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             set
             {
-                //if (!_rawValue.Equals(value))
-                //{
-                //    _rawValue = value;
-                //    // parse the value
-                //    string parsedValue = value;
-                //    foreach (KeyValuePair<string, string> entry in _parserDictionary)
-                //    {
-                //        parsedValue = parsedValue.Replace(entry.Key, entry.Value);
-                //    }
-                //    string oldValue = _textValue;
-                //    _textValue = parsedValue;
-                //    _value.SetValue(new BindingValue(_textValue), BypassTriggers);
-                //    OnPropertyChanged("TextValue", oldValue, parsedValue, false);
-                //    OnDisplayUpdate();
-                //}
-                if (!value.Equals(_textValue)) {
-                    string oldValue = _textValue;
-                    _textValue = value;
-                    _value.SetValue(new BindingValue(_textValue), BypassTriggers);
-                    OnPropertyChanged("TextValue", oldValue, value, false);
+                if (_useParseDicationary)
+                {
+                    if (!_rawValue.Equals(value))
+                    {
+                        _rawValue = value;
+                        // parse the value
+                        string parsedValue = value;
+                        foreach (KeyValuePair<string, string> entry in _parserDictionary)
+                        {
+                            parsedValue = parsedValue.Replace(entry.Key, entry.Value);
+                        }
+                        string oldValue = _textValue;
+                        _textValue = parsedValue;
+                        _value.SetValue(new BindingValue(_textValue), BypassTriggers);
+                        OnPropertyChanged("TextValue", oldValue, parsedValue, false);
+                        OnDisplayUpdate();
+                    }
+                }
+                else
+                {
+                    if (!value.Equals(_textValue))
+                    {
+                        string oldValue = _textValue;
+                        _textValue = value;
+                        _value.SetValue(new BindingValue(_textValue), BypassTriggers);
+                        OnPropertyChanged("TextValue", oldValue, value, false);
+                        OnDisplayUpdate();
+                    }
+                }
+            }
+        }
+
+        public bool UseParseDictionary
+        {
+            get
+            {
+                return _useParseDicationary;
+            }
+            set
+            {
+                if (!_useParseDicationary.Equals(value))
+                {
+                    bool oldValue = _useParseDicationary;
+                    _useParseDicationary = value;
+                    OnPropertyChanged("UseParseDictionary", oldValue, value, true);
                     OnDisplayUpdate();
                 }
             }
         }
+
         public bool UseBackground {
             get
             {
@@ -102,6 +128,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 }
             }
         }
+
         public string ParserDictionary
         {
             get
@@ -307,6 +334,7 @@ namespace GadrocsWorkshop.Helios.Controls
             writer.WriteElementString("TextTest", _textValueTest);
             writer.WriteElementString("ParserDictionary", ParserDictionary);
             writer.WriteElementString("UseBackground", boolConverter.ConvertToInvariantString(UseBackground));
+            writer.WriteElementString("UseParserDictionary", boolConverter.ConvertToInvariantString(UseParseDictionary));
             base.WriteXml(writer);
         }
 
@@ -323,6 +351,7 @@ namespace GadrocsWorkshop.Helios.Controls
             TextTestValue = reader.ReadElementString("TextTest");
             ParserDictionary = reader.ReadElementString("ParserDictionary");
             UseBackground = (bool)boolConverter.ConvertFromInvariantString(reader.ReadElementString("UseBackground"));
+            UseParseDictionary = (bool)boolConverter.ConvertFromInvariantString(reader.ReadElementString("UseParseDictionary"));
             base.ReadXml(reader);
         }
 
