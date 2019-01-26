@@ -662,7 +662,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Text(this, "2058", "IFEI", "DD 3", "Value of the DD 3 Indicator"));
             // 2059 is used for the altimeter 
             AddFunction(new Text(this, "2060", "IFEI", "DD 4", "Value of the DD 4 Indicator"));
-            AddFunction(new Text(this, "2060", "IFEI", "Fuel Flow Left", "Value of the Fuel Flow for the Left Engine"));
+            AddFunction(new Text(this, "2061", "IFEI", "Fuel Flow Left", "Value of the Fuel Flow for the Left Engine"));
             AddFunction(new Text(this, "2062", "IFEI", "Fuel Flow Right", "Value of the Fuel Flow for the Right Engine"));
             AddFunction(new Text(this, "2063", "IFEI", "Fuel Down", "Value of Fuel Down"));
             AddFunction(new Text(this, "2064", "IFEI", "Fuel Up", "Value of Fuel Up"));

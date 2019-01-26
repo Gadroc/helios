@@ -39,7 +39,10 @@ namespace GadrocsWorkshop.Helios.Controls
         protected override void OnRender(DrawingContext drawingContext)
         {
             // drawingContext.DrawImage(_onImage, _imageRect);
-            drawingContext.DrawRectangle(new SolidColorBrush(_textDisplay.BackgroundColor), null, _imageRect);
+            if (_textDisplay.UseBackground)
+            {
+                drawingContext.DrawRectangle(new SolidColorBrush(_textDisplay.BackgroundColor), null, _imageRect);
+            }
             _textDisplay.TextFormat.RenderText(drawingContext, _onBrush , _textDisplay.TextValue, _imageRect);
         }
 
