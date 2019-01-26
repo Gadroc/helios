@@ -62,19 +62,26 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             set
             {
-                if (!_rawValue.Equals(value))
-                {
-                    _rawValue = value;
-                    // parse the value
-                    string parsedValue = value;
-                    foreach (KeyValuePair<string, string> entry in _parserDictionary)
-                    {
-                        parsedValue = parsedValue.Replace(entry.Key, entry.Value);
-                    }
+                //if (!_rawValue.Equals(value))
+                //{
+                //    _rawValue = value;
+                //    // parse the value
+                //    string parsedValue = value;
+                //    foreach (KeyValuePair<string, string> entry in _parserDictionary)
+                //    {
+                //        parsedValue = parsedValue.Replace(entry.Key, entry.Value);
+                //    }
+                //    string oldValue = _textValue;
+                //    _textValue = parsedValue;
+                //    _value.SetValue(new BindingValue(_textValue), BypassTriggers);
+                //    OnPropertyChanged("TextValue", oldValue, parsedValue, false);
+                //    OnDisplayUpdate();
+                //}
+                if (!value.Equals(_textValue)) {
                     string oldValue = _textValue;
-                    _textValue = parsedValue;
+                    _textValue = value;
                     _value.SetValue(new BindingValue(_textValue), BypassTriggers);
-                    OnPropertyChanged("TextValue", oldValue, parsedValue, false);
+                    OnPropertyChanged("TextValue", oldValue, value, false);
                     OnDisplayUpdate();
                 }
             }
