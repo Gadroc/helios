@@ -742,6 +742,10 @@
     <Resource Include="Interfaces\DCS\Generic\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\M2000CSimple\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Mi8Simple\ExportFunctions.lua" />
+    <None Include="Fonts\7 Segment.ttf" />
+    <None Include="Fonts\Helios font registration.reg" />
+    <None Include="Fonts\Hornet_UFC_Unified.ttf" />
+    <None Include="Fonts\MS33558.ttf" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

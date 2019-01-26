@@ -72,8 +72,20 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28), false);
 
             /// adding the diplays
-            AddTextDisplay16Segment("ScratchPad1", 90, 25, new Size(30, 50));
-
+            AddTextDisplay("OptionCueing1", 347, 41, new Size(48, 42));
+            AddTextDisplay("OptionDisplay1", 380, 41, new Size(130, 42));
+            AddTextDisplay("OptionCueing2", 347, 111, new Size(48, 42));
+            AddTextDisplay("OptionDisplay2", 380, 111, new Size(130, 42));
+            AddTextDisplay("OptionCueing3", 347, 175, new Size(48, 42));
+            AddTextDisplay("OptionDisplay3", 380, 175, new Size(130, 42));
+            AddTextDisplay("OptionCueing4", 347, 240, new Size(48, 42));
+            AddTextDisplay("OptionDisplay4", 380, 240, new Size(130,42));
+            AddTextDisplay("OptionCueing5", 347, 309, new Size(48, 42));
+            AddTextDisplay("OptionDisplay5", 380, 309, new Size(130,42));
+            AddTextDisplay("ScratchPadString1", 92, 35, new Size(66, 48), 28);
+            AddTextDisplay("ScratchPadNumber", 131, 35, new Size(156, 48), 28);
+            AddTextDisplay("Comm1", 26, 307, new Size(40, 49));
+            AddTextDisplay("Comm2", 538, 304, new Size(40, 49));
         }
 
         public override string BezelImage
@@ -147,7 +159,23 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             //AddAction(_knob.Actions["release"], name);
         }
 
-        private void AddTextDisplay16Segment(string name, double x, double y, Size size)
+        private void AddTextDisplay(string name, double x, double y, Size size, string testDisp)
+        {
+            AddTextDisplay(name, x, y, size, 32, testDisp, false);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize)
+        {
+            AddTextDisplay(name, x, y, size, baseFontsize, "M", false);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size, Boolean hTextAlignedRight)
+        {
+            AddTextDisplay(name, x, y, size, 32, "M", hTextAlignedRight);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size)
+        {
+            AddTextDisplay(name, x, y, size, 32, "M", false);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size,double baseFontsize, string testDisp,Boolean hTextAlignedRight)
         {
             Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
             {
@@ -160,15 +188,24 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             // display.FontSize = 20;
             TextFormat textFormat = new TextFormat
             {
-                // FontFamily = new FontFamily("SF Digital Readout"),
+                FontFamily = new FontFamily("Hornet_UFC"),
                 HorizontalAlignment = TextHorizontalAlignment.Left,
                 VerticalAlignment = TextVerticalAlignment.Top,
-                FontSize = 32
+                FontSize = baseFontsize
             };
-            textFormat.PaddingRight = 3;
+            if (hTextAlignedRight)
+            {
+                textFormat.HorizontalAlignment = TextHorizontalAlignment.Right;
+            }
+            // textFormat.FontFamily.Baseline = 0.01;
+            // textFormat.PaddingRight = 3;
             display.TextFormat = textFormat;
-            display.OnTextColor = Color.FromRgb(125, 199, 63);
-            display.OnImage = "{Helios}/Images/Indicators/indicator.png";
+            display.OnTextColor = Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
+            display.BackgroundColor = Color.FromArgb(0xff, 0x00, 0x00, 0x00);
+            display.UseBackground = true;
+            display.ParserDictionary = "A=A";
+            display.TextTestValue = testDisp;
+            // display.OnImage = "{Helios}/Images/Indicators/indicator.png";
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
         }

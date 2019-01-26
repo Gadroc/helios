@@ -491,6 +491,35 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new PushButton(this, IFEI, "3005", "172", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI ZONE Button", "1", "0", "%1d"));    // elements["pnt_172"] = short_way_button(_("IFEI ZONE Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_ZONE,          172)
             AddFunction(new PushButton(this, IFEI, "3006", "173", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI ET Button", "1", "0", "%1d"));    // elements["pnt_173"] = short_way_button(_("IFEI ET Button"),             devices.IFEI, IFEI_commands.IFEI_BTN_ET,            173)
             AddFunction(new Axis(this, IFEI, "3007", "174", 0.1d, 0.5d, 1d, "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Brightness Control Knob"));    // elements["pnt_174"] = default_axis(_("IFEI Brightness Control Knob"),   devices.IFEI, IFEI_commands.IFEI_Brightness,        174, 0.5, 0.1)
+
+            AddFunction(new Text(this, "2052", "IFEI", "Bingo Value", "Value of the BINGO fuel state"));
+            AddFunction(new Text(this, "2053", "IFEI", "Clock Hours", "Value of the clock HH"));
+            AddFunction(new Text(this, "2054", "IFEI", "Clock Minutes", "Value of the clock MM"));
+            AddFunction(new Text(this, "2055", "IFEI", "Clock Seconds", "Value of the clock SS"));
+            AddFunction(new Text(this, "2056", "IFEI", "DD 1", "Value of the DD 1 Indicator"));
+            AddFunction(new Text(this, "2057", "IFEI", "DD 2", "Value of the DD 2 Indicator"));
+            AddFunction(new Text(this, "2058", "IFEI", "DD 3", "Value of the DD 3 Indicator"));
+            // 2059 is used for the altimeter 
+            AddFunction(new Text(this, "2060", "IFEI", "DD 4", "Value of the DD 4 Indicator"));
+            AddFunction(new Text(this, "2061", "IFEI", "Fuel Flow Left", "Value of the Fuel Flow for the Left Engine"));
+            AddFunction(new Text(this, "2062", "IFEI", "Fuel Flow Right", "Value of the Fuel Flow for the Right Engine"));
+            AddFunction(new Text(this, "2063", "IFEI", "Fuel Down", "Value of Fuel Down"));
+            AddFunction(new Text(this, "2064", "IFEI", "Fuel Up", "Value of Fuel Up"));
+            AddFunction(new Text(this, "2065", "IFEI", "Oil Pressure Left", "Value of the Left Engine Oil Pressure"));
+            AddFunction(new Text(this, "2066", "IFEI", "Oil Pressure Right", "Value of the Right Engine Oil Pressure"));
+            AddFunction(new Text(this, "2067", "IFEI", "RPM Left", "Left Engine RPM"));
+            AddFunction(new Text(this, "2068", "IFEI", "RPM Right", "Right Engine RPM"));
+            AddFunction(new Text(this, "2069", "IFEI", "Temp Left", "Left Engine Temperature"));
+            AddFunction(new Text(this, "2070", "IFEI", "Temp Right", "Right Engine Temperature"));
+            AddFunction(new Text(this, "2073", "IFEI", "Timer Hours", "Value of the Timer Hours"));
+            AddFunction(new Text(this, "2072", "IFEI", "Timer Minutes", "Value of the Timer Minutes"));
+            AddFunction(new Text(this, "2071", "IFEI", "Timer Seconds", "Value of the Timer Seconds"));
+            AddFunction(new Text(this, "2074", "IFEI", "Codes", "Value of the BINGO fuel state"));
+            AddFunction(new Text(this, "2075", "IFEI", "SP", "Value of SP"));
+            AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Value of the BINGO fuel state"));
+            AddFunction(new Text(this, "2077", "IFEI", "T", "Value of the BINGO fuel state"));
+            AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Value of the BINGO fuel state"));
+
             #endregion
             #region  Sensor panel
             AddFunction(new Switch(this, RADAR, "440", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.1", "STBY", "3001"), new SwitchPosition("0.2", "OPR", "3001"), new SwitchPosition("0.3", "EMERG(PULL)", "3002") }, "Sensor panel", "RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),
@@ -536,6 +565,25 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Axis(this, UFC, "3034", "126", 0.1d, 0d, 1d, "UFC", "UFC COMM 2 Channel Selector Knob"));    // elements["pnt_126"]     = default_button_axis_extended(_("UFC COMM 2 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm2Fcn, UFC_commands.Comm2Ch,   127, 126,   0.2, true, anim_speed_default)
             AddFunction(new PushButton(this, UFC, "3008", "125", "UFC", "UFC COMM 1 Channel Selector Pull", "1", "0", "%1d"));    // elements["pnt_124"]     = default_button_axis_extended(_("UFC COMM 1 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm1Fcn, UFC_commands.Comm1Ch,   125, 124,   0.2, true, anim_speed_default)
             AddFunction(new PushButton(this, UFC, "3009", "127", "UFC", "UFC COMM 2 Channel Selector Pull", "1", "0", "%1d"));    // elements["pnt_126"]     = default_button_axis_extended(_("UFC COMM 2 Channel Selector Knob"),   devices.UFC, UFC_commands.Comm2Fcn, UFC_commands.Comm2Ch,   127, 126,   0.2, true, anim_speed_default)
+
+            AddFunction(new Text(this, "2080", "UFC", "UFC Unsure 1", "Value of the (unsure!)"));
+            AddFunction(new Text(this, "2081", "UFC", "UFC Mask", "Value of the UFC Mask"));
+            AddFunction(new Text(this, "2082", "UFC", "Option Display 1", "Text Value of the Option Display #1"));
+            AddFunction(new Text(this, "2083", "UFC", "Option Display 2", "Text Value of the Option Display #2"));
+            AddFunction(new Text(this, "2084", "UFC", "Option Display 3", "Text Value of the Option Display #3"));
+            AddFunction(new Text(this, "2085", "UFC", "Option Display 4", "Text Value of the Option Display #4"));
+            AddFunction(new Text(this, "2086", "UFC", "Option Display 5", "Text Value of the Option Display #5"));
+            AddFunction(new Text(this, "2087", "UFC", "Option Display 1 Selected", "Option Display #1 Selected"));
+            AddFunction(new Text(this, "2088", "UFC", "Option Display 2 Selected", "Option Display #2 Selected"));
+            AddFunction(new Text(this, "2089", "UFC", "Option Display 3 Selected", "Option Display #3 Selected"));
+            AddFunction(new Text(this, "2090", "UFC", "Option Display 4 Selected", "Option Display #4 Selected"));
+            AddFunction(new Text(this, "2091", "UFC", "Option Display 5 Selected", "Option Display #5 Selected"));
+            AddFunction(new Text(this, "2092", "UFC", "Scratchpad 1", "Value of the first scratchpad display"));
+            AddFunction(new Text(this, "2093", "UFC", "Scratchpad 2", "Value of the second scratchpad display"));
+            AddFunction(new Text(this, "2094", "UFC", "Scratchpad Number", "Value of the scratchpad number display"));
+            AddFunction(new Text(this, "2095", "UFC", "Comm Channel 1", "Value of Communications Channel 1 display"));
+            AddFunction(new Text(this, "2096", "UFC", "Comm Channel 2", "Value of Communications Channel 2 display"));
+
             #endregion
             #region  Intercom
             AddFunction(new Axis(this, INTERCOM, "3002", "357", 0.1d, 0d, 1d, "Intercom", "VOX Volume Control Knob"));    // elements["pnt_357"]     = default_axis_limited(_("VOX Volume Control Knob"),                            devices.INTERCOM, Intercom_commands.VOX_Volume,     357,    0.0, 0.1, false, false, {0,1})
@@ -653,51 +701,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
             #endregion
             #region Instrument parsed values
-            AddFunction(new Text(this, "2052", "IFEI", "Bingo Value", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2053", "IFEI", "Clock Hours", "Value of the clock HH"));
-            AddFunction(new Text(this, "2054", "IFEI", "Clock Minutes", "Value of the clock MM"));
-            AddFunction(new Text(this, "2055", "IFEI", "Clock Seconds", "Value of the clock SS"));
-            AddFunction(new Text(this, "2056", "IFEI", "DD 1", "Value of the DD 1 Indicator"));
-            AddFunction(new Text(this, "2057", "IFEI", "DD 2", "Value of the DD 2 Indicator"));
-            AddFunction(new Text(this, "2058", "IFEI", "DD 3", "Value of the DD 3 Indicator"));
-            // 2059 is used for the altimeter 
-            AddFunction(new Text(this, "2060", "IFEI", "DD 4", "Value of the DD 4 Indicator"));
-            AddFunction(new Text(this, "2061", "IFEI", "Fuel Flow Left", "Value of the Fuel Flow for the Left Engine"));
-            AddFunction(new Text(this, "2062", "IFEI", "Fuel Flow Right", "Value of the Fuel Flow for the Right Engine"));
-            AddFunction(new Text(this, "2063", "IFEI", "Fuel Down", "Value of Fuel Down"));
-            AddFunction(new Text(this, "2064", "IFEI", "Fuel Up", "Value of Fuel Up"));
-            AddFunction(new Text(this, "2065", "IFEI", "Oil Pressure Left", "Value of the Left Engine Oil Pressure"));
-            AddFunction(new Text(this, "2066", "IFEI", "Oil Pressure Right", "Value of the Right Engine Oil Pressure"));
-            AddFunction(new Text(this, "2067", "IFEI", "RPM Left", "Left Engine RPM"));
-            AddFunction(new Text(this, "2068", "IFEI", "RPM Right", "Right Engine RPM"));
-            AddFunction(new Text(this, "2069", "IFEI", "Temp Left", "Left Engine Temperature"));
-            AddFunction(new Text(this, "2070", "IFEI", "Temp Right", "Right Engine Temperature"));
-            AddFunction(new Text(this, "2073", "IFEI", "Timer Hours", "Value of the Timer Hours"));
-            AddFunction(new Text(this, "2072", "IFEI", "Timer Minutes", "Value of the Timer Minutes"));
-            AddFunction(new Text(this, "2071", "IFEI", "Timer Seconds", "Value of the Timer Seconds"));
-            AddFunction(new Text(this, "2074", "IFEI", "Codes", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2075", "IFEI", "SP", "Value of SP"));
-            AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2077", "IFEI", "T", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Value of the BINGO fuel state"));
-
-            AddFunction(new Text(this, "2080", "UFC", "UFC Unsure 1", "Value of the (unsure!)"));
-            AddFunction(new Text(this, "2081", "UFC", "UFC Mask", "Value of the UFC Mask"));
-            AddFunction(new Text(this, "2082", "UFC", "Option Display 1", "Text Value of the Option Display #1"));
-            AddFunction(new Text(this, "2083", "UFC", "Option Display 2", "Text Value of the Option Display #2"));
-            AddFunction(new Text(this, "2084", "UFC", "Option Display 3", "Text Value of the Option Display #3"));
-            AddFunction(new Text(this, "2085", "UFC", "Option Display 4", "Text Value of the Option Display #4"));
-            AddFunction(new Text(this, "2086", "UFC", "Option Display 5", "Text Value of the Option Display #5"));
-            AddFunction(new Text(this, "2087", "UFC", "Option Display 1 Selected", "Option Display #1 Selected"));
-            AddFunction(new Text(this, "2088", "UFC", "Option Display 2 Selected", "Option Display #2 Selected"));
-            AddFunction(new Text(this, "2089", "UFC", "Option Display 3 Selected", "Option Display #3 Selected"));
-            AddFunction(new Text(this, "2090", "UFC", "Option Display 4 Selected", "Option Display #4 Selected"));
-            AddFunction(new Text(this, "2091", "UFC", "Option Display 5 Selected", "Option Display #5 Selected"));
-            AddFunction(new Text(this, "2092", "UFC", "Scratchpad 1", "Value of the first scratchpad display"));
-            AddFunction(new Text(this, "2093", "UFC", "Scratchpad 2", "Value of the second scratchpad display"));
-            AddFunction(new Text(this, "2094", "UFC", "Scratchpad Number", "Value of the scratchpad number display"));
-            AddFunction(new Text(this, "2095", "UFC", "Comm Channel 1", "Value of Communications Channel 1 display"));
-            AddFunction(new Text(this, "2096", "UFC", "Comm Channel 2", "Value of Communications Channel 2 display"));
 
             #endregion
         }
