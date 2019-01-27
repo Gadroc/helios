@@ -41,6 +41,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             double spacing = 70;
             double start = 64;
+            // adding the control buttons
             AddButton("MODE", 402, start, new Size(87, 62));
             AddButton("QTY", 402, start + spacing, new Size(87, 62));
             AddButton("UP", 402, start + 2 * spacing, new Size(87, 62));
@@ -48,6 +49,17 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButton("ZONE", 402, start + 4 * spacing, new Size(87, 62));
             AddButton("ET", 402, start + 5 * spacing, new Size(87, 62));
  
+            AddPot(
+                name: "Brightness Control", 
+                posn: new Point(55, 601),
+                size: new Size(60, 60),
+                knobImage: "{Helios}/Images/AV-8B/Common Knob.png",
+                initialRotation: 219,
+                rotationTravel: 291,
+                minValue: 0,
+                maxValue: 1,
+                initialValue: 0,
+                stepValue: 0.1);
         }
 
         public override string BezelImage
