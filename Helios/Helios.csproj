@@ -3473,7 +3473,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Gauges\FA-18C\IFEI\IFEI.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_DOWN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_DOWN_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_ET.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_ET_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_MODE.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_MODE_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_QTY.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_QTY_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_UP.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_UP_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE_DN.png" />
     <Content Include="Helios.ico" />
     <Resource Include="Images\FA-18C\UFC Button Dn 0 a.png" />
     <Resource Include="Images\FA-18C\UFC Button Dn 1.png" />
