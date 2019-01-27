@@ -334,7 +334,6 @@
     <Compile Include="Gauges\BaseGauge.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDeviceRenderer.cs" />
-    <Compile Include="Gauges\FA-18C\UFCv2\UFC_v2.cs" />
     <Compile Include="Gauges\FA-18C\UFC\UFC.cs" />
     <Compile Include="Gauges\FA-18C\VVI\VVI.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
@@ -744,7 +743,7 @@
     <Resource Include="Interfaces\DCS\Mi8Simple\ExportFunctions.lua" />
     <None Include="Fonts\7 Segment.ttf" />
     <None Include="Fonts\Helios font registration.reg" />
-    <None Include="Fonts\Hornet_UFC_Unified.ttf" />
+    <None Include="Fonts\Hornet UFC.ttf" />
     <None Include="Fonts\MS33558.ttf" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
