@@ -50,39 +50,39 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButton("ET", left, start + 5 * spacing, new Size(87, 62));
 
             // adding the text displays
-            double dispHeight = 42;
-            double fontSize = 40;
+            double dispHeight = 50;
+            double fontSize = 50;
 
             double clockDispWidth = 50;
             double clockSpreadWidth = 3;
             double clockX = 530;
-            double clockY = 357;
+            double clockY = 352;
             AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10");
             AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11");
             AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12");
 
             // Fuel info
 
-            AddTextDisplay("Bingo", 550, 262, new Size(133, dispHeight), fontSize, "2000");
+            AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000");
 
-            double fuelX = 530;
+            double fuelX = 527;
             double fuelWidth = 159;
-            AddTextDisplay("Fuel Up", fuelX, 95, new Size(fuelWidth, dispHeight), fontSize, "10780T");
-            AddTextDisplay("Fuel Dn", fuelX, 161, new Size(fuelWidth, dispHeight), fontSize, "10780T");
+            AddTextDisplay("Fuel Up", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T");
+            AddTextDisplay("Fuel Dn", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780T");
 
             double RPMWidth = 65;
-            AddTextDisplay("RPM Left", 107, 89, new Size(RPMWidth, dispHeight), fontSize, "65");
-            AddTextDisplay("RPM Right", 261, 89, new Size(RPMWidth, dispHeight), fontSize, "65");
+            AddTextDisplay("RPM Left", 107, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
+            AddTextDisplay("RPM Right", 261, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
 
             double TempWidth = 95;
-            AddTextDisplay("Temp Left", 77, 145, new Size(TempWidth, dispHeight), fontSize, "330");
-            AddTextDisplay("Temp Right", 261, 145, new Size(TempWidth, dispHeight), fontSize, "333");
+            AddTextDisplay("Temp Left", 77, 140, new Size(TempWidth, dispHeight), fontSize, "330");
+            AddTextDisplay("Temp Right", 261, 140, new Size(TempWidth, dispHeight), fontSize, "333");
 
-            AddTextDisplay("FF Left", 77, 201, new Size(TempWidth, dispHeight), fontSize, "6");
-            AddTextDisplay("FF Right", 261, 201, new Size(TempWidth, dispHeight), fontSize, "6");
+            AddTextDisplay("FF Left", 77, 195, new Size(TempWidth, dispHeight), fontSize, "6");
+            AddTextDisplay("FF Right", 261, 195, new Size(TempWidth, dispHeight), fontSize, "6");
 
-            AddTextDisplay("Oil Left", 107, 436, new Size(RPMWidth, dispHeight), fontSize, "60");
-            AddTextDisplay("oil Right", 261, 436, new Size(RPMWidth, dispHeight), fontSize, "60");
+            AddTextDisplay("Oil Left", 107, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
+            AddTextDisplay("oil Right", 261, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
 
             AddPot(
                 name: "Brightness Control", 
