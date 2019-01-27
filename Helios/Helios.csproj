@@ -335,6 +335,7 @@
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDeviceRenderer.cs" />
     <Compile Include="Gauges\FA-18C\UFC\UFC.cs" />
+    <Compile Include="Gauges\FA-18C\IFEI\IFEI.cs" />
     <Compile Include="Gauges\FA-18C\VVI\VVI.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
     <Compile Include="Gauges\F-16\ADI\ADI.cs" />
@@ -3472,9 +3473,61 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI.png" />
     <Content Include="Helios.ico" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 0 a.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 1.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 2.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 3.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 4.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 5.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 6.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 7.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 8.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn 9.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn ALT.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn AWL.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn BCN.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn CLR.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn Dash.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn Dot.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn EMCON.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn ENT.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn IFF.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn ONOFF.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn SVE.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn TCN.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn TMR.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn TOO.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn WOF.png" />
+    <Resource Include="Images\FA-18C\UFC Button Dn WPN.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 0 a.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 1.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 2.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 3.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 4.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 5.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 6.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 7.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 8.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up 9.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up ALT.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up AWL.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up BCN.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up CLR.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up Dash.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up Dot.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up EMCON.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up ENT.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up IFF.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up ONOFF.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up SVE.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up TCN.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up TMR.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up TOO.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up WOF.png" />
+    <Resource Include="Images\FA-18C\UFC Button Up WPN.png" />
+    <Resource Include="Images\FA-18C\UFC Faceplate.png" />
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
