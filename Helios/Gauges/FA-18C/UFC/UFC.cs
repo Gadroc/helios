@@ -70,20 +70,21 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28), false);
 
             /// adding the diplays
-            AddTextDisplay("OptionCueing1", 347, 41, new Size(48, 42));
-            AddTextDisplay("OptionDisplay1", 380, 41, new Size(130, 42));
-            AddTextDisplay("OptionCueing2", 347, 111, new Size(48, 42));
-            AddTextDisplay("OptionDisplay2", 380, 111, new Size(130, 42));
-            AddTextDisplay("OptionCueing3", 347, 175, new Size(48, 42));
-            AddTextDisplay("OptionDisplay3", 380, 175, new Size(130, 42));
-            AddTextDisplay("OptionCueing4", 347, 240, new Size(48, 42));
-            AddTextDisplay("OptionDisplay4", 380, 240, new Size(130,42));
-            AddTextDisplay("OptionCueing5", 347, 309, new Size(48, 42));
-            AddTextDisplay("OptionDisplay5", 380, 309, new Size(130,42));
-            AddTextDisplay("ScratchPadString1", 92, 35, new Size(66, 48), 28);
-            AddTextDisplay("ScratchPadNumber", 131, 35, new Size(156, 48), 28);
-            AddTextDisplay("Comm1", 26, 307, new Size(40, 49));
-            AddTextDisplay("Comm2", 538, 304, new Size(40, 49));
+            AddTextDisplay("OptionCueing1", 358, 45, new Size(40, 42));
+            AddTextDisplay("OptionDisplay1", 381, 45, new Size(129, 42));
+            AddTextDisplay("OptionCueing2", 358, 111, new Size(40, 42));
+            AddTextDisplay("OptionDisplay2", 381, 111, new Size(129, 42));
+            AddTextDisplay("OptionCueing3", 358, 177, new Size(40, 42));
+            AddTextDisplay("OptionDisplay3", 381, 177, new Size(129, 42));
+            AddTextDisplay("OptionCueing4", 358, 244, new Size(40, 42));
+            AddTextDisplay("OptionDisplay4", 381, 244, new Size(129,42));
+            AddTextDisplay("OptionCueing5", 358, 310, new Size(40, 42));
+            AddTextDisplay("OptionDisplay5", 381, 310, new Size(129,42));
+            AddTextDisplay("ScratchPadCharacter1", 92, 35, new Size(32, 48), 30);
+            AddTextDisplay("ScratchPadCharacter2", 122, 35, new Size(32, 48), 30);
+            AddTextDisplay("ScratchPadNumbers", 152, 35, new Size(135, 48), 30, TextHorizontalAlignment.Right);
+            AddTextDisplay("Comm1", 26, 314, new Size(41, 42), TextHorizontalAlignment.Center);
+            AddTextDisplay("Comm2", 538, 309, new Size(40, 42), TextHorizontalAlignment.Center);
         }
 
         public override string BezelImage
@@ -118,40 +119,54 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
         private void AddTextDisplay(string name, double x, double y, Size size, string testDisp)
         {
-            AddTextDisplay(name, x, y, size, 32, testDisp, false);
+            AddTextDisplay(name, x, y, size, 32, testDisp, TextHorizontalAlignment.Left);
+        }
+        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, TextHorizontalAlignment hTextAlign)
+        {
+            AddTextDisplay(name, x, y, size, baseFontsize, "~",  hTextAlign);
         }
         private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize)
         {
-            AddTextDisplay(name, x, y, size, baseFontsize, "M", false);
+            AddTextDisplay(name, x, y, size, baseFontsize, "~", TextHorizontalAlignment.Left);
         }
-        private void AddTextDisplay(string name, double x, double y, Size size, Boolean hTextAlignedRight)
+        private void AddTextDisplay(string name, double x, double y, Size size, TextHorizontalAlignment hTextAlign)
         {
-            AddTextDisplay(name, x, y, size, 32, "M", hTextAlignedRight);
+            AddTextDisplay(name, x, y, size, 32, "~", hTextAlign);
         }
         private void AddTextDisplay(string name, double x, double y, Size size)
         {
-            AddTextDisplay(name, x, y, size, 32, "M", false);
+            AddTextDisplay(name, x, y, size, 32, "~", TextHorizontalAlignment.Left);
         }
-        private void AddTextDisplay(string name, double x, double y, Size size,double baseFontsize, string testDisp, Boolean hTextAlignedRight)
+        private void AddTextDisplay(string name, double x, double y, Size size,double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign)
         {
-            TextDisplay display = AddTextDisplay(
-                name: name,
-                pos: new Point(x, y),
-                size: size,
-                font: "Hornet_UFC",
-                baseFontsize: baseFontsize,
-                horizontalAlignment: TextHorizontalAlignment.Left,
-                verticalAligment: TextVerticalAlignment.Top,
-                testTextDisplay: testDisp,
-                textColor: Color.FromArgb(0xff, 0x40, 0xb3, 0x29),
-                backgroundColor: Color.FromArgb(0xff, 0x00, 0x00, 0x00),
-                useBackground: true
-                );
-
-            if (hTextAlignedRight)
+            Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
             {
-                display.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Right;
-            }
+                Top = y,
+                Left = x,
+                Width = size.Width,
+                Height = size.Height,
+                Name = name
+            };
+            // display.FontSize = 20;
+            TextFormat textFormat = new TextFormat
+            {
+                FontFamily = new FontFamily("Hornet UFC"),
+                HorizontalAlignment = hTextAlign,
+                VerticalAlignment = TextVerticalAlignment.Center,
+                FontSize = baseFontsize
+            };
+            //textFormat.FontFamily.Baseline = 0;
+            textFormat.PaddingRight = 0;
+            textFormat.PaddingLeft = 0;
+            textFormat.PaddingTop = 0;
+            textFormat.PaddingBottom = 0;
+            display.TextFormat = textFormat;
+            display.OnTextColor = Color.FromArgb(0xff, 0x7e, 0xde, 0x72);
+            display.BackgroundColor = Color.FromArgb(0xff, 0x26, 0x3f, 0x36);
+            display.UseBackground = false;
+            display.TextTestValue = testDisp;
+            Children.Add(display);
+            AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
         }
 
         private void AddButton(string name, double x, double y, Size size)

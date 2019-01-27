@@ -30,11 +30,11 @@ namespace GadrocsWorkshop.Helios.Controls
         private bool _useParseDicationary = false;
         private string _textValue = "";
         private string _rawValue = "";
-        private string _textValueTest = "NA";
+        private string _textValueTest = "O";
         private string _onImage = "{Helios}/Images/Indicators/anunciator.png";
-        private bool _useBackground = false;    // displaying the background or not
-        private Color _onTextColor = Color.FromRgb(179, 162, 41);
-        private Color _backgroundColor = Color.FromRgb(0, 0, 0);
+        private bool _useBackground = true;    // displaying the background or not
+        private Color _onTextColor = Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
+        private Color _backgroundColor = Color.FromArgb(0xff, 0, 0, 0);
         private TextFormat _textFormat = new TextFormat();
         private Dictionary<string, string> _parserDictionary = new Dictionary<string, string>(); // the list of input -> output string modifications
         private HeliosValue _value;
