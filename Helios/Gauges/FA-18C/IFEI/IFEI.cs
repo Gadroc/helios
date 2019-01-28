@@ -97,6 +97,14 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 stepValue: 0.1);
         }
 
+        protected override void OnProfileChanged(HeliosProfile oldProfile) {
+            // get the default interface 
+            if (Profile.Interfaces.ContainsKey("Keyboard")) {
+                ConfigManager.LogManager.LogDebug("Found Profile");
+            }
+            base.OnProfileChanged(oldProfile);
+        }
+
         public override string BezelImage
         {
             get { return _imageLocation + "IFEI.png"; }
@@ -128,7 +136,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 posn: pos,
                 size: size,
                 image: _imageLocation + "IFEI_" + name + ".png",
-                pushedImage: _imageLocation + "IFEI_" + name + "DN.png",
+                pushedImage: _imageLocation + "IFEI_" + name + "_DN.png",
                 buttonText: ""
                 );
         }

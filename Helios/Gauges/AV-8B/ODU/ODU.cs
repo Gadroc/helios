@@ -25,7 +25,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
 
     [HeliosControl("Helios.AV8B.ODU", "Option Display Unit", "AV-8B", typeof(AV8BDeviceRenderer))]
-    class UFC_AV8B : AV8BDevice
+    class AV8B_ODU : AV8BDevice
     {
         // these three sections are the dead space in the UFC image.
         private static readonly Rect SCREEN_RECT_L = new Rect(0, 135, 38, 415);
@@ -37,7 +37,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private String _font = "MS 33558";
         //private String _font = "Franklin Gothic";
 
-        public UFC_AV8B()
+        public AV8B_ODU()
             : base("Option Display Unit", new Size(808, 550))
         {
 
