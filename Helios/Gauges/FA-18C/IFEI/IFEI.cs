@@ -29,26 +29,61 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
-        private string _aircraft;
-        private String _font = "Seven Segement";
-        private Color _textColor = Color.FromRgb(12, 12, 12);
-        private Color _backGroundColor = Color.FromRgb(12, 100, 12);
+        private String _font = "Digital-7 Mono"; // "Segment7 Standard"; //"Seven Segment";
+        private Color _textColor = Color.FromRgb(220, 220, 220);
+        private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
         private string _imageLocation = "{Helios}/Gauges/FA-18C/IFEI/";
-        private bool _useBackGround = true;
+        private bool _useBackGround = false;
 
         public IFEI_FA18C()
             : base("IFEI", new Size(779, 702))
         {
             double spacing = 70;
             double start = 64;
+            double left = 400;
             // adding the control buttons
-            AddButton("MODE", 402, start, new Size(87, 62));
-            AddButton("QTY", 402, start + spacing, new Size(87, 62));
-            AddButton("UP", 402, start + 2 * spacing, new Size(87, 62));
-            AddButton("DOWN", 402, start + 3 * spacing, new Size(87, 62));
-            AddButton("ZONE", 402, start + 4 * spacing, new Size(87, 62));
-            AddButton("ET", 402, start + 5 * spacing, new Size(87, 62));
- 
+            AddButton("MODE", left, start, new Size(87, 62));
+            AddButton("QTY", left, start + spacing, new Size(87, 62));
+            AddButton("UP", left, start + 2 * spacing, new Size(87, 62));
+            AddButton("DOWN", left, start + 3 * spacing, new Size(87, 62));
+            AddButton("ZONE", left, start + 4 * spacing, new Size(87, 62));
+            AddButton("ET", left, start + 5 * spacing, new Size(87, 62));
+
+            // adding the text displays
+            double dispHeight = 50;
+            double fontSize = 50;
+
+            double clockDispWidth = 50;
+            double clockSpreadWidth = 3;
+            double clockX = 530;
+            double clockY = 352;
+            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10");
+            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11");
+            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12");
+
+            // Fuel info
+
+            AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000");
+
+            double fuelX = 527;
+            double fuelWidth = 159;
+            AddTextDisplay("Fuel Up", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T");
+            AddTextDisplay("Fuel Dn", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780T");
+
+            double RPMWidth = 65;
+            AddTextDisplay("RPM Left", 107, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
+            AddTextDisplay("RPM Right", 261, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
+
+            double TempWidth = 95;
+            AddTextDisplay("Temp Left", 77, 140, new Size(TempWidth, dispHeight), fontSize, "330");
+            AddTextDisplay("Temp Right", 261, 140, new Size(TempWidth, dispHeight), fontSize, "333");
+
+            AddTextDisplay("FF Left", 77, 195, new Size(TempWidth, dispHeight), fontSize, "6");
+            AddTextDisplay("FF Right", 261, 195, new Size(TempWidth, dispHeight), fontSize, "6");
+
+            AddTextDisplay("Oil Left", 107, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
+            AddTextDisplay("oil Right", 261, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
+
             AddPot(
                 name: "Brightness Control", 
                 posn: new Point(55, 601),
@@ -67,26 +102,22 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             get { return _imageLocation + "IFEI.png"; }
         }
 
-        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, string testDisp, bool hTextAlignedRight)
+        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, string testDisp)
         {
             TextDisplay display = AddTextDisplay(
                 name: name,
                 pos: new Point(x, y),
                 size: size,
-                font: "Hornet_UFC",
+                font: _font,
                 baseFontsize: baseFontsize,
-                horizontalAlignment: TextHorizontalAlignment.Left,
+                horizontalAlignment: TextHorizontalAlignment.Right,
                 verticalAligment: TextVerticalAlignment.Top,
                 testTextDisplay: testDisp,
-                textColor: Color.FromArgb(0xff, 0x40, 0xb3, 0x29),
-                backgroundColor: Color.FromArgb(0xff, 0x00, 0x00, 0x00),
-                useBackground: true
+                textColor: _textColor,
+                backgroundColor: _backGroundColor,
+                useBackground: _useBackGround
                 );
-
-            if (hTextAlignedRight)
-            {
-                display.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Right;
-            }
+            display.TextFormat.FontWeight = FontWeights.Heavy;
         }
 
         private void AddButton(string name, double x, double y, Size size)
