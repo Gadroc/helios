@@ -181,6 +181,7 @@
     <Compile Include="FontManager.cs" />
     <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
+    <Compile Include="Gauges\AV-8B\ODU\ODU.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
     <Compile Include="Gauges\FA-18C\ADI\ADI.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\BarometricAltimeter.cs" />
@@ -3528,6 +3529,7 @@
     <Resource Include="Images\FA-18C\UFC Button Up WOF.png" />
     <Resource Include="Images\FA-18C\UFC Button Up WPN.png" />
     <Resource Include="Images\FA-18C\UFC Faceplate.png" />
+    <Resource Include="Images\AV-8B\ODU.png" />
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
