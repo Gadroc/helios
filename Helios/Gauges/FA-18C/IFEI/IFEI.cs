@@ -29,6 +29,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
+        private HeliosInterface _defaultInterface; // default interface to do the binding with
         private String _font = "Digital-7 Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromRgb(220, 220, 220);
         private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
@@ -82,7 +83,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddTextDisplay("FF Right", 261, 195, new Size(TempWidth, dispHeight), fontSize, "6");
 
             AddTextDisplay("Oil Left", 107, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
-            AddTextDisplay("oil Right", 261, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
+            AddTextDisplay("Oil Right", 261, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
 
             AddPot(
                 name: "Brightness Control", 
@@ -99,7 +100,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             // get the default interface 
-            if (Profile.Interfaces.ContainsKey("Keyboard")) {
+            if (Profile.Interfaces.ContainsKey("DCS F/A-18C")) {
+                _defaultInterface = Profile.Interfaces["DCS F/A-18C"];
+                HeliosVisual child = Children["IFEI_MODE"];
+                child.OutputBindings.Add(new HeliosBinding(child.Triggers["pushed"], _defaultInterface.Actions["Integrated Fuel/Engine Indicator (IFEI).push.IFEI Mode Button"]));
                 ConfigManager.LogManager.LogDebug("Found Profile");
             }
             base.OnProfileChanged(oldProfile);
