@@ -178,7 +178,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 size: size,
                 image: "{Helios}/Images/FA-18C/UFC Button Up " + name + ".png",
                 pushedImage: "{Helios}/Images/FA-18C/UFC Button Dn " + name + ".png",
-                buttonText: ""
+                buttonText: "",
+                deviceName: "",
+                elementName: ""
                 );
         }
 
@@ -193,7 +195,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 size: size,
                 image: "{Helios}/Images/Buttons/tactile-dark-round.png",
                 pushedImage: "{Helios}/Images/Buttons/tactile-dark-round-in.png",
-                buttonText: ""
+                buttonText: "",
+                deviceName: "",
+                elementName: ""
                 );
 
             if (glyph)

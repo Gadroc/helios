@@ -484,13 +484,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             #endregion
 
             #region  Integrated Fuel/Engine Indicator (IFEI)
-            AddFunction(new PushButton(this, IFEI, "3001", "168", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Mode Button", "1", "0", "%1d"));    // elements["pnt_168"] = short_way_button(_("IFEI Mode Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_MODE,          168)
-            AddFunction(new PushButton(this, IFEI, "3002", "169", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI QTY Button", "1", "0", "%1d"));    // elements["pnt_169"] = short_way_button(_("IFEI QTY Button"),            devices.IFEI, IFEI_commands.IFEI_BTN_QTY,           169)
-            AddFunction(new PushButton(this, IFEI, "3003", "170", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Up Arrow Button", "1", "0", "%1d"));    // elements["pnt_170"] = short_way_button(_("IFEI Up Arrow Button"),       devices.IFEI, IFEI_commands.IFEI_BTN_UP_ARROW,      170)
-            AddFunction(new PushButton(this, IFEI, "3004", "171", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Down Arrow Button", "1", "0", "%1d"));    // elements["pnt_171"] = short_way_button(_("IFEI Down Arrow Button"),     devices.IFEI, IFEI_commands.IFEI_BTN_DOWN_ARROW,    171)
-            AddFunction(new PushButton(this, IFEI, "3005", "172", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI ZONE Button", "1", "0", "%1d"));    // elements["pnt_172"] = short_way_button(_("IFEI ZONE Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_ZONE,          172)
-            AddFunction(new PushButton(this, IFEI, "3006", "173", "Integrated Fuel/Engine Indicator (IFEI)", "IFEI ET Button", "1", "0", "%1d"));    // elements["pnt_173"] = short_way_button(_("IFEI ET Button"),             devices.IFEI, IFEI_commands.IFEI_BTN_ET,            173)
-            AddFunction(new Axis(this, IFEI, "3007", "174", 0.1d, 0.5d, 1d, "Integrated Fuel/Engine Indicator (IFEI)", "IFEI Brightness Control Knob"));    // elements["pnt_174"] = default_axis(_("IFEI Brightness Control Knob"),   devices.IFEI, IFEI_commands.IFEI_Brightness,        174, 0.5, 0.1)
+            AddFunction(new PushButton(this, IFEI, "3001", "168", "IFEI", "IFEI Mode Button", "1", "0", "%1d"));    // elements["pnt_168"] = short_way_button(_("IFEI Mode Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_MODE,          168)
+            AddFunction(new PushButton(this, IFEI, "3002", "169", "IFEI", "IFEI QTY Button", "1", "0", "%1d"));    // elements["pnt_169"] = short_way_button(_("IFEI QTY Button"),            devices.IFEI, IFEI_commands.IFEI_BTN_QTY,           169)
+            AddFunction(new PushButton(this, IFEI, "3003", "170", "IFEI", "IFEI Up Arrow Button", "1", "0", "%1d"));    // elements["pnt_170"] = short_way_button(_("IFEI Up Arrow Button"),       devices.IFEI, IFEI_commands.IFEI_BTN_UP_ARROW,      170)
+            AddFunction(new PushButton(this, IFEI, "3004", "171", "IFEI", "IFEI Down Arrow Button", "1", "0", "%1d"));    // elements["pnt_171"] = short_way_button(_("IFEI Down Arrow Button"),     devices.IFEI, IFEI_commands.IFEI_BTN_DOWN_ARROW,    171)
+            AddFunction(new PushButton(this, IFEI, "3005", "172", "IFEI", "IFEI ZONE Button", "1", "0", "%1d"));    // elements["pnt_172"] = short_way_button(_("IFEI ZONE Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_ZONE,          172)
+            AddFunction(new PushButton(this, IFEI, "3006", "173", "IFEI", "IFEI ET Button", "1", "0", "%1d"));    // elements["pnt_173"] = short_way_button(_("IFEI ET Button"),             devices.IFEI, IFEI_commands.IFEI_BTN_ET,            173)
+            AddFunction(new Axis(this, IFEI, "3007", "174", 0.1d, 0.5d, 1d, "IFEI", "IFEI Brightness Control Knob"));    // elements["pnt_174"] = default_axis(_("IFEI Brightness Control Knob"),   devices.IFEI, IFEI_commands.IFEI_Brightness,        174, 0.5, 0.1)
 
             AddFunction(new Text(this, "2052", "IFEI", "Bingo Value", "Value of the BINGO fuel state"));
             AddFunction(new Text(this, "2053", "IFEI", "Clock Hours", "Value of the clock HH"));

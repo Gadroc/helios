@@ -38,16 +38,17 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public IFEI_FA18C()
             : base("IFEI", new Size(779, 702))
         {
+            DefaultInterfaceName = "DCS F/A-18C";
             double spacing = 70;
             double start = 64;
             double left = 400;
             // adding the control buttons
-            AddButton("MODE", left, start, new Size(87, 62));
-            AddButton("QTY", left, start + spacing, new Size(87, 62));
-            AddButton("UP", left, start + 2 * spacing, new Size(87, 62));
-            AddButton("DOWN", left, start + 3 * spacing, new Size(87, 62));
-            AddButton("ZONE", left, start + 4 * spacing, new Size(87, 62));
-            AddButton("ET", left, start + 5 * spacing, new Size(87, 62));
+            AddButton("MODE", left, start, new Size(87, 62), "IFEI", "IFEI Mode Button");
+            AddButton("QTY", left, start + spacing, new Size(87, 62), "IFEI", "IFEI QTY Button");
+            AddButton("UP", left, start + 2 * spacing, new Size(87, 62), "IFEI", "IFEI Up Arrow Button");
+            AddButton("DOWN", left, start + 3 * spacing, new Size(87, 62), "IFEI", "IFEI Down Arrow Button");
+            AddButton("ZONE", left, start + 4 * spacing, new Size(87, 62), "IFEI", "IFEI ZONE Button");
+            AddButton("ET", left, start + 5 * spacing, new Size(87, 62), "IFEI", "IFEI ET Button");
 
             // adding the text displays
             double dispHeight = 50;
@@ -98,13 +99,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
 
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
-            // get the default interface 
-            if (Profile.Interfaces.ContainsKey("DCS F/A-18C")) {
-                _defaultInterface = Profile.Interfaces["DCS F/A-18C"];
-                HeliosVisual child = Children["IFEI_MODE"];
-                child.OutputBindings.Add(new HeliosBinding(child.Triggers["pushed"], _defaultInterface.Actions["Integrated Fuel/Engine Indicator (IFEI).push.IFEI Mode Button"]));
-                ConfigManager.LogManager.LogDebug("Found Profile");
-            }
             base.OnProfileChanged(oldProfile);
         }
 
@@ -131,7 +125,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             display.TextFormat.FontWeight = FontWeights.Heavy;
         }
 
-        private void AddButton(string name, double x, double y, Size size)
+        private void AddButton(string name, double x, double y, Size size, string interfaceDevice, string interfaceElement)
         {
             Point pos = new Point(x, y);
             AddButton(
@@ -140,7 +134,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 size: size,
                 image: _imageLocation + "IFEI_" + name + ".png",
                 pushedImage: _imageLocation + "IFEI_" + name + "_DN.png",
-                buttonText: ""
+                buttonText: "",
+                deviceName: interfaceDevice,
+                elementName: interfaceElement
                 );
         }
 

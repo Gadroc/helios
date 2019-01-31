@@ -22,15 +22,41 @@ namespace GadrocsWorkshop.Helios
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
 
+    public struct DefaultBinding
+    {
+        public string ChildName, BindingTrigger, DeviceName, DeviceElementName, ActionName;
+        public bool IsInput;
+
+        public DefaultBinding(bool isInput, string childName, string bindingTrigger, 
+            string deviceName, string deviceElementName, string actionName)
+        {
+            IsInput = isInput;
+            ChildName = childName;
+            BindingTrigger = bindingTrigger;
+            DeviceName = deviceName;
+            DeviceElementName = deviceElementName;
+            ActionName = actionName;
+        }
+    }
+
     public abstract class CompositeVisual : HeliosVisual
     {
         private Dictionary<HeliosVisual, Rect> _nativeSizes = new Dictionary<HeliosVisual, Rect>();
+        protected List<DefaultBinding> _defaultBindings;
+        protected string _defaultInterfaceName; // default name of the interface to be used
+        protected string _defaultBindingName;   // the name of the default binding in the interface
+        protected HeliosInterface _defaultInterface;
+
 
         public CompositeVisual(string name, Size nativeSize)
             : base(name, nativeSize)
         {
             PersistChildren = false;
             Children.CollectionChanged += Children_CollectionChanged;
+            _defaultInterfaceName = "";
+            _defaultBindingName = "";
+            _defaultInterface = null;
+            _defaultBindings = new List<DefaultBinding>();
         }
 
         void Children_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -59,6 +85,31 @@ namespace GadrocsWorkshop.Helios
                 }
             }
         }
+
+        #region Properties
+        public string DefaultInterfaceName
+        {
+            set
+            {
+                _defaultInterfaceName = value;
+            }
+        }
+
+        public string DefaultBindingName
+        {
+            set
+            {
+                _defaultBindingName = value;
+            }
+        }
+
+        public List<DefaultBinding> DefaultBindings
+        {
+            get {
+                return _defaultBindings;
+            }
+}
+        #endregion
 
         public override void Reset()
         {
@@ -96,6 +147,52 @@ namespace GadrocsWorkshop.Helios
                     item.Key.Top = item.Value.Top + (locYDif * scaleY) - locYDif;
                 }
                 item.Key.Height = Math.Max(item.Value.Height * scaleY, 1d);
+            }
+        }
+
+        protected override void OnProfileChanged(HeliosProfile oldProfile)
+        {
+            base.OnProfileChanged(oldProfile);
+            if (!DesignMode)
+                return;
+
+            /// grab the default interface, if it exists
+            if (_defaultInterfaceName == "") {
+                return; 
+            }
+            if (!Profile.Interfaces.ContainsKey(_defaultInterfaceName))
+            {
+                ConfigManager.LogManager.LogError("Cannot find default interface " + _defaultInterfaceName);
+                return;
+            }
+            _defaultInterface = Profile.Interfaces[_defaultInterfaceName];
+
+            /// now looping for all default bindings to assign the value
+            foreach (DefaultBinding defaultBinding in _defaultBindings) {
+                if (!Children.ContainsKey(defaultBinding.ChildName)) {
+                    ConfigManager.LogManager.LogError("Cannot find child " + defaultBinding.ChildName);
+                    continue;
+                }
+                HeliosVisual child = Children[defaultBinding.ChildName];
+                if (!child.Triggers.ContainsKey(defaultBinding.BindingTrigger)) {
+                    ConfigManager.LogManager.LogError("Cannot find trigger " + defaultBinding.BindingTrigger);
+                    continue;
+                }
+                string fullActionName = defaultBinding.DeviceName + "." + defaultBinding.ActionName + "." + defaultBinding.DeviceElementName;  
+                if (!_defaultInterface.Actions.ContainsKey(fullActionName))
+                {
+                    ConfigManager.LogManager.LogError("Cannot find action " + fullActionName);
+                    continue;
+                }
+                if (defaultBinding.IsInput) {
+                    child.InputBindings.Add(new HeliosBinding(child.Triggers[defaultBinding.BindingTrigger],
+                                _defaultInterface.Actions[fullActionName]));
+                }
+                else {
+                    child.OutputBindings.Add(new HeliosBinding(child.Triggers[defaultBinding.BindingTrigger],
+                                _defaultInterface.Actions[fullActionName]));
+                }
+
             }
         }
 
@@ -205,7 +302,7 @@ namespace GadrocsWorkshop.Helios
         /// <param name="buttonText"></param>
         /// <returns></returns>
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
-            string buttonText)
+            string buttonText, string deviceName, string elementName)
         {
             string componentName = GetComponentName(name);
             PushButton button = new PushButton
@@ -228,6 +325,24 @@ namespace GadrocsWorkshop.Helios
             AddAction(button.Actions["push"], componentName);
             AddAction(button.Actions["release"], componentName);
             AddAction(button.Actions["set.physical state"], componentName);
+
+            // add the default actions
+            DefaultBindings.Add(new DefaultBinding(
+                isInput: false,
+                childName: componentName,
+                bindingTrigger: "pushed",
+                deviceName: deviceName,
+                deviceElementName: elementName,
+                actionName: "push")
+                );
+            DefaultBindings.Add(new DefaultBinding(
+                isInput: false,
+                childName: componentName,
+                bindingTrigger: "released",
+                deviceName: deviceName,
+                deviceElementName: elementName,
+                actionName: "release")
+                );
 
             return button;
         }
