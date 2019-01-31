@@ -29,9 +29,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
-        private HeliosInterface _defaultInterface; // default interface to do the binding with
-        private String _font = "Digital-7 Mono"; // "Segment7 Standard"; //"Seven Segment";
-        private Color _textColor = Color.FromRgb(220, 220, 220);
+        private String _font = "Hornet IFEI"; // "Segment7 Standard"; //"Seven Segment";
+        private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
         private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
         private string _imageLocation = "{Helios}/Gauges/FA-18C/IFEI/";
         private bool _useBackGround = false;
@@ -68,8 +67,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
             double fuelX = 527;
             double fuelWidth = 159;
-            AddTextDisplay("Fuel Up", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T");
-            AddTextDisplay("Fuel Dn", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780T");
+            AddTextDisplay("Fuel Total", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T");
+            AddTextDisplay("Fuel", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780I");
 
             double RPMWidth = 65;
             AddTextDisplay("RPM Left", 107, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
