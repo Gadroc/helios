@@ -185,10 +185,7 @@ namespace GadrocsWorkshop.Helios
                 deviceTriggerName: deviceTriggerName,
                 interfaceActionName: interfaceActionName
                 ));
-
         }
-
-
 
         protected override void OnProfileChanged(HeliosProfile oldProfile)
         {
@@ -253,6 +250,10 @@ namespace GadrocsWorkshop.Helios
             }
         }
 
+        private Point FromCenter(Point pos, Size size) {
+            return new Point(pos.X - size.Width / 2.0, pos.Y - size.Height / 2.0);
+        }
+
         protected void AddTrigger(IBindingTrigger trigger, string device)
         {
             trigger.Device = device;
@@ -269,24 +270,15 @@ namespace GadrocsWorkshop.Helios
             return Name + "_" + name;
         }
 
-        /// <summary>
-        ///  method to add a Pot to the Composite visual
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="posn"></param>
-        /// <param name="size"></param>
-        /// <param name="knobImage"></param>
-        /// <param name="initialRotation"></param>
-        /// <param name="rotationTravel"></param>
-        /// <param name="minValue"></param>
-        /// <param name="maxValue"></param>
-        /// <param name="initialValue"></param>
-        /// <param name="stepValue"></param>
         protected Potentiometer AddPot(string name, Point posn, Size size, string knobImage,
-            double initialRotation, double rotationTravel, double minValue, double maxValue, double initialValue, double stepValue)
+            double initialRotation, double rotationTravel, double minValue, double maxValue, 
+            double initialValue, double stepValue,
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
             string componentName = GetComponentName(name);
-            Potentiometer _knob = new Helios.Controls.Potentiometer
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            Potentiometer _knob = new Potentiometer
             {
                 Name = componentName,
                 KnobImage = knobImage,
@@ -309,20 +301,22 @@ namespace GadrocsWorkshop.Helios
             }
             AddAction(_knob.Actions["set.value"], componentName);
 
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "value.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+           );
+
+
             return _knob;
         }
 
-        /// <summary>
-        /// Method to add an encoder
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="posn"></param>
-        /// <param name="size"></param>
-        /// <param name="knobImage"></param>
-        /// <param name="stepValue"></param>
-        /// <param name="rotationStep"></param>
-        protected RotaryEncoder AddEncoder(string name, Point posn, Size size, string knobImage, double stepValue, double rotationStep)
+        protected RotaryEncoder AddEncoder(string name, Point posn, Size size, 
+            string knobImage, double stepValue, double rotationStep, 
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
             string componentName = GetComponentName(name);
             RotaryEncoder _knob = new RotaryEncoder
             {
@@ -345,12 +339,25 @@ namespace GadrocsWorkshop.Helios
             {
                 AddAction(action, componentName);
             }
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "incremented",
+                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
+            );
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "decremented",
+                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
+                );
+
             return _knob;
         }
 
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
-            string buttonText, string deviceName, string elementName)
+            string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
             string componentName = GetComponentName(name);
             PushButton button = new PushButton
             {
@@ -377,34 +384,36 @@ namespace GadrocsWorkshop.Helios
             AddDefaultOutputBinding(
                 childName: componentName,
                 deviceTriggerName: "pushed",
-                interfaceActionName: deviceName + ".push." + elementName 
+                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName 
                 );
             AddDefaultOutputBinding(
                 childName: componentName,
                 deviceTriggerName: "released",
-                interfaceActionName: deviceName + ".push." + elementName
+                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
                 );
             AddDefaultInputBinding(
                 childName: componentName,
-                interfaceTriggerName: deviceName + "." + elementName + ".pushed",
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".pushed",
                 deviceActionName: "push");
             AddDefaultInputBinding(
                 childName: componentName,
-                interfaceTriggerName: deviceName + "." + elementName + ".released",
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".released",
                 deviceActionName: "release");
 
             return button;
         }
 
-        protected Indicator AddIndicator(string name, Point pos, Size size,
+        protected Indicator AddIndicator(string name, Point posn, Size size,
             string onImage, string offImage, Color onTextColor, Color offTextColor, string font,
-            bool vertical)
+            bool vertical, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
             string componentName = GetComponentName("Annunciator " + name);
-            Helios.Controls.Indicator indicator = new Helios.Controls.Indicator
+            Indicator indicator = new Helios.Controls.Indicator
             {
-                Top = pos.Y,
-                Left = pos.X,
+                Top = posn.Y,
+                Left = posn.X,
                 Width = size.Width,
                 Height = size.Height,
                 OnImage = onImage,
@@ -481,18 +490,6 @@ namespace GadrocsWorkshop.Helios
             return indicator;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="pos"></param>
-        /// <param name="size"></param>
-        /// <param name="defaultPosition"></param>
-        /// <param name="switchType"></param>
-        /// <param name="positionOneImage"></param>
-        /// <param name="positionTwoImage"></param>
-        /// <param name="positionThreeImage"></param>
-        /// <returns></returns>
         protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
             ThreeWayToggleSwitchPosition defaultPosition, ThreeWayToggleSwitchType switchType,
             string positionOneImage = "{Helios}/Images/Toggles/round-up.png", 
@@ -523,21 +520,6 @@ namespace GadrocsWorkshop.Helios
             return toggle;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="pos"></param>
-        /// <param name="size"></param>
-        /// <param name="font"></param>
-        /// <param name="horizontalAlignment"></param>
-        /// <param name="verticalAligment"></param>
-        /// <param name="baseFontsize"></param>
-        /// <param name="testTextDisplay"></param>
-        /// <param name="textColor"></param>
-        /// <param name="backgroundColor"></param>
-        /// <param name="useBackground"></param>
-        /// <returns></returns>
         protected TextDisplay AddTextDisplay(
             string name, 
             Point pos, 

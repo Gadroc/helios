@@ -103,7 +103,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 minValue: 0, 
                 maxValue: 1, 
                 initialValue: 0, 
-                stepValue: 0.1);
+                stepValue: 0.1,
+                interfaceDeviceName: "",
+                interfaceElementName: "",
+                fromCenter: false);
         }
 
         private void AddEncoder(string name, Point posn, Size size)
@@ -114,7 +117,11 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 posn: posn,
                 knobImage: "{Helios}/Images/FA-18C/UFC Rotator_U.png",
                 stepValue: 0.1,
-                rotationStep: 5);
+                rotationStep: 5,
+                interfaceDeviceName: "",
+                interfaceElementName: "",
+                fromCenter: false
+                );
         }
 
         private void AddTextDisplay(string name, double x, double y, Size size, string testDisp)
@@ -179,8 +186,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 image: "{Helios}/Images/FA-18C/UFC Button Up " + name + ".png",
                 pushedImage: "{Helios}/Images/FA-18C/UFC Button Dn " + name + ".png",
                 buttonText: "",
-                deviceName: "",
-                elementName: ""
+                interfaceDeviceName: "",
+                interfaceElementName: "",
+                fromCenter: false
                 );
         }
 
@@ -196,8 +204,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 image: "{Helios}/Images/Buttons/tactile-dark-round.png",
                 pushedImage: "{Helios}/Images/Buttons/tactile-dark-round-in.png",
                 buttonText: "",
-                deviceName: "",
-                elementName: ""
+                interfaceDeviceName: "",
+                interfaceElementName: "",
+                fromCenter: false
                 );
 
             if (glyph)
@@ -213,14 +222,17 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             Helios.Controls.Indicator indicator = AddIndicator(
                 name: name,
-                pos: new Point(x, y),
+                posn: new Point(x, y),
                 size: size,
                 onImage: "{Helios}/Images/Indicators/anunciator.png",
                 offImage: "{Helios}/Images/Indicators/anunciator.png",
                 onTextColor: Color.FromArgb(0xff, 0x24, 0x8D, 0x22),
                 offTextColor: Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C),
                 font: _font,
-                vertical: _vertical
+                vertical: _vertical,
+                interfaceDeviceName: "",
+                interfaceElementName: "",
+                fromCenter: false
                 );
         }
 

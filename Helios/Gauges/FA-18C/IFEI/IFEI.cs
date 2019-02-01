@@ -87,7 +87,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
             AddPot(
                 name: "Brightness Control", 
-                posn: new Point(55, 601),
+                posn: new Point(82, 630),
                 size: new Size(60, 60),
                 knobImage: "{Helios}/Images/AV-8B/Common Knob.png",
                 initialRotation: 219,
@@ -95,7 +95,11 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 minValue: 0,
                 maxValue: 1,
                 initialValue: 0,
-                stepValue: 0.1);
+                stepValue: 0.1,
+                interfaceDeviceName: "IFEI",
+                interfaceElementName: "IFEI Brightness Control Knob",
+                fromCenter: true
+                );
         }
 
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
@@ -135,8 +139,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 image: _imageLocation + "IFEI_" + name + ".png",
                 pushedImage: _imageLocation + "IFEI_" + name + "_DN.png",
                 buttonText: "",
-                deviceName: interfaceDevice,
-                elementName: interfaceElement
+                interfaceDeviceName: interfaceDevice,
+                interfaceElementName: interfaceElement,
+                fromCenter: false
                 );
         }
 
