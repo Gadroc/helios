@@ -22,27 +22,37 @@ namespace GadrocsWorkshop.Helios
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
 
-    public struct DefaultBinding
+    // for inputs, a trigger on the interface creates an action on the device
+    public struct DefaultInputBinding
     {
-        public string ChildName, BindingTrigger, DeviceName, DeviceElementName, ActionName;
-        public bool IsInput;
+        public string ChildName, InterfaceTriggerName, DeviceActionName;
 
-        public DefaultBinding(bool isInput, string childName, string bindingTrigger, 
-            string deviceName, string deviceElementName, string actionName)
+        public DefaultInputBinding(string childName, string interfaceTriggerName, string deviceActionName)
         {
-            IsInput = isInput;
             ChildName = childName;
-            BindingTrigger = bindingTrigger;
-            DeviceName = deviceName;
-            DeviceElementName = deviceElementName;
-            ActionName = actionName;
+            InterfaceTriggerName = interfaceTriggerName;
+            DeviceActionName = deviceActionName;
+        }
+    }
+
+    // for output, a triggeer on the device leads to an action on the interface
+    public struct DefaultOutputBinding
+    {
+        public string ChildName, DeviceTriggerName, InterfaceActionName;
+
+        public DefaultOutputBinding(string childName, string deviceTriggerName, string interfaceActionName)
+        {
+            ChildName = childName;
+            DeviceTriggerName = deviceTriggerName;
+            InterfaceActionName = interfaceActionName;
         }
     }
 
     public abstract class CompositeVisual : HeliosVisual
     {
         private Dictionary<HeliosVisual, Rect> _nativeSizes = new Dictionary<HeliosVisual, Rect>();
-        protected List<DefaultBinding> _defaultBindings;
+        protected List<DefaultOutputBinding> _defaultOutputBindings;
+        protected List<DefaultInputBinding> _defaultInputBindings;
         protected string _defaultInterfaceName; // default name of the interface to be used
         protected string _defaultBindingName;   // the name of the default binding in the interface
         protected HeliosInterface _defaultInterface;
@@ -56,7 +66,8 @@ namespace GadrocsWorkshop.Helios
             _defaultInterfaceName = "";
             _defaultBindingName = "";
             _defaultInterface = null;
-            _defaultBindings = new List<DefaultBinding>();
+            _defaultInputBindings = new List<DefaultInputBinding>();
+            _defaultOutputBindings = new List<DefaultOutputBinding>();
         }
 
         void Children_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -103,12 +114,20 @@ namespace GadrocsWorkshop.Helios
             }
         }
 
-        public List<DefaultBinding> DefaultBindings
+        public List<DefaultInputBinding> DefaultInputBindings
         {
             get {
-                return _defaultBindings;
+                return _defaultInputBindings;
             }
-}
+        }
+        public List<DefaultOutputBinding> DefaultOutputBindings
+        {
+            get
+            {
+                return _defaultOutputBindings;
+            }
+        }
+
         #endregion
 
         public override void Reset()
@@ -150,6 +169,27 @@ namespace GadrocsWorkshop.Helios
             }
         }
 
+        protected void AddDefaultInputBinding(string childName, string interfaceTriggerName, string deviceActionName)
+        {
+            DefaultInputBindings.Add(new DefaultInputBinding(
+                childName: childName,
+                interfaceTriggerName: interfaceTriggerName,
+                deviceActionName: deviceActionName
+                ));
+        }
+
+        protected void AddDefaultOutputBinding(string childName, string deviceTriggerName, string interfaceActionName)
+        {
+            DefaultOutputBindings.Add(new DefaultOutputBinding(
+                childName: childName,
+                deviceTriggerName: deviceTriggerName,
+                interfaceActionName: interfaceActionName
+                ));
+
+        }
+
+
+
         protected override void OnProfileChanged(HeliosProfile oldProfile)
         {
             base.OnProfileChanged(oldProfile);
@@ -167,32 +207,49 @@ namespace GadrocsWorkshop.Helios
             }
             _defaultInterface = Profile.Interfaces[_defaultInterfaceName];
 
-            /// now looping for all default bindings to assign the value
-            foreach (DefaultBinding defaultBinding in _defaultBindings) {
+            /// looping for all default input bindings to assign the value
+            foreach (DefaultInputBinding defaultBinding in _defaultInputBindings)
+            {
+                if (!Children.ContainsKey(defaultBinding.ChildName))
+                {
+                    ConfigManager.LogManager.LogError("Cannot find child " + defaultBinding.ChildName);
+                    continue;
+                }
+                HeliosVisual child = Children[defaultBinding.ChildName];
+                if (!child.Actions.ContainsKey(defaultBinding.DeviceActionName))
+                {
+                    ConfigManager.LogManager.LogError("Cannot find action " + defaultBinding.DeviceActionName);
+                    continue;
+                }
+                if (!_defaultInterface.Triggers.ContainsKey(defaultBinding.InterfaceTriggerName))
+                {
+                    ConfigManager.LogManager.LogError("Cannot find interface trigger " + defaultBinding.InterfaceTriggerName);
+                    continue;
+                }
+                child.OutputBindings.Add(
+                    new HeliosBinding(_defaultInterface.Triggers[defaultBinding.InterfaceTriggerName],
+                        child.Actions[defaultBinding.DeviceActionName]));
+            }
+
+            /// now looping for all default output bindings to assign the value
+            foreach (DefaultOutputBinding defaultBinding in _defaultOutputBindings) {
                 if (!Children.ContainsKey(defaultBinding.ChildName)) {
                     ConfigManager.LogManager.LogError("Cannot find child " + defaultBinding.ChildName);
                     continue;
                 }
                 HeliosVisual child = Children[defaultBinding.ChildName];
-                if (!child.Triggers.ContainsKey(defaultBinding.BindingTrigger)) {
-                    ConfigManager.LogManager.LogError("Cannot find trigger " + defaultBinding.BindingTrigger);
+                if (!child.Triggers.ContainsKey(defaultBinding.DeviceTriggerName)) {
+                    ConfigManager.LogManager.LogError("Cannot find trigger " + defaultBinding.DeviceTriggerName);
                     continue;
                 }
-                string fullActionName = defaultBinding.DeviceName + "." + defaultBinding.ActionName + "." + defaultBinding.DeviceElementName;  
-                if (!_defaultInterface.Actions.ContainsKey(fullActionName))
+                if (!_defaultInterface.Actions.ContainsKey(defaultBinding.InterfaceActionName))
                 {
-                    ConfigManager.LogManager.LogError("Cannot find action " + fullActionName);
+                    ConfigManager.LogManager.LogError("Cannot find action " + defaultBinding.InterfaceActionName);
                     continue;
                 }
-                if (defaultBinding.IsInput) {
-                    child.InputBindings.Add(new HeliosBinding(child.Triggers[defaultBinding.BindingTrigger],
-                                _defaultInterface.Actions[fullActionName]));
-                }
-                else {
-                    child.OutputBindings.Add(new HeliosBinding(child.Triggers[defaultBinding.BindingTrigger],
-                                _defaultInterface.Actions[fullActionName]));
-                }
-
+                child.OutputBindings.Add(
+                    new HeliosBinding(child.Triggers[defaultBinding.DeviceTriggerName],
+                                      _defaultInterface.Actions[defaultBinding.InterfaceActionName]));
             }
         }
 
@@ -225,7 +282,7 @@ namespace GadrocsWorkshop.Helios
         /// <param name="maxValue"></param>
         /// <param name="initialValue"></param>
         /// <param name="stepValue"></param>
-        protected Helios.Controls.Potentiometer AddPot(string name, Point posn, Size size, string knobImage,
+        protected Potentiometer AddPot(string name, Point posn, Size size, string knobImage,
             double initialRotation, double rotationTravel, double minValue, double maxValue, double initialValue, double stepValue)
         {
             string componentName = GetComponentName(name);
@@ -264,7 +321,7 @@ namespace GadrocsWorkshop.Helios
         /// <param name="knobImage"></param>
         /// <param name="stepValue"></param>
         /// <param name="rotationStep"></param>
-        protected Helios.Controls.RotaryEncoder AddEncoder(string name, Point posn, Size size, string knobImage, double stepValue, double rotationStep)
+        protected RotaryEncoder AddEncoder(string name, Point posn, Size size, string knobImage, double stepValue, double rotationStep)
         {
             string componentName = GetComponentName(name);
             RotaryEncoder _knob = new RotaryEncoder
@@ -291,16 +348,6 @@ namespace GadrocsWorkshop.Helios
             return _knob;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="posn"></param>
-        /// <param name="size"></param>
-        /// <param name="image"></param>
-        /// <param name="pushedImage"></param>
-        /// <param name="buttonText"></param>
-        /// <returns></returns>
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
             string buttonText, string deviceName, string elementName)
         {
@@ -327,39 +374,28 @@ namespace GadrocsWorkshop.Helios
             AddAction(button.Actions["set.physical state"], componentName);
 
             // add the default actions
-            DefaultBindings.Add(new DefaultBinding(
-                isInput: false,
+            AddDefaultOutputBinding(
                 childName: componentName,
-                bindingTrigger: "pushed",
-                deviceName: deviceName,
-                deviceElementName: elementName,
-                actionName: "push")
+                deviceTriggerName: "pushed",
+                interfaceActionName: deviceName + ".push." + elementName 
                 );
-            DefaultBindings.Add(new DefaultBinding(
-                isInput: false,
+            AddDefaultOutputBinding(
                 childName: componentName,
-                bindingTrigger: "released",
-                deviceName: deviceName,
-                deviceElementName: elementName,
-                actionName: "release")
+                deviceTriggerName: "released",
+                interfaceActionName: deviceName + ".push." + elementName
                 );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: deviceName + "." + elementName + ".pushed",
+                deviceActionName: "push");
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: deviceName + "." + elementName + ".released",
+                deviceActionName: "release");
 
             return button;
         }
 
-        /// <summary>
-        /// Adding an Indicator to the composite image
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="pos"></param>
-        /// <param name="size"></param>
-        /// <param name="onImage"></param>
-        /// <param name="offImage"></param>
-        /// <param name="onTextColor"></param>
-        /// <param name="offTextColor"></param>
-        /// <param name="font"></param>
-        /// <param name="vertical"></param>
-        /// <returns></returns>
         protected Indicator AddIndicator(string name, Point pos, Size size,
             string onImage, string offImage, Color onTextColor, Color offTextColor, string font,
             bool vertical)
@@ -407,18 +443,6 @@ namespace GadrocsWorkshop.Helios
             return indicator;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="pos"></param>
-        /// <param name="size"></param>
-        /// <param name="image"></param>
-        /// <param name="pushedImage"></param>
-        /// <param name="textColor"></param>
-        /// <param name="onTextColor"></param>
-        /// <param name="font"></param>
-        /// <returns></returns>
         protected IndicatorPushButton AddIndicatorPushButton(string name, Point pos, Size size,
             string image, string pushedImage, Color textColor, Color onTextColor, string font)
         {
