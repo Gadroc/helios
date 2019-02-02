@@ -29,7 +29,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
-        private String _font = "Hornet IFEI"; // "Segment7 Standard"; //"Seven Segment";
+        private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
         private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
         private string _imageLocation = "{Helios}/Gauges/FA-18C/IFEI/";
@@ -58,32 +58,32 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             double clockSpreadWidth = 3;
             double clockX = 530;
             double clockY = 352;
-            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10");
-            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11");
-            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12");
+            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10", "IFEI", "Clock Hours");
+            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11", "IFEI", "Clock Minutes");
+            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12", "IFEI", "Clock Seconds");
 
             // Fuel info
 
-            AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000");
+            AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000", "IFEI", "Bingo Value");
 
             double fuelX = 527;
             double fuelWidth = 159;
-            AddTextDisplay("Fuel Total", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T");
-            AddTextDisplay("Fuel", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780I");
+            AddTextDisplay("Fuel Total", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T", "IFEI", "Fuel Up");
+            //AddTextDisplay("Fuel", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780I");
 
-            double RPMWidth = 65;
-            AddTextDisplay("RPM Left", 107, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
-            AddTextDisplay("RPM Right", 261, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
+            //double RPMWidth = 65;
+            //AddTextDisplay("RPM Left", 107, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
+            //AddTextDisplay("RPM Right", 261, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
 
-            double TempWidth = 95;
-            AddTextDisplay("Temp Left", 77, 140, new Size(TempWidth, dispHeight), fontSize, "330");
-            AddTextDisplay("Temp Right", 261, 140, new Size(TempWidth, dispHeight), fontSize, "333");
+            //double TempWidth = 95;
+            //AddTextDisplay("Temp Left", 77, 140, new Size(TempWidth, dispHeight), fontSize, "330");
+            //AddTextDisplay("Temp Right", 261, 140, new Size(TempWidth, dispHeight), fontSize, "333");
 
-            AddTextDisplay("FF Left", 77, 195, new Size(TempWidth, dispHeight), fontSize, "6");
-            AddTextDisplay("FF Right", 261, 195, new Size(TempWidth, dispHeight), fontSize, "6");
+            //AddTextDisplay("FF Left", 77, 195, new Size(TempWidth, dispHeight), fontSize, "6");
+            //AddTextDisplay("FF Right", 261, 195, new Size(TempWidth, dispHeight), fontSize, "6");
 
-            AddTextDisplay("Oil Left", 107, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
-            AddTextDisplay("Oil Right", 261, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
+            //AddTextDisplay("Oil Left", 107, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
+            //AddTextDisplay("Oil Right", 261, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
 
             AddPot(
                 name: "Brightness Control", 
@@ -111,7 +111,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             get { return _imageLocation + "IFEI.png"; }
         }
 
-        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, string testDisp)
+        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, string testDisp,
+            string interfaceDevice, string interfaceElement)
         {
             TextDisplay display = AddTextDisplay(
                 name: name,
@@ -124,7 +125,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 testTextDisplay: testDisp,
                 textColor: _textColor,
                 backgroundColor: _backGroundColor,
-                useBackground: _useBackGround
+                useBackground: _useBackGround,
+                interfaceDeviceName: interfaceDevice,
+                interfaceElementName: interfaceElement
                 );
             display.TextFormat.FontWeight = FontWeights.Heavy;
         }

@@ -308,6 +308,7 @@ namespace GadrocsWorkshop.Helios
            );
 
 
+
             return _knob;
         }
 
@@ -339,16 +340,16 @@ namespace GadrocsWorkshop.Helios
             {
                 AddAction(action, componentName);
             }
-            AddDefaultOutputBinding(
-                childName: componentName,
-                deviceTriggerName: "incremented",
-                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
-            );
-            AddDefaultOutputBinding(
-                childName: componentName,
-                deviceTriggerName: "decremented",
-                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
-                );
+            //AddDefaultOutputBinding(
+            //    childName: componentName,
+            //    deviceTriggerName: "incremented",
+            //    interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
+            //);
+            //AddDefaultOutputBinding(
+            //    childName: componentName,
+            //    deviceTriggerName: "decremented",
+            //    interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
+            //    );
 
             return _knob;
         }
@@ -389,16 +390,16 @@ namespace GadrocsWorkshop.Helios
             AddDefaultOutputBinding(
                 childName: componentName,
                 deviceTriggerName: "released",
-                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
+                interfaceActionName: interfaceDeviceName + ".release." + interfaceElementName
                 );
-            AddDefaultInputBinding(
-                childName: componentName,
-                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".pushed",
-                deviceActionName: "push");
-            AddDefaultInputBinding(
-                childName: componentName,
-                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".released",
-                deviceActionName: "release");
+            //AddDefaultInputBinding(
+            //    childName: componentName,
+            //    interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".pushed",
+            //    deviceActionName: "push");
+            //AddDefaultInputBinding(
+            //    childName: componentName,
+            //    interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".released",
+            //    deviceActionName: "release");
 
             return button;
         }
@@ -531,7 +532,9 @@ namespace GadrocsWorkshop.Helios
             string testTextDisplay,
             Color textColor,
             Color backgroundColor,
-            bool useBackground
+            bool useBackground,
+            string interfaceDeviceName, 
+            string interfaceElementName
             )
         {
             string componentName = GetComponentName(name);
@@ -559,6 +562,13 @@ namespace GadrocsWorkshop.Helios
             display.TextTestValue = testTextDisplay;
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], componentName);
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changedxx",
+                deviceActionName: "set.TextDisplay");
+
+
 
             return display;
         }
