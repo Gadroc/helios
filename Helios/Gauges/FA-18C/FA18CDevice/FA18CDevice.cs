@@ -23,6 +23,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public FA18CDevice(string name, Size size)
             : base(name, size)
         {
+            DefaultInterfaceName = "DCS F/A-18C";
 
         }
 

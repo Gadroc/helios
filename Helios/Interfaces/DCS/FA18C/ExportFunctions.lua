@@ -16,10 +16,10 @@ function ProcessHighImportance(mainPanelDevice)
 --
 --
 --    -- getting the IFEI data
---    local li = parse_indication(5)  -- 5 for IFEI
---    if li then
---        --IFEI data
---
+    local li = parse_indication(5)  -- 5 for IFEI
+    if li then
+        --IFEI data
+
         SendData("2052", string.format("%s",check(li.txt_BINGO)))
         SendData("2053", string.format("%s",check(li.txt_CLOCK_H)))
         SendData("2054", string.format("%s",check(li.txt_CLOCK_M)))
@@ -67,7 +67,7 @@ function ProcessHighImportance(mainPanelDevice)
 ----      IFEI_Textures_table[16] =check_num(li.RPointerTexture)
 --
 ----
---    end
+    end
 --
 	-- getting the UFC data
 	local li = parse_indication(6)  -- 6 for UFC

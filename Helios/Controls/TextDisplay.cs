@@ -62,7 +62,7 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             set
             {
-                if (_useParseDicationary)
+               if (_useParseDicationary)
                 {
                     if (!_rawValue.Equals(value))
                     {
@@ -351,7 +351,7 @@ namespace GadrocsWorkshop.Helios.Controls
             TextTestValue = reader.ReadElementString("TextTest");
             ParserDictionary = reader.ReadElementString("ParserDictionary");
             UseBackground = (bool)boolConverter.ConvertFromInvariantString(reader.ReadElementString("UseBackground"));
-            UseParseDictionary = (bool)boolConverter.ConvertFromInvariantString(reader.ReadElementString("UseParseDictionary"));
+            UseParseDictionary = (bool)boolConverter.ConvertFromInvariantString(reader.ReadElementString("UseParserDictionary"));
             base.ReadXml(reader);
         }
 

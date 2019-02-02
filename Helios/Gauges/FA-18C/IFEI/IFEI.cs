@@ -38,7 +38,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public IFEI_FA18C()
             : base("IFEI", new Size(779, 702))
         {
-            DefaultInterfaceName = "DCS F/A-18C";
             double spacing = 70;
             double start = 64;
             double left = 400;

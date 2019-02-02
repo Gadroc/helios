@@ -361,16 +361,16 @@ namespace GadrocsWorkshop.Helios
             {
                 AddAction(action, componentName);
             }
-            //AddDefaultOutputBinding(
-            //    childName: componentName,
-            //    deviceTriggerName: "incremented",
-            //    interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
-            //);
-            //AddDefaultOutputBinding(
-            //    childName: componentName,
-            //    deviceTriggerName: "decremented",
-            //    interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
-            //    );
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "encoder.incremented",
+                interfaceActionName: interfaceDeviceName + ".increment." + interfaceElementName
+            );
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "encoder.decremented",
+                interfaceActionName: interfaceDeviceName + ".decrement." + interfaceElementName
+                );
 
             return _knob;
         }
@@ -510,6 +510,7 @@ namespace GadrocsWorkshop.Helios
 
         protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
             ThreeWayToggleSwitchPosition defaultPosition, ThreeWayToggleSwitchType switchType,
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter, 
             string positionOneImage = "{Helios}/Images/Toggles/round-up.png", 
             string positionTwoImage = "{Helios}/Images/Toggles/round-norm.png", 
             string positionThreeImage = "{Helios}/Images/Toggles/round-down.png")
@@ -535,6 +536,17 @@ namespace GadrocsWorkshop.Helios
                 AddTrigger(trigger, componentName);
             }
             AddAction(toggle.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
             return toggle;
         }
 
@@ -568,14 +580,18 @@ namespace GadrocsWorkshop.Helios
                 FontFamily = new FontFamily(font),
                 HorizontalAlignment = horizontalAlignment,
                 VerticalAlignment = verticalAligment,
-                FontSize = baseFontsize
+                FontSize = baseFontsize,
+                PaddingRight = 0,
+                PaddingLeft = 0,
+                PaddingTop = 0,
+                PaddingBottom = 0
             };
 
             display.TextFormat = textFormat;
             display.OnTextColor = textColor; // Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
             display.BackgroundColor = backgroundColor; // Color.FromArgb(0xff, 0x00, 0x00, 0x00);
             display.UseBackground = useBackground;
-            display.ParserDictionary = "A=A";
+            display.ParserDictionary = "";
             display.TextTestValue = testTextDisplay;
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], componentName);
