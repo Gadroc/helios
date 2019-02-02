@@ -146,7 +146,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddTextDisplay(string name, double x, double y, Size size,double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign)
         {
-            Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
+            TextDisplay display = new Helios.Controls.TextDisplay
             {
                 Top = y,
                 Left = x,

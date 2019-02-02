@@ -187,6 +187,21 @@ namespace GadrocsWorkshop.Helios
                 ));
         }
 
+        private HeliosBinding CreateNewBinding(IBindingTrigger trigger, IBindingAction action)
+        {
+            HeliosBinding binding = new HeliosBinding(trigger, action);
+
+            if (action.ActionRequiresValue && (ConfigManager.ModuleManager.CanConvertUnit(trigger.Unit, action.Unit)))
+            {
+                binding.ValueSource = BindingValueSources.TriggerValue;
+            }
+            else
+            {
+                binding.ValueSource = BindingValueSources.StaticValue;
+            }
+            return binding;
+        }
+
         protected override void OnProfileChanged(HeliosProfile oldProfile)
         {
             base.OnProfileChanged(oldProfile);
@@ -223,9 +238,13 @@ namespace GadrocsWorkshop.Helios
                     ConfigManager.LogManager.LogError("Cannot find interface trigger " + defaultBinding.InterfaceTriggerName);
                     continue;
                 }
-                child.OutputBindings.Add(
-                    new HeliosBinding(_defaultInterface.Triggers[defaultBinding.InterfaceTriggerName],
-                        child.Actions[defaultBinding.DeviceActionName]));
+
+                child.OutputBindings.Add(CreateNewBinding(_defaultInterface.Triggers[defaultBinding.InterfaceTriggerName], 
+                    child.Actions[defaultBinding.DeviceActionName]));
+
+                //child.OutputBindings.Add(
+                //    new HeliosBinding(_defaultInterface.Triggers[defaultBinding.InterfaceTriggerName],
+                //        child.Actions[defaultBinding.DeviceActionName]));
             }
 
             /// now looping for all default output bindings to assign the value
@@ -244,9 +263,11 @@ namespace GadrocsWorkshop.Helios
                     ConfigManager.LogManager.LogError("Cannot find action " + defaultBinding.InterfaceActionName);
                     continue;
                 }
-                child.OutputBindings.Add(
-                    new HeliosBinding(child.Triggers[defaultBinding.DeviceTriggerName],
+                child.OutputBindings.Add(CreateNewBinding(child.Triggers[defaultBinding.DeviceTriggerName],
                                       _defaultInterface.Actions[defaultBinding.InterfaceActionName]));
+        //            child.OutputBindings.Add(
+        //new HeliosBinding(child.Triggers[defaultBinding.DeviceTriggerName],
+        //                  _defaultInterface.Actions[defaultBinding.InterfaceActionName]));
             }
         }
 
@@ -392,14 +413,10 @@ namespace GadrocsWorkshop.Helios
                 deviceTriggerName: "released",
                 interfaceActionName: interfaceDeviceName + ".release." + interfaceElementName
                 );
-            //AddDefaultInputBinding(
-            //    childName: componentName,
-            //    interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".pushed",
-            //    deviceActionName: "push");
-            //AddDefaultInputBinding(
-            //    childName: componentName,
-            //    interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".released",
-            //    deviceActionName: "release");
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.physical state");
 
             return button;
         }
@@ -565,7 +582,7 @@ namespace GadrocsWorkshop.Helios
 
             AddDefaultInputBinding(
                 childName: componentName,
-                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changedxx",
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
                 deviceActionName: "set.TextDisplay");
 
 
