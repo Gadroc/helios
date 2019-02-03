@@ -140,13 +140,13 @@ namespace GadrocsWorkshop.Helios.Controls
             AddAction(_knob.Actions["set.value"], name);
         }
 
-        private void AddTrigger(IBindingTrigger trigger, string device)
+        private new void AddTrigger(IBindingTrigger trigger, string device)
         {
             trigger.Device = device;
             Triggers.Add(trigger);
         }
 
-        private void AddAction(IBindingAction action, string device)
+        private new void AddAction(IBindingAction action, string device)
         {
             action.Device = device;
             Actions.Add(action);

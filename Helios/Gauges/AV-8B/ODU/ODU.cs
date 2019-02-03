@@ -34,9 +34,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
         private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
         private Rect _scaledScreenRectR = SCREEN_RECT_R;
-        private String _font = "MS 33558";
-        //private String _font = "Franklin Gothic";
-
+ 
         public ODU_AV8B()
             : base("Option Display Unit", new Size(808, 550))
         {
@@ -62,13 +60,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             get { return "{Helios}/Images/AV-8B/ODU.png"; }
         }
 
-        private void AddTrigger(IBindingTrigger trigger, string device)
+        private new void AddTrigger(IBindingTrigger trigger, string device)
         {
             trigger.Device = device;
             Triggers.Add(trigger);
         }
 
-        private void AddAction(IBindingAction action, string device)
+        private new void AddAction(IBindingAction action, string device)
         {
             action.Device = device;
             Actions.Add(action);
