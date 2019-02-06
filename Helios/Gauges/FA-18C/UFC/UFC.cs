@@ -153,10 +153,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 name: name,
                 pos: new Point(x, y),
                 size: size,
-                font: "Hornet_UFC",
+                font: "Hornet UFC",
                 baseFontsize: baseFontsize,
                 horizontalAlignment: hTextAlign,
-                verticalAligment: TextVerticalAlignment.Top,
+                verticalAligment: TextVerticalAlignment.Center,
                 testTextDisplay: testDisp,
                 textColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72),
                 backgroundColor: Color.FromArgb(0xff, 0x26, 0x3f, 0x36),
@@ -164,35 +164,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName
                 );
-
-            //TextDisplay display = new Helios.Controls.TextDisplay
-            //{
-            //    Top = y,
-            //    Left = x,
-            //    Width = size.Width,
-            //    Height = size.Height,
-            //    Name = name
-            //};
-            //// display.FontSize = 20;
-            //TextFormat textFormat = new TextFormat
-            //{
-            //    FontFamily = new FontFamily("Hornet UFC"),
-            //    HorizontalAlignment = hTextAlign,
-            //    VerticalAlignment = TextVerticalAlignment.Center,
-            //    FontSize = baseFontsize
-            //};
-            ////textFormat.FontFamily.Baseline = 0;
-            //textFormat.PaddingRight = 0;
-            //textFormat.PaddingLeft = 0;
-            //textFormat.PaddingTop = 0;
-            //textFormat.PaddingBottom = 0;
-            //display.TextFormat = textFormat;
-            //display.OnTextColor = Color.FromArgb(0xff, 0x7e, 0xde, 0x72);
-            //display.BackgroundColor = Color.FromArgb(0xff, 0x26, 0x3f, 0x36);
-            //display.UseBackground = false;
-            //display.TextTestValue = testDisp;
-            //Children.Add(display);
-            //AddAction(display.Actions["set.TextDisplay"], "UFC Display " + name);
         }
 
         private void AddButton(string name, double x, double y, Size size, string interfaceElementName)
