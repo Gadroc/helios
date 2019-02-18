@@ -215,11 +215,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
             #endregion
 
-            #region IFEI
-            AddFunction(new FlagValue(this, "468", "IFEI", "IFEI", ""));    //   IFEI_lt, create_simple_lamp(468 controllers.IFEILights 0)
-            AddFunction(new FlagValue(this, "469", "IFEI", "IFEI buttons", ""));    //   IFEI buttons_lt, create_simple_lamp(469 controllers.IFEILights 1)
-            #endregion
-
             #region RWR
             AddFunction(new FlagValue(this, "273", "RWR", "Limit", ""));    //   Limit_lt, create_simple_lamp(273 controllers.RWR_LimitLt)
             AddFunction(new FlagValue(this, "274", "RWR", "Display", ""));    //   Display_lt, create_simple_lamp(274 controllers.RWR_LowerLt)
@@ -491,11 +486,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new PushButton(this, IFEI, "3005", "172", "IFEI", "IFEI ZONE Button", "1", "0", "%1d"));    // elements["pnt_172"] = short_way_button(_("IFEI ZONE Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_ZONE,          172)
             AddFunction(new PushButton(this, IFEI, "3006", "173", "IFEI", "IFEI ET Button", "1", "0", "%1d"));    // elements["pnt_173"] = short_way_button(_("IFEI ET Button"),             devices.IFEI, IFEI_commands.IFEI_BTN_ET,            173)
             AddFunction(new Axis(this, IFEI, "3007", "174", 0.1d, 0.5d, 1d, "IFEI", "IFEI Brightness Control Knob"));    // elements["pnt_174"] = default_axis(_("IFEI Brightness Control Knob"),   devices.IFEI, IFEI_commands.IFEI_Brightness,        174, 0.5, 0.1)
+            AddFunction(new FlagValue(this, "468", "IFEI", "IFEI", ""));    //   IFEI_lt, create_simple_lamp(468 controllers.IFEILights 0)
+            AddFunction(new FlagValue(this, "469", "IFEI", "IFEI buttons", ""));    //   IFEI buttons_lt, create_simple_lamp(469 controllers.IFEILights 1)
 
             AddFunction(new Text(this, "2052", "IFEI", "Bingo Value", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2053", "IFEI", "Clock Hours", "Value of the clock HH"));
-            AddFunction(new Text(this, "2054", "IFEI", "Clock Minutes", "Value of the clock MM"));
-            AddFunction(new Text(this, "2055", "IFEI", "Clock Seconds", "Value of the clock SS"));
+            AddFunction(new Text(this, "2053", "IFEI", "Clock", "Value of the clock HH:MM:SS"));  // The exports concatenates the three fields
+            //AddFunction(new Text(this, "2053", "IFEI", "Clock Hours", "Value of the clock HH"));
+            //AddFunction(new Text(this, "2054", "IFEI", "Clock Minutes", "Value of the clock MM"));
+            //AddFunction(new Text(this, "2055", "IFEI", "Clock Seconds", "Value of the clock SS"));
             AddFunction(new Text(this, "2056", "IFEI", "DD 1", "Value of the DD 1 Indicator"));
             AddFunction(new Text(this, "2057", "IFEI", "DD 2", "Value of the DD 2 Indicator"));
             AddFunction(new Text(this, "2058", "IFEI", "DD 3", "Value of the DD 3 Indicator"));
@@ -511,15 +509,15 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Text(this, "2068", "IFEI", "RPM Right", "Right Engine RPM"));
             AddFunction(new Text(this, "2069", "IFEI", "Temp Left", "Left Engine Temperature"));
             AddFunction(new Text(this, "2070", "IFEI", "Temp Right", "Right Engine Temperature"));
-            AddFunction(new Text(this, "2073", "IFEI", "Timer Hours", "Value of the Timer Hours"));
-            AddFunction(new Text(this, "2072", "IFEI", "Timer Minutes", "Value of the Timer Minutes"));
-            AddFunction(new Text(this, "2071", "IFEI", "Timer Seconds", "Value of the Timer Seconds"));
+            AddFunction(new Text(this, "2073", "IFEI", "Timer", "Value of the Timer HH:MM:SS"));  // The exports concatenates these fields
+            //AddFunction(new Text(this, "2073", "IFEI", "Timer Hours", "Value of the Timer Hours"));
+            //AddFunction(new Text(this, "2072", "IFEI", "Timer Minutes", "Value of the Timer Minutes"));
+            //AddFunction(new Text(this, "2071", "IFEI", "Timer Seconds", "Value of the Timer Seconds"));
             AddFunction(new Text(this, "2074", "IFEI", "Codes", "Value of the BINGO fuel state"));
             AddFunction(new Text(this, "2075", "IFEI", "SP", "Value of SP"));
             AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Value of the BINGO fuel state"));
             AddFunction(new Text(this, "2077", "IFEI", "T", "Value of the BINGO fuel state"));
             AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Value of the BINGO fuel state"));
-
             #endregion
             #region  Sensor panel
             AddFunction(new Switch(this, RADAR, "440", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.1", "STBY", "3001"), new SwitchPosition("0.2", "OPR", "3001"), new SwitchPosition("0.3", "EMERG(PULL)", "3002") }, "Sensor panel", "RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),
