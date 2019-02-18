@@ -34,6 +34,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
         private string _imageLocation = "{Helios}/Gauges/FA-18C/IFEI/";
         private bool _useBackGround = false;
+        private GaugeImage _gireflection;
+        private GaugeNeedle _gnleftnoz;
+        private GaugeNeedle _gnrightnoz;
 
         public IFEI_FA18C()
             : base("IFEI", new Size(779, 702))
@@ -68,6 +71,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             double fuelX = 527;
             double fuelWidth = 159;
             AddTextDisplay("Fuel Total", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T", "IFEI", "Fuel Up");
+
             //AddTextDisplay("Fuel", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780I");
 
             //double RPMWidth = 65;
@@ -99,6 +103,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 interfaceElementName: "IFEI Brightness Control Knob",
                 fromCenter: true
                 );
+            // Add Image IFEI Reflections.png
+            _gireflection = new GaugeImage("{Helios}/Images/FA-18C/IFEI Reflections.png", new Rect(0d, 0d, 779d, 702d));
+            GaugeComponentCollection Components.Add(_gireflection);
+
         }
 
         protected override void OnProfileChanged(HeliosProfile oldProfile) {

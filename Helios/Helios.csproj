@@ -709,6 +709,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Resource>
+    <Resource Include="Gauges\FA-18C\Altimeter\altimeter_needle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Resource>
     <Resource Include="Images\AV-8B\AV8B Toggle Down.png" />
     <Resource Include="Images\AV-8B\AV8B Toggle Up.png" />
     <Resource Include="Images\AV-8B\AV8BNA_Rotary5.png" />
@@ -2584,10 +2588,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\FA-18C\Altimeter\altimeter_needle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Gauges\FA-18C\Common\drum_tape.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2669,6 +2669,58 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\Mi-8\ADI\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left Needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Gauges.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Bingo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends FF.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends L.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Noz.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Oil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends R.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends RPM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Temp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Z.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right Needle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -3489,6 +3541,7 @@
     <Resource Include="Gauges\FA-18C\IFEI\IFEI_UP_DN.png" />
     <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE.png" />
     <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Reflections.png" />
     <Content Include="Helios.ico" />
     <Resource Include="Images\FA-18C\UFC Button Dn 0 a.png" />
     <Resource Include="Images\FA-18C\UFC Button Dn 1.png" />
