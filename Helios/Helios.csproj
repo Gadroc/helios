@@ -191,6 +191,7 @@
     <Compile Include="Gauges\FA-18C\CabinPressure\CabinPressure.cs" />
     <Compile Include="Gauges\FA-18C\HydraulicPressure\Hydraulic.cs" />
     <Compile Include="Gauges\FA-18C\IAS\IAS.cs" />
+    <Compile Include="Gauges\FA-18C\IFEI\IFEI indicators.cs" />
     <Compile Include="Gauges\FA-18C\LOx\LOx.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-2.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-1.cs" />
@@ -2673,10 +2674,6 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\FA-18C\IFEI\IFEI Left Needle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Gauges\FA-18C\IFEI\IFEI Gauges.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>

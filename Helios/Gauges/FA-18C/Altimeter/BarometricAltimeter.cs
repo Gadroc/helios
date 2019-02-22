@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.Instruments
     [HeliosControl("Helios.FA18C.Instruments.BAltimeter", "Altimeter", "F/A-18C Gauges", typeof(GaugeRenderer))]
     public class BAltimeter : BaseGauge
     {
-        private HeliosValue _altitdue;
+        private HeliosValue _altitude;
         private HeliosValue _airPressure;
         private GaugeNeedle _needle;
         private CalibrationPointCollectionDouble _needleCalibration;
@@ -55,9 +55,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.Instruments
             Components.Add(_needle);
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/FA-18C/Common/engine_bezel.png", new Rect(0d, 0d, 376d, 376d)));
-            _altitdue = new HeliosValue(this, new BindingValue(0d), "", "altitude", "Current altitude of the aircraft in feet.", "", BindingValueUnits.Feet);
-            _altitdue.Execute += new HeliosActionHandler(Altitude_Execute);
-            Actions.Add(_altitdue);
+            _altitude = new HeliosValue(this, new BindingValue(0d), "", "altitude", "Current altitude of the aircraft in feet.", "", BindingValueUnits.Feet);
+            _altitude.Execute += new HeliosActionHandler(Altitude_Execute);
+            Actions.Add(_altitude);
 
             _airPressure = new HeliosValue(this, new BindingValue(0d), "", "air pressure", "Current air pressure calibaration setting for the altimeter.", "", BindingValueUnits.InchesOfMercury);
             _airPressure.SetValue(new BindingValue(29.92d), true);

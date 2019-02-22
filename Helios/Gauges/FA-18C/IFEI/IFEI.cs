@@ -15,7 +15,6 @@
 
 namespace GadrocsWorkshop.Helios.Gauges.FA18C
 {
-    using GadrocsWorkshop.Helios.Gauges.FA18C;
     using GadrocsWorkshop.Helios.Gauges;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
@@ -23,20 +22,18 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.IFEI", "FA18C Integrated Fuel & Engine Indicator", "F/A-18C", typeof(FA18CDeviceRenderer))]
+    [HeliosControl("Helios.FA18C.IFEI", "Integrated Fuel & Engine Indicator", "F/A-18C", typeof(FA18CDeviceRenderer))]
     class IFEI_FA18C : FA18CDevice
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
+        private string _interfaceDeviceName = "IFEI";
 
         private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
         private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
         private string _imageLocation = "{Helios}/Gauges/FA-18C/IFEI/";
         private bool _useBackGround = false;
-        private GaugeImage _gireflection;
-        private GaugeNeedle _gnleftnoz;
-        private GaugeNeedle _gnrightnoz;
 
         public IFEI_FA18C()
             : base("IFEI", new Size(779, 702))
@@ -103,9 +100,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 interfaceElementName: "IFEI Brightness Control Knob",
                 fromCenter: true
                 );
-            // Add Image IFEI Reflections.png
-            _gireflection = new GaugeImage("{Helios}/Images/FA-18C/IFEI Reflections.png", new Rect(0d, 0d, 779d, 702d));
-            GaugeComponentCollection Components.Add(_gireflection);
+
 
         }
 
