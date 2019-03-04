@@ -36,7 +36,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private bool _useBackGround = false;
 
         public IFEI_FA18C()
-            : base("IFEI", new Size(779, 702))
+            : base("IFEI_Gauge", new Size(779, 702))
         {
             double spacing = 70;
             double start = 64;

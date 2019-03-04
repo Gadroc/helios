@@ -15,7 +15,6 @@
 
 namespace GadrocsWorkshop.Helios.Gauges.FA18C
 {
-    using GadrocsWorkshop.Helios.Gauges.FA18C;
     using GadrocsWorkshop.Helios.Gauges;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
@@ -59,7 +58,11 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private HeliosValue _indicator_Noz;
         private GaugeImage _giGaugeMarks;
         private HeliosValue _indicatorMarks;
-               
+
+        private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
+        private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
+        private bool _useBackGround = false;
+
         public IFEI_Gauge()
             : base("IFEI", new Size(779, 702))
         {
@@ -106,6 +109,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             Components.Add(_giZ);
             _giOil = new GaugeImage(_imageLocation + "IFEI Legends Oil.xaml", new Rect(206d, 450d, 22d, 12d));
             Components.Add(_giOil);
+
+
+
             _gireflection = new GaugeImage(_imageLocation + "IFEI Reflections.png", new Rect(0d, 0d, 779d, 702d));
             Components.Add(_gireflection);
             _gireflection.IsHidden = false;
@@ -159,6 +165,26 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         //public override string BezelImage
         //{
         //    get { return _imageLocation + "IFEI.png"; }
+        //}
+        //private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, string testDisp,
+        //string interfaceDevice, string interfaceElement)
+        //{
+        //    TextDisplay display = AddTextDisplay(
+        //        name: name,
+        //        pos: new Point(x, y),
+        //        size: size,
+        //        font: _font,
+        //        baseFontsize: baseFontsize,
+        //        horizontalAlignment: TextHorizontalAlignment.Right,
+        //        verticalAligment: TextVerticalAlignment.Top,
+        //        testTextDisplay: testDisp,
+        //        textColor: _textColor,
+        //        backgroundColor: _backGroundColor,
+        //        useBackground: _useBackGround,
+        //        interfaceDeviceName: interfaceDevice,
+        //        interfaceElementName: interfaceElement
+        //        );
+        //    display.TextFormat.FontWeight = FontWeights.Heavy;
         //}
 
         void LeftNozzlePosition_Execute(object action, HeliosActionEventArgs e)
