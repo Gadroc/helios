@@ -450,6 +450,16 @@
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder3.cs" />
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder4.cs" />
     <Compile Include="Interfaces\DCS\AV8B\Functions\SMCFuzeDisplay.cs" />
+    <Compile Include="Interfaces\DCS\F14B - RIO\F14BRIOInterface.cs" />
+    <Compile Include="Interfaces\DCS\F14B - RIO\F14BRIOInterfaceEditor.xaml.cs">
+      <DependentUpon>F14BRIOInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\F14B - RIO\Functions\Altimeter.cs" />
+    <Compile Include="Interfaces\DCS\F14B\F14BInterface.cs" />
+    <Compile Include="Interfaces\DCS\F14B\F14BInterfaceEditor.xaml.cs">
+      <DependentUpon>F14BInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\F14B\Functions\Altimeter.cs" />
     <Compile Include="Interfaces\DCS\FA18C\FA18CInterface.cs" />
     <Compile Include="Interfaces\DCS\FA18C\FA18CInterfaceEditor.xaml.cs">
       <DependentUpon>FA18CInterfaceEditor.xaml</DependentUpon>
@@ -753,6 +763,8 @@
     <None Include="Fonts\Hornet IFEI.ttf" />
     <None Include="Fonts\Hornet UFC.ttf" />
     <None Include="Fonts\MS33558.ttf" />
+    <Resource Include="Interfaces\DCS\F14B\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\F14B - RIO\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2723,6 +2735,14 @@
       <SubType>Designer</SubType>
     </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\F14B - RIO\F14BRIOInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\F14B\F14BInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
