@@ -15,14 +15,13 @@
 
 namespace GadrocsWorkshop.Helios.Gauges.FA18C
 {
-    using GadrocsWorkshop.Helios.Gauges;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
     using System;
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.IFEI", "Integrated Fuel & Engine Indicator", "F/A-18C", typeof(FA18CDeviceRenderer))]
+    [HeliosControl("Helios.FA18C.IFEI", "IFEI", "F/A-18C", typeof(FA18CDeviceRenderer))]
     class IFEI_FA18C : FA18CDevice
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
@@ -38,16 +37,18 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public IFEI_FA18C()
             : base("IFEI", new Size(779, 702))
         {
+            AddIFEIParts("Gauges", 0, 0, new Size(779, 702), _interfaceDeviceName, "IFEI Needles & Flags");
+
             double spacing = 70;
             double start = 64;
             double left = 400;
             // adding the control buttons
-            AddButton("MODE", left, start, new Size(87, 62), "IFEI", "IFEI Mode Button");
-            AddButton("QTY", left, start + spacing, new Size(87, 62), "IFEI", "IFEI QTY Button");
-            AddButton("UP", left, start + 2 * spacing, new Size(87, 62), "IFEI", "IFEI Up Arrow Button");
-            AddButton("DOWN", left, start + 3 * spacing, new Size(87, 62), "IFEI", "IFEI Down Arrow Button");
-            AddButton("ZONE", left, start + 4 * spacing, new Size(87, 62), "IFEI", "IFEI ZONE Button");
-            AddButton("ET", left, start + 5 * spacing, new Size(87, 62), "IFEI", "IFEI ET Button");
+            AddButton("MODE", left, start, new Size(87, 62), _interfaceDeviceName, "IFEI Mode Button");
+            AddButton("QTY", left, start + spacing, new Size(87, 62), _interfaceDeviceName, "IFEI QTY Button");
+            AddButton("UP", left, start + 2 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI Up Arrow Button");
+            AddButton("DOWN", left, start + 3 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI Down Arrow Button");
+            AddButton("ZONE", left, start + 4 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI ZONE Button");
+            AddButton("ET", left, start + 5 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI ET Button");
 
             // adding the text displays
             double dispHeight = 50;
@@ -57,17 +58,17 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             double clockSpreadWidth = 3;
             double clockX = 530;
             double clockY = 352;
-            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10", "IFEI", "Clock Hours");
-            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11", "IFEI", "Clock Minutes");
-            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12", "IFEI", "Clock Seconds");
+            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10", _interfaceDeviceName, "Clock Hours");
+            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11", _interfaceDeviceName, "Clock Minutes");
+            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12", _interfaceDeviceName, "Clock Seconds");
 
             // Fuel info
 
-            AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000", "IFEI", "Bingo Value");
+            AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000", _interfaceDeviceName, "Bingo Value");
 
             double fuelX = 527;
             double fuelWidth = 159;
-            AddTextDisplay("Fuel Total", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T", "IFEI", "Fuel Up");
+            AddTextDisplay("Fuel Total", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T", _interfaceDeviceName, "Fuel Up");
 
             //AddTextDisplay("Fuel", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780I");
 
@@ -96,7 +97,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 maxValue: 1,
                 initialValue: 0,
                 stepValue: 0.1,
-                interfaceDeviceName: "IFEI",
+                interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: "IFEI Brightness Control Knob",
                 fromCenter: true
                 );
@@ -148,6 +149,37 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 interfaceElementName: interfaceElement,
                 fromCenter: false
                 );
+        }
+        private void AddIFEIParts(string name, double x, double y, Size size, string interfaceDevice, string interfaceElement)
+        {
+            IFEI_Gauges IFEI_gauges = new IFEI_Gauges
+            {
+                Top = y,
+                Left = x,
+                Height = size.Height,
+                Width = size.Width,
+                Name = name
+            };
+
+            Children.Add(IFEI_gauges);
+            foreach (IBindingTrigger trigger in IFEI_gauges.Triggers)
+            {
+                AddTrigger(trigger, trigger.Name);
+            }
+            foreach (IBindingAction action in IFEI_gauges.Actions)
+            {
+                AddAction(action, action.Name);
+            }
+            //AddDefaultOutputBinding(
+            //    childName: componentName,
+            //    deviceTriggerName: "encoder.incremented",
+            //    interfaceActionName: interfaceDeviceName + ".increment." + interfaceElementName
+            //);
+            //AddDefaultOutputBinding(
+            //    childName: componentName,
+            //    deviceTriggerName: "encoder.decremented",
+            //    interfaceActionName: interfaceDeviceName + ".decrement." + interfaceElementName
+            //    );
         }
 
         public override bool HitTest(Point location)

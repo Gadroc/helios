@@ -375,6 +375,47 @@ namespace GadrocsWorkshop.Helios
             return _knob;
         }
 
+        //protected Gauge AddGauge(string name, Point posn, Size size, string interfaceDeviceName, string interfaceElementName)
+        //{
+        //    string componentName = GetComponentName(name);
+        //    Gauge gauge = new Gauge
+        //    {
+        //        Top = posn.Y,
+        //        Left = posn.X,
+        //        Width = size.Width,
+        //        Height = size.Height,
+        //        Name = componentName
+        //    };
+
+        //    Children.Add(gauge);
+
+            //AddTrigger(button.Triggers["pushed"], componentName);
+            //AddTrigger(button.Triggers["released"], componentName);
+
+            //AddAction(button.Actions["push"], componentName);
+            //AddAction(button.Actions["release"], componentName);
+            //AddAction(button.Actions["set.physical state"], componentName);
+
+            //// add the default actions
+            //AddDefaultOutputBinding(
+            //    childName: componentName,
+            //    deviceTriggerName: "pushed",
+            //    interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
+            //    );
+            //AddDefaultOutputBinding(
+            //    childName: componentName,
+            //    deviceTriggerName: "released",
+            //    interfaceActionName: interfaceDeviceName + ".release." + interfaceElementName
+            //    );
+            //AddDefaultInputBinding(
+            //    childName: componentName,
+            //    interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+            //    deviceActionName: "set.physical state");
+
+            //return button;
+        //    return gauge;
+        //}
+
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
             string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
