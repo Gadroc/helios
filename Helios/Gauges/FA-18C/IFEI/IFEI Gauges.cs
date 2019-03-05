@@ -22,8 +22,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.IFEI", "IFEI Gauge", "F/A-18C", typeof(GaugeRenderer))]
-    class IFEI_Gauge : BaseGauge
+    [HeliosControl("Helios.FA18C.IFEI", "IFEI Needles & Flags", "F/A-18C", typeof(GaugeRenderer))]
+    public class IFEI_Gauges : BaseGauge
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
@@ -58,13 +58,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private HeliosValue _indicator_Noz;
         private GaugeImage _giGaugeMarks;
         private HeliosValue _indicatorMarks;
-
-        private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
-        private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
-        private bool _useBackGround = false;
-
-        public IFEI_Gauge()
-            : base("IFEI", new Size(779, 702))
+               
+        public IFEI_Gauges()
+            : base("IFEI_Gauges", new Size(779, 702))
         {
             // adding the control buttons
             // Fuel info
@@ -72,11 +68,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             // Add various image components to the gauge
             _gibackground = new GaugeImage(_imageLocation + "IFEI.png", new Rect(0d, 0d, 779d, 702d));
             Components.Add(_gibackground);
-            _gibackground.IsHidden = false;
+            _gibackground.IsHidden = true;  // This is to make sure that we do not mask anything while developing
 
             _giGaugeMarks = new GaugeImage(_imageLocation + "IFEI Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
             Components.Add(_giGaugeMarks);
-
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 90d, 90d);
             _gnleftnoz = new GaugeNeedle(_imageLocation + "IFEI Left Needle.xaml", new Point(83d, 273d), new Size(92d, 6d), new Point(3d, 3d));
             Components.Add(_gnleftnoz);
@@ -109,9 +104,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             Components.Add(_giZ);
             _giOil = new GaugeImage(_imageLocation + "IFEI Legends Oil.xaml", new Rect(206d, 450d, 22d, 12d));
             Components.Add(_giOil);
-
-
-
             _gireflection = new GaugeImage(_imageLocation + "IFEI Reflections.png", new Rect(0d, 0d, 779d, 702d));
             Components.Add(_gireflection);
             _gireflection.IsHidden = false;
@@ -126,66 +118,41 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _giNoz.IsHidden = false;
             _giGaugeMarks.IsHidden = false;
 
-            _indicatorLeft = new HeliosValue(this, new BindingValue(0d), "", "Left Indicator", "Left Indicator Light.", "", BindingValueUnits.Boolean);
+            _indicatorLeft = new HeliosValue(this, new BindingValue(0d), "", "Left flag", "Left Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorLeft.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorLeft);
-            _indicatorRight = new HeliosValue(this, new BindingValue(0d), "", "Right Indicator", "Right Indicator Light.", "", BindingValueUnits.Boolean);
+            _indicatorRight = new HeliosValue(this, new BindingValue(0d), "", "Right flag", "Right Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorRight.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorRight);
-            _indicatorZulu = new HeliosValue(this, new BindingValue(0d), "", "Zulu Indicator", "Zulu Indicator Light.", "", BindingValueUnits.Boolean);
+            _indicatorZulu = new HeliosValue(this, new BindingValue(0d), "", "Zulu flag", "Zulu Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorZulu.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorZulu);
-            _indicatorBingo = new HeliosValue(this, new BindingValue(0d), "", "Bingo Word", "Bingo Indicator Word.", "", BindingValueUnits.Boolean);
+            _indicatorBingo = new HeliosValue(this, new BindingValue(0d), "", "Bingo flag", "Bingo Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorBingo.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorBingo);
-            _indicatorFuelFlow = new HeliosValue(this, new BindingValue(0d), "", "Fuel Flow Words", "Fuel Flow Indicator Words.", "", BindingValueUnits.Boolean);
+            _indicatorFuelFlow = new HeliosValue(this, new BindingValue(0d), "", "Fuel Flow flag", "Fuel Flow Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorFuelFlow.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorFuelFlow);
-            _indicatorTemp = new HeliosValue(this, new BindingValue(0d), "", "Temperature Word", "Temp Indicator Word.", "", BindingValueUnits.Boolean);
+            _indicatorTemp = new HeliosValue(this, new BindingValue(0d), "", "Temperature flag", "Temp Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorTemp.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorTemp);
-            _indicatorRPM = new HeliosValue(this, new BindingValue(0d), "", "RPM Word", "RPM Indicator Word.", "", BindingValueUnits.Boolean);
+            _indicatorRPM = new HeliosValue(this, new BindingValue(0d), "", "RPM flag", "RPM Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorRPM.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorRPM);
-            _indicatorOil = new HeliosValue(this, new BindingValue(0d), "", "Oil Word", "Oil Indicator Word.", "", BindingValueUnits.Boolean);
+            _indicatorOil = new HeliosValue(this, new BindingValue(0d), "", "Oil Flag", "Oil Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorOil.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorOil);
-            _indicator_Noz = new HeliosValue(this, new BindingValue(0d), "", "Noz Word", "Noz Indicator Word.", "", BindingValueUnits.Boolean);
+            _indicator_Noz = new HeliosValue(this, new BindingValue(0d), "", "Noz Flag", "Noz Indicator flag.", "", BindingValueUnits.Boolean);
             _indicator_Noz.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicator_Noz);
             _indicatorMarks = new HeliosValue(this, new BindingValue(0d), "", "Gauge Marks", "Gauge Indicator Marks.", "", BindingValueUnits.Boolean);
             _indicatorMarks.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorMarks);
-        }
 
+        }
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
         }
-
-        //public override string BezelImage
-        //{
-        //    get { return _imageLocation + "IFEI.png"; }
-        //}
-        //private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, string testDisp,
-        //string interfaceDevice, string interfaceElement)
-        //{
-        //    TextDisplay display = AddTextDisplay(
-        //        name: name,
-        //        pos: new Point(x, y),
-        //        size: size,
-        //        font: _font,
-        //        baseFontsize: baseFontsize,
-        //        horizontalAlignment: TextHorizontalAlignment.Right,
-        //        verticalAligment: TextVerticalAlignment.Top,
-        //        testTextDisplay: testDisp,
-        //        textColor: _textColor,
-        //        backgroundColor: _backGroundColor,
-        //        useBackground: _useBackGround,
-        //        interfaceDeviceName: interfaceDevice,
-        //        interfaceElementName: interfaceElement
-        //        );
-        //    display.TextFormat.FontWeight = FontWeights.Heavy;
-        //}
 
         void LeftNozzlePosition_Execute(object action, HeliosActionEventArgs e)
         {          
