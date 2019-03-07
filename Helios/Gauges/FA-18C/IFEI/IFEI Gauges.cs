@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.IFEI", "IFEI Needles & Flags", "F/A-18C", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.FA18C.IFEIGauges", "IFEI Needles & Flags", "F/A-18C", typeof(GaugeRenderer))]
     public class IFEI_Gauges : BaseGauge
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
@@ -56,9 +56,23 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private HeliosValue _indicatorOil;
         private GaugeImage _giNoz;
         private HeliosValue _indicator_Noz;
-        private GaugeImage _giGaugeMarks;
-        private HeliosValue _indicatorMarks;
-               
+        private GaugeImage _giGaugeMarksL;
+        private HeliosValue _indicatorMarksLeft;
+        private GaugeImage _giGaugeMarksR;
+        private HeliosValue _indicatorMarksRight;
+        private GaugeImage _giGaugeMarksL000;
+        private HeliosValue _indicatorMarksLeft000;
+        private GaugeImage _giGaugeMarksR000;
+        private HeliosValue _indicatorMarksRight000;
+        private GaugeImage _giGaugeMarksL050;
+        private HeliosValue _indicatorMarksLeft050;
+        private GaugeImage _giGaugeMarksR050;
+        private HeliosValue _indicatorMarksRight050;
+        private GaugeImage _giGaugeMarksL100;
+        private HeliosValue _indicatorMarksLeft100;
+        private GaugeImage _giGaugeMarksR100;
+        private HeliosValue _indicatorMarksRight100;
+
         public IFEI_Gauges()
             : base("IFEI_Gauges", new Size(779, 702))
         {
@@ -70,8 +84,22 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             Components.Add(_gibackground);
             _gibackground.IsHidden = true;  // This is to make sure that we do not mask anything while developing
 
-            _giGaugeMarks = new GaugeImage(_imageLocation + "IFEI Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
-            Components.Add(_giGaugeMarks);
+            _giGaugeMarksL = new GaugeImage(_imageLocation + "IFEI Left Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
+            Components.Add(_giGaugeMarksL);
+            _giGaugeMarksR = new GaugeImage(_imageLocation + "IFEI Right Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
+            Components.Add(_giGaugeMarksR);
+            _giGaugeMarksL000 = new GaugeImage(_imageLocation + "IFEI Left 0 Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
+            Components.Add(_giGaugeMarksL000);
+            _giGaugeMarksR000 = new GaugeImage(_imageLocation + "IFEI Right 0 Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
+            Components.Add(_giGaugeMarksR000);
+            _giGaugeMarksL050 = new GaugeImage(_imageLocation + "IFEI Left 50 Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
+            Components.Add(_giGaugeMarksL050);
+            _giGaugeMarksR050 = new GaugeImage(_imageLocation + "IFEI Right 50 Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
+            Components.Add(_giGaugeMarksR050);
+            _giGaugeMarksL100 = new GaugeImage(_imageLocation + "IFEI Left 100 Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
+            Components.Add(_giGaugeMarksL100);
+            _giGaugeMarksR100 = new GaugeImage(_imageLocation + "IFEI Right 100 Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
+            Components.Add(_giGaugeMarksR100);
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 90d, 90d);
             _gnleftnoz = new GaugeNeedle(_imageLocation + "IFEI Left Needle.xaml", new Point(83d, 273d), new Size(92d, 6d), new Point(3d, 3d));
             Components.Add(_gnleftnoz);
@@ -116,7 +144,14 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _giFF.IsHidden = false;
             _giRPM.IsHidden = false;
             _giNoz.IsHidden = false;
-            _giGaugeMarks.IsHidden = false;
+            _giGaugeMarksL.IsHidden = false;
+            _giGaugeMarksR.IsHidden = false;
+            _giGaugeMarksL000.IsHidden = false;
+            _giGaugeMarksR000.IsHidden = false;
+            _giGaugeMarksL050.IsHidden = false;
+            _giGaugeMarksR050.IsHidden = false;
+            _giGaugeMarksL100.IsHidden = false;
+            _giGaugeMarksR100.IsHidden = false;
 
             _indicatorLeft = new HeliosValue(this, new BindingValue(0d), "", "Left flag", "Left Indicator flag.", "", BindingValueUnits.Boolean);
             _indicatorLeft.Execute += new HeliosActionHandler(Indicator_Execute);
@@ -145,10 +180,30 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _indicator_Noz = new HeliosValue(this, new BindingValue(0d), "", "Noz Flag", "Noz Indicator flag.", "", BindingValueUnits.Boolean);
             _indicator_Noz.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicator_Noz);
-            _indicatorMarks = new HeliosValue(this, new BindingValue(0d), "", "Gauge Marks", "Gauge Indicator Marks.", "", BindingValueUnits.Boolean);
-            _indicatorMarks.Execute += new HeliosActionHandler(Indicator_Execute);
-            Actions.Add(_indicatorMarks);
-
+            _indicatorMarksLeft = new HeliosValue(this, new BindingValue(0d), "", "Gauge Marks Left", "Left side Gauge Indicator Marks.", "", BindingValueUnits.Boolean);
+            _indicatorMarksLeft.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorMarksLeft);
+            _indicatorMarksRight = new HeliosValue(this, new BindingValue(0d), "", "Gauge Marks Right", "Right side Gauge Indicator Marks.", "", BindingValueUnits.Boolean);
+            _indicatorMarksRight.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorMarksRight);
+            _indicatorMarksLeft000 = new HeliosValue(this, new BindingValue(0d), "", "0 Gauge Mark Left", "Left side Gauge Indicator Mark 0.", "", BindingValueUnits.Boolean);
+            _indicatorMarksLeft000.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorMarksLeft000);
+            _indicatorMarksRight000 = new HeliosValue(this, new BindingValue(0d), "", "0 Gauge Mark Right", "Right side Gauge Indicator Mark 0.", "", BindingValueUnits.Boolean);
+            _indicatorMarksRight000.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorMarksRight000);
+            _indicatorMarksLeft050 = new HeliosValue(this, new BindingValue(0d), "", "50 Gauge Mark Left", "Left side Gauge Indicator Mark 50.", "", BindingValueUnits.Boolean);
+            _indicatorMarksLeft050.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorMarksLeft050);
+            _indicatorMarksRight050 = new HeliosValue(this, new BindingValue(0d), "", "50 Gauge Mark Right", "Right side Gauge Indicator Mark 50.", "", BindingValueUnits.Boolean);
+            _indicatorMarksRight050.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorMarksRight050);
+            _indicatorMarksLeft100 = new HeliosValue(this, new BindingValue(0d), "", "100 Gauge Mark Left", "Left side Gauge Indicator Mark 100.", "", BindingValueUnits.Boolean);
+            _indicatorMarksLeft100.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorMarksLeft100);
+            _indicatorMarksRight100 = new HeliosValue(this, new BindingValue(0d), "", "100 Gauge Mark Right", "Right side Gauge Indicator Mark 100.", "", BindingValueUnits.Boolean);
+            _indicatorMarksRight100.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorMarksRight100);
         }
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);

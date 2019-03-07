@@ -501,8 +501,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Text(this, "2060", "IFEI", "DD 4", "Value of the DD 4 Indicator"));
             AddFunction(new Text(this, "2061", "IFEI", "Fuel Flow Left", "Value of the Fuel Flow for the Left Engine"));
             AddFunction(new Text(this, "2062", "IFEI", "Fuel Flow Right", "Value of the Fuel Flow for the Right Engine"));
-            AddFunction(new Text(this, "2063", "IFEI", "Fuel Down", "Value of Fuel Down"));
-            AddFunction(new Text(this, "2064", "IFEI", "Fuel Up", "Value of Fuel Up"));
+            AddFunction(new Text(this, "2063", "IFEI", "Fuel Internal", "Internel Fuel Value"));
+            AddFunction(new Text(this, "2064", "IFEI", "Fuel Total", "Total Fuel Value"));
             AddFunction(new Text(this, "2065", "IFEI", "Oil Pressure Left", "Value of the Left Engine Oil Pressure"));
             AddFunction(new Text(this, "2066", "IFEI", "Oil Pressure Right", "Value of the Right Engine Oil Pressure"));
             AddFunction(new Text(this, "2067", "IFEI", "RPM Left", "Left Engine RPM"));
@@ -513,11 +513,29 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             //AddFunction(new Text(this, "2073", "IFEI", "Timer Hours", "Value of the Timer Hours"));
             //AddFunction(new Text(this, "2072", "IFEI", "Timer Minutes", "Value of the Timer Minutes"));
             //AddFunction(new Text(this, "2071", "IFEI", "Timer Seconds", "Value of the Timer Seconds"));
-            AddFunction(new Text(this, "2074", "IFEI", "Codes", "Value of the BINGO fuel state"));
+            AddFunction(new Text(this, "2074", "IFEI", "Codes", "Value of the code before the SP"));
             AddFunction(new Text(this, "2075", "IFEI", "SP", "Value of SP"));
-            AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2077", "IFEI", "T", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Value of the BINGO fuel state"));
+            AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Draw Chanracter"));
+            AddFunction(new Text(this, "2077", "IFEI", "T", "Value of the something with T or *"));
+            AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Value of the something with H or *"));
+            uint commandCode = 4000;
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "RPM Flag", "Show RPM on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Temp Flag", "Show Temp on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "FF Flag", "Show FF on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Noz Flag", "Show Noz on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Oil Flag", "Show Oil on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Bingo Flag", "Show Bingo on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Left Scale Flag", "Show Left Scale on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Scale Flag", "Show Right Scale on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Left Scale 0 Flag", "Show Left Scale 0 value on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Scale 0 Flag", "Show Right Scale 0 value on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Left Scale 50 Flag", "Show Left Scale 50 value on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Scale 50 Flag", "Show Right Scale 50 value on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Left Scale 100 Flag", "Show Left Scale 10 value on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Scale 100 Flag", "Show Right Scale 10 value on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Left Nozzle Needle", "Left nozzle needle on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Nozzle Needle", "Right nozzle needle on IFEI"));
+
             #endregion
             #region  Sensor panel
             AddFunction(new Switch(this, RADAR, "440", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.1", "STBY", "3001"), new SwitchPosition("0.2", "OPR", "3001"), new SwitchPosition("0.3", "EMERG(PULL)", "3002") }, "Sensor panel", "RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),

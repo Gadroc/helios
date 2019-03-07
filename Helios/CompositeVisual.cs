@@ -3,7 +3,7 @@
 //  Helios is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
+//  (at your option) any later versionCannot find interface trigger
 //
 //  Helios is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -32,6 +32,7 @@ namespace GadrocsWorkshop.Helios
             ChildName = childName;
             InterfaceTriggerName = interfaceTriggerName;
             DeviceActionName = deviceActionName;
+            ConfigManager.LogManager.LogInfo("Default Input Binding: Trigger " + interfaceTriggerName + " to action " + deviceActionName + " for child " + childName);
         }
     }
 
@@ -45,6 +46,7 @@ namespace GadrocsWorkshop.Helios
             ChildName = childName;
             DeviceTriggerName = deviceTriggerName;
             InterfaceActionName = interfaceActionName;
+            ConfigManager.LogManager.LogInfo("Default Output Binding: Trigger " + deviceTriggerName + " to action " + interfaceActionName  + " for child " + childName);
         }
     }
 
@@ -227,6 +229,7 @@ namespace GadrocsWorkshop.Helios
                     ConfigManager.LogManager.LogError("Cannot find child " + defaultBinding.ChildName);
                     continue;
                 }
+                ConfigManager.LogManager.LogDebug("Auto binding child " + defaultBinding.ChildName);
                 HeliosVisual child = Children[defaultBinding.ChildName];
                 if (!child.Actions.ContainsKey(defaultBinding.DeviceActionName))
                 {
@@ -238,7 +241,7 @@ namespace GadrocsWorkshop.Helios
                     ConfigManager.LogManager.LogError("Cannot find interface trigger " + defaultBinding.InterfaceTriggerName);
                     continue;
                 }
-
+                ConfigManager.LogManager.LogDebug("Auto binding trigger " + defaultBinding.InterfaceTriggerName + " to " + defaultBinding.DeviceActionName);
                 child.OutputBindings.Add(CreateNewBinding(_defaultInterface.Triggers[defaultBinding.InterfaceTriggerName], 
                     child.Actions[defaultBinding.DeviceActionName]));
 
@@ -263,6 +266,7 @@ namespace GadrocsWorkshop.Helios
                     ConfigManager.LogManager.LogError("Cannot find action " + defaultBinding.InterfaceActionName);
                     continue;
                 }
+                ConfigManager.LogManager.LogDebug("Child Output binding trigger " + defaultBinding.DeviceTriggerName + " to " + defaultBinding.InterfaceActionName);
                 child.OutputBindings.Add(CreateNewBinding(child.Triggers[defaultBinding.DeviceTriggerName],
                                       _defaultInterface.Actions[defaultBinding.InterfaceActionName]));
         //            child.OutputBindings.Add(
@@ -375,46 +379,6 @@ namespace GadrocsWorkshop.Helios
             return _knob;
         }
 
-        //protected Gauge AddGauge(string name, Point posn, Size size, string interfaceDeviceName, string interfaceElementName)
-        //{
-        //    string componentName = GetComponentName(name);
-        //    Gauge gauge = new Gauge
-        //    {
-        //        Top = posn.Y,
-        //        Left = posn.X,
-        //        Width = size.Width,
-        //        Height = size.Height,
-        //        Name = componentName
-        //    };
-
-        //    Children.Add(gauge);
-
-            //AddTrigger(button.Triggers["pushed"], componentName);
-            //AddTrigger(button.Triggers["released"], componentName);
-
-            //AddAction(button.Actions["push"], componentName);
-            //AddAction(button.Actions["release"], componentName);
-            //AddAction(button.Actions["set.physical state"], componentName);
-
-            //// add the default actions
-            //AddDefaultOutputBinding(
-            //    childName: componentName,
-            //    deviceTriggerName: "pushed",
-            //    interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
-            //    );
-            //AddDefaultOutputBinding(
-            //    childName: componentName,
-            //    deviceTriggerName: "released",
-            //    interfaceActionName: interfaceDeviceName + ".release." + interfaceElementName
-            //    );
-            //AddDefaultInputBinding(
-            //    childName: componentName,
-            //    interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
-            //    deviceActionName: "set.physical state");
-
-            //return button;
-        //    return gauge;
-        //}
 
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
             string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
@@ -460,6 +424,45 @@ namespace GadrocsWorkshop.Helios
                 deviceActionName: "set.physical state");
 
             return button;
+        }
+
+        protected ThreeWayToggleSwitch Add3PosnToggle(string name, Point posn, Size size, string imageUp, string imageNorm, string imageDown, 
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+            ThreeWayToggleSwitch toggle = new ThreeWayToggleSwitch
+            {
+                Top = posn.Y,
+                Left = posn.X,
+                Width = size.Width,
+                Height = size.Height,
+                PositionOneImage = imageUp,
+                PositionTwoImage = imageNorm,
+                PositionThreeImage = imageDown,
+                DefaultPosition = ThreeWayToggleSwitchPosition.Two,
+                SwitchType = ThreeWayToggleSwitchType.OnOnOn,
+                Name = componentName
+            };
+            Children.Add(toggle);
+            foreach (IBindingTrigger trigger in toggle.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(toggle.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+            return toggle;
         }
 
         protected Indicator AddIndicator(string name, Point posn, Size size,
@@ -641,8 +644,6 @@ namespace GadrocsWorkshop.Helios
                 childName: componentName,
                 interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
                 deviceActionName: "set.TextDisplay");
-
-
 
             return display;
         }

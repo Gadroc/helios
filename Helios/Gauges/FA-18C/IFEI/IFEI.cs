@@ -37,8 +37,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public IFEI_FA18C()
             : base("IFEI_Gauge", new Size(779, 702))
         {
-            AddIFEIParts("Gauges", 0, 0, new Size(779, 702), _interfaceDeviceName, "IFEI Needles & Flags");
-
             double spacing = 70;
             double start = 64;
             double left = 400;
@@ -61,33 +59,40 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10", _interfaceDeviceName, "Clock Hours");
             AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11", _interfaceDeviceName, "Clock Minutes");
             AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12", _interfaceDeviceName, "Clock Seconds");
+            dispHeight = 32;
+            AddTextDisplay("Elapsed Time", 554, 418, new Size(128, dispHeight), fontSize, "01:59:59", _interfaceDeviceName, "Elapsed Time");
 
             // Fuel info
 
             AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000", _interfaceDeviceName, "Bingo Value");
 
-            double fuelX = 527;
-            double fuelWidth = 159;
-            AddTextDisplay("Fuel Total", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T", _interfaceDeviceName, "Fuel Up");
+            double fuelX = 530;
+            double fuelWidth = 154;
+            AddTextDisplay("Fuel Total", fuelX, 97, new Size(fuelWidth, dispHeight), fontSize, "10780T", _interfaceDeviceName, "Total Fuel Amount");
 
-            //AddTextDisplay("Fuel", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780I");
 
-            //double RPMWidth = 65;
-            //AddTextDisplay("RPM Left", 107, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
-            //AddTextDisplay("RPM Right", 261, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
 
-            //double TempWidth = 95;
-            //AddTextDisplay("Temp Left", 77, 140, new Size(TempWidth, dispHeight), fontSize, "330");
-            //AddTextDisplay("Temp Right", 261, 140, new Size(TempWidth, dispHeight), fontSize, "333");
+            AddTextDisplay("Fuel Internal", fuelX, 163, new Size(fuelWidth, dispHeight), fontSize, "10780I", _interfaceDeviceName, "Internal Fuel Amount");
 
-            //AddTextDisplay("FF Left", 77, 195, new Size(TempWidth, dispHeight), fontSize, "6");
-            //AddTextDisplay("FF Right", 261, 195, new Size(TempWidth, dispHeight), fontSize, "6");
+            double RPMWidth = 60;
+            AddTextDisplay("RPM Left", 110, 91, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Left RPM Value");
+            AddTextDisplay("RPM Right", 261, 91, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Left RPM Value");
+            
+            double TempWidth = 92;
+            AddTextDisplay("Temp Left", 80, 148, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Left Temperature Value");
+            AddTextDisplay("Temp Right", 261, 148, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Right Temperature Value");
 
-            //AddTextDisplay("Oil Left", 107, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
-            //AddTextDisplay("Oil Right", 261, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
+            AddTextDisplay("FF Left", 80, 203, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Left Fuel Flow Value");
+            AddTextDisplay("FF Right", 261, 203, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Right fuel Flow Value");
+
+            double oilWidth = 64;
+            AddTextDisplay("Oil Left", 107, 438, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Left Oil Temperature");
+            AddTextDisplay("Oil Right", 262, 438, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Right Oil Temperature");
+
+            AddIFEIParts("Gauges", 0, 0, new Size(779, 702), _interfaceDeviceName, "IFEI Needles & Flags");
 
             AddPot(
-                name: "Brightness Control", 
+                name: "Brightness Control",
                 posn: new Point(82, 630),
                 size: new Size(60, 60),
                 knobImage: "{Helios}/Images/AV-8B/Common Knob.png",
@@ -100,6 +105,36 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: "IFEI Brightness Control Knob",
                 fromCenter: true
+                );
+            Size ThreeWayToggleSize = new Size(70, 140);
+            Add3PosnToggle(
+                name: "Video Record DDI",
+                posn: new Point(236, 570),
+                size: ThreeWayToggleSize,
+                image: "{Helios}/Images/Toggles/orange-round-",
+                interfaceDevice: _interfaceDeviceName,
+                interfaceElement: "IFEI Video Record Switch DDI",
+                fromCenter: false
+                );
+
+            Add3PosnToggle(
+                name: "Video Record HUD",
+                posn: new Point(395, 570),
+                size: ThreeWayToggleSize,
+                image: "{Helios}/Images/Toggles/orange-round-",
+                interfaceDevice: _interfaceDeviceName,
+                interfaceElement: "IFEI Video Record Switch HUD",
+                fromCenter: false
+                );
+
+            Add3PosnToggle(
+                name: "Video Record Control",
+                posn: new Point(584, 570),
+                size: ThreeWayToggleSize,
+                image: "{Helios}/Images/Toggles/orange-round-",
+                interfaceDevice: _interfaceDeviceName,
+                interfaceElement: "IFEI Video Record Switch Control",
+                fromCenter: false
                 );
 
 
@@ -145,6 +180,20 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 image: _imageLocation + "IFEI_" + name + ".png",
                 pushedImage: _imageLocation + "IFEI_" + name + "_DN.png",
                 buttonText: "",
+                interfaceDeviceName: interfaceDevice,
+                interfaceElementName: interfaceElement,
+                fromCenter: false
+                );
+        }
+        private void Add3PosnToggle(string name, Point posn, Size size, string image, string interfaceDevice, string interfaceElement, bool fromCenter)
+        {
+            Add3PosnToggle(
+                name: name,
+                posn: posn,
+                size: size,
+                imageUp: image + "up.png",
+                imageNorm: image + "norm.png",
+                imageDown: image + "down.png",
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 fromCenter: false

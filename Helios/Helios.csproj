@@ -2714,11 +2714,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\FA-18C\IFEI\IFEI Nozzle Gauge Marks.xaml">
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right Needle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right Needle.xaml">
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left 0 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left 100 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left 50 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Gauges\FA-18C\IFEI\IFEI Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right 0 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right 100 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right 50 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right Nozzle Gauge Marks.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
