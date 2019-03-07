@@ -1,5 +1,4 @@
 -- Exports.Lua from Helios F/A-18C Interface
--- Exports.Lua from Helios F/A-18C Interface
 print("Helios Aircraft Exports:  F/A-18C\n")
 
 function ProcessHighImportance(mainPanelDevice)
@@ -18,16 +17,11 @@ function ProcessHighImportance(mainPanelDevice)
 --    -- getting the IFEI data
     local li = parse_indication(5)  -- 5 for IFEI
     if li then
-        --IFEI data
-
+        --
+		--IFEI data
+		--
         SendData("2052", string.format("%s",check(li.txt_BINGO)))
-        SendData("2053", string.format("%s",check(li.txt_CLOCK_H)))
-        SendData("2054", string.format("%s",check(li.txt_CLOCK_M)))
-        SendData("2055", string.format("%s",check(li.txt_CLOCK_S)))
-        SendData("2056", string.format("%s",check(li.txt_DD_1)):gsub(":","|"))
-        SendData("2057", string.format("%s",check(li.txt_DD_2)):gsub(":","|"))
-        SendData("2058", string.format("%s",check(li.txt_DD_3)):gsub(":","|"))
-        SendData("2060", string.format("%s",check(li.txt_DD_4)):gsub(":","|"))
+        SendData("2053", string.format("%s%s%s%s%s",check(li.txt_CLOCK_H),check(li.txt_DD_1),check(li.txt_CLOCK_M),check(li.txt_DD_2),check(li.txt_CLOCK_S)):gsub(":","|"))
         SendData("2061", string.format("%s",check(li.txt_FF_L)))
         SendData("2062", string.format("%s",check(li.txt_FF_R)))
         SendData("2063", string.format("%s",check(li.txt_FUEL_DOWN)))
@@ -38,9 +32,7 @@ function ProcessHighImportance(mainPanelDevice)
         SendData("2068", string.format("%s",check(li.txt_RPM_R)))
         SendData("2069", string.format("%s",check(li.txt_TEMP_L)))
         SendData("2070", string.format("%s",check(li.txt_TEMP_R)))
-        SendData("2071", string.format("%s",check(li.txt_TIMER_S)))
-        SendData("2072", string.format("%s",check(li.txt_TIMER_M)))
-        SendData("2073", string.format("%s",check(li.txt_TIMER_H)))
+        SendData("2073", string.format("%s%s%s%s%s",check(li.txt_TIMER_H),check(li.txt_DD_3),check(li.txt_TIMER_M),check(li.txt_DD_4),check(li.txt_TIMER_S)):gsub(":","|"))		
         SendData("2074", string.format("%s",check(li.txt_Codes)))
         SendData("2075", string.format("%s",check(li.txt_SP)))
         SendData("2076", string.format("%s",check(li.txt_DrawChar)))
@@ -65,7 +57,7 @@ function ProcessHighImportance(mainPanelDevice)
         SendData("4013", string.format("%s",check(li.R100Texture)))
         SendData("4014", string.format("%s",check(li.LPointerTexture)))
         SendData("4015", string.format("%s",check(li.RPointerTexture)))
-
+--
 ----
     end
 --

@@ -494,11 +494,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             //AddFunction(new Text(this, "2053", "IFEI", "Clock Hours", "Value of the clock HH"));
             //AddFunction(new Text(this, "2054", "IFEI", "Clock Minutes", "Value of the clock MM"));
             //AddFunction(new Text(this, "2055", "IFEI", "Clock Seconds", "Value of the clock SS"));
-            AddFunction(new Text(this, "2056", "IFEI", "DD 1", "Value of the DD 1 Indicator"));
-            AddFunction(new Text(this, "2057", "IFEI", "DD 2", "Value of the DD 2 Indicator"));
-            AddFunction(new Text(this, "2058", "IFEI", "DD 3", "Value of the DD 3 Indicator"));
+            //AddFunction(new Text(this, "2056", "IFEI", "DD 1", "Value of the DD 1 Indicator"));
+            //AddFunction(new Text(this, "2057", "IFEI", "DD 2", "Value of the DD 2 Indicator"));
+            //AddFunction(new Text(this, "2058", "IFEI", "DD 3", "Value of the DD 3 Indicator"));
             // 2059 is used for the altimeter 
-            AddFunction(new Text(this, "2060", "IFEI", "DD 4", "Value of the DD 4 Indicator"));
+            //AddFunction(new Text(this, "2060", "IFEI", "DD 4", "Value of the DD 4 Indicator"));
             AddFunction(new Text(this, "2061", "IFEI", "Fuel Flow Left", "Value of the Fuel Flow for the Left Engine"));
             AddFunction(new Text(this, "2062", "IFEI", "Fuel Flow Right", "Value of the Fuel Flow for the Right Engine"));
             AddFunction(new Text(this, "2063", "IFEI", "Fuel Internal", "Internel Fuel Value"));
@@ -518,6 +518,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Draw Chanracter"));
             AddFunction(new Text(this, "2077", "IFEI", "T", "Value of the something with T or *"));
             AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Value of the something with H or *"));
+            // These are described as textures, but currently unclear what these actually represent.
             uint commandCode = 4000;
             AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "RPM Flag", "Show RPM on IFEI"));
             AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Temp Flag", "Show Temp on IFEI"));
