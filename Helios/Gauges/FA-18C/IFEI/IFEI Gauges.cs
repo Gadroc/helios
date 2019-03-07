@@ -107,10 +107,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _gnrightnoz = new GaugeNeedle(_imageLocation + "IFEI Right Needle.xaml", new Point(354d, 273d), new Size(92d, 6d), new Point(89d, 3d));
             Components.Add(_gnrightnoz);
             _gnrightnoz.IsHidden = false;
-            _leftNozzle = new HeliosValue(this, new BindingValue(0d), "", "Left Nozzle", "Left Nozzle Position in %.", "", BindingValueUnits.RPMPercent);
+            _leftNozzle = new HeliosValue(this, new BindingValue(0d), "", "Left Nozzle", "Left Nozzle Position in %.", "", BindingValueUnits.NozzlePositionPercent);
             _leftNozzle.Execute += new HeliosActionHandler(LeftNozzlePosition_Execute);
             Actions.Add(_leftNozzle);
-            _rightNozzle = new HeliosValue(this, new BindingValue(0d), "", "Right Nozzle", "Right Nozzle Position in %.", "", BindingValueUnits.RPMPercent);
+            _rightNozzle = new HeliosValue(this, new BindingValue(0d), "", "Right Nozzle", "Right Nozzle Position in %.", "", BindingValueUnits.NozzlePositionPercent);
             _rightNozzle.Execute += new HeliosActionHandler(RightNozzlePosition_Execute);
             Actions.Add(_rightNozzle);
 
@@ -221,7 +221,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
         void Indicator_Execute(object action,HeliosActionEventArgs e)
         {
-
+            ConfigManager.LogManager.LogInfo("Indicator Execute: Action - " + action.ToString() + " Event: " + e.ToString());
         }
         public override bool HitTest(Point location)
         {

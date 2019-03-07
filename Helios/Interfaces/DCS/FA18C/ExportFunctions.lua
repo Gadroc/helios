@@ -1,5 +1,6 @@
 -- Exports.Lua from Helios F/A-18C Interface
 print("Helios Aircraft Exports:  F/A-18C\n")
+b
 
 function ProcessHighImportance(mainPanelDevice)
 	-- Send Altimeter Values	
@@ -41,22 +42,23 @@ function ProcessHighImportance(mainPanelDevice)
 --
 --        --IFEI textures
 --
-        SendData("4000", string.format("%s",check(li.RPMTexture)))
-        SendData("4001", string.format("%s",check(li.TempTexture)))
-        SendData("4002", string.format("%s",check(li.FFTexture)))
-        SendData("4003", string.format("%s",check(li.NOZTexture)))
-        SendData("4004", string.format("%s",check(li.OILTexture)))
-        SendData("4005", string.format("%s",check(li.BINGOTexture)))
-        SendData("4006", string.format("%s",check(li.LScaleTexture)))
-        SendData("4007", string.format("%s",check(li.RScaleTexture)))
-        SendData("4008", string.format("%s",check(li.L0Texture)))
-        SendData("4009", string.format("%s",check(li.R0Texture)))
-        SendData("4010", string.format("%s",check(li.L50Texture)))
-        SendData("4011", string.format("%s",check(li.R50Texture)))
-        SendData("4012", string.format("%s",check(li.L100Texture)))
-        SendData("4013", string.format("%s",check(li.R100Texture)))
-        SendData("4014", string.format("%s",check(li.LPointerTexture)))
-        SendData("4015", string.format("%s",check(li.RPointerTexture)))
+        SendData("4000", string.format("%s",checkTexture(li.RPMTexture)))
+        SendData("4001", string.format("%s",checkTexture(li.TempTexture)))
+        SendData("4002", string.format("%s",checkTexture(li.FFTexture)))
+        SendData("4003", string.format("%s",checkTexture(li.NOZTexture)))
+        SendData("4004", string.format("%s",checkTexture(li.OILTexture)))
+        SendData("4005", string.format("%s",checkTexture(li.BINGOTexture)))
+        SendData("4006", string.format("%s",checkTexture(li.LScaleTexture)))
+        SendData("4007", string.format("%s",checkTexture(li.RScaleTexture)))
+        SendData("4008", string.format("%s",checkTexture(li.L0Texture)))
+        SendData("4009", string.format("%s",checkTexture(li.R0Texture)))
+        SendData("4010", string.format("%s",checkTexture(li.L50Texture)))
+        SendData("4011", string.format("%s",checkTexture(li.R50Texture)))
+        SendData("4012", string.format("%s",checkTexture(li.L100Texture)))
+        SendData("4013", string.format("%s",checkTexture(li.R100Texture)))
+        SendData("4014", string.format("%s",checkTexture(li.LPointerTexture)))
+        SendData("4015", string.format("%s",checkTexture(li.RPointerTexture)))        
+		SendData("4016", string.format("%s",checkTexture(li.ZTexture)))
 --
 ----
     end
@@ -113,4 +115,8 @@ function ProcessLowImportance(mainPanelDevice)
 	-- TACAN Channel
 	--SendData(2263, string.format("%0.2f;%0.2f;%0.2f", mainPanelDevice:get_argument_value(263), mainPanelDevice:get_argument_value(264), mainPanelDevice:get_argument_value(265)))
 
+end
+
+checkTexture = function(s)
+    if s == nil then return "0" else return "1" end
 end

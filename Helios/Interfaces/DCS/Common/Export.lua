@@ -122,7 +122,7 @@ function check(s)
     if type(s) == "string" then 
         return s
     else
-	    return "*"
+	    return ""
     end
 end
 -- Status Gathering Functions

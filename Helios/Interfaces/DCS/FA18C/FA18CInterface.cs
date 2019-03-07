@@ -534,8 +534,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Scale 50 Flag", "Show Right Scale 50 value on IFEI"));
             AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Left Scale 100 Flag", "Show Left Scale 10 value on IFEI"));
             AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Scale 100 Flag", "Show Right Scale 10 value on IFEI"));
-            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Left Nozzle Needle", "Left nozzle needle on IFEI"));
-            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Nozzle Needle", "Right nozzle needle on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Left Nozzle Needle Flag", "Left nozzle needle on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Right Nozzle Needle Flag", "Right nozzle needle on IFEI"));
+            AddFunction(new Text(this, commandCode++.ToString(), "IFEI", "Zulu time Flag", "Z flag indicating Zulu time on IFEI"));
 
             #endregion
             #region  Sensor panel

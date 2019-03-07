@@ -600,6 +600,8 @@
     <Compile Include="UnitConverters\RadianToDegreesConverter.cs" />
     <Compile Include="UnitConverters\SpeedConverter.cs" />
     <Compile Include="UnitConverters\TimeConverter.cs" />
+    <Compile Include="Units\NozzlePositionPercentUnit.cs" />
+    <Compile Include="Units\NozzlePositionUnit.cs" />
     <Compile Include="Windows\Controls\AnalogBar.cs" />
     <Compile Include="Windows\Controls\AxisBar.cs" />
     <Compile Include="Windows\Controls\ButtonIndicator.cs" />
