@@ -52,13 +52,11 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             double dispHeight = 50;
             double fontSize = 50;
 
-            double clockDispWidth = 50;
-            double clockSpreadWidth = 3;
             double clockX = 530;
             double clockY = 352;
-            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10", _interfaceDeviceName, "Clock Hours");
-            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11", _interfaceDeviceName, "Clock Minutes");
-            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12", _interfaceDeviceName, "Clock Seconds");
+            AddTextDisplay("Clock", clockX, clockY, new Size(128, dispHeight), fontSize, "23:59:59", _interfaceDeviceName, "Clock");
+            //AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11", _interfaceDeviceName, "Clock Minutes");
+            //AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12", _interfaceDeviceName, "Clock Seconds");
             dispHeight = 32;
             AddTextDisplay("Elapsed Time", 554, 418, new Size(128, dispHeight), fontSize, "01:59:59", _interfaceDeviceName, "Elapsed Time");
 
@@ -70,24 +68,22 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             double fuelWidth = 154;
             AddTextDisplay("Fuel Total", fuelX, 97, new Size(fuelWidth, dispHeight), fontSize, "10780T", _interfaceDeviceName, "Total Fuel Amount");
 
-
-
             AddTextDisplay("Fuel Internal", fuelX, 163, new Size(fuelWidth, dispHeight), fontSize, "10780I", _interfaceDeviceName, "Internal Fuel Amount");
 
             double RPMWidth = 60;
             AddTextDisplay("RPM Left", 110, 91, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Left RPM Value");
-            AddTextDisplay("RPM Right", 261, 91, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Left RPM Value");
+            AddTextDisplay("RPM Right", 261, 91, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Right RPM Value");
             
             double TempWidth = 92;
             AddTextDisplay("Temp Left", 80, 148, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Left Temperature Value");
             AddTextDisplay("Temp Right", 261, 148, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Right Temperature Value");
 
             AddTextDisplay("FF Left", 80, 203, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Left Fuel Flow Value");
-            AddTextDisplay("FF Right", 261, 203, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Right fuel Flow Value");
+            AddTextDisplay("FF Right", 261, 203, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Right Fuel Flow Value");
 
             double oilWidth = 64;
-            AddTextDisplay("Oil Left", 107, 438, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Left Oil Temperature");
-            AddTextDisplay("Oil Right", 262, 438, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Right Oil Temperature");
+            AddTextDisplay("Oil Left", 107, 438, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Left Oil Pressure");
+            AddTextDisplay("Oil Right", 262, 438, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Right Oil Pressure");
 
             AddIFEIParts("Gauges", 0, 0, new Size(779, 702), _interfaceDeviceName, "IFEI Needles & Flags");
 
@@ -113,7 +109,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 size: ThreeWayToggleSize,
                 image: "{Helios}/Images/Toggles/orange-round-",
                 interfaceDevice: _interfaceDeviceName,
-                interfaceElement: "IFEI Video Record Switch DDI",
+                interfaceElement: "Video Record Selector Switch HMD/LDDI/RDDI",
                 fromCenter: false
                 );
 
@@ -123,7 +119,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 size: ThreeWayToggleSize,
                 image: "{Helios}/Images/Toggles/orange-round-",
                 interfaceDevice: _interfaceDeviceName,
-                interfaceElement: "IFEI Video Record Switch HUD",
+                interfaceElement: "Video Record Selector Switch, HUD/LDIR/RDDI",
                 fromCenter: false
                 );
 
@@ -133,7 +129,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 size: ThreeWayToggleSize,
                 image: "{Helios}/Images/Toggles/orange-round-",
                 interfaceDevice: _interfaceDeviceName,
-                interfaceElement: "IFEI Video Record Switch Control",
+                interfaceElement: "Video Record Mode Selector Switch, MAN/OFF/AUTO",
                 fromCenter: false
                 );
 
@@ -218,17 +214,12 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             foreach (IBindingAction action in IFEI_gauges.Actions)
             {
                 AddAction(action, action.Name);
+                AddDefaultInputBinding(
+                    childName: IFEI_gauges.TypeIdentifier + ";" + IFEI_gauges.Name,
+                    deviceActionName: action.ActionID,
+                    interfaceTriggerName: action.ActionID
+                    );
             }
-            //AddDefaultOutputBinding(
-            //    childName: componentName,
-            //    deviceTriggerName: "encoder.incremented",
-            //    interfaceActionName: interfaceDeviceName + ".increment." + interfaceElementName
-            //);
-            //AddDefaultOutputBinding(
-            //    childName: componentName,
-            //    deviceTriggerName: "encoder.decremented",
-            //    interfaceActionName: interfaceDeviceName + ".decrement." + interfaceElementName
-            //    );
         }
 
         public override bool HitTest(Point location)
