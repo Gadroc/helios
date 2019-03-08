@@ -132,9 +132,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 interfaceElement: "Video Record Mode Selector Switch, MAN/OFF/AUTO",
                 fromCenter: false
                 );
-
-
-        }
+       }
 
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
@@ -183,13 +181,15 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void Add3PosnToggle(string name, Point posn, Size size, string image, string interfaceDevice, string interfaceElement, bool fromCenter)
         {
-            Add3PosnToggle(
+            AddThreeWayToggle(
                 name: name,
-                posn: posn,
+                pos: posn,
                 size: size,
-                imageUp: image + "up.png",
-                imageNorm: image + "norm.png",
-                imageDown: image + "down.png",
+                positionOneImage: image + "up.png",
+                positionTwoImage: image + "norm.png",
+                positionThreeImage: image + "down.png",
+                defaultPosition: ThreeWayToggleSwitchPosition.Two,
+                switchType: ThreeWayToggleSwitchType.OnOnOn,
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 fromCenter: false
@@ -214,10 +214,11 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             foreach (IBindingAction action in IFEI_gauges.Actions)
             {
                 AddAction(action, action.Name);
+                // Create the automatic input bindings for the IFEI_Gauge sub component
                 AddDefaultInputBinding(
-                    childName: IFEI_gauges.TypeIdentifier + ";" + IFEI_gauges.Name,
-                    deviceActionName: action.ActionID,
-                    interfaceTriggerName: action.ActionID
+                    childName: "Gauges",
+                    deviceActionName: action.ActionVerb +"." +action.Name,
+                    interfaceTriggerName: interfaceDevice +"."+ action.Name + ".changed"
                     );
             }
         }

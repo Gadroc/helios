@@ -426,45 +426,6 @@ namespace GadrocsWorkshop.Helios
             return button;
         }
 
-        protected ThreeWayToggleSwitch Add3PosnToggle(string name, Point posn, Size size, string imageUp, string imageNorm, string imageDown, 
-            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
-        {
-            if (fromCenter)
-                posn = FromCenter(posn, size);
-            string componentName = GetComponentName(name);
-            ThreeWayToggleSwitch toggle = new ThreeWayToggleSwitch
-            {
-                Top = posn.Y,
-                Left = posn.X,
-                Width = size.Width,
-                Height = size.Height,
-                PositionOneImage = imageUp,
-                PositionTwoImage = imageNorm,
-                PositionThreeImage = imageDown,
-                DefaultPosition = ThreeWayToggleSwitchPosition.Two,
-                SwitchType = ThreeWayToggleSwitchType.OnOnOn,
-                Name = componentName
-            };
-            Children.Add(toggle);
-            foreach (IBindingTrigger trigger in toggle.Triggers)
-            {
-                AddTrigger(trigger, componentName);
-            }
-            AddAction(toggle.Actions["set.position"], componentName);
-
-            AddDefaultOutputBinding(
-                childName: componentName,
-                deviceTriggerName: "position.changed",
-                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
-            );
-            AddDefaultInputBinding(
-                childName: componentName,
-                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
-                deviceActionName: "set.position");
-
-            return toggle;
-        }
-
         protected Indicator AddIndicator(string name, Point posn, Size size,
             string onImage, string offImage, Color onTextColor, Color offTextColor, string font,
             bool vertical, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
@@ -567,10 +528,10 @@ namespace GadrocsWorkshop.Helios
                 Width = size.Width,
                 Height = size.Height,
                 DefaultPosition = defaultPosition,
-                PositionOneImage = "{Helios}/Images/Toggles/round-up.png",
-                PositionTwoImage = "{Helios}/Images/Toggles/round-norm.png",
-                PositionThreeImage = "{Helios}/Images/Toggles/round-down.png",
-                SwitchType = ThreeWayToggleSwitchType.OnOnOn,
+                PositionOneImage = positionOneImage,
+                PositionTwoImage = positionTwoImage,
+                PositionThreeImage = positionThreeImage,
+                SwitchType = switchType,
                 Name = componentName
             };
 
