@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.IFEIGauges", "IFEI Needles & Flags", "F/A-18C", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.FA18C.IFEIGauges", "IFEI Needles & Flags", "F/A-18C Gauges", typeof(GaugeRenderer))]
     public class IFEI_Gauges : BaseGauge
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
@@ -31,18 +31,17 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         //private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
         private string _imageLocation = "{Helios}/Gauges/FA-18C/IFEI/";
-        private HeliosValue _leftNozzle;
-        private HeliosValue _rightNozzle;
         private GaugeNeedle _gnleftnoz;
+        private HeliosValue _leftNozzle;
+        private HeliosValue _leftNozzleNeedle;
+        private CalibrationPointCollectionDouble _needleLeftCalibration;
         private GaugeNeedle _gnrightnoz;
-        private CalibrationPointCollectionDouble _needleCalibration;
+        private HeliosValue _rightNozzle;
+        private HeliosValue _rightNozzleNeedle;
+        private CalibrationPointCollectionDouble _needleRightCalibration;
         private GaugeImage _gibackground;
         private GaugeImage _gireflection;
-        private GaugeImage _giL;
-        private HeliosValue _indicatorLeft;
-        private GaugeImage _giR;
-        private HeliosValue _indicatorRight;
-        private GaugeImage _giZ;
+        private GaugeImage _giZulu;
         private HeliosValue _indicatorZulu;
         private GaugeImage _giBingo;
         private HeliosValue _indicatorBingo;
@@ -72,6 +71,18 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private HeliosValue _indicatorMarksLeft100;
         private GaugeImage _giGaugeMarksR100;
         private HeliosValue _indicatorMarksRight100;
+        private GaugeImage _giClockDots1;
+        private HeliosValue _indicatorClockDots1;
+        private GaugeImage _giClockDots2;
+        private HeliosValue _indicatorClockDots2;
+        private GaugeImage _giTimerDots1;
+        private HeliosValue _indicatorTimerDots1;
+        private GaugeImage _giTimerDots2;
+        private HeliosValue _indicatorTimerDots2;
+        private HeliosValue _indicatorLFuel;
+        private GaugeImage _giLeftFuel;
+        private HeliosValue _indicatorRFuel;
+        private GaugeImage _giRightFuel;
 
         public IFEI_Gauges()
             : base("IFEI_Gauges", new Size(779, 702))
@@ -100,17 +111,18 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             Components.Add(_giGaugeMarksL100);
             _giGaugeMarksR100 = new GaugeImage(_imageLocation + "IFEI Right 100 Nozzle Gauge Marks.xaml", new Rect(80d, 270d, 277d, 137d));
             Components.Add(_giGaugeMarksR100);
-            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 90d, 90d);
+            _needleLeftCalibration = new CalibrationPointCollectionDouble(0d, 0d, 100d, 90d);
             _gnleftnoz = new GaugeNeedle(_imageLocation + "IFEI Left Needle.xaml", new Point(83d, 273d), new Size(92d, 6d), new Point(3d, 3d));
             Components.Add(_gnleftnoz);
-            _gnleftnoz.IsHidden = false;
+            _gnleftnoz.IsHidden = true;
+            _needleRightCalibration = new CalibrationPointCollectionDouble(0d, 0d, 100d, -90d);
             _gnrightnoz = new GaugeNeedle(_imageLocation + "IFEI Right Needle.xaml", new Point(354d, 273d), new Size(92d, 6d), new Point(89d, 3d));
             Components.Add(_gnrightnoz);
-            _gnrightnoz.IsHidden = false;
-            _leftNozzle = new HeliosValue(this, new BindingValue(0d), "", "Left Nozzle", "Left Nozzle Position in %.", "", BindingValueUnits.NozzlePositionPercent);
+            _gnrightnoz.IsHidden = true;
+            _leftNozzle = new HeliosValue(this, BindingValue.Empty, "", "Left Nozzle Position", "Left Nozzle Position in %.", "", BindingValueUnits.Numeric);
             _leftNozzle.Execute += new HeliosActionHandler(LeftNozzlePosition_Execute);
             Actions.Add(_leftNozzle);
-            _rightNozzle = new HeliosValue(this, new BindingValue(0d), "", "Right Nozzle", "Right Nozzle Position in %.", "", BindingValueUnits.NozzlePositionPercent);
+            _rightNozzle = new HeliosValue(this, BindingValue.Empty, "", "Right Nozzle Position", "Right Nozzle Position in %.", "", BindingValueUnits.Numeric);
             _rightNozzle.Execute += new HeliosActionHandler(RightNozzlePosition_Execute);
             Actions.Add(_rightNozzle);
 
@@ -124,44 +136,56 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             Components.Add(_giTemp);
             _giBingo = new GaugeImage(_imageLocation + "IFEI Legends Bingo.xaml", new Rect(596d, 236d, 40d, 12d));
             Components.Add(_giBingo);
-            _giL = new GaugeImage(_imageLocation + "IFEI Legends L.xaml", new Rect(689d, 114d, 8d, 12d));
-            Components.Add(_giL);
-            _giR = new GaugeImage(_imageLocation + "IFEI Legends R.xaml", new Rect(689d, 180d,  8d, 12d));
-            Components.Add(_giR);
-            _giZ = new GaugeImage(_imageLocation + "IFEI Legends Z.xaml", new Rect(688d, 376d, 8d, 12d));
-            Components.Add(_giZ);
+            _giLeftFuel = new GaugeImage(_imageLocation + "IFEI Legends L.xaml", new Rect(689d, 114d, 8d, 12d));
+            Components.Add(_giLeftFuel);
+            _giRightFuel = new GaugeImage(_imageLocation + "IFEI Legends R.xaml", new Rect(689d, 180d,  8d, 12d));
+            Components.Add(_giRightFuel);
+            _giZulu = new GaugeImage(_imageLocation + "IFEI Legends Z.xaml", new Rect(688d, 376d, 8d, 12d));
+            Components.Add(_giZulu);
             _giOil = new GaugeImage(_imageLocation + "IFEI Legends Oil.xaml", new Rect(206d, 450d, 22d, 12d));
             Components.Add(_giOil);
+            _giClockDots1 = new GaugeImage(_imageLocation + "IFEI Clock Separator.xaml", new Rect(577d, 366d, 7.055d, 19.273d));
+            Components.Add(_giClockDots1);
+            _giClockDots2 = new GaugeImage(_imageLocation + "IFEI Clock Separator.xaml", new Rect(630d, 366d, 7.055d, 19.273d));
+            Components.Add(_giClockDots2);
+            _giTimerDots1 = new GaugeImage(_imageLocation + "IFEI Clock Separator.xaml", new Rect(577d, 423d, 7.055d, 19.273d));
+            Components.Add(_giTimerDots1);
+            _giTimerDots2 = new GaugeImage(_imageLocation + "IFEI Clock Separator.xaml", new Rect(630d, 423d, 7.055d, 19.273d));
+            Components.Add(_giTimerDots2);
             _gireflection = new GaugeImage(_imageLocation + "IFEI Reflections.png", new Rect(0d, 0d, 779d, 702d));
             Components.Add(_gireflection);
             _gireflection.IsHidden = false;
-            _giOil.IsHidden = false;
-            _giZ.IsHidden = true;
-            _giR.IsHidden = true;
-            _giL.IsHidden = true;
-            _giBingo.IsHidden = false;
-            _giTemp.IsHidden = false;
-            _giFF.IsHidden = false;
-            _giRPM.IsHidden = false;
-            _giNoz.IsHidden = false;
-            _giGaugeMarksL.IsHidden = false;
-            _giGaugeMarksR.IsHidden = false;
-            _giGaugeMarksL000.IsHidden = false;
-            _giGaugeMarksR000.IsHidden = false;
-            _giGaugeMarksL050.IsHidden = false;
-            _giGaugeMarksR050.IsHidden = false;
-            _giGaugeMarksL100.IsHidden = false;
-            _giGaugeMarksR100.IsHidden = false;
+            _giOil.IsHidden = true;
+            _giZulu.IsHidden = true;
+            _giLeftFuel.IsHidden = true;
+            _giRightFuel.IsHidden = true;
+            _giBingo.IsHidden = true;
+            _giTemp.IsHidden = true;
+            _giFF.IsHidden = true;
+            _giRPM.IsHidden = true;
+            _giNoz.IsHidden = true;
+            _giGaugeMarksL.IsHidden = true;
+            _giGaugeMarksR.IsHidden = true;
+            _giGaugeMarksL000.IsHidden = true;
+            _giGaugeMarksR000.IsHidden = true;
+            _giGaugeMarksL050.IsHidden = true;
+            _giGaugeMarksR050.IsHidden = true;
+            _giGaugeMarksL100.IsHidden = true;
+            _giGaugeMarksR100.IsHidden = true;
+            _giClockDots1.IsHidden = true;
+            _giClockDots2.IsHidden = true;
+            _giTimerDots1.IsHidden = true;
+            _giTimerDots2.IsHidden = true;
 
-            _indicatorLeft = new HeliosValue(this, new BindingValue(0d), "", "Left flag", "Left Indicator flag.", "", BindingValueUnits.Boolean);
-            _indicatorLeft.Execute += new HeliosActionHandler(Indicator_Execute);
-            Actions.Add(_indicatorLeft);
-            _indicatorRight = new HeliosValue(this, new BindingValue(0d), "", "Right flag", "Right Indicator flag.", "", BindingValueUnits.Boolean);
-            _indicatorRight.Execute += new HeliosActionHandler(Indicator_Execute);
-            Actions.Add(_indicatorRight);
-            _indicatorZulu = new HeliosValue(this, new BindingValue(0d), "", "Zulu time Flag", "Z flag indicating Zulu time on IFEI", "", BindingValueUnits.Boolean);
+            _indicatorZulu = new HeliosValue(this, new BindingValue(0d), "", "Zulu Time Flag", "Z flag indicating Zulu time on IFEI", "", BindingValueUnits.Boolean);
             _indicatorZulu.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorZulu);
+            _indicatorLFuel = new HeliosValue(this, new BindingValue(0d), "", "Left Fuel Flag", "L flag indicating Left fuel quantity on IFEI", "", BindingValueUnits.Boolean);
+            _indicatorLFuel.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorLFuel);
+            _indicatorRFuel = new HeliosValue(this, new BindingValue(0d), "", "Right Fuel Flag", "R flag indicating Right fuel quantity on IFEI", "", BindingValueUnits.Boolean);
+            _indicatorRFuel.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorRFuel);
             _indicatorBingo = new HeliosValue(this, new BindingValue(0d), "", "Bingo Flag", "Show Bingo on IFEI", "", BindingValueUnits.Boolean);
             _indicatorBingo.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorBingo);
@@ -204,6 +228,25 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _indicatorMarksRight100 = new HeliosValue(this, new BindingValue(0d), "", "Right Scale 100 Flag", "Show Right Scale 10 value on IFEI", "", BindingValueUnits.Boolean);
             _indicatorMarksRight100.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_indicatorMarksRight100);
+            _indicatorClockDots1 = new HeliosValue(this, new BindingValue(0d), "", "Clock HH MM separator", "Separator character between hours & mins on the IFEI clock", "", BindingValueUnits.Boolean);
+            _indicatorClockDots1.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorClockDots1);
+            _indicatorClockDots2 = new HeliosValue(this, new BindingValue(0d), "", "Clock MM SS separator", "Separator character between mins & secs on the IFEI clock", "", BindingValueUnits.Boolean);
+            _indicatorClockDots2.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorClockDots2);
+            _indicatorTimerDots1 = new HeliosValue(this, new BindingValue(0d), "", "Timer H MM separator", "Separator character between hours & mins on the IFEI timer", "", BindingValueUnits.Boolean);
+            _indicatorTimerDots1.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorTimerDots1);
+            _indicatorTimerDots2 = new HeliosValue(this, new BindingValue(0d), "", "Timer MM SS separator", "Separator character between mins & secs on the IFEI timer", "", BindingValueUnits.Boolean);
+            _indicatorTimerDots2.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_indicatorTimerDots2);
+            _leftNozzleNeedle = new HeliosValue(this, new BindingValue(0d), "", "Left Nozzle Needle Flag", "Left nozzle needle appearance on IFEI", "", BindingValueUnits.Boolean);
+            _leftNozzleNeedle.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_leftNozzleNeedle);
+            _rightNozzleNeedle = new HeliosValue(this, new BindingValue(0d), "", "Right Nozzle Needle Flag", "Right nozzle needle appearance on IFEI", "", BindingValueUnits.Boolean);
+            _rightNozzleNeedle.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_rightNozzleNeedle);
+
         }
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
@@ -211,17 +254,92 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
         void LeftNozzlePosition_Execute(object action, HeliosActionEventArgs e)
         {          
-            _gnleftnoz.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue % 1000d);
+            _gnleftnoz.Rotation = _needleLeftCalibration.Interpolate(e.Value.DoubleValue);
         }
 
         void RightNozzlePosition_Execute(object action, HeliosActionEventArgs e)
         {
-            _gnrightnoz.Rotation = _needleCalibration.Interpolate(e.Value.DoubleValue % 1000d);
+            _gnrightnoz.Rotation = _needleRightCalibration.Interpolate(e.Value.DoubleValue);
         }
 
         void Indicator_Execute(object action,HeliosActionEventArgs e)
         {
-            ConfigManager.LogManager.LogInfo("Indicator Execute: Action - " + action.ToString() + " Event: " + e.ToString());
+            HeliosValue _haction = (HeliosValue) action;
+            String _hactionVal = e.Value.StringValue;
+            switch (_haction.Name)
+            {
+                case "Zulu Time Flag":
+                    _giZulu.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Bingo Flag":
+                    _giBingo.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "FF Flag":
+                    _giFF.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Temp Flag":
+                    _giTemp.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "RPM Flag":
+                    _giRPM.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Oil Flag":
+                    _giOil.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Noz Flag":
+                    _giNoz.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Left Scale Flag":
+                    _giGaugeMarksL.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Right Scale Flag":
+                    _giGaugeMarksR.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Left Scale 0 Flag":
+                    _giGaugeMarksL000.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Right Scale 0 Flag":
+                    _giGaugeMarksR000.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Left Scale 50 Flag":
+                    _giGaugeMarksL050.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Right Scale 50 Flag":
+                    _giGaugeMarksR050.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Left Scale 100 Flag":
+                    _giGaugeMarksL100.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Right Scale 100 Flag":
+                    _giGaugeMarksR100.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Clock HH MM separator":
+                    _giClockDots1.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Clock MM SS separator":
+                    _giClockDots2.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Timer H MM separator":
+                    _giTimerDots1.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Timer MM SS separator":
+                    _giTimerDots2.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Left Nozzle Needle Flag":
+                    _gnleftnoz.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Right Nozzle Needle Flag":
+                    _gnrightnoz.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Left Fuel Flag":
+                    _giLeftFuel.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Right Fuel Flag":
+                    _giRightFuel.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                default:
+                    break;
+            }
         }
         public override bool HitTest(Point location)
         {

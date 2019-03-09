@@ -201,7 +201,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "6", "Caution Indicators", "AOA_LOW", ""));         // create_caution_lamp(6,CautionLights.CPT_LTS_AOA_LOW)
             // Declarations for Caution Lights numbers from Lamps.lua
             #endregion
-
             #region Internal Lights
             AddFunction(new FlagValue(this, "460", "Internal Lights", "Console", ""));    //  create_int_lights(460 InternalLights.Console_lt)
             AddFunction(new FlagValue(this, "461", "Internal Lights", "Flood", ""));    //  create_int_lights(461 InternalLights.Flood_lt)
@@ -214,7 +213,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "463", "Internal Lights", "Chart", ""));    //  create_int_lights(463 InternalLights.Chart_lt)
 
             #endregion
-
             #region RWR
             AddFunction(new FlagValue(this, "273", "RWR", "Limit", ""));    //   Limit_lt, create_simple_lamp(273 controllers.RWR_LimitLt)
             AddFunction(new FlagValue(this, "274", "RWR", "Display", ""));    //   Display_lt, create_simple_lamp(274 controllers.RWR_LowerLt)
@@ -490,15 +488,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "469", "IFEI", "IFEI buttons", ""));    //   IFEI buttons_lt, create_simple_lamp(469 controllers.IFEILights 1)
 
             AddFunction(new Text(this, "2052", "IFEI", "Bingo Value", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2053", "IFEI", "Clock", "Value of the clock HH:MM:SS"));  // The exports concatenates the three fields
-            //AddFunction(new Text(this, "2053", "IFEI", "Clock Hours", "Value of the clock HH"));
-            //AddFunction(new Text(this, "2054", "IFEI", "Clock Minutes", "Value of the clock MM"));
-            //AddFunction(new Text(this, "2055", "IFEI", "Clock Seconds", "Value of the clock SS"));
-            //AddFunction(new Text(this, "2056", "IFEI", "DD 1", "Value of the DD 1 Indicator"));
-            //AddFunction(new Text(this, "2057", "IFEI", "DD 2", "Value of the DD 2 Indicator"));
-            //AddFunction(new Text(this, "2058", "IFEI", "DD 3", "Value of the DD 3 Indicator"));
-            // 2059 is used for the altimeter 
-            //AddFunction(new Text(this, "2060", "IFEI", "DD 4", "Value of the DD 4 Indicator"));
+            AddFunction(new Text(this, "2053", "IFEI", "Clock hours", "Value of the clock HH"));
+            AddFunction(new Text(this, "2054", "IFEI", "Clock minutes", "Value of the clock MM"));
+            AddFunction(new Text(this, "2055", "IFEI", "Clock seconds", "Value of the clock SS"));
+            AddFunction(new FlagValue(this, "2056", "IFEI", "Clock HH MM separator", "Flag to display colon HH:MM on IFEI clock display"));
+            AddFunction(new FlagValue(this, "2057", "IFEI", "Clock MM SS separator", "Flag to display colon MM:SS on IFEI clock display"));
             AddFunction(new Text(this, "2061", "IFEI", "Left Fuel Flow Value", "Value of the Fuel Flow for the Left Engine"));
             AddFunction(new Text(this, "2062", "IFEI", "Right Fuel Flow Value", "Value of the Fuel Flow for the Right Engine"));
             AddFunction(new Text(this, "2063", "IFEI", "Internal Fuel Amount", "Internel Fuel Value"));
@@ -509,10 +503,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Text(this, "2068", "IFEI", "Right RPM Value", "Right Engine RPM"));
             AddFunction(new Text(this, "2069", "IFEI", "Left Temperature Value", "Left Engine Temperature"));
             AddFunction(new Text(this, "2070", "IFEI", "Right Temperature Value", "Right Engine Temperature"));
-            AddFunction(new Text(this, "2073", "IFEI", "Elapsed Time", "Value of the Timer HH:MM:SS"));  // The exports concatenates these fields
-            //AddFunction(new Text(this, "2073", "IFEI", "Timer Hours", "Value of the Timer Hours"));
-            //AddFunction(new Text(this, "2072", "IFEI", "Timer Minutes", "Value of the Timer Minutes"));
-            //AddFunction(new Text(this, "2071", "IFEI", "Timer Seconds", "Value of the Timer Seconds"));
+            AddFunction(new Text(this, "2073", "IFEI", "Timer hours", "Value of the Timer Hours"));
+            AddFunction(new Text(this, "2072", "IFEI", "Timer minutes", "Value of the Timer Minutes"));
+            AddFunction(new Text(this, "2071", "IFEI", "Timer seconds", "Value of the Timer Seconds"));
+            AddFunction(new FlagValue(this, "2058", "IFEI", "Timer H MM separator", "Flag to display colon HH:MM on IFEI timer display"));
+            // 2059 is used for the altimeter 
+            AddFunction(new FlagValue(this, "2060", "IFEI", "Timer MM SS separator", "Flag to display colon MM:SS on IFEI timer display"));
             AddFunction(new Text(this, "2074", "IFEI", "Codes", "Value of the code before the SP"));
             AddFunction(new Text(this, "2075", "IFEI", "SP", "Value of SP"));
             AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Draw Chanracter"));
@@ -536,7 +532,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Scale 100 Flag", "Show Right Scale 10 value on IFEI"));
             AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Left Nozzle Needle Flag", "Left nozzle needle on IFEI"));
             AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Nozzle Needle Flag", "Right nozzle needle on IFEI"));
-            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Zulu time Flag", "Z flag indicating Zulu time on IFEI")); 
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Zulu Time Flag", "Z flag indicating Zulu time on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Left Fuel Flag", "L flag indicating Left fuel quantity on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Fuel Flag", "R flag indicating Right fuel quantity on IFEI"));
+            AddFunction(new Axis(this, IFEI, commandCode.ToString(), commandCode++.ToString(), 1d, 0d, 100d, "IFEI", "Left Nozzle Position", true, "%3.0f"));
+            AddFunction(new Axis(this, IFEI, commandCode.ToString(), commandCode++.ToString(), 1d, 0d, 100d, "IFEI", "Right Nozzle Position", true, "%3.0f"));
 
             #endregion
             #region  Sensor panel

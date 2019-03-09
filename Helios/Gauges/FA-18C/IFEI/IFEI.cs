@@ -37,6 +37,52 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public IFEI_FA18C()
             : base("IFEI_Gauge", new Size(779, 702))
         {
+
+            // adding the text displays
+            double dispHeight = 50;
+            double fontSize = 42;
+
+            double clockDispWidth = 50;
+            double clockSpreadWidth = 3;
+            double clockX = 524;
+            double clockY = 355;
+            // test string to turn on legends 00000000*4000=1:4001=1:4002=1:4003=1:4004=1:4005=1:4006=1:4007=1:4008=1:4009=1:4010=1:4011=1:4012=1:4013=1:4014=1:4015=1:4016=1:4017=1:4018=1:
+            // Test String 00000000*2063=81000I:2064=81000T:2066=88:2065=99:2073=9:2072=59:2071=59:2053=23:2054=59:2055=59:2061=2000:2062=4000:2067=100:2068=100:2052=10000:2069=1200:2070=1200:2056=1:2057=1:2058=1:2060=1:4019=50:4020=50 
+            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "23", _interfaceDeviceName, "Clock hours");
+            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Clock minutes");
+            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Clock seconds");
+            clockY = 412;
+            AddTextDisplay("Elapsed Time H", clockX + clockDispWidth/2, clockY, new Size(clockDispWidth/2, dispHeight), fontSize, "01", _interfaceDeviceName, "Timer hours");
+            AddTextDisplay("Elapsed Time MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Timer minutes");
+            AddTextDisplay("Elapsed Time SS", clockX + 2*(clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Timer seconds");
+
+            // Fuel info
+
+            AddTextDisplay("Bingo", 545, 258, new Size(133, dispHeight), fontSize, "2000", _interfaceDeviceName, "Bingo Value");
+
+            double fuelX = 530;
+            double fuelWidth = 154;
+            AddTextDisplay("Fuel Total", fuelX, 93, new Size(fuelWidth, dispHeight), fontSize, "10780T", _interfaceDeviceName, "Total Fuel Amount");
+
+            AddTextDisplay("Fuel Internal", fuelX, 159, new Size(fuelWidth, dispHeight), fontSize, "10780I", _interfaceDeviceName, "Internal Fuel Amount");
+
+            double RPMWidth = 60;
+            AddTextDisplay("RPM Left", 104, 86, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Left RPM Value");
+            AddTextDisplay("RPM Right", 255, 86, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Right RPM Value");
+            
+            double TempWidth = 92;
+            AddTextDisplay("Temp Left", 80, 143, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Left Temperature Value");
+            AddTextDisplay("Temp Right", 261, 143, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Right Temperature Value");
+
+            AddTextDisplay("FF Left", 80, 199, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Left Fuel Flow Value");
+            AddTextDisplay("FF Right", 261, 199, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Right Fuel Flow Value");
+
+            double oilWidth = 64;
+            AddTextDisplay("Oil Left", 107, 433, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Left Oil Pressure");
+            AddTextDisplay("Oil Right", 262, 433, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Right Oil Pressure");
+
+            AddIFEIParts("Gauges", 0, 0, new Size(779, 702), _interfaceDeviceName, "IFEI Needles & Flags");
+
             double spacing = 70;
             double start = 64;
             double left = 400;
@@ -47,45 +93,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButton("DOWN", left, start + 3 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI Down Arrow Button");
             AddButton("ZONE", left, start + 4 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI ZONE Button");
             AddButton("ET", left, start + 5 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI ET Button");
-
-            // adding the text displays
-            double dispHeight = 50;
-            double fontSize = 50;
-
-            double clockX = 530;
-            double clockY = 352;
-            AddTextDisplay("Clock", clockX, clockY, new Size(128, dispHeight), fontSize, "23:59:59", _interfaceDeviceName, "Clock");
-            //AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11", _interfaceDeviceName, "Clock Minutes");
-            //AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12", _interfaceDeviceName, "Clock Seconds");
-            dispHeight = 32;
-            AddTextDisplay("Elapsed Time", 554, 418, new Size(128, dispHeight), fontSize, "01:59:59", _interfaceDeviceName, "Elapsed Time");
-
-            // Fuel info
-
-            AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000", _interfaceDeviceName, "Bingo Value");
-
-            double fuelX = 530;
-            double fuelWidth = 154;
-            AddTextDisplay("Fuel Total", fuelX, 97, new Size(fuelWidth, dispHeight), fontSize, "10780T", _interfaceDeviceName, "Total Fuel Amount");
-
-            AddTextDisplay("Fuel Internal", fuelX, 163, new Size(fuelWidth, dispHeight), fontSize, "10780I", _interfaceDeviceName, "Internal Fuel Amount");
-
-            double RPMWidth = 60;
-            AddTextDisplay("RPM Left", 110, 91, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Left RPM Value");
-            AddTextDisplay("RPM Right", 261, 91, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Right RPM Value");
-            
-            double TempWidth = 92;
-            AddTextDisplay("Temp Left", 80, 148, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Left Temperature Value");
-            AddTextDisplay("Temp Right", 261, 148, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Right Temperature Value");
-
-            AddTextDisplay("FF Left", 80, 203, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Left Fuel Flow Value");
-            AddTextDisplay("FF Right", 261, 203, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Right Fuel Flow Value");
-
-            double oilWidth = 64;
-            AddTextDisplay("Oil Left", 107, 438, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Left Oil Pressure");
-            AddTextDisplay("Oil Right", 262, 438, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Right Oil Pressure");
-
-            AddIFEIParts("Gauges", 0, 0, new Size(779, 702), _interfaceDeviceName, "IFEI Needles & Flags");
 
             AddPot(
                 name: "Brightness Control",

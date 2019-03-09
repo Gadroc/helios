@@ -48,12 +48,6 @@ namespace GadrocsWorkshop.Helios
         {
             return new RPMUnit(maxValue);
         }
-        // Nozzle Position Units
-        public static readonly NozzlePositionPercentUnit NozzlePositionPercent = new NozzlePositionPercentUnit();
-        public static NozzlePositionUnit nozzlePosition(double maxValue)
-        {
-            return new NozzlePositionUnit(maxValue);
-        }
 
         // Time Units
         public static readonly SecondsUnit Seconds = new SecondsUnit();

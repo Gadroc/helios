@@ -2736,6 +2736,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Clock Separator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Gauges\FA-18C\IFEI\IFEI Nozzle Gauge Marks.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
