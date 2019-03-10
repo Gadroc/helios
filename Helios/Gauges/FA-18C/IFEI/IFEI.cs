@@ -46,8 +46,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             double clockSpreadWidth = 3;
             double clockX = 524;
             double clockY = 355;
-            // test string to turn on legends 00000000*4000=1:4001=1:4002=1:4003=1:4004=1:4005=1:4006=1:4007=1:4008=1:4009=1:4010=1:4011=1:4012=1:4013=1:4014=1:4015=1:4016=1:4017=1:4018=1:
-            // Test String 00000000*2063=81000I:2064=81000T:2066=88:2065=99:2073=9:2072=59:2071=59:2053=23:2054=59:2055=59:2061=2000:2062=4000:2067=100:2068=100:2052=10000:2069=1200:2070=1200:2056=1:2057=1:2058=1:2060=1:4019=50:4020=50 
+            // test string 00000000*4000=1:4001=1:4002=1:4003=1:4004=1:4005=1:4006=1:4007=1:4008=1:4009=1:4010=1:4011=1:4012=1:4013=1:4014=1:4015=1:4016=1:4017=1:4018=1:2063=81000I:2064=81000T:2066=88:2065=99:2073=9:2072=59:2071=59:2053=23:2054=59:2055=59:2061=2000:2062=4000:2067=100:2068=100:2052=10000:2069=1200:2070=1200:2056=1:2057=1:2058=1:2060=1:4019=50:4020=50:
             AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "23", _interfaceDeviceName, "Clock hours");
             AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Clock minutes");
             AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Clock seconds");

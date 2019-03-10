@@ -11,7 +11,7 @@
         <Canvas>
 
             <!-- Layer 1/Colon/<Compound Path> -->
-            <Path StrokeThickness="4.0" Stroke="#d0ffffff" StrokeMiterLimit="1.0" Data="F1 M 5.055,17.273 L 2.000,17.273 L 2.000,14.218 L 5.055,14.218 L 5.055,17.273 Z M 5.055,5.055 L 2.000,5.055 L 2.000,2.000 L 5.055,2.000 L 5.055,5.055 Z">
+            <Path StrokeThickness="1.5" Stroke="#d0ffffff" StrokeMiterLimit="1.0" Data="F1 M 5.055,17.273 L 2.000,17.273 L 2.000,14.218 L 5.055,14.218 L 5.055,17.273 Z M 5.055,5.055 L 2.000,5.055 L 2.000,2.000 L 5.055,2.000 L 5.055,5.055 Z">
                 <Path.Fill>
                     <LinearGradientBrush MappingMode="Absolute" StartPoint="8.352,-13.431" EndPoint="11.406,-13.431">
                         <LinearGradientBrush.GradientStops>
