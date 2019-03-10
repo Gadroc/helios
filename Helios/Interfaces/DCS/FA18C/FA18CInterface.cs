@@ -509,11 +509,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "2058", "IFEI", "Timer H MM separator", "Flag to display colon HH:MM on IFEI timer display"));
             // 2059 is used for the altimeter 
             AddFunction(new FlagValue(this, "2060", "IFEI", "Timer MM SS separator", "Flag to display colon MM:SS on IFEI timer display"));
-            AddFunction(new Text(this, "2074", "IFEI", "Codes", "Value of the code before the SP"));
+            AddFunction(new Text(this, "2074", "IFEI", "SP Code", "Value of the code before the SP"));
             AddFunction(new Text(this, "2075", "IFEI", "SP", "Value of SP"));
-            AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Draw Chanracter"));
-            AddFunction(new Text(this, "2077", "IFEI", "T", "Value of the something with T or *"));
-            AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Value of the something with H or *"));
+            AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Draw Character Not sure what this is"));
+            AddFunction(new Text(this, "2077", "IFEI", "T Value", "T Value"));
+            AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Alter / Set Clock Mode"));
+
             // These are described as textures, but currently unclear what these actually represent.
             uint commandCode = 4000;
             AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "RPM Flag", "Show RPM on IFEI"));
@@ -651,9 +652,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             //AddFunction(new PushButton(this,, "", "507","1.0","ENABLE","0.0","DISABLE (no function)", "ICMCP","NUC WPN Switch"));    // elements["pnt_507"]     = default_2_position_tumb(_("NUC WPN Switch, ENABLE/DISABLE (no function)"),        0, 3100, 507)
             #endregion
             #region  TODO list
-            AddFunction(new Switch(this, IFEI, "175", new SwitchPosition[] { new SwitchPosition("1.0", "HMD", "3104"), new SwitchPosition("0.5", "LDDI", "3104"), new SwitchPosition("0.0", "RDDI", "3104") }, "IFEI", "Video Record Selector Switch HMD/LDDI/RDDI", "%0.1f"));
-            AddFunction(new Switch(this, IFEI, "176", new SwitchPosition[] { new SwitchPosition("1.0", "HUD", "3105"), new SwitchPosition("0.5", "LDIR", "3105"), new SwitchPosition("0.0", "RDDI", "3105") }, "IFEI", "Video Record Selector Switch, HUD/LDIR/RDDI", "%0.1f"));
-            AddFunction(new Switch(this, IFEI, "314", new SwitchPosition[] { new SwitchPosition("1.0", "MAN", "3106"), new SwitchPosition("0.5", "OFF", "3106"), new SwitchPosition("0.0", "AUTO", "3106") }, "IFEI", "Video Record Mode Selector Switch, MAN/OFF/AUTO", "%0.1f"));
+            AddFunction(new Switch(this, "0", "175", new SwitchPosition[] { new SwitchPosition("1.0", "HMD", "3104"), new SwitchPosition("0.5", "LDDI", "3104"), new SwitchPosition("0.0", "RDDI", "3104") }, "IFEI", "Video Record Selector Switch HMD/LDDI/RDDI", "%0.1f"));
+            AddFunction(new Switch(this, "0", "176", new SwitchPosition[] { new SwitchPosition("1.0", "HUD", "3105"), new SwitchPosition("0.5", "LDIR", "3105"), new SwitchPosition("0.0", "RDDI", "3105") }, "IFEI", "Video Record Selector Switch, HUD/LDIR/RDDI", "%0.1f"));
+            AddFunction(new Switch(this, "0", "314", new SwitchPosition[] { new SwitchPosition("1.0", "MAN", "3106"), new SwitchPosition("0.5", "OFF", "3106"), new SwitchPosition("0.0", "AUTO", "3106") }, "IFEI", "Video Record Mode Selector Switch, MAN/OFF/AUTO", "%0.1f"));
             //AddFunction(new Switch(this, "TODO list", "175", new SwitchPosition[] { new SwitchPosition("1.0", "HMD", "3104"), new SwitchPosition("0.5", "LDDI", "3104"), new SwitchPosition("0.0", "RDDI", "3104") }, "Video Record Switch DDI", "Video Record Selector Switch HMD/LDDI/RDDI", "%0.1f"));
             //AddFunction(new Switch(this, "TODO list", "176", new SwitchPosition[] { new SwitchPosition("1.0", "HUD", "3105"), new SwitchPosition("0.5", "LDIR", "3105"), new SwitchPosition("0.0", "RDDI", "3105") }, "Video Record Switch HUD", "Video Record Selector Switch, HUD/LDIR/RDDI", "%0.1f"));
             //AddFunction(new Switch(this, "TODO list", "314", new SwitchPosition[] { new SwitchPosition("1.0", "MAN", "3106"), new SwitchPosition("0.5", "OFF", "3106"), new SwitchPosition("0.0", "AUTO", "3106") }, "Video Record Mode Switch", "Video Record Mode Selector Switch, MAN/OFF/AUTO", "%0.1f"));

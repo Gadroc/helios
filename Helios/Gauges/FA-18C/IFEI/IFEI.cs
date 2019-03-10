@@ -63,8 +63,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             double fuelX = 530;
             double fuelWidth = 154;
             AddTextDisplay("Fuel Total", fuelX, 93, new Size(fuelWidth, dispHeight), fontSize, "10780T", _interfaceDeviceName, "Total Fuel Amount");
-
             AddTextDisplay("Fuel Internal", fuelX, 159, new Size(fuelWidth, dispHeight), fontSize, "10780I", _interfaceDeviceName, "Internal Fuel Amount");
+            AddTextDisplay("T Value", fuelX, 93, new Size(fuelWidth, dispHeight), fontSize, "T", _interfaceDeviceName, "T Value");
+            AddTextDisplay("Time Set Mode", fuelX, 159, new Size(fuelWidth, dispHeight), fontSize, "H", _interfaceDeviceName, "Time Set Mode");
 
             double RPMWidth = 60;
             AddTextDisplay("RPM Left", 104, 86, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Left RPM Value");
@@ -73,6 +74,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             double TempWidth = 92;
             AddTextDisplay("Temp Left", 80, 143, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Left Temperature Value");
             AddTextDisplay("Temp Right", 261, 143, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Right Temperature Value");
+            AddTextDisplay("SP", 80, 143, new Size(TempWidth, dispHeight), fontSize, "SP", _interfaceDeviceName, "SP");
+            AddTextDisplay("SP Code", 261, 143, new Size(TempWidth, dispHeight), fontSize, "999", _interfaceDeviceName, "SP Code");
 
             AddTextDisplay("FF Left", 80, 199, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Left Fuel Flow Value");
             AddTextDisplay("FF Right", 261, 199, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Right Fuel Flow Value");
