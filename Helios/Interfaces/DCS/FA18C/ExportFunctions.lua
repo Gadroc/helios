@@ -44,7 +44,7 @@ function ProcessHighImportance(mainPanelDevice)
         SendData("2071", string.format("%s",check(li.txt_TIMER_S)))		
         SendData("2074", string.format("%s",check(li.txt_Codes)))
         SendData("2075", string.format("%s",check(li.txt_SP)))
-        SendData("2076", string.format("%s",check(li.txt_DrawChar)))
+        SendData("2076", string.format("%s",check(li.txt_DrawChar)))  -- not seen this used
         SendData("2077", string.format("%s",check(li.txt_T)))
         SendData("2078", string.format("%s",check(li.txt_TimeSetMode)))
 --

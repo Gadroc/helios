@@ -706,7 +706,8 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                 StartProfile();
             }
 
-            //VersionChecker.CheckVersion();
+            VersionChecker.CheckVersion();
+
         }
 
         protected override void OnInitialized(EventArgs e)
