@@ -13,14 +13,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.IAS
+namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.IAS", "IAS", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.IAS", "AV-8B Airspeed", "AV-8B Gauges", typeof(GaugeRenderer))]
     public class IAS : BaseGauge
     {
         private HeliosValue _indicatedAirSpeed;
@@ -28,18 +28,19 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.IAS
         private CalibrationPointCollectionDouble _needleCalibration;
         
         public IAS()
-            : base("IAS", new Size(364, 376))
+            : base("IAS", new Size(300, 300))
         {
 
-            //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/IAS/ias_faceplate.xaml", new Rect(32d, 38d, 300, 300)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/IAS/ias_faceplate.xaml", new Rect(0d, 0d, 300, 300)));
 
             _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 950d, 350d);
             _needleCalibration.Add(new CalibrationPointDouble(100d, 18d));
             _needleCalibration.Add(new CalibrationPointDouble(500d, 180d));
-            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(182d, 188d), new Size(44, 165), new Point(22, 130), 0d);
+            _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Common/needle_a.xaml", new Point(150d, 150d), new Size(30, 128), new Point(15, 113), 0d);
             Components.Add(_needle);
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/IAS/needle_mask.xaml", new Rect(130d, 34d, 73d, 98d)));
 
             _indicatedAirSpeed = new HeliosValue(this, new BindingValue(0d), "", "indicated airspeed", "Current indicated airspeed of the aircraft.", "(0 - 950)", BindingValueUnits.Knots);
             _indicatedAirSpeed.Execute += new HeliosActionHandler(IndicatedAirSpeed_Execute);

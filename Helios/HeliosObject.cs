@@ -232,6 +232,7 @@ namespace GadrocsWorkshop.Helios
         /// </summary>
         protected virtual void OnProfileChanged(HeliosProfile oldProfile)
         {
+
         }
 
         /// <summary>

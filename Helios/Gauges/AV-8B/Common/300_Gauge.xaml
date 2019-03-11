@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg5424" Width="300" Height="300">
+    <Ellipse Fill="#FF111111" Height="300" Canvas.Left="0" Canvas.Top="0" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+</Canvas>

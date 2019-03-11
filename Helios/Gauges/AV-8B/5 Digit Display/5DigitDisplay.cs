@@ -13,14 +13,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.FiveDigitDisplay
+namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.FiveDigitDisplay", "Five Digit Display", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.FiveDigitDisplay", "Five Digit Display", "AV-8B", typeof(GaugeRenderer))]
     public class FiveDigitDisplay : BaseGauge
     {
         private HeliosValue _five_digit_display;

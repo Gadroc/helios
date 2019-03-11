@@ -1,2 +1,310 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="300" Height="300"><Canvas.Resources/><Canvas Name="layer1"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><TranslateTransform X="0" Y="-752.36218"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path2955" Fill="#FF1A1A1A" Data="m 161 114 a 39.5 39.5 0 1 1 -79 0 39.5 39.5 0 1 1 79 0 z"><!--path--><Path.RenderTransform><MatrixTransform Matrix="3.7974684,0,0,3.7974684,-311.39241,469.45078"/></Path.RenderTransform></Path></Canvas></Canvas><Canvas Name="layer2"><Canvas Name="g3755"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><TranslateTransform X="0" Y="-752.36218"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3725" Stroke="#FFFFFFFF" StrokeThickness="3" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 150 753.11218 0 22"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3727" Stroke="#FFFFFFFF" StrokeThickness="3" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 150 1029.1122 0 22"/></Canvas></Canvas><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3763" Stroke="#FFFFFFFF" StrokeThickness="3" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 239.80257 991.91476 15.55635 15.55634"><!--path--><Path.RenderTransform><TranslateTransform X="0" Y="-752.36218"/></Path.RenderTransform></Path><Canvas Name="g3765"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="0,-1,1,0,-752.11219,299.75002"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3767" Stroke="#FFFFFFFF" StrokeThickness="3" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 150 753.11218 0 22"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3769" Stroke="#FFFFFFFF" StrokeThickness="3" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 150 1029.1122 0 22"/></Canvas></Canvas><Canvas Name="g3771"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.70710678,-0.70710678,0.70710678,-0.70710678,-381.82363,893.70572"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3773" Stroke="#FFFFFFFF" StrokeThickness="3" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 150 753.11218 0 22"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3775" Stroke="#FFFFFFFF" StrokeThickness="3" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 150 1029.1122 0 22"/></Canvas></Canvas></Canvas><Canvas Name="layer3"><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3791" Stroke="#FF000000" StrokeThickness="1" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 158.5 0 0 13.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3795" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 170.98177 282.0987 2.42474 15.30917"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3805" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 191.44691 277.18545 4.78976 14.74138"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3811" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 210.89148 269.13125 7.03685 13.8106"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3817" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 228.8367 258.1344 9.11067 12.53976"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3823" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 258.5094 228.46169 12.53977 9.11067"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3829" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 269.50625 210.51647 13.8106 7.03685"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3835" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 277.56045 191.0719 14.74138 4.78976"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3841" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 282.4737 170.60677 15.30917 2.42473"/><Canvas Name="g3843"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.15643447,-0.98768834,0.98768834,-0.15643447,27.559516,333.03702"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3845" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 0 0 15.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3847" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 283.75 0 15.5"/></Canvas></Canvas><Canvas Name="g3849"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.309017,-0.95105651,0.95105651,-0.309017,57.758923,349.93283"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3851" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 0 0 15.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3853" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 283.75 0 15.5"/></Canvas></Canvas><Canvas Name="g3855"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.4539905,-0.89100652,0.89100652,-0.4539905,90.229611,361.89639"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3857" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 0 0 15.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3859" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 283.75 0 15.5"/></Canvas></Canvas><Canvas Name="g3861"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.58778525,-0.80901699,0.80901699,-0.58778525,124.17204,368.63313"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3863" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 0 0 15.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3865" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 283.75 0 15.5"/></Canvas></Canvas><Canvas Name="g3867"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.80901699,-0.58778525,0.58778525,-0.80901699,193.11338,365.89539"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3869" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 0 0 15.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3871" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 283.75 0 15.5"/></Canvas></Canvas><Canvas Name="g3873"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.89100652,-0.4539905,0.4539905,-0.89100652,226.41472,356.48832"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3875" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 0 0 15.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3877" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 283.75 0 15.5"/></Canvas></Canvas><Canvas Name="g3879"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.95105651,-0.309017,0.309017,-0.95105651,257.83448,341.98759"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3881" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 0 0 15.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3883" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 283.75 0 15.5"/></Canvas></Canvas><Canvas Name="g3885"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><MatrixTransform Matrix="-0.98768834,-0.15643447,0.15643447,-0.98768834,286.599,322.75026"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3887" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 0 0 15.5"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3889" Stroke="#FFFFFFFF" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 162 283.75 0 15.5"/></Canvas></Canvas><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3929" Stroke="#FFFFFFFF" StrokeThickness="16" StrokeMiterLimit="4" Data="m 285.52555 194.03492 a 142.5 142.5 0 0 1 -8.55712 20.65873"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3931" Stroke="#FFFFFFFF" StrokeThickness="16" StrokeMiterLimit="4" Data="m 265.68943 234.05329 a 143 143 0 0 1 -14.57316 17.06298"/></Canvas><Canvas Name="layer4"><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3925" Stroke="#FFFFFFFF" StrokeThickness="16" StrokeMiterLimit="4" Data="m 290.74559 127.70809 a 142.5 142.5 0 0 1 0 44.58382"/></Canvas><Canvas Name="layer5"><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3954" Data="m 284 150 a 134 134 0 1 1 -268 0 134 134 0 1 1 268 0 z"><!--path--><Path.RenderTransform><MatrixTransform Matrix="-0.98480777,-0.17364818,0.17364818,-0.98480777,271.67394,323.7684"/></Path.RenderTransform></Path><Canvas Name="text3934" Opacity="1"><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3973" Fill="#FFF9F9F9" Data="m 148.02031 41.308 c -2e-5 2.146671 -0.63468 3.873336 -1.904 5.18 -1.15735 1.176 -2.55735 1.764 -4.2 1.764 -1.26934 0 -2.40801 -0.373333 -3.416 -1.12 -1.10134 -0.821332 -1.88534 -1.96933 -2.352 -3.444 -0.0373 -0.130662 -0.056 -0.261329 -0.056 -0.392 -1e-5 -0.335995 0.11199 -0.606661 0.336 -0.812 0.24266 -0.205328 0.51333 -0.307994 0.812 -0.308 0.52266 6e-6 0.86799 0.261339 1.036 0.784 0.27999 0.914671 0.76532 1.633337 1.456 2.156 0.63466 0.466669 1.34399 0.700002 2.128 0.7 1.04532 2e-6 1.94132 -0.391997 2.688 -1.176 0.82132 -0.839996 1.23198 -1.950661 1.232 -3.332 -2e-5 -1.474658 -0.42935 -2.594657 -1.288 -3.36 -0.63468 -0.541323 -1.48401 -0.895989 -2.548 -1.064 -0.56001 -0.03732 -1.12934 -0.07465 -1.708 -0.112 -0.31734 -0.01865 -0.57868 -0.121322 -0.784 -0.308 -0.20534 -0.205322 -0.30801 -0.410655 -0.308 -0.616 -1e-5 -0.373321 0.15866 -0.727987 0.476 -1.064 l 3.248 -3.416 -4.844 0 c -0.74667 1.7e-5 -1.12001 -0.38265 -1.12 -1.148 -1e-5 -0.783981 0.37333 -1.175981 1.12 -1.176 l 8.484 -0.028 c 0.52265 1.9e-5 0.78398 0.196019 0.784 0.588 -2e-5 0.280018 -0.33602 0.774684 -1.008 1.484 l -3.332 3.528 c 3.37865 0.672013 5.06798 2.902677 5.068 6.692"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3975" Fill="#FFF9F9F9" Data="m 163.90768 38.704 c -1e-5 2.594673 -0.51335 4.816004 -1.54 6.664 -1.10134 1.997334 -2.52001 2.996 -4.256 2.996 -1.736 0 -3.15467 -0.998666 -4.256 -2.996 -1.02667 -1.847996 -1.54 -4.069327 -1.54 -6.664 0 -2.575988 0.52267 -4.806653 1.568 -6.692 1.10133 -1.997315 2.51066 -2.995981 4.228 -2.996 1.73599 1.9e-5 3.15466 0.998685 4.256 2.996 1.02665 1.866681 1.53999 4.097345 1.54 6.692 m -2.24 -0.028 c -1e-5 -1.959989 -0.29868 -3.630654 -0.896 -5.012 -0.65334 -1.530651 -1.54001 -2.295983 -2.66 -2.296 -1.10134 1.7e-5 -1.97867 0.774683 -2.632 2.324 -0.59734 1.381346 -0.896 3.052011 -0.896 5.012 0 1.960007 0.29866 3.630672 0.896 5.012 0.65333 1.530669 1.53066 2.296002 2.632 2.296 1.10133 2e-6 1.98799 -0.774664 2.66 -2.324 0.59732 -1.381328 0.89599 -3.051993 0.896 -5.012"/></Canvas><Canvas Name="text3938" Opacity="1"><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3968" Fill="#FFF9F9F9" Data="m 252.12 159.366 -10.36 0 c 0.31733 -1.288 0.63466 -2.56667 0.952 -3.836 0.48533 -1.568 1.16666 -2.93066 2.044 -4.088 1.11999 -1.47466 2.68799 -2.79066 4.704 -3.948 1.04532 -0.59732 1.56799 -1.42799 1.568 -2.492 -1e-5 -0.67199 -0.23334 -1.24132 -0.7 -1.708 -0.46668 -0.46665 -1.09201 -0.69999 -1.876 -0.7 -0.93334 1e-5 -1.65201 0.14935 -2.156 0.448 -0.59734 0.33601 -1.07334 0.95201 -1.428 1.848 -0.18667 0.46668 -0.504 0.70001 -0.952 0.7 -0.29867 1e-5 -0.56934 -0.10266 -0.812 -0.308 -0.224 -0.22399 -0.336 -0.49465 -0.336 -0.812 0 -0.16799 0.0373 -0.33599 0.112 -0.504 0.97066 -2.48265 2.79066 -3.72398 5.46 -3.724 1.58666 2e-5 2.85599 0.45735 3.808 1.372 0.87732 0.85868 1.31599 1.92268 1.316 3.192 -1e-5 1.99734 -0.98001 3.57467 -2.94 4.732 -1.96001 1.15734 -3.40667 2.464 -4.34 3.92 -0.57867 0.896 -1.05467 2.08133 -1.428 3.556 l 7.364 0 c 0.76532 0 1.14799 0.392 1.148 1.176 -1e-5 0.784 -0.38268 1.176 -1.148 1.176"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3970" Fill="#FFF9F9F9" Data="m 269.0005 150.098 c -10e-6 2.59467 -0.51335 4.816 -1.54 6.664 -1.10134 1.99733 -2.52001 2.996 -4.256 2.996 -1.73601 0 -3.15467 -0.99867 -4.256 -2.996 -1.02667 -1.848 -1.54 -4.06933 -1.54 -6.664 0 -2.57599 0.52266 -4.80666 1.568 -6.692 1.10133 -1.99732 2.51066 -2.99598 4.228 -2.996 1.73599 2e-5 3.15466 0.99868 4.256 2.996 1.02665 1.86668 1.53999 4.09734 1.54 6.692 m -2.24 -0.028 c -10e-6 -1.95999 -0.29868 -3.63066 -0.896 -5.012 -0.65334 -1.53065 -1.54001 -2.29599 -2.66 -2.296 -1.10134 1e-5 -1.97867 0.77468 -2.632 2.324 -0.59734 1.38134 -0.896 3.05201 -0.896 5.012 0 1.96 0.29866 3.63067 0.896 5.012 0.65333 1.53067 1.53066 2.296 2.632 2.296 1.10132 0 1.98799 -0.77467 2.66 -2.324 0.59732 -1.38133 0.89599 -3.052 0.896 -5.012"/></Canvas><Canvas Name="text3942" Opacity="1"><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3963" Fill="#FFF9F9F9" Data="m 142.79044 269.576 c 0 0.76533 -0.38267 1.148 -1.148 1.148 -0.76534 0 -1.148 -0.38267 -1.148 -1.148 l 0 -16.912 c 0 -0.76531 0.38266 -1.14798 1.148 -1.148 0.76533 2e-5 1.148 0.38269 1.148 1.148 l 0 16.912"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3965" Fill="#FFF9F9F9" Data="m 159.50557 261.204 c -2e-5 2.59467 -0.51335 4.816 -1.54 6.664 -1.10135 1.99733 -2.52001 2.996 -4.256 2.996 -1.73601 0 -3.15467 -0.99867 -4.256 -2.996 -1.02667 -1.848 -1.54001 -4.06933 -1.54 -6.664 -1e-5 -2.57599 0.52266 -4.80665 1.568 -6.692 1.10132 -1.99732 2.51066 -2.99598 4.228 -2.996 1.73599 2e-5 3.15465 0.99868 4.256 2.996 1.02665 1.86668 1.53998 4.09735 1.54 6.692 m -2.24 -0.028 c -2e-5 -1.95999 -0.29868 -3.63065 -0.896 -5.012 -0.65335 -1.53065 -1.54001 -2.29598 -2.66 -2.296 -1.10134 2e-5 -1.97868 0.77468 -2.632 2.324 -0.59734 1.38135 -0.89601 3.05201 -0.896 5.012 -1e-5 1.96001 0.29866 3.63067 0.896 5.012 0.65332 1.53067 1.53066 2.296 2.632 2.296 1.10132 0 1.98799 -0.77466 2.66 -2.324 0.59732 -1.38133 0.89598 -3.05199 0.896 -5.012"/></Canvas><Canvas Name="text3946" Opacity="1"><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3960" Fill="#FFF9F9F9" Data="m 42.688 150.014 c -1.3e-5 2.59467 -0.513346 4.816 -1.54 6.664 -1.101344 1.99733 -2.520009 2.996 -4.256 2.996 -1.736006 0 -3.154671 -0.99867 -4.256 -2.996 -1.026669 -1.848 -1.540002 -4.06933 -1.54 -6.664 -2e-6 -2.57599 0.522665 -4.80666 1.568 -6.692 1.101329 -1.99732 2.510661 -2.99598 4.228 -2.996 1.735991 2e-5 3.154656 0.99868 4.256 2.996 1.026654 1.86668 1.539987 4.09734 1.54 6.692 m -2.24 -0.028 c -1.1e-5 -1.95999 -0.298677 -3.63066 -0.896 -5.012 -0.653343 -1.53065 -1.540009 -2.29599 -2.66 -2.296 -1.10134 1e-5 -1.978672 0.77468 -2.632 2.324 -0.597337 1.38134 -0.896004 3.05201 -0.896 5.012 -4e-6 1.96 0.298663 3.63067 0.896 5.012 0.653328 1.53067 1.53066 2.296 2.632 2.296 1.101325 0 1.987991 -0.77467 2.66 -2.324 0.597323 -1.38133 0.895989 -3.052 0.896 -5.012"/></Canvas><Canvas Name="text3950" Opacity="1"><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3978" Fill="#FFF9F9F9" Data="m 19.741468 113.87617 c 0.138493 -0.0134 0.264923 -0.007 0.37929 0.0193 0.243024 0.0557 0.421857 0.19455 0.536499 0.41644 0.114636 0.22191 0.145732 0.44723 0.09329 0.67594 -0.09179 0.40029 -0.33991 0.6293 -0.744374 0.68702 l -2.383915 0.35621 -1.607831 7.01203 1.995478 1.33782 c 0.353203 0.23146 0.485552 0.54019 0.397048 0.92617 -0.05572 0.24302 -0.18352 0.43943 -0.383386 0.58922 -0.214161 0.14651 -0.442755 0.1919 -0.685781 0.13617 -0.114365 -0.0262 -0.230961 -0.0755 -0.349789 -0.14792 L 5.125897 118.06357 c -0.418113 -0.27644 -0.5665339 -0.67913 -0.4452633 -1.20808 0.1245749 -0.54322 0.435254 -0.84817 0.932038 -0.91483 l 14.1287963 -2.06449 m -4.077807 2.42804 -8.131041 1.20523 6.832975 4.45586 1.298066 -5.66109"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3980" Fill="#FFF9F9F9" Data="m 23.401827 103.53134 c 0.59871 0.19821 0.819708 0.53401 0.662996 1.0074 -0.110626 0.33417 -0.404656 0.569 -0.882089 0.70448 l -9.44209 2.69098 7.456067 2.46827 c 0.584789 0.1936 0.784997 0.56886 0.600627 1.1258 -0.184373 0.55695 -0.568953 0.73862 -1.153742 0.54503 l -10.108505 -3.34635 c -0.5708549 -0.18897 -0.7687112 -0.54801 -0.5935693 -1.07711 0.1106343 -0.33416 0.3791683 -0.56198 0.8056053 -0.68345 l 9.365605 -2.66995 -7.226328 -2.39222 c -0.58478 -0.19358 -0.784989 -0.56885 -0.600626 -1.1258 0.18438 -0.55693 0.56896 -0.73861 1.153742 -0.54503 l 9.962307 3.29795"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3982" Fill="#FFF9F9F9" Data="m 24.550074 91.435804 c 1.535231 0.662312 2.493089 1.570704 2.873575 2.725177 0.269583 0.81913 0.2388 1.612499 -0.09235 2.380109 -0.56354 1.3063 -1.649773 2.139516 -3.258703 2.499652 -1.491421 0.346943 -2.95088 0.2125 -4.378381 -0.403327 -1.750698 -0.755252 -2.985551 -1.799113 -3.704564 -3.131586 -0.682557 -1.268821 -0.7595 -2.51598 -0.23083 -3.741483 0.383446 -0.888807 0.867352 -1.510658 1.451719 -1.865553 0.35491 -0.23024 0.88396 -0.401339 1.58715 -0.513296 0.221553 -0.0322 0.419862 -0.01054 0.594927 0.06497 0.215476 0.09297 0.362422 0.2522 0.440838 0.477697 0.07077 0.206245 0.06258 0.410364 -0.02457 0.612356 -0.116188 0.269351 -0.342888 0.443097 -0.680101 0.52124 -0.427775 0.102984 -0.740029 0.215862 -0.936764 0.338635 -0.297066 0.207291 -0.555986 0.566803 -0.776761 1.078537 -0.354382 0.821493 -0.255247 1.646949 0.297405 2.476369 0.545008 0.810158 1.443721 1.485382 2.696142 2.025675 1.023492 0.44154 2.03999 0.584553 3.049496 0.429041 1.127015 -0.168702 1.879336 -0.690732 2.256965 -1.566089 0.31372 -0.727209 0.172727 -1.36307 -0.422979 -1.907585 -0.311321 -0.278055 -0.87099 -0.591377 -1.679008 -0.939965 l -0.566442 1.313028 c -0.232384 0.538686 -0.62465 0.688926 -1.176797 0.450723 -0.552142 -0.238188 -0.712021 -0.626625 -0.479638 -1.165312 l 1.28103 -2.969464 1.878641 0.810448"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3984" Fill="#FFF9F9F9" Data="m 33.354944 83.876785 -3.380476 6.350277 -9.942941 -5.292979 c -0.543745 -0.289453 -0.677784 -0.693114 -0.402118 -1.210982 0.268794 -0.504907 0.675062 -0.612634 1.218808 -0.323183 l 8.331097 4.434938 2.563786 -4.816112 c 0.282566 -0.5308 0.689253 -0.654919 1.220064 -0.372361 0.543751 0.289469 0.674344 0.699602 0.39178 1.230402"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3986" Fill="#FFF9F9F9" Data="m 38.602231 75.39956 -3.866025 6.066918 -10.278508 -6.549779 3.866024 -6.066917 c 0.323159 -0.507109 0.738297 -0.599093 1.245415 -0.275953 0.507126 0.323167 0.599111 0.738305 0.275953 1.245414 l -2.932031 4.60121 2.319158 1.477838 2.75469 -4.322911 c 0.315274 -0.494742 0.726471 -0.580542 1.233592 -0.257399 0.519492 0.331046 0.621602 0.743941 0.306329 1.238684 l -2.75469 4.322911 3.358141 2.139909 2.932031 -4.601209 c 0.323151 -0.507114 0.738288 -0.599098 1.245415 -0.275953 0.519486 0.331044 0.617655 0.750122 0.294506 1.257237"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3988" Fill="#FFF9F9F9" Data="m 47.087409 54.944113 c 1.218842 1.057017 2.023849 2.289009 2.415024 3.695981 0.420684 1.529654 0.184203 2.809715 -0.709443 3.840188 -0.893653 1.030482 -2.13291 1.440916 -3.717774 1.231306 -1.448176 -0.188133 -2.776145 -0.805899 -3.983912 -1.853299 -1.20776 -1.047391 -1.992078 -2.280855 -2.352956 -3.700395 -0.399992 -1.531109 -0.16758 -2.795285 0.697237 -3.792533 0.922482 -1.063706 2.160268 -1.494831 3.71336 -1.293375 1.395718 0.181483 2.708538 0.805525 3.938464 1.872127 m -1.153097 1.329649 c -0.875352 -0.759111 -1.751531 -1.237453 -2.628539 -1.435026 -1.056544 -0.236768 -1.892309 -5.85e-4 -2.507298 0.708549 -0.586153 0.675916 -0.692083 1.525612 -0.317791 2.549091 0.322624 0.881613 0.910529 1.692366 1.763717 2.432264 0.853193 0.739909 1.744521 1.211975 2.673987 1.416198 1.067626 0.246394 1.899322 0.0261 2.495091 -0.660894 0.595764 -0.686979 0.696154 -1.54148 0.30117 -2.563505 -0.333702 -0.891205 -0.927147 -1.706763 -1.780337 -2.446677"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3990" Fill="#FFF9F9F9" Data="m 51.189599 44.664073 -3.898906 3.816604 1.908302 1.949454 2.971344 -2.908622 c 0.419237 -0.410377 0.839178 -0.400711 1.259826 0.029 0.430906 0.440209 0.436741 0.865502 0.0175 1.27588 l -2.971344 2.908621 3.554982 3.631643 c 0.430905 0.440201 0.44198 0.860364 0.03323 1.26049 -0.419239 0.410389 -0.84431 0.395483 -1.275216 -0.04472 l -8.017947 -8.190847 5.140897 -5.032377 c 0.42972 -0.420633 0.854902 -0.416097 1.275548 0.01361 0.430908 0.440213 0.431502 0.870636 0.0018 1.291269"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3992" Fill="#FFF9F9F9" Data="m 76.41541 36.618521 c 0.112497 0.08188 0.202837 0.170557 0.271021 0.266045 0.144859 0.202936 0.186573 0.425445 0.125142 0.667526 -0.06145 0.242097 -0.187667 0.431315 -0.378649 0.567656 -0.334244 0.238615 -0.671829 0.245348 -1.012754 0.0202 l -2.020044 -1.315051 -5.85508 4.179914 0.605515 2.324877 c 0.110715 0.407517 0.0049 0.726318 -0.317371 0.956404 -0.20293 0.14487 -0.428853 0.207043 -0.677772 0.186518 -0.257442 -0.03246 -0.458597 -0.150154 -0.603467 -0.353083 -0.06817 -0.09549 -0.122703 -0.209742 -0.163588 -0.342741 L 62.701512 30.055122 c -0.129448 -0.484228 0.02666 -0.884002 0.468323 -1.199322 0.453608 -0.32381 0.888379 -0.345862 1.304316 -0.06616 l 11.941259 7.828878 m -4.661998 -0.888639 -6.883489 -4.492659 2.156453 7.867268 4.727036 -3.374609"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3994" Fill="#FFF9F9F9" Data="m 80.93124 23.265773 -2.4911 1.449256 4.790287 8.233943 c 0.324509 0.557807 0.214204 0.995279 -0.330917 1.312415 -0.545131 0.317143 -0.979951 0.196811 -1.304462 -0.360995 l -4.790287 -8.233944 -2.491101 1.449256 c -0.545122 0.317149 -0.979943 0.196817 -1.304462 -0.360996 -0.317135 -0.545116 -0.203142 -0.976248 0.341979 -1.293399 l 6.617581 -3.849931 c 0.557801 -0.3245 0.995272 -0.214194 1.312415 0.330917 0.324512 0.557818 0.207867 0.998977 -0.349933 1.323478"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3996" Fill="#FFF9F9F9" Data="m 91.802074 17.91031 -2.603494 1.236019 4.085466 8.605443 c 0.276761 0.582973 0.130284 1.009697 -0.439431 1.280172 -0.569726 0.270479 -0.99297 0.114232 -1.269733 -0.46874 l -4.085466 -8.605443 -2.603494 1.236018 c -0.569718 0.270487 -0.992962 0.114241 -1.269734 -0.46874 -0.270473 -0.56971 -0.120851 -0.989809 0.448866 -1.260298 l 6.916153 -3.283469 c 0.582967 -0.276752 1.00969 -0.130275 1.280172 0.439431 0.276763 0.582985 0.123661 1.012853 -0.459305 1.289607"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3998" Fill="#FFF9F9F9" Data="m 107.89969 21.528194 c 0.0819 0.09481 0.14325 0.197237 0.18394 0.307289 0.0864 0.233874 0.0707 0.466402 -0.0471 0.697584 -0.12292 0.217432 -0.30131 0.369366 -0.53517 0.455803 -0.35769 0.132205 -0.66888 0.05177 -0.93356 -0.241317 l -1.23461 -1.373139 -5.03509 1.860998 -0.004 1.830761 c -2.9e-4 0.422289 -0.18615 0.702076 -0.557589 0.839362 -0.220115 0.08136 -0.447558 0.07942 -0.68233 -0.0058 -0.239859 -0.09898 -0.403008 -0.26541 -0.489447 -0.499281 -0.04068 -0.110056 -0.06326 -0.234618 -0.06775 -0.373687 l 0.05432 -11.465924 c 0.116921 -0.402839 0.333589 -0.662739 0.650002 -0.779701 0.330168 -0.122019 0.670662 -0.06805 1.021487 0.161911 l 7.6764 8.585148 m -3.81635 -1.56819 -3.75723 -4.263867 -0.0397 5.667242 3.79695 -1.403375"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4000" Fill="#FFF9F9F9" Data="m 118.35085 17.903977 c -0.38348 0.879805 -0.81452 1.529342 -1.2931 1.948612 -0.46445 0.415418 -1.07166 0.725329 -1.82163 0.929736 -1.21694 0.331681 -2.36304 0.05879 -3.43828 -0.81868 -1.12927 -0.908346 -1.94652 -2.289376 -2.45176 -4.143096 -0.55537 -2.037663 -0.49464 -3.711195 0.1822 -5.020601 0.53658 -1.0431317 1.34966 -1.7131878 2.43925 -2.0101705 0.83487 -0.2275347 1.55459 -0.2640784 2.15916 -0.1096312 0.60455 0.154474 1.20714 0.5526977 1.80777 1.1946723 0.12346 0.1183765 0.20641 0.2553864 0.24884 0.4110304 0.0656 0.24057 0.0295 0.47082 -0.10816 0.690753 -0.12353 0.216098 -0.2985 0.354995 -0.5249 0.416692 -0.31132 0.08486 -0.5943 -0.0052 -0.84895 -0.270272 -0.61092 -0.623969 -1.34797 -0.818328 -2.21114 -0.583078 -0.69338 0.188992 -1.1887 0.65843 -1.48597 1.408313 -0.35132 0.886249 -0.338 2.022742 0.04 3.409482 0.34711 1.273551 0.87307 2.255122 1.57788 2.944717 0.7151 0.671595 1.44056 0.907115 2.17639 0.706561 0.89147 -0.242971 1.52961 -0.857743 1.91439 -1.844316 0.11839 -0.290691 0.30494 -0.47075 0.55965 -0.540177 0.2264 -0.0617 0.45665 -0.02565 0.69076 0.108167 0.23408 0.133823 0.38391 0.321012 0.44948 0.561565 0.054 0.198112 0.0334 0.401352 -0.0618 0.609721"/><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4002" Fill="#FFF9F9F9" Data="m 129.21061 16.295196 c 0.1135 0.127948 0.18512 0.271207 0.21485 0.429777 0.0459 0.245068 -0.0158 0.473008 -0.1852 0.683819 -0.15499 0.208114 -0.34781 0.333784 -0.57845 0.377012 -0.30273 0.05674 -0.5604 -0.04419 -0.773 -0.302782 l -4.73371 -5.671033 -1.00964 1.420298 0.87945 4.692297 c 0.11347 0.605458 -0.1181 0.962223 -0.69473 1.070296 -0.57663 0.108073 -0.92168 -0.140619 -1.03515 -0.746077 L 119.35377 7.8911518 c -0.11348 -0.6054457 0.11809 -0.9622107 0.69472 -1.0702961 0.57663 -0.1080606 0.92168 0.1406315 1.03515 0.7460769 l 0.60792 3.2435234 3.37897 -4.6622488 c 0.14326 -0.1909809 0.3158 -0.3053906 0.51763 -0.3432296 0.23064 -0.043216 0.44281 0.014011 0.63652 0.1716814 0.2054 0.1405791 0.32972 0.3261872 0.37295 0.5568248 0.0459 0.2450787 -0.007 0.4788752 -0.15952 0.7013903 l -2.19904 3.0757349 4.97154 5.984587"/></Canvas></Canvas></Canvas>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="AOA_Gauge" Height="300" Width="300">
+    <Canvas>
+        <!-- Layer 1/<Compound Path> -->
+        <Path Fill="#FF2B2929" Data="F1 M 77.500,106.750 L 68.750,125.500 L 60.750,142.000 L 55.250,150.000 L 21.826,134.250 L 34.250,111.695 L 42.739,94.871 L 48.750,76.001 L 85.311,84.500 L 77.500,106.750 Z M 150.000,0.000 C 67.157,0.000 0.000,67.157 0.000,150.000 C 0.000,232.843 67.157,300.000 150.000,300.000 C 232.843,300.000 300.000,232.843 300.000,150.000 C 300.000,67.157 232.843,0.000 150.000,0.000 Z"/>
+
+        <Canvas>
+
+            <!-- Layer 1/<Group>/<Compound Path> -->
+            <Path Fill="#fff9f7f5" Data="F1 M 70.476,177.450 L 71.302,168.204 L 64.731,174.772 L 70.476,177.450 Z M 58.305,177.095 C 60.601,174.794 62.897,172.496 65.194,170.201 C 67.492,167.905 69.791,165.609 72.092,163.312 C 72.566,162.837 73.112,162.740 73.730,163.021 C 74.349,163.302 74.628,163.783 74.569,164.467 L 72.842,183.931 C 72.618,184.903 72.081,185.349 71.233,185.267 C 70.384,185.185 69.946,184.659 69.916,183.690 L 70.202,180.544 L 62.527,176.965 L 60.360,179.153 C 59.590,179.757 58.898,179.749 58.284,179.132 C 57.671,178.513 57.678,177.834 58.305,177.095 Z"/>
+
+            <!-- Layer 1/<Group>/<Compound Path> -->
+            <Path Fill="#fff9f7f5" Data="F1 M 86.271,172.125 C 85.116,171.586 83.952,171.800 82.779,172.766 C 81.605,173.732 80.737,174.618 80.170,175.424 C 79.752,176.009 79.347,176.764 78.953,177.689 C 78.560,178.613 78.273,179.574 78.091,180.571 C 77.909,181.567 77.884,182.530 78.016,183.460 C 78.149,184.390 78.537,185.146 79.182,185.729 C 79.933,186.415 80.772,186.594 81.700,186.267 C 82.629,185.940 83.420,185.500 84.075,184.949 C 84.743,184.383 85.413,183.541 86.083,182.423 C 86.753,181.307 87.271,180.121 87.639,178.867 C 88.006,177.612 88.148,176.396 88.064,175.213 C 87.980,174.031 87.519,173.088 86.678,172.382 C 86.569,172.286 86.435,172.201 86.271,172.125 Z M 90.874,177.768 C 90.641,179.775 90.017,181.683 89.004,183.487 C 87.990,185.292 86.680,186.761 85.075,187.892 C 84.068,188.593 82.925,189.053 81.645,189.273 C 80.365,189.495 79.188,189.232 78.113,188.486 C 76.367,187.267 75.373,185.596 75.132,183.474 C 74.892,181.351 75.169,179.243 75.966,177.149 C 76.763,175.057 77.955,173.211 79.545,171.613 C 81.134,170.016 82.893,169.135 84.818,168.970 C 85.758,168.889 86.633,169.037 87.442,169.415 C 88.987,170.135 89.977,171.306 90.414,172.927 C 90.851,174.548 91.004,176.161 90.874,177.768 Z"/>
+
+            <!-- Layer 1/<Group>/<Compound Path> -->
+            <Path Fill="#fff9f7f5" Data="F1 M 98.806,190.661 L 99.631,181.415 L 93.061,187.982 L 98.806,190.661 Z M 86.635,190.306 C 88.931,188.004 91.227,185.707 93.524,183.411 C 95.822,181.116 98.121,178.819 100.422,176.523 C 100.896,176.047 101.442,175.950 102.060,176.231 C 102.679,176.512 102.958,176.993 102.899,177.677 L 101.173,197.142 C 100.947,198.114 100.411,198.559 99.563,198.477 C 98.715,198.396 98.276,197.869 98.246,196.899 L 98.532,193.754 L 90.857,190.175 L 88.691,192.364 C 87.920,192.968 87.228,192.960 86.614,192.342 C 86.001,191.723 86.008,191.044 86.635,190.306 Z"/>
+
+        </Canvas>
+
+        <!-- Layer 1/Inner -->
+        <Path StrokeThickness="23.7" Stroke="#ffffffff" StrokeMiterLimit="1.0" Data="F1 M 283.800,181.821 C 280.404,196.153 274.765,209.617 267.273,221.822"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 257.500,150.000 L 298.000,150.000"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 257.500,150.000"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 2.000,150.000"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 276.465,166.650 L 296.734,169.318"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 276.465,166.650"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 3.266,130.683"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 273.348,183.052 L 292.957,188.306"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 273.348,183.052"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 7.043,111.695"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 268.153,198.941 L 286.734,206.638"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 268.153,198.941"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 13.266,93.363"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 260.964,214.066 L 278.172,224.001"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 260.964,214.066"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 21.829,76.001"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 251.878,228.175 L 267.417,240.098"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 251.878,228.175"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 32.584,59.904"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 241.025,241.025 L 254.652,254.653"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 241.025,241.025"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 45.349,45.350"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 228.568,252.394 L 240.098,267.418"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 228.568,252.394"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 59.904,32.585"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 214.686,262.042 L 224.001,278.174"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 214.686,262.042"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 76.001,21.830"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 199.618,269.789 L 206.638,286.736"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 199.618,269.789"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 100.380,30.207"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 93.364,13.268 L 100.380,30.207"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 183.609,275.433 L 188.306,292.959"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 183.609,275.433"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 116.391,24.566"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 111.696,7.045 L 116.391,24.566"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 164.033,256.590 L 169.318,296.736"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 164.033,256.590"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 133.036,21.142"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 130.683,3.269 L 133.036,21.142"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 150.000,280.000 L 150.000,298.003"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 150.000,280.000"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 150.000,20.000"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 150.000,2.003 L 150.000,20.000"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 133.036,278.859 L 130.682,296.737"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 133.036,278.859"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 166.964,21.145"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 169.317,3.270 L 166.964,21.145"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 116.391,275.432 L 111.694,292.961"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 116.391,275.432"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 177.830,46.140"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 188.305,7.047 L 177.830,46.140"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 100.382,269.788 L 93.361,286.738"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 100.382,269.788"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 199.620,30.210"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 206.637,13.270 L 199.620,30.210"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 85.311,262.045 L 75.998,278.176"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 98.013,240.046 L 85.311,262.045"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 98.013,240.046"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 99.657,237.197"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 101.532,233.951"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 101.532,233.951"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 214.690,37.957"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 224.000,21.832 L 214.690,37.957"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 59.901,267.420"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 88.266,230.454"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 88.266,230.454"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 228.569,47.610"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 240.096,32.588 L 228.569,47.610"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 45.346,254.656"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 241.025,58.978"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 254.650,45.353 L 241.025,58.978"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 32.582,240.101"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 251.883,71.828"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 267.415,59.908 L 251.883,71.828"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 21.826,224.004"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 260.967,85.938"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 278.170,76.005 L 260.967,85.938"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 13.263,206.641"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 268.157,101.062"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 286.732,93.367 L 268.157,101.062"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 7.040,188.309"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 273.342,116.955"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 292.955,111.699 L 273.342,116.955"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 3.263,169.321"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 276.465,133.355"/>
+
+        <!-- Layer 1/<Path> -->
+        <Path StrokeThickness="3.0" Stroke="#ffffffff" StrokeMiterLimit="1.0" Fill="#ffffffff" Data="F1 M 296.731,130.687 L 276.465,133.355"/>
+
+        <Canvas>
+
+            <!-- Layer 1/<Group>/<Compound Path> -->
+            <Path Fill="#fff9f7f5" Data="F1 M 166.567,235.998 C 165.750,235.799 164.959,235.951 164.195,236.451 C 163.431,236.949 162.735,237.602 162.110,238.402 C 161.484,239.203 160.948,240.057 160.502,240.965 C 160.056,241.873 159.743,242.633 159.564,243.246 C 159.389,243.820 159.243,244.600 159.129,245.582 C 159.015,246.563 159.029,247.461 159.175,248.273 C 159.319,249.086 159.646,249.668 160.156,250.016 C 160.667,250.365 161.461,250.193 162.539,249.504 C 163.361,248.971 164.159,248.178 164.934,247.125 C 165.707,246.070 166.342,244.922 166.838,243.678 C 167.333,242.435 167.635,241.185 167.743,239.928 C 167.852,238.672 167.659,237.572 167.165,236.633 C 167.010,236.359 166.836,236.160 166.643,236.033 C 166.636,236.029 166.629,236.025 166.619,236.022 C 166.609,236.018 166.592,236.010 166.567,235.998 Z M 167.744,233.303 C 169.150,233.957 170.027,235.076 170.374,236.660 C 170.721,238.244 170.785,239.719 170.569,241.086 C 170.468,241.680 170.335,242.291 170.173,242.918 C 169.693,244.781 168.820,246.660 167.552,248.553 C 166.283,250.443 164.742,251.785 162.930,252.576 C 161.475,253.205 160.119,253.227 158.864,252.641 C 156.936,251.742 155.956,250.063 155.924,247.600 C 155.890,245.139 156.431,242.701 157.546,240.287 C 158.660,237.871 160.160,235.879 162.045,234.313 C 163.930,232.746 165.829,232.408 167.744,233.303 Z"/>
+
+        </Canvas>
+
+        <Canvas>
+
+            <!-- Layer 1/<Group>/<Compound Path> -->
+            <Path Fill="#fff9f7f5" Data="F1 M 233.660,159.176 C 233.623,159.258 233.572,159.342 233.510,159.428 C 233.028,160.066 232.424,160.215 231.695,159.875 C 231.161,159.627 230.881,159.195 230.855,158.580 C 230.843,158.459 230.887,158.242 230.986,157.930 L 238.732,141.318 C 238.822,141.175 238.912,141.044 239.003,140.923 C 239.094,140.800 239.223,140.702 239.387,140.627 C 239.781,140.436 240.184,140.419 240.592,140.575 C 241.001,140.730 241.283,141.017 241.440,141.435 C 241.521,141.656 241.552,141.845 241.531,142.003 C 241.510,142.162 241.469,142.349 241.406,142.565 L 233.660,159.176 Z"/>
+
+            <!-- Layer 1/<Group>/<Compound Path> -->
+            <Path Fill="#fff9f7f5" Data="F1 M 249.592,147.999 C 248.775,147.800 247.983,147.953 247.220,148.452 C 246.456,148.951 245.761,149.602 245.135,150.403 C 244.510,151.203 243.973,152.059 243.526,152.967 C 243.080,153.875 242.768,154.633 242.590,155.246 C 242.413,155.822 242.269,156.600 242.154,157.582 C 242.039,158.565 242.055,159.463 242.199,160.275 C 242.344,161.088 242.672,161.668 243.182,162.016 C 243.691,162.365 244.485,162.195 245.564,161.506 C 246.386,160.971 247.184,160.178 247.957,159.125 C 248.731,158.072 249.366,156.924 249.862,155.680 C 250.357,154.436 250.660,153.186 250.769,151.930 C 250.876,150.672 250.685,149.574 250.190,148.632 C 250.034,148.361 249.860,148.162 249.668,148.034 C 249.661,148.031 249.653,148.027 249.644,148.023 C 249.635,148.018 249.617,148.010 249.592,147.999 Z M 250.769,145.302 C 252.175,145.959 253.052,147.078 253.398,148.662 C 253.746,150.245 253.810,151.721 253.594,153.086 C 253.492,153.680 253.359,154.291 253.197,154.918 C 252.719,156.783 251.845,158.660 250.576,160.553 C 249.308,162.445 247.768,163.787 245.954,164.576 C 244.500,165.205 243.144,165.227 241.889,164.641 C 239.961,163.742 238.981,162.063 238.948,159.602 C 238.914,157.141 239.456,154.701 240.570,152.287 C 241.685,149.871 243.185,147.880 245.069,146.314 C 246.954,144.748 248.853,144.410 250.769,145.302 Z"/>
+
+        </Canvas>
+
+        <Canvas>
+
+            <!-- Layer 1/<Group>/<Compound Path> -->
+            <Path Fill="#fff9f7f5" Data="F1 M 158.734,64.501 C 158.363,64.327 158.107,64.052 157.967,63.673 C 157.826,63.294 157.845,62.917 158.019,62.540 C 158.025,62.527 158.151,62.343 158.397,61.988 C 158.644,61.633 158.786,61.430 158.824,61.379 C 159.862,59.991 161.168,58.818 162.740,57.863 C 164.313,56.907 165.962,56.292 167.687,56.019 C 168.298,55.921 168.873,55.791 169.413,55.626 C 169.952,55.460 170.519,55.256 171.113,55.014 C 171.892,54.673 172.419,54.121 172.695,53.356 C 172.972,52.590 172.877,51.838 172.410,51.102 C 171.832,50.212 171.009,49.814 169.941,49.905 C 168.875,49.997 168.137,50.531 167.727,51.508 C 167.718,51.528 167.710,51.549 167.702,51.573 C 167.696,51.595 167.687,51.617 167.679,51.636 C 167.582,51.942 167.382,52.190 167.078,52.381 C 166.775,52.574 166.470,52.646 166.162,52.602 C 165.686,52.541 165.320,52.321 165.065,51.942 C 164.810,51.563 164.754,51.155 164.897,50.717 C 164.905,50.652 165.012,50.419 165.219,50.018 C 165.424,49.617 165.553,49.387 165.603,49.327 C 166.605,47.914 167.959,47.129 169.664,46.973 C 171.369,46.816 172.848,47.338 174.098,48.542 C 175.575,49.979 176.091,51.683 175.645,53.654 C 175.200,55.625 174.051,56.992 172.196,57.755 C 171.820,57.909 171.443,58.055 171.068,58.198 C 170.692,58.339 170.305,58.462 169.904,58.567 C 169.276,58.732 168.639,58.859 167.990,58.947 C 167.342,59.034 166.719,59.202 166.121,59.450 C 165.435,59.742 164.752,60.096 164.072,60.513 C 163.393,60.930 162.789,61.401 162.261,61.926 C 162.225,61.956 162.111,62.072 161.922,62.273 C 161.732,62.475 161.633,62.585 161.625,62.604 L 168.611,65.862 C 169.451,66.323 169.658,66.977 169.231,67.826 C 168.807,68.674 168.170,68.900 167.322,68.504 L 158.734,64.501 Z"/>
+
+            <!-- Layer 1/<Group>/<Compound Path> -->
+            <Path Fill="#fff9f7f5" Data="F1 M 184.720,56.395 C 183.902,56.197 183.111,56.349 182.348,56.848 C 181.584,57.347 180.889,57.999 180.263,58.799 C 179.638,59.600 179.102,60.455 178.655,61.363 C 178.208,62.270 177.896,63.030 177.718,63.643 C 177.541,64.218 177.396,64.997 177.282,65.979 C 177.168,66.960 177.183,67.859 177.328,68.671 C 177.473,69.484 177.800,70.065 178.310,70.413 C 178.819,70.762 179.613,70.591 180.692,69.902 C 181.514,69.368 182.311,68.575 183.086,67.522 C 183.859,66.468 184.494,65.320 184.990,64.076 C 185.486,62.833 185.788,61.583 185.896,60.326 C 186.005,59.069 185.812,57.970 185.318,57.030 C 185.162,56.757 184.988,56.558 184.796,56.430 C 184.789,56.427 184.781,56.423 184.771,56.419 C 184.763,56.415 184.745,56.407 184.720,56.395 Z M 185.896,53.700 C 187.303,54.355 188.180,55.474 188.527,57.058 C 188.873,58.641 188.938,60.116 188.722,61.483 C 188.621,62.077 188.488,62.688 188.326,63.315 C 187.847,65.179 186.973,67.057 185.705,68.950 C 184.436,70.841 182.895,72.183 181.082,72.973 C 179.627,73.602 178.272,73.624 177.018,73.038 C 175.090,72.139 174.109,70.460 174.076,67.998 C 174.043,65.537 174.584,63.098 175.699,60.684 C 176.812,58.268 178.313,56.277 180.197,54.710 C 182.082,53.144 183.981,52.806 185.896,53.700 Z"/>
+
+        </Canvas>
+
+    </Canvas>
+
+</Canvas>

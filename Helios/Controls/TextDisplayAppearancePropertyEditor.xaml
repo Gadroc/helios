@@ -1,0 +1,103 @@
+﻿<HeliosSdk:HeliosPropertyEditor x:Class="GadrocsWorkshop.Helios.Controls.TextDisplayAppearancePropertyEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:Helios="clr-namespace:GadrocsWorkshop.Helios"
+             xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls"                      
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             Height="Auto" d:DesignWidth="180" d:DesignHeight="483.123">
+    <HeliosSdk:HeliosPropertyEditor.Resources>
+        <Helios:EnumConverter Type="{x:Type Helios:TextVerticalAlignment}" x:Key="VertAlignmentTypes" />
+        <Helios:EnumConverter Type="{x:Type Helios:TextHorizontalAlignment}" x:Key="HorizAlignmentTypes" />
+    </HeliosSdk:HeliosPropertyEditor.Resources>
+    <Grid Background="Transparent" Margin="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Text</TextBlock>
+        <Label Grid.Column="0" Grid.Row="1" FontSize="10" HorizontalAlignment="Right" Content="Text Test">
+            <Label.ToolTip>Test Text which will be rendered on the TextDisplay in the Editor.</Label.ToolTip>
+        </Label>
+        <HeliosSdk:HeliosTextBox  Grid.Column="1" Grid.Row="1" FontSize="10" Text="{Binding Control.TextTestValue}" Margin="2" GotFocus="TurnTextDisplayOn"  TextChanged="HeliosTestTextBox_TextChanged"/>
+        <Label Grid.Column="0" Grid.Row="2" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Font">
+            <Label.ToolTip>Font which will be used to render the text.</Label.ToolTip>
+        </Label>
+        <HeliosSdk:TextFormatButton Grid.Column="1" Grid.Row="2" TextFormat="{Binding Control.TextFormat}" Margin="2" GotFocus="TurnTextDisplayOn" />
+        <Label Grid.Column="0" Grid.Row="3" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top" Content="V Align">
+            <Label.ToolTip>How the text will be aligned vertically inside the TextDisplay.</Label.ToolTip>
+        </Label>
+        <ComboBox Grid.Column="1" Grid.Row="3" Margin="2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource VertAlignmentTypes}, Path=DisplayNames}" SelectedItem="{Binding Path=Control.TextFormat.VerticalAlignment, Converter={StaticResource VertAlignmentTypes}}" GotFocus="TurnTextDisplayOn" />
+        <Label Grid.Column="0" Grid.Row="4" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top" Content="H Align">
+            <Label.ToolTip>How the text will be aligned horizontally inside the TextDisplay.</Label.ToolTip>
+        </Label>
+        <ComboBox Grid.Column="1" Grid.Row="4" Margin="2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource HorizAlignmentTypes}, Path=DisplayNames}" SelectedItem="{Binding Path=Control.TextFormat.HorizontalAlignment, Converter={StaticResource HorizAlignmentTypes}}" GotFocus="TurnTextDisplayOn" />
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Text Padding</TextBlock>
+        <Label Grid.Column="0" Grid.Row="6" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Left">
+            <Label.ToolTip>Amount of space on the left edge where text will not be rendered. Hold shift to move individually.</Label.ToolTip>
+        </Label>
+        <Slider Grid.Column="1" Grid.Row="6" Minimum="0" Maximum="1" Value="{Binding Path=Control.TextFormat.PaddingLeft}" Margin="0,2" GotFocus="TurnTextDisplayOn" ValueChanged="LeftPaddingChanged" />
+        <Label Grid.Column="0" Grid.Row="7" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Right">
+            <Label.ToolTip>Amount of space on the right edge where text will not be rendered. Hold shift to move individually.</Label.ToolTip>
+        </Label>
+        <Slider Grid.Column="1" Grid.Row="7" Minimum="0" Maximum="1" Value="{Binding Path=Control.TextFormat.PaddingRight}" IsDirectionReversed="true" Margin="0,2" GotFocus="TurnTextDisplayOn"  ValueChanged="RightPaddingChanged" />
+        <Label Grid.Column="0" Grid.Row="8" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Top">
+            <Label.ToolTip>Amount of space on the top edge where text will not be rendered. Hold shift to move individually.</Label.ToolTip>
+        </Label>
+        <Slider Grid.Column="1" Grid.Row="8" Minimum="0" Maximum="1" Value="{Binding Path=Control.TextFormat.PaddingTop}" Margin="0,2" GotFocus="TurnTextDisplayOn"  ValueChanged="TopPaddingChanged" />
+        <Label Grid.Column="0" Grid.Row="9" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Bottom">
+            <Label.ToolTip>Amount of space on the bottom edge where text will not be rendered. Hold shift to move individually.</Label.ToolTip>
+        </Label>
+        <Slider Grid.Column="1" Grid.Row="9" Minimum="0" Maximum="1" Value="{Binding Path=Control.TextFormat.PaddingBottom}" IsDirectionReversed="true" Margin="0,2" GotFocus="TurnTextDisplayOn"  ValueChanged="BottomPaddingChanged" />
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Colors</TextBlock>
+        <Label Grid.Column="0" Grid.Row="12" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Text">
+            <Label.ToolTip>Color for the text.</Label.ToolTip>
+        </Label>
+        <HeliosSdk:ColorWell Grid.Column="1" Grid.Row="12" Color="{Binding Path=Control.OnTextColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="0,2"  GotFocus="TurnTextDisplayOn" />
+
+        <Label Grid.Column="0" Grid.Row="13" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Use Background">
+            <Label.ToolTip>Color for the text.</Label.ToolTip>
+        </Label>
+        <CheckBox Grid.Column="1" Grid.Row="13" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Control.UseBackground}" />
+
+        <Label Grid.Column="0" Grid.Row="14" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Center" Content="BackGround">
+            <Label.ToolTip>Color text will be rendered in when the TextDisplay is on.</Label.ToolTip>
+        </Label>
+
+        <Label Grid.Column="0" Grid.Row="15" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Use Parser">
+            <Label.ToolTip>User Parsing Dictionary.</Label.ToolTip>
+        </Label>
+        <CheckBox Grid.Column="1" Grid.Row="15" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Control.UseParserDictionary}" />
+
+        <HeliosSdk:ColorWell Grid.Column="1" Grid.Row="14" Color="{Binding Path=Control.BackgroundColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="0,2"  GotFocus="TurnTextDisplayOn" />
+        <Label Grid.Column="0" Grid.Row="16" FontSize="10" HorizontalAlignment="Right" Content="Parser Info">
+            <Label.ToolTip>List of replacements to be made in the strings received key1=val1;key2=val2....</Label.ToolTip>
+        </Label>
+        <HeliosSdk:HeliosTextBox  Grid.Column="1" Grid.Row="16" FontSize="10" Text="{Binding Control.ParserDictionary}" Margin="2,2,2,-52" GotFocus="TurnTextDisplayOn"  TextChanged="HeliosTestParserBox_TextChanged" Grid.RowSpan="4"/>
+
+    </Grid>
+</HeliosSdk:HeliosPropertyEditor>

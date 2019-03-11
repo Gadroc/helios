@@ -24,10 +24,10 @@
         </ResourceDictionary>
     </local:VisualContainerEditorDocument.Resources>
     <DockPanel Background="#FFCCD6E5" Margin="0">
-        <!--<StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="32">
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="32">
             <Label FontSize="8" FontWeight="Bold" Foreground="SlateGray">Zoom</Label>
             <Slider Orientation="Vertical" Height="150" HorizontalAlignment="Center" Minimum="-4" Maximum="4" Value="{Binding ElementName=PanelEditor,Path=ZoomLevel}" TickFrequency="1" TickPlacement="BottomRight" IsMoveToPointEnabled="False" IsSnapToTickEnabled="False" SmallChange="0.25" />
-        </StackPanel>-->
+        </StackPanel>
         <ScrollViewer Name="PanelScroller" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <local:HeliosVisualContainerEditor x:Name="PanelEditor" Margin="14" HorizontalAlignment="Left" VerticalAlignment="Top" VisualContainer="{Binding ElementName=PanelEditorDocument,Path=Panel}" local:DragAndDropManager.DropTargetAdvisor="{StaticResource DropAdvisor}" />
         </ScrollViewer>

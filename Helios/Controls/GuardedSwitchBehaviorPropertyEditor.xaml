@@ -1,0 +1,46 @@
+﻿<HeliosSdk:HeliosPropertyEditor x:Class="GadrocsWorkshop.Helios.Controls.GuardedSwitchBehaviorPropertyEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Helios="clr-namespace:GadrocsWorkshop.Helios"
+             xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls"
+             xmlns:HeliosTouch="clr-namespace:GadrocsWorkshop.Helios.Controls"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             Height="Auto"
+             mc:Ignorable="d"          
+             d:DesignWidth="180">
+
+    <HeliosSdk:HeliosPropertyEditor.Resources>
+        <Helios:EnumConverter Type="{x:Type HeliosTouch:ToggleSwitchType}" x:Key="ToggleSwitchTypes" />
+        <Helios:EnumConverter Type="{x:Type HeliosTouch:GuardPosition}" x:Key="GuardPositions" />
+        <Helios:EnumConverter Type="{x:Type HeliosTouch:ToggleSwitchPosition}" x:Key="ToggleSwitchPosition" />
+        <Helios:EnumConverter Type="{x:Type HeliosTouch:ClickType}" x:Key="ClickTypes" />
+    </HeliosSdk:HeliosPropertyEditor.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" FontSize="10" HorizontalAlignment="Right">
+            <Label.ToolTip>Selects what kind of toggle switch to emulate.</Label.ToolTip> Type
+        </Label>
+        <ComboBox Grid.Column="1" Grid.Row="0" FontSize="10" Margin="0,2,0,2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource ToggleSwitchTypes}, Path=DisplayNames}" SelectedItem="{Binding Path=Control.SwitchType, Converter={StaticResource ToggleSwitchTypes}}" />
+        <Label Grid.Column="0" Grid.Row="2" FontSize="10" HorizontalAlignment="Right">
+            <Label.ToolTip>Position which this switches guard will default to on profile load or reset.</Label.ToolTip> Default Guard Position
+        </Label>
+        <ComboBox Grid.Column="1" Grid.Row="2" FontSize="10" Margin="0,2,0,2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource GuardPositions}, Path=DisplayNames}" SelectedItem="{Binding Path=Control.DefaultGuardPosition, Converter={StaticResource GuardPositions}}" />
+        <Label Grid.Column="0" Grid.Row="3" FontSize="10" HorizontalAlignment="Right">
+            <Label.ToolTip>When set to touch this switch will respond to control regions (upper and lower) and switch the switch appropriatly. Swipe will switch the switch in the direction you swipe your finger or mouse.</Label.ToolTip> Click Type
+        </Label>
+        <ComboBox Grid.Column="1" Grid.Row="3" FontSize="10" Margin="0,2,0,2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource ClickTypes}, Path=DisplayNames}" SelectedItem="{Binding Path=Control.ClickType, Converter={StaticResource ClickTypes}}" />
+
+    </Grid>
+
+</HeliosSdk:HeliosPropertyEditor>

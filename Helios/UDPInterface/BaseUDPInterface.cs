@@ -193,11 +193,14 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                             if (_dataBuffer[i] == 0x3a || _dataBuffer[i] == 0x3d)
                             {
                                 int size = i - lastIndex - 1;
-                                _tokens[_tokenCount++] = System.Text.Encoding.UTF8.GetString(_dataBuffer, lastIndex + 1, size);
+                                //_tokens[_tokenCount++] = System.Text.Encoding.UTF8.GetString(_dataBuffer, lastIndex + 1, size);
+                                _tokens[_tokenCount++] = System.Text.Encoding.Default.GetString(_dataBuffer, lastIndex + 1, size);
                                 lastIndex = i;
                             }
                         }
-                        _tokens[_tokenCount++] = System.Text.Encoding.UTF8.GetString(_dataBuffer, lastIndex + 1, parseCount - lastIndex - 1);
+                        //_tokens[_tokenCount++] = System.Text.Encoding.UTF8.GetString(_dataBuffer, lastIndex + 1, parseCount - lastIndex - 1);
+                        _tokens[_tokenCount++] = System.Text.Encoding.Default.GetString(_dataBuffer, lastIndex + 1, parseCount - lastIndex - 1);
+
 
                         if (_tokenCount % 1 > 0)
                         {

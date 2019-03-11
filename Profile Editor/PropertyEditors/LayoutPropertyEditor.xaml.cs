@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.PropertyEditors
     /// <summary>
     /// Interaction logic for HeliosPanelNodePropertyEditor.xaml
     /// </summary>
-    [HeliosPropertyEditor("*", "Layout")]
+    [HeliosPropertyEditor("*", "hply")]
     public partial class LayoutPropertyEditor : HeliosPropertyEditor, IDataErrorInfo
     {
         public LayoutPropertyEditor()

@@ -11,6 +11,6 @@ When the aircraft specific interface is deployed from the **Profile Editor**, it
 ### Recent Change History
 
 * March 2019 - Autobinding and Hornet IFEI & UFC demonstration [YouTube](https://www.youtube.com/watch?v=lEhG-TtENWc)
-* October 2018 - Helios 1.4.2018.1010 Beta released including interfaces for Hornet and Harrier
+* October 2018 - Helios 1.4.2018.1008 Beta released including interfaces for Hornet and Harrier
 * September 2018 - Helios 1.4.2018.0924 Beta released including interfaces for Hornet and Harrier
 * May 2018 - AV-8B Interface - A video of the new AV-8B interface in action can be viewed on YouTube here [YouTube](https://www.youtube.com/watch?v=4kQG0dJMROg)

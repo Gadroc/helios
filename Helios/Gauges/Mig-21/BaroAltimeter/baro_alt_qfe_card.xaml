@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="264" Height="264">
+    <Canvas.Resources/>
+    <Canvas Name="layer8">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-38.21342" Y="-38.21342"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4069" Fill="#FF141414" Data="M 301 170 C 301 242.3493 242.3493 301 170 301 97.650698 301 39 242.3493 39 170 39 97.650698 97.650698 39 170 39 c 72.3493 0 131 58.650698 131 131 z"/>
+        </Canvas>
+    </Canvas>
+    <Canvas Name="layer10">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-38.21342" Y="-38.21342"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7039" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 200.66309 287.6261 2.35982 8.80697"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7041" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 203.73167 286.78313 2.58956 8.74218"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7043" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 206.77714 285.86012 2.81751 8.6714"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7045" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 209.7974 284.8577 3.04354 8.59467"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7047" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 212.79039 283.77657 3.26747 8.51206"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7049" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 215.75405 282.61746 3.48917 8.42361"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7051" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 218.68635 281.38117 3.70848 8.32938"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7053" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 221.58529 280.06854 3.92525 8.22945"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7055" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 224.44887 278.68047 4.13932 8.12389"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7057" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 227.27513 277.21793 4.35057 8.01274"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7059" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 230.06215 275.6819 4.55882 7.89611"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7061" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 232.80799 274.07344 4.76396 7.77407"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7063" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 235.5108 272.39366 4.96583 7.6467"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7065" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 238.1687 270.6437 5.16429 7.51409"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7067" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 240.77988 268.82476 5.35922 7.37634"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7069" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 243.34256 266.9381 5.55048 7.23351"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7071" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 245.85497 264.98499 5.73792 7.08574"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7073" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 248.3154 262.96679 5.92144 6.93311"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7075" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 250.72215 260.88488 6.1009 6.77573"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7077" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 253.07358 258.74067 6.27617 6.61371"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7079" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 255.36807 256.53565 6.44715 6.44715"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7081" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 257.60405 254.27133 6.61371 6.27617"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7083" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 259.78 251.94924 6.77573 6.10089"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7085" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 261.89442 249.57098 6.93311 5.92144"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7087" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 263.94585 247.13821 7.08574 5.73792"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7089" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 265.9329 244.65256 7.23352 5.55047"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7091" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 267.8542 242.11575 7.37633 5.35922"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7093" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 269.70844 239.5295 7.51409 5.1643"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7095" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 271.49435 236.89562 7.6467 4.96582"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7097" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 273.21068 234.21588 7.77408 4.76396"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7099" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 274.85629 231.49214 7.89612 4.55882"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7101" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 276.43004 228.72625 8.01274 4.35056"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7103" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 277.93084 225.92012 8.12388 4.13932"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7105" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 279.35767 223.07565 8.22946 3.92524"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7107" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 280.70956 220.19481 8.32938 3.70848"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7109" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 281.98557 217.27957 8.42361 3.48917"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7111" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 283.18483 214.33193 8.51206 3.26747"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7113" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 284.30652 211.35391 8.59467 3.04353"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7115" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 285.34987 208.34754 8.6714 2.8175"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7117" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 286.31416 205.31489 8.74218 2.58955"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7119" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 287.19874 202.25804 8.80697 2.35982"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7121" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 288.00299 199.17908 8.86573 2.12847"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7123" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 288.72638 196.08011 8.9184 1.89567"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7125" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 289.36839 192.96329 8.96497 1.66156"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7127" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 289.9286 189.83072 9.00539 1.42632"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7129" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 290.40661 186.68457 9.03964 1.19009"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7131" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 290.8021 183.52696 9.0677 0.95305"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7133" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 291.1148 180.36011 9.08954 0.71536"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7135" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 291.34449 177.18614 9.10515 0.47718"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7137" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 291.49102 174.00725 9.11452 0.23867"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7139" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 291.55428 170.8256 9.11765 0"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7141" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 291.53424 167.64341 9.11452 -0.23868"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7143" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 291.43091 164.46282 9.10515 -0.47718"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7145" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 291.24435 161.28603 9.08954 -0.71537"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7147" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 290.9747 158.1152 9.0677 -0.95305"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7149" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 290.62213 154.95253 9.03965 -1.1901"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7151" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 290.1869 151.80016 9.00539 -1.42631"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7153" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 289.6693 148.66027 8.96497 -1.66156"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7155" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 289.06968 145.53501 8.91841 -1.89567"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7157" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 288.38846 142.42651 8.86573 -2.12847"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7159" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 287.6261 139.33691 8.80698 -2.35982"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7161" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 286.78313 136.26832 8.74218 -2.58955"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7163" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 285.86012 133.22286 8.6714 -2.81751"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7165" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 284.8577 130.2026 8.59468 -3.04354"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7167" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 283.77657 127.20961 8.51206 -3.26747"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7169" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 282.61746 124.24595 8.42361 -3.48918"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7171" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 281.38117 121.31365 8.32939 -3.70848"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7173" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 280.06854 118.41472 8.22945 -3.92525"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7175" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 278.68048 115.55114 8.12388 -4.13933"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7177" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 277.21794 112.72487 8.01274 -4.35057"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7179" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 275.6819 109.93786 7.89611 -4.55883"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7181" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 274.07344 107.19201 7.77407 -4.76395"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7183" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 272.39366 104.4892 7.6467 -4.965827"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7185" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 270.6437 101.8313 7.51409 -5.164297"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7187" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 268.82475 99.220123 7.37634 -5.359218"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7189" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 266.93809 96.657437 7.23351 -5.550472"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7191" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 264.985 94.145028 7.08574 -5.737922"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7193" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 262.96679 91.68461 6.93311 -5.921438"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7195" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 260.88487 89.277848 6.77573 -6.100897"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7197" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 258.74067 86.926424 6.61371 -6.276174"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7199" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 256.53565 84.631939 6.44715 -6.447151"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7201" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 254.27133 82.395957 6.27617 -6.613708"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7203" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 251.94924 80.219996 6.10089 -6.775732"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7205" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 249.57099 78.105582 5.92144 -6.933113"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7207" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 247.13821 76.054151 5.73792 -7.085742"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7209" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 244.65256 74.06711 5.55047 -7.233516"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7211" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 242.11575 72.145798 5.35922 -7.376331"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7213" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 239.5295 70.291557 5.1643 -7.514092"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7215" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 236.89562 68.505654 4.96582 -7.646702"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7217" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 234.21589 66.789322 4.76396 -7.774072"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7219" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 231.49215 65.143709 4.55882 -7.896114"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7221" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 228.72625 63.569964 4.35056 -8.012745"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7223" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 225.92012 62.069165 4.13932 -8.123883"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7225" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 223.07566 60.642332 3.92524 -8.229454"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7227" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 220.19482 59.290444 3.70848 -8.329385"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7229" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 217.27957 58.014439 3.48917 -8.423608"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7231" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="M 214.33193 56.815167 217.5994 48.30311"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7233" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 211.35392 55.693483 3.04353 -8.594672"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7235" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 208.34754 54.650127 2.8175 -8.671398"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7237" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 205.31489 53.685839 2.58955 -8.74218"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7239" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 202.25803 52.801262 2.35982 -8.806971"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7241" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 199.17908 51.997008 2.12847 -8.865725"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7243" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 196.08012 51.273624 1.89567 -8.918404"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7245" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 192.96329 50.631615 1.66156 -8.964971"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7247" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 189.83072 50.071408 1.42632 -9.005394"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7249" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 186.68457 49.593396 1.19009 -9.039644"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7251" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 183.52697 49.197912 0.95305 -9.067699"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7253" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 180.3601 48.885203 0.71536 -9.089541"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7255" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 177.18614 48.65552 0.47718 -9.105152"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7257" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 174.00725 48.508988 0.23867 -9.114523"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7259" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 170.82561 48.445718 0 -9.117647"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7261" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 167.64341 48.465757 -0.23868 -9.114522"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7263" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 164.46282 48.569099 -0.47718 -9.105152"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7265" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 161.28603 48.755654 -0.71537 -9.08954"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7267" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 158.11521 49.0253 -0.95305 -9.067699"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7269" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 154.95253 49.377865 -1.1901 -9.039645"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7271" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 151.80016 49.813102 -1.42631 -9.005394"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7273" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 148.66028 50.330706 -1.66156 -8.964971"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7275" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 145.53502 50.930323 -1.89567 -8.918405"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use7277" Stroke="#FFF5F5F5" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 142.42651 51.611534 -2.12847 -8.865726"/>
+        </Canvas>
+    </Canvas>
+    <Canvas Name="layer9">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-38.21342" Y="-38.21342"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6344" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 199.00185 282.10007 3.88228 14.48888"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6346" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 213.38573 277.35553 5.74025 13.8582"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6348" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 227.02726 270.77412 7.5 12.99038"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6350" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 239.69305 262.46844 9.13142 11.9003"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6352" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 251.16637 252.58058 10.6066 10.6066"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6354" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 261.25091 241.27976 11.9003 9.13142"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6358" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 276.59017 215.23349 13.85819 5.74025"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6360" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 281.58243 200.9337 14.48889 3.88228"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6362" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 284.66548 186.10462 14.87168 1.95789"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6364" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 285.78658 171 15 0"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6366" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 284.92654 155.87827 14.87167 -1.9579"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6368" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 282.10007 140.99815 14.48888 -3.88228"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6370" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 277.35553 126.61427 13.8582 -5.74025"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6372" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 270.77412 112.97273 12.99038 -7.5"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6374" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 262.46844 100.30696 11.9003 -9.131423"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6376" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 252.58058 88.833636 10.6066 -10.606602"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6378" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="M 241.27976 78.749091 250.41118 66.84879"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6380" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 228.75931 70.225883 7.5 -12.990381"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6382" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 215.23349 63.409829 5.74025 -13.858193"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6384" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 200.9337 58.417571 3.88228 -14.488887"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6386" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 186.10462 55.334518 1.95789 -14.871673"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6388" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 171 54.21342 0 -15"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6390" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 155.87827 55.07346 -1.9579 -14.871673"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6392" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="M 140.99815 57.89993 137.11587 43.411043"/>
+            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="use6356" Stroke="#FFF5F5F5" StrokeThickness="2" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 269.77412 228.75931 12.99038 7.5"/>
+        </Canvas>
+    </Canvas>
+    <Canvas Name="layer11">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-38.21342" Y="-38.21342"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Canvas Name="flowRoot7662" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <TranslateTransform X="-1.2929687" Y="4"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7670" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0.96592583,-0.25881905,0.25881905,0.96592583,-38.448332,53.993891"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7678" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0.86602541,-0.50000001,0.50000001,0.86602541,-61.398286,111.9008"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7686" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0.70710678,-0.70710679,0.70710679,0.70710678,-68.578829,173.77446"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7694" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0.5,-0.86602541,0.86602541,0.5,-59.500619,235.39829"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7702" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0.25881904,-0.96592583,0.96592583,0.25881904,-34.782321,292.57272"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7710" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0,-1,1,0,3.8915531,341.40142"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7718" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.25881905,-0.96592583,0.96592583,-0.25881905,53.885444,378.55678"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7726" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.50000001,-0.86602541,0.86602541,-0.50000001,111.79235,401.50673"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7734" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.70710679,-0.70710678,0.70710678,-0.70710679,173.66601,408.68727"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7742" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.86602541,-0.5,0.5,-0.86602541,235.28984,399.60906"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7750" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.96592583,-0.25881904,0.25881904,-0.96592583,292.46427,374.89076"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7758" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-1,0,0,-1,341.29296,336.21689"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7766" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.96592583,0.25881905,-0.25881905,-0.96592583,378.44832,286.223"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7774" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.86602541,0.50000001,-0.50000001,-0.86602541,401.39827,228.3161"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7782" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.70710678,0.70710679,-0.70710679,-0.70710678,408.57881,166.44244"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7790" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.5,0.86602541,-0.86602541,-0.5,399.5006,104.81862"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7798" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="-0.25881904,0.96592583,-0.96592583,-0.25881904,374.7823,47.644191"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7806" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0,1,-1,0,336.10843,-1.1844999"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7814" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0.25881905,0.96592583,-0.96592583,0.25881905,286.11454,-38.339859"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+            <Canvas Name="flowRoot7822" Opacity="1">
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <!--g-->
+                            <MatrixTransform Matrix="0.50000001,0.86602541,-0.86602541,0.50000001,228.20764,-61.289809"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Canvas>
+        </Canvas>
+    </Canvas>
+    <TextBlock Height="18" Canvas.Left="149.5" TextWrapping="Wrap" Text="67" Foreground="White" Canvas.Top="225.25" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-16.104"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="175.833" TextWrapping="Wrap" Text="68" Foreground="White" Canvas.Top="214.75" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-29.79"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="198" TextWrapping="Wrap" Text="69" Foreground="White" Canvas.Top="198.083" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-44.931"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="215.334" TextWrapping="Wrap" Text="70" Foreground="White" Canvas.Top="176.083" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-59.163"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="226.168" TextWrapping="Wrap" Text="71" Foreground="White" Canvas.Top="150.25" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-74.097"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="230.251" TextWrapping="Wrap" Text="72" Foreground="White" Canvas.Top="122.708" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-88.875"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="226.334" TextWrapping="Wrap" Text="73" Foreground="White" Canvas.Top="95.291" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-105.585"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="216.417" TextWrapping="Wrap" Text="74" Foreground="White" Canvas.Top="69.208" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-120.217"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="199.417" TextWrapping="Wrap" Text="75" Foreground="White" Canvas.Top="46.874" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-134.678"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="177.355" TextWrapping="Wrap" Text="76" Foreground="White" Canvas.Top="30.166" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-150.449"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="151.813" TextWrapping="Wrap" Text="77" Foreground="White" Canvas.Top="19.291" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-165.479"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="124.396" TextWrapping="Wrap" Text="78" Foreground="White" Canvas.Top="15.333" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-180.579"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+    <TextBlock Height="18" Canvas.Left="96.729" TextWrapping="Wrap" Text="79" Foreground="White" Canvas.Top="18.166" Width="17.333" FontSize="15" RenderTransformOrigin="0.5,0.5">
+        <TextBlock.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-195.123"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TextBlock.RenderTransform>
+    </TextBlock>
+</Canvas>

@@ -23,6 +23,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq;
     using System.IO;
     using System.Runtime.InteropServices;
     using System.Windows;
@@ -71,7 +72,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             _layoutSerializer = new XmlLayoutSerializer(this.DockManager);
             _layoutSerializer.LayoutSerializationCallback += LayoutSerializer_LayoutSerializationCallback;
 
-            _defalutLayoutFile = System.IO.Path.Combine(ConfigManager.DocumentPath, "DefaultLayout.hly");
+            _defalutLayoutFile = System.IO.Path.Combine(ConfigManager.DocumentPath, "DefaultLayout.hply");
         }
 
         void LayoutSerializer_LayoutSerializationCallback(object sender, LayoutSerializationCallbackEventArgs e)
@@ -79,11 +80,18 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             if (Profile != null && e.Model is LayoutDocument)
             {
                 HeliosObject profileObject = HeliosSerializer.ResolveReferenceName(Profile, e.Model.ContentId);
-                HeliosEditorDocument editor =  CreateDocumentEditor(profileObject);
-                profileObject.PropertyChanged += DocumentObject_PropertyChanged;
-                e.Content = CreateDocumentContent(editor);
-                e.Model.Closed += Document_Closed;
-                AddDocumentMeta(profileObject, (LayoutDocument)e.Model, editor);
+                if (profileObject != null)
+                {
+                    HeliosEditorDocument editor = CreateDocumentEditor(profileObject);
+                    profileObject.PropertyChanged += DocumentObject_PropertyChanged;
+                    e.Content = CreateDocumentContent(editor);
+                    //DocumentPane.Children.Add((LayoutDocument)e.Model);
+                    e.Model.Closed += Document_Closed;
+                    AddDocumentMeta(profileObject, (LayoutDocument)e.Model, editor);
+                } else
+                {
+                    ConfigManager.LogManager.LogDebug("Unable to resolve Layout Document " + e.Model.ContentId);
+                }
             }
         }
 
@@ -354,7 +362,14 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 document.IsSelected = true;
                 document.ContentId = HeliosSerializer.GetReferenceName(profileObject);
                 document.Content = CreateDocumentContent(editor);
-                DocumentPane.Children.Add(document);
+                // Since a new LayoutRoot object is created upon de-serialization, the Child LayoutDocumentPane no longer belongs to the LayoutRoot 
+                // therefore the LayoutDocumentPane 'DocumentPane' must be referred to dynamically
+                // change added by yzfanimal
+                LayoutDocumentPane DocumentPane = this.DockManager.Layout.Descendents().OfType<LayoutDocumentPane>().FirstOrDefault();
+                if (DocumentPane != null)
+                {
+                    DocumentPane.Children.Add(document);
+                }
                 document.Closed += Document_Closed;
 
                 meta = AddDocumentMeta(profileObject, document, editor);
@@ -461,7 +476,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
         {
             if (ConfigManager.UndoManager.CanUndo || (Profile != null && Profile.IsDirty))
             {
-                MessageBoxResult result = MessageBox.Show(this, "There are changes to the current profile if you continue with out saving your changes will be lost.  Would you like to save the current profile?", "Save Changes", MessageBoxButton.YesNoCancel);
+                MessageBoxResult result = MessageBox.Show(this, "There are changes to the current profile.  If you continue without saving your changes, they will be lost.  Would you like to save the current profile?", "Save Changes", MessageBoxButton.YesNoCancel);
                 if (result == MessageBoxResult.Yes)
                 {
                     return SaveProfile();
@@ -526,10 +541,16 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 Dispatcher.Invoke(DispatcherPriority.Background, (System.Threading.SendOrPostCallback)delegate { SetValue(StatusBarMessageProperty, ""); }, "");
 
                 // TODO Restore docking panel layout
-                string layoutFileName = Path.ChangeExtension(profile.Path, "layout");
-                if (File.Exists(layoutFileName))
+                if (profile != null)
                 {
-                    Dispatcher.Invoke(DispatcherPriority.Background, (LayoutDelegate)_layoutSerializer.Deserialize, layoutFileName);
+                    string layoutFileName = Path.ChangeExtension(profile.Path, "hply");
+                    if (File.Exists(layoutFileName))
+                    {
+                        Dispatcher.Invoke(DispatcherPriority.Background, (LayoutDelegate)_layoutSerializer.Deserialize, layoutFileName);
+                    }
+                } else
+                {
+                    ConfigManager.LogManager.LogDebug("Docking Panel Layout Problem.  Profile Object Null during restore of hply for " + path);
                 }
 
                 GC.Collect();
@@ -585,7 +606,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 Dispatcher.Invoke(DispatcherPriority.Background, new Action(RemoveLoadingAdorner));
                 Dispatcher.Invoke(DispatcherPriority.Background, (System.Threading.SendOrPostCallback)delegate { SetValue(StatusBarMessageProperty, ""); }, "");
 
-                string layoutFileName = Path.ChangeExtension(profile.Path, "layout");
+                string layoutFileName = Path.ChangeExtension(profile.Path, "hply");
                 if (File.Exists(layoutFileName))
                 {
                     File.Delete(layoutFileName);
@@ -864,13 +885,13 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                         }
                         foreach (MonitorResetItem item in resetDialog.MonitorResets)
                         {
-                            ConfigManager.LogManager.LogDebug("Placeing controls for old monitor " + item.OldMonitor);
+                            ConfigManager.LogManager.LogDebug("Placing controls for old monitor " + item.OldMonitor);
                             Dispatcher.Invoke(DispatcherPriority.Background, new Action<Monitor>(item.PlaceControls), profile.Monitors[item.NewMonitor]);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error encountered while reseting monitors, please contact support via forums at www.scsimulations.com", "Error");
+                        MessageBox.Show("Error encountered while resetting monitors, please contact support via forums at www.scsimulations.com", "Error");
                         ConfigManager.LogManager.LogError("Reset Monitors - Unhandled exception", ex);
                     }
 
@@ -889,9 +910,13 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             _systemDefaultLayout = systemDefaultLayoutWriter.ToString();
         }
 
-        private void Donate_Click(object sender, RoutedEventArgs e)
+        private void Donate_Click_Gadroc(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2MMREAY3KDXJ6");
+        }
+        private void Donate_Click_Current(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://bluefinbima.github.io/helios/donate/");
         }
 
         private void Explorer_ItemDeleting(object sender, ItemDeleteEventArgs e)

@@ -19,6 +19,8 @@ namespace GadrocsWorkshop.Helios
     using System.Reflection;
     using System.Windows;
     using System.Xml;
+    using System.Net;
+    using System.IO;
 
     public static class VersionChecker
     {
@@ -26,7 +28,7 @@ namespace GadrocsWorkshop.Helios
         private static string _currentVersion = "";
         private static string _downloadUrl = "";
 
-        private const string VERSION_URL = "http://www.gadrocsworkshop.com/helios/version.xml";
+        private const string VERSION_URL = "https://bluefinbima.github.io/Helios/HeliosCurrentVersion.xml";
 
         static VersionChecker()
         {
@@ -50,9 +52,9 @@ namespace GadrocsWorkshop.Helios
 
                         if (major > _runningVersion.Major || 
                             (major == _runningVersion.Major && minor > _runningVersion.Minor) ||
-                            (major == _runningVersion.Major && minor == _runningVersion.Minor && build > _runningVersion.Build))
+                            (major == _runningVersion.Major && minor == _runningVersion.Minor && build > _runningVersion.Build*10000+_runningVersion.Revision))
                         {
-                            MessageBoxResult result = MessageBox.Show("A newer version of Helios is available. Would you like to download it now?", "Version Check", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                            MessageBoxResult result = MessageBox.Show("A newer version (" + _currentVersion + ") of Helios is available. Would you like to download it now?", "Version Check", MessageBoxButton.YesNo, MessageBoxImage.Information);
                             if (result == MessageBoxResult.Yes)
                             {
                                 System.Diagnostics.Process.Start(_downloadUrl);
@@ -62,7 +64,7 @@ namespace GadrocsWorkshop.Helios
                 }
                 catch (Exception e)
                 {
-                    ConfigManager.LogManager.LogError("Error comapring versions", e);
+                    ConfigManager.LogManager.LogError("Error comparing versions", e);
                 }
             }
         }
@@ -83,7 +85,16 @@ namespace GadrocsWorkshop.Helios
         {
             try
             {
-                using (XmlTextReader xmlReader = new XmlTextReader(VERSION_URL))
+                // The version checking has been moved off Gadroc's site and onto GitHub (ghpages branch).   This requires querying the version with HTTPS
+                // which requires a little more setup
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+                HttpWebRequest wreq = (HttpWebRequest)WebRequest.Create(VERSION_URL);
+                wreq.MaximumAutomaticRedirections = 4;
+                wreq.MaximumResponseHeadersLength = 4;
+                wreq.Credentials = CredentialCache.DefaultCredentials;
+                HttpWebResponse wrsp = (HttpWebResponse)wreq.GetResponse();
+                XmlTextReader xmlReader = new XmlTextReader(wrsp.GetResponseStream());
                 {
                     xmlReader.ReadStartElement("HeliosVersion");
                     _currentVersion = xmlReader.ReadElementString("CurrentVersion");
@@ -92,7 +103,8 @@ namespace GadrocsWorkshop.Helios
                     {
                         xmlReader.Read();
                     }
-                    xmlReader.ReadEndElement();
+                xmlReader.ReadEndElement();
+                wrsp.Close();
                 }
             }
             catch (Exception e)

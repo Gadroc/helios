@@ -289,6 +289,9 @@ namespace GadrocsWorkshop.Helios
                         binding.Trigger = source.Triggers[trigger];
                     }
                 }
+            } else
+            {
+                ConfigManager.LogManager.LogDebug("Binding Source Reference Unresolved: " + xmlReader.GetAttribute("Source"));
             }
             xmlReader.Read();
 
@@ -310,8 +313,11 @@ namespace GadrocsWorkshop.Helios
                     }
                 }
             }
+            else
+            {
+                ConfigManager.LogManager.LogDebug("Binding Target Reference Unresolved: " + xmlReader.GetAttribute("Target"));
+            }
             xmlReader.Read();
-
             switch (xmlReader.Name)
             {
                 case "StaticValue":

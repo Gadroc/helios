@@ -1,5 +1,13 @@
-1.4 Release
------------
+1.4.2018.0924 Beta 3 Release
+----------------------------
+* AV-8B Interface
+* MiG-21Bis Partial Interface by Cylution
+* Profile Editor zoom funtionality restored
+* Various Profile Editor bug fixes
+* New file extension for profile layout
+
+1.4 Un-released (Gadroc Open Source)
+------------------------------------
 * Switch to NuGet for dependency management
 * Switch to open source license (GPLv3)
 * Upgrade to AvalonDock 2

@@ -1,6 +1,7 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 bin
 obj
+"NL Assets"
 
 # mstest test results
 TestResults
@@ -11,3 +12,6 @@ Helios *.zip
 "NL Assets"
 /installer
 /.vs/helios/v15/Server/sqlite3
+Helios *.zip
+Helios*.msi
+setup.exe

@@ -398,10 +398,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
         }
 
         #endregion
-
         public bool UpdateExportConfig()
         {
-            string exportLuaPath = System.IO.Path.Combine(ExportAppPath, ExportConfigPath, "Export.lua");
+            return UpdateExportConfig("Export.lua");
+        }
+
+        public bool UpdateExportConfig(String exportFile)
+        {
+            string exportLuaPath = System.IO.Path.Combine(ExportAppPath, ExportConfigPath, exportFile);
 
             try
             {
@@ -426,7 +430,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
             }
             catch (Exception e)
             {
-                ConfigManager.LogManager.LogError("DCS Configuration - Error updating Export.lua (Filename=\"" + exportLuaPath + "\")", e);
+                ConfigManager.LogManager.LogError("DCS Configuration - Error updating " + exportFile + " (Filename=\"" + exportLuaPath + "\")", e);
                 return false;
             }
 
@@ -437,7 +441,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
 
         public bool RestoreConfig()
         {
-            string exportLuaPath = System.IO.Path.Combine(ExportAppPath, ExportConfigPath, "Export.lua");
+            return RestoreConfig("Export.lua");
+        }
+
+        public bool RestoreConfig(String exportFile)
+        {
+            string exportLuaPath = System.IO.Path.Combine(ExportAppPath, ExportConfigPath, exportFile);
             string backupFile = exportLuaPath + ".back";
 
             if (File.Exists(exportLuaPath))
@@ -480,9 +489,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
 
         private bool CheckConfig()
         {
+            return CheckConfig("Export.lua");
+        }
+        private bool CheckConfig(String exportFile)
+        {
             try
             {
-                string exportLuaPath = System.IO.Path.Combine(ExportAppPath, ExportConfigPath, "Export.lua");
+                string exportLuaPath = System.IO.Path.Combine(ExportAppPath, ExportConfigPath, exportFile);
                 return CheckFile(exportLuaPath, _heliosExportLUAMD5);
             }
             catch (Exception e)

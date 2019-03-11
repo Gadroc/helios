@@ -24,6 +24,7 @@ namespace GadrocsWorkshop.Helios
 
     using GadrocsWorkshop.Helios.ComponentModel;
 
+
     /// <summary>
     /// HeliosVisual objects are helios objects which will be rendered on screen.
     /// </summary>
@@ -49,6 +50,7 @@ namespace GadrocsWorkshop.Helios
 
         private HeliosValue _hiddenValue;
 
+
         /// <summary>
         /// Base constructor for a HeliosVisual.
         /// </summary>
@@ -73,6 +75,7 @@ namespace GadrocsWorkshop.Helios
             Actions.Add(_hiddenValue);
 
             Children.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Children_CollectionChanged);
+
         }
 
         /// <summary>
@@ -465,9 +468,17 @@ namespace GadrocsWorkshop.Helios
                     newRect.Transform(m1);
                     break;
             }
-
+            PostUpdateRectangle(DisplayRectangle, newRect);
             DisplayRectangle = newRect;
         }
+
+        /// 
+        /// Method that can be implemented by sub classes
+        /// 
+        protected virtual void PostUpdateRectangle(Rect previous, Rect current) {
+
+        }
+
 
         /// <summary>
         /// Method call used to linear scale this control and it's components.

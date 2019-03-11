@@ -13,14 +13,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.TwoDigitDisplay
+namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.TwoDigitDisplay", "Two Digit Display", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.TwoDigitDisplay", "Two Digit Display", "AV-8B", typeof(GaugeRenderer))]
     public class TwoDigitDisplay : BaseGauge
     {
         private HeliosValue _two_digit_display;
@@ -30,7 +30,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.TwoDigitDisplay
         public TwoDigitDisplay()
             : base("Two Digit Display", new Size(147, 100))
         {
-            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/2 Digit Display/two_digit_faceplate.xaml", new Rect(0d, 0d, 147d, 100d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/2 Digit Display/digit_faceplate.xaml", new Rect(0d, 0d, 147d, 100d)));
 
             _tensDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/Common/drum_tape.xaml", new Point(13.5d, 11.5d), "#", new Size(10d, 15d), new Size(50d, 75d));
             _tensDrum.Clip = new RectangleGeometry(new Rect(13.5d, 11.5d, 50d, 75d));
