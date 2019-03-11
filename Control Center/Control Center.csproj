@@ -24,8 +24,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1008</ApplicationRevision>
-    <ApplicationVersion>1.4.2018.%2a</ApplicationVersion>
+    <ApplicationRevision>330</ApplicationRevision>
+    <ApplicationVersion>1.4.2019.0330</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
