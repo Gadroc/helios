@@ -28,7 +28,7 @@ namespace GadrocsWorkshop.Helios
         private static string _currentVersion = "";
         private static string _downloadUrl = "";
 
-        private const string VERSION_URL = "https://bluefinbima.github.io/Helios-Virtual-Cockpit-System/HeliosCurrentVersion.xml";
+        private const string VERSION_URL = "https://bluefinbima.github.io/Helios/HeliosCurrentVersion.xml";
 
         static VersionChecker()
         {
