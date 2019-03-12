@@ -90,7 +90,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Mi8Simple
                     {
                         pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS Mi-8");
                     }
-
+                    if (pathKey == null)
+                    {
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+                    }
+                    if (pathKey == null)
+                    {
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
+                    }
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

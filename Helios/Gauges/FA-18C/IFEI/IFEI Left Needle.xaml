@@ -10,10 +10,10 @@
         <Canvas  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
   <!-- Layer 1/Left Datum/<Line> -->
-  <Path StrokeThickness="1.0" Stroke="#d000ff00" StrokeMiterLimit="1.0" Fill="#d000ff00" Data="F1 M 1.500,1.852 L 1.500,4.852"/>
+  <Path StrokeThickness="1.0" Stroke="#0000ff00" StrokeMiterLimit="1.0" Fill="#0000ff00" Data="F1 M 1.500,1.852 L 1.500,4.852"/>
 
   <!-- Layer 1/Left Datum/<Line> -->
-  <Path StrokeThickness="1.0" Stroke="#d000ff00" StrokeMiterLimit="1.0" Fill="#d000ff00" Data="F1 M 0.000,3.352 L 3.000,3.352"/>
+  <Path StrokeThickness="1.0" Stroke="#0000ff00" StrokeMiterLimit="1.0" Fill="#0000ff00" Data="F1 M 0.000,3.352 L 3.000,3.352"/>
 
   </Canvas>
 

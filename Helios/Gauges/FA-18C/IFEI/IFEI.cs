@@ -15,14 +15,13 @@
 
 namespace GadrocsWorkshop.Helios.Gauges.FA18C
 {
-    using GadrocsWorkshop.Helios.Gauges;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
     using System;
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.IFEI", "Integrated Fuel & Engine Indicator", "F/A-18C", typeof(FA18CDeviceRenderer))]
+    [HeliosControl("Helios.FA18C.IFEI", "IFEI", "F/A-18C", typeof(FA18CDeviceRenderer))]
     class IFEI_FA18C : FA18CDevice
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
@@ -38,55 +37,67 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public IFEI_FA18C()
             : base("IFEI_Gauge", new Size(779, 702))
         {
+
+            // adding the text displays
+            double dispHeight = 50;
+            double fontSize = 42;
+
+            double clockDispWidth = 50;
+            double clockSpreadWidth = 3;
+            double clockX = 524;
+            double clockY = 355;
+            // test string 00000000*4000=1:4001=1:4002=1:4003=1:4004=1:4005=1:4006=1:4007=1:4008=1:4009=1:4010=1:4011=1:4012=1:4013=1:4014=1:4015=1:4016=1:4017=1:4018=1:2063=81000I:2064=81000T:2066=88:2065=99:2073=9:2072=59:2071=59:2053=23:2054=59:2055=59:2061=2000:2062=4000:2067=100:2068=100:2052=10000:2069=1200:2070=1200:2056=1:2057=1:2058=1:2060=1:4019=50:4020=50:
+            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "23", _interfaceDeviceName, "Clock hours");
+            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Clock minutes");
+            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Clock seconds");
+            clockY = 412;
+            AddTextDisplay("Elapsed Time H", clockX + clockDispWidth/2, clockY, new Size(clockDispWidth/2, dispHeight), fontSize, "01", _interfaceDeviceName, "Timer hours");
+            AddTextDisplay("Elapsed Time MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Timer minutes");
+            AddTextDisplay("Elapsed Time SS", clockX + 2*(clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "59", _interfaceDeviceName, "Timer seconds");
+
+            // Fuel info
+
+            AddTextDisplay("Bingo", 545, 258, new Size(133, dispHeight), fontSize, "2000", _interfaceDeviceName, "Bingo Value");
+
+            double fuelX = 530;
+            double fuelWidth = 154;
+            AddTextDisplay("Fuel Total", fuelX, 93, new Size(fuelWidth, dispHeight), fontSize, "10780T", _interfaceDeviceName, "Total Fuel Amount");
+            AddTextDisplay("Fuel Internal", fuelX, 159, new Size(fuelWidth, dispHeight), fontSize, "10780I", _interfaceDeviceName, "Internal Fuel Amount");
+            AddTextDisplay("T Value", fuelX, 93, new Size(fuelWidth, dispHeight), fontSize, "T", _interfaceDeviceName, "T Value");
+            AddTextDisplay("Time Set Mode", fuelX, 159, new Size(fuelWidth, dispHeight), fontSize, "H", _interfaceDeviceName, "Time Set Mode");
+
+            double RPMWidth = 60;
+            AddTextDisplay("RPM Left", 104, 86, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Left RPM Value");
+            AddTextDisplay("RPM Right", 255, 86, new Size(RPMWidth, dispHeight), fontSize, "65", _interfaceDeviceName, "Right RPM Value");
+            
+            double TempWidth = 92;
+            AddTextDisplay("Temp Left", 80, 143, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Left Temperature Value");
+            AddTextDisplay("Temp Right", 261, 143, new Size(TempWidth, dispHeight), fontSize, "330", _interfaceDeviceName, "Right Temperature Value");
+            AddTextDisplay("SP", 80, 143, new Size(TempWidth, dispHeight), fontSize, "SP", _interfaceDeviceName, "SP");
+            AddTextDisplay("SP Code", 261, 143, new Size(TempWidth, dispHeight), fontSize, "999", _interfaceDeviceName, "SP Code");
+
+            AddTextDisplay("FF Left", 80, 199, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Left Fuel Flow Value");
+            AddTextDisplay("FF Right", 261, 199, new Size(TempWidth, dispHeight), fontSize, "6", _interfaceDeviceName, "Right Fuel Flow Value");
+
+            double oilWidth = 64;
+            AddTextDisplay("Oil Left", 107, 433, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Left Oil Pressure");
+            AddTextDisplay("Oil Right", 262, 433, new Size(oilWidth, dispHeight), fontSize, "60", _interfaceDeviceName, "Right Oil Pressure");
+
+            AddIFEIParts("Gauges", 0, 0, new Size(779, 702), _interfaceDeviceName, "IFEI Needles & Flags");
+
             double spacing = 70;
             double start = 64;
             double left = 400;
             // adding the control buttons
-            AddButton("MODE", left, start, new Size(87, 62), "IFEI", "IFEI Mode Button");
-            AddButton("QTY", left, start + spacing, new Size(87, 62), "IFEI", "IFEI QTY Button");
-            AddButton("UP", left, start + 2 * spacing, new Size(87, 62), "IFEI", "IFEI Up Arrow Button");
-            AddButton("DOWN", left, start + 3 * spacing, new Size(87, 62), "IFEI", "IFEI Down Arrow Button");
-            AddButton("ZONE", left, start + 4 * spacing, new Size(87, 62), "IFEI", "IFEI ZONE Button");
-            AddButton("ET", left, start + 5 * spacing, new Size(87, 62), "IFEI", "IFEI ET Button");
-
-            // adding the text displays
-            double dispHeight = 50;
-            double fontSize = 50;
-
-            double clockDispWidth = 50;
-            double clockSpreadWidth = 3;
-            double clockX = 530;
-            double clockY = 352;
-            AddTextDisplay("Clock HH", clockX, clockY, new Size(clockDispWidth, dispHeight), fontSize, "10", "IFEI", "Clock Hours");
-            AddTextDisplay("Clock MM", clockX + clockDispWidth + clockSpreadWidth, clockY, new Size(clockDispWidth, dispHeight), fontSize, "11", "IFEI", "Clock Minutes");
-            AddTextDisplay("Clock SS", clockX + 2* (clockDispWidth + clockSpreadWidth), clockY, new Size(clockDispWidth, dispHeight), fontSize, "12", "IFEI", "Clock Seconds");
-
-            // Fuel info
-
-            AddTextDisplay("Bingo", 545, 255, new Size(133, dispHeight), fontSize, "2000", "IFEI", "Bingo Value");
-
-            double fuelX = 527;
-            double fuelWidth = 159;
-            AddTextDisplay("Fuel Total", fuelX, 90, new Size(fuelWidth, dispHeight), fontSize, "10780T", "IFEI", "Fuel Up");
-
-            //AddTextDisplay("Fuel", fuelX, 155, new Size(fuelWidth, dispHeight), fontSize, "10780I");
-
-            //double RPMWidth = 65;
-            //AddTextDisplay("RPM Left", 107, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
-            //AddTextDisplay("RPM Right", 261, 85, new Size(RPMWidth, dispHeight), fontSize, "65");
-
-            //double TempWidth = 95;
-            //AddTextDisplay("Temp Left", 77, 140, new Size(TempWidth, dispHeight), fontSize, "330");
-            //AddTextDisplay("Temp Right", 261, 140, new Size(TempWidth, dispHeight), fontSize, "333");
-
-            //AddTextDisplay("FF Left", 77, 195, new Size(TempWidth, dispHeight), fontSize, "6");
-            //AddTextDisplay("FF Right", 261, 195, new Size(TempWidth, dispHeight), fontSize, "6");
-
-            //AddTextDisplay("Oil Left", 107, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
-            //AddTextDisplay("Oil Right", 261, 431, new Size(RPMWidth, dispHeight), fontSize, "60");
+            AddButton("MODE", left, start, new Size(87, 62), _interfaceDeviceName, "IFEI Mode Button");
+            AddButton("QTY", left, start + spacing, new Size(87, 62), _interfaceDeviceName, "IFEI QTY Button");
+            AddButton("UP", left, start + 2 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI Up Arrow Button");
+            AddButton("DOWN", left, start + 3 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI Down Arrow Button");
+            AddButton("ZONE", left, start + 4 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI ZONE Button");
+            AddButton("ET", left, start + 5 * spacing, new Size(87, 62), _interfaceDeviceName, "IFEI ET Button");
 
             AddPot(
-                name: "Brightness Control", 
+                name: "Brightness Control",
                 posn: new Point(82, 630),
                 size: new Size(60, 60),
                 knobImage: "{Helios}/Images/AV-8B/Common Knob.png",
@@ -96,13 +107,41 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 maxValue: 1,
                 initialValue: 0,
                 stepValue: 0.1,
-                interfaceDeviceName: "IFEI",
+                interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: "IFEI Brightness Control Knob",
                 fromCenter: true
                 );
+            Size ThreeWayToggleSize = new Size(70, 140);
+            Add3PosnToggle(
+                name: "Video Record DDI",
+                posn: new Point(236, 570),
+                size: ThreeWayToggleSize,
+                image: "{Helios}/Images/Toggles/orange-round-",
+                interfaceDevice: _interfaceDeviceName,
+                interfaceElement: "Video Record Selector Switch HMD/LDDI/RDDI",
+                fromCenter: false
+                );
 
+            Add3PosnToggle(
+                name: "Video Record HUD",
+                posn: new Point(395, 570),
+                size: ThreeWayToggleSize,
+                image: "{Helios}/Images/Toggles/orange-round-",
+                interfaceDevice: _interfaceDeviceName,
+                interfaceElement: "Video Record Selector Switch, HUD/LDIR/RDDI",
+                fromCenter: false
+                );
 
-        }
+            Add3PosnToggle(
+                name: "Video Record Control",
+                posn: new Point(584, 570),
+                size: ThreeWayToggleSize,
+                image: "{Helios}/Images/Toggles/orange-round-",
+                interfaceDevice: _interfaceDeviceName,
+                interfaceElement: "Video Record Mode Selector Switch, MAN/OFF/AUTO",
+                fromCenter: false
+                );
+       }
 
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
@@ -148,6 +187,49 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 interfaceElementName: interfaceElement,
                 fromCenter: false
                 );
+        }
+        private void Add3PosnToggle(string name, Point posn, Size size, string image, string interfaceDevice, string interfaceElement, bool fromCenter)
+        {
+            AddThreeWayToggle(
+                name: name,
+                pos: posn,
+                size: size,
+                positionOneImage: image + "up.png",
+                positionTwoImage: image + "norm.png",
+                positionThreeImage: image + "down.png",
+                defaultPosition: ThreeWayToggleSwitchPosition.Two,
+                switchType: ThreeWayToggleSwitchType.OnOnOn,
+                interfaceDeviceName: interfaceDevice,
+                interfaceElementName: interfaceElement,
+                fromCenter: false
+                );
+        }
+        private void AddIFEIParts(string name, double x, double y, Size size, string interfaceDevice, string interfaceElement)
+        {
+            IFEI_Gauges IFEI_gauges = new IFEI_Gauges
+            {
+                Top = y,
+                Left = x,
+                Height = size.Height,
+                Width = size.Width,
+                Name = name
+            };
+
+            Children.Add(IFEI_gauges);
+            foreach (IBindingTrigger trigger in IFEI_gauges.Triggers)
+            {
+                AddTrigger(trigger, trigger.Name);
+            }
+            foreach (IBindingAction action in IFEI_gauges.Actions)
+            {
+                AddAction(action, action.Name);
+                // Create the automatic input bindings for the IFEI_Gauge sub component
+                AddDefaultInputBinding(
+                    childName: "Gauges",
+                    deviceActionName: action.ActionVerb +"." +action.Name,
+                    interfaceTriggerName: interfaceDevice +"."+ action.Name + ".changed"
+                    );
+            }
         }
 
         public override bool HitTest(Point location)

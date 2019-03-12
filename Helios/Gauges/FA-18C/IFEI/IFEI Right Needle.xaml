@@ -11,10 +11,10 @@
   <Canvas>
 
   <!-- Layer 1/Right Datum/<Line> -->
-            <Path StrokeThickness="1.0" Stroke="#d000ff00" StrokeMiterLimit="1.0" Fill="#d000ff00" Data="F1 M 92.186,1.852 L 92.186,4.852"/>
+            <Path StrokeThickness="1.0" Stroke="#0000ff00" StrokeMiterLimit="1.0" Fill="#0000ff00" Data="F1 M 92.186,1.852 L 92.186,4.852"/>
 
   <!-- Layer 1/Right Datum/<Line> -->
-            <Path StrokeThickness="1.0" Stroke="#d000ff00" StrokeMiterLimit="1.0" Fill="#d000ff00" Data="F1 M 90.686,3.352 L 93.686,3.352"/>
+            <Path StrokeThickness="1.0" Stroke="#0000ff00" StrokeMiterLimit="1.0" Fill="#0000ff00" Data="F1 M 90.686,3.352 L 93.686,3.352"/>
 
   </Canvas>
 

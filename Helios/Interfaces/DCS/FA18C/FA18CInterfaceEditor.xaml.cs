@@ -88,14 +88,22 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
                     RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey == null)
                     {
-                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS FA18CNA");
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS FA18C");
+                    }
+                    if (pathKey == null)
+                    {
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+                    }
+                    if (pathKey == null)
+                    {
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
                     }
 
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
                         pathKey.Close();
-                        ConfigManager.LogManager.LogDebug("DCS AV-8B Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                        ConfigManager.LogManager.LogDebug("DCS FA-18C Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
                     }
                     else
                     {
@@ -126,7 +134,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             }
             else
             {
-                MessageBox.Show(Window.GetWindow(this), "Error updating DCS AV-8B configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
+                MessageBox.Show(Window.GetWindow(this), "Error updating DCS FA-18C configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
             }
         }
 

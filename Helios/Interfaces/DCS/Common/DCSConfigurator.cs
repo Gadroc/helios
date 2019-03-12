@@ -300,6 +300,20 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
                         pathKey.Close();
                         return "Scripts";
                     }
+                    pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+                    if (pathKey != null)
+                    {
+                        pathKey.Close();
+                        return "Scripts";
+                    }
+                    pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
+                    if (pathKey != null)
+                    {
+                        pathKey.Close();
+                        return "Scripts";
+                    }
+
+
                 }
                 return _exportConfigPath;
             }

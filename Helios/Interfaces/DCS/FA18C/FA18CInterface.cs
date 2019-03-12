@@ -201,7 +201,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "6", "Caution Indicators", "AOA_LOW", ""));         // create_caution_lamp(6,CautionLights.CPT_LTS_AOA_LOW)
             // Declarations for Caution Lights numbers from Lamps.lua
             #endregion
-
             #region Internal Lights
             AddFunction(new FlagValue(this, "460", "Internal Lights", "Console", ""));    //  create_int_lights(460 InternalLights.Console_lt)
             AddFunction(new FlagValue(this, "461", "Internal Lights", "Flood", ""));    //  create_int_lights(461 InternalLights.Flood_lt)
@@ -214,7 +213,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "463", "Internal Lights", "Chart", ""));    //  create_int_lights(463 InternalLights.Chart_lt)
 
             #endregion
-
             #region RWR
             AddFunction(new FlagValue(this, "273", "RWR", "Limit", ""));    //   Limit_lt, create_simple_lamp(273 controllers.RWR_LimitLt)
             AddFunction(new FlagValue(this, "274", "RWR", "Display", ""));    //   Display_lt, create_simple_lamp(274 controllers.RWR_LowerLt)
@@ -490,34 +488,57 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new FlagValue(this, "469", "IFEI", "IFEI buttons", ""));    //   IFEI buttons_lt, create_simple_lamp(469 controllers.IFEILights 1)
 
             AddFunction(new Text(this, "2052", "IFEI", "Bingo Value", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2053", "IFEI", "Clock", "Value of the clock HH:MM:SS"));  // The exports concatenates the three fields
-            //AddFunction(new Text(this, "2053", "IFEI", "Clock Hours", "Value of the clock HH"));
-            //AddFunction(new Text(this, "2054", "IFEI", "Clock Minutes", "Value of the clock MM"));
-            //AddFunction(new Text(this, "2055", "IFEI", "Clock Seconds", "Value of the clock SS"));
-            AddFunction(new Text(this, "2056", "IFEI", "DD 1", "Value of the DD 1 Indicator"));
-            AddFunction(new Text(this, "2057", "IFEI", "DD 2", "Value of the DD 2 Indicator"));
-            AddFunction(new Text(this, "2058", "IFEI", "DD 3", "Value of the DD 3 Indicator"));
+            AddFunction(new Text(this, "2053", "IFEI", "Clock hours", "Value of the clock HH"));
+            AddFunction(new Text(this, "2054", "IFEI", "Clock minutes", "Value of the clock MM"));
+            AddFunction(new Text(this, "2055", "IFEI", "Clock seconds", "Value of the clock SS"));
+            AddFunction(new FlagValue(this, "2056", "IFEI", "Clock HH MM separator", "Flag to display colon HH:MM on IFEI clock display"));
+            AddFunction(new FlagValue(this, "2057", "IFEI", "Clock MM SS separator", "Flag to display colon MM:SS on IFEI clock display"));
+            AddFunction(new Text(this, "2061", "IFEI", "Left Fuel Flow Value", "Value of the Fuel Flow for the Left Engine"));
+            AddFunction(new Text(this, "2062", "IFEI", "Right Fuel Flow Value", "Value of the Fuel Flow for the Right Engine"));
+            AddFunction(new Text(this, "2063", "IFEI", "Internal Fuel Amount", "Internel Fuel Value"));
+            AddFunction(new Text(this, "2064", "IFEI", "Total Fuel Amount", "Total Fuel Value"));
+            AddFunction(new Text(this, "2065", "IFEI", "Left Oil Pressure", "Value of the Left Engine Oil Pressure"));
+            AddFunction(new Text(this, "2066", "IFEI", "Right Oil Pressure", "Value of the Right Engine Oil Pressure"));
+            AddFunction(new Text(this, "2067", "IFEI", "Left RPM Value", "Left Engine RPM"));
+            AddFunction(new Text(this, "2068", "IFEI", "Right RPM Value", "Right Engine RPM"));
+            AddFunction(new Text(this, "2069", "IFEI", "Left Temperature Value", "Left Engine Temperature"));
+            AddFunction(new Text(this, "2070", "IFEI", "Right Temperature Value", "Right Engine Temperature"));
+            AddFunction(new Text(this, "2073", "IFEI", "Timer hours", "Value of the Timer Hours"));
+            AddFunction(new Text(this, "2072", "IFEI", "Timer minutes", "Value of the Timer Minutes"));
+            AddFunction(new Text(this, "2071", "IFEI", "Timer seconds", "Value of the Timer Seconds"));
+            AddFunction(new FlagValue(this, "2058", "IFEI", "Timer H MM separator", "Flag to display colon HH:MM on IFEI timer display"));
             // 2059 is used for the altimeter 
-            AddFunction(new Text(this, "2060", "IFEI", "DD 4", "Value of the DD 4 Indicator"));
-            AddFunction(new Text(this, "2061", "IFEI", "Fuel Flow Left", "Value of the Fuel Flow for the Left Engine"));
-            AddFunction(new Text(this, "2062", "IFEI", "Fuel Flow Right", "Value of the Fuel Flow for the Right Engine"));
-            AddFunction(new Text(this, "2063", "IFEI", "Fuel Down", "Value of Fuel Down"));
-            AddFunction(new Text(this, "2064", "IFEI", "Fuel Up", "Value of Fuel Up"));
-            AddFunction(new Text(this, "2065", "IFEI", "Oil Pressure Left", "Value of the Left Engine Oil Pressure"));
-            AddFunction(new Text(this, "2066", "IFEI", "Oil Pressure Right", "Value of the Right Engine Oil Pressure"));
-            AddFunction(new Text(this, "2067", "IFEI", "RPM Left", "Left Engine RPM"));
-            AddFunction(new Text(this, "2068", "IFEI", "RPM Right", "Right Engine RPM"));
-            AddFunction(new Text(this, "2069", "IFEI", "Temp Left", "Left Engine Temperature"));
-            AddFunction(new Text(this, "2070", "IFEI", "Temp Right", "Right Engine Temperature"));
-            AddFunction(new Text(this, "2073", "IFEI", "Timer", "Value of the Timer HH:MM:SS"));  // The exports concatenates these fields
-            //AddFunction(new Text(this, "2073", "IFEI", "Timer Hours", "Value of the Timer Hours"));
-            //AddFunction(new Text(this, "2072", "IFEI", "Timer Minutes", "Value of the Timer Minutes"));
-            //AddFunction(new Text(this, "2071", "IFEI", "Timer Seconds", "Value of the Timer Seconds"));
-            AddFunction(new Text(this, "2074", "IFEI", "Codes", "Value of the BINGO fuel state"));
+            AddFunction(new FlagValue(this, "2060", "IFEI", "Timer MM SS separator", "Flag to display colon MM:SS on IFEI timer display"));
+            AddFunction(new Text(this, "2074", "IFEI", "SP Code", "Value of the code before the SP"));
             AddFunction(new Text(this, "2075", "IFEI", "SP", "Value of SP"));
-            AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2077", "IFEI", "T", "Value of the BINGO fuel state"));
-            AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Value of the BINGO fuel state"));
+            AddFunction(new Text(this, "2076", "IFEI", "Draw Character", "Draw Character Not sure what this is"));
+            AddFunction(new Text(this, "2077", "IFEI", "T Value", "T Value"));
+            AddFunction(new Text(this, "2078", "IFEI", "Time Set Mode", "Alter / Set Clock Mode"));
+
+            // These are described as textures, but currently unclear what these actually represent.
+            uint commandCode = 4000;
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "RPM Flag", "Show RPM on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Temp Flag", "Show Temp on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "FF Flag", "Show FF on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Noz Flag", "Show Noz on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Oil Flag", "Show Oil on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Bingo Flag", "Show Bingo on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Left Scale Flag", "Show Left Scale on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Scale Flag", "Show Right Scale on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Left Scale 0 Flag", "Show Left Scale 0 value on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Scale 0 Flag", "Show Right Scale 0 value on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Left Scale 50 Flag", "Show Left Scale 50 value on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Scale 50 Flag", "Show Right Scale 50 value on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Left Scale 100 Flag", "Show Left Scale 10 value on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Scale 100 Flag", "Show Right Scale 10 value on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Left Nozzle Needle Flag", "Left nozzle needle on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Nozzle Needle Flag", "Right nozzle needle on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Zulu Time Flag", "Z flag indicating Zulu time on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Left Fuel Flag", "L flag indicating Left fuel quantity on IFEI"));
+            AddFunction(new FlagValue(this, commandCode++.ToString(), "IFEI", "Right Fuel Flag", "R flag indicating Right fuel quantity on IFEI"));
+            AddFunction(new Axis(this, IFEI, commandCode.ToString(), commandCode++.ToString(), 1d, 0d, 400d, "IFEI", "Left Nozzle Position", true, "%3.0f"));
+            AddFunction(new Axis(this, IFEI, commandCode.ToString(), commandCode++.ToString(), 1d, 0d, 400d, "IFEI", "Right Nozzle Position", true, "%3.0f"));
+
             #endregion
             #region  Sensor panel
             AddFunction(new Switch(this, RADAR, "440", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3001"), new SwitchPosition("0.1", "STBY", "3001"), new SwitchPosition("0.2", "OPR", "3001"), new SwitchPosition("0.3", "EMERG(PULL)", "3002") }, "Sensor panel", "RADAR Switch (MW to pull)", "%0.1f"));    // elements["pnt_440"] = multiposition_switch_with_pull(_("RADAR Switch (MW to pull), OFF/STBY/OPR/EMERG(PULL)"),
@@ -631,6 +652,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             //AddFunction(new PushButton(this,, "", "507","1.0","ENABLE","0.0","DISABLE (no function)", "ICMCP","NUC WPN Switch"));    // elements["pnt_507"]     = default_2_position_tumb(_("NUC WPN Switch, ENABLE/DISABLE (no function)"),        0, 3100, 507)
             #endregion
             #region  TODO list
+            AddFunction(new Switch(this, "0", "175", new SwitchPosition[] { new SwitchPosition("1.0", "HMD", "3104"), new SwitchPosition("0.5", "LDDI", "3104"), new SwitchPosition("0.0", "RDDI", "3104") }, "IFEI", "Video Record Selector Switch HMD/LDDI/RDDI", "%0.1f"));
+            AddFunction(new Switch(this, "0", "176", new SwitchPosition[] { new SwitchPosition("1.0", "HUD", "3105"), new SwitchPosition("0.5", "LDIR", "3105"), new SwitchPosition("0.0", "RDDI", "3105") }, "IFEI", "Video Record Selector Switch, HUD/LDIR/RDDI", "%0.1f"));
+            AddFunction(new Switch(this, "0", "314", new SwitchPosition[] { new SwitchPosition("1.0", "MAN", "3106"), new SwitchPosition("0.5", "OFF", "3106"), new SwitchPosition("0.0", "AUTO", "3106") }, "IFEI", "Video Record Mode Selector Switch, MAN/OFF/AUTO", "%0.1f"));
+            //AddFunction(new Switch(this, "TODO list", "175", new SwitchPosition[] { new SwitchPosition("1.0", "HMD", "3104"), new SwitchPosition("0.5", "LDDI", "3104"), new SwitchPosition("0.0", "RDDI", "3104") }, "Video Record Switch DDI", "Video Record Selector Switch HMD/LDDI/RDDI", "%0.1f"));
+            //AddFunction(new Switch(this, "TODO list", "176", new SwitchPosition[] { new SwitchPosition("1.0", "HUD", "3105"), new SwitchPosition("0.5", "LDIR", "3105"), new SwitchPosition("0.0", "RDDI", "3105") }, "Video Record Switch HUD", "Video Record Selector Switch, HUD/LDIR/RDDI", "%0.1f"));
+            //AddFunction(new Switch(this, "TODO list", "314", new SwitchPosition[] { new SwitchPosition("1.0", "MAN", "3106"), new SwitchPosition("0.5", "OFF", "3106"), new SwitchPosition("0.0", "AUTO", "3106") }, "Video Record Mode Switch", "Video Record Mode Selector Switch, MAN/OFF/AUTO", "%0.1f"));
+
             //AddFunction(new Switch(this, , "175", new SwitchPosition[]{new SwitchPosition("1.0","HMD", ""), new SwitchPosition("0.5","LDDI", ""), new SwitchPosition("0.0","RDDI", "")}, "TODO list","Selector Switch", "%0.1f"));    // elements["pnt_175"]     = default_3_position_tumb(_("Selector Switch, HMD/LDDI/RDDI"),                  0, 3104, 175)
             //AddFunction(new Switch(this, , "176", new SwitchPosition[]{new SwitchPosition("1.0","HUD", ""), new SwitchPosition("0.5","LDIR", ""), new SwitchPosition("0.0","RDDI", "")}, "TODO list","Selector Switch", "%0.1f"));    // elements["pnt_176"]     = default_3_position_tumb(_("Selector Switch, HUD/LDIR/RDDI"),                  0, 3105, 176)
             //AddFunction(new Switch(this, , "314", new SwitchPosition[]{new SwitchPosition("1.0","MAN", ""), new SwitchPosition("0.5","OFF", ""), new SwitchPosition("0.0","AUTO", "")}, "TODO list","Mode Selector Switch", "%0.1f"));    // elements["pnt_314"]     = default_3_position_tumb(_("Mode Selector Switch, MAN/OFF/AUTO"),              0, 3106, 314)

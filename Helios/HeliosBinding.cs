@@ -519,21 +519,21 @@ namespace GadrocsWorkshop.Helios
                 if (ValueSource == BindingValueSources.TriggerValue && _needsConversion && _converter == null)
                 {
                     IsValid = true;
-                    ErrorMessage = "Action Value Warning - Can not convert trigger value to action value.";
+                    ErrorMessage = "Action Value Warning - Cannot convert trigger value to action value.";
                     return;
                 }
 
                 if (ValueSource == BindingValueSources.StaticValue && (Value == null || Value.Length == 0))
                 {
                     IsValid = true;
-                    ErrorMessage = "Action Value Warning - Value can not be empty.";
+                    ErrorMessage = "Action Value Warning - Value cannot be empty.";
                     return;
                 }
 
                 if (ValueSource == BindingValueSources.LuaScript && (Value == null || Value.Length == 0))
                 {
                     IsValid = true;
-                    ErrorMessage = "Action Value Warning - Script can not be empty.";
+                    ErrorMessage = "Action Value Warning - Script cannot be empty.";
                     return;
                 }
             }

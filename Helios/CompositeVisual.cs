@@ -3,7 +3,7 @@
 //  Helios is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
+//  (at your option) any later versionCannot find interface trigger
 //
 //  Helios is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -32,6 +32,7 @@ namespace GadrocsWorkshop.Helios
             ChildName = childName;
             InterfaceTriggerName = interfaceTriggerName;
             DeviceActionName = deviceActionName;
+            ConfigManager.LogManager.LogInfo("Default Input Binding: Trigger " + interfaceTriggerName + " to action " + deviceActionName + " for child " + childName);
         }
     }
 
@@ -45,6 +46,7 @@ namespace GadrocsWorkshop.Helios
             ChildName = childName;
             DeviceTriggerName = deviceTriggerName;
             InterfaceActionName = interfaceActionName;
+            ConfigManager.LogManager.LogInfo("Default Output Binding: Trigger " + deviceTriggerName + " to action " + interfaceActionName  + " for child " + childName);
         }
     }
 
@@ -227,6 +229,7 @@ namespace GadrocsWorkshop.Helios
                     ConfigManager.LogManager.LogError("Cannot find child " + defaultBinding.ChildName);
                     continue;
                 }
+                ConfigManager.LogManager.LogDebug("Auto binding child " + defaultBinding.ChildName);
                 HeliosVisual child = Children[defaultBinding.ChildName];
                 if (!child.Actions.ContainsKey(defaultBinding.DeviceActionName))
                 {
@@ -238,7 +241,7 @@ namespace GadrocsWorkshop.Helios
                     ConfigManager.LogManager.LogError("Cannot find interface trigger " + defaultBinding.InterfaceTriggerName);
                     continue;
                 }
-
+                ConfigManager.LogManager.LogDebug("Auto binding trigger " + defaultBinding.InterfaceTriggerName + " to " + defaultBinding.DeviceActionName);
                 child.OutputBindings.Add(CreateNewBinding(_defaultInterface.Triggers[defaultBinding.InterfaceTriggerName], 
                     child.Actions[defaultBinding.DeviceActionName]));
 
@@ -263,6 +266,7 @@ namespace GadrocsWorkshop.Helios
                     ConfigManager.LogManager.LogError("Cannot find action " + defaultBinding.InterfaceActionName);
                     continue;
                 }
+                ConfigManager.LogManager.LogDebug("Child Output binding trigger " + defaultBinding.DeviceTriggerName + " to " + defaultBinding.InterfaceActionName);
                 child.OutputBindings.Add(CreateNewBinding(child.Triggers[defaultBinding.DeviceTriggerName],
                                       _defaultInterface.Actions[defaultBinding.InterfaceActionName]));
         //            child.OutputBindings.Add(
@@ -374,6 +378,7 @@ namespace GadrocsWorkshop.Helios
 
             return _knob;
         }
+
 
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
             string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
@@ -523,10 +528,10 @@ namespace GadrocsWorkshop.Helios
                 Width = size.Width,
                 Height = size.Height,
                 DefaultPosition = defaultPosition,
-                PositionOneImage = "{Helios}/Images/Toggles/round-up.png",
-                PositionTwoImage = "{Helios}/Images/Toggles/round-norm.png",
-                PositionThreeImage = "{Helios}/Images/Toggles/round-down.png",
-                SwitchType = ThreeWayToggleSwitchType.OnOnOn,
+                PositionOneImage = positionOneImage,
+                PositionTwoImage = positionTwoImage,
+                PositionThreeImage = positionThreeImage,
+                SwitchType = switchType,
                 Name = componentName
             };
 
@@ -600,8 +605,6 @@ namespace GadrocsWorkshop.Helios
                 childName: componentName,
                 interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
                 deviceActionName: "set.TextDisplay");
-
-
 
             return display;
         }
