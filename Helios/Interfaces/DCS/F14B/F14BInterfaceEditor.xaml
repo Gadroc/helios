@@ -133,12 +133,12 @@
         </Grid>
         <StackPanel Style="{StaticResource PathInvalid}">
           <TextBlock Margin="4" Foreground="Red" TextWrapping="Wrap">
-            Can not find game install.
+            Cannot find game install.
           </TextBlock>
         </StackPanel>
         <StackPanel Style="{StaticResource UpToDateStyle}">
           <TextBlock Margin="4" TextWrapping="Wrap">
-            Your DCS A-10C configuration is up to date.
+            Your DCS F-14B configuration is up to date.
           </TextBlock>
           <Button Click="Remove_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2">Remove Helios Setup</Button>
         </StackPanel>

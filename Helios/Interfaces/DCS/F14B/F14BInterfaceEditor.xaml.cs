@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
+namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
 {
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
@@ -24,13 +24,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
     using System.Windows.Input;
 
     /// <summary>
-    /// Interaction logic for FA18CInterfaceEditor.xaml
+    /// Interaction logic for F14BInterfaceEditor.xaml
     /// </summary>
-    public partial class FA18CInterfaceEditor : HeliosInterfaceEditor
+    public partial class F14BInterfaceEditor : HeliosInterfaceEditor
     {
-        static FA18CInterfaceEditor()
+        static F14BInterfaceEditor()
         {
-            Type ownerType = typeof(FA18CInterfaceEditor);
+            Type ownerType = typeof(F14BInterfaceEditor);
 
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.AddDoFile, AddDoFile_Executed));
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.RemoveDoFile, RemoveDoFile_Executed));
@@ -38,7 +38,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
         private static void AddDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            FA18CInterfaceEditor editor = target as FA18CInterfaceEditor;
+            F14BInterfaceEditor editor = target as F14BInterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && !editor.Configuration.DoFiles.Contains(file))
             {
@@ -49,7 +49,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
         private static void RemoveDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            FA18CInterfaceEditor editor = target as FA18CInterfaceEditor;
+            F14BInterfaceEditor editor = target as F14BInterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && editor.Configuration.DoFiles.Contains(file))
             {
@@ -59,12 +59,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
         private string _dcsPath = null;
 
-        public FA18CInterfaceEditor()
+        public F14BInterfaceEditor()
         {
             InitializeComponent();
-            Configuration = new DCSConfigurator("DCSFA18C", DCSPath);
+            Configuration = new DCSConfigurator("DCSF14B", DCSPath);
             Configuration.ExportConfigPath = "Config\\Export";
-            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/FA18C/ExportFunctions.lua";
+            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/F14B/ExportFunctions.lua";
         }
 
         #region Properties
@@ -77,7 +77,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
 
         // Using a DependencyProperty as the backing store for Configuration.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ConfigurationProperty =
-            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(FA18CInterfaceEditor), new PropertyMetadata(null));
+            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(F14BInterfaceEditor), new PropertyMetadata(null));
 
         public string DCSPath
         {
@@ -88,14 +88,22 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
                     RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey == null)
                     {
-                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS FA18CNA");
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS F14B");
+                    }
+                    if (pathKey == null)
+                    {
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+                    }
+                    if (pathKey == null)
+                    {
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
                     }
 
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
                         pathKey.Close();
-                        ConfigManager.LogManager.LogDebug("DCS AV-8B Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                        ConfigManager.LogManager.LogDebug("DCS F-14B Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
                     }
                     else
                     {
@@ -122,11 +130,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         {
             if (Configuration.UpdateExportConfig())
             {
-                MessageBox.Show(Window.GetWindow(this), "DCS FA-18C has been configured.");
+                MessageBox.Show(Window.GetWindow(this), "DCS F-14B has been configured.");
             }
             else
             {
-                MessageBox.Show(Window.GetWindow(this), "Error updating DCS AV-8B configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
+                MessageBox.Show(Window.GetWindow(this), "Error updating DCS F-14B configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
             }
         }
 

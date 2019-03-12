@@ -1,6 +1,6 @@
--- Exports.Lua from Helios F/A-18C Interface
--- Exports.Lua from Helios F/A-18C Interface
-print("Helios Aircraft Exports:  F/A-18C\n")
+-- Exports.Lua from Helios F-14B Interface
+print("Helios Aircraft Exports:  F-14B\n")
+
 
 function ProcessHighImportance(mainPanelDevice)
 	-- Send Altimeter Values	
@@ -17,17 +17,18 @@ function ProcessHighImportance(mainPanelDevice)
 --
 --    -- getting the IFEI data
     local li = parse_indication(5)  -- 5 for IFEI
-    if li then
-        --IFEI data
-
+	if li then
+--
+--        --IFEI data
+--
         SendData("2052", string.format("%s",check(li.txt_BINGO)))
         SendData("2053", string.format("%s",check(li.txt_CLOCK_H)))
         SendData("2054", string.format("%s",check(li.txt_CLOCK_M)))
         SendData("2055", string.format("%s",check(li.txt_CLOCK_S)))
-        SendData("2056", string.format("%s",check(li.txt_DD_1)):gsub(":","|"))
-        SendData("2057", string.format("%s",check(li.txt_DD_2)):gsub(":","|"))
-        SendData("2058", string.format("%s",check(li.txt_DD_3)):gsub(":","|"))
-        SendData("2060", string.format("%s",check(li.txt_DD_4)):gsub(":","|"))
+        SendData("2056", string.format("%s",checkTexture(li.txt_DD_1)))
+        SendData("2057", string.format("%s",checkTexture(li.txt_DD_2)))
+        SendData("2058", string.format("%s",checkTexture(li.txt_DD_3)))
+        SendData("2060", string.format("%s",checkTexture(li.txt_DD_4)))
         SendData("2061", string.format("%s",check(li.txt_FF_L)))
         SendData("2062", string.format("%s",check(li.txt_FF_R)))
         SendData("2063", string.format("%s",check(li.txt_FUEL_DOWN)))
@@ -38,33 +39,37 @@ function ProcessHighImportance(mainPanelDevice)
         SendData("2068", string.format("%s",check(li.txt_RPM_R)))
         SendData("2069", string.format("%s",check(li.txt_TEMP_L)))
         SendData("2070", string.format("%s",check(li.txt_TEMP_R)))
-        SendData("2071", string.format("%s",check(li.txt_TIMER_S)))
-        SendData("2072", string.format("%s",check(li.txt_TIMER_M)))
-        --SendData("2073", string.format("%s",check(li.txt_TIMER_H)))
-        --SendData("2074", string.format("%s",check(li.txt_Codes)))
-        --SendData("2075", string.format("%s",check(li.txt_SP)))
-        --SendData("2076", string.format("%s",check(li.txt_DrawChar)))
-        --SendData("2077", string.format("%s",check(li.txt_T)))
-        --SendData("2078", string.format("%s",check(li.txt_TimeSetMode)))
+        SendData("2073", string.format("%s",check(li.txt_TIMER_H)))		
+        SendData("2072", string.format("%s",check(li.txt_TIMER_M)))		
+        SendData("2071", string.format("%s",check(li.txt_TIMER_S)))		
+        SendData("2074", string.format("%s",check(li.txt_Codes)))
+        SendData("2075", string.format("%s",check(li.txt_SP)))
+        SendData("2076", string.format("%s",check(li.txt_DrawChar)))  -- not seen this used
+        SendData("2077", string.format("%s",check(li.txt_T)))
+        SendData("2078", string.format("%s",check(li.txt_TimeSetMode)))
 --
 --        --IFEI textures
 --
-----      IFEI_Textures_table[1]  =check_num(li.RPMTexture)
-----      IFEI_Textures_table[2]  =check_num(li.TempTexture)
-----      IFEI_Textures_table[3]  =check_num(li.FFTexture )
-----      IFEI_Textures_table[4]  =check_num(li.NOZTexture)
-----      IFEI_Textures_table[5]  =check_num(li.OILTexture)
-----      IFEI_Textures_table[6]  =check_num(li.BINGOTexture)
-----      IFEI_Textures_table[7]  =check_num(li.LScaleTexture)
-----      IFEI_Textures_table[8]  =check_num(li.RScaleTexture)
-----      IFEI_Textures_table[9]  =check_num(li.L0Texture)
-----      IFEI_Textures_table[10] =check_num(li.R0Texture)
-----      IFEI_Textures_table[11] =check_num(li.L50Texture)
-----      IFEI_Textures_table[12] =check_num(li.R50Texture)
-----      IFEI_Textures_table[13] =check_num(li.L100Texture)
-----      IFEI_Textures_table[14] =check_num(li.R100Texture)
-----      IFEI_Textures_table[15] =check_num(li.LPointerTexture)
-----      IFEI_Textures_table[16] =check_num(li.RPointerTexture)
+        SendData("4000", string.format("%s",checkTexture(li.RPMTexture)))
+        SendData("4001", string.format("%s",checkTexture(li.TempTexture)))
+        SendData("4002", string.format("%s",checkTexture(li.FFTexture)))
+        SendData("4003", string.format("%s",checkTexture(li.NOZTexture)))
+        SendData("4004", string.format("%s",checkTexture(li.OILTexture)))
+        SendData("4005", string.format("%s",checkTexture(li.BINGOTexture)))
+        SendData("4006", string.format("%s",checkTexture(li.LScaleTexture)))
+        SendData("4007", string.format("%s",checkTexture(li.RScaleTexture)))
+        SendData("4008", string.format("%s",checkTexture(li.L0Texture)))
+        SendData("4009", string.format("%s",checkTexture(li.R0Texture)))
+        SendData("4010", string.format("%s",checkTexture(li.L50Texture)))
+        SendData("4011", string.format("%s",checkTexture(li.R50Texture)))
+        SendData("4012", string.format("%s",checkTexture(li.L100Texture)))
+        SendData("4013", string.format("%s",checkTexture(li.R100Texture)))
+        SendData("4014", string.format("%s",checkTexture(li.LPointerTexture)))
+        SendData("4015", string.format("%s",checkTexture(li.RPointerTexture)))        
+		SendData("4016", string.format("%s",checkTexture(li.ZTexture)))
+		SendData("4017", string.format("%s",checkTexture(li.LTexture)))
+		SendData("4018", string.format("%s",checkTexture(li.RTexture)))
+
 --
 ----
     end
@@ -121,4 +126,8 @@ function ProcessLowImportance(mainPanelDevice)
 	-- TACAN Channel
 	--SendData(2263, string.format("%0.2f;%0.2f;%0.2f", mainPanelDevice:get_argument_value(263), mainPanelDevice:get_argument_value(264), mainPanelDevice:get_argument_value(265)))
 
+end
+
+checkTexture = function(s)
+    if s == nil then return "0" else return "1" end
 end
