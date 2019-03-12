@@ -131,7 +131,7 @@
                     <TextBlock Grid.Column="1" Grid.Row="1" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Path to your DCS Black Shark install folder.</TextBlock>
                 </Grid>
                 <StackPanel Style="{StaticResource PathInvalid}">
-                    <TextBlock Margin="4" Foreground="Red" TextWrapping="Wrap">Can not find game install.</TextBlock>
+                    <TextBlock Margin="4" Foreground="Red" TextWrapping="Wrap">Cannot find game install.</TextBlock>
                 </StackPanel>                    
                 <StackPanel Style="{StaticResource UpToDateStyle}">
                     <TextBlock Margin="4" TextWrapping="Wrap">Your DCS Black Shark configuration is up to date.</TextBlock>

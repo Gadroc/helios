@@ -212,7 +212,7 @@ namespace GadrocsWorkshop.Helios
         }
 
         /// <summary>
-        /// Gets and sets the lock status for this visual.  When locked it can not be selected, moved or edited.
+        /// Gets and sets the lock status for this visual.  When locked it cannot be selected, moved or edited.
         /// </summary>
         public bool IsLocked
         {

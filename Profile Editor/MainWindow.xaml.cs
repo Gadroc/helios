@@ -401,7 +401,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             }
             else
             {
-                throw new ArgumentException("Can not create a editor document for profileobject requested.", "profileObject");
+                throw new ArgumentException("Cannot create a editor document for profileobject requested.", "profileObject");
             }
 
             return editor;

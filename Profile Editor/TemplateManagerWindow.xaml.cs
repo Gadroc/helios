@@ -96,7 +96,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             HeliosTemplate selectedTemplate = TemplateTreeView.SelectedItem as HeliosTemplate;
             if (selectedTemplate != null)
             {
-                if (MessageBox.Show(this, "This action can not be undone.  Are you sure you want to delete this template?", "Delete Template", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBox.Show(this, "This action cannot be undone.  Are you sure you want to delete this template?", "Delete Template", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     ConfigManager.TemplateManager.UserTemplates.Remove(selectedTemplate);
                     PopulateTemplates();

@@ -128,7 +128,7 @@
                 </Grid>
                 <StackPanel Style="{StaticResource PathInvalid}">
                     <TextBlock Margin="4" Foreground="Red" TextWrapping="Wrap">
-            Can not find game install.
+            Cannot find game install.
                     </TextBlock>
                 </StackPanel>
                 <StackPanel Style="{StaticResource UpToDateStyle}">
