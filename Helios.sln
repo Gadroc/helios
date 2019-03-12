@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios", "Helios\Helios.csproj", "{E5ABE3F5-46EC-46D1-9330-D42311471A93}"
 EndProject
@@ -59,9 +59,11 @@ Global
 		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Debug|x64.Build.0 = Debug
 		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Release|Any CPU.ActiveCfg = Release
 		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Release|x64.ActiveCfg = Release
-		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Release|x64.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEDFBE2E-F4FB-4A7C-95A6-04B52A8BE764}
 	EndGlobalSection
 EndGlobal
