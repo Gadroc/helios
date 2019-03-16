@@ -63,7 +63,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
         {
             InitializeComponent();
             Configuration = new DCSConfigurator("DCSF14B", DCSPath);
-            Configuration.ExportConfigPath = "Config\\Export";
+            Configuration.ExportConfigPath = "Scripts";
             Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/F14B/ExportFunctions.lua";
         }
 

@@ -137,7 +137,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             AddFunction(new Axis(this, BAROALTIMETER, "306", "306", 0.1d, 0.0d, 1.0d, "BAROALTIMETER", "Altimeter Pressure Setting"));
             #endregion
             #region RIO Altimeter
-            AddFunction(new Axis(this, BAROALTIMETER, "20306", "20306", 0.1d, 0.0d, 1.0d, "BAROALTIMETER", "Altimeter Pressure Setting"));
+            AddFunction(new Axis(this, BAROALTIMETER, "20306", "20306", 0.1d, 0.0d, 1.0d, "BAROALTIMETER", "Altimeter Pressure Setting (RIO)"));
             #endregion
             #region Gear
             AddFunction(new PushButton(this, GEARHOOK, "497", "497", "GEARHOOK", "Launch Bar Abort", "1", "0", "%1d"));
@@ -214,8 +214,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             AddFunction(Switch.CreateToggleSwitch(this, COCKPITMECHANICS, "923", "923", "0", "Position 1", "1", "Position 2", "COCKPITMECHANICS", "Anti-Collision Lights", "%1d"));
             #endregion
             #region Light panel RIO
-            AddFunction(Switch.CreateThreeWaySwitch(this, COCKPITMECHANICS, "194", "194", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "COCKPITMECHANICS", "Red Flood Light", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, COCKPITMECHANICS, "159", "159", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "COCKPITMECHANICS", "White Flood Light", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, COCKPITMECHANICS, "194", "194", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "COCKPITMECHANICS", "Red Flood Light (RIO)", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, COCKPITMECHANICS, "159", "159", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "COCKPITMECHANICS", "White Flood Light (RIO)", "%1d"));
             #endregion
             #region DISPLAY Panel: Power
             AddFunction(Switch.CreateToggleSwitch(this, VDI, "1010", "1010", "0", "Position 1", "1", "Position 2", "VDI", "VDI Power On/Off", "%1d"));
@@ -241,7 +241,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             #region ECMD Panel
             #endregion
             #region TACAN CMD
-            AddFunction(new PushButton(this, TACAN, "292", "292", "TACAN", "TACAN CMD Button", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, TACAN, "292", "292", "TACAN", "TACAN CMD Button (RIO)", "1", "0", "%1d"));
             AddFunction(new PushButton(this, TACAN, "135", "135", "TACAN", "TACAN CMD Button", "1", "0", "%1d"));
             #endregion
             #region TACAN Pilot Panel
@@ -251,10 +251,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             AddFunction(new PushButton(this, TACAN, "2115", "2115", "TACAN", "TACAN BIT", "1", "0", "%1d"));
             #endregion
             #region TACAN RIO Panel
-            AddFunction(new Axis(this, TACAN, "375", "375", 0.1d, 0.0d, 1.0d, "TACAN", "TACAN Volume"));
-            AddFunction(Switch.CreateToggleSwitch(this, TACAN, "373", "373", "0", "Position 1", "1", "Position 2", "TACAN", "TACAN Mode Normal/Inverse", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, TACAN, "372", "372", "0", "Position 1", "1", "Position 2", "TACAN", "TACAN Channel X/Y", "%1d"));
-            AddFunction(new PushButton(this, TACAN, "371", "371", "TACAN", "TACAN BIT", "1", "0", "%1d"));
+            AddFunction(new Axis(this, TACAN, "375", "375", 0.1d, 0.0d, 1.0d, "TACAN", "TACAN Volume (RIO)"));
+            AddFunction(Switch.CreateToggleSwitch(this, TACAN, "373", "373", "0", "Position 1", "1", "Position 2", "TACAN", "TACAN Mode Normal/Inverse (RIO)", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, TACAN, "372", "372", "0", "Position 1", "1", "Position 2", "TACAN", "TACAN Channel X/Y (RIO)", "%1d"));
+            AddFunction(new PushButton(this, TACAN, "371", "371", "TACAN", "TACAN BIT (RIO)", "1", "0", "%1d"));
             #endregion
             #region AN/ARA-63 Panel
             AddFunction(Switch.CreateToggleSwitch(this, ILS, "910", "910", "0", "Position 1", "1", "Position 2", "ILS", "AN/ARA-63 Power Switch", "%1d"));
@@ -269,11 +269,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             AddFunction(Switch.CreateThreeWaySwitch(this, ICS, "2044", "2044", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "ICS", "ICS Function Selector", "%1d"));
             #endregion
             #region ICS RIO
-            AddFunction(new Axis(this, ICS, "400", "400", 0.1d, 0.0d, 1.0d, "ICS", "ICS Volume"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ICS, "402", "402", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "ICS", "ICS Function Selector", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ICS, "381", "381", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "ICS", "XMTR SEL Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ICS, "380", "380", "0", "Position 1", "1", "Position 2", "ICS", "V/UHF 2 ANT Switch", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ICS, "382", "382", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "ICS", "KY MODE Switch", "%1d"));
+            AddFunction(new Axis(this, ICS, "400", "400", 0.1d, 0.0d, 1.0d, "ICS", "ICS Volume (RIO)"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ICS, "402", "402", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "ICS", "ICS Function Selector (RIO)", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ICS, "381", "381", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "ICS", "XMTR SEL Switch (RIO)", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ICS, "380", "380", "0", "Position 1", "1", "Position 2", "ICS", "V/UHF 2 ANT Switch (RIO)", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ICS, "382", "382", "-1", "Position 1", "0", "Position 2", "1", "Position 3", "ICS", "KY MODE Switch (RIO)", "%1d"));
             #endregion
             #region UHF ARC-159
             AddFunction(Switch.CreateToggleSwitch(this, ARC159, "2035", "2035", "0", "Position 1", "1", "Position 2", "ARC159", "UHF ARC-159 Squelch Switch", "%1d"));
@@ -296,10 +296,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             #endregion
             #region UHF/VHF/UHF Pilot/RIO Remote Display
             AddFunction(new Axis(this, ARC159, "1031", "1031", 0.1d, 0.0d, 1.0d, "ARC159", "UHF Radio Remote Display Brightness"));
-            AddFunction(new Axis(this, ARC159, "406", "406", 0.1d, 0.0d, 1.0d, "ARC159", "UHF Radio Remote Display Brightness"));
+            AddFunction(new Axis(this, ARC159, "406", "406", 0.1d, 0.0d, 1.0d, "ARC159", "UHF Radio Remote Display Brightness (RIO)"));
             AddFunction(new Axis(this, ARC182, "1030", "1030", 0.1d, 0.0d, 1.0d, "ARC182", "VHF/UHF Radio Remote Display Brightness"));
             AddFunction(new PushButton(this, ARC159, "BIT_TEST", "BIT_TEST", "ARC159", "UHF Radio Remote Display Test", "1", "0", "%1d"));
-            AddFunction(new PushButton(this, ARC159, "405", "405", "ARC159", "UHF Radio Remote Display Test", "1", "0", "%1d"));
+            AddFunction(new PushButton(this, ARC159, "405", "405", "ARC159", "UHF Radio Remote Display Test (2)", "1", "0", "%1d"));
             AddFunction(new PushButton(this, ARC182, "BIT_TEST", "BIT_TEST", "ARC182", "VHF/UHF Radio Remote Display Test", "1", "0", "%1d"));
 
             #endregion
@@ -307,7 +307,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             AddFunction(new Axis(this, DECM, "9950", "9950", 0.1d, 0.0d, 1.0d, "DECM", "DECM ALQ-100 Volume"));
             #endregion
             #region RWR Control Panel ALR-67
-            AddFunction(new Axis(this, RWR, "16011", "16011", 0.1d, 0.0d, 1.0d, "RWR", "AN/ALR-67 Display Brightness"));
+            AddFunction(new Axis(this, RWR, "16011", "16011", 0.1d, 0.0d, 1.0d, "RWR", "AN/ALR-67 Display Brightness (RIO)"));
             AddFunction(new Axis(this, RWR, "376", "376", 0.1d, 0.0d, 1.0d, "RWR", "AN/ALR-67 Display Brightness"));
             AddFunction(Switch.CreateToggleSwitch(this, RWR, "2139", "2139", "0", "Position 1", "1", "Position 2", "RWR", "AN/ALR-67 Power", "%1d"));
             AddFunction(new Axis(this, ICS, "2138", "2138", 0.1d, 0.0d, 1.0d, "ICS", "AN/ALR-67 Volume"));
@@ -373,8 +373,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             AddFunction(new PushButton(this, WEAPONS, "239", "239", "WEAPONS", "Emergency stores jettison", "1", "0", "%1d"));
             AddFunction(new Axis(this, CLOCK, "1051", "1051", 0.1d, 0.0d, 1.0d, "CLOCK", "Clock Wind"));
             AddFunction(new PushButton(this, CLOCK, "CLOCK_RESET", "CLOCK_RESET", "CLOCK", "Clock Timer Start/Stop/Reset", "1", "0", "%1d"));
-            AddFunction(new Axis(this, CLOCK, "1052", "1052", 0.1d, 0.0d, 1.0d, "CLOCK", "Clock Wind"));
-            AddFunction(new PushButton(this, CLOCK, "1053", "1053", "CLOCK", "Clock Timer Start/Stop/Reset", "1", "0", "%1d"));
+            AddFunction(new Axis(this, CLOCK, "1052", "1052", 0.1d, 0.0d, 1.0d, "CLOCK", "Clock Wind (2)"));
+            AddFunction(new PushButton(this, CLOCK, "1053", "1053", "CLOCK", "Clock Timer Start/Stop/Reset (2)", "1", "0", "%1d"));
             #endregion
             #region RIO TID
             AddFunction(new PushButton(this, TID, "226", "226", "TID", "TID Non attack", "1", "0", "%1d"));
