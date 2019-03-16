@@ -79,7 +79,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         #endregion
 
         public AV8BInterface()
-            : base("DCS AV-8B N/A")
+            : base("DCS AV-8B")
         {
             DCSConfigurator config = new DCSConfigurator("DCSAV8B", DCSPath);
             config.ExportConfigPath = "Config\\Export";

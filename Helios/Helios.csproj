@@ -179,10 +179,14 @@
     </Compile>
     <Compile Include="Controls\LineDecorationRenderer.cs" />
     <Compile Include="FontManager.cs" />
+    <Compile Include="Gauges\A-10\A10CDevice\A10CDevice.cs" />
+    <Compile Include="Gauges\A-10\A10CDevice\A10CDeviceRenderer.cs" />
     <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\ODU\ODU.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
+    <Compile Include="Gauges\F-14B\F14BDevice\F14BDevice.cs" />
+    <Compile Include="Gauges\F-14B\F14BDevice\F14BDeviceRenderer.cs" />
     <Compile Include="Gauges\FA-18C\ADI\ADI.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\BarometricAltimeter.cs" />
     <Compile Include="Gauges\FA-18C\Altimeter\RADARAltimeter.cs" />

@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
     using Microsoft.Win32;
     using System;
 
-    [HeliosInterface("Helios.FA18C", "DCS FA-18C", typeof(FA18CInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
+    [HeliosInterface("Helios.FA18C", "DCS F/A-18C", typeof(FA18CInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
     public class FA18CInterface : BaseUDPInterface
     {
         private string _dcsPath;
