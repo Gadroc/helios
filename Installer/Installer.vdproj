@@ -267,6 +267,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3E2C1F30E28544F98A8B1D01CB1F3048"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3E517CFAB0B22FAEB933CC50A9D2B15B"
         "OwnerKey" = "8:_72CEFC0E61EB439E9A3A8073F41622EF"
         "MsmSig" = "8:_UNDEFINED"
@@ -459,6 +465,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_693E71612CB241C2B5898A115F06ACDF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6AE92D72D65144FB978C5177E03EC6C7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -598,6 +610,12 @@
         "Entry"
         {
         "MsmKey" = "8:_7974C0F7C30747F88CEF07996A22C073"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_79958B88C90541AEBD4B020AEF14C90C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -747,6 +765,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_93DF3994D9504F8FAB31E47EFDD24C0D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9531F74F45034F10B33FAEC8060D428B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -813,6 +837,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A0C11C0149104567BBA813ED6FB918C8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A177E20BA06FFC17C6F3199B766D8979"
         "OwnerKey" = "8:_29F6005D9412AD6742A02CE06C9D27EA"
         "MsmSig" = "8:_UNDEFINED"
@@ -845,6 +875,12 @@
         {
         "MsmKey" = "8:_A177E20BA06FFC17C6F3199B766D8979"
         "OwnerKey" = "8:_72CEFC0E61EB439E9A3A8073F41622EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A23DD0E6E2324AB79E81D4B2CF805182"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2360,6 +2396,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E2C1F30E28544F98A8B1D01CB1F3048"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\Fonts\\MS33558.ttf"
+            "TargetName" = "8:MS33558.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_BF204F2269A34F9296A9831D89CB39D2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3E517CFAB0B22FAEB933CC50A9D2B15B"
             {
             "AssemblyRegister" = "3:1"
@@ -3057,6 +3113,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_693E71612CB241C2B5898A115F06ACDF"
+            {
+            "SourcePath" = "8:..\\Helios\\Fonts\\Hornet IFEI.ttf"
+            "TargetName" = "8:Hornet IFEI.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_0684D249EA14493CB77BCDE697DFD6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:5"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6AE92D72D65144FB978C5177E03EC6C7"
             {
             "SourcePath" = "8:..\\bin\\Release\\Templates\\Base\\Rockers\\Dark Wheel.htpl"
@@ -3396,6 +3472,26 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_83E4F04807604CBBBA5584982F6253CD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_79958B88C90541AEBD4B020AEF14C90C"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\Fonts\\Hornet UFC.ttf"
+            "TargetName" = "8:Hornet UFC.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_BF204F2269A34F9296A9831D89CB39D2"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3903,6 +3999,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_93DF3994D9504F8FAB31E47EFDD24C0D"
+            {
+            "SourcePath" = "8:..\\Helios\\Fonts\\MS33558.ttf"
+            "TargetName" = "8:MS33558.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_0684D249EA14493CB77BCDE697DFD6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:5"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9531F74F45034F10B33FAEC8060D428B"
             {
             "SourcePath" = "8:..\\bin\\Release\\Templates\\Base\\A-10\\Altitude Alert.htpl"
@@ -4123,6 +4239,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A0C11C0149104567BBA813ED6FB918C8"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\Fonts\\Hornet IFEI.ttf"
+            "TargetName" = "8:Hornet IFEI.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_BF204F2269A34F9296A9831D89CB39D2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A177E20BA06FFC17C6F3199B766D8979"
             {
             "AssemblyRegister" = "3:1"
@@ -4152,6 +4288,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A23DD0E6E2324AB79E81D4B2CF805182"
+            {
+            "SourcePath" = "8:..\\Helios\\Fonts\\Hornet UFC.ttf"
+            "TargetName" = "8:Hornet UFC.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_0684D249EA14493CB77BCDE697DFD6DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:5"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A88B52B9AB0F4E14B856642CD8FD0C33"
@@ -5617,6 +5773,17 @@
         }
         "Folder"
         {
+            "{1525181F-901A-416C-8A58-119130FE478E}:_0684D249EA14493CB77BCDE697DFD6DA"
+            {
+            "Name" = "8:#1911"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:FontsFolder"
+                "Folders"
+                {
+                }
+            }
             "{1525181F-901A-416C-8A58-119130FE478E}:_2D1FF34AF0A34C8CB9B0C05332709456"
             {
             "Name" = "8:#1912"
@@ -5979,6 +6146,17 @@
                             }
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BF204F2269A34F9296A9831D89CB39D2"
+                    {
+                    "Name" = "8:Fonts"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_582F772E301E413D87829433868D2D69"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_D364D571EEA74C9DA837D0A977F112BA"
                     {
                     "Name" = "8:ru"
@@ -6053,7 +6231,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Helios"
         "ProductCode" = "8:{3468124B-CC42-49EF-A85A-2B64863872DD}"
-        "PackageCode" = "8:{C1F4A091-362C-440A-8E2A-48F2F78D0472}"
+        "PackageCode" = "8:{B88CAC81-24C4-4996-A8DD-C4596035D509}"
         "UpgradeCode" = "8:{589D8667-3ED9-478B-8F67-A56E4FADBC63}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -6348,7 +6526,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests.  Key features in this level is an interface and other artefacts for Razbam's AV-8B N/A and ED's F/A-18C on DCS.  There is also a generic interface for when no aircraft specific interface is available."
+                            "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  \\n*** Windows installer might report that there is a newer version installed because the Version numbering system has changed with this release. ***  This will require you to uninstall the previous version of Helios in Add Remove Programs in Windows.  \\nThis version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests.  Key features in this level is an interface and other artefacts for Razbam's AV-8B N/A and ED's F/A-18C on DCS.  There is also a generic interface for when no aircraft specific interface is available."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -6550,7 +6728,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests.  Key features in this level is an interface and other artefacts for Razbam's AV-8B N/A and ED's F/A-18C on DCS.  There is also a generic interface for when no aircraft specific interface is available."
+                            "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  *** Windows installer might report that there is a newer version installed because the Version numbering system has changed with this release. ***  This will require you to uninstall the previous version of Helios in Add Remove Programs in Windows.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests.  Key features in this level is an interface and other artefacts for Razbam's AV-8B N/A and ED's F/A-18C on DCS.  There is also a generic interface for when no aircraft specific interface is available."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }

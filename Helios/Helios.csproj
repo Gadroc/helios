@@ -760,9 +760,15 @@
     <Resource Include="Interfaces\DCS\M2000CSimple\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Mi8Simple\ExportFunctions.lua" />
     <None Include="Fonts\Helios font registration.reg" />
-    <None Include="Fonts\Hornet IFEI.ttf" />
-    <None Include="Fonts\Hornet UFC.ttf" />
-    <None Include="Fonts\MS33558.ttf" />
+    <Content Include="Fonts\Hornet IFEI.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\Hornet UFC.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\MS33558.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Interfaces\DCS\F14B\ExportFunctions.lua" />
     <None Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
