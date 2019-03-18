@@ -269,11 +269,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
                 if (_allowDCSWorld)
                 {
                     RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
+
+                    // We attempt to get the Saved Games known folder from the native method to cater for situations
+                    // when the locale of the installation has the folder name in non-English.
+
+                    String path;
+                    IntPtr pathPtr;
+                    int hr = NativeMethods.SHGetKnownFolderPath(ref FolderSavedGames, 0, IntPtr.Zero, out pathPtr);
+                    if (hr == 0)
+                    {
+                        path = Marshal.PtrToStringUni(pathPtr);
+                        Marshal.FreeCoTaskMem(pathPtr);
+                    } else
+                    {
+                        path = Environment.GetEnvironmentVariable("userprofile") + "Saved Games";
+                    }
+
                     if (pathKey != null)
                     {
                         pathKey.Close();
-                            return System.IO.Path.Combine(Environment.GetEnvironmentVariable("userprofile"), "Saved Games", "DCS.openbeta");
-                        return System.IO.Path.Combine(Environment.GetEnvironmentVariable("userprofile"), "DCS");
+                        return System.IO.Path.Combine(path, "DCS");
                     }
                     else
                     {
@@ -281,7 +296,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
                         if (pathKey != null)
                         {
                             pathKey.Close();
-                            return System.IO.Path.Combine(Environment.GetEnvironmentVariable("userprofile"), "Saved Games", "DCS.openbeta");
+                            return System.IO.Path.Combine(path, "DCS.openbeta");
                         }
                         else
                         {
@@ -289,7 +304,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
                             if (pathKey != null)
                             {
                                 pathKey.Close();
-                                return System.IO.Path.Combine(Environment.GetEnvironmentVariable("userprofile"),"Saved Games", "DCS.openalpha");
+                                return System.IO.Path.Combine(path, "DCS.openalpha");
                             }
                         }
                     }
