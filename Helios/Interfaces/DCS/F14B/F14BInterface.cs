@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
     using Microsoft.Win32;
     using System;
 
-    [HeliosInterface("Helios.F14B", "DCS F-14B", typeof(F14BInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
+    //[HeliosInterface("Helios.F14B", "DCS F-14B", typeof(F14BInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
     public class F14BInterface : BaseUDPInterface
     {
         private string _dcsPath;

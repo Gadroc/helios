@@ -268,8 +268,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
             {
                 if (_allowDCSWorld)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
-
+ 
                     // We attempt to get the Saved Games known folder from the native method to cater for situations
                     // when the locale of the installation has the folder name in non-English.
 
@@ -284,6 +283,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
                     {
                         path = Environment.GetEnvironmentVariable("userprofile") + "Saved Games";
                     }
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
 
                     if (pathKey != null)
                     {

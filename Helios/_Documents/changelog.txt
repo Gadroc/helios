@@ -1,12 +1,16 @@
-1.4.2019.0330 Release
+1.4.2019.0317 Release
 ----------------------------
 * TextDisplay Control Added
 * Hornet UFC updated to remove the need for a viewport
 * Hornet IFEI updated to remove the need for a viewport
+* Auto-binding for some devices to their intended interface
 * MS33558 Font incorporated (c) Derek Higgs 2000 which some sites claim is postcardware but I was unable to find an address / email
 * Seven Segment font incorporated (free for personal use) http://www.kraftilab.com/portfolio/7-segment-display-font/
 * Reimplement the version checking for Control Center using HTTPS
- 
+* Minor bug fixes
+* Distributing Iris Screen Exporter for people who run Control Center remotely (it is in the Helios directory in My Documents)
+* Code corrected to identify destination directory for DCS, Betas and Alphas 
+* Stricter version numbering which breaks the installer's version checking so previous Helios needs to be uninstalled manually.
 
 1.4.2018.1008 Release
 ----------------------------

@@ -1,7 +1,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
-* *                       Helios 1.4.2018.1008                              * * 
+* *                       Helios 1.4.2019.0317                              * * 
 * *                                                                         * * 
 * *                                READ.ME                                  * * 
 * *                                                                         * * 
@@ -25,7 +25,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Helios 1.4.2018.1008 is not an explicit collaboration with Craig Courtney, 
+Helios 1.4.2019.0317 is not an explicit collaboration with Craig Courtney, 
 but it relies heavily on the original Helios.  This distribution is not endorsed 
 by Craig Courtney.  
                                                                      
@@ -45,7 +45,7 @@ level, however it might do.  If you install the scripting from the new AV-8B or
 MiG-21Bis intereface, it will *definitely* replace the current export.lua 
       
 3) Uninstall Helios 1.3 (you can always get it back from 
-http://www.gadrocsworkshop.com/helios/latest ) 
+http://www.gadrocsworkshop.com/helios/latest (if the site is working)) 
 
 4) You can choose not to Uninstall Helios 1.3 and install this code to a 
 different directory and this should work ok.  * However * there are no claims of 
@@ -71,6 +71,8 @@ A-10C Exports.lua in place, then the result will not be pleasant.
 
 * * * Known issues and work arounds * * *
 
-None
+Loss of bindings on Reset Monitors https://github.com/BlueFinBima/Helios/issues/117
+	Save the profile after doing a reset monitor.  The problem appears to happen 
+	after two successive reset monitors.
 
      

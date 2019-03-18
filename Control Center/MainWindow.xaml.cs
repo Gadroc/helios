@@ -810,7 +810,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
         {
             Message = Assembly.GetEntryAssembly().GetName().Version.ToString() +
                 "\nProject Fork: BlueFinBima\n" +
-                "Contributors: Gadroc BlueFinBima Cylution CaptZeen yzfanimal damien022";
+                "Contributors: Gadroc BlueFinBima Cylution CaptZeen damien022 yzfanimal ";
         }
         #endregion
 
