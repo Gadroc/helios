@@ -30,7 +30,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private Rect _scaledScreenRect = SCREEN_RECT;
         private string _interfaceDeviceName = "UFC";
         private String _font = "MS 33558";
-        //private String _font = "Franklin Gothic";
         public UFC_FA18C()
             : base("UFC", new Size(602, 470))
         {
@@ -90,7 +89,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
         public override string BezelImage
         {
-            get { return "{Helios}/Gauges/FA-18C/UFC/UFC Faceplate.png"; }
+            get { return "{Helios}/Images/FA-18C/UFC Faceplate.png"; }
         }
 
         private void AddPot(string name, Point posn, Size size, string interfaceElementName)

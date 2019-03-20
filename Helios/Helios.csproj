@@ -3581,7 +3581,7 @@
     <Resource Include="Gauges\FA-18C\ADI\adi_ball.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
+    <Resource Include="Images\FA-18C\UFC Faceplate.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\IFEI\IFEI.png" />
@@ -3651,7 +3651,6 @@
     <Resource Include="Images\FA-18C\UFC Button Up TOO.png" />
     <Resource Include="Images\FA-18C\UFC Button Up WOF.png" />
     <Resource Include="Images\FA-18C\UFC Button Up WPN.png" />
-    <Resource Include="Images\FA-18C\UFC Faceplate.png" />
     <Resource Include="Images\AV-8B\ODU.png" />
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
