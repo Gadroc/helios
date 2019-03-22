@@ -50,24 +50,31 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Behavior</TextBlock>
         
         <Label Grid.Column="0" Grid.Row="1" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top">Always On Top</Label>
         <CheckBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,6,6,6" IsChecked="{Binding Control.AlwaysOnTop}" />
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Background</TextBlock>
+        <Label Grid.Column="0" Grid.Row="2" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top">Touch Click suppresses Mouse for</Label>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,6,6,6" Text="{Binding Control.SuppressMouseAfterTouchDuration}" />
+            <Label FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top">ms</Label>
+        </StackPanel>
 
-        <Label Grid.Column="0" Grid.Row="4" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top">Fill</Label>        
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Background</TextBlock>
+
+        <Label Grid.Column="0" Grid.Row="5" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top">Fill</Label>        
         
-        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
             <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,6,6,6" IsChecked="{Binding Control.FillBackground}" />        
             <HeliosSdk:ColorWell Color="{Binding Control.BackgroundColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="0,2" Style="{StaticResource FillStyle}" />
         </StackPanel>
         
-        <Label Grid.Column="0" Grid.Row="5" FontSize="10" HorizontalAlignment="Right">Image</Label>
-        <HeliosSdk:ImagePicker Grid.Column="1" Grid.Row="5" ImageFilename="{Binding Control.BackgroundImage, Mode=TwoWay}" />
-        <Label Grid.Column="0" Grid.Row="6" FontSize="10" HorizontalAlignment="Right" Style="{StaticResource LabelImageStyle}">Alignment</Label>
-        <ComboBox Grid.Column="1" Grid.Row="6" FontSize="10" Margin="0,2,0,2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource AlignmentTypes}, Path=DisplayNames}" SelectedItem="{Binding Control.BackgroundAlignment, Converter={StaticResource AlignmentTypes}}" Style="{StaticResource ComboImageStyle}" />
+        <Label Grid.Column="0" Grid.Row="6" FontSize="10" HorizontalAlignment="Right">Image</Label>
+        <HeliosSdk:ImagePicker Grid.Column="1" Grid.Row="6" ImageFilename="{Binding Control.BackgroundImage, Mode=TwoWay}" />
+        <Label Grid.Column="0" Grid.Row="7" FontSize="10" HorizontalAlignment="Right" Style="{StaticResource LabelImageStyle}">Alignment</Label>
+        <ComboBox Grid.Column="1" Grid.Row="7" FontSize="10" Margin="0,2,0,2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource AlignmentTypes}, Path=DisplayNames}" SelectedItem="{Binding Control.BackgroundAlignment, Converter={StaticResource AlignmentTypes}}" Style="{StaticResource ComboImageStyle}" />
     </Grid>
 </HeliosSdk:HeliosPropertyEditor>

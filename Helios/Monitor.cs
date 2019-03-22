@@ -34,6 +34,7 @@ namespace GadrocsWorkshop.Helios
         private ImageAlignment _backgroundAlignment = ImageAlignment.Stretched;
         private DisplayOrientation _orientation;
         private bool _alwaysOnTop = true;
+        private int _suppressMouseAfterTouchDuration = 0;  
 
         public Monitor()
             : this(0, 0, 1024, 768, DisplayOrientation.DMDO_DEFAULT)
@@ -178,20 +179,31 @@ namespace GadrocsWorkshop.Helios
             }
         }
 
+        public int SuppressMouseAfterTouchDuration { get => _suppressMouseAfterTouchDuration; set => _suppressMouseAfterTouchDuration = value; }
+
         #endregion
 
         public override void ReadXml(XmlReader reader)
         {
             TypeConverter cc = TypeDescriptor.GetConverter(typeof(Color));
             TypeConverter bc = TypeDescriptor.GetConverter(typeof(bool));
+            TypeConverter ic = TypeDescriptor.GetConverter(typeof(int));
 
             base.ReadXml(reader);
 
             _orientation = (DisplayOrientation)Enum.Parse(typeof(DisplayOrientation), reader.ReadElementString("Orientation"));
 
+            // REVISIT: this assumes the order of XML elements and also assumes that there are no foreign elements present
+            // and that all properties are located just ahead of the "Children" element
+
             if (reader.Name.Equals("AlwaysOnTop"))
             {
                 _alwaysOnTop = (bool)bc.ConvertFromInvariantString(reader.ReadElementString("AlwaysOnTop"));
+            }
+
+            if (reader.Name.Equals("SuppressMouseAfterTouchDuration"))
+            {
+                _suppressMouseAfterTouchDuration = (int)ic.ConvertFromInvariantString(reader.ReadElementString("SuppressMouseAfterTouchDuration"));
             }
 
             if (!reader.IsEmptyElement)
@@ -228,11 +240,13 @@ namespace GadrocsWorkshop.Helios
         {
             TypeConverter cc = TypeDescriptor.GetConverter(typeof(Color));
             TypeConverter bc = TypeDescriptor.GetConverter(typeof(bool));
+            TypeConverter ic = TypeDescriptor.GetConverter(typeof(int));
 
             base.WriteXml(writer);
 
             writer.WriteElementString("Orientation", Orientation.ToString());
             writer.WriteElementString("AlwaysOnTop", bc.ConvertToInvariantString(AlwaysOnTop));
+            writer.WriteElementString("SuppressMouseAfterTouchDuration", ic.ConvertToInvariantString(_suppressMouseAfterTouchDuration));
 
             writer.WriteStartElement("Background");
             if (!string.IsNullOrWhiteSpace(BackgroundImage))
