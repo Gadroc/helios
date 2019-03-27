@@ -112,7 +112,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         public FA18CInterface()
             : base("DCS F/A-18C")
         {
-            DCSConfigurator config = new DCSConfigurator("DCSFA18C", DCSPath);
+            DCSConfigurator config = new DCSConfigurator("DCS F/A-18C", DCSPath);
             config.ExportConfigPath = "Scripts";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/FA18C/ExportFunctions.lua";
             Port = config.Port;
