@@ -179,7 +179,10 @@ namespace GadrocsWorkshop.Helios
             }
         }
 
-        public int SuppressMouseAfterTouchDuration { get => _suppressMouseAfterTouchDuration; set => _suppressMouseAfterTouchDuration = value; }
+        public int SuppressMouseAfterTouchDuration {
+            get => _suppressMouseAfterTouchDuration;
+            set => _suppressMouseAfterTouchDuration = value;
+        }
 
         #endregion
 
@@ -246,7 +249,10 @@ namespace GadrocsWorkshop.Helios
 
             writer.WriteElementString("Orientation", Orientation.ToString());
             writer.WriteElementString("AlwaysOnTop", bc.ConvertToInvariantString(AlwaysOnTop));
-            writer.WriteElementString("SuppressMouseAfterTouchDuration", ic.ConvertToInvariantString(_suppressMouseAfterTouchDuration));
+            if(_suppressMouseAfterTouchDuration > 0) //new parameter so only write if set to allow older Control Centers to load the profile if it is zero
+            {
+                writer.WriteElementString("SuppressMouseAfterTouchDuration", ic.ConvertToInvariantString(_suppressMouseAfterTouchDuration));
+            }
 
             writer.WriteStartElement("Background");
             if (!string.IsNullOrWhiteSpace(BackgroundImage))

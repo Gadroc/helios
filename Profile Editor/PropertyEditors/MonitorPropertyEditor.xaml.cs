@@ -28,5 +28,10 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.PropertyEditors
         {
             InitializeComponent();
         }
+
+        private void ImagePicker_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }
