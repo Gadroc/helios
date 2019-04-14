@@ -83,6 +83,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private GaugeImage _giLeftFuel;
         private HeliosValue _indicatorRFuel;
         private GaugeImage _giRightFuel;
+        private HeliosValue _pilotReflection;
 
         public IFEI_Gauges()
             : base("IFEI_Gauges", new Size(779, 702))
@@ -284,7 +285,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _rightNozzleNeedle = new HeliosValue(this, new BindingValue(0d), "", "Right Nozzle Needle Flag", "Right nozzle needle appearance on IFEI", "", BindingValueUnits.Boolean);
             _rightNozzleNeedle.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_rightNozzleNeedle);
-
+            _pilotReflection = new HeliosValue(this, new BindingValue(0d), "", "Pilot Reflection", "Pilot reflection shown on IFEI", "", BindingValueUnits.Boolean);
+            _pilotReflection.Execute += new HeliosActionHandler(Indicator_Execute);
+            Actions.Add(_pilotReflection);
         }
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
@@ -374,6 +377,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                     break;
                 case "Right Fuel Flag":
                     _giRightFuel.IsHidden = (_hactionVal == "1") ? false : true;
+                    break;
+                case "Pilot Reflection":
+                    _gireflection.IsHidden = (_hactionVal == "1") ? false : true;
                     break;
                 default:
                     break;
