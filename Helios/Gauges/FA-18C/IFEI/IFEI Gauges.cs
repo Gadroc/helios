@@ -301,7 +301,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 {
                     OnPropertyChanged("PilotReflectionOpacity", _pilotReflectionOpacity, value, true);
                     _pilotReflectionOpacity = value;
-                    _gireflection.IsHidden = (value < 1.0);
+                    _gireflection.IsHidden = (value == 0.0);
+                    _gireflection.Opacity = value;
                 }
             }
         }
