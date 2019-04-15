@@ -193,6 +193,8 @@ namespace GadrocsWorkshop.Helios
         {
             HeliosBinding binding = new HeliosBinding(trigger, action);
 
+            binding.BypassCascadingTriggers = true;
+
             if (action.ActionRequiresValue && (ConfigManager.ModuleManager.CanConvertUnit(trigger.Unit, action.Unit)))
             {
                 binding.ValueSource = BindingValueSources.TriggerValue;
