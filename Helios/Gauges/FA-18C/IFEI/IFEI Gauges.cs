@@ -28,6 +28,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
         private double _pilotReflectionOpacity;
+        public const double PILOT_REFLECTION_OPACITY_DEFAULT = 1.0;
 
         //private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
@@ -285,7 +286,9 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _rightNozzleNeedle = new HeliosValue(this, new BindingValue(0d), "", "Right Nozzle Needle Flag", "Right nozzle needle appearance on IFEI", "", BindingValueUnits.Boolean);
             _rightNozzleNeedle.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_rightNozzleNeedle);
-            _pilotReflectionOpacity = 1.0;
+
+            // initialize opacity value and related visual
+            PilotReflectionOpacity = PILOT_REFLECTION_OPACITY_DEFAULT;
         }
 
         #region Properties
@@ -297,12 +300,22 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             }
             set
             {
-                if (value != _pilotReflectionOpacity)
+                // clamp to max opacity
+                double newValue = Math.Min(value, 1.0);
+
+                double oldValue = _pilotReflectionOpacity;
+                if (newValue != oldValue)
                 {
-                    OnPropertyChanged("PilotReflectionOpacity", _pilotReflectionOpacity, value, true);
-                    _pilotReflectionOpacity = value;
-                    _gireflection.IsHidden = (value == 0.0);
-                    _gireflection.Opacity = value;
+                    _pilotReflectionOpacity = newValue;
+
+                    // don't render at all if fully transparent
+                    _gireflection.IsHidden = (newValue == 0.0);
+
+                    // render at this opacity, if applicable
+                    _gireflection.Opacity = newValue;
+
+                    // notify change after change is made
+                    OnPropertyChanged("PilotReflectionOpacity", oldValue, newValue, true);
                 }
             }
         }

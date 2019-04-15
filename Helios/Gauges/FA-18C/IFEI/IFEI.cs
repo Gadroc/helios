@@ -282,7 +282,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public override void WriteXml(XmlWriter writer)
         {
             base.WriteXml(writer);
-            if (_IFEI_gauges.PilotReflectionOpacity < 1.0)
+            if (_IFEI_gauges.PilotReflectionOpacity != IFEI_Gauges.PILOT_REFLECTION_OPACITY_DEFAULT)
             {
                 writer.WriteElementString("PilotReflectionOpacity", PilotReflectionOpacity.ToString(CultureInfo.InvariantCulture));
             }
