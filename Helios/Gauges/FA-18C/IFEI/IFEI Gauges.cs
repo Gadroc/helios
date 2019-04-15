@@ -27,6 +27,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
+        private double _pilotReflectionOpacity;
 
         //private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
@@ -83,7 +84,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private GaugeImage _giLeftFuel;
         private HeliosValue _indicatorRFuel;
         private GaugeImage _giRightFuel;
-        private HeliosValue _pilotReflection;
 
         public IFEI_Gauges()
             : base("IFEI_Gauges", new Size(779, 702))
@@ -285,10 +285,28 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _rightNozzleNeedle = new HeliosValue(this, new BindingValue(0d), "", "Right Nozzle Needle Flag", "Right nozzle needle appearance on IFEI", "", BindingValueUnits.Boolean);
             _rightNozzleNeedle.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_rightNozzleNeedle);
-            _pilotReflection = new HeliosValue(this, new BindingValue(0d), "", "Pilot Reflection", "Pilot reflection shown on IFEI", "", BindingValueUnits.Boolean);
-            _pilotReflection.Execute += new HeliosActionHandler(Indicator_Execute);
-            Actions.Add(_pilotReflection);
+            _pilotReflectionOpacity = 1.0;
         }
+
+        #region Properties
+        public double PilotReflectionOpacity
+        {
+            get
+            {
+                return _pilotReflectionOpacity;
+            }
+            set
+            {
+                if (value != _pilotReflectionOpacity)
+                {
+                    OnPropertyChanged("PilotReflectionOpacity", _pilotReflectionOpacity, value, true);
+                    _pilotReflectionOpacity = value;
+                    _gireflection.IsHidden = (value < 1.0);
+                }
+            }
+        }
+        #endregion
+
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
         }
@@ -377,9 +395,6 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                     break;
                 case "Right Fuel Flag":
                     _giRightFuel.IsHidden = (_hactionVal == "1") ? false : true;
-                    break;
-                case "Pilot Reflection":
-                    _gireflection.IsHidden = (_hactionVal == "1") ? false : true;
                     break;
                 default:
                     break;
