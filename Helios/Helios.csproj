@@ -196,6 +196,9 @@
     <Compile Include="Gauges\FA-18C\HydraulicPressure\Hydraulic.cs" />
     <Compile Include="Gauges\FA-18C\IAS\IAS.cs" />
     <Compile Include="Gauges\FA-18C\IFEI\IFEI Gauges.cs" />
+    <Compile Include="Gauges\FA-18C\IFEI\IFEI_AppearanceEditor.xaml.cs">
+      <DependentUpon>IFEI_AppearanceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gauges\FA-18C\LOx\LOx.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-2.cs" />
     <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-1.cs" />
@@ -2775,6 +2778,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Page Include="Gauges\FA-18C\IFEI\IFEI_AppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

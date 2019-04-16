@@ -27,6 +27,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
+        private double _pilotReflectionOpacity;
+        public const double PILOT_REFLECTION_OPACITY_DEFAULT = 1.0;
 
         //private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
@@ -285,7 +287,40 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _rightNozzleNeedle.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_rightNozzleNeedle);
 
+            // initialize opacity value and related visual
+            PilotReflectionOpacity = PILOT_REFLECTION_OPACITY_DEFAULT;
         }
+
+        #region Properties
+        public double PilotReflectionOpacity
+        {
+            get
+            {
+                return _pilotReflectionOpacity;
+            }
+            set
+            {
+                // clamp to max opacity
+                double newValue = Math.Min(value, 1.0);
+
+                double oldValue = _pilotReflectionOpacity;
+                if (newValue != oldValue)
+                {
+                    _pilotReflectionOpacity = newValue;
+
+                    // don't render at all if fully transparent
+                    _gireflection.IsHidden = (newValue == 0.0);
+
+                    // render at this opacity, if applicable
+                    _gireflection.Opacity = newValue;
+
+                    // notify change after change is made
+                    OnPropertyChanged("PilotReflectionOpacity", oldValue, newValue, true);
+                }
+            }
+        }
+        #endregion
+
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
         }

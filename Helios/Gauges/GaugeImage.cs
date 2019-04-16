@@ -24,16 +24,44 @@ namespace GadrocsWorkshop.Helios.Gauges
         private ImageSource _image;
         private Rect _rectangle;
         private Rect _imageRetangle;
+        private double _opacity;
 
         public GaugeImage(string imageFile, Rect location)
         {
             _imageFile = imageFile;
             _rectangle = location;
+            _opacity = 1.0;
         }
+
+        #region Properties
+        public double Opacity
+        {
+            get
+            {
+                return _opacity;
+            }
+            set
+            {
+                if (value != _opacity)
+                {
+                    _opacity = value;
+                    OnDisplayUpdate();
+                }
+            }
+        }
+        #endregion
 
         protected override void OnRender(DrawingContext drawingContext)
         {
+            if (_opacity >= 1.0)
+            {
+                drawingContext.DrawImage(_image, _imageRetangle);
+                return;
+            }
+
+            drawingContext.PushOpacity(_opacity);
             drawingContext.DrawImage(_image, _imageRetangle);
+            drawingContext.Pop();
         }
 
         protected override void OnRefresh(double xScale, double yScale)
