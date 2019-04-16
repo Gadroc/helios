@@ -1,7 +1,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
-* *                       Helios 1.4.2019.0317                              * * 
+* *                       Helios 1.4.2019.04xx                              * * 
 * *                                                                         * * 
 * *                                READ.ME                                  * * 
 * *                                                                         * * 
@@ -25,7 +25,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Helios 1.4.2019.0317 is not an explicit collaboration with Craig Courtney, 
+Helios 1.4.2019.04xx is not an explicit collaboration with Craig Courtney, 
 but it relies heavily on the original Helios.  This distribution is not endorsed 
 by Craig Courtney.  
                                                                      

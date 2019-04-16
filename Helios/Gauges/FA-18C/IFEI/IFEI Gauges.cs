@@ -27,8 +27,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
-        private double _pilotReflectionOpacity;
-        public const double PILOT_REFLECTION_OPACITY_DEFAULT = 1.0;
+        private double _GlassReflectionOpacity;
+        public const double GLASS_REFLECTION_OPACITY_DEFAULT = 1.0;
 
         //private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
@@ -288,25 +288,25 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             Actions.Add(_rightNozzleNeedle);
 
             // initialize opacity value and related visual
-            PilotReflectionOpacity = PILOT_REFLECTION_OPACITY_DEFAULT;
+            GlassReflectionOpacity = GLASS_REFLECTION_OPACITY_DEFAULT;
         }
 
         #region Properties
-        public double PilotReflectionOpacity
+        public double GlassReflectionOpacity
         {
             get
             {
-                return _pilotReflectionOpacity;
+                return _GlassReflectionOpacity;
             }
             set
             {
                 // clamp to max opacity
                 double newValue = Math.Min(value, 1.0);
 
-                double oldValue = _pilotReflectionOpacity;
+                double oldValue = _GlassReflectionOpacity;
                 if (newValue != oldValue)
                 {
-                    _pilotReflectionOpacity = newValue;
+                    _GlassReflectionOpacity = newValue;
 
                     // don't render at all if fully transparent
                     _gireflection.IsHidden = (newValue == 0.0);
@@ -315,7 +315,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                     _gireflection.Opacity = newValue;
 
                     // notify change after change is made
-                    OnPropertyChanged("PilotReflectionOpacity", oldValue, newValue, true);
+                    OnPropertyChanged("GlassReflectionOpacity", oldValue, newValue, true);
                 }
             }
         }

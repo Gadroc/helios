@@ -1,6 +1,6 @@
 1.4.2019.0xxx Release
 ----------------------------
-
+* Configurable reflectivity for front Glass of IFEI (derammo)
 
 
 1.4.2019.0317 Release

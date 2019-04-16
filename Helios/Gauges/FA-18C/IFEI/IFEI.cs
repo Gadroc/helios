@@ -147,19 +147,19 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
        }
 
         #region Properties
-        public double PilotReflectionOpacity
+        public double GlassReflectionOpacity
         {
             get
             {
-                return _IFEI_gauges.PilotReflectionOpacity;
+                return _IFEI_gauges.GlassReflectionOpacity;
             }
             set
             {
-                double oldValue = _IFEI_gauges.PilotReflectionOpacity;
-                _IFEI_gauges.PilotReflectionOpacity = value;
+                double oldValue = _IFEI_gauges.GlassReflectionOpacity;
+                _IFEI_gauges.GlassReflectionOpacity = value;
                 if (value != oldValue)
                 {
-                    OnPropertyChanged("PilotReflectionOpacity", oldValue, value, true);
+                    OnPropertyChanged("GlassReflectionOpacity", oldValue, value, true);
                 }
             }
         }
@@ -282,18 +282,18 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         public override void WriteXml(XmlWriter writer)
         {
             base.WriteXml(writer);
-            if (_IFEI_gauges.PilotReflectionOpacity != IFEI_Gauges.PILOT_REFLECTION_OPACITY_DEFAULT)
+            if (_IFEI_gauges.GlassReflectionOpacity != IFEI_Gauges.GLASS_REFLECTION_OPACITY_DEFAULT)
             {
-                writer.WriteElementString("PilotReflectionOpacity", PilotReflectionOpacity.ToString(CultureInfo.InvariantCulture));
+                writer.WriteElementString("GlassReflectionOpacity", GlassReflectionOpacity.ToString(CultureInfo.InvariantCulture));
             }
         }
 
         public override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);
-            if (reader.Name.Equals("PilotReflectionOpacity"))
+            if (reader.Name.Equals("GlassReflectionOpacity"))
             {
-                PilotReflectionOpacity = double.Parse(reader.ReadElementString("PilotReflectionOpacity"), CultureInfo.InvariantCulture);
+                GlassReflectionOpacity = double.Parse(reader.ReadElementString("GlassReflectionOpacity"), CultureInfo.InvariantCulture);
             }   
         }
     }
