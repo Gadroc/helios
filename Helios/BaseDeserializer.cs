@@ -48,11 +48,21 @@ namespace GadrocsWorkshop.Helios
 
                 case "Visual":
                     HeliosVisual visual = ConfigManager.ModuleManager.CreateControl(typeId);
+                    if (visual == null)
+                    {
+                        ConfigManager.LogManager.LogError("Ignoring control not supported by this version of Helios: " + typeId);
+                        return null;
+                    }
                     visual.Dispatcher = _dispatcher;
                     return visual;
 
                 case "Interface":
                     HeliosInterfaceDescriptor descriptor = ConfigManager.ModuleManager.InterfaceDescriptors[typeId];
+                    if (descriptor == null)
+                    {
+                        ConfigManager.LogManager.LogError("Ignoring interface not supported by this version of Helios: " + typeId);
+                        return null;
+                    }
                     HeliosInterface heliosInterface = descriptor != null ? descriptor.CreateInstance() : null;
                     if (heliosInterface != null)
                     {
