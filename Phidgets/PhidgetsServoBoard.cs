@@ -185,10 +185,23 @@ namespace GadrocsWorkshop.Helios.Interfaces.Phidgets
         public void Detach()
         {
             ConfigManager.LogManager.LogDebug("Detaching phidget servo board. (SerialNumber=\"" + _serialNumber + "\")");
+            try
+            {
             if (_servoBoard != null && _servoBoard.Attached)
             {
-                try
+
+                    /*
+                    for (int i = 0; i < _servoBoard.servos.Count; i++)
                 {
+                        while (!_servoBoard.servos[i].Stopped)
+                        {
+                            // Wait for all steppers to reset to their zero position.
+                            System.Threading.Thread.Sleep(50);
+                        }
+                    }
+                    */
+
+
                     for (int i = 0; i < _servoBoard.servos.Count; i++)
                     {
                         _servoBoard.servos[i].Engaged = false;
@@ -197,12 +210,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.Phidgets
                     _servoBoard.close();
                     _servoBoard = null;
                 }
+
+            }
                 catch (PhidgetException e)
                 {
                     ConfigManager.LogManager.LogError("Error closing servo board", e);
                 }
             }
-        }
 
         internal void SetTargetPosition(int servoNumber, double position)
         {

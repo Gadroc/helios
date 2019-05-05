@@ -1,0 +1,141 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Threading;
+using System.Runtime.InteropServices;
+
+namespace KeyPressReceiver
+{
+  public partial class Form1 : Form
+  {
+    Boolean DontClose = true;
+    private delegate void SafeCallDelegate(string text);
+    public Form1()
+    {
+      InitializeComponent();
+    }
+
+    private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+    {
+      tbSvrAddress.Text = Properties.Settings.Default.ServerAddress;
+      tbSvrPort.Text = Properties.Settings.Default.ServerPort.ToString();
+      this.Show();
+      this.WindowState = FormWindowState.Normal;
+      this.Visible = true;
+      this.BringToFront();
+    }
+
+    private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+    {
+      if ((e.CloseReason == CloseReason.UserClosing) && (DontClose))
+      {
+        e.Cancel = true;
+        this.Hide();
+      }
+    }
+
+    private void OnTCPDataReceived(string dataIn)
+    {
+      if (this.DontClose == false) { return; }
+      //Handle multi-threading
+      if (InvokeRequired)
+      {
+        Invoke(new SafeCallDelegate(OnTCPDataReceived), new object[] { dataIn });
+        return;
+      }
+      // Do something with the keyboard event
+      NativeMethods.INPUT keyEvent = new NativeMethods.INPUT();
+      int size = Marshal.SizeOf(keyEvent);
+      if (dataIn.Length != size)
+      {
+        return;
+      }
+
+
+      IntPtr ptr = Marshal.AllocHGlobal(size);
+      byte[] buffer = System.Text.Encoding.ASCII.GetBytes(dataIn);
+      Marshal.Copy(buffer, 0, ptr, size);
+      keyEvent = (NativeMethods.INPUT)Marshal.PtrToStructure(ptr, keyEvent.GetType());
+      Marshal.FreeHGlobal(ptr);
+      NativeMethods.SendInput(1, new NativeMethods.INPUT[] { keyEvent }, Marshal.SizeOf(keyEvent));
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+      TCPClient TCPClient = TCPClient.Instance;
+      TCPClient.DataReceived += OnTCPDataReceived;
+    }
+
+    private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      DontClose = false;
+      this.Close();
+    }
+
+    private void timer1_Tick(object sender, EventArgs e)
+    {
+      timer1.Enabled = false;
+      TCPClient TCPClient = TCPClient.Instance;
+      if (!TCPClient.ClientConnected)
+      {
+        TCPClient.Open();
+      }
+      if (TCPClient.ClientConnected)
+         timer1.Interval = 30000; // 30 seconds
+      else
+        timer1.Interval = 1000; // 1 seconds
+
+
+      timer1.Enabled = true;
+    }
+
+    private void Form1_Resize(object sender, EventArgs e)
+    {
+      if (FormWindowState.Minimized == this.WindowState)
+      {
+        //this.WindowState = FormWindowState.Normal;
+        notifyIcon1.Visible = true;
+        this.Hide();
+      }
+
+      else if (FormWindowState.Normal == this.WindowState)
+      {
+        //notifyIcon1.Visible = false;
+        notifyIcon1.Visible = true;
+      }
+    }
+
+    private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+    {
+
+    }
+
+    private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+    {
+
+    }
+
+    private void bnCancel_Click(object sender, EventArgs e)
+    {
+      tbSvrAddress.Text = Properties.Settings.Default.ServerAddress;
+      tbSvrPort.Text = Properties.Settings.Default.ServerPort.ToString();
+      this.Hide();
+    }
+
+    private void bnSave_Click(object sender, EventArgs e)
+    {
+      Properties.Settings.Default.ServerAddress = tbSvrAddress.Text;
+      Properties.Settings.Default.ServerPort = Convert.ToInt16(tbSvrPort.Text);
+      Properties.Settings.Default.Save();
+      this.Hide();
+      TCPClient.Instance.Close();
+      TCPClient.Instance.Open();
+    }
+  }
+}

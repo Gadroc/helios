@@ -587,6 +587,7 @@
       <DependentUpon>KeyboardInterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Profile\ProfileInterface.cs" />
+    <Compile Include="KeyboardTCPServer.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
