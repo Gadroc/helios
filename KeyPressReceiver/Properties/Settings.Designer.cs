@@ -25,7 +25,7 @@ namespace KeyPressReceiver.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.000.000.001")]
         public string ServerAddress {
             get {
                 return ((string)(this["ServerAddress"]));
