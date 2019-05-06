@@ -31,15 +31,18 @@
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
       this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-      this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.bnSave = new System.Windows.Forms.Button();
       this.bnCancel = new System.Windows.Forms.Button();
       this.tbSvrAddress = new System.Windows.Forms.MaskedTextBox();
       this.tbSvrPort = new System.Windows.Forms.MaskedTextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
+      this.label3 = new System.Windows.Forms.Label();
+      this.lbStatus = new System.Windows.Forms.Label();
       this.contextMenuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -49,34 +52,40 @@
       this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
       this.notifyIcon1.Text = "Helios Keypress Receiver";
       this.notifyIcon1.Visible = true;
-      this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
       this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-      // 
-      // timer1
-      // 
-      this.timer1.Enabled = true;
-      this.timer1.Interval = 1000;
-      this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
       // 
       // contextMenuStrip1
       // 
       this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem,
             this.exitToolStripMenuItem});
       this.contextMenuStrip1.Name = "contextMenuStrip1";
-      this.contextMenuStrip1.Size = new System.Drawing.Size(93, 26);
-      this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+      this.contextMenuStrip1.Size = new System.Drawing.Size(117, 48);
+      // 
+      // settingsToolStripMenuItem
+      // 
+      this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+      this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.settingsToolStripMenuItem.Text = "Settings";
+      this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
       // 
       // exitToolStripMenuItem
       // 
       this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-      this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.exitToolStripMenuItem.Text = "Exit";
       this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
       // 
+      // timer1
+      // 
+      this.timer1.Enabled = true;
+      this.timer1.Interval = 5000;
+      this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+      // 
       // bnSave
       // 
-      this.bnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.bnSave.Location = new System.Drawing.Point(94, 89);
+      this.bnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.bnSave.Location = new System.Drawing.Point(120, 119);
       this.bnSave.Name = "bnSave";
       this.bnSave.Size = new System.Drawing.Size(75, 23);
       this.bnSave.TabIndex = 1;
@@ -86,8 +95,8 @@
       // 
       // bnCancel
       // 
-      this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.bnCancel.Location = new System.Drawing.Point(13, 89);
+      this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.bnCancel.Location = new System.Drawing.Point(39, 119);
       this.bnCancel.Name = "bnCancel";
       this.bnCancel.Size = new System.Drawing.Size(75, 23);
       this.bnCancel.TabIndex = 2;
@@ -98,18 +107,17 @@
       // tbSvrAddress
       // 
       this.tbSvrAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.tbSvrAddress.Location = new System.Drawing.Point(76, 12);
+      this.tbSvrAddress.Location = new System.Drawing.Point(102, 12);
       this.tbSvrAddress.Mask = "000.000.000.000";
       this.tbSvrAddress.Name = "tbSvrAddress";
       this.tbSvrAddress.Size = new System.Drawing.Size(93, 20);
       this.tbSvrAddress.TabIndex = 3;
-      this.tbSvrAddress.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
       // 
       // tbSvrPort
       // 
       this.tbSvrPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.tbSvrPort.Enabled = false;
-      this.tbSvrPort.Location = new System.Drawing.Point(76, 50);
+      this.tbSvrPort.Location = new System.Drawing.Point(102, 50);
       this.tbSvrPort.Mask = "00000";
       this.tbSvrPort.Name = "tbSvrPort";
       this.tbSvrPort.Size = new System.Drawing.Size(93, 20);
@@ -133,12 +141,33 @@
       this.label2.TabIndex = 6;
       this.label2.Text = "Port";
       // 
+      // label3
+      // 
+      this.label3.AutoSize = true;
+      this.label3.Location = new System.Drawing.Point(12, 89);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(37, 13);
+      this.label3.TabIndex = 7;
+      this.label3.Text = "Status";
+      // 
+      // lbStatus
+      // 
+      this.lbStatus.AutoSize = true;
+      this.lbStatus.ForeColor = System.Drawing.Color.Red;
+      this.lbStatus.Location = new System.Drawing.Point(99, 89);
+      this.lbStatus.Name = "lbStatus";
+      this.lbStatus.Size = new System.Drawing.Size(73, 13);
+      this.lbStatus.TabIndex = 8;
+      this.lbStatus.Text = "Disconnected";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(179, 120);
+      this.ClientSize = new System.Drawing.Size(205, 152);
       this.ContextMenuStrip = this.contextMenuStrip1;
+      this.Controls.Add(this.lbStatus);
+      this.Controls.Add(this.label3);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.tbSvrPort);
@@ -150,7 +179,9 @@
       this.MinimizeBox = false;
       this.Name = "Form1";
       this.ShowInTaskbar = false;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Helios Keypress Receiver";
+      this.TopMost = true;
       this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
       this.Load += new System.EventHandler(this.Form1_Load);
@@ -173,6 +204,9 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
     public System.Windows.Forms.Timer timer1;
+    private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.Label lbStatus;
+    private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
   }
 }
 

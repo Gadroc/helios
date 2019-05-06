@@ -79,20 +79,21 @@ namespace GadrocsWorkshop.Helios
 
         public void Run()
         {
-            /* Added functionality for a TCP server open on a static port of 5009
-             * If there is a TCP client connected then it will send key presses to a differnt PC running the receiver
+            /* Kiwi.Lost.In.Melb@Gmail.com
+             * Added functionality for a TCP server open on a static port of 5009 - yes needs tobo in a config with edit screen but my WPF skills are NIL.
+             * If there is a TCP client connected then it will send key presses to a PC running the receiver
              * Otherwise it will send the keypresses to the local PC
              * 
-             * Code may need a clean up as I used a routine I have used many times and know it works
-             * We dont use much of the functionality the file provides but it was handy and a known quality
+             * TCP Server code may need a clean up as I used a routine I have used many times and know it works
+             * The TCP Server code was handy and a known quality
+             * 
+             * The way I have done this is to just serialise the INPUT object and send over TCP. Seemed the easiest way to accomodate this feature quickly.
             */
             KeyboardTCPServer KeyboardTCPServer = KeyboardTCPServer.Instance;
             KeyboardTCPServer.Open();
             while (true)
             {
-
                 int sleepTime = Timeout.Infinite;
-
                 lock (typeof(KeyboardThread))
                 {
                     if (_events.Count > 0)
@@ -105,7 +106,7 @@ namespace GadrocsWorkshop.Helios
                         IntPtr ptr = Marshal.AllocHGlobal(size);
                         Marshal.StructureToPtr(keyEvent, ptr, true);
                         Marshal.Copy(ptr, arr, 0, size);
-                        
+                        // Send via TCP - if no connection then send to the local PC
                         if (!KeyboardTCPServer.Send(arr, size))
                           NativeMethods.SendInput(1, new NativeMethods.INPUT[] { keyEvent }, Marshal.SizeOf(keyEvent));
                         Marshal.FreeHGlobal(ptr);
@@ -118,7 +119,7 @@ namespace GadrocsWorkshop.Helios
                 }
                 catch (ThreadInterruptedException)
                 {
-                  // Close TCP Server cleanly
+                  // Close TCP Server cleanly - it will clean itself up
                   KeyboardTCPServer.Instance.Close();
                 }
             }

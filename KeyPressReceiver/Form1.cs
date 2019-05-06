@@ -54,6 +54,7 @@ namespace KeyPressReceiver
       int size = Marshal.SizeOf(keyEvent);
       if (dataIn.Length != size)
       {
+        // Error handling TBA - dont normally get TCP fragments on a LAN so not critical 
         return;
       }
 
@@ -87,10 +88,17 @@ namespace KeyPressReceiver
         TCPClient.Open();
       }
       if (TCPClient.ClientConnected)
-         timer1.Interval = 30000; // 30 seconds
+      {
+        timer1.Interval = 60000; // 60 seconds still connected test
+        lbStatus.Text = "Connected";
+        lbStatus.ForeColor = Color.Green;
+      }
       else
-        timer1.Interval = 1000; // 1 seconds
-
+      {
+        timer1.Interval = 10000; // 10 second test to try to connect
+        lbStatus.Text = "Disconnected";
+        lbStatus.ForeColor = Color.Red;
+      }
 
       timer1.Enabled = true;
     }
@@ -103,22 +111,10 @@ namespace KeyPressReceiver
         notifyIcon1.Visible = true;
         this.Hide();
       }
-
       else if (FormWindowState.Normal == this.WindowState)
       {
-        //notifyIcon1.Visible = false;
         notifyIcon1.Visible = true;
       }
-    }
-
-    private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-    {
-
-    }
-
-    private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-    {
-
     }
 
     private void bnCancel_Click(object sender, EventArgs e)
@@ -136,6 +132,16 @@ namespace KeyPressReceiver
       this.Hide();
       TCPClient.Instance.Close();
       TCPClient.Instance.Open();
+    }
+
+    private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      tbSvrAddress.Text = Properties.Settings.Default.ServerAddress;
+      tbSvrPort.Text = Properties.Settings.Default.ServerPort.ToString();
+      this.Show();
+      this.WindowState = FormWindowState.Normal;
+      this.Visible = true;
+      this.BringToFront();
     }
   }
 }

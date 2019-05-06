@@ -13,6 +13,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+//  6/5/19 KiwiLostInMelb - Cut down version of Native Methods just for the KB Receiver
+
 namespace KeyPressReceiver
 {
   using System;
@@ -24,12 +26,6 @@ namespace KeyPressReceiver
     private NativeMethods()
     {
     }
-
-    [DllImport("user32.dll", SetLastError = true)]
-    internal static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
-
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
     #region Keyboard Emulation
 
