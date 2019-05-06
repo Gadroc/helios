@@ -119,8 +119,7 @@ namespace GadrocsWorkshop.Helios
                 }
                 catch (ThreadInterruptedException)
                 {
-                  // Close TCP Server cleanly - it will clean itself up
-                  KeyboardTCPServer.Instance.Close();
+                  // NOOP
                 }
             }
         }

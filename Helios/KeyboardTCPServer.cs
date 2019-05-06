@@ -172,8 +172,9 @@ namespace GadrocsWorkshop.Helios
         IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, TCPPort);
         Svrsocket.Bind(localEndPoint);
         Svrsocket.Listen(1);
-
-        StartReading();
+        // Disabled reading as the keybord receiver doesnt receive any input
+        // This new thread also blocks the keyboard thread closing for some reason
+        //StartReading();
       }
       catch (IOException)
       {
