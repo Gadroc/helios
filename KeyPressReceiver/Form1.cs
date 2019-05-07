@@ -74,28 +74,30 @@ namespace KeyPressReceiver
                 return;
             }
             // Do something with the keyboard event
-            if (dataIn.StartsWith("HEARTBEAT"))
+            string Heartbeat = "HEARTBEAT";
+            if (dataIn.Contains(Heartbeat))
             {
-                // ignore heartbeat responses
-                return;
+                // remove heatbeat and process other messages
+                while (dataIn.Contains(Heartbeat))
+                {
+                    dataIn = dataIn.Remove(dataIn.IndexOf(Heartbeat), Heartbeat.Length);
+                }
             }
-
+            if (dataIn.Length == 0)
+                return; // now an empty message
 
             NativeMethods.INPUT keyEvent = new NativeMethods.INPUT();
             int size = Marshal.SizeOf(keyEvent);
-            if (dataIn.Length != size)
+            while (dataIn.Length >= size)
             {
-                // Error handling TBA - dont normally get TCP fragments on a LAN so not critical 
-                return;
+                string sThisData = dataIn.Remove(0, size);
+                IntPtr ptr = Marshal.AllocHGlobal(size);
+                byte[] buffer = System.Text.Encoding.ASCII.GetBytes(sThisData);
+                Marshal.Copy(buffer, 0, ptr, size);
+                keyEvent = (NativeMethods.INPUT)Marshal.PtrToStructure(ptr, keyEvent.GetType());
+                Marshal.FreeHGlobal(ptr);
+                NativeMethods.SendInput(1, new NativeMethods.INPUT[] { keyEvent }, Marshal.SizeOf(keyEvent));
             }
-
-
-            IntPtr ptr = Marshal.AllocHGlobal(size);
-            byte[] buffer = System.Text.Encoding.ASCII.GetBytes(dataIn);
-            Marshal.Copy(buffer, 0, ptr, size);
-            keyEvent = (NativeMethods.INPUT)Marshal.PtrToStructure(ptr, keyEvent.GetType());
-            Marshal.FreeHGlobal(ptr);
-            NativeMethods.SendInput(1, new NativeMethods.INPUT[] { keyEvent }, Marshal.SizeOf(keyEvent));
         }
 
         private void Form1_Load(object sender, EventArgs e)

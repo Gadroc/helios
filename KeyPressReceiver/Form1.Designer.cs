@@ -117,7 +117,7 @@
             this.tbSvrPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSvrPort.Enabled = false;
             this.tbSvrPort.Location = new System.Drawing.Point(102, 50);
-            this.tbSvrPort.Mask = "00000";
+            this.tbSvrPort.Mask = "0000";
             this.tbSvrPort.Name = "tbSvrPort";
             this.tbSvrPort.Size = new System.Drawing.Size(93, 20);
             this.tbSvrPort.TabIndex = 4;

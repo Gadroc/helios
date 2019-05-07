@@ -180,7 +180,7 @@ namespace GadrocsWorkshop.Helios
                             if (readBytes != 0)
                             {
                                 String DataIn = System.Text.Encoding.ASCII.GetString(buffer, 0, readBytes);
-                                if (DataIn.StartsWith("HEARTBEAT"))
+                                if (DataIn.Contains("HEARTBEAT"))
                                     // Send a response - a heatbeat is used because we dont always know when TCP disconnects
                                     // This allows the client to know whether it is still in a connected state
                                     TCPSend("HEARTBEAT");
