@@ -5,6 +5,7 @@ using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace KeyPressReceiver
 {
@@ -147,6 +148,20 @@ namespace KeyPressReceiver
             }
         }
 
+        private void ConnectCallback(IAsyncResult ar)
+        {
+            // Retrieve the socket from the state object.  
+            Socket client = (Socket)ar.AsyncState;
+            if (client.Connected)
+                StartReading();
+            try
+            {
+                // Complete the connection. 
+                client.EndConnect(ar);
+            }
+            catch { }
+        }
+
         /// <summary> Open the serial port with current settings. </summary>
         public void Open()
         {
@@ -156,8 +171,36 @@ namespace KeyPressReceiver
             {
                 if (Clientsocket == null)
                     Clientsocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                Clientsocket.Connect(Properties.Settings.Default.ServerAddress, Properties.Settings.Default.ServerPort);
-                StartReading();
+                SocketAsyncEventArgs e = new SocketAsyncEventArgs();
+                string ValidIpAddressRegex = "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$";
+
+                IPAddress ipAddress = IPAddress.None;
+                if (Regex.IsMatch(Properties.Settings.Default.ServerAddress, ValidIpAddressRegex))
+                {
+                    // the string is an IP
+                    ipAddress = IPAddress.Parse(Properties.Settings.Default.ServerAddress);
+                }
+                else
+                {
+                    // find IP
+                    IPHostEntry ipHostInfo = Dns.GetHostEntry(Properties.Settings.Default.ServerAddress);
+                    ipAddress = ipHostInfo.AddressList[0];
+                    foreach (IPAddress thisAddress in ipHostInfo.AddressList)
+                    {
+                        if ((thisAddress.AddressFamily == AddressFamily.InterNetwork) && (thisAddress.IsIPv6LinkLocal == false))
+                            ipAddress = thisAddress;
+                    }
+                }
+                if (ipAddress == IPAddress.None)
+                    return;
+
+                IPEndPoint remoteEP = new IPEndPoint(ipAddress, Properties.Settings.Default.ServerPort);
+                e.RemoteEndPoint = remoteEP;
+
+                //e.RemoteEndPoint = Clientsocket.RemoteEndPoint;
+                Clientsocket.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), Clientsocket);
+                // Clientsocket.Connect(Properties.Settings.Default.ServerAddress, Properties.Settings.Default.ServerPort);
+                //StartReading();
             }
             catch (IOException)
             {
