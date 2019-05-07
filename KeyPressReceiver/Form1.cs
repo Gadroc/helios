@@ -90,7 +90,8 @@ namespace KeyPressReceiver
             int size = Marshal.SizeOf(keyEvent);
             while (dataIn.Length >= size)
             {
-                string sThisData = dataIn.Remove(0, size);
+                string sThisData = dataIn.Substring(0, size);
+                dataIn = dataIn.Remove(0, size);
                 IntPtr ptr = Marshal.AllocHGlobal(size);
                 byte[] buffer = System.Text.Encoding.ASCII.GetBytes(sThisData);
                 Marshal.Copy(buffer, 0, ptr, size);
