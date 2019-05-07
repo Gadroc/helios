@@ -152,6 +152,7 @@
             // 
             this.tbSvrPort.Location = new System.Drawing.Point(93, 46);
             this.tbSvrPort.Name = "tbSvrPort";
+            this.tbSvrPort.ReadOnly = true;
             this.tbSvrPort.Size = new System.Drawing.Size(100, 20);
             this.tbSvrPort.TabIndex = 10;
             // 
