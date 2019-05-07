@@ -15,3 +15,5 @@ Helios *.zip
 Helios *.zip
 Helios*.msi
 setup.exe
+*.bak
+*.user

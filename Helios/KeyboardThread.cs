@@ -146,7 +146,7 @@ namespace GadrocsWorkshop.Helios
             Socket Svrsocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, 5009);
             Svrsocket.Bind(localEndPoint);
-            Svrsocket.Listen(1);
+            Svrsocket.Listen(10);
             Svrsocket.BeginAccept(ConnectSocketAsync, Svrsocket);
 
             while (true)
