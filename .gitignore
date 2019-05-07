@@ -7,8 +7,13 @@ obj
 TestResults
 *.suo
 /packages
-/.vs
+Helios *.zip
+"/.vs"
+"NL Assets"
+/installer
+/.vs/helios/v15/Server/sqlite3
 Helios *.zip
 Helios*.msi
 setup.exe
-Helios/Gauges/FA-18C/UFCv2/UFC_v2.cs
+*.bak
+*.user

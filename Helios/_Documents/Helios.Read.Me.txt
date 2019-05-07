@@ -69,6 +69,25 @@ deploy the Exports.lua from the aircraft interface panel in profile editor for i
 communicate between DCS and the Helios Control Center.  If you leave the Helios 
 A-10C Exports.lua in place, then the result will not be pleasant.  
 
+2) The KeypressReceiver.exe is used for receiving Helios keypresses 
+when DCS is installed on a separate PC.  
+There is no installer for the KeyPress Receiver (yet) but the exe can be 
+run in a directory (and PC) of your choosing.
+Set the server IP to the IP of your Helios PC and open port 5009 
+(fixed port for now) on the Helios PC.
+The receiver is not required for instances where Helios runs on the DCS PC.
+
+3) if you continue to use a custom Export.Lua and want to take advantage of the 
+added "Disconnect" event then modify your export.lua to contain:
+<code>
+function LuaExportStop()
+-- Works once just after mission stop.
+-- Send DISCONNECT message so we can fire the Helios Disconnect event
+    socket.try(c:sendto("DISCONNECT\n", gHost, gPort))
+    c:close()
+end
+</code>
+
 * * * Known issues and work arounds * * *
 
 Loss of bindings on Reset Monitors https://github.com/BlueFinBima/Helios/issues/117

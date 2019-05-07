@@ -19,6 +19,8 @@ namespace GadrocsWorkshop.Helios.UDPInterface
     using System.Collections.Generic;
     using System.Net;
     using System.Net.Sockets;
+    using System.Timers;
+    
 
     public class BaseUDPInterface : HeliosInterface
     {
@@ -37,18 +39,28 @@ namespace GadrocsWorkshop.Helios.UDPInterface
         private byte[] _dataBuffer = new byte[2048];
 
         private HeliosTrigger _connectedTrigger;
+        private HeliosTrigger _disconnectedTrigger;
+        private HeliosTrigger _profileLoadedTrigger;
+
         private HeliosProfile _profile = null;
 
         private string[] _tokens = new string[1024];
         private int _tokenCount = 0;
+        private Timer _startuptimer;
 
         public BaseUDPInterface(string name)
             : base(name)
         {
             _socketDataCallback = new AsyncCallback(OnDataReceived);
 
-            _connectedTrigger = new HeliosTrigger(this, "", "", "Connected", "Fired when a new client is connected.");
+            _connectedTrigger = new HeliosTrigger(this, "", "", "Connected", "Fired on DCS connect.");
             Triggers.Add(_connectedTrigger);
+
+            _disconnectedTrigger = new HeliosTrigger(this, "", "", "Disconnected", "Fired on DCS disconnect.");
+            Triggers.Add(_disconnectedTrigger);
+
+            _profileLoadedTrigger = new HeliosTrigger(this, "", "", "Profile Delay Start", "Fired 10 seconds after DCS profile is started.");
+            Triggers.Add(_profileLoadedTrigger);
 
             _functions.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Functions_CollectionChanged);
         }
@@ -211,6 +223,14 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                     }
                     else
                     {
+                        string RecString = System.Text.Encoding.UTF8.GetString(_dataBuffer, 0, receivedByteCount);
+                        // Special case for Disconnect - Event must be put into the LUA file
+                        if (RecString.Contains("DISCONNECT"))
+                        {
+                            ConfigManager.LogManager.LogInfo("UDP interface disconnect from Lua.");
+                            _disconnectedTrigger.FireTrigger(BindingValue.Empty);
+                        }
+                        else 
                         ConfigManager.LogManager.LogWarning("UDP interface short packet received. (Interface=\"" + Name + "\")");
                     }
                 }
@@ -293,6 +313,8 @@ namespace GadrocsWorkshop.Helios.UDPInterface
             _socket = null;
 
             _profile = null;
+            if (_startuptimer != null)
+                _startuptimer.Stop();
         }
 
         void Profile_ProfileStarted(object sender, EventArgs e)
@@ -307,10 +329,21 @@ namespace GadrocsWorkshop.Helios.UDPInterface
             _client = new IPEndPoint(IPAddress.Any, 0);
             _started = true;
             _clientID = "";
-
-            WaitForData();
-
             _profile = Profile;
+
+            _startuptimer = new Timer();
+            _startuptimer.Elapsed += OnStartupTimer;
+            _startuptimer.Interval = 10000;  // 10 seconds for Delayed Startup
+            _startuptimer.Start();
+            ConfigManager.LogManager.LogInfo("Startup timer started.");
+        }
+
+        private void OnStartupTimer(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            _startuptimer.Stop();
+            ConfigManager.LogManager.LogInfo("Startup Delay timer triggered.");
+            _profileLoadedTrigger.FireTrigger(BindingValue.Empty);
+            WaitForData();
         }
 
         public override void ReadXml(System.Xml.XmlReader reader)
