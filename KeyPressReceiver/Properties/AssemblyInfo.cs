@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KeyPressReceiver")]
+[assembly: AssemblyTitle("Keypress Receiver")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("KeyPressReceiver")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyProduct("Keypress Receiver")]
+[assembly: AssemblyCopyright("Copyright © 2019 Piet Van Nes")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

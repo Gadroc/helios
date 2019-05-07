@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios", "Helios\Helios.csproj", "{E5ABE3F5-46EC-46D1-9330-D42311471A93}"
 EndProject
@@ -11,9 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Control Center", "Control C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phidgets", "Phidgets\Phidgets.csproj", "{06BA10F4-279C-4E82-B77C-333706A617B9}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Helios Installer", "Installer\Installer.vdproj", "{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5F79059E-6954-45C1-8929-27683551D25A} = {5F79059E-6954-45C1-8929-27683551D25A}
+		{61272BD1-E670-45CC-918B-1208B837F4DC} = {61272BD1-E670-45CC-918B-1208B837F4DC}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyPressReceiver", "KeyPressReceiver\KeyPressReceiver.csproj", "{5F79059E-6954-45C1-8929-27683551D25A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keypress Receiver", "KeyPressReceiver\Keypress Receiver.csproj", "{5F79059E-6954-45C1-8929-27683551D25A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Keypress Receiver Installer", "Keypress Receiver Installer\Keypress Receiver Installer.vdproj", "{61272BD1-E670-45CC-918B-1208B837F4DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,8 +76,15 @@ Global
 		{5F79059E-6954-45C1-8929-27683551D25A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F79059E-6954-45C1-8929-27683551D25A}.Release|x64.ActiveCfg = Release|Any CPU
 		{5F79059E-6954-45C1-8929-27683551D25A}.Release|x64.Build.0 = Release|Any CPU
+		{61272BD1-E670-45CC-918B-1208B837F4DC}.Debug|Any CPU.ActiveCfg = Debug
+		{61272BD1-E670-45CC-918B-1208B837F4DC}.Debug|x64.ActiveCfg = Debug
+		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|Any CPU.ActiveCfg = Release
+		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B206942-1574-47C9-BA9A-843FD9F493D4}
 	EndGlobalSection
 EndGlobal

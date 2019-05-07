@@ -1,35 +1,35 @@
-﻿namespace KeyPressReceiver
+﻿namespace GadrocsWorkshop.Helios.KeyPressReceiver
 {
-  partial class Form1
-  {
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
-
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing)
+    partial class KeyPressReceiverForm
     {
-      if (disposing && (components != null))
-      {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-    #region Windows Form Designer generated code
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KeyPressReceiverForm));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,7 +156,7 @@
             this.tbSvrPort.Size = new System.Drawing.Size(100, 20);
             this.tbSvrPort.TabIndex = 10;
             // 
-            // Form1
+            // KeyPressReceiverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -173,34 +173,34 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "KeyPressReceiverForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Helios Keypress Receiver";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KeyPressReceiverForm_FormClosing);
+            this.Load += new System.EventHandler(this.KeyPressReceiverForm_Load);
+            this.Resize += new System.EventHandler(this.KeyPressReceiverForm_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
-    }
+        }
 
-    #endregion
+        #endregion
 
-    private System.Windows.Forms.NotifyIcon notifyIcon1;
-    private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-    private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-    private System.Windows.Forms.Button bnSave;
-    private System.Windows.Forms.Button bnCancel;
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.Label label2;
-    public System.Windows.Forms.Timer timer1;
-    private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.Label lbStatus;
-    private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Button bnSave;
+        private System.Windows.Forms.Button bnCancel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.TextBox tbSvrAddress;
         private System.Windows.Forms.TextBox tbSvrPort;
     }
