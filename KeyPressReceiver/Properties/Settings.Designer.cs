@@ -23,27 +23,21 @@ namespace KeyPressReceiver.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
         public string ServerAddress {
             get {
                 return ((string)(this["ServerAddress"]));
             }
-            set {
-                this["ServerAddress"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5009")]
         public int ServerPort {
             get {
                 return ((int)(this["ServerPort"]));
-            }
-            set {
-                this["ServerPort"] = value;
             }
         }
     }

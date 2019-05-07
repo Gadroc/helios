@@ -37,12 +37,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bnSave = new System.Windows.Forms.Button();
             this.bnCancel = new System.Windows.Forms.Button();
-            this.tbSvrAddress = new System.Windows.Forms.MaskedTextBox();
-            this.tbSvrPort = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
+            this.tbSvrAddress = new System.Windows.Forms.TextBox();
+            this.tbSvrPort = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,24 +104,6 @@
             this.bnCancel.UseVisualStyleBackColor = true;
             this.bnCancel.Click += new System.EventHandler(this.bnCancel_Click);
             // 
-            // tbSvrAddress
-            // 
-            this.tbSvrAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSvrAddress.Location = new System.Drawing.Point(102, 12);
-            this.tbSvrAddress.Name = "tbSvrAddress";
-            this.tbSvrAddress.Size = new System.Drawing.Size(93, 20);
-            this.tbSvrAddress.TabIndex = 3;
-            // 
-            // tbSvrPort
-            // 
-            this.tbSvrPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSvrPort.Enabled = false;
-            this.tbSvrPort.Location = new System.Drawing.Point(102, 50);
-            this.tbSvrPort.Mask = "0000";
-            this.tbSvrPort.Name = "tbSvrPort";
-            this.tbSvrPort.Size = new System.Drawing.Size(93, 20);
-            this.tbSvrPort.TabIndex = 4;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -159,18 +141,32 @@
             this.lbStatus.TabIndex = 8;
             this.lbStatus.Text = "Disconnected";
             // 
+            // tbSvrAddress
+            // 
+            this.tbSvrAddress.Location = new System.Drawing.Point(93, 12);
+            this.tbSvrAddress.Name = "tbSvrAddress";
+            this.tbSvrAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbSvrAddress.TabIndex = 9;
+            // 
+            // tbSvrPort
+            // 
+            this.tbSvrPort.Location = new System.Drawing.Point(93, 46);
+            this.tbSvrPort.Name = "tbSvrPort";
+            this.tbSvrPort.Size = new System.Drawing.Size(100, 20);
+            this.tbSvrPort.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(205, 152);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.tbSvrPort);
+            this.Controls.Add(this.tbSvrAddress);
             this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbSvrPort);
-            this.Controls.Add(this.tbSvrAddress);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -198,14 +194,14 @@
     private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     private System.Windows.Forms.Button bnSave;
     private System.Windows.Forms.Button bnCancel;
-    private System.Windows.Forms.MaskedTextBox tbSvrAddress;
-    private System.Windows.Forms.MaskedTextBox tbSvrPort;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
     public System.Windows.Forms.Timer timer1;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label lbStatus;
     private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-  }
+        private System.Windows.Forms.TextBox tbSvrAddress;
+        private System.Windows.Forms.TextBox tbSvrPort;
+    }
 }
 
