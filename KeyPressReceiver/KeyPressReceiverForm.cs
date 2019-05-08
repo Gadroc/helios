@@ -118,6 +118,10 @@ namespace GadrocsWorkshop.Helios.KeyPressReceiver
 
         private void KeyPressReceiverForm_Load(object sender, EventArgs e)
         {
+            tbSvrAddress.Text = Properties.Settings.Default.ServerAddress;
+            //tbSvrPort.Text = "5009"; //Properties.Settings.Default.ServerPort.ToString();
+            tbSvrPort.Text = Properties.Settings.Default.ServerPort.ToString();
+
             TCPClient TCPClient = TCPClient.Instance;
             TCPClient.DataReceived += OnTCPDataReceived;
             TCPClient.StatusChanged += OnTCPStatusChanged;
@@ -179,16 +183,28 @@ namespace GadrocsWorkshop.Helios.KeyPressReceiver
 
         private void bnSave_Click(object sender, EventArgs e)
         {
+            Boolean _validArgs = false;
             Properties.Settings.Default.ServerAddress = tbSvrAddress.Text;
-            Properties.Settings.Default.ServerPort = Convert.ToInt16(tbSvrPort.Text);
-            Properties.Settings.Default.Save();
-            TCPClient.Instance.Close();
-            lbStatus.Text = "Disconnected";
-            lbStatus.ForeColor = Color.Red;
-            TCPClient.Instance.Open();
-            timer1.Interval = 5000;
-            this.Hide();
+            if (Int16.TryParse(tbSvrPort.Text, out Int16 j))
+            {
+                Properties.Settings.Default.ServerPort = j;
+                _validArgs = true;
+            }
+            else
+                Console.WriteLine("Keypress Receiver Error:  Port value string could not be parsed to integer. " + tbSvrPort.Text);
+            if (_validArgs)
+            {
+                Properties.Settings.Default.Save();
+                TCPClient.Instance.Close();
+                lbStatus.Text = "Disconnected";
+                lbStatus.ForeColor = Color.Red;
+                TCPClient.Instance.Open();
+                timer1.Interval = 5000;
+                //this.Hide();
+                this.WindowState = FormWindowState.Minimized;
+            }
         }
+
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -198,6 +214,16 @@ namespace GadrocsWorkshop.Helios.KeyPressReceiver
             this.WindowState = FormWindowState.Normal;
             this.Visible = true;
             this.BringToFront();
+        }
+
+        private void tbSvrAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbSvrPort_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

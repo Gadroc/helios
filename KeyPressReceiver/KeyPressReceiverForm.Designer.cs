@@ -85,7 +85,7 @@
             // bnSave
             // 
             this.bnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnSave.Location = new System.Drawing.Point(120, 119);
+            this.bnSave.Location = new System.Drawing.Point(15, 119);
             this.bnSave.Name = "bnSave";
             this.bnSave.Size = new System.Drawing.Size(75, 23);
             this.bnSave.TabIndex = 1;
@@ -96,7 +96,7 @@
             // bnCancel
             // 
             this.bnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnCancel.Location = new System.Drawing.Point(39, 119);
+            this.bnCancel.Location = new System.Drawing.Point(116, 119);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
             this.bnCancel.TabIndex = 2;
@@ -147,20 +147,21 @@
             this.tbSvrAddress.Name = "tbSvrAddress";
             this.tbSvrAddress.Size = new System.Drawing.Size(100, 20);
             this.tbSvrAddress.TabIndex = 9;
+            this.tbSvrAddress.TextChanged += new System.EventHandler(this.tbSvrAddress_TextChanged);
             // 
             // tbSvrPort
             // 
             this.tbSvrPort.Location = new System.Drawing.Point(93, 46);
             this.tbSvrPort.Name = "tbSvrPort";
-            this.tbSvrPort.ReadOnly = true;
             this.tbSvrPort.Size = new System.Drawing.Size(100, 20);
             this.tbSvrPort.TabIndex = 10;
+            this.tbSvrPort.TextChanged += new System.EventHandler(this.tbSvrPort_TextChanged);
             // 
             // KeyPressReceiverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(205, 152);
+            this.ClientSize = new System.Drawing.Size(203, 152);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.tbSvrPort);
             this.Controls.Add(this.tbSvrAddress);
@@ -170,9 +171,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.bnSave);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(180, 32);
             this.Name = "KeyPressReceiverForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
