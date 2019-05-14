@@ -167,7 +167,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                     }
                     else
                     {
-                        ConfigManager.LogManager.LogError("UDP interface unable to recover from socket reset, no longer recieving data. (Interface=\"" + Name + "\")");
+                        ConfigManager.LogManager.LogError("UDP interface unable to recover from socket reset, no longer receiving data. (Interface=\"" + Name + "\")");
                     }
                 }
             }
@@ -320,22 +320,32 @@ namespace GadrocsWorkshop.Helios.UDPInterface
         void Profile_ProfileStarted(object sender, EventArgs e)
         {
             ConfigManager.LogManager.LogDebug("UDP interface starting. (Interface=\"" + Name + "\")");
-            _bindEndPoint = new IPEndPoint(IPAddress.Any, Port);
-            _socket = new Socket(AddressFamily.InterNetwork,
-                                      SocketType.Dgram,
-                                      ProtocolType.Udp);
-            _socket.ExclusiveAddressUse = false;
-            _socket.Bind(_bindEndPoint);
-            _client = new IPEndPoint(IPAddress.Any, 0);
-            _started = true;
-            _clientID = "";
-            _profile = Profile;
+            try
+            {
+                _bindEndPoint = new IPEndPoint(IPAddress.Any, Port);
+                _socket = new Socket(AddressFamily.InterNetwork,
+                                          SocketType.Dgram,
+                                          ProtocolType.Udp);
+                _socket.ExclusiveAddressUse = false;
+                // https://github.com/BlueFinBima/Helios/issues/140
+                _socket.Bind(_bindEndPoint);
+                _client = new IPEndPoint(IPAddress.Any, 0);
+                _started = true;
+                _clientID = "";
+                _profile = Profile;
 
-            _startuptimer = new Timer();
-            _startuptimer.Elapsed += OnStartupTimer;
-            _startuptimer.Interval = 10000;  // 10 seconds for Delayed Startup
-            _startuptimer.Start();
-            ConfigManager.LogManager.LogInfo("Startup timer started.");
+                _startuptimer = new Timer();
+                _startuptimer.Elapsed += OnStartupTimer;
+                _startuptimer.Interval = 10000;  // 10 seconds for Delayed Startup
+                _startuptimer.Start();
+                ConfigManager.LogManager.LogInfo("Startup timer started.");
+            }
+            catch (System.Net.Sockets.SocketException se)
+            {
+                ConfigManager.LogManager.LogError("UDP interface startup error. (Interface=\"" + Name + "\")");
+                ConfigManager.LogManager.LogError("UDP Socket Exception on Profile Start.  " + se.Message,se);
+            }
+
         }
 
         private void OnStartupTimer(Object source, System.Timers.ElapsedEventArgs e)
