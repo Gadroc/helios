@@ -168,6 +168,29 @@
     </Compile>
     <Compile Include="Controls\IndicatorPushButtonRenderer.cs" />
     <Compile Include="Controls\IndicatorRenderer.cs" />
+    <Compile Include="Controls\KneeBoard.cs" />
+    <Compile Include="Controls\KneeBoardAddPositionUndoEvent.cs" />
+    <Compile Include="Controls\KneeBoardAppearanceEditor.xaml.cs">
+      <DependentUpon>KneeBoardAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeBoardBehaviorEditor.xaml.cs">
+      <DependentUpon>KneeBoardBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeBoardDeletePositionUndoEvent.cs" />
+    <Compile Include="Controls\KneeBoardPosition.cs" />
+    <Compile Include="Controls\KneeBoardPositionChangeArgs.cs" />
+    <Compile Include="Controls\KneeBoardPositionCollection.cs" />
+    <Compile Include="Controls\KneeboardRenderer.cs" />
+    <Compile Include="Controls\KneeboardSwitch.cs" />
+    <Compile Include="Controls\KneeboardSwitchAppearanceEditor.xaml.cs">
+      <DependentUpon>KneeboardSwitchAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeboardSwitchBehaviorEditor.xaml.cs">
+      <DependentUpon>KneeboardSwitchBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeboardSwitchPosition.cs" />
+    <Compile Include="Controls\KneeboardSwitchRenderer.cs" />
+    <Compile Include="Controls\KneeboardSwitchType.cs" />
     <Compile Include="Controls\LineDecoration.cs" />
     <Compile Include="Controls\LineDecorationAppearancePropertyEditor.xaml.cs">
       <DependentUpon>LineDecorationAppearancePropertyEditor.xaml</DependentUpon>
@@ -1236,6 +1259,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\IndicatorPushButtonAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeBoardAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeBoardBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeboardSwitchAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeboardSwitchBehaviorEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -3451,6 +3490,7 @@
     <Resource Include="Gauges\FA-18C\UFC\UFC Faceplate.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\kneeboard_image.png" />
     <Content Include="Helios.ico" />
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
