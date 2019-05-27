@@ -268,9 +268,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new ScaledNetworkValue(this, "142", 180d, "Backup ADI", "roll", "Current roll displayed on the AGR-81 backup ADI.", "(-180 to 180)", BindingValueUnits.Degrees));
             AddFunction(new ScaledNetworkValue(this, "143", -90d, "Backup ADI", "pitch", "Current pitch displayed on the AGR-81 backup ADI.", "(-90 to 90)", BindingValueUnits.Degrees));
             AddFunction(new NetworkValue(this, "144", "Backup ADI", "side slip", "Current amount of side slip displayed on the AGR-81 backup ADI.", "(-1 to 1)", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "599", "Backup ADI", "LongitudinalDeviationBar", "Current amount of Longitudinal Deviation Bar.", "(-1 to 1)", BindingValueUnits.Numeric));
+            AddFunction(new NetworkValue(this, "613", "Backup ADI", "LateralDeviationBar", "Current amount of Lateral Deviation Bar.", "(-1 to 1)", BindingValueUnits.Numeric));
             AddFunction(new FlagValue(this, "145", "Backup ADI", "warning flag", "Indicates whether the warning flag is displayed on the AGR-81 backup ADI."));
             AddFunction(new RotaryEncoder(this, STBY_ADI, BUTTON_3, "597", 1d, "Backup ADI", "Cage"));
             AddFunction(Switch.CreateToggleSwitch(this, STBY_ADI, BUTTON_4, "230", "1", "On", "0", "Off", "Backup ADI", "Power", "%1d"));
+            AddFunction(new PushButton(this, STBY_ADI, BUTTON_1, "141", "Backup ADI", "Test backup ADI Button"));
 
             // Exhaust Gas Test Buttons
             AddFunction(new PushButton(this, ENGINE_INTERFACE, BUTTON_22, "131", "Engine", "Running EGT Test Button"));
@@ -753,11 +756,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new ScaledNetworkValue(this, "476", gearboxOilTempScale, "Hydraulics", "Main Temperature", "", "", BindingValueUnits.Celsius));
 
             // Mag Variation Panel
-            AddFunction(new Axis(this, PShk_7, BUTTON_1, "340", 0.12, 0, 1, "PShK-7 Latitude Entry", "Latitude Correction"));
+            AddFunction(new RotaryEncoder(this, PShk_7, BUTTON_1, "340", 0.001, "PShK-7 Latitude Entry", "Latitude Correction"));
             AddFunction(Switch.CreateToggleSwitch(this, PShk_7, BUTTON_2, "341", "1", "North", "0", "South", "PShK-7 Latitude Entry", "Latitidue Correction Switch", "%1d"));
             AddFunction(new FlagValue(this, "342", "PShK-7 Latitude Entry", "Auto Lamp", ""));
             AddFunction(new Functions.LatitudeEntry(this));
-            AddFunction(new Axis(this, ZMS_3, BUTTON_1, "338", 0.12, 0, 1, "ZMS-3 Magnetic Variation", "Magnetic variatoin selection"));
+            AddFunction(new RotaryEncoder(this, ZMS_3, BUTTON_1, "338", 0.001, "ZMS-3 Magnetic Variation", "Magnetic variatoin selection"));
             AddFunction(new Functions.MagVariation(this));
         }
     }
