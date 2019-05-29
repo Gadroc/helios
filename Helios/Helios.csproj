@@ -196,6 +196,11 @@
       <DependentUpon>LineDecorationAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\LineDecorationRenderer.cs" />
+    <Compile Include="Controls\RectangleFill.cs" />
+    <Compile Include="Controls\RectangleFillAppearanceEditor.xaml.cs">
+      <DependentUpon>RectangleFillAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RectangleFillRenderer.cs" />
     <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
@@ -1299,6 +1304,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\RectangleDecorationAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RectangleFillAppearanceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
