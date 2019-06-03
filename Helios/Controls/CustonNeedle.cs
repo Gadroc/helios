@@ -23,22 +23,13 @@ namespace GadrocsWorkshop.Helios.Controls
         private string _knobImage;
         private double _rotation;
 
-        private double _repeatDelay = 750d;
-        private double _repeatRate = 200d;
-       // private int _lastRepeat = int.MinValue;
-       // private int _lastPulse = int.MinValue;
-        private bool _repeating = false;
-        private bool _increment = false;
+       
 
         private const double SWIPE_SENSITIVY_BASE = 45d;
 
-       // private bool _mouseDown = false;
-       // private Point _mouseDownLocation;
-
-        private ClickType _clickType = ClickType.Swipe;
+      
         private CalibrationPointCollectionDouble _swipeCalibration;
-        private double _swipeThreshold = 45d;
-        private double _swipeSensitivity = 0d;
+        
 
         protected CustomNeedle(string name, Size defaultSize)
             : base(name, defaultSize)
@@ -49,40 +40,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
         #region Properties
 
-       // public ClickType ClickType
-       // {
-       //     get
-       //     {
-       //         return _clickType;
-       //     }
-       //     set
-       //     {
-       //         if (!_clickType.Equals(value))
-       //         {
-       //             ClickType oldValue = _clickType;
-       //             _clickType = value;
-       //             OnPropertyChanged("ClickType", oldValue, value, true);
-       //         }
-       //     }
-       // }
-
-      // public double SwipeSensitivity
-      // {
-      //     get
-      //     {
-      //         return _swipeSensitivity;
-      //     }
-      //     set
-      //     {
-      //         if (!_swipeSensitivity.Equals(value))
-      //         {
-      //             double oldValue = _swipeSensitivity;
-      //             _swipeSensitivity = value;
-      //             _swipeThreshold = SWIPE_SENSITIVY_BASE * _swipeCalibration.Interpolate(_swipeSensitivity);
-      //             OnPropertyChanged("SwipeSensitivity", oldValue, value, true);
-      //         }
-      //     }
-      // }
+       
 
         public string KnobImage
         {
@@ -121,39 +79,9 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
-      // public double RepeatDelay
-      // {
-      //     get
-      //     {
-      //         return _repeatDelay;
-      //     }
-      //     set
-      //     {
-      //         if (!_repeatDelay.Equals(value))
-      //         {
-      //             double oldValue = _repeatDelay;
-      //             _repeatDelay = value;
-      //             OnPropertyChanged("RepeatDelay", oldValue, value, true);
-      //         }
-      //     }
-      // }
+     
 
-      // public double RepeatRate
-      // {
-      //     get
-      //     {
-      //         return _repeatRate;
-      //     }
-      //     set
-      //     {
-      //         if (!_repeatRate.Equals(value))
-      //         {
-      //             double oldValue = _repeatRate;
-      //             _repeatRate = value;
-      //             OnPropertyChanged("RepeatRate", oldValue, value, true);
-      //         }
-      //     }
-      // }
+      
 
         #endregion
 
@@ -171,72 +99,22 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override void MouseDown(Point location)
         {
-           // if (_clickType == ClickType.Touch)
-           // {
-           //     _increment = (location.X > Width / 2d);
-           //     Pulse(_increment);
-           //     _repeating = false;
-           //     _repeatRate = 200d;
-           //     _lastRepeat = Environment.TickCount & Int32.MaxValue;
-           //
-           //     if (Parent != null && Parent.Profile != null)
-           //     {
-           //         Parent.Profile.ProfileTick += new EventHandler(Profile_ProfileTick);
-           //     }
-           // }
-           // else if (_clickType == ClickType.Swipe)
-           // {
-           //     _mouseDown = true;
-           //     _mouseDownLocation = location;
-           // }
+           
         }
 
       void Profile_ProfileTick(object sender, EventArgs e)
       {
-         // int currentTick = Environment.TickCount & Int32.MaxValue;
-         //
-         // if (_repeating && (currentTick < _lastPulse || (currentTick - _lastPulse > _repeatRate)))
-         // {
-         //     Pulse(_increment);
-         //     _lastPulse = currentTick;
-         // }
-         //
-         // if (currentTick < _lastRepeat || (currentTick - _lastRepeat > _repeatDelay))
-         // {
-         //     if (_repeating && _repeatRate > 33)
-         //     {
-         //         _repeatRate = _repeatRate / 2;
-         //         if (_repeatRate < 33) _repeatRate = 33;
-         //     }
-         //     Pulse(_increment);
-         //     _lastPulse = currentTick;
-         //     _lastRepeat = currentTick;
-         //     _repeating = true;
-         // }
+        
       }
 
        public override void MouseDrag(Point location)
        {
-          // if (_mouseDown && _clickType == ClickType.Swipe)
-          // {
-          //     double newAngle = GetAngle(_mouseDownLocation, location);
-          //
-          //     if (Math.Abs(newAngle) > _swipeThreshold)
-          //     {
-          //         bool increment = (newAngle > 0);
-          //         Pulse(increment);
-          //         _mouseDownLocation = location;
-          //     }
-          // }
+        
        }
 
        public override void MouseUp(Point location)
        {
-           //_mouseDown = false;
-           //if (Parent != null && Parent.Profile != null)
-           //{
-           //    Parent.Profile.ProfileTick -= new EventHandler(Profile_ProfileTick);
-           //}
+         
        }   
     }
 }

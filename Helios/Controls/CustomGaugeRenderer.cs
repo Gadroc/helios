@@ -39,6 +39,7 @@ namespace GadrocsWorkshop.Helios.Controls
             if (customNeedle != null)
             {
                 drawingContext.DrawImage(_bgplate_image, _bgplate_imageRect);
+
                 drawingContext.PushTransform(new RotateTransform(customNeedle.KnobRotation, _center.X, _center.Y));
                 drawingContext.DrawImage(_image, _imageRect);
                 drawingContext.DrawLine(_scopePen, _center, _punto); //draw rotation point for reference
@@ -55,11 +56,12 @@ namespace GadrocsWorkshop.Helios.Controls
 
             if (customNeedle != null) // needle
             {
-                _imageRect.Width = customNeedle.Width * customGauge.Needle_Width;
-                _imageRect.Height = customNeedle.Height * customGauge.Needle_Height;
+               
                 _imageRect.X = customNeedle.Width * customGauge.Needle_PosX; ;
                 _imageRect.Y = customNeedle.Height * customGauge.Needle_PosY; ;
                 _image = ConfigManager.ImageManager.LoadImage(customNeedle.KnobImage);
+                _imageRect.Height = customGauge.Height * customGauge.Needle_Scale;
+                _imageRect.Width = (_image.Width * (customGauge.Height/_image.Height) )*customGauge.Needle_Scale; // uniform image based on Height
                 _brush = new ImageBrush(_image);
                 _center = new Point(customGauge.Width * customGauge.Needle_PivotX, customGauge.Height * customGauge.Needle_PivotY); // calculate rotation point
                 _punto = new Point((customNeedle.Width * customGauge.Needle_PivotX)+1, customNeedle.Height * customGauge.Needle_PivotY);

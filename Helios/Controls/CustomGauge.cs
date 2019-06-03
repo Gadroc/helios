@@ -26,7 +26,7 @@ namespace GadrocsWorkshop.Helios.Controls
     {
         private double _value = 0.0d;
 
-        private double _needle_width = 1d;
+        private double _Needle_Scale = 1d;
         private double _needle_height = 1d;
         private double _needle_PivotX = 0.5d;
         private double _needle_PivotY = 0.5d;
@@ -93,19 +93,19 @@ namespace GadrocsWorkshop.Helios.Controls
         }
 
 
-        public double Needle_Width
+        public double Needle_Scale
         {
             get
             {
-                return _needle_width;
+                return _Needle_Scale;
             }
             set
             {
-                if (!_needle_width.Equals(value))
+                if (!_Needle_Scale.Equals(value))
                 {
-                    double oldValue = _needle_width;
-                    _needle_width = value;
-                    OnPropertyChanged("Needle_Width", oldValue, value, true);
+                    double oldValue = _Needle_Scale;
+                    _Needle_Scale = value;
+                    OnPropertyChanged("Needle_Scale", oldValue, value, true);
                     Refresh();
                 }
             }
@@ -337,22 +337,6 @@ namespace GadrocsWorkshop.Helios.Controls
             KnobRotation = InitialRotation + (((Value - MinValue) / (MaxValue - MinValue)) * RotationTravel);
         }
 
-     //   protected override void Pulse(bool increment)
-     //   {
-     //       double newValue = Value;
-     //  
-     //       if (increment)
-     //       {
-     //           newValue = Math.Min(Value + _stepValue, _maxValue);
-     //       }
-     //       else
-     //       {
-     //           newValue = Math.Max(Value - _stepValue, _minValue);
-     //       }
-     //  
-     //       Value = newValue;
-     //   }
-
         public override void Reset()
         {
             BeginTriggerBypass(true);
@@ -365,25 +349,18 @@ namespace GadrocsWorkshop.Helios.Controls
             base.WriteXml(writer);
             writer.WriteElementString("BGPlateImage", BGPlateImage);
             writer.WriteElementString("KnobImage", KnobImage);
-            writer.WriteElementString("Needle_Width", Needle_Width.ToString(CultureInfo.InvariantCulture));
-            writer.WriteElementString("Needle_Height", Needle_Height.ToString(CultureInfo.InvariantCulture));
-            writer.WriteElementString("Needle_PivotX", Needle_PivotX.ToString(CultureInfo.InvariantCulture));
-            writer.WriteElementString("Needle_PivotY", Needle_PivotY.ToString(CultureInfo.InvariantCulture));
+            writer.WriteElementString("Needle_Scale", Needle_Scale.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("Needle_PosX", Needle_PosX.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("Needle_PosY", Needle_PosY.ToString(CultureInfo.InvariantCulture));
+            writer.WriteElementString("Needle_PivotX", Needle_PivotX.ToString(CultureInfo.InvariantCulture));
+            writer.WriteElementString("Needle_PivotY", Needle_PivotY.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("InitialValue", InitialValue.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("StepValue", StepValue.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("MaxValue", MaxValue.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("MinValue", MinValue.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("InitialRotation", InitialRotation.ToString(CultureInfo.InvariantCulture));
             writer.WriteElementString("RotationTravel", RotationTravel.ToString(CultureInfo.InvariantCulture));
-           // writer.WriteStartElement("ClickType");
-           // writer.WriteElementString("Type", ClickType.ToString());
-           // if (ClickType == Controls.ClickType.Swipe)
-           // {
-           //     writer.WriteElementString("Sensitivity", SwipeSensitivity.ToString(CultureInfo.InvariantCulture));
-           // }
-            //writer.WriteEndElement();
+ 
         }
 
         public override void ReadXml(XmlReader reader)
@@ -391,35 +368,18 @@ namespace GadrocsWorkshop.Helios.Controls
             base.ReadXml(reader);
             BGPlateImage = reader.ReadElementString("BGPlateImage");
             KnobImage = reader.ReadElementString("KnobImage");
-            Needle_Width = double.Parse(reader.ReadElementString("Needle_Width"), CultureInfo.InvariantCulture);
-            Needle_Height = double.Parse(reader.ReadElementString("Needle_Height"), CultureInfo.InvariantCulture);
-            Needle_PivotX = double.Parse(reader.ReadElementString("Needle_PivotX"), CultureInfo.InvariantCulture);
-            Needle_PivotY = double.Parse(reader.ReadElementString("Needle_PivotY"), CultureInfo.InvariantCulture);
+            Needle_Scale = double.Parse(reader.ReadElementString("Needle_Scale"), CultureInfo.InvariantCulture);
             Needle_PosX = double.Parse(reader.ReadElementString("Needle_PosX"), CultureInfo.InvariantCulture);
             Needle_PosY = double.Parse(reader.ReadElementString("Needle_PosY"), CultureInfo.InvariantCulture);
+            Needle_PivotX = double.Parse(reader.ReadElementString("Needle_PivotX"), CultureInfo.InvariantCulture);
+            Needle_PivotY = double.Parse(reader.ReadElementString("Needle_PivotY"), CultureInfo.InvariantCulture);
             InitialValue = double.Parse(reader.ReadElementString("InitialValue"), CultureInfo.InvariantCulture);
             StepValue = double.Parse(reader.ReadElementString("StepValue"), CultureInfo.InvariantCulture);
             MaxValue = double.Parse(reader.ReadElementString("MaxValue"), CultureInfo.InvariantCulture);
             MinValue = double.Parse(reader.ReadElementString("MinValue"), CultureInfo.InvariantCulture);
             InitialRotation = double.Parse(reader.ReadElementString("InitialRotation"), CultureInfo.InvariantCulture);
             RotationTravel = double.Parse(reader.ReadElementString("RotationTravel"), CultureInfo.InvariantCulture);
-           // if (reader.Name.Equals("ClickType"))
-           // {
-           //     reader.ReadStartElement("ClickType");
-           //     ClickType = (ClickType)Enum.Parse(typeof(ClickType), reader.ReadElementString("Type"));
-           //     if (ClickType == Controls.ClickType.Swipe)
-           //     {
-           //         SwipeSensitivity = double.Parse(reader.ReadElementString("Sensitivity"), CultureInfo.InvariantCulture);
-           //     }
-           //     reader.ReadEndElement();
-           // }
-           // else
-           // {
-           //     ClickType = Controls.ClickType.Swipe;
-           //     SwipeSensitivity = 0d;
-           // }
-
-
+     
             BeginTriggerBypass(true);
             Value = InitialValue;
             SetRotation();

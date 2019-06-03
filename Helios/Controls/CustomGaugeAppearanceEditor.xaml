@@ -40,31 +40,31 @@
         </Label>
         <HeliosSdk:ImagePicker Grid.Column="1" Grid.Row="3" ImageFilename="{Binding Control.KnobImage, Mode=TwoWay}" />
         <Label Grid.Column="0" Grid.Row="4 " FontSize="10" HorizontalAlignment="Right">
-            <Label.ToolTip>Width of the Needle relative to gauge size.</Label.ToolTip> Width
+            <Label.ToolTip>Scale of the Needle relative to gauge vertical size.</Label.ToolTip> Scale
         </Label>
-                    <Slider Grid.Column="1" Grid.Row="4" Minimum="0" Maximum="1" Value="{Binding Control.Needle_Width}" Margin="2" GotFocus="Width_GotFocus"/>
-        <Label Grid.Column="0" Grid.Row="5" FontSize="10" HorizontalAlignment="Right">
-            <Label.ToolTip>height of the Needle relative to gauge size.</Label.ToolTip> Height
-        </Label>
-                    <Slider Grid.Column="1" Grid.Row="5" Minimum="0" Maximum="1" Value="{Binding Control.Needle_Height}" Margin="2" GotFocus="Height_GotFocus"/>
+                    <Slider Grid.Column="1" Grid.Row="4" Minimum="0" Maximum="1" Value="{Binding Control.Needle_Scale}" Margin="2" GotFocus="Scale_GotFocus"/>
+
 
         <Label Grid.Column="0" Grid.Row="6" FontSize="10" HorizontalAlignment="Right">
-            <Label.ToolTip>Pivot X of the Needle relative to his size.</Label.ToolTip> Pivot X
-        </Label>
-        <Slider Grid.Column="1" Grid.Row="6" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PivotX}" Margin="2" GotFocus="PivotX_GotFocus"/>
-        <Label Grid.Column="0" Grid.Row="7" FontSize="10" HorizontalAlignment="Right">
-            <Label.ToolTip>Pivot Y of the Needle relative to his size.</Label.ToolTip> Pivot Y
-        </Label>
-        <Slider Grid.Column="1" Grid.Row="7" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PivotY}" Margin="2" GotFocus="PivotY_GotFocus"/>
-
-        <Label Grid.Column="0" Grid.Row="8" FontSize="10" HorizontalAlignment="Right">
             <Label.ToolTip>Position X of the Needle relative to gauge.</Label.ToolTip> Position X
         </Label>
-        <Slider Grid.Column="1" Grid.Row="8" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PosX}" Margin="2" GotFocus="Needle_posX_GotFocus"/>
-        <Label Grid.Column="0" Grid.Row="9" FontSize="10" HorizontalAlignment="Right">
+        <Slider Grid.Column="1" Grid.Row="6" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PosX}" Margin="2" GotFocus="Needle_posX_GotFocus"/>
+        <Label Grid.Column="0" Grid.Row="7" FontSize="10" HorizontalAlignment="Right">
             <Label.ToolTip>Position Y of the Needle relative to gauge.</Label.ToolTip> Position Y
         </Label>
-        <Slider Grid.Column="1" Grid.Row="9" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PosY}" Margin="2" GotFocus="Needle_posX_GotFocus" />
+        <Slider Grid.Column="1" Grid.Row="7" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PosY}" Margin="2" GotFocus="Needle_posX_GotFocus" />
+        
+        
+        <Label Grid.Column="0" Grid.Row="8" FontSize="10" HorizontalAlignment="Right">
+            <Label.ToolTip>Pivot X of the Needle relative to his size.</Label.ToolTip> Pivot X
+        </Label>
+        <Slider Grid.Column="1" Grid.Row="8" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PivotX}" Margin="2" GotFocus="PivotX_GotFocus"/>
+        <Label Grid.Column="0" Grid.Row="9" FontSize="10" HorizontalAlignment="Right">
+            <Label.ToolTip>Pivot Y of the Needle relative to his size.</Label.ToolTip> Pivot Y
+        </Label>
+        <Slider Grid.Column="1" Grid.Row="9" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PivotY}" Margin="2" GotFocus="PivotY_GotFocus"/>
+
+       
         
         
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10

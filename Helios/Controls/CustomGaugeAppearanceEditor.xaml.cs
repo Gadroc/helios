@@ -48,53 +48,26 @@ namespace GadrocsWorkshop.Helios.Controls
                 pot.Value = pot.MaxValue;
             }
         }
-        private void Width_GotFocus(object sender, RoutedEventArgs e)
+        private void Scale_GotFocus(object sender, RoutedEventArgs e)
         {
-            CustomGauge pot = Control as CustomGauge;
-            if (pot != null)
-            {
-                //pot.Value = pot.Needle_Width;
-            }
+           
         }
-        private void Height_GotFocus(object sender, RoutedEventArgs e)
-        {
-            CustomGauge pot = Control as CustomGauge;
-            if (pot != null)
-            {
-                //pot.Value = pot.Needle_Height;
-            }
-        }
+       
         private void PivotX_GotFocus(object sender, RoutedEventArgs e)
         {
-            CustomGauge pot = Control as CustomGauge;
-            if (pot != null)
-            {
-               // pot.Value = pot.Needle_PivotX;
-            }
+           
         }
         private void PivotY_GotFocus(object sender, RoutedEventArgs e)
         {
-            CustomGauge pot = Control as CustomGauge;
-            if (pot != null)
-            {
-                //pot.Value = pot.Needle_PivotY;
-            }
+           
         }
         private void Needle_posX_GotFocus(object sender, RoutedEventArgs e)
         {
-            CustomGauge pot = Control as CustomGauge;
-            if (pot != null)
-            {
-               // pot.Value = pot.Needle_PosX;
-            }
+          
         }
         private void Needle_posY_GotFocus(object sender, RoutedEventArgs e)
         {
-            CustomGauge pot = Control as CustomGauge;
-            if (pot != null)
-            {
-                //pot.Value = pot.Needle_PosY;
-            }
+          
         }
     }
 }

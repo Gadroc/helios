@@ -73,16 +73,16 @@ namespace GadrocsWorkshop.Helios.Controls
 
    
 
-        public HeliosTrigger EnterTriggger
-        {
-            get { return _enterTrigger; }
-        }
-
-        public HeliosTrigger ExitTrigger
-        {
-            get { return _exitTrigger; }
-        }
-
+       public HeliosTrigger EnterTriggger
+       {
+           get { return _enterTrigger; }
+       }
+     
+       public HeliosTrigger ExitTrigger
+       {
+           get { return _exitTrigger; }
+       }
+     
         #endregion
     }
 }
