@@ -30,7 +30,7 @@ namespace GadrocsWorkshop.Helios.Controls
     public class KneeBoard : HeliosVisual
     {
         private string _imageFile = "";
-        private ImageAlignmentPlus _alignment = ImageAlignmentPlus.Centered;
+        private ImageAlignmentPlus _alignment = ImageAlignmentPlus.Uniform;
         private Color _borderColor = Colors.Black;
         private KneeBoardPositionCollection _positions = new KneeBoardPositionCollection();
 

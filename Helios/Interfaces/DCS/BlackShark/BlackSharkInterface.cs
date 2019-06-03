@@ -383,6 +383,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new FlagValue(this, "187", "Left Warning Panel", "Turbo Gear", "Accessory gearbox disconnected from rotor drive"));
             AddFunction(new FlagValue(this, "204", "Left Warning Panel", "AGB Oil Press", "Gearbox oil pressure normal (before start)"));
             AddFunction(new FlagValue(this, "213", "Left Warning Panel", "SL Hook Open", "Sling load lock (hook) is open"));
+            AddFunction(new ScaledNetworkValue(this, "587", 60d, "Misc", "Ambien Temperature", "Current ambient temperature", "-60 - 50", BindingValueUnits.Celsius));
+
             #endregion
 
             #region Magnetic Compass
@@ -463,8 +465,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new PushButton(this, UV_26, BUTTON_9, "40", "UV-26 CMD", "Stop dispense"));
             AddFunction(new FlagValue(this, "541", "UV-26 CMD", "Left Dispense Lamp", "Lit when set to dispense from left dispenser"));
             AddFunction(new FlagValue(this, "542", "UV-26 CMD", "Right Dispense Lamp", "Lit when set to dispense from right dispenser"));
-            AddFunction(GuardedSwitch.CreateToggleSwitch(this, UV_26, BUTTON_10, "496", BUTTON_11, "497", "1", "0", "1", "On", "0", "Off", "UV-26 CMD", "Power", "%1d"));
-            AddFunction(GuardedSwitch.CreateToggleSwitch(this, UV_26, BUTTON_12, "498", BUTTON_13, "499", "1", "0", "1", "On", "0", "Off", "UV-26 CMD", "Test", "%1d"));
+            AddFunction(GuardedSwitch.CreateToggleSwitch(this, UV_26, BUTTON_10, "496", BUTTON_12, "497", "1", "0", "1", "On", "0", "Off", "UV-26 CMD", "Power", "%1d"));
+            AddFunction(GuardedSwitch.CreateToggleSwitch(this, UV_26, BUTTON_11, "498", BUTTON_13, "499", "1", "0", "1", "On", "0", "Off", "UV-26 CMD", "Test", "%1d"));
             AddFunction(new Text(this, "2005", "UV-26 CMD", "Display digits", "UV-26 Message Text"));
             #endregion
 
@@ -717,7 +719,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
                 "0.3", "3", "0.4", "4", "0.5", "5", "0.6", "6", "0.7", "7", "0.8", "8", "0.9", "9", "1.0", "10" }));
             AddFunction(Switch.CreateRotarySwitch(this, WEAP_INTERFACE, BUTTON_23, "484", "PUI-800", "Unguided Ballistics Selector", "%0.1f", new string[] {"0.0", "0", "0.1", "1", "0.2", "2",
                 "0.3", "3", "0.4", "4", "0.5", "5", "0.6", "6", "0.7", "7", "0.8", "8", "0.9", "9", "1.0", "10" }));
-            AddFunction(Switch.CreateToggleSwitch(this, PPK, BUTTON_3, "485", "1", "On", "0", "Off", "PPK", "Systems BIT Selector", "%1d"));
+            AddFunction(Switch.CreateRotarySwitch(this, PPK, BUTTON_3, "485", "PPK", "Systems BIT Selector", "%0.1f", new string[] {"0.0", "0", "0.1", "1", "0.2", "2",
+                "0.3", "3", "0.4", "4", "0.5", "5", "0.6", "6", "0.7", "7", "0.8", "8" }));
             AddFunction(Switch.CreateToggleSwitch(this, PPK, BUTTON_4, "486", "1", "On", "0", "Off", "PPK", "Computer BIT Selector", "%1d"));
             AddFunction(new PushButton(this, PPK, BUTTON_7, "489", "PPK", "Self Test Button"));
             AddFunction(Switch.CreateToggleSwitch(this, PPK, BUTTON_8, "490", "1", "On", "0", "Off", "PPK", "Emergency INU Alignment", "%1d"));
