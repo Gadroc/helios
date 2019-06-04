@@ -142,15 +142,6 @@ namespace GadrocsWorkshop.Helios.Controls
                    
                     OnDisplayUpdate();
                    
-                    if (!BypassTriggers)
-                    {
-                        if (oldValue > 0 && oldValue < Positions.Count)
-                        {
-                            Positions[oldValue - 1].ExitTrigger.FireTrigger(BindingValue.Empty);
-                        }
-                        Positions[_currentPosition - 1].EnterTriggger.FireTrigger(BindingValue.Empty);
-                    }
-
                    
                 }
             }
@@ -173,7 +164,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 }
             }
         }
-
+       
         void PositionChanged(object sender, KneeBoardPositionChangeArgs e)
         {
             PropertyNotificationEventArgs args = new PropertyNotificationEventArgs(e.Position, e.PropertyName, e.OldValue, e.NewValue, true);
@@ -259,12 +250,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             if (e.OldItems != null)
             {
-                foreach (KneeBoardPosition position in e.OldItems)
-                {
-                    Triggers.Remove(position.EnterTriggger);
-                    Triggers.Remove(position.ExitTrigger);
-                }
-
+              
                 if (Positions.Count == 0)
                 {
                     _currentPosition = 0;
@@ -312,7 +298,7 @@ namespace GadrocsWorkshop.Helios.Controls
             {
                 reader.Read();
             }
-            DefaultPosition = int.Parse(reader.ReadElementString("DefaultPosition"), CultureInfo.InvariantCulture);
+           
          
             if (reader.Name.Equals("Alignment"))
             {
@@ -323,7 +309,7 @@ namespace GadrocsWorkshop.Helios.Controls
             base.ReadXml(reader);
 
 			BeginTriggerBypass(true);
-			CurrentPosition = DefaultPosition -1; // 
+			CurrentPosition = DefaultPosition; // 
 			EndTriggerBypass(true);
 		}
 
@@ -340,12 +326,6 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             writer.WriteEndElement();
 
-            // prepare default number to save
-            int saved_default = Int32.Parse(DefaultPosition.ToString(CultureInfo.InvariantCulture));
-            saved_default++;  // add one to fix the error
-            
-            
-            writer.WriteElementString("DefaultPosition", saved_default.ToString()); 
             writer.WriteElementString("Alignment", Alignment.ToString());
           
             // Save base after image so size is properly persisted.

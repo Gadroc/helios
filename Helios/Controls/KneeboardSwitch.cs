@@ -40,12 +40,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
         private HeliosValue _positionValue;
         private HeliosValue _KneeboardPosition;
-        private HeliosTrigger _positionOneEnterAction;
-        private HeliosTrigger _positionOneExitAction;
-        private HeliosTrigger _positionTwoEnterAction;
-        private HeliosTrigger _positionTwoExitAction;
-        private HeliosTrigger _positionThreeEnterAction;
-        private HeliosTrigger _positionThreeExitAction;
+       
 
         public KneeboardSwitch()
             : base("Kneeboard Switch", new System.Windows.Size(50, 100))
@@ -53,19 +48,6 @@ namespace GadrocsWorkshop.Helios.Controls
             _positionOneImage = "{Helios}/Images/Rockers/triangles-light-up.png";
             _positionTwoImage = "{Helios}/Images/Rockers/triangles-light-norm.png";
             _positionThreeImage = "{Helios}/Images/Rockers/triangles-light-down.png";
-
-            _positionOneEnterAction = new HeliosTrigger(this, "", "position one", "entered", "Triggered when position one is entered or depressed.");
-            Triggers.Add(_positionOneEnterAction);
-            _positionOneExitAction = new HeliosTrigger(this, "", "position one", "exited", "Triggered when posotion one is exited or released.");
-            Triggers.Add(_positionOneExitAction);
-            _positionTwoEnterAction = new HeliosTrigger(this, "", "position two", "entered", "Triggered when position two is entered or depressed.");
-            Triggers.Add(_positionTwoEnterAction);
-            _positionTwoExitAction = new HeliosTrigger(this, "", "position two", "exited", "Triggered when posotion two is exited or released.");
-            Triggers.Add(_positionTwoExitAction);
-            _positionThreeEnterAction = new HeliosTrigger(this, "", "position three", "entered", "Triggered when position three is entered or depressed.");
-            Triggers.Add(_positionThreeEnterAction);
-            _positionThreeExitAction = new HeliosTrigger(this, "", "position three", "exited", "Triggered when posotion three is exited or released.");
-            Triggers.Add(_positionThreeExitAction);
 
             _positionValue = new HeliosValue(this, new BindingValue((double)SwitchPosition), "", "position", "Current position of the switch.", "1,2,3 1 is top position", BindingValueUnits.Numeric);
             _positionValue.Execute += new HeliosActionHandler(SetPositionAction_Execute);
@@ -159,22 +141,6 @@ namespace GadrocsWorkshop.Helios.Controls
                 {
                     KneeboardSwitchPosition oldValue = _position;
 
-                    if (!BypassTriggers)
-                    {
-                        switch (oldValue)
-                        {
-                            case KneeboardSwitchPosition.One:
-                                _positionOneExitAction.FireTrigger(BindingValue.Empty);
-                                break;
-                            case KneeboardSwitchPosition.Two:
-                                _positionTwoExitAction.FireTrigger(BindingValue.Empty);
-                                break;
-                            case KneeboardSwitchPosition.Three:
-                                _positionThreeExitAction.FireTrigger(BindingValue.Empty);
-                                break;
-                        }
-                    }
-
                     _position = value;
                     _positionValue.SetValue(new BindingValue((double)_position), BypassTriggers);
 
@@ -183,14 +149,12 @@ namespace GadrocsWorkshop.Helios.Controls
                         switch (value)
                         {
                             case KneeboardSwitchPosition.One:
-                                _positionOneEnterAction.FireTrigger(BindingValue.Empty);
                                 _KneeboardPosition.SetValue(new BindingValue(_value_inc), BypassTriggers); // increment kneeboard position
                                  break;
                             case KneeboardSwitchPosition.Two:
-                                _positionTwoEnterAction.FireTrigger(BindingValue.Empty);
+                               
                                 break;
                             case KneeboardSwitchPosition.Three:
-                                _positionThreeEnterAction.FireTrigger(BindingValue.Empty);
                                 _KneeboardPosition.SetValue(new BindingValue(_value_dec), BypassTriggers);  // decrement kneeboard position
                                 break;
                         }

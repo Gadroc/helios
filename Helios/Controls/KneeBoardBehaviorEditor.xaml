@@ -79,10 +79,6 @@
             </ListBox.CommandBindings>
         </ListBox>
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"  Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Defaults</TextBlock>
-        <Label Grid.Column="0" Grid.Row="3" FontSize="10" HorizontalAlignment="Right" Content="Position">
-            <Label.ToolTip>Default position which will be set on profile start up or reset.</Label.ToolTip>
-        </Label>
-        <ComboBox Name="DefaultPositionCombo" Grid.Column="1" Grid.Row="3" FontSize="10" Margin="0,2,0,2" HorizontalAlignment="Left" ItemsSource="{Binding Control.Positions}" DisplayMemberPath="Name" SelectionChanged="ComboBox_SelectionChanged" />
-    </Grid>
+      
+           </Grid>
 </HeliosSdk:HeliosPropertyEditor>

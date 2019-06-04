@@ -41,7 +41,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 KneeBoard page = Control as KneeBoard;
                 if (page != null && page.DefaultPosition > 0)
                 {
-                    DefaultPositionCombo.SelectedIndex = page.DefaultPosition - 1;
+                
                 }
             }
             base.OnPropertyChanged(e);
@@ -103,14 +103,7 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            KneeBoard page = Control as KneeBoard;
-            if (page != null)
-            {
-                page.DefaultPosition = DefaultPositionCombo.SelectedIndex  ; // +1
-            }
-        }
+      
 
         private void Delete_Position_Click(object sender, RoutedEventArgs e)
         {

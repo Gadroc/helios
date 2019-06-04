@@ -20,10 +20,7 @@ namespace GadrocsWorkshop.Helios.Controls
     {
         private int _index;
         private string _name;
-        
-        private HeliosTrigger _enterTrigger;
-        private HeliosTrigger _exitTrigger;
-
+       
         public KneeBoardPosition(KneeBoard kneeBoard, int index, string name)
         {
             _index = index;
@@ -71,18 +68,6 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
-   
-
-       public HeliosTrigger EnterTriggger
-       {
-           get { return _enterTrigger; }
-       }
-     
-       public HeliosTrigger ExitTrigger
-       {
-           get { return _exitTrigger; }
-       }
-     
         #endregion
     }
 }
