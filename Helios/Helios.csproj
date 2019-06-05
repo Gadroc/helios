@@ -214,6 +214,7 @@
     <Compile Include="Controls\LineDecorationRenderer.cs" />
     <Compile Include="Controls\Metric.cs" />
     <Compile Include="Controls\MetricRenderer.cs" />
+    <Compile Include="Controls\PulseType.cs" />
     <Compile Include="Controls\RectangleFill.cs" />
     <Compile Include="Controls\RectangleFillAppearanceEditor.xaml.cs">
       <DependentUpon>RectangleFillAppearanceEditor.xaml</DependentUpon>
