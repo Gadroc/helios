@@ -117,6 +117,22 @@
     <Compile Include="CompositeVisual.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="Controls\ClickType.cs" />
+    <Compile Include="Controls\CustomGauge.cs" />
+    <Compile Include="Controls\CustomGaugeAppearanceEditor.xaml.cs">
+      <DependentUpon>CustomGaugeAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomGaugeBehaviorEditor.xaml.cs">
+      <DependentUpon>CustomGaugeBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomGaugeRenderer.cs" />
+    <Compile Include="Controls\CustonNeedle.cs" />
+    <Compile Include="Controls\GeneralAdi.cs" />
+    <Compile Include="Controls\GeneralAdiAppearanceEditor.xaml.cs">
+      <DependentUpon>GeneralAdiAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GeneralAdiBehaviorEditor.xaml.cs">
+      <DependentUpon>GeneralAdiBehaviorEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GuardedThreeWayAppearancePropertyEditor.xaml.cs">
       <DependentUpon>GuardedThreeWayAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
@@ -173,6 +189,29 @@
     </Compile>
     <Compile Include="Controls\IndicatorPushButtonRenderer.cs" />
     <Compile Include="Controls\IndicatorRenderer.cs" />
+    <Compile Include="Controls\KneeBoard.cs" />
+    <Compile Include="Controls\KneeBoardAddPositionUndoEvent.cs" />
+    <Compile Include="Controls\KneeBoardAppearanceEditor.xaml.cs">
+      <DependentUpon>KneeBoardAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeBoardBehaviorEditor.xaml.cs">
+      <DependentUpon>KneeBoardBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeBoardDeletePositionUndoEvent.cs" />
+    <Compile Include="Controls\KneeBoardPosition.cs" />
+    <Compile Include="Controls\KneeBoardPositionChangeArgs.cs" />
+    <Compile Include="Controls\KneeBoardPositionCollection.cs" />
+    <Compile Include="Controls\KneeboardRenderer.cs" />
+    <Compile Include="Controls\KneeboardSwitch.cs" />
+    <Compile Include="Controls\KneeboardSwitchAppearanceEditor.xaml.cs">
+      <DependentUpon>KneeboardSwitchAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeboardSwitchBehaviorEditor.xaml.cs">
+      <DependentUpon>KneeboardSwitchBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeboardSwitchPosition.cs" />
+    <Compile Include="Controls\KneeboardSwitchRenderer.cs" />
+    <Compile Include="Controls\KneeboardSwitchType.cs" />
     <Compile Include="Controls\LineDecoration.cs" />
     <Compile Include="Controls\LineDecorationAppearancePropertyEditor.xaml.cs">
       <DependentUpon>LineDecorationAppearancePropertyEditor.xaml</DependentUpon>
@@ -181,6 +220,14 @@
     <Compile Include="FontManager.cs" />
     <Compile Include="Gauges\A-10\A10CDevice\A10CDevice.cs" />
     <Compile Include="Gauges\A-10\A10CDevice\A10CDeviceRenderer.cs" />
+    <Compile Include="Controls\Metric.cs" />
+    <Compile Include="Controls\MetricRenderer.cs" />
+    <Compile Include="Controls\PulseType.cs" />
+    <Compile Include="Controls\RectangleFill.cs" />
+    <Compile Include="Controls\RectangleFillAppearanceEditor.xaml.cs">
+      <DependentUpon>RectangleFillAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RectangleFillRenderer.cs" />
     <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\ODU\ODU.cs" />
@@ -1238,6 +1285,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\CustomGaugeAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CustomGaugeBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GeneralAdiAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GeneralAdiBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\GuardedThreeWayAppearancePropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1286,6 +1349,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\KneeBoardAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeBoardBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeboardSwitchAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeboardSwitchBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\LineDecorationAppearancePropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1307,6 +1386,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\RectangleDecorationAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RectangleFillAppearanceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -3625,6 +3708,7 @@
     <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE.png" />
     <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE_DN.png" />
     <Resource Include="Gauges\FA-18C\IFEI\IFEI Reflections.png" />
+    <Content Include="Controls\kneeboard_image.png" />
     <Content Include="Helios.ico" />
     <Resource Include="Images\FA-18C\UFC Button Dn 0 a.png" />
     <Resource Include="Images\FA-18C\UFC Button Dn 1.png" />
