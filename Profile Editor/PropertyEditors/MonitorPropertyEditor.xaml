@@ -57,11 +57,11 @@
         <Label Grid.Column="0" Grid.Row="1" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top">Always On Top</Label>
         <CheckBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,6,6,6" IsChecked="{Binding Control.AlwaysOnTop}" />
 
-        <Label Grid.Column="0" Grid.Row="2" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top">Touch Click delay</Label>
+        <!--<Label Grid.Column="0" Grid.Row="2" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top">Touch Click delay</Label>
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
             <TextBox ToolTip="The value in milliseconds when a second click will be ignored.&#x0a;This may be needed when Windows cannot suppress multiple&#x0a;mouse click events." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,6,6,0" Text="{Binding Control.SuppressMouseAfterTouchDuration}" Width="48" />
             <Label FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top">ms</Label>
-        </StackPanel>
+        </StackPanel>-->
 
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Background</TextBlock>
 

@@ -204,10 +204,10 @@ namespace GadrocsWorkshop.Helios
                 _alwaysOnTop = (bool)bc.ConvertFromInvariantString(reader.ReadElementString("AlwaysOnTop"));
             }
 
-            if (reader.Name.Equals("SuppressMouseAfterTouchDuration"))
-            {
-                _suppressMouseAfterTouchDuration = (int)ic.ConvertFromInvariantString(reader.ReadElementString("SuppressMouseAfterTouchDuration"));
-            }
+            //if (reader.Name.Equals("SuppressMouseAfterTouchDuration"))
+            //{
+            //    _suppressMouseAfterTouchDuration = (int)ic.ConvertFromInvariantString(reader.ReadElementString("SuppressMouseAfterTouchDuration"));
+            //}
 
             if (!reader.IsEmptyElement)
             {
@@ -249,10 +249,10 @@ namespace GadrocsWorkshop.Helios
 
             writer.WriteElementString("Orientation", Orientation.ToString());
             writer.WriteElementString("AlwaysOnTop", bc.ConvertToInvariantString(AlwaysOnTop));
-            if(_suppressMouseAfterTouchDuration > 0) //new parameter so only write if set to allow older Control Centers to load the profile if it is zero
-            {
-                writer.WriteElementString("SuppressMouseAfterTouchDuration", ic.ConvertToInvariantString(_suppressMouseAfterTouchDuration));
-            }
+            //if(_suppressMouseAfterTouchDuration > 0) //new parameter so only write if set to allow older Control Centers to load the profile if it is zero
+            //{
+            //    writer.WriteElementString("SuppressMouseAfterTouchDuration", ic.ConvertToInvariantString(_suppressMouseAfterTouchDuration));
+            //}
 
             writer.WriteStartElement("Background");
             if (!string.IsNullOrWhiteSpace(BackgroundImage))
