@@ -1,5 +1,6 @@
 1.4.2019.06xx Release
 ----------------------------
+* GNU LESSER GENERAL PUBLIC LICENSE file added to the distribution
 * Initial F-14B Interface prototype - (*unstable*)
 * Returned missing BMS F-16 images
 * Configurable touchscreen delay (derammo)

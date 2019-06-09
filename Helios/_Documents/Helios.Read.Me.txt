@@ -92,5 +92,3 @@ end
 Loss of bindings on Reset Monitors https://github.com/BlueFinBima/Helios/issues/117
 	Save the profile after doing a reset monitor.  The problem appears to happen 
 	after two successive reset monitors.
-
-     

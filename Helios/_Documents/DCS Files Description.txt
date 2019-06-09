@@ -1,0 +1,19 @@
+Helios is a virtual cockpit simulator system for aircraft in the DCS World.  With Helios, you can create virtual cockpits, which allow you to increase your immersion in your favourite combat aircraft.  Helios profiles can be created to allow you to simulate switches, knobs, gauges and more complex instruments which can then be mapped into DCS to give you a much improved combat pilot experience.  Many people use a touch screen monitor with their virtual cockpits.   It is also possible to run the Helios cockpit on a remote PC.
+
+Helios was originally created by Craig "Gadroc" Courtney.  Gadroc donated his code to the open source community and this code is currently delivered out of the BlueFinBima fork on Github.  The BlueFinBima fork of Helios is aided & abetted by Cylution, CaptZeen, Damien022 and yzfanimal.  From 1.4.2019.0317, Helios also distributes Iris by Will Hartsell to facilitate remote connection of the Helios Control Center. 
+
+In addition to the functionality that many know and love, this release contains an interface for the AV-8B and a partial interface for the MiG-21, the latter being contributed by "Cylution".  Additionally there is now an interface for the F/A-18C Hornet, and simple interfaces for the Mirage 2000C as well as the Mi-8.  The latter pair are prototype code.
+
+The rate of growth in the number of aircraft in DCS means that unless there are many more contributors to the Helios project, there will not be an interface for every aircraft type, however this release includes a generic aircraft interface that is designed to allow profile designers such as the remarkable Capt Zeen ( http://www.captzeen.com/helios/index.asp ) to more easily develop profiles for new aircraft.
+
+A (short) basic overview of Helios can be viewed on https://www.youtube.com/watch?v=78to_NENQT8
+and a video tutorial demonstrating Installing Helios for beginners is here https://www.youtube.com/watch?v=8n1cL1Szgmg
+
+Tutorials about creating profiles can be viewed https://www.youtube.com/results?search_query=dcs+helios+tutorial and Gadroc's site at http://www.gadrocsworkshop.com/downloads/ still exists which contains profiles, older information and files relating to Helios.
+
+The BlueFinBima fork of Helios development effort is aided & abetted by Cylution, CaptZeen, Damien022 and yzfanimal
+
+https://forums.eagle.ru/showthread.php?p=3637870 can be used for communications about this release of Helios.
+License: Freeware - Free version, Do Not Redistribute
+
+Tags: HELIOS, cockpit, virtual, gadroc, profile
