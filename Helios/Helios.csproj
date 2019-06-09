@@ -487,6 +487,7 @@
     <Compile Include="IHeliosValue.cs" />
     <Compile Include="IImageManager.cs" />
     <Compile Include="ImageAlignment.cs" />
+    <Compile Include="ImageAlignmentPlus.cs" />
     <Compile Include="ImageManager.cs" />
     <Compile Include="IModuleManager.cs" />
     <Compile Include="Interfaces\DCS\A10C\A10CInterface.cs" />
@@ -3190,7 +3191,7 @@
     <Resource Include="Images\Toggles\toggle-up.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Controls\missing_image.png" />
+    <Resource Include="Images\General\missing_image.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Interfaces\Falcon\OpenFalcon\ded.png" />
@@ -3708,7 +3709,7 @@
     <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE.png" />
     <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE_DN.png" />
     <Resource Include="Gauges\FA-18C\IFEI\IFEI Reflections.png" />
-    <Content Include="Controls\kneeboard_image.png" />
+    <Resource Include="Images\KneeBoards\default_kneeboard_image.png" />
     <Content Include="Helios.ico" />
     <Resource Include="Images\FA-18C\UFC Button Dn 0 a.png" />
     <Resource Include="Images\FA-18C\UFC Button Dn 1.png" />

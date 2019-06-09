@@ -1,5 +1,11 @@
-1.4.2019.0xxx Release
+1.4.2019.06xx Release
 ----------------------------
+* Initial F-14B Interface prototype - (*unstable*)
+* Returned missing BMS F-16 images
+* Configurable touchscreen delay (derammo)
+* Rectangle Fill control used to create instruments like the Su25 Fuel bars and Mi-8 doppler bars (Capt Zeen)
+* Kneeboard control added (Capt Zeen)
+* Black Shark Interface change for Custom Gauge (Capt Zeen) 
 * Configurable reflectivity for front Glass of IFEI (derammo)
 * Update Phidgets to version Phidget21 2.1.9 Build date Feb 15 2018 (KiwiLostInMelb)
 * Fixed Phidgits crashing on startup and closure (KiwiLostInMelb)

@@ -41,7 +41,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
 
         public KneeBoard()
-            : base("mi_carrusel", new Size(100, 100))
+            : base("Kneeboard_Carousel", new Size(100, 100))
         {
             IsSnapTarget = false;
 
@@ -54,8 +54,8 @@ namespace GadrocsWorkshop.Helios.Controls
           
             _positions.CollectionChanged += new NotifyCollectionChangedEventHandler(Positions_CollectionChanged);
             _positions.PositionChanged += new EventHandler<KneeBoardPositionChangeArgs>(PositionChanged);
-            _positions.Add(new KneeBoardPosition(this, 1, "{Helios}/Controls/kneeboard_image.png"));
-            _positions.Add(new KneeBoardPosition(this, 2, "{Helios}/Controls/kneeboard_image.png"));
+            _positions.Add(new KneeBoardPosition(this, 1, "{Helios}/Images/KneeBoards/default_kneeboard_image.png"));
+            _positions.Add(new KneeBoardPosition(this, 2, "{Helios}/Images/KneeBoards/default_kneeboard_image.png"));
             _currentPosition = 0;
             _defaultPosition = 0;
 

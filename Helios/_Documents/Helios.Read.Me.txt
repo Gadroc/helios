@@ -1,7 +1,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
-* *                       Helios 1.4.2019.04xx                              * * 
+* *                       Helios 1.4.2019.06xx                              * * 
 * *                                                                         * * 
 * *                                READ.ME                                  * * 
 * *                                                                         * * 
@@ -25,7 +25,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Helios 1.4.2019.04xx is not an explicit collaboration with Craig Courtney, 
+Helios 1.4.2019.06xx is not an explicit collaboration with Craig Courtney, 
 but it relies heavily on the original Helios.  This distribution is not endorsed 
 by Craig Courtney.  
                                                                      
@@ -71,9 +71,8 @@ A-10C Exports.lua in place, then the result will not be pleasant.
 
 2) The KeypressReceiver.exe is used for receiving Helios keypresses 
 when DCS is installed on a separate PC.  
-There is no installer for the KeyPress Receiver (yet) but the exe can be 
-run in a directory (and PC) of your choosing.
-Set the server IP to the IP of your Helios PC and open port 5009 
+There is an installer for the KeyPress Receiver for installing it on your PC running.
+Set the server IP address to the IP address of your Helios PC and open port 5009 
 (fixed port for now) on the Helios PC.
 The receiver is not required for instances where Helios runs on the DCS PC.
 

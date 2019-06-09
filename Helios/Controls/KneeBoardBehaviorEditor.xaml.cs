@@ -63,7 +63,7 @@ namespace GadrocsWorkshop.Helios.Controls
             KneeBoard page = Control as KneeBoard;
             if (page != null)
             {
-                KneeBoardPosition position = new KneeBoardPosition(page, page.Positions.Count + 1, page.Positions.Count.ToString(CultureInfo.InvariantCulture));
+                KneeBoardPosition position = new KneeBoardPosition(page, page.Positions.Count + 1, "{Helios}/Images/KneeBoards/default_kneeboard_image.png");
                 page.Positions.Add(position);
                 ConfigManager.UndoManager.AddUndoItem(new KneeBoardAddPositionUndoEvent(page, position));
             }

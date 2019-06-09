@@ -30,11 +30,9 @@ namespace GadrocsWorkshop.Helios.Controls
         {
            if (_image != null)
             {
-				//_image = ConfigManager.ImageManager.LoadImage(profileImage.Positions[profileImage._currentPosition].Name);
 				KneeBoard profileImage = Visual as KneeBoard;
                 OnRefresh();
                 drawingContext.DrawRoundedRectangle(_imageBrush, _borderPen, _imageRect, 0, 0);
-                //drawingContext.DrawRoundedRectangle(_imageBrush, _borderPen, _imageRect, profileImage.CornerRadius, profileImage.CornerRadius);
             }
         }
 
@@ -48,7 +46,6 @@ namespace GadrocsWorkshop.Helios.Controls
 
                 Rect scaledRect = new Rect(_imageRect.X, _imageRect.Y, _imageRect.Width * scaleX, _imageRect.Height * scaleY);
                 drawingContext.DrawRoundedRectangle(_imageBrush, _borderPen, scaledRect, 0, 0);
-                //drawingContext.DrawRoundedRectangle(_imageBrush, _borderPen, scaledRect, profileImage.CornerRadius, profileImage.CornerRadius);
             }            
         }
 
@@ -67,7 +64,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
                 if (_image == null)
                 {
-                    _image = ConfigManager.ImageManager.LoadImage("{Helios}/Controls/kneeboard_image.png");
+                    _image = ConfigManager.ImageManager.LoadImage("{Helios}/Images/KneeBoards/default_kneeboard_image.png");
                     _imageBrush = new ImageBrush(_image);
                     _imageBrush.Stretch = Stretch.Uniform;
                     _imageBrush.TileMode = TileMode.None;
