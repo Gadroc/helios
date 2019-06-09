@@ -91,8 +91,8 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                 else if (upKey != Keys.None)
                 {
                     Key = upKey;
-                    DispatcherTimer minizeTimer = new DispatcherTimer(new TimeSpan(0, 0, 0, 0, 250), DispatcherPriority.Normal, TimedClose, Dispatcher);
-                    minizeTimer.Start();
+                    DispatcherTimer minimizeTimer = new DispatcherTimer(new TimeSpan(0, 0, 0, 0, 250), DispatcherPriority.Normal, TimedClose, Dispatcher);
+                    minimizeTimer.Start();
                 }
             }
 

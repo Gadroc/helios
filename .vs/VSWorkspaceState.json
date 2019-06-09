@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Helios",
+    "\\Helios\\Interfaces",
+    "\\Helios\\Interfaces\\DCS",
+    "\\Helios\\Interfaces\\DCS\\AV8B",
+    "\\Helios\\Interfaces\\DCS\\AV8B\\Functions",
+    "\\Helios\\Interfaces\\DCS\\FA18C"
+  ],
+  "SelectedNode": "\\Helios\\Interfaces\\DCS\\FA18C\\FA18CInterfaceEditor.xaml",
+  "PreviewInSolutionExplorer": false
+}

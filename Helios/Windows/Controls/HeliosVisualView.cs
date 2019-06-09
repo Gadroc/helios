@@ -24,6 +24,7 @@ namespace GadrocsWorkshop.Helios.Windows.Controls
     public class HeliosVisualView : FrameworkElement
     {
         private List<HeliosVisualView> _children;
+        private DateTime? _touchDownTime;
 
         public HeliosVisualView()
         {
@@ -302,7 +303,7 @@ namespace GadrocsWorkshop.Helios.Windows.Controls
                     }
                     else
                     {
-                        view = Children[viewIndex];                        
+                        view = Children[viewIndex];
                         RemoveVisualChild(view);
                         if (viewIndex != i)
                         {
@@ -379,7 +380,7 @@ namespace GadrocsWorkshop.Helios.Windows.Controls
             if (Visual != null)
             {
                 double myWidth = DisplayRotation ? Visual.Width : Visual.Width;
-                double myHeight = DisplayRotation ? Visual.Height : Visual.Height; 
+                double myHeight = DisplayRotation ? Visual.Height : Visual.Height;
 
                 double scaleX = finalSize.Width / myWidth;
                 double scaleY = finalSize.Height / myHeight;
@@ -420,10 +421,32 @@ namespace GadrocsWorkshop.Helios.Windows.Controls
             return null;
         }
 
+        private bool SuppressMouseClick()
+        {
+            if ((Visual == null) ||
+                (Visual.Monitor == null) ||
+                (Visual.Monitor.SuppressMouseAfterTouchDuration < 1) ||
+                (!_touchDownTime.HasValue))
+            {
+                return false;
+            }
+            TimeSpan since = DateTime.Now - _touchDownTime.Value;
+            if (since.TotalMilliseconds > Visual.Monitor.SuppressMouseAfterTouchDuration)
+            {
+                return false;
+            }
+            return true;
+        }
+
         protected override void OnMouseDown(System.Windows.Input.MouseButtonEventArgs e)
         {
             if (this.IsEnabled)
             {
+                if (SuppressMouseClick())
+                {
+                    e.Handled = true;
+                    return;
+                }
                 Point location = e.GetPosition(this);
                 Visual.MouseDown(location);
                 CaptureMouse();
@@ -435,6 +458,7 @@ namespace GadrocsWorkshop.Helios.Windows.Controls
         {
             if (this.IsEnabled)
             {
+                _touchDownTime = DateTime.Now;
                 Point location = e.GetTouchPoint(this).Position;
                 Visual.MouseDown(location);
                 CaptureTouch(e.TouchDevice);
@@ -466,6 +490,11 @@ namespace GadrocsWorkshop.Helios.Windows.Controls
         {
             if (e.MouseDevice.Captured == this)
             {
+                if (SuppressMouseClick())
+                {
+                    e.Handled = true;
+                    return;
+                }
                 Point location = e.GetPosition(this);
                 Visual.MouseUp(location);
                 e.MouseDevice.Capture(null);

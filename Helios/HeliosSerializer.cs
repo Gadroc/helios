@@ -76,7 +76,10 @@ namespace GadrocsWorkshop.Helios
                         if (display != null)
                         {
                             display.Name = "Monitor " + i++;
-                            destination.Add(display);
+                            if (display != null)
+                            {
+                                destination.Add(display);
+                            }
                         }
                     }
                     xmlReader.ReadEndElement();
