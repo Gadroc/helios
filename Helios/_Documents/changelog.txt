@@ -11,7 +11,7 @@
 * Fixed Phidgits crashing on startup and closure (KiwiLostInMelb)
 * Fixed Phidgit's to handle out of range acceleration and travel entries entered in the Profile Editor (KiwiLostInMelb)
 * Added events for startup, connect aircraft and shutdown - used for re-centering real guages before shutdown to a known state - needed with Phidgits interface as it doesnt remember state across restarts - eliminates broken needle issues. (KiwiLostInMelb)
-* Added Key Press Receiver program (Runs on PC running DCS) to issue Helios key press events sent from remote Control Center (KiwiLostInMelb)   
+* Added Key Press Receiver program (Runs on PC running DCS) to issue Helios key press events sent from remote Control Center on TCP port 9088 (KiwiLostInMelb)   
 * Added ability to send key presses to a different PC using UDP (KiwiLostInMelb)
 
 

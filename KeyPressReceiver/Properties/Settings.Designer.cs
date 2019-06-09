@@ -37,7 +37,7 @@ namespace GadrocsWorkshop.Helios.KeyPressReceiver.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5009")]
+        [global::System.Configuration.DefaultSettingValueAttribute("9088")]
         public int ServerPort {
             get {
                 return ((int)(this["ServerPort"]));

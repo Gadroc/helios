@@ -20,10 +20,9 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 
-
 namespace GadrocsWorkshop.Helios.KeyPressReceiver
 {
-  static class Program
+  static class KeyPressReceiver
   {
     /// <summary>
     /// The main entry point for the application.

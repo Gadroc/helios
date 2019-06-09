@@ -39,7 +39,7 @@ namespace GadrocsWorkshop.Helios.KeyPressReceiver
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             tbSvrAddress.Text = Properties.Settings.Default.ServerAddress;
-            tbSvrPort.Text = "5009"; //Properties.Settings.Default.ServerPort.ToString();
+            tbSvrPort.Text = "9088"; //Properties.Settings.Default.ServerPort.ToString();
             this.Show();
             this.WindowState = FormWindowState.Normal;
             this.Visible = true;

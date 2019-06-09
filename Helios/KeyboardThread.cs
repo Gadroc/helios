@@ -135,7 +135,7 @@ namespace GadrocsWorkshop.Helios
         {
             // ToDo
             /* Kiwi.Lost.In.Melb@Gmail.com
-             * Added functionality for a TCP server open on a static port of 5009 - yes needs to be in a config with edit screen but my WPF skills are NIL.
+             * Added functionality for a TCP server open on a static port of 9088 - yes needs to be in a config with edit screen but my WPF skills are NIL.
              * If there is a TCP client connected then it will send key presses to a PC running the receiver
              * Otherwise it will send the keypresses to the local PC
              * 
@@ -145,7 +145,7 @@ namespace GadrocsWorkshop.Helios
              * The way I have done this is to just serialise the INPUT object and send over TCP. Seemed the easiest way to accomodate this feature quickly.
             */
             Socket Svrsocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, 5009);
+            IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, 9088);
             Svrsocket.Bind(localEndPoint);
             Svrsocket.Listen(10);
             Svrsocket.BeginAccept(ConnectSocketAsync, Svrsocket);
