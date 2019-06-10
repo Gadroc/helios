@@ -423,6 +423,15 @@ namespace GadrocsWorkshop.Helios.Windows.Controls
 
         private bool SuppressMouseClick()
         {
+            //  Some touchscreens produce a mouse event after a touch event which results in Control Center giving the 
+            //  appearance of a double touch.  The SuppressMouseClick - when enabled - is armed on the touch event
+            //  and will ignore a subsequent mouse event for a defined period to avoid this problem.
+            //
+            //  The delay period is implemented currently as a global for all touchscreens within the Control Center
+            //  preferences so that it does not need to be stored in each one of the user's profiles.  If this turns
+            //  out to be too crude, then code in Monitor.cs & MonitorPorpertyEditor.xaml will need to be uncommented
+            //  to allow a per-monitor approach to be adopted.
+
             if ((Visual == null) ||
                 (Visual.Monitor == null) ||
                 (Visual.Monitor.SuppressMouseAfterTouchDuration < 1) ||

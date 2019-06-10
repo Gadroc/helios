@@ -77,9 +77,9 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                 SelectedProfileName = "- No Profiles Available -";
             }
 
-            if (ConfigManager.SettingsManager.IsSettingAvailable("ControlCenter", "TouchScreenRepeatDelay"))
+            if (ConfigManager.SettingsManager.IsSettingAvailable("ControlCenter", "TouchScreenMouseSuppressionPeriod"))
             {
-                TouchScreenDelaySlider.Value = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "TouchScreenRepeatDelay", 0);
+                TouchScreenDelaySlider.Value = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "TouchScreenMouseSuppressionPeriod", 0);
                 if (TouchScreenDelaySlider.Value > 0)
                 {
                     TouchscreenDelayTextBlock.Visibility = Visibility.Visible;
@@ -389,15 +389,15 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                     {
                         if (monitor.Children.Count > 0 || monitor.FillBackground || !String.IsNullOrWhiteSpace(monitor.BackgroundImage))
                         {
-                            if (ConfigManager.SettingsManager.IsSettingAvailable("ControlCenter", "TouchScreenRepeatDelay"))
+                            if (ConfigManager.SettingsManager.IsSettingAvailable("ControlCenter", "TouchScreenMouseSuppressionPeriod"))
                             {
-                                monitor.SuppressMouseAfterTouchDuration = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "TouchScreenRepeatDelay", 0);
+                                monitor.SuppressMouseAfterTouchDuration = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "TouchScreenMouseSuppressionPeriod", 0);
                             }
                             else
                             {
                                 monitor.SuppressMouseAfterTouchDuration = 0;
                             }
-                            ConfigManager.LogManager.LogDebug("Creating window (Monitor=\"" + monitor.Name + "\")" + " with Touchscreen repeat delay set to " + Convert.ToString(monitor.SuppressMouseAfterTouchDuration) + " msec.");
+                            ConfigManager.LogManager.LogDebug("Creating window (Monitor=\"" + monitor.Name + "\")" + " with Touchscreen 2nd Trigger suppression delay set to " + Convert.ToString(monitor.SuppressMouseAfterTouchDuration) + " msec.");
                             MonitorWindow window = new MonitorWindow(monitor, true);
                             window.Show();
                             _windows.Add(window);
@@ -599,7 +599,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             Int16 delayValue = Convert.ToInt16(e.NewValue);
             string msg = String.Format(" {0} ms", delayValue);
             this.TouchscreenDelayTextBlock.Text = msg;
-            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "TouchScreenRepeatDelay", Convert.ToString(delayValue));
+            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "TouchScreenMouseSuppressionPeriod", Convert.ToString(delayValue));
         }
         private void PowerButton_Unchecked(object sender, RoutedEventArgs e)
         {
@@ -785,7 +785,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
 
         private void TouchscreenCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "TouchScreenRepeatDelay", "0");
+            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "TouchScreenMouseSuppressionPeriod", "0");
             TouchScreenDelaySlider.Value = 0;
             TouchscreenDelayTextBlock.Visibility = Visibility.Hidden;
             TouchScreenDelaySlider.Visibility = Visibility.Hidden;
