@@ -1,20 +1,20 @@
 1.4.2019.06xx Release
 ----------------------------
+* Original Helios User Guide refreshed and included
 * GNU LESSER GENERAL PUBLIC LICENSE file added to the distribution
-* Initial F-14B Interface prototype - (*unstable*)
 * Returned missing BMS F-16 images
-* Configurable touchscreen delay (derammo)
 * Rectangle Fill control used to create instruments like the Su25 Fuel bars and Mi-8 doppler bars (Capt Zeen)
 * Kneeboard control added (Capt Zeen)
 * Black Shark Interface change for Custom Gauge (Capt Zeen) 
 * Configurable reflectivity for front Glass of IFEI (derammo)
+* Control Center Preference added to stop secondary mouse events that some touch screens generate (derammo)
 * Update Phidgets to version Phidget21 2.1.9 Build date Feb 15 2018 (KiwiLostInMelb)
 * Fixed Phidgits crashing on startup and closure (KiwiLostInMelb)
 * Fixed Phidgit's to handle out of range acceleration and travel entries entered in the Profile Editor (KiwiLostInMelb)
 * Added events for startup, connect aircraft and shutdown - used for re-centering real guages before shutdown to a known state - needed with Phidgits interface as it doesnt remember state across restarts - eliminates broken needle issues. (KiwiLostInMelb)
-* Added Key Press Receiver program (Runs on PC running DCS) to issue Helios key press events sent from remote Control Center on TCP port 9088 (KiwiLostInMelb)   
-* Added ability to send key presses to a different PC using UDP (KiwiLostInMelb)
-
+* Added Key Press Receiver program (Runs on PC which is running DCS) to issue key presses on DCS machine served from Control Center running on a different PC (KiwiLostInMelb)   
+* Added ability to send key presses to a different PC using TCP on port 9088 (KiwiLostInMelb)
+* The usual minor bug changes
 
 1.4.2019.0317 Release
 ----------------------------

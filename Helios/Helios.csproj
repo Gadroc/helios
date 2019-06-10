@@ -766,8 +766,10 @@
       <DependentUpon>TextStaticEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Controls\TypefaceListItem.cs" />
-    <None Include="_Documents\Helios Release 1.4 Users Manual.docx" />
-    <None Include="_Documents\Helios Release 1.4 Users Manual.pdf" />
+    <None Include="_Documents\Helios Release 1.4 Users Guide.docx" />
+    <None Include="_Documents\Helios Release 1.4 Users Guide.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\AV-8B\Common\needle_a.xaml">
@@ -3769,7 +3771,9 @@
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="_Documents\GNU Lesser General Public License.txt" />
+    <Content Include="_Documents\GNU Lesser General Public License.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="_Documents\Helios.Read.Me.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
