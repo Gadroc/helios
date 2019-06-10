@@ -46,13 +46,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D303DF1DE183FF588DBC5FC8651CF07E"
+        "OwnerKey" = "8:_46A844A2E7194B4991ED76F97CB1DA46"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_46A844A2E7194B4991ED76F97CB1DA46"
+        "OwnerKey" = "8:_D303DF1DE183FF588DBC5FC8651CF07E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -80,6 +80,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -134,7 +142,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.1"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.5"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -268,7 +276,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Helios Keypress Receiver"
         "ProductCode" = "8:{0B9D5080-9B9E-4A60-9D06-3DB387C903BC}"
-        "PackageCode" = "8:{EC8DF5D2-CC71-4B9F-A5F0-404165029F2E}"
+        "PackageCode" = "8:{B852FF54-AF4D-46BB-8CB4-0652E1B56F41}"
         "UpgradeCode" = "8:{EC3AC978-542C-4062-B6D0-F652A7C3E134}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

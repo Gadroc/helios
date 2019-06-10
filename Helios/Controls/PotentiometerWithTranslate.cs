@@ -21,8 +21,8 @@ namespace GadrocsWorkshop.Helios.Controls
     using System.Windows;
     using System.Xml;
 
-    [HeliosControl( "Helios.Base.GeneralAdi", "Translate/Rotate Control", "Potentiometers", typeof( MetricRenderer ) )]
-    public class GeneralAdi : Metric
+    [HeliosControl("Helios.Base.PotentiometerWithTranslate", " Potentiometer Trans & Rot", "Potentiometers", typeof( MetricRenderer ) )]
+    public class PotentiometerWithTranslate : Metric
     {
         private double _valueRotation = 0.0d;
         private double _valueTranslationX = 0.0d;
@@ -57,32 +57,32 @@ namespace GadrocsWorkshop.Helios.Controls
 
 
 
-        private HeliosValue _adiValueRotation;
-        private HeliosValue _adiValueTranslationX;
-        private HeliosValue _adiValueTranslationY;
+        private HeliosValue _pottranValueRotation;
+        private HeliosValue _pottranValueTranslationX;
+        private HeliosValue _pottranValueTranslationY;
 
-        public GeneralAdi ( )
+        public PotentiometerWithTranslate( )
             : base( "Metric", new Size( 100, 100 ) )
         {
             MetricImage = "{Helios}/Images/Knobs/knob1.png";
 
-            _adiValueRotation = new HeliosValue( this, new BindingValue( 0d ), "", "value rotation", "Current rotation value of the metric.", "", BindingValueUnits.Numeric );
-            _adiValueRotation.Execute += new HeliosActionHandler( SetValueRotation_Execute );
-            Values.Add( _adiValueRotation );
-            Actions.Add( _adiValueRotation );
-            Triggers.Add( _adiValueRotation );
+            _pottranValueRotation = new HeliosValue( this, new BindingValue( 0d ), "", "value rotation", "Current rotation value of the metric.", "", BindingValueUnits.Numeric );
+            _pottranValueRotation.Execute += new HeliosActionHandler( SetValueRotation_Execute );
+            Values.Add( _pottranValueRotation );
+            Actions.Add( _pottranValueRotation );
+            Triggers.Add( _pottranValueRotation );
 
-            _adiValueTranslationX = new HeliosValue( this, new BindingValue( 0d ), "", "value Translation X", "Current Translation X value of the metric.", "", BindingValueUnits.Numeric );
-            _adiValueTranslationX.Execute += new HeliosActionHandler( SetValueTranslationX_Execute );
-            Values.Add( _adiValueTranslationX );
-            Actions.Add( _adiValueTranslationX );
-            Triggers.Add( _adiValueTranslationX );
+            _pottranValueTranslationX = new HeliosValue( this, new BindingValue( 0d ), "", "value Translation X", "Current Translation X value of the metric.", "", BindingValueUnits.Numeric );
+            _pottranValueTranslationX.Execute += new HeliosActionHandler( SetValueTranslationX_Execute );
+            Values.Add( _pottranValueTranslationX );
+            Actions.Add( _pottranValueTranslationX );
+            Triggers.Add( _pottranValueTranslationX );
 
-            _adiValueTranslationY = new HeliosValue( this, new BindingValue( 0d ), "", "value Translation Y", "Current Translation Y value of the metric.", "", BindingValueUnits.Numeric );
-            _adiValueTranslationY.Execute += new HeliosActionHandler( SetValueTranslationY_Execute );
-            Values.Add( _adiValueTranslationY );
-            Actions.Add( _adiValueTranslationY );
-            Triggers.Add( _adiValueTranslationY );
+            _pottranValueTranslationY = new HeliosValue( this, new BindingValue( 0d ), "", "value Translation Y", "Current Translation Y value of the metric.", "", BindingValueUnits.Numeric );
+            _pottranValueTranslationY.Execute += new HeliosActionHandler( SetValueTranslationY_Execute );
+            Values.Add( _pottranValueTranslationY );
+            Actions.Add( _pottranValueTranslationY );
+            Triggers.Add( _pottranValueTranslationY );
         }
 
         #region Properties
@@ -169,7 +169,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 {
                     double oldValue = _valueRotation;
                     _valueRotation = value;
-                    _adiValueRotation.SetValue( new BindingValue( _valueRotation ), BypassTriggers );
+                    _pottranValueRotation.SetValue( new BindingValue( _valueRotation ), BypassTriggers );
                     OnPropertyChanged( "ValueRotation", oldValue, value, true );
                     SetRotation( );
                 }
@@ -261,7 +261,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 {
                     double oldValue = _valueTranslationX;
                     _valueTranslationX = value;
-                    _adiValueTranslationX.SetValue( new BindingValue( _valueTranslationX ), BypassTriggers );
+                    _pottranValueTranslationX.SetValue( new BindingValue( _valueTranslationX ), BypassTriggers );
                     OnPropertyChanged( "ValueTranslationX", oldValue, value, true );
                     SetTranslationX( );
                 }
@@ -351,7 +351,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 {
                     double oldValue = _valueTranslationY;
                     _valueTranslationY = value;
-                    _adiValueTranslationY.SetValue( new BindingValue( _valueTranslationY ), BypassTriggers );
+                    _pottranValueTranslationY.SetValue( new BindingValue( _valueTranslationY ), BypassTriggers );
                     OnPropertyChanged( "ValueTranslationY", oldValue, value, true );
                     SetTranslationY( );
                 }

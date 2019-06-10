@@ -1,7 +1,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
-* *                       Helios 1.4.2019.06xx                              * * 
+* *                       Helios 1.4.2019.0611                              * * 
 * *                                                                         * * 
 * *                                READ.ME                                  * * 
 * *                                                                         * * 
@@ -25,7 +25,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Helios 1.4.2019.06xx is not an explicit collaboration with Craig Courtney, 
+Helios 1.4.2019.0611 is not an explicit collaboration with Craig Courtney, 
 but it relies heavily on the original Helios.  This distribution is not endorsed 
 by Craig Courtney.  
                                                                      
@@ -72,7 +72,7 @@ A-10C Exports.lua in place, then the result will not be pleasant.
 2) The KeypressReceiver.exe is used for receiving Helios keypresses 
 when DCS is installed on a separate PC.  
 There is an installer for the KeyPress Receiver for installing it on your PC running.
-Set the server IP address to the IP address of your Helios PC and open port 5009 
+Set the server IP address to the IP address of your Helios PC and open port 9088 
 (fixed port for now) on the Helios PC.
 The receiver is not required for instances where Helios runs on the DCS PC.
 
@@ -92,3 +92,6 @@ end
 Loss of bindings on Reset Monitors https://github.com/BlueFinBima/Helios/issues/117
 	Save the profile after doing a reset monitor.  The problem appears to happen 
 	after two successive reset monitors.
+
+The Keypress server means that you might get a firewall popup from the keyboard interface
+when it attempts to find out if there is a Keypress receiver running on a remote PC

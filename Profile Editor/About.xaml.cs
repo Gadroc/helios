@@ -33,7 +33,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
         protected override void OnActivated(EventArgs e)
         {
             VersionBlock.Text = Assembly.GetEntryAssembly().GetName().Version.ToString();
-            ContributionBlock.Text = ContributionBlock.Text + " CaptZeen; damien022; derammo; KiwiLostInMelb; Will Hartsell; Cylution; yzfanimal ";
+            ContributionBlock.Text = ContributionBlock.Text + " CaptZeen; derammo; KiwiLostInMelb; damien022; Will Hartsell; Cylution; Rachmaninoff; yzfanimal ";
             StatusBlock.Text = "Released";
             base.OnActivated(e);
         }

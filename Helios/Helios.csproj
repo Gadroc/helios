@@ -126,12 +126,12 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
-    <Compile Include="Controls\GeneralAdi.cs" />
-    <Compile Include="Controls\GeneralAdiAppearanceEditor.xaml.cs">
-      <DependentUpon>GeneralAdiAppearanceEditor.xaml</DependentUpon>
+    <Compile Include="Controls\PotentiometerWithTranslate.cs" />
+    <Compile Include="Controls\PotentiometerWithTranslateAppearanceEditor.xaml.cs">
+      <DependentUpon>PotentiometerWithTranslateAppearanceEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\GeneralAdiBehaviorEditor.xaml.cs">
-      <DependentUpon>GeneralAdiBehaviorEditor.xaml</DependentUpon>
+    <Compile Include="Controls\PotentiometerWithTranslateBehaviorEditor.xaml.cs">
+      <DependentUpon>PotentiometerWithTranslateBehaviorEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\GuardedThreeWayAppearancePropertyEditor.xaml.cs">
       <DependentUpon>GuardedThreeWayAppearancePropertyEditor.xaml</DependentUpon>
@@ -1298,11 +1298,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\GeneralAdiAppearanceEditor.xaml">
+    <Page Include="Controls\PotentiometerWithTranslateAppearanceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\GeneralAdiBehaviorEditor.xaml">
+    <Page Include="Controls\PotentiometerWithTranslateBehaviorEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

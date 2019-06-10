@@ -17,35 +17,16 @@ namespace GadrocsWorkshop.Helios.Controls
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Windows.Controls;
-    using System.Windows;
 
     /// <summary>
-    /// Interaction logic for GeneralAdiAppearanceEditor.xaml
+    /// Interaction logic for PotentiometerWithTranslateBehaviorEditor.xaml
     /// </summary>
-    [HeliosPropertyEditor("Helios.Base.GeneralAdi", "Appearance")]
-    public partial class GeneralAdiAppearanceEditor : HeliosPropertyEditor
+    [HeliosPropertyEditor("Helios.Base.PotentiometerWithTranslate", "Behavior")]
+    public partial class PotentiometerWithTranslateBehaviorEditor : HeliosPropertyEditor
     {
-        public GeneralAdiAppearanceEditor()
+        public PotentiometerWithTranslateBehaviorEditor()
         {
             InitializeComponent();
-        }
-
-        private void MinPosition_GotFocus(object sender, RoutedEventArgs e)
-        {
-            GeneralAdi pot = Control as GeneralAdi;
-            if (pot != null)
-            {
-                pot.ValueRotation = pot.MinValueRotation;
-            }
-        }
-
-        private void MaxPosition_GotFocus(object sender, RoutedEventArgs e)
-        {
-            GeneralAdi pot = Control as GeneralAdi;
-            if (pot != null)
-            {
-                pot.ValueRotation = pot.MaxValueRotation;
-            }
         }
     }
 }
