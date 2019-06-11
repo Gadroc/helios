@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Control Center", "Control C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phidgets", "Phidgets\Phidgets.csproj", "{06BA10F4-279C-4E82-B77C-333706A617B9}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Helios Installer", "Installer\Installer.vdproj", "{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5F79059E-6954-45C1-8929-27683551D25A} = {5F79059E-6954-45C1-8929-27683551D25A}
 		{61272BD1-E670-45CC-918B-1208B837F4DC} = {61272BD1-E670-45CC-918B-1208B837F4DC}
@@ -80,6 +80,7 @@ Global
 		{61272BD1-E670-45CC-918B-1208B837F4DC}.Debug|x64.ActiveCfg = Debug
 		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|Any CPU.ActiveCfg = Release
 		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|x64.ActiveCfg = Release
+		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|x64.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
