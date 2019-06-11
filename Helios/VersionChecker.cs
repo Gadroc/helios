@@ -74,6 +74,7 @@ namespace GadrocsWorkshop.Helios
             try
             {
                 _runningVersion = Assembly.GetEntryAssembly().GetName().Version;
+                string _strRevision = _runningVersion.Major.ToString() + "." + _runningVersion.Minor.ToString() + "." + _runningVersion.Build.ToString() + "." + _runningVersion.Revision.ToString("0000");
             }
             catch (Exception e)
             {

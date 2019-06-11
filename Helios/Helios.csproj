@@ -92,6 +92,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BaseDeserializer.cs" />
     <Compile Include="BindingValue.cs" />
     <Compile Include="BindingValueSources.cs" />
@@ -815,6 +818,8 @@
     <Resource Include="Interfaces\DCS\M2000CSimple\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Mi8Simple\ExportFunctions.lua" />
     <None Include="Fonts\Helios font registration.reg" />
+    <Resource Include="about.png" />
+    <Resource Include="Icon.png" />
     <Content Include="Fonts\Hornet IFEI.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1290,6 +1295,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\CustomGaugeAppearanceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

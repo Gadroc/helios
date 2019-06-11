@@ -276,7 +276,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Helios Keypress Receiver"
         "ProductCode" = "8:{0B9D5080-9B9E-4A60-9D06-3DB387C903BC}"
-        "PackageCode" = "8:{B852FF54-AF4D-46BB-8CB4-0652E1B56F41}"
+        "PackageCode" = "8:{D6B9E932-2BB6-4636-97CB-DE1313B75C09}"
         "UpgradeCode" = "8:{EC3AC978-542C-4062-B6D0-F652A7C3E134}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -299,7 +299,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:cscript //nologo \"$(ProjectDir)WiRunSql.vbs\" \"$(BuiltOuputPath)\" \"INSERT INTO Property(Property, Value) VALUES ('DISABLEADVTSHORTCUTS', '1')\""
+        "PostBuildEvent" = "8:cscript //nologo \"$(ProjectDir)WiRunSql.vbs\" \"$(BuiltOuputPath)\" \"INSERT INTO Property(Property, Value) VALUES ('DISABLEADVTSHORTCUTS', '1')\"\r\ncall \"$(ProjectDir)postbuild.cmd\""
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"

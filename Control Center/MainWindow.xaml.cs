@@ -25,6 +25,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
     using System.Windows.Input;
     using System.Windows.Interop;
     using System.Windows.Threading;
+    using GadrocsWorkshop.Helios.Splash;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -52,6 +53,8 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             InitializeComponent();
 
             ConfigManager.LogManager.LogInfo("Initializing Main Window");
+            
+            displaySplash(4000);  // Display a dynamic splash panel with release and credits
 
             MinimizeCheckBox.IsChecked = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "StartMinimized", false);
             if (MinimizeCheckBox.IsChecked == true)
@@ -118,6 +121,15 @@ namespace GadrocsWorkshop.Helios.ControlCenter
 
             SetLicenseMessage();
             SetProjectReleaseMessage();
+        }
+
+        private void displaySplash(Int32 splashDelay)
+        {
+            About aboutDialog = new About();
+            aboutDialog.InitializeComponent();
+            aboutDialog.Show();
+            System.Threading.Thread.Sleep(splashDelay);
+            aboutDialog.Close();
         }
 
         #region Properties
@@ -720,6 +732,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                 }
             }
 
+
             App app = Application.Current as App;
             if (app != null && app.StartupProfile != null && File.Exists(app.StartupProfile))
             {
@@ -856,9 +869,9 @@ namespace GadrocsWorkshop.Helios.ControlCenter
 
         private void SetProjectReleaseMessage()
         {
-            Message = Assembly.GetEntryAssembly().GetName().Version.ToString() +
-                "\nProject Fork: BlueFinBima\n" +
-                "Contributors: Gadroc BlueFinBima CaptZeen derammo KiwiLostInMelb damien022 Will Hartsell Cylution Rachmaninoff yzfanimal";
+            Version _runningVersion = Assembly.GetEntryAssembly().GetName().Version;
+            Message = _runningVersion.Major.ToString() + "." + _runningVersion.Minor.ToString() + "." + _runningVersion.Build.ToString() + "." + _runningVersion.Revision.ToString("0000") +
+                "\nProject Fork: BlueFinBima\n";
         }
         #endregion
 

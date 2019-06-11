@@ -34,6 +34,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
     using System.Windows.Threading;
     using Xceed.Wpf.AvalonDock.Layout;
     using Xceed.Wpf.AvalonDock.Layout.Serialization;
+    using GadrocsWorkshop.Helios.Splash;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

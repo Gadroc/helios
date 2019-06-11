@@ -44,16 +44,15 @@ namespace GadrocsWorkshop.Helios.ControlCenter
         {
             if (SingleInstance<App>.InitializeAsFirstInstance(InstanceUniqueName))
             {
-                SplashScreen splashScreen = null;
+                //SplashScreen splashScreen = null;
 
-                splashScreen = new SplashScreen("splash_logo.png");
-                splashScreen.Show(false);
+                //splashScreen = new SplashScreen("splash_logo.png");
+                //splashScreen.Show(false);
                 GadrocsWorkshop.Helios.ControlCenter.App app = new GadrocsWorkshop.Helios.ControlCenter.App();
                 app.InitializeComponent();
-                Thread.Sleep(1000);
-                splashScreen.Close(TimeSpan.FromMilliseconds(500));
+                //Thread.Sleep(1000);
+                //splashScreen.Close(TimeSpan.FromMilliseconds(500));
                 app.Run();
-
                 SingleInstance<App>.Cleanup();
             }
         }
