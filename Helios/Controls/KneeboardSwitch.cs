@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Controls
     using System;
     using System.Xml;
 
-    [HeliosControl("Helios.Base.KneeboardSwitch", "Kneeboard Switch", "Miscellaneous", typeof(KneeboardSwitchRenderer))]
+    [HeliosControl("Helios.Base.KneeboardSwitch", "Kneeboard Switch", "Rockers", typeof(KneeboardSwitchRenderer))]
     public class KneeboardSwitch : ToggleSwitchBase
     {
         private double _value = 0.0d;
@@ -58,8 +58,6 @@ namespace GadrocsWorkshop.Helios.Controls
             _KneeboardPosition.Execute += new HeliosActionHandler(SetValue_Execute);
             _value = 0;
             _KneeboardPosition.SetValue(new BindingValue(4), BypassTriggers);
-
-
 
             Values.Add(_positionValue);
             Values.Add(_KneeboardPosition);

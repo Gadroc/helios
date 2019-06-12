@@ -3,10 +3,44 @@
 * Original Helios User Guide refreshed and included
 * GNU LESSER GENERAL PUBLIC LICENSE file added to the distribution
 * Returned missing BMS F-16 images
-* New control - Potentiometer with Translate and rotate (Rasmaninoff)
+* New control - Potentiometer with Translate and rotate. (Rasmaninoff)
+* New custom gauge providing standard way to create a new suction gauge with only one needle (Capt Zeen)
 * Rectangle Fill control used to create instruments like the Su25 Fuel bars and Mi-8 doppler bars (Capt Zeen)
 * Kneeboard control added (Capt Zeen)
-* Black Shark Interface change for Custom Gauge (Capt Zeen) 
+* Black Shark Interface changes(Capt Zeen) 
+	- Corrected Device numbers: PPK, ILLUMINATION INTERFACE, SIGNAL_FLARE_DISPENSER, STBY_ADI,  PSHK7, ZMS_3, K041
+	- Added ACCELEROMETER device 61
+	- Added CLOCK device 29
+	- modified DH/DT device to NAV_SYSTEMS
+	- modified Abris power swith from 1 0 to 1.0 0.0
+	- Added plafond switch
+	- Added lightimg auxiliar panel switch
+	- Swapped values in INU fixating method swith from 1 to 0
+	- Change device to the Datalink Power switch to DATALAINK
+	- Corrected Pitot AOA switch
+	- Corrected Pitot Hat RAM switch
+	- Swapped values in Engine rotor anti-ice switch from 1 to 0
+	- Added Baro QFE Knob encoder
+	- Added lighting back panel switch
+	- added lighting NAVG switch
+	- added lighting main panel switch
+	- Added lighting ADI HSI switch
+	- Added UV26 Messages display
+	- Added PVI message digits
+	- Added EKRAN messages displays
+	- Modified and corrected the Magnetic variation function
+	- Modified device on Accelerometer Reset button to ACCELEROMETER and BUTTON_1
+	- Corrected AC/DC Inverter switch from 01.f to 0.1f
+	- Corrected fire extinguisher work/off/test guard values to float
+	- Corrected EEG Power Turbine Test guard to floats
+	- Magnetic variatoin selection btn_1 is a rotary encoder now
+	- Latitude Correction btn_1 is a rotary encoder now
+	- Added test backup adi button
+	- Added Backup ADI Longitudinal Deviation Bar
+	- Added Backup ADI Lateral Deviation Bar
+	- Added ambient temperature
+	- Corrected UV26 power guard and Test guard buttons numbers
+	- Corrected System Bit selector to rotaryswitch
 * Configurable reflectivity for front Glass of IFEI (derammo)
 * Control Center Preference added to stop secondary mouse events that some touch screens generate afrter a touch event (derammo)
 * Update Phidgets to version Phidget21 2.1.9 Build date Feb 15 2018 (KiwiLostInMelb)
