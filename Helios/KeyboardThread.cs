@@ -26,7 +26,7 @@ namespace GadrocsWorkshop.Helios
     class KeyboardThread
     {
         private readonly Thread _thread;
-        private Socket _Clientsocket;
+        private Socket _clientsocket;
 
         public Queue<NativeMethods.INPUT> _events = new Queue<NativeMethods.INPUT>();
         public int _keyDelay = 30;
@@ -85,7 +85,7 @@ namespace GadrocsWorkshop.Helios
             lock (typeof(KeyboardThread))
             {
                 Socket server = (Socket)result.AsyncState;
-                _Clientsocket = server.EndAccept(result);
+                _clientsocket = server.EndAccept(result);
                 server.BeginAccept(ConnectSocketAsync, server); // wait for another connection
             }
         }
@@ -93,10 +93,10 @@ namespace GadrocsWorkshop.Helios
         {
             try
             {
-                if ((_Clientsocket != null) && _Clientsocket.Connected)
+                if ((_clientsocket != null) && _clientsocket.Connected)
                 {
-                    int BytesSent = _Clientsocket.Send(buf, buflen, SocketFlags.None);
-                    return (_Clientsocket.Connected && (BytesSent == buflen));
+                    int BytesSent = _clientsocket.Send(buf, buflen, SocketFlags.None);
+                    return (_clientsocket.Connected && (BytesSent == buflen));
                 }
                 else
                 {
@@ -114,10 +114,10 @@ namespace GadrocsWorkshop.Helios
             {
                 byte[] buffer = new byte[data.Length];
                 buffer = Encoding.ASCII.GetBytes(data);
-                if ((_Clientsocket != null) && _Clientsocket.Connected)
+                if ((_clientsocket != null) && _clientsocket.Connected)
                 {
-                    int BytesSent = _Clientsocket.Send(buffer, data.Length, SocketFlags.None);
-                    return (_Clientsocket.Connected && (BytesSent == data.Length));
+                    int BytesSent = _clientsocket.Send(buffer, data.Length, SocketFlags.None);
+                    return (_clientsocket.Connected && (BytesSent == data.Length));
                 }
                 else
                 {
@@ -144,12 +144,32 @@ namespace GadrocsWorkshop.Helios
              * 
              * The way I have done this is to just serialise the INPUT object and send over TCP. Seemed the easiest way to accomodate this feature quickly.
             */
-            Socket Svrsocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, 9088);
-            Svrsocket.Bind(localEndPoint);
-            Svrsocket.Listen(10);
-            Svrsocket.BeginAccept(ConnectSocketAsync, Svrsocket);
 
+            // Part of the bandaid for https://github.com/BlueFinBima/Helios/issues/142 where the Profile Editor will also attempt to bind to the port which 
+            // might already be bound by Control Center and cause a failure.
+
+            if (System.Diagnostics.Process.GetCurrentProcess().ProcessName == "Control Center")
+            {
+                try
+                {
+                    Socket Svrsocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, 9088);
+                    Svrsocket.Bind(localEndPoint);
+                    Svrsocket.Listen(10);
+                    Svrsocket.BeginAccept(ConnectSocketAsync, Svrsocket);
+                }
+                catch (SocketException se)
+                {
+                    if (HandleSocketException(se))
+                    {
+                        // Socket read timeout - ignore
+                    }
+                    else
+                    {
+                        ConfigManager.LogManager.LogError("Keyboard Thread unable to Bind TCP port: " + se.Message, se);
+                    }
+                }
+            }
             while (true)
             {
                 int sleepTime = 20; // Changed from Timeout.Infinite to just delay and recheck;
@@ -159,7 +179,6 @@ namespace GadrocsWorkshop.Helios
                     {
                         sleepTime = _keyDelay;
                         NativeMethods.INPUT keyEvent = _events.Dequeue();
-
                         int size = Marshal.SizeOf(keyEvent);
                         byte[] arr = new byte[size];
                         IntPtr ptr = Marshal.AllocHGlobal(size);
@@ -170,14 +189,14 @@ namespace GadrocsWorkshop.Helios
                             NativeMethods.SendInput(1, new NativeMethods.INPUT[] { keyEvent }, Marshal.SizeOf(keyEvent));
                         Marshal.FreeHGlobal(ptr);
                     }
-                    else if (_Clientsocket != null)
+                    else if (_clientsocket != null)
                     {
                         // check TCP read thread
                         try
                         {
                             byte[] buffer = new byte[1024];
-                            _Clientsocket.ReceiveTimeout = 1; // so we dont block - will cause an exception
-                            int readBytes = _Clientsocket.Receive(buffer, buffer.Length, SocketFlags.None);
+                            _clientsocket.ReceiveTimeout = 1; // so we dont block - will cause an exception
+                            int readBytes = _clientsocket.Receive(buffer, buffer.Length, SocketFlags.None);
                             if (readBytes != 0)
                             {
                                 String DataIn = System.Text.Encoding.ASCII.GetString(buffer, 0, readBytes);
@@ -187,9 +206,16 @@ namespace GadrocsWorkshop.Helios
                                     TCPSend("HEARTBEAT");
                             }
                         }
-                        catch (SocketException)
+                        catch (SocketException se)
                         {
-                            // Socket read timeout - ignore
+                            if (HandleSocketException(se))
+                            {
+                                // Socket read timeout - ignore
+                            }
+                            else
+                            {
+                                ConfigManager.LogManager.LogError("Keyboard Thread unable to recover from socket exception on Receive(): " + se.Message, se);
+                            }
                         }
                     }
                 }
@@ -202,6 +228,26 @@ namespace GadrocsWorkshop.Helios
                     // NOOP
                 }
             }
+        }
+        private bool HandleSocketException(SocketException se)
+        {
+            SocketError _erCode = (SocketError)se.ErrorCode;
+            bool _retcode =false;
+            switch(_erCode)
+            {
+                case SocketError.ConnectionReset:
+                    _retcode = false;
+                    break;
+                case SocketError.TimedOut:
+                    _retcode = true;
+                    break;
+                default:
+                    _retcode = false;
+                    break;
+            }
+
+            return _retcode;
+            
         }
     }
 }

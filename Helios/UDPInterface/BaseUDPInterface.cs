@@ -266,7 +266,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
 
         private bool HandleSocketException(SocketException se)
         {
-            if (se.ErrorCode == 10054)
+            if ((SocketError)se.ErrorCode == SocketError.ConnectionReset)
             {
                 _socket.Close();
                 _socket = null;
@@ -302,7 +302,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
             }
             catch (Exception e)
             {
-                ConfigManager.LogManager.LogError("UDP interface threw unhandled exception sending data. (Interface=\"" + Name + "\")", e);
+                ConfigManager.LogManager.LogError("UDP interface threw exception sending data. (Interface=\"" + Name + "\")", e);
             }
         }
 
