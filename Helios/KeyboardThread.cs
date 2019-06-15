@@ -23,11 +23,12 @@ namespace GadrocsWorkshop.Helios
     using System.Net.Sockets;
     using System.Text;
 
+
     class KeyboardThread
     {
         private readonly Thread _thread;
         private Socket _clientsocket;
-
+        private bool _controlcentersession = false;
         public Queue<NativeMethods.INPUT> _events = new Queue<NativeMethods.INPUT>();
         public int _keyDelay = 30;
 
@@ -58,6 +59,23 @@ namespace GadrocsWorkshop.Helios
                     {
                         _keyDelay = value;
                     }
+                }
+            }
+        }
+        public bool ControlCenterSession
+        {
+            get
+            {
+                lock (typeof(KeyboardThread))
+                {
+                    return _controlcentersession;
+                }
+            }
+            set
+            {
+                lock (typeof(KeyboardThread))
+                {
+                     _controlcentersession = value;
                 }
             }
         }
@@ -145,10 +163,7 @@ namespace GadrocsWorkshop.Helios
              * The way I have done this is to just serialise the INPUT object and send over TCP. Seemed the easiest way to accomodate this feature quickly.
             */
 
-            // Part of the bandaid for https://github.com/BlueFinBima/Helios/issues/142 where the Profile Editor will also attempt to bind to the port which 
-            // might already be bound by Control Center and cause a failure.
-
-            if (System.Diagnostics.Process.GetCurrentProcess().ProcessName == "Control Center")
+            if (_controlcentersession) // Only attempt to bind the keyboard server if not in the Profile Editor
             {
                 try
                 {

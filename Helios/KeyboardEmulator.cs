@@ -130,6 +130,17 @@ namespace GadrocsWorkshop.Helios
                 _keyboardThread.KeyDelay = value;
             }
         }
+        public static bool ControlCenterSession
+        {
+            get
+            {
+                return _keyboardThread.ControlCenterSession;
+            }
+            set
+            {
+                _keyboardThread.ControlCenterSession = value;
+            }
+        }
 
         private static List<NativeMethods.INPUT> CreateEvents(string keys, bool keyDown, bool reverse)
         {

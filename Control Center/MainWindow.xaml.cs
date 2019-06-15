@@ -53,7 +53,8 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             InitializeComponent();
 
             ConfigManager.LogManager.LogInfo("Initializing Main Window");
-            
+            KeyboardEmulator.ControlCenterSession = true;  // Keyboard emulator needs to know that we're in the Control Center
+
             displaySplash(4000);  // Display a dynamic splash panel with release and credits
 
             MinimizeCheckBox.IsChecked = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "StartMinimized", false);
