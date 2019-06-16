@@ -713,7 +713,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
 
         private void Window_Opened(object sender, EventArgs e)
         {
-            Height = _prefsShown ? 477 : 277;
+            Height = _prefsShown ? 277+320 : 277;
             Width = 504;
 
             if (Environment.OSVersion.Version.Major > 5 && ConfigManager.SettingsManager.LoadSetting("ControlCenter", "AeroWarning", true))
@@ -871,7 +871,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
         private void SetProjectReleaseMessage()
         {
             Version _runningVersion = Assembly.GetEntryAssembly().GetName().Version;
-            Message = _runningVersion.Major.ToString() + "." + _runningVersion.Minor.ToString() + "." + _runningVersion.Build.ToString() + "." + _runningVersion.Revision.ToString("0000") +
+            Message = _runningVersion.Major.ToString() + "." + _runningVersion.Minor.ToString() + "." + _runningVersion.Build.ToString("0000") + "." + _runningVersion.Revision.ToString("0000") +
                 "\nProject Fork: BlueFinBima\n";
         }
         #endregion

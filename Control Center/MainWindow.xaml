@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ControlCenter"
     Title="Helios Control Center"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-    Height="597" Width="525" Background="Red" WindowStyle="None" ResizeMode="NoResize" Name="HeliosWindow" Icon="Icon.png" Topmost="True" Loaded="Window_Loaded" ContentRendered="Window_Opened">
+    Height="595" Width="504" Background="Red" WindowStyle="None" ResizeMode="NoResize" Name="HeliosWindow" Icon="Icon.png" Topmost="True" Loaded="Window_Loaded" ContentRendered="Window_Opened">
     <Window.Resources>
 
         <Style TargetType="{x:Type CheckBox}" x:Key="HeliosSwitchStyle">
@@ -114,19 +114,19 @@
         </Grid.RowDefinitions>
 
         <StackPanel Margin="0,0,0,0">
-            <Canvas Name="ControlCenterCanvas" Margin="0" Height="277" Width="504">
+            <Canvas x:Name="ControlCenterCanvas" Margin="0,0,0,0" Height="276">
                 <Image Source="ControlCenterBackground.png" Canvas.Top="0" Canvas.Left="0" />
-                <Thumb Name="ControlCenterDragThumb" Width="504" Height="277" Opacity="0"  DragDelta="MoveThumb_DragDelta" />
-                <Button Canvas.Left="70" Canvas.Top="171" Height="50" Name="StartButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StartProfile"/>
-                <Button Canvas.Left="161" Canvas.Top="171" Height="50" Name="StopButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StopProfile"/>
-                <Button Canvas.Left="254" Canvas.Top="171" Height="50" Name="ResetProfileButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.ResetProfile" />
-                <Button Canvas.Left="413" Canvas.Top="49" Height="50" Name="PrefsButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.TogglePreferences" />
-                <Button Canvas.Left="323" Canvas.Top="26" Height="50" Name="PrevButton" Width="50" Style="{StaticResource HeliosPrevButtonStyle}" Command="local:ControlCenterCommands.PreviousProfile" />
-                <Button Canvas.Left="323" Canvas.Top="82" Height="50" Name="NextButton" Width="50" Style="{StaticResource HeliosNextButtonStyle}" Command="local:ControlCenterCommands.NextProfile" />
-                <Button Canvas.Left="413" Canvas.Top="171" Height="50" Name="DeleteButton" Width="50" Style="{StaticResource HeliosRoundPushButtonStyle}" Command="local:ControlCenterCommands.DeleteProfile" />
-                <CheckBox Canvas.Left="7" Canvas.Top="30" Height="100" Name="PowerButton" Width="50" Style="{StaticResource HeliosSwitchStyle}" IsChecked="True" Unchecked="PowerButton_Unchecked" />
-                <TextBlock Canvas.Left="76" Canvas.Top="36" Height="29" Name="ProfileName" Text="{Binding SelectedProfileName}" Width="223" Foreground="#FF79CC87" FontFamily="Franklin Gothic" FontSize="20" />
-                <TextBlock Canvas.Left="76" Canvas.Top="71" Height="53" Name="MesssgeText" Text="{Binding Message}" Width="223" FontFamily="Franklin Gothic" Foreground="#FF79CC87" FontSize="10" TextWrapping="Wrap" />
+                <Thumb x:Name="ControlCenterDragThumb" Width="504" Height="277" Opacity="0" Canvas.Left="0" DragDelta="MoveThumb_DragDelta" />
+                <Button Canvas.Left="70" Canvas.Top="171" Height="50" x:Name="StartButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StartProfile"/>
+                <Button Canvas.Left="161" Canvas.Top="171" Height="50" x:Name="StopButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StopProfile"/>
+                <Button Canvas.Left="254" Canvas.Top="171" Height="50" x:Name="ResetProfileButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.ResetProfile" />
+                <Button Canvas.Left="413" Canvas.Top="49" Height="50" x:Name="PrefsButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.TogglePreferences" />
+                <Button Canvas.Left="323" Canvas.Top="26" Height="50" x:Name="PrevButton" Width="50" Style="{StaticResource HeliosPrevButtonStyle}" Command="local:ControlCenterCommands.PreviousProfile" />
+                <Button Canvas.Left="323" Canvas.Top="82" Height="50" x:Name="NextButton" Width="50" Style="{StaticResource HeliosNextButtonStyle}" Command="local:ControlCenterCommands.NextProfile" />
+                <Button Canvas.Left="413" Canvas.Top="171" Height="50" x:Name="DeleteButton" Width="50" Style="{StaticResource HeliosRoundPushButtonStyle}" Command="local:ControlCenterCommands.DeleteProfile" />
+                <CheckBox Canvas.Left="7" Canvas.Top="30" Height="100" x:Name="PowerButton" Width="50" Style="{StaticResource HeliosSwitchStyle}" IsChecked="True" Unchecked="PowerButton_Unchecked" />
+                <TextBlock Canvas.Left="76" Canvas.Top="36" Height="29" x:Name="ProfileName" Text="{Binding SelectedProfileName}" Width="223" Foreground="#FF79CC87" FontFamily="Franklin Gothic" FontSize="20" />
+                <TextBlock Canvas.Left="76" Canvas.Top="71" Height="53" x:Name="MesssgeText" Text="{Binding Message}" Width="223" FontFamily="Franklin Gothic" Foreground="#FF79CC87" FontSize="10" TextWrapping="Wrap" />
                 <Button Canvas.Left="40" Canvas.Top="242" Content="Hide" FontWeight="Bold" Foreground="White" Height="25" Style="{StaticResource HeliosPushButtonStyle}" Width="80" Click="Button_Click" />
             </Canvas>
             <Canvas Name="PreferencesCanvas" Margin="0" Height="320" Width="504" Visibility="Collapsed">

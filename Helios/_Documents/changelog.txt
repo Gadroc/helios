@@ -1,3 +1,11 @@
+1.4.2019.0616 Release
+----------------------------
+* Fixed bug stopping both Profile Editor and Control Center not running at the same time
+* Extended the 0611 change log.
+* Changed the Helios Update process and version checking
+* Reduced the nagging frequency when there is a new release available
+* Fix for Control Center window positioning not working.
+
 1.4.2019.0611 Release
 ----------------------------
 * Original Helios User Guide refreshed and included
