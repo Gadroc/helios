@@ -333,13 +333,14 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                 _started = true;
                 _clientID = "";
                 _profile = Profile;
-                WaitForData();
+
 
                 _startuptimer = new Timer();
                 _startuptimer.Elapsed += OnStartupTimer;
                 _startuptimer.Interval = 10000;  // 10 seconds for Delayed Startup
                 _startuptimer.Start();
                 ConfigManager.LogManager.LogInfo("Startup timer started.");
+                WaitForData();
             }
             catch (System.Net.Sockets.SocketException se)
             {
