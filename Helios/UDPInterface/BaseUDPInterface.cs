@@ -333,6 +333,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                 _started = true;
                 _clientID = "";
                 _profile = Profile;
+                WaitForData();
 
                 _startuptimer = new Timer();
                 _startuptimer.Elapsed += OnStartupTimer;
@@ -353,7 +354,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
             _startuptimer.Stop();
             ConfigManager.LogManager.LogInfo("Startup Delay timer triggered.");
             _profileLoadedTrigger.FireTrigger(BindingValue.Empty);
-            WaitForData();
+
         }
 
         public override void ReadXml(System.Xml.XmlReader reader)
