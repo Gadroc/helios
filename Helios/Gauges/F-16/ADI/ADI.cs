@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.ADI
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.F16.ADI", "ADI", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.ADI", "ADI", "F-16", typeof(GaugeRenderer))]
     public class ADI : BaseGauge
     {
         private HeliosValue _pitch;

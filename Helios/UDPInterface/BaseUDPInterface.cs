@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
     using System.Net;
     using System.Net.Sockets;
     using System.Timers;
-    
+
 
     public class BaseUDPInterface : HeliosInterface
     {
@@ -48,9 +48,12 @@ namespace GadrocsWorkshop.Helios.UDPInterface
         private int _tokenCount = 0;
         private Timer _startuptimer;
 
+        private System.Text.Encoding iso_8859_1;
+
         public BaseUDPInterface(string name)
             : base(name)
         {
+            iso_8859_1 = System.Text.Encoding.GetEncoding("iso-8859-1");  // This is the locale of the lua exports program
             _socketDataCallback = new AsyncCallback(OnDataReceived);
 
             _connectedTrigger = new HeliosTrigger(this, "", "", "Connected", "Fired on DCS connect.");
@@ -185,10 +188,10 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                         // Don't create the extra strings if we don't need to
                         if (ConfigManager.LogManager.LogLevel == LogLevel.Debug)
                         {
-                            ConfigManager.LogManager.LogDebug("UDP Interface received packet. (Interfae=\"" + Name + "\", Packet=\"" + System.Text.Encoding.UTF8.GetString(_dataBuffer, 0, receivedByteCount) + "\")");
+                            ConfigManager.LogManager.LogDebug("UDP Interface received packet. (Interfae=\"" + Name + "\", Packet=\"" + iso_8859_1.GetString(_dataBuffer, 0, receivedByteCount) + "\")");
                         }
 
-                        String packetClientID = System.Text.Encoding.UTF8.GetString(_dataBuffer, 0, 8);
+                        String packetClientID = iso_8859_1.GetString(_dataBuffer, 0, 8);
                         if (!_clientID.Equals(packetClientID))
                         {
                             ConfigManager.LogManager.LogInfo("UDP interface new client connected, sending data reset command. (Interface=\"" + Name + "\", Client=\"" + _client.ToString() + "\", Client ID=\"" + packetClientID + "\")");
@@ -206,12 +209,12 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                             {
                                 int size = i - lastIndex - 1;
                                 //_tokens[_tokenCount++] = System.Text.Encoding.UTF8.GetString(_dataBuffer, lastIndex + 1, size);
-                                _tokens[_tokenCount++] = System.Text.Encoding.Default.GetString(_dataBuffer, lastIndex + 1, size);
+                                _tokens[_tokenCount++] = iso_8859_1.GetString(_dataBuffer, lastIndex + 1, size);
                                 lastIndex = i;
                             }
                         }
                         //_tokens[_tokenCount++] = System.Text.Encoding.UTF8.GetString(_dataBuffer, lastIndex + 1, parseCount - lastIndex - 1);
-                        _tokens[_tokenCount++] = System.Text.Encoding.Default.GetString(_dataBuffer, lastIndex + 1, parseCount - lastIndex - 1);
+                        _tokens[_tokenCount++] = iso_8859_1.GetString(_dataBuffer, lastIndex + 1, parseCount - lastIndex - 1);
 
 
                         if (_tokenCount % 1 > 0)
@@ -223,15 +226,15 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                     }
                     else
                     {
-                        string RecString = System.Text.Encoding.UTF8.GetString(_dataBuffer, 0, receivedByteCount);
+                        string RecString = iso_8859_1.GetString(_dataBuffer, 0, receivedByteCount);
                         // Special case for Disconnect - Event must be put into the LUA file
                         if (RecString.Contains("DISCONNECT"))
                         {
                             ConfigManager.LogManager.LogInfo("UDP interface disconnect from Lua.");
                             _disconnectedTrigger.FireTrigger(BindingValue.Empty);
                         }
-                        else 
-                        ConfigManager.LogManager.LogWarning("UDP interface short packet received. (Interface=\"" + Name + "\")");
+                        else
+                            ConfigManager.LogManager.LogWarning("UDP interface short packet received. (Interface=\"" + Name + "\")");
                     }
                 }
             }
@@ -292,7 +295,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                 if (_client != null && _clientID.Length > 0)
                 {
                     ConfigManager.LogManager.LogDebug("UDP interface sending data. (Interface=\"" + Name + "\", Data=\"" + data + "\")");
-                    byte[] sendData = System.Text.Encoding.UTF8.GetBytes(data + "\n");
+                    byte[] sendData = iso_8859_1.GetBytes(data + "\n");
                     _socket.SendTo(sendData, _client);
                 }
             }
@@ -334,16 +337,18 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                 _clientID = "";
                 _profile = Profile;
 
+
                 _startuptimer = new Timer();
                 _startuptimer.Elapsed += OnStartupTimer;
                 _startuptimer.Interval = 10000;  // 10 seconds for Delayed Startup
                 _startuptimer.Start();
                 ConfigManager.LogManager.LogInfo("Startup timer started.");
+                WaitForData();
             }
             catch (System.Net.Sockets.SocketException se)
             {
                 ConfigManager.LogManager.LogError("UDP interface startup error. (Interface=\"" + Name + "\")");
-                ConfigManager.LogManager.LogError("UDP Socket Exception on Profile Start.  " + se.Message,se);
+                ConfigManager.LogManager.LogError("UDP Socket Exception on Profile Start.  " + se.Message, se);
             }
 
         }
@@ -353,7 +358,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
             _startuptimer.Stop();
             ConfigManager.LogManager.LogInfo("Startup Delay timer triggered.");
             _profileLoadedTrigger.FireTrigger(BindingValue.Empty);
-            WaitForData();
+
         }
 
         public override void ReadXml(System.Xml.XmlReader reader)
@@ -380,7 +385,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
         public override void Reset()
         {
             base.Reset();
-            foreach(NetworkFunction function in Functions)
+            foreach (NetworkFunction function in Functions)
             {
                 function.Reset();
             }

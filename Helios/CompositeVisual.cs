@@ -558,19 +558,20 @@ namespace GadrocsWorkshop.Helios
         }
 
         protected TextDisplay AddTextDisplay(
-            string name, 
-            Point pos, 
-            Size size, 
-            string font, 
+            string name,
+            Point pos,
+            Size size,
+            string font,
             TextHorizontalAlignment horizontalAlignment,
             TextVerticalAlignment verticalAligment,
-            double baseFontsize, 
+            double baseFontsize,
             string testTextDisplay,
             Color textColor,
             Color backgroundColor,
             bool useBackground,
-            string interfaceDeviceName, 
-            string interfaceElementName
+            string interfaceDeviceName,
+            string interfaceElementName,
+            string textDisplayDictionary
             )
         {
             string componentName = GetComponentName(name);
@@ -598,7 +599,15 @@ namespace GadrocsWorkshop.Helios
             display.OnTextColor = textColor; // Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
             display.BackgroundColor = backgroundColor; // Color.FromArgb(0xff, 0x00, 0x00, 0x00);
             display.UseBackground = useBackground;
-            display.ParserDictionary = "";
+            if (textDisplayDictionary.Equals(""))
+            {
+                display.ParserDictionary = "";
+            }
+            else
+            {
+                display.ParserDictionary = textDisplayDictionary;
+                display.UseParseDictionary = true;
+            }
             display.TextTestValue = testTextDisplay;
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], componentName);

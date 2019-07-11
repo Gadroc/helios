@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.Nozzle
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.F16.Nozzle", "Nozzle", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.Nozzle", "Nozzle", "F-16", typeof(GaugeRenderer))]
     public class Nozzle : BaseGauge
     {
         private HeliosValue _nozzlePosition;

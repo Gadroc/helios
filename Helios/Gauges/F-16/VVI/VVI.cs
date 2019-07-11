@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.VVI
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.F16.VVI", "VVI", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.VVI", "VVI", "F-16", typeof(GaugeRenderer))]
     public class VVI : BaseGauge
     {
         private HeliosValue _offFlag;

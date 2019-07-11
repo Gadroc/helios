@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.Trim
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.F16.RollTrim", "Roll Trim", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.RollTrim", "Roll Trim", "F-16", typeof(GaugeRenderer))]
     public class RollTrim : BaseGauge
     {
         private HeliosValue _trim;

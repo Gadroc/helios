@@ -1,3 +1,11 @@
+1.4.2019.06xx Release
+----------------------------
+* Adjustments made to templates for F-16 gauges, parts, etc in toolbox 
+* Empty panel template created for toolbox
+* Helios exports.lua plays nicely when in a chain of exports.
+* Bug fix for Hornet UFC font (now 1.2)
+* Bug fix for datastream encoding in non-Latin locales.
+
 1.4.2019.0616 Release
 ----------------------------
 * Fixed bug stopping both Profile Editor and Control Center not running at the same time

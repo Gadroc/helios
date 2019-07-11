@@ -190,7 +190,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 backgroundColor: _backGroundColor,
                 useBackground: _useBackGround,
                 interfaceDeviceName: interfaceDevice,
-                interfaceElementName: interfaceElement
+                interfaceElementName: interfaceElement,
+                textDisplayDictionary: ""
                 );
             display.TextFormat.FontWeight = FontWeights.Heavy;
         }

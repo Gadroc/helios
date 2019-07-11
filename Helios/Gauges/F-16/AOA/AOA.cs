@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.AOA
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.F16.AOA", "AOA", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.AOA", "AOA", "F-16", typeof(GaugeRenderer))]
     public class AOA : BaseGauge
     {
         private HeliosValue _angleOfAttack;

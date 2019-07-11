@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.OilPressure
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.F16.OilPressure", "Oil Pressure", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.OilPressure", "Oil Pressure", "F-16", typeof(GaugeRenderer))]
     public class OilPressure : BaseGauge
     {
         private HeliosValue _oilPressure;

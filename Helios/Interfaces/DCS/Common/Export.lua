@@ -1,4 +1,17 @@
-﻿-- for some reason, this causes a failure on my system so commenting it
+﻿local PrevExport = {}
+PrevExport.LuaExportStart = LuaExportStart
+PrevExport.LuaExportStop = LuaExportStop
+PrevExport.LuaExportBeforeNextFrame = LuaExportBeforeNextFrame
+PrevExport.LuaExportAfterNextFrame = LuaExportAfterNextFrame
+PrevExport.LuaExportActivityNextEvent = LuaExportActivityNextEvent
+
+LuaExportStart =nil
+LuaExportBeforeNextFrame =nil
+LuaExportAfterNextFrame =nil
+LuaExportStop =nil
+LuaExportActivityNextEvent =nil
+
+-- for some reason, this causes a failure on my system so commenting it
 -- out in the hope that others don't see a problem with it.
 -- os.setlocale("ISO-8559-1", "numeric")
 
@@ -14,7 +27,7 @@ gLastData = {}
 gTickCount = 0
 
 -- DCS Export Functions
-function LuaExportStart()
+LuaExportStart = function()
 -- Works once just before mission start.
 	
     -- 2) Setup udp sockets to talk to helios
@@ -27,20 +40,37 @@ function LuaExportStart()
 	c:setsockname("*", 0)
 	c:setoption('broadcast', true)
     c:settimeout(.001) -- set the timeout for reading the socket 
+
+	if PrevExport.LuaExportStart then
+        PrevExport.LuaExportStart()
+    end
 end
 
-function LuaExportBeforeNextFrame()
+LuaExportBeforeNextFrame = function()
 	ProcessInput()
+	
+	if PrevExport.LuaExportBeforeNextFrame then
+       PrevExport.LuaExportBeforeNextFrame()
+    end
 end
 
-function LuaExportAfterNextFrame()	
+LuaExportAfterNextFrame = function()	
+    if PrevExport.LuaExportAfterNextFrame  then
+        PrevExport.LuaExportAfterNextFrame()
+    end
+
 end
 
-function LuaExportStop()
+LuaExportStop = function()
 -- Works once just after mission stop.
 -- Send DISCONNECT message so we can fire the Helios Disconnect event
     socket.try(c:sendto("DISCONNECT\n", gHost, gPort))
     c:close()
+	
+	if PrevExport.LuaExportStop  then
+        PrevExport.LuaExportStop()
+    end
+
 end
 
 function ProcessInput()
@@ -65,8 +95,9 @@ function ProcessInput()
     end 
 end
 
-function LuaExportActivityNextEvent(t)
-	t = t + gExportInterval
+LuaExportActivityNextEvent = function(t)
+	local lt = t + gExportInterval
+    local lot = lt
 
 	gTickCount = gTickCount + 1
 
@@ -86,6 +117,12 @@ function LuaExportActivityNextEvent(t)
 		FlushData()
 	end
 
+    if PrevExport.LuaExportActivityNextEvent then
+        lot = PrevExport.LuaExportActivityNextEvent(t)  -- if we were given a value then pass it on
+    end
+    if  lt > lot then
+        lt = lot -- take the lesser of the next event times
+    end
 	return t
 end
 
