@@ -180,7 +180,6 @@
     <Compile Include="Controls\IndicatorAppearancePropertyEditor.xaml.cs">
       <DependentUpon>IndicatorAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\RotarySwitchContinuous.cs" />
     <Compile Include="Controls\TextDisplayRenderer.cs" />
     <Compile Include="Controls\TextDisplay.cs" />
     <Compile Include="Controls\Indicator.cs" />

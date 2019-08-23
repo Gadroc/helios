@@ -7,6 +7,7 @@
 *	Bug fix for Hornet UFC font (now 1.2)
 *	Bug fix for datastream encoding in non-Latin locales.
 * Bug fix for 10 second delay on profile start introduced in 1.4.2019.0616
+* Special Guest submission from Jabbers.... Control Center size independent of the Windows scaling value - Let us know what you think 
 
 1.4.2019.0616 Release
 ----------------------------
