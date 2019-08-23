@@ -1,10 +1,12 @@
-1.4.2019.06xx Release
+1.4.2019.0823 Release
 ----------------------------
 * Adjustments made to templates for F-16 gauges, parts, etc in toolbox 
 * Empty panel template created for toolbox
 * Helios exports.lua plays nicely when in a chain of exports.
-* Bug fix for Hornet UFC font (now 1.2)
-* Bug fix for datastream encoding in non-Latin locales.
+* Breaking backwards compatibility on the Hornet UFC (*** you'll need to re-add the F/A-18C Export.lua interface ***) 
+*	Bug fix for Hornet UFC font (now 1.2)
+*	Bug fix for datastream encoding in non-Latin locales.
+* Bug fix for 10 second delay on profile start introduced in 1.4.2019.0616
 
 1.4.2019.0616 Release
 ----------------------------

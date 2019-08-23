@@ -73,21 +73,21 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28), "UFC COMM 2 Channel Selector Pull", false);
 
             /// adding the displays
-            AddTextDisplay("OptionCueing1", 358, 45, new Size(40, 42), "Option Display 1 Selected", 32, _ufcCueing);
-            AddTextDisplay("OptionDisplay1", 381, 45, new Size(129, 42), "Option Display 1", _ufcNumbers16);
-            AddTextDisplay("OptionCueing2", 358, 111, new Size(40, 42), "Option Display 2 Selected", 32, _ufcCueing);
-            AddTextDisplay("OptionDisplay2", 381, 111, new Size(129, 42), "Option Display 2", _ufcNumbers16);
-            AddTextDisplay("OptionCueing3", 358, 177, new Size(40, 42), "Option Display 3 Selected", 32, _ufcCueing);
-            AddTextDisplay("OptionDisplay3", 381, 177, new Size(129, 42), "Option Display 3", _ufcNumbers16);
-            AddTextDisplay("OptionCueing4", 358, 244, new Size(40, 42), "Option Display 4 Selected", 32, _ufcCueing);
-            AddTextDisplay("OptionDisplay4", 381, 244, new Size(129,42), "Option Display 4", _ufcNumbers16);
-            AddTextDisplay("OptionCueing5", 358, 310, new Size(40, 42), "Option Display 5 Selected", 32, _ufcCueing);
-            AddTextDisplay("OptionDisplay5", 381, 310, new Size(129,42), "Option Display 5", _ufcNumbers16);
-            AddTextDisplay("ScratchPadCharacter1", 92, 35, new Size(32, 48), "Scratchpad 1", 30, " =;" + _ufcNumbers16);
-            AddTextDisplay("ScratchPadCharacter2", 122, 35, new Size(32, 48), "Scratchpad 2", 30, " =;" + _ufcNumbers16);
-            AddTextDisplay("ScratchPadNumbers", 152, 35, new Size(135, 48), "Scratchpad Number", 30, TextHorizontalAlignment.Right, " =<");
-            AddTextDisplay("Comm1", 26, 314, new Size(41, 42), "Comm Channel 1", TextHorizontalAlignment.Center, " =;" + _ufcNumbers16);
-            AddTextDisplay("Comm2", 538, 309, new Size(40, 42), "Comm Channel 2", TextHorizontalAlignment.Center, " =;" + _ufcNumbers16);
+            AddTextDisplay("OptionCueing1", 358, 45, new Size(40, 42), "Option Display 1 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay1", 381, 45, new Size(129, 42), "Option Display 1", 32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("OptionCueing2", 358, 111, new Size(40, 42), "Option Display 2 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay2", 381, 111, new Size(129, 42), "Option Display 2",32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("OptionCueing3", 358, 177, new Size(40, 42), "Option Display 3 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay3", 381, 177, new Size(129, 42), "Option Display 3", 32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("OptionCueing4", 358, 244, new Size(40, 42), "Option Display 4 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay4", 381, 244, new Size(129,42), "Option Display 4", 32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("OptionCueing5", 358, 310, new Size(40, 42), "Option Display 5 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay5", 381, 310, new Size(129,42), "Option Display 5", 32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("ScratchPadCharacter1", 92, 35, new Size(32, 48), "Scratchpad 1", 30, "~", TextHorizontalAlignment.Left, " =;" + _ufcNumbers16);
+            AddTextDisplay("ScratchPadCharacter2", 122, 35, new Size(32, 48), "Scratchpad 2", 30, "~", TextHorizontalAlignment.Left, " =;" + _ufcNumbers16);
+            AddTextDisplay("ScratchPadNumbers", 152, 35, new Size(135, 48), "Scratchpad Number", 30, "~", TextHorizontalAlignment.Right, " =<");
+            AddTextDisplay("Comm1", 26, 314, new Size(41, 42), "Comm Channel 1",32, "~", TextHorizontalAlignment.Center, " =;" + _ufcNumbers16);
+            AddTextDisplay("Comm2", 538, 309, new Size(40, 42), "Comm Channel 2",32, "~", TextHorizontalAlignment.Center, " =;" + _ufcNumbers16);
         }
 
         public override string BezelImage
@@ -131,44 +131,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         //{
         //    AddTextDisplay(name, x, y, size, 32, testDisp, TextHorizontalAlignment.Left);
         //}
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName,
-            double baseFontsize, TextHorizontalAlignment hTextAlign)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, baseFontsize, "~", hTextAlign);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName, double baseFontsize)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, baseFontsize, "~", TextHorizontalAlignment.Left);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName, double baseFontsize,string ufcDictionary)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, baseFontsize, "~", TextHorizontalAlignment.Left, ufcDictionary);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName, TextHorizontalAlignment hTextAlign)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, 32, "~", hTextAlign);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName, double baseFontsize, TextHorizontalAlignment hTextAlign, string ufcDictionary)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, baseFontsize, "~", hTextAlign, ufcDictionary);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName, TextHorizontalAlignment hTextAlign, string ufcDictionary)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, 32, "~", hTextAlign, ufcDictionary);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, 32, "~", TextHorizontalAlignment.Left);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName, string ufcDictionary)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, 32, "~", TextHorizontalAlignment.Left, ufcDictionary);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size,
-            string interfaceElementName, double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, baseFontsize, testDisp, hTextAlign, "");
-        }
+
         private void AddTextDisplay(string name, double x, double y, Size size,
             string interfaceElementName, double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign, string ufcDictionary)
         {
