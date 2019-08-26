@@ -13,17 +13,17 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
+namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 {
     using GadrocsWorkshop.Helios.ComponentModel;
-    //using GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple.Functions;
+    using GadrocsWorkshop.Helios.Interfaces.DCS.M2000C.Functions;
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
     using Microsoft.Win32;
     using System;
 
-    //[HeliosInterface("Helios.M2000CSimple", "DCS M2000C (Simple)", typeof(M2000CSimpleInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
-    public class M2000CSimpleInterface : BaseUDPInterface
+    [HeliosInterface("Helios.M2000C", "DCS M2000C", typeof(M2000CInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
+    public class M2000CInterface : BaseUDPInterface
     {
         private string _dcsPath;
 
@@ -63,12 +63,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
         private const string DDM_IND = "28";
         private const string WEAPONS_CONTROL = "29";
         #endregion
-        public M2000CSimpleInterface()
-            : base("DCS Mirage-2000C (Simple)")
+        #region Ids
+        private const string CMD = "3";
+        private const string UVHF_PRESET_DISPLAY = "436";
+        private const string UVHF_PRESET_KNOB = "445";
+        private const string VORILS_DISPLAY = "611";
+        private const string VORILS_FREQUENCY_CHANGE_WHOLE = "617";
+        private const string VORILS_FREQUENCY_CHANGE_DECIMAL = "618";
+        private const string VORILS_POWER = "617";
+        private const string TACAN_DISPLAY = "621";
+        private const string TACAN_C10_SELECTOR = "623";
+        private const string TACAN_XY_SELECTOR = "624";
+        private const string TACAN_C1_SELECTOR = "625";
+        private const string TACAN_MODE_SELECTOR = "626";
+        #endregion
+        public M2000CInterface()
+            : base("DCS Mirage-2000C")
         {
-            DCSConfigurator config = new DCSConfigurator("DCSM2000CSIMPLE", DCSPath);
+            DCSConfigurator config = new DCSConfigurator("DCSM2000C", DCSPath);
             config.ExportConfigPath = "Config\\Export";
-            config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000CSimple/ExportFunctions.lua";
+            config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000C/ExportFunctions.lua";
             Port = config.Port;
             _phantomFix = config.PhantomFix;
             _phantomLeft = config.PhantomFixLeft;
@@ -159,45 +173,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
             AddFunction(new FlagValue(this, "511", "Indicators", "Indicators 511", "Left consule HYD"));
             AddFunction(new FlagValue(this, "512", "Indicators", "Indicators 512", "Left consule Red"));
             AddFunction(new FlagValue(this, "513", "Indicators", "Indicators 513", "Left consule Green"));
-            AddFunction(new FlagValue(this, "525", "Indicators", "Indicators 525", "WP BATT"));
-            AddFunction(new FlagValue(this, "526", "Indicators", "Indicators 526", "TR"));
-            AddFunction(new FlagValue(this, "527", "Indicators", "Indicators 527", "ALT 1"));
-            AddFunction(new FlagValue(this, "528", "Indicators", "Indicators 528", "ALT 2"));
-            AddFunction(new FlagValue(this, "529", "Indicators", "Indicators 529", "HUILLE"));
-            AddFunction(new FlagValue(this, "530", "Indicators", "Indicators 530", "T7"));
-            AddFunction(new FlagValue(this, "531", "Indicators", "Indicators 531", "CALC C"));
-            AddFunction(new FlagValue(this, "532", "Indicators", "Indicators 532", "SOURIS"));
-            AddFunction(new FlagValue(this, "533", "Indicators", "Indicators 533", "PELLE"));
-            AddFunction(new FlagValue(this, "534", "Indicators", "Indicators 534", "B.P"));
-            AddFunction(new FlagValue(this, "535", "Indicators", "Indicators 535", "BP.G"));
-            AddFunction(new FlagValue(this, "536", "Indicators", "Indicators 536", "BP.D"));
-            AddFunction(new FlagValue(this, "537", "Indicators", "Indicators 537", "TRANSF"));
-            AddFunction(new FlagValue(this, "538", "Indicators", "Indicators 538", "NIVEAU"));
-            AddFunction(new FlagValue(this, "539", "Indicators", "Indicators 539", "HYD 1"));
-            AddFunction(new FlagValue(this, "540", "Indicators", "Indicators 540", "HYD 2"));
-            AddFunction(new FlagValue(this, "541", "Indicators", "Indicators 541", "HYD 3"));
-            AddFunction(new FlagValue(this, "542", "Indicators", "Indicators 542", "EP"));
-            AddFunction(new FlagValue(this, "543", "Indicators", "Indicators 543", "BINGO"));
-            AddFunction(new FlagValue(this, "544", "Indicators", "Indicators 544", "P.CAB"));
-            AddFunction(new FlagValue(this, "545", "Indicators", "Indicators 545", "TEMP"));
-            AddFunction(new FlagValue(this, "546", "Indicators", "Indicators 546", "REG O2"));
-            AddFunction(new FlagValue(this, "547", "Indicators", "Indicators 547", "5nm O2"));
-            AddFunction(new FlagValue(this, "548", "Indicators", "Indicators 548", "O2 HA"));
-            AddFunction(new FlagValue(this, "549", "Indicators", "Indicators 549", "ANEMO"));
-            AddFunction(new FlagValue(this, "550", "Indicators", "Indicators 550", "CC"));
-            AddFunction(new FlagValue(this, "551", "Indicators", "Indicators 551", "DSV"));
-            AddFunction(new FlagValue(this, "552", "Indicators", "Indicators 552", "CONDIT"));
-            AddFunction(new FlagValue(this, "553", "Indicators", "Indicators 553", "CONF"));
-            AddFunction(new FlagValue(this, "554", "Indicators", "Indicators 554", "PA"));
-            AddFunction(new FlagValue(this, "555", "Indicators", "Indicators 555", "MAN"));
-            AddFunction(new FlagValue(this, "556", "Indicators", "Indicators 556", "DOM"));
-            AddFunction(new FlagValue(this, "557", "Indicators", "Indicators 557", "BECS"));
-            AddFunction(new FlagValue(this, "558", "Indicators", "Indicators 558", "U.S.EL"));
-            AddFunction(new FlagValue(this, "559", "Indicators", "Indicators 559", "ZEICHEN"));
-            AddFunction(new FlagValue(this, "560", "Indicators", "Indicators 560", "GAIN"));
-            AddFunction(new FlagValue(this, "561", "Indicators", "Indicators 561", "RPM"));
-            AddFunction(new FlagValue(this, "562", "Indicators", "Indicators 562", "DECOL"));
-            AddFunction(new FlagValue(this, "563", "Indicators", "Indicators 563", "PARK."));
             AddFunction(new FlagValue(this, "564", "Indicators", "Indicators 564", "Right Console PRET"));
             AddFunction(new FlagValue(this, "565", "Indicators", "Indicators 565", "ALN"));
             AddFunction(new FlagValue(this, "566", "Indicators", "Indicators 566", "MIP"));
@@ -220,6 +195,47 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
             AddFunction(new FlagValue(this, "634", "Indicators", "Indicators 634", "TACAN F"));
             AddFunction(new FlagValue(this, "675", "Indicators", "Indicators 675", "COM Panel, lamp red"));
             AddFunction(new FlagValue(this, "676", "Indicators", "Indicators 676", "COM Panel, lamp red, over COM"));
+            #endregion
+            #region Caution Panel Indicators
+            AddFunction(new FlagValue(this, "525", "Caution Panel", "BATT", "WP BATT"));
+            AddFunction(new FlagValue(this, "526", "Caution Panel", "TR", "TR"));
+            AddFunction(new FlagValue(this, "527", "Caution Panel", "ALT.I", "ALT 1"));
+            AddFunction(new FlagValue(this, "528", "Caution Panel", "ALT.2", "ALT 2"));
+            AddFunction(new FlagValue(this, "529", "Caution Panel", "HUILE", "HUILLE"));
+            AddFunction(new FlagValue(this, "530", "Caution Panel", "T7", "T7"));
+            AddFunction(new FlagValue(this, "531", "Caution Panel", "CALCC", "CALC C"));
+            AddFunction(new FlagValue(this, "532", "Caution Panel", "SOURIS", "SOURIS"));
+            AddFunction(new FlagValue(this, "533", "Caution Panel", "PELLE", "PELLE"));
+            AddFunction(new FlagValue(this, "534", "Caution Panel", "B.P", "B.P"));
+            AddFunction(new FlagValue(this, "535", "Caution Panel", "BP.G", "BP.G"));
+            AddFunction(new FlagValue(this, "536", "Caution Panel", "BP.D", "BP.D"));
+            AddFunction(new FlagValue(this, "537", "Caution Panel", "TRANSF", "TRANSF"));
+            AddFunction(new FlagValue(this, "538", "Caution Panel", "NIVEAU", "NIVEAU"));
+            AddFunction(new FlagValue(this, "539", "Caution Panel", "HYD.I", "HYD 1"));
+            AddFunction(new FlagValue(this, "540", "Caution Panel", "HYD.2", "HYD 2"));
+            AddFunction(new FlagValue(this, "541", "Caution Panel", "HYD.S", "HYD S"));
+            AddFunction(new FlagValue(this, "542", "Caution Panel", "EP", "EP"));
+            AddFunction(new FlagValue(this, "543", "Caution Panel", "BINGO", "BINGO"));
+            AddFunction(new FlagValue(this, "544", "Caution Panel", "P.CAB", "P.CAB"));
+            AddFunction(new FlagValue(this, "545", "Caution Panel", "TEMP", "TEMP"));
+            AddFunction(new FlagValue(this, "546", "Caution Panel", "REG.O²", "REG O2"));
+            AddFunction(new FlagValue(this, "547", "Caution Panel", "5mn.O²", "5mn O2"));
+            AddFunction(new FlagValue(this, "548", "Caution Panel", "O²HA", "O2 HA"));
+            AddFunction(new FlagValue(this, "549", "Caution Panel", "ANEMO", "ANEMO"));
+            AddFunction(new FlagValue(this, "550", "Caution Panel", "CC", "CC"));
+            AddFunction(new FlagValue(this, "551", "Caution Panel", "DSV", "DSV"));
+            AddFunction(new FlagValue(this, "552", "Caution Panel", "CONDIT", "CONDIT"));
+            AddFunction(new FlagValue(this, "553", "Caution Panel", "CONF", "CONF"));
+            AddFunction(new FlagValue(this, "554", "Caution Panel", "PA", "PA"));
+            AddFunction(new FlagValue(this, "555", "Caution Panel", "MAN", "MAN"));
+            AddFunction(new FlagValue(this, "556", "Caution Panel", "DOM", "DOM"));
+            AddFunction(new FlagValue(this, "557", "Caution Panel", "BECS", "BECS"));
+            AddFunction(new FlagValue(this, "558", "Caution Panel", "U.S.EL", "U.S.EL"));
+            AddFunction(new FlagValue(this, "559", "Caution Panel", "ZEICHEN", "ZEICHEN"));
+            AddFunction(new FlagValue(this, "560", "Caution Panel", "GAIN", "GAIN"));
+            AddFunction(new FlagValue(this, "561", "Caution Panel", "RPM", "RPM"));
+            AddFunction(new FlagValue(this, "562", "Caution Panel", "DECOL", "DECOL"));
+            AddFunction(new FlagValue(this, "563", "Caution Panel", "PARK.", "PARK."));
             #endregion
             #region Displays
             //
@@ -257,6 +273,20 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
             //AddFunction(new FlagValue(this, "2035", "Indicators", "Indicators 2035", "Mode 4. Drum"));
             //AddFunction(new FlagValue(this, "2036", "Indicators", "Indicators 2036", "Mode VOR ILS"));
             //AddFunction(new FlagValue(this, "2037", "Indicators", "Indicators 2037", "Mode TACAN"));
+            #endregion
+            #region U/VHF Panel
+            AddFunction(new ScaledNetworkValue(this, UVHF_PRESET_DISPLAY, 0d, "U/VHF", "Preset output for display", "Current preset channel", "use rotary encoder with initial 0, min0, max 20, step 0.1", BindingValueUnits.Numeric, 0d, "%.4f"));
+            AddFunction(new Axis(this, UVHF, UVHF_PRESET_KNOB, CMD + UVHF_PRESET_KNOB, 0.05d, 0d, 1.0d, "U/VHF", "Preset frequency change"));
+//            AddFunction(new RotaryEncoder(this, UVHF, UVHF_PRESET_KNOB, CMD + UVHF_PRESET_KNOB, 0.1d, "U/VHF", "Preset frequency change"));
+/*            AddFunction(new Switch(this, UVHF, UVHF_CHANNEL, new SwitchPosition[] { 
+                new SwitchPosition("0.05", "Channel 1", CMD+UVHF_CHANNEL), new SwitchPosition("0.1", "Channel 2", CMD+UVHF_CHANNEL), new SwitchPosition("0.15", "Channel 3", CMD+UVHF_CHANNEL),
+                new SwitchPosition("0.2", "Channel 4", CMD+UVHF_CHANNEL), new SwitchPosition("0.25", "Channel 5", CMD+UVHF_CHANNEL), new SwitchPosition("0.3", "Channel 6", CMD+UVHF_CHANNEL),
+                new SwitchPosition("0.35", "Channel 7", CMD+UVHF_CHANNEL), new SwitchPosition("0.4", "Channel 8", CMD+UVHF_CHANNEL) , new SwitchPosition("0.45", "Channel 9", CMD+UVHF_CHANNEL),
+                new SwitchPosition("0.5", "Channel 10", CMD+UVHF_CHANNEL), new SwitchPosition("0.55", "Channel 11", CMD+UVHF_CHANNEL) , new SwitchPosition("0.66", "Channel 12", CMD+UVHF_CHANNEL),
+                new SwitchPosition("0.65", "Channel 13", CMD+UVHF_CHANNEL), new SwitchPosition("0.7", "Channel 14", CMD+UVHF_CHANNEL) , new SwitchPosition("0.75", "Channel 15", CMD+UVHF_CHANNEL),
+                new SwitchPosition("0.8", "Channel 16", CMD+UVHF_CHANNEL), new SwitchPosition("0.85", "Channel 17", CMD+UVHF_CHANNEL) , new SwitchPosition("0.9", "Channel 18", CMD+UVHF_CHANNEL),
+                new SwitchPosition("0.95", "Channel 19", CMD+UVHF_CHANNEL), new SwitchPosition("1", "Channel 20", CMD+UVHF_CHANNEL)}, "Radio Panel", "U/VHF Channel Selector", "%0.2f"));
+                */
             #endregion
             #region  Landing Gear
             //AddFunction(Switch.CreateToggleSwitch(this, INSTPANEL, "3404", "404", "Landing Gear", "Landing Gear Lever", "%0.1f"));    // elements["PTN_404"] = default_animated_lever(_("Landing Gear Lever"), devices.INSTPANEL, device_commands.Button_404, 404,5.0)
@@ -402,6 +432,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
             AddFunction(new PushButton(this, PWRPNL, "3521", "521", "ELECTRICAL PANEL", "Electric Power Transfer Switch"));    // elements["PTN_521"] = default_2_position_tumb(_("Electric Power Transfer Switch"),devices.PWRPNL, device_commands.Button_521, 521)
             AddFunction(new PushButton(this, PWRPNL, "3522", "522", "ELECTRICAL PANEL", "Alternator 1 Switch"));    // elements["PTN_522"] = default_2_position_tumb(_("Alternator 1 Switch"),devices.PWRPNL, device_commands.Button_522, 522)
             AddFunction(new PushButton(this, PWRPNL, "3523", "523", "ELECTRICAL PANEL", "Alternator 2 Switch"));    // elements["PTN_523"] = default_2_position_tumb(_("Alternator 2 Switch"),devices.PWRPNL, device_commands.Button_523, 523)
+            AddFunction(new PushButton(this, PWRPNL, "3524", "524", "ELECTRICAL PANEL", "Lights Test Switch"));    // elements["PTN_524"] = default_2_way_spring_switch(_("Lights Test Switch"),devices.PWRPNL, device_commands.Button_524, 524,true)
             //AddFunction(Switch.CreateToggleSwitch(this, PWRPNL, "3524", "524", "ELECTRICAL PANEL", "Lights Test Switch", "%0.1f"));    // elements["PTN_524"] = default_2_way_spring_switch(_("Lights Test Switch"),devices.PWRPNL, device_commands.Button_524, 524,true)
             AddFunction(new PushButton(this, PWRPNL, "3654", "654", "ELECTRICAL PANEL", "Alert Network (QRA) Switch"));    // elements["PTN_654"] = default_2_position_tumb(_("Alert Network (QRA) Switch"),devices.PWRPNL, device_commands.Button_654, 654)
 
@@ -495,38 +526,57 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
             AddFunction(new PushButton(this, INSTPANEL, "3357", "357", "Fuel Panel", "Fuel Crossfeeed Switch"));    // elements["PTN_357"] = default_2_position_tumb(_("Fuel Crossfeeed Switch"), devices.INSTPANEL, device_commands.Button_357, 357)
             #endregion  
             #region  Radio Panel
-            AddFunction(new PushButton(this, UHF, "3429", "429", "Radio Panel", "UHF Power 5W/25W Switch"));    // elements["PTN_429"] = default_2_position_tumb(_("UHF Power 5W/25W Switch"), devices.UHF, device_commands.Button_429, 429)
-            AddFunction(new PushButton(this, UHF, "3430", "430", "Radio Panel", "UHF SIL Switch"));    // elements["PTN_430"] = default_2_position_tumb(_("UHF SIL Switch"), devices.UHF, device_commands.Button_430, 430)
+//            AddFunction(new PushButton(this, UHF, "3429", "429", "Radio Panel", "UHF Power 5W/25W Switch"));    // elements["PTN_429"] = default_2_position_tumb(_("UHF Power 5W/25W Switch"), devices.UHF, device_commands.Button_429, 429)
+//            AddFunction(new PushButton(this, UHF, "3430", "430", "Radio Panel", "UHF SIL Switch"));    // elements["PTN_430"] = default_2_position_tumb(_("UHF SIL Switch"), devices.UHF, device_commands.Button_430, 430)
             //AddFunction(Switch.CreateToggleSwitch(this, UHF, "3431", "431", "Radio Panel", "UHF E+A2 Switch", "%0.1f"));    // elements["PTN_431"] = default_2_way_spring_switch(_("UHF E+A2 Switch"), devices.UHF, device_commands.Button_431, 431, true)
-            AddFunction(new PushButton(this, UHF, "3432", "432", "Radio Panel", "UHF CDE Switch"));    // elements["PTN_432"] = default_button(_("UHF CDE Switch"), devices.UHF, device_commands.Button_432, 432)
-            AddFunction(new Switch(this, UHF, "433", new SwitchPosition[] { }, "Radio Panel", "UHF Mode Switch", "%0.1f"));    // elements["PTN_433"] = multiposition_switch_limited(_("UHF Mode Switch"), devices.UHF, device_commands.Button_433, 433, 4, 0.25, false, 0)
-            AddFunction(new PushButton(this, UHF, "3434", "434", "Radio Panel", "UHF TEST Switch"));    // elements["PTN_434"] = default_button(_("UHF TEST Switch"), devices.UHF, device_commands.Button_434, 434)
-            AddFunction(new Switch(this, UHF, "435", new SwitchPosition[] { }, "Radio Panel", "UHF Knob", "%0.1f"));    // elements["PTN_435"] = default_multiposition_knob(_("UHF Knob"), devices.UHF, device_commands.Button_435, 435, 20, 0.05,false,0.05)
-            AddFunction(new PushButton(this, UVHF, "3437", "437", "Radio Panel", "U/VHF TEST Switch"));    // elements["PTN_437"] = default_button(_("U/VHF TEST Switch"), devices.UVHF, device_commands.Button_437, 437)
+//            AddFunction(new PushButton(this, UHF, "3432", "432", "Radio Panel", "UHF CDE Switch"));    // elements["PTN_432"] = default_button(_("UHF CDE Switch"), devices.UHF, device_commands.Button_432, 432)
+//            AddFunction(new Switch(this, UHF, "433", new SwitchPosition[] { }, "Radio Panel", "UHF Mode Switch", "%0.1f"));    // elements["PTN_433"] = multiposition_switch_limited(_("UHF Mode Switch"), devices.UHF, device_commands.Button_433, 433, 4, 0.25, false, 0)
+  //          AddFunction(new PushButton(this, UHF, "3434", "434", "Radio Panel", "UHF TEST Switch"));    // elements["PTN_434"] = default_button(_("UHF TEST Switch"), devices.UHF, device_commands.Button_434, 434)
+//            AddFunction(new Switch(this, UHF, "435", new SwitchPosition[] { }, "Radio Panel", "UHF Knob", "%0.1f"));    // elements["PTN_435"] = default_multiposition_knob(_("UHF Knob"), devices.UHF, device_commands.Button_435, 435, 20, 0.05,false,0.05)
+//            AddFunction(new PushButton(this, UVHF, "3437", "437", "Radio Panel", "U/VHF TEST Switch"));    // elements["PTN_437"] = default_button(_("U/VHF TEST Switch"), devices.UVHF, device_commands.Button_437, 437)
             //AddFunction(Switch.CreateToggleSwitch(this, UVHF, "3438", "438", "Radio Panel", "U/VHF E+A2 Switch", "%0.1f"));    // elements["PTN_438"] = default_2_way_spring_switch(_("U/VHF E+A2 Switch"), devices.UVHF, device_commands.Button_438, 438, true)
-            AddFunction(new PushButton(this, UVHF, "3439", "439", "Radio Panel", "U/VHF SIL Switch"));    // elements["PTN_439"] = default_2_position_tumb(_("U/VHF SIL Switch"), devices.UVHF, device_commands.Button_439, 439)
-            AddFunction(new Switch(this, UVHF, "440", new SwitchPosition[] { }, "Radio Panel", "U/VHF 100 MHz Selector", "%0.1f"));    // elements["PTN_440"] = default_multiposition_knob(_("U/VHF 100 MHz Selector"), devices.UVHF, device_commands.Button_440, 440, 4, 0.1, false, 0)
-            AddFunction(new Switch(this, UVHF, "441", new SwitchPosition[] { }, "Radio Panel", "U/VHF 10 MHz Selector", "%0.1f"));    // elements["PTN_441"] = default_multiposition_knob(_("U/VHF 10 MHz Selector"), devices.UVHF, device_commands.Button_441, 441, 10, 0.1, false, 0)
-            AddFunction(new Switch(this, UVHF, "442", new SwitchPosition[] { }, "Radio Panel", "U/VHF 1 MHz Selector", "%0.1f"));    // elements["PTN_442"] = default_multiposition_knob(_("U/VHF 1 MHz Selector"), devices.UVHF, device_commands.Button_442, 442, 10, 0.1, false, 0)
-            AddFunction(new Switch(this, UVHF, "443", new SwitchPosition[] { }, "Radio Panel", "U/VHF 100 KHz Selector", "%0.1f"));    // elements["PTN_443"] = default_multiposition_knob(_("U/VHF 100 KHz Selector"), devices.UVHF, device_commands.Button_443, 443, 10, 0.1, false, 0)
-            AddFunction(new Switch(this, UVHF, "444", new SwitchPosition[] { }, "Radio Panel", "U/VHF 25 KHz Selector", "%0.1f"));    // elements["PTN_444"] = default_multiposition_knob(_("U/VHF 25 KHz Selector"), devices.UVHF, device_commands.Button_444, 444, 4, 0.25, false, 0)
-            AddFunction(new Switch(this, UVHF, "445", new SwitchPosition[] { }, "Radio Panel", "U/VHF Knob", "%0.1f"));    // elements["PTN_445"] = default_multiposition_knob(_("U/VHF Knob"), devices.UVHF, device_commands.Button_445, 445, 20, 0.05,false,0.05)
-            AddFunction(new Switch(this, UVHF, "446", new SwitchPosition[] { }, "Radio Panel", "U/VHF Mode Switch 1", "%0.1f"));    // elements["PTN_446"] = multiposition_switch_limited(_("U/VHF Mode Switch 1"), devices.UVHF, device_commands.Button_446, 446, 5, 0.25, false, 0)
-            AddFunction(new PushButton(this, UVHF, "3447", "447", "Radio Panel", "U/VHF Power 5W/25W Switch"));    // elements["PTN_447"] = default_2_position_tumb(_("U/VHF Power 5W/25W Switch"), devices.UVHF, device_commands.Button_447, 447)
-            AddFunction(new Switch(this, UVHF, "448", new SwitchPosition[] { }, "Radio Panel", "U/VHF Manual/Preset Mode Selector", "%0.1f"));    // elements["PTN_448"] = multiposition_switch_limited(_("U/VHF Manual/Preset Mode Selector"), devices.UVHF, device_commands.Button_448, 448, 3, 0.50, false, 0)
-            #endregion  
+//            AddFunction(new PushButton(this, UVHF, "3439", "439", "Radio Panel", "U/VHF SIL Switch"));    // elements["PTN_439"] = default_2_position_tumb(_("U/VHF SIL Switch"), devices.UVHF, device_commands.Button_439, 439)
+//            AddFunction(new Switch(this, UVHF, "440", new SwitchPosition[] { }, "Radio Panel", "U/VHF 100 MHz Selector", "%0.1f"));    // elements["PTN_440"] = default_multiposition_knob(_("U/VHF 100 MHz Selector"), devices.UVHF, device_commands.Button_440, 440, 4, 0.1, false, 0)
+//            AddFunction(new Switch(this, UVHF, "441", new SwitchPosition[] { }, "Radio Panel", "U/VHF 10 MHz Selector", "%0.1f"));    // elements["PTN_441"] = default_multiposition_knob(_("U/VHF 10 MHz Selector"), devices.UVHF, device_commands.Button_441, 441, 10, 0.1, false, 0)
+//            AddFunction(new Switch(this, UVHF, "442", new SwitchPosition[] { }, "Radio Panel", "U/VHF 1 MHz Selector", "%0.1f"));    // elements["PTN_442"] = default_multiposition_knob(_("U/VHF 1 MHz Selector"), devices.UVHF, device_commands.Button_442, 442, 10, 0.1, false, 0)
+//            AddFunction(new Switch(this, UVHF, "443", new SwitchPosition[] { }, "Radio Panel", "U/VHF 100 KHz Selector", "%0.1f"));    // elements["PTN_443"] = default_multiposition_knob(_("U/VHF 100 KHz Selector"), devices.UVHF, device_commands.Button_443, 443, 10, 0.1, false, 0)
+//            AddFunction(new Switch(this, UVHF, "444", new SwitchPosition[] { }, "Radio Panel", "U/VHF 25 KHz Selector", "%0.1f"));    // elements["PTN_444"] = default_multiposition_knob(_("U/VHF 25 KHz Selector"), devices.UVHF, device_commands.Button_444, 444, 4, 0.25, false, 0)
+//            AddFunction(new Switch(this, UVHF, "445", new SwitchPosition[] { }, "Radio Panel", "U/VHF Knob", "%0.1f"));    // elements["PTN_445"] = default_multiposition_knob(_("U/VHF Knob"), devices.UVHF, device_commands.Button_445, 445, 20, 0.05,false,0.05)
+//            AddFunction(new Switch(this, UVHF, "446", new SwitchPosition[] { }, "Radio Panel", "U/VHF Mode Switch 1", "%0.1f"));    // elements["PTN_446"] = multiposition_switch_limited(_("U/VHF Mode Switch 1"), devices.UVHF, device_commands.Button_446, 446, 5, 0.25, false, 0)
+//            AddFunction(new PushButton(this, UVHF, "3447", "447", "Radio Panel", "U/VHF Power 5W/25W Switch"));    // elements["PTN_447"] = default_2_position_tumb(_("U/VHF Power 5W/25W Switch"), devices.UVHF, device_commands.Button_447, 447)
+//            AddFunction(new Switch(this, UVHF, "448", new SwitchPosition[] { }, "Radio Panel", "U/VHF Manual/Preset Mode Selector", "%0.1f"));    // elements["PTN_448"] = multiposition_switch_limited(_("U/VHF Manual/Preset Mode Selector"), devices.UVHF, device_commands.Button_448, 448, 3, 0.50, false, 0)
+            #endregion
             #region  Right MDI
             #endregion
-            #region  Navigational Antennas
-            AddFunction(new Switch(this, VORILS, "616", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Whole", "%0.1f"));    // elements["PTN_616"] = default_multiposition_knob(_("VOR/ILS Frequency Change Whole"),devices.VORILS,device_commands.Button_616,616, 11, 0.1, false, 0)
-            AddFunction(new PushButton(this, VORILS, "3617", "617", "Navigational Antennas", "VOR/ILS Power Dial"));    // elements["PTN_617"] = default_2_position_tumb(_("VOR/ILS Power Dial"), devices.VORILS,device_commands.Button_617,617)
-            AddFunction(new Switch(this, VORILS, "618", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Decimal", "%0.1f"));    // elements["PTN_618"] = default_multiposition_knob(_("VOR/ILS Frequency Change Decimal"),devices.VORILS,device_commands.Button_618,618, 20, 0.05,false,0.0)
-            AddFunction(new PushButton(this, VORILS, "3619", "619", "Navigational Antennas", "VOR/ILS Test Dial"));    // elements["PTN_619"] = default_2_position_tumb(_("VOR/ILS Test Dial"), devices.VORILS,device_commands.Button_619,619)
-            AddFunction(new Switch(this, TACAN, "623", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 10 Selector", "%0.1f"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
-            AddFunction(new PushButton(this, TACAN, "3624", "624", "Navigational Antennas", "TACAN X/Y Select"));    // elements["PTN_624"] = default_2_position_tumb(_("TACAN X/Y Select"),devices.TACAN,device_commands.Button_624,624)
-            AddFunction(new Switch(this, TACAN, "625", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 1 Selector", "%0.1f"));    // elements["PTN_625"] = default_multiposition_knob(_("TACAN Channel 1 Selector"),devices.TACAN,device_commands.Button_625,625, 10, 0.1, false, 0)
-            AddFunction(new Switch(this, TACAN, "626", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Mode Select", "%0.1f"));    // elements["PTN_626"] = multiposition_switch_limited(_("TACAN Mode Select"), devices.TACAN, device_commands.Button_626, 626, 4, 0.33, false, 0)
-            #endregion  
+            #region VOR.ILS Panel
+            //            AddFunction(new Switch(this, VORILS, "616", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Whole", "%0.1f"));    // elements["PTN_616"] = default_multiposition_knob(_("VOR/ILS Frequency Change Whole"),devices.VORILS,device_commands.Button_616,616, 11, 0.1, false, 0)
+            //            AddFunction(new PushButton(this, VORILS, "3617", "617", "Navigational Antennas", "VOR/ILS Power Dial"));    // elements["PTN_617"] = default_2_position_tumb(_("VOR/ILS Power Dial"), devices.VORILS,device_commands.Button_617,617)
+            //            AddFunction(new Switch(this, VORILS, "618", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Decimal", "%0.1f"));    // elements["PTN_618"] = default_multiposition_knob(_("VOR/ILS Frequency Change Decimal"),devices.VORILS,device_commands.Button_618,618, 20, 0.05,false,0.0)
+            //            AddFunction(new PushButton(this, VORILS, "3619", "619", "Navigational Antennas", "VOR/ILS Test Dial"));    // elements["PTN_619"] = default_2_position_tumb(_("VOR/ILS Test Dial"), devices.VORILS,device_commands.Button_619,619)
+            AddFunction(new ScaledNetworkValue(this, VORILS_DISPLAY, 0d, "VOR/ILS", "Channel output for display", "Current channel", "use rotary encoder with initial 0, min0, max 13, step 0.1", BindingValueUnits.Numeric, 0d, "%.4f"));
+            AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_WHOLE, CMD + VORILS_FREQUENCY_CHANGE_WHOLE, 0.1d, 0.0d, 1.0d, "VOR/ILS", "Frequency Change whole"));
+            AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_DECIMAL, CMD + VORILS_FREQUENCY_CHANGE_DECIMAL, 0.05d, 0.0d, 1.0d, "VOR/ILS", "Frequency Change Decimal"));
+            AddFunction(new Switch(this, VORILS, VORILS_POWER, new SwitchPosition[] { new SwitchPosition("0.0", "On", CMD + VORILS_POWER), new SwitchPosition("1.0", "Off", CMD + VORILS_POWER) }, "VOR/ILS", "Power Dial", "%0.1f"));
+            #endregion
+            #region TACAN Panel
+            //            AddFunction(new Switch(this, TACAN, "623", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 10 Selector", "%0.1f"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
+            //            AddFunction(new Switch(this, TACAN, "625", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 1 Selector", "%0.1f"));    // elements["PTN_625"] = default_multiposition_knob(_("TACAN Channel 1 Selector"),devices.TACAN,device_commands.Button_625,625, 10, 0.1, false, 0)
+//            AddFunction(new ScaledNetworkValue(this, TACAN_DISPLAY, 0d, "TACAN", "Channel output for display", "Current channel", "use rotary encoder with initial 0, min0, max 13, step 0.1", BindingValueUnits.Numeric, 0d, "%.4f"));
+//            AddFunction(new RotaryEncoder(this, TACAN, CMD + TACAN_C10_SELECTOR, TACAN_C10_SELECTOR, 0.1d, "TACAN", "Channel 10 Selector"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
+            AddFunction(new Axis(this, TACAN, TACAN_C10_SELECTOR, CMD + TACAN_C10_SELECTOR, 0.0769d, 0d, 0.9228d, "TACAN", "Channel 10 Selector"));
+            AddFunction(new Switch(this, TACAN, TACAN_XY_SELECTOR, new SwitchPosition[] {
+                new SwitchPosition("0.0", "X", CMD + TACAN_XY_SELECTOR),
+                new SwitchPosition("1.0", "Y", CMD + TACAN_XY_SELECTOR) }
+                , "TACAN", "X/Y Select", "%0.1f"));
+            AddFunction(new Axis(this, TACAN, TACAN_C1_SELECTOR, CMD + TACAN_C1_SELECTOR, 0.1, 0d, 0.9d, "TACAN", "Channel 1 Selector"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
+            AddFunction(new Switch(this, TACAN, TACAN_MODE_SELECTOR, new SwitchPosition[] {
+                new SwitchPosition("0.0", "OFF", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("0.3", "REC", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("0.7", "T/R", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("1.0", "A/A Receive", CMD + TACAN_MODE_SELECTOR) }
+                , "TACAN", "Mode Select", " %0.1f"));
+            AddFunction(new TACANChannel(this));
+            #endregion
             #region  Miscellaneous Left Panel
             AddFunction(new PushButton(this, MISCPANELS, "3400", "400", "Miscellaneous Left Panel", "Cockpit Clock"));    // elements["PTN_400"] = default_2_position_tumb(_("Cockpit Clock"), devices.MISCPANELS, device_commands.Button_400, 400)
             AddFunction(new PushButton(this, SYSLIGHTS, "", "191", "Miscellaneous Left Panel", "Audio Warning Reset"));    // elements["PTN_191"] = default_button(_("Audio Warning Reset"), devices.SYSLIGHTS, Keys.PlaneResetMasterWarning, 191, 0, 1)
@@ -652,3 +702,4 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
         }
     }
 }
+ 

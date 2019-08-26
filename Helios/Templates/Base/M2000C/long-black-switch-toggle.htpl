@@ -1,0 +1,16 @@
+﻿<ControlTemplate>
+  <Name>Black Switch</Name>
+  <Category>M2000C Toggle Switches</Category>
+  <TypeIdentifier>Helios.Base.ToggleSwitch</TypeIdentifier>
+  <Template>
+    <TemplateValues>
+      <Location>467,62.04</Location>
+      <Size>25,50</Size>
+      <SwitchType>OnOn</SwitchType>
+      <Orientation>Vertical</Orientation>
+      <PositionOneImage>{Helios}/Images/M2000C/Switches/long-black-up.png</PositionOneImage>
+      <PositionTwoImage>{Helios}/Images/M2000C/Switches/long-black-down.png</PositionTwoImage>
+      <DefaultPosition>Two</DefaultPosition>
+    </TemplateValues>
+  </Template>
+</ControlTemplate>
