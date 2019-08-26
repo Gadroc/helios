@@ -3044,7 +3044,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\Controls\" />
-    <Folder Include="Gauges\M-2000C\" />
     <Folder Include="Images\Mi-8\" />
     <Folder Include="Interfaces\DCS\F14B\Functions\" />
     <Folder Include="Interfaces\DCS\Mi8Simple\Functions\" />

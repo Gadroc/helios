@@ -199,28 +199,28 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #region Caution Panel Indicators
             AddFunction(new FlagValue(this, "525", "Caution Panel", "BATT", "WP BATT"));
             AddFunction(new FlagValue(this, "526", "Caution Panel", "TR", "TR"));
-            AddFunction(new FlagValue(this, "527", "Caution Panel", "ALT.I", "ALT 1"));
-            AddFunction(new FlagValue(this, "528", "Caution Panel", "ALT.2", "ALT 2"));
+            AddFunction(new FlagValue(this, "527", "Caution Panel", "ALT1", "ALT 1"));
+            AddFunction(new FlagValue(this, "528", "Caution Panel", "ALT2", "ALT 2"));
             AddFunction(new FlagValue(this, "529", "Caution Panel", "HUILE", "HUILLE"));
             AddFunction(new FlagValue(this, "530", "Caution Panel", "T7", "T7"));
             AddFunction(new FlagValue(this, "531", "Caution Panel", "CALCC", "CALC C"));
             AddFunction(new FlagValue(this, "532", "Caution Panel", "SOURIS", "SOURIS"));
             AddFunction(new FlagValue(this, "533", "Caution Panel", "PELLE", "PELLE"));
-            AddFunction(new FlagValue(this, "534", "Caution Panel", "B.P", "B.P"));
-            AddFunction(new FlagValue(this, "535", "Caution Panel", "BP.G", "BP.G"));
-            AddFunction(new FlagValue(this, "536", "Caution Panel", "BP.D", "BP.D"));
+            AddFunction(new FlagValue(this, "534", "Caution Panel", "BP", "B.P"));
+            AddFunction(new FlagValue(this, "535", "Caution Panel", "BPG", "BP.G"));
+            AddFunction(new FlagValue(this, "536", "Caution Panel", "BPD", "BP.D"));
             AddFunction(new FlagValue(this, "537", "Caution Panel", "TRANSF", "TRANSF"));
             AddFunction(new FlagValue(this, "538", "Caution Panel", "NIVEAU", "NIVEAU"));
-            AddFunction(new FlagValue(this, "539", "Caution Panel", "HYD.I", "HYD 1"));
-            AddFunction(new FlagValue(this, "540", "Caution Panel", "HYD.2", "HYD 2"));
-            AddFunction(new FlagValue(this, "541", "Caution Panel", "HYD.S", "HYD S"));
+            AddFunction(new FlagValue(this, "539", "Caution Panel", "HYD1", "HYD 1"));
+            AddFunction(new FlagValue(this, "540", "Caution Panel", "HYD2", "HYD 2"));
+            AddFunction(new FlagValue(this, "541", "Caution Panel", "HYDS", "HYD S"));
             AddFunction(new FlagValue(this, "542", "Caution Panel", "EP", "EP"));
             AddFunction(new FlagValue(this, "543", "Caution Panel", "BINGO", "BINGO"));
-            AddFunction(new FlagValue(this, "544", "Caution Panel", "P.CAB", "P.CAB"));
+            AddFunction(new FlagValue(this, "544", "Caution Panel", "PCAB", "P.CAB"));
             AddFunction(new FlagValue(this, "545", "Caution Panel", "TEMP", "TEMP"));
-            AddFunction(new FlagValue(this, "546", "Caution Panel", "REG.O²", "REG O2"));
-            AddFunction(new FlagValue(this, "547", "Caution Panel", "5mn.O²", "5mn O2"));
-            AddFunction(new FlagValue(this, "548", "Caution Panel", "O²HA", "O2 HA"));
+            AddFunction(new FlagValue(this, "546", "Caution Panel", "REGO2", "REG O2"));
+            AddFunction(new FlagValue(this, "547", "Caution Panel", "5mnO2", "5mn O2"));
+            AddFunction(new FlagValue(this, "548", "Caution Panel", "O2HA", "O2 HA"));
             AddFunction(new FlagValue(this, "549", "Caution Panel", "ANEMO", "ANEMO"));
             AddFunction(new FlagValue(this, "550", "Caution Panel", "CC", "CC"));
             AddFunction(new FlagValue(this, "551", "Caution Panel", "DSV", "DSV"));
@@ -235,7 +235,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "560", "Caution Panel", "GAIN", "GAIN"));
             AddFunction(new FlagValue(this, "561", "Caution Panel", "RPM", "RPM"));
             AddFunction(new FlagValue(this, "562", "Caution Panel", "DECOL", "DECOL"));
-            AddFunction(new FlagValue(this, "563", "Caution Panel", "PARK.", "PARK."));
+            AddFunction(new FlagValue(this, "563", "Caution Panel", "PARK", "PARK"));
             #endregion
             #region Displays
             //

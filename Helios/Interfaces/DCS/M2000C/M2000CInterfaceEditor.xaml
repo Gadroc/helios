@@ -52,7 +52,7 @@
     </DataTemplate>
   </FrameworkElement.Resources>
   <StackPanel>
-        <GroupBox Header="About the Mirage 2000C Interface" Background="Pink" BorderBrush="DarkRed" BorderThickness="2">
+        <GroupBox Header="About the Mirage-2000C Interface" Background="Pink" BorderBrush="DarkRed" BorderThickness="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -131,7 +131,7 @@
         </StackPanel>
       </StackPanel>
     </GroupBox>
-        <GroupBox Header="M-2000C (Simple) Setup" Margin="0,4,0,0">
+        <GroupBox Header="M-2000C Setup" Margin="0,4,0,0">
       <StackPanel>
         <Grid>
           <Grid.ColumnDefinitions>

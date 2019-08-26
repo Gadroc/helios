@@ -1,6 +1,6 @@
 ﻿<ControlTemplate>
-  <Name>Red Indicator - Caution Panel</Name>
-  <Category>M2000C Indicators</Category>
+  <Name>Indicator Red - Caution Panel</Name>
+  <Category>M2000C</Category>
   <TypeIdentifier>Helios.Base.Indicator</TypeIdentifier>
   <Template>
     <TemplateValues>

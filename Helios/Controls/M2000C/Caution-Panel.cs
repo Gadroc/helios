@@ -13,9 +13,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Controls
+namespace GadrocsWorkshop.Helios.Gauges.M2000C
 {
     using GadrocsWorkshop.Helios.ComponentModel;
+    using GadrocsWorkshop.Helios.Controls;
     using System;
     using System.Globalization;
     using System.Windows;
@@ -40,13 +41,13 @@ namespace GadrocsWorkshop.Helios.Controls
         public string getColor() { return _color; }
     }
 
-    [HeliosControl("M2000C_CAUTION_PANEL.MFD", "Caution Panel", "M2000C Panels", typeof(MFDRenderer))]
-    class MFD_M2000C_CP : MFD
+    [HeliosControl("M2000C_CAUTION_PANEL", "Caution Panel", "M2000C Gauges", typeof(MFDRenderer))]
+    class M2000C_CautionPanel : MFD
     {
-        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 280, 220);
+        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 256, 280);
         private Rect _scaledScreenRect = SCREEN_RECT;
 
-        public MFD_M2000C_CP()
+        public M2000C_CautionPanel()
             : base("Caution Panel", new Size(256, 280))
         {
             int row0 = 30, row1 = 92, row2 = 112, row3 = 132, row4 = 153, row5 = 173, row6 = 193, row7 = 214, row8 = 234;
@@ -91,19 +92,19 @@ namespace GadrocsWorkshop.Helios.Controls
             AddIndicator("MAN", column2, row7);
             AddIndicator("DOM", column3, row7);
             AddIndicator("BECS", column4, row7);
-            AddIndicator("USEL", column5, row7);
-            //Heighth row
+            AddIndicator("U.S.EL", column5, row7);
+            //Eighth row
             AddIndicator("ZEICHEN", column1, row8);
             AddIndicator("GAIN", column2, row8);
             AddIndicator("RPM", column3, row8);
             AddIndicator("DECOL", column4, row8);
             AddIndicator("PARK", column5, row8);
 
-            AddSwitch("Main Battery Switch", "red", 15, row0, Helios.Controls.ToggleSwitchPosition.Two, Helios.Controls.ToggleSwitchType.OnOn, false);
-            AddSwitch("Electric Power Transfer Switch", "long-black", 61, row0, Helios.Controls.ToggleSwitchPosition.One, Helios.Controls.ToggleSwitchType.OnOn, false);
-            AddSwitch("Alternator 1 Switch", "long-black", 105, row0, Helios.Controls.ToggleSwitchPosition.One, Helios.Controls.ToggleSwitchType.OnOn, false);
-            AddSwitch("Alternator 2 Switch", "long-black", 147, row0, Helios.Controls.ToggleSwitchPosition.One, Helios.Controls.ToggleSwitchType.OnOn, false);
-            AddSwitch("Test", "long-black", 190, 76, Helios.Controls.ToggleSwitchPosition.Two, Helios.Controls.ToggleSwitchType.MomOn, true);
+            AddSwitch("Main Battery Switch", "red", 15, row0, ToggleSwitchPosition.Two, ToggleSwitchType.OnOn, false);
+            AddSwitch("Electric Power Transfer Switch", "long-black", 61, row0, ToggleSwitchPosition.One, ToggleSwitchType.OnOn, false);
+            AddSwitch("Alternator 1 Switch", "long-black", 105, row0, ToggleSwitchPosition.One, ToggleSwitchType.OnOn, false);
+            AddSwitch("Alternator 2 Switch", "long-black", 147, row0, ToggleSwitchPosition.One, ToggleSwitchType.OnOn, false);
+            AddSwitch("Test", "long-black", 190, 76, ToggleSwitchPosition.Two, ToggleSwitchType.MomOn, true);
         }
 
         #region Properties
@@ -129,7 +130,7 @@ namespace GadrocsWorkshop.Helios.Controls
         private void AddIndicator(string name, double x, double y)
         {
             
-            Helios.Controls.Indicator newIndicator = new Helios.Controls.Indicator();
+            Indicator newIndicator = new Indicator();
             newIndicator.Top = y;
             newIndicator.Left = x;
             newIndicator.Width = 32;
@@ -166,19 +167,19 @@ namespace GadrocsWorkshop.Helios.Controls
             Actions.Add(action);
         }
 
-        private void AddSwitch(string name, string imagePrefix, double x, double y, Helios.Controls.ToggleSwitchPosition defaultPosition, Helios.Controls.ToggleSwitchType defaultType, bool horizontal)
+        private void AddSwitch(string name, string imagePrefix, double x, double y, ToggleSwitchPosition defaultPosition, ToggleSwitchType defaultType, bool horizontal)
         {
-            Helios.Controls.ToggleSwitch newSwitch = new Helios.Controls.ToggleSwitch();
+            ToggleSwitch newSwitch = new ToggleSwitch();
             newSwitch.Name = name;
             newSwitch.SwitchType = defaultType;
-            newSwitch.ClickType = Helios.Controls.ClickType.Touch;
+            newSwitch.ClickType = ClickType.Touch;
             newSwitch.DefaultPosition = defaultPosition;
 
             newSwitch.Top = y;
             newSwitch.Left = x;
             if (horizontal)
             {
-                newSwitch.Orientation = Helios.Controls.ToggleSwitchOrientation.Horizontal;
+                newSwitch.Orientation = ToggleSwitchOrientation.Horizontal;
                 newSwitch.PositionOneImage = "{Helios}/Images/M2000C/Switches/" + imagePrefix + "-left.png";
                 newSwitch.PositionTwoImage = "{Helios}/Images/M2000C/Switches/" + imagePrefix + "-right.png";
                 newSwitch.Width = 50;
@@ -186,7 +187,7 @@ namespace GadrocsWorkshop.Helios.Controls
             }
             else
             {
-                newSwitch.Orientation = Helios.Controls.ToggleSwitchOrientation.Vertical;
+                newSwitch.Orientation = ToggleSwitchOrientation.Vertical;
                 newSwitch.PositionOneImage = "{Helios}/Images/M2000C/Switches/" + imagePrefix + "-up.png";
                 newSwitch.PositionTwoImage = "{Helios}/Images/M2000C/SWitches/" + imagePrefix + "-down.png";
                 newSwitch.Width = 25;
