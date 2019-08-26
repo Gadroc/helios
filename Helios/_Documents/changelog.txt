@@ -1,3 +1,7 @@
+1.4.2019.0nnn Release
+----------------------------
+* Adjustments to the method to identify the scripts directoy 
+
 1.4.2019.0823 Release
 ----------------------------
 * Adjustments made to templates for F-16 gauges, parts, etc in toolbox 

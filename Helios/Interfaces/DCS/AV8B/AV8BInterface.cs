@@ -613,7 +613,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             {
                 if (_dcsPath == null)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS AV-8B");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

@@ -18,3 +18,4 @@ setup.exe
 *.bak
 *.user
 Keypress Receiver Installer/Release/Keypress Receiver Setup.msi
+!/Docs/*.txt

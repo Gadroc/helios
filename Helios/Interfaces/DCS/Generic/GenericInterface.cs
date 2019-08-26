@@ -225,7 +225,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Generic
             {
                 if (_dcsPath == null)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS Generic");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

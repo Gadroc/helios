@@ -22,8 +22,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keypress Receiver", "KeyPre
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Keypress Receiver Installer", "Keypress Receiver Installer\Keypress Receiver Installer.vdproj", "{61272BD1-E670-45CC-918B-1208B837F4DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documentation", "Documentation\Documentation.csproj", "{7B9BD7E6-A621-4747-A312-7825E2D2D5CE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android

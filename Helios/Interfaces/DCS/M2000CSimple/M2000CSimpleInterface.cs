@@ -600,7 +600,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
             {
                 if (_dcsPath == null)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS M-2000C");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

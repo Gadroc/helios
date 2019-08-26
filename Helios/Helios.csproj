@@ -769,6 +769,9 @@
       <DependentUpon>TextStaticEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Controls\TypefaceListItem.cs" />
+    <Resource Include="Interfaces\DCS\Common\Export_Stub.lua" />
+    <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Post.lua" />
+    <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Pre.lua" />
     <None Include="Templates\Base\Panels\Empty Panel.htpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

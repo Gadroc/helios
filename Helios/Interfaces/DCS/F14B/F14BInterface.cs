@@ -535,7 +535,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.F14B
             {
                 if (_dcsPath == null)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS F-14B");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

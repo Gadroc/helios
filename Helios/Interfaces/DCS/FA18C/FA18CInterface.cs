@@ -737,7 +737,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             {
                 if (_dcsPath == null)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS FA-18C");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
