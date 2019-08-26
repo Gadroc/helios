@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
+namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 {
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
@@ -24,13 +24,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
     using System.Windows.Input;
 
     /// <summary>
-    /// Interaction logic for M2000CSimpleInterfaceEditor.xaml
+    /// Interaction logic for M2000CInterfaceEditor.xaml
     /// </summary>
-    public partial class M2000CSimpleInterfaceEditor : HeliosInterfaceEditor
+    public partial class M2000CInterfaceEditor : HeliosInterfaceEditor
     {
-        static M2000CSimpleInterfaceEditor()
+        static M2000CInterfaceEditor()
         {
-            Type ownerType = typeof(M2000CSimpleInterfaceEditor);
+            Type ownerType = typeof(M2000CInterfaceEditor);
 
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.AddDoFile, AddDoFile_Executed));
             CommandManager.RegisterClassCommandBinding(ownerType, new CommandBinding(DCSConfigurator.RemoveDoFile, RemoveDoFile_Executed));
@@ -38,7 +38,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         private static void AddDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            M2000CSimpleInterfaceEditor editor = target as M2000CSimpleInterfaceEditor;
+            M2000CInterfaceEditor editor = target as M2000CInterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && !editor.Configuration.DoFiles.Contains(file))
             {
@@ -49,7 +49,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         private static void RemoveDoFile_Executed(object target, ExecutedRoutedEventArgs e)
         {
-            M2000CSimpleInterfaceEditor editor = target as M2000CSimpleInterfaceEditor;
+            M2000CInterfaceEditor editor = target as M2000CInterfaceEditor;
             string file = e.Parameter as string;
             if (editor != null && !string.IsNullOrWhiteSpace(file) && editor.Configuration.DoFiles.Contains(file))
             {
@@ -59,12 +59,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         private string _dcsPath = null;
 
-        public M2000CSimpleInterfaceEditor()
+        public M2000CInterfaceEditor()
         {
             InitializeComponent();
             Configuration = new DCSConfigurator("DCSM2000C", DCSPath);
             Configuration.ExportConfigPath = "Config\\Export";
-            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000CSimple/ExportFunctions.lua";
+            Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000C/ExportFunctions.lua";
         }
 
         #region Properties
@@ -77,7 +77,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
 
         // Using a DependencyProperty as the backing store for Configuration.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ConfigurationProperty =
-            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(M2000CSimpleInterfaceEditor), new PropertyMetadata(null));
+            DependencyProperty.Register("Configuration", typeof(DCSConfigurator), typeof(M2000CInterfaceEditor), new PropertyMetadata(null));
 
         public string DCSPath
         {
@@ -90,14 +90,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000CSimple
                     {
                         pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS M2000C");
                     }
-                    if (pathKey == null)
-                    {
-                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
-                    }
-                    if (pathKey == null)
-                    {
-                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
-                    }
+
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
