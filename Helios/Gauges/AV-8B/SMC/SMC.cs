@@ -31,9 +31,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
             AddDisplay("Stores Mode", new Helios.Gauges.AV8B.smcModeDisplay(), new Point(81, 64), new Size(68, 41));
             AddDisplay("Fuze Mode", new Helios.Gauges.AV8B.fuzeDisplay(), new Point(218, 59), new Size(112, 50));
-            AddDisplay("Quantity", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(407, 66), new Size(98, 48));
-            AddDisplay("Multiple", new Helios.Gauges.AV8B.OneDigitDisplay(), new Point(607,66), new Size(41, 48));
-            AddDisplay("Interval", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(746, 66), new Size(168, 48));
+            AddDisplay("Quantity", new Helios.Gauges.AV8B.SMC.TwoDigitDisplay(), new Point(407, 66), new Size(98, 48));
+            AddDisplay("Multiple", new Helios.Gauges.AV8B.SMC.OneDigitDisplay(), new Point(607,66), new Size(41, 48));
+            AddDisplay("Interval", new Helios.Gauges.AV8B.SMC.ThreeDigitDisplay(), new Point(746, 66), new Size(168, 48));
 
             AddButton("Station 1", 383, 392, new Size(50, 50));
             AddButton("Station 2", 486, 392, new Size(50, 50));

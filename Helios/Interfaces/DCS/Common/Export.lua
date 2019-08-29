@@ -123,7 +123,7 @@ LuaExportActivityNextEvent = function(t)
     if  lt > lot then
         lt = lot -- take the lesser of the next event times
     end
-	return t
+	return lt
 end
 
 -- Helper Functions
