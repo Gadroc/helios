@@ -231,9 +231,14 @@
       <DependentUpon>RectangleFillAppearanceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RectangleFillRenderer.cs" />
-    <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
+    <Compile Include="Gauges\AV-8B\FuelPanel\4 Digit Display\4DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\FuelPanel\5 Digit Display\5DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\FuelPanel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\ODU\ODU.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\1 Digit Display\1DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\2 Digit Display\2DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\3 Digit Display\3DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
     <Compile Include="Gauges\F-14B\F14BDevice\F14BDevice.cs" />
     <Compile Include="Gauges\F-14B\F14BDevice\F14BDeviceRenderer.cs" />
@@ -2701,7 +2706,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\Fuel Panel\fuel_faceplate.xaml">
+    <Resource Include="Gauges\AV-8B\FuelPanel\fuel_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2878,6 +2883,26 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\FA-18C\ADI\adi_gs_indicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\1 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\2 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\3 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\FuelPanel\4 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\FuelPanel\5 Digit Display\digit_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -3941,6 +3966,14 @@
     <Resource Include="Images\FA-18C\UFC Button Up WOF.png" />
     <Resource Include="Images\FA-18C\UFC Button Up WPN.png" />
     <Resource Include="Images\AV-8B\ODU.png" />
+    <Resource Include="Images\AV-8B\AV8B Flare Salvo Panel.png" />
+    <Resource Include="Images\AV-8B\AV8B Fuel Panel.png" />
+    <Resource Include="Images\AV-8B\AV8B Master Arm Panel.png" />
+    <Resource Include="Images\AV-8B\Fuel Bingo Knob.png" />
+    <Resource Include="Images\AV-8B\SMC Cool Switch Dn.png" />
+    <Resource Include="Images\AV-8B\SMC Cool Switch Up.png" />
+    <Resource Include="Images\AV-8B\SMC Jettison Button.png" />
+    <Resource Include="Images\AV-8B\SMC Jettison Knob.png" />
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
