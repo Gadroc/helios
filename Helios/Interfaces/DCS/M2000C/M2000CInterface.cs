@@ -78,9 +78,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         private const string TACAN_MODE_SELECTOR = "626";
         #endregion
         public M2000CInterface()
-            : base("DCS Mirage-2000C")
+            : base("DCS M2000C")
         {
-            DCSConfigurator config = new DCSConfigurator("DCSM2000C", DCSPath);
+            DCSConfigurator config = new DCSConfigurator("DCS M2000C", DCSPath);
             config.ExportConfigPath = "Config\\Export";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000C/ExportFunctions.lua";
             Port = config.Port;
@@ -88,6 +88,52 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             _phantomLeft = config.PhantomFixLeft;
             _phantomTop = config.PhantomFixTop;
 
+            #region Caution Panel
+            AddFunction(new FlagValue(this, "525", "Caution Panel", "BATT", "WP BATT"));
+            AddFunction(new FlagValue(this, "526", "Caution Panel", "TR", "TR"));
+            AddFunction(new FlagValue(this, "527", "Caution Panel", "ALT1", "ALT 1"));
+            AddFunction(new FlagValue(this, "528", "Caution Panel", "ALT2", "ALT 2"));
+            AddFunction(new FlagValue(this, "529", "Caution Panel", "HUILE", "HUILLE"));
+            AddFunction(new FlagValue(this, "530", "Caution Panel", "T7", "T7"));
+            AddFunction(new FlagValue(this, "531", "Caution Panel", "CALC", "CALC"));
+            AddFunction(new FlagValue(this, "532", "Caution Panel", "SOURIS", "SOURIS"));
+            AddFunction(new FlagValue(this, "533", "Caution Panel", "PELLE", "PELLE"));
+            AddFunction(new FlagValue(this, "534", "Caution Panel", "BP", "B.P"));
+            AddFunction(new FlagValue(this, "535", "Caution Panel", "BPG", "BP.G"));
+            AddFunction(new FlagValue(this, "536", "Caution Panel", "BPD", "BP.D"));
+            AddFunction(new FlagValue(this, "537", "Caution Panel", "TRANSF", "TRANSF"));
+            AddFunction(new FlagValue(this, "538", "Caution Panel", "NIVEAU", "NIVEAU"));
+            AddFunction(new FlagValue(this, "539", "Caution Panel", "HYD1", "HYD 1"));
+            AddFunction(new FlagValue(this, "540", "Caution Panel", "HYD2", "HYD 2"));
+            AddFunction(new FlagValue(this, "541", "Caution Panel", "HYDS", "HYD S"));
+            AddFunction(new FlagValue(this, "542", "Caution Panel", "EP", "EP"));
+            AddFunction(new FlagValue(this, "543", "Caution Panel", "BINGO", "BINGO"));
+            AddFunction(new FlagValue(this, "544", "Caution Panel", "PCAB", "P.CAB"));
+            AddFunction(new FlagValue(this, "545", "Caution Panel", "TEMP", "TEMP"));
+            AddFunction(new FlagValue(this, "546", "Caution Panel", "REGO2", "REG O2"));
+            AddFunction(new FlagValue(this, "547", "Caution Panel", "5mnO2", "5mn O2"));
+            AddFunction(new FlagValue(this, "548", "Caution Panel", "O2HA", "O2 HA"));
+            AddFunction(new FlagValue(this, "549", "Caution Panel", "ANEMO", "ANEMO"));
+            AddFunction(new FlagValue(this, "550", "Caution Panel", "CC", "CC"));
+            AddFunction(new FlagValue(this, "551", "Caution Panel", "DSV", "DSV"));
+            AddFunction(new FlagValue(this, "552", "Caution Panel", "CONDIT", "CONDIT"));
+            AddFunction(new FlagValue(this, "553", "Caution Panel", "CONF", "CONF"));
+            AddFunction(new FlagValue(this, "554", "Caution Panel", "PA", "PA"));
+            AddFunction(new FlagValue(this, "555", "Caution Panel", "MAN", "MAN"));
+            AddFunction(new FlagValue(this, "556", "Caution Panel", "DOM", "DOM"));
+            AddFunction(new FlagValue(this, "557", "Caution Panel", "BECS", "BECS"));
+            AddFunction(new FlagValue(this, "558", "Caution Panel", "USEL", "USEL"));
+            AddFunction(new FlagValue(this, "559", "Caution Panel", "ZEICHEN", "ZEICHEN"));
+            AddFunction(new FlagValue(this, "560", "Caution Panel", "GAIN", "GAIN"));
+            AddFunction(new FlagValue(this, "561", "Caution Panel", "RPM", "RPM"));
+            AddFunction(new FlagValue(this, "562", "Caution Panel", "DECOL", "DECOL"));
+            AddFunction(new FlagValue(this, "563", "Caution Panel", "PARK", "PARK"));
+            AddFunction(new Switch(this, PWRPNL, "520", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3520"), new SwitchPosition("0.0", "ON", "3520") }, "Caution Panel", "Main Battery Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "521", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3521"), new SwitchPosition("0.0", "ON", "3521") }, "Caution Panel", "Electric Power Transfer Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "522", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3522"), new SwitchPosition("0.0", "ON", "3522") }, "Caution Panel", "Alternator 1 Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "523", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3523"), new SwitchPosition("0.0", "ON", "3523") }, "Caution Panel", "Alternator 2 Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "524", new SwitchPosition[] { new SwitchPosition("1.0", "1", "3524"), new SwitchPosition("0.0", "OFF", "3524"), new SwitchPosition("-1.0", "2", "3524") }, "Caution Panel", "Lights Test Switch", "%0.1f"));
+            #endregion
             #region Indicators
             // !!!! Any duplicate "name" values in a function will cause Helios to go bang.  Make sure that when you change the name, that it is unique
             AddFunction(new FlagValue(this, "185", "Indicators", "Indicators 185", "LIM, MIP,"));
@@ -195,47 +241,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "634", "Indicators", "Indicators 634", "TACAN F"));
             AddFunction(new FlagValue(this, "675", "Indicators", "Indicators 675", "COM Panel, lamp red"));
             AddFunction(new FlagValue(this, "676", "Indicators", "Indicators 676", "COM Panel, lamp red, over COM"));
-            #endregion
-            #region Caution Panel Indicators
-            AddFunction(new FlagValue(this, "525", "Caution Panel", "BATT", "WP BATT"));
-            AddFunction(new FlagValue(this, "526", "Caution Panel", "TR", "TR"));
-            AddFunction(new FlagValue(this, "527", "Caution Panel", "ALT1", "ALT 1"));
-            AddFunction(new FlagValue(this, "528", "Caution Panel", "ALT2", "ALT 2"));
-            AddFunction(new FlagValue(this, "529", "Caution Panel", "HUILE", "HUILLE"));
-            AddFunction(new FlagValue(this, "530", "Caution Panel", "T7", "T7"));
-            AddFunction(new FlagValue(this, "531", "Caution Panel", "CALCC", "CALC C"));
-            AddFunction(new FlagValue(this, "532", "Caution Panel", "SOURIS", "SOURIS"));
-            AddFunction(new FlagValue(this, "533", "Caution Panel", "PELLE", "PELLE"));
-            AddFunction(new FlagValue(this, "534", "Caution Panel", "BP", "B.P"));
-            AddFunction(new FlagValue(this, "535", "Caution Panel", "BPG", "BP.G"));
-            AddFunction(new FlagValue(this, "536", "Caution Panel", "BPD", "BP.D"));
-            AddFunction(new FlagValue(this, "537", "Caution Panel", "TRANSF", "TRANSF"));
-            AddFunction(new FlagValue(this, "538", "Caution Panel", "NIVEAU", "NIVEAU"));
-            AddFunction(new FlagValue(this, "539", "Caution Panel", "HYD1", "HYD 1"));
-            AddFunction(new FlagValue(this, "540", "Caution Panel", "HYD2", "HYD 2"));
-            AddFunction(new FlagValue(this, "541", "Caution Panel", "HYDS", "HYD S"));
-            AddFunction(new FlagValue(this, "542", "Caution Panel", "EP", "EP"));
-            AddFunction(new FlagValue(this, "543", "Caution Panel", "BINGO", "BINGO"));
-            AddFunction(new FlagValue(this, "544", "Caution Panel", "PCAB", "P.CAB"));
-            AddFunction(new FlagValue(this, "545", "Caution Panel", "TEMP", "TEMP"));
-            AddFunction(new FlagValue(this, "546", "Caution Panel", "REGO2", "REG O2"));
-            AddFunction(new FlagValue(this, "547", "Caution Panel", "5mnO2", "5mn O2"));
-            AddFunction(new FlagValue(this, "548", "Caution Panel", "O2HA", "O2 HA"));
-            AddFunction(new FlagValue(this, "549", "Caution Panel", "ANEMO", "ANEMO"));
-            AddFunction(new FlagValue(this, "550", "Caution Panel", "CC", "CC"));
-            AddFunction(new FlagValue(this, "551", "Caution Panel", "DSV", "DSV"));
-            AddFunction(new FlagValue(this, "552", "Caution Panel", "CONDIT", "CONDIT"));
-            AddFunction(new FlagValue(this, "553", "Caution Panel", "CONF", "CONF"));
-            AddFunction(new FlagValue(this, "554", "Caution Panel", "PA", "PA"));
-            AddFunction(new FlagValue(this, "555", "Caution Panel", "MAN", "MAN"));
-            AddFunction(new FlagValue(this, "556", "Caution Panel", "DOM", "DOM"));
-            AddFunction(new FlagValue(this, "557", "Caution Panel", "BECS", "BECS"));
-            AddFunction(new FlagValue(this, "558", "Caution Panel", "U.S.EL", "U.S.EL"));
-            AddFunction(new FlagValue(this, "559", "Caution Panel", "ZEICHEN", "ZEICHEN"));
-            AddFunction(new FlagValue(this, "560", "Caution Panel", "GAIN", "GAIN"));
-            AddFunction(new FlagValue(this, "561", "Caution Panel", "RPM", "RPM"));
-            AddFunction(new FlagValue(this, "562", "Caution Panel", "DECOL", "DECOL"));
-            AddFunction(new FlagValue(this, "563", "Caution Panel", "PARK", "PARK"));
             #endregion
             #region Displays
             //
@@ -428,11 +433,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                                                                                                                                          // 
             #endregion
             #region  ELECTRICAL PANEL
-            AddFunction(new PushButton(this, PWRPNL, "3520", "520", "ELECTRICAL PANEL", "Main Battery Switch"));    // elements["PTN_520"] = default_2_position_tumb(_("Main Battery Switch"),devices.PWRPNL, device_commands.Button_520, 520)
-            AddFunction(new PushButton(this, PWRPNL, "3521", "521", "ELECTRICAL PANEL", "Electric Power Transfer Switch"));    // elements["PTN_521"] = default_2_position_tumb(_("Electric Power Transfer Switch"),devices.PWRPNL, device_commands.Button_521, 521)
-            AddFunction(new PushButton(this, PWRPNL, "3522", "522", "ELECTRICAL PANEL", "Alternator 1 Switch"));    // elements["PTN_522"] = default_2_position_tumb(_("Alternator 1 Switch"),devices.PWRPNL, device_commands.Button_522, 522)
-            AddFunction(new PushButton(this, PWRPNL, "3523", "523", "ELECTRICAL PANEL", "Alternator 2 Switch"));    // elements["PTN_523"] = default_2_position_tumb(_("Alternator 2 Switch"),devices.PWRPNL, device_commands.Button_523, 523)
-            AddFunction(new PushButton(this, PWRPNL, "3524", "524", "ELECTRICAL PANEL", "Lights Test Switch"));    // elements["PTN_524"] = default_2_way_spring_switch(_("Lights Test Switch"),devices.PWRPNL, device_commands.Button_524, 524,true)
             //AddFunction(Switch.CreateToggleSwitch(this, PWRPNL, "3524", "524", "ELECTRICAL PANEL", "Lights Test Switch", "%0.1f"));    // elements["PTN_524"] = default_2_way_spring_switch(_("Lights Test Switch"),devices.PWRPNL, device_commands.Button_524, 524,true)
             AddFunction(new PushButton(this, PWRPNL, "3654", "654", "ELECTRICAL PANEL", "Alert Network (QRA) Switch"));    // elements["PTN_654"] = default_2_position_tumb(_("Alert Network (QRA) Switch"),devices.PWRPNL, device_commands.Button_654, 654)
 

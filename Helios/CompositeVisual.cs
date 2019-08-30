@@ -430,11 +430,11 @@ namespace GadrocsWorkshop.Helios
 
         protected Indicator AddIndicator(string name, Point posn, Size size,
             string onImage, string offImage, Color onTextColor, Color offTextColor, string font,
-            bool vertical, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+            bool vertical, string interfaceDeviceName, string interfaceElementName, bool fromCenter, bool withText = true)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);
-            string componentName = GetComponentName("Annunciator " + name);
+            string componentName = GetComponentName(name);
             Indicator indicator = new Helios.Controls.Indicator
             {
                 Top = posn.Y,
@@ -445,27 +445,35 @@ namespace GadrocsWorkshop.Helios
                 OffImage = offImage
             };
 
-            indicator.Text = name;
             indicator.Name = componentName;
-            indicator.OnTextColor = onTextColor;
-            indicator.OffTextColor = offTextColor;
-            indicator.TextFormat.FontStyle = FontStyles.Normal;
-            indicator.TextFormat.FontWeight = FontWeights.Normal;
-            if (vertical)
+
+            if (withText)
             {
-                indicator.TextFormat.FontSize = 8;
+                indicator.Text = name;
+                indicator.OnTextColor = onTextColor;
+                indicator.OffTextColor = offTextColor;
+                indicator.TextFormat.FontStyle = FontStyles.Normal;
+                indicator.TextFormat.FontWeight = FontWeights.Normal;
+                if (vertical)
+                {
+                    indicator.TextFormat.FontSize = 8;
+                }
+                else
+                {
+                    indicator.TextFormat.FontSize = 12;
+                }
+                indicator.TextFormat.FontFamily = new FontFamily(font);
+                indicator.TextFormat.PaddingLeft = 0;
+                indicator.TextFormat.PaddingRight = 0;
+                indicator.TextFormat.PaddingTop = 0;
+                indicator.TextFormat.PaddingBottom = 0;
+                indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
+                indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
             }
             else
             {
-                indicator.TextFormat.FontSize = 12;
+                indicator.Text = "";
             }
-            indicator.TextFormat.FontFamily = new FontFamily(font);
-            indicator.TextFormat.PaddingLeft = 0;
-            indicator.TextFormat.PaddingRight = 0;
-            indicator.TextFormat.PaddingTop = 0;
-            indicator.TextFormat.PaddingBottom = 0;
-            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
 
             Children.Add(indicator);
             foreach (IBindingTrigger trigger in indicator.Triggers)
@@ -474,7 +482,64 @@ namespace GadrocsWorkshop.Helios
             }
             AddAction(indicator.Actions["set.indicator"], componentName);
 
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.indicator");
+
             return indicator;
+        }
+
+        protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
+            string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName, 
+            bool horizontal, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+
+            ToggleSwitch newSwitch = new ToggleSwitch();
+            newSwitch.Name = componentName;
+            newSwitch.SwitchType = defaultType;
+            newSwitch.ClickType = ClickType.Touch;
+            newSwitch.DefaultPosition = defaultPosition;
+            newSwitch.PositionOneImage = positionOneImage;
+            newSwitch.PositionTwoImage = positionTwoImage;
+
+            newSwitch.Top = posn.Y;
+            newSwitch.Left = posn.X;
+            if (horizontal)
+            {
+                newSwitch.Orientation = ToggleSwitchOrientation.Horizontal;
+                newSwitch.Width = size.Height;
+                newSwitch.Height = size.Width;
+            }
+            else
+            {
+                newSwitch.Orientation = ToggleSwitchOrientation.Vertical;
+                newSwitch.Width = size.Width;
+                newSwitch.Height = size.Height;
+            }
+
+            Children.Add(newSwitch);
+
+            foreach (IBindingTrigger trigger in newSwitch.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(newSwitch.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+            return newSwitch;
         }
 
         protected IndicatorPushButton AddIndicatorPushButton(string name, Point pos, Size size,
@@ -517,10 +582,12 @@ namespace GadrocsWorkshop.Helios
 
         protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
             ThreeWayToggleSwitchPosition defaultPosition, ThreeWayToggleSwitchType switchType,
-            string interfaceDeviceName, string interfaceElementName, bool fromCenter, 
-            string positionOneImage = "{Helios}/Images/Toggles/round-up.png", 
-            string positionTwoImage = "{Helios}/Images/Toggles/round-norm.png", 
-            string positionThreeImage = "{Helios}/Images/Toggles/round-down.png")
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter,
+            string positionOneImage = "{Helios}/Images/Toggles/round-up.png",
+            string positionTwoImage = "{Helios}/Images/Toggles/round-norm.png",
+            string positionThreeImage = "{Helios}/Images/Toggles/round-down.png",
+            ClickType clickType = ClickType.Swipe,
+            bool horizontal = false)
         {
             string componentName = GetComponentName(name);
             ThreeWayToggleSwitch toggle = new ThreeWayToggleSwitch
@@ -536,6 +603,12 @@ namespace GadrocsWorkshop.Helios
                 SwitchType = switchType,
                 Name = componentName
             };
+            toggle.ClickType = clickType;
+            if(horizontal)
+            {
+                toggle.Rotation = HeliosVisualRotation.CW;
+                toggle.Orientation = ToggleSwitchOrientation.Horizontal;
+            }
 
             Children.Add(toggle);
             foreach (IBindingTrigger trigger in toggle.Triggers)

@@ -129,7 +129,7 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
-    <Compile Include="Controls\M2000C\Caution-Panel.cs" />
+    <Compile Include="Gauges\M2000C\CautionPanel\Caution_Panel.cs" />
     <Compile Include="Controls\PotentiometerWithTranslate.cs" />
     <Compile Include="Controls\PotentiometerWithTranslateAppearanceEditor.xaml.cs">
       <DependentUpon>PotentiometerWithTranslateAppearanceEditor.xaml</DependentUpon>
@@ -431,6 +431,8 @@
     <Compile Include="Gauges\KA-50\RotorRPM\RotorRPM.cs" />
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
+    <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDevice.cs" />
+    <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDeviceRenderer.cs" />
     <Compile Include="Gauges\M2000C\ILSFrequency\ILSFrequency.cs" />
     <Compile Include="Gauges\M2000C\TACANChannel\TACANChannel.cs" />
     <Compile Include="Gauges\M2000C\UVHFPanel\UVHFChannelDisplay.cs" />
@@ -3984,12 +3986,6 @@
     <Resource Include="Images\M2000C\Switches\long-black-down.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\M2000C\Switches\long-black-left.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\Switches\long-black-right.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Images\M2000C\Switches\long-black-up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -4230,9 +4226,6 @@
     <Resource Include="Images\M2000C\CautionPanel\zeichen-on.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\M2000C\Switches\red-down.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Images\M2000C\red-indicator-off.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -4258,6 +4251,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\M2000C\Switches\short-black-up.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\Switches\long-black-mid.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\Switches\red-mid.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Content Include="_Documents\changelog.txt">
