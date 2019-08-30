@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B
+namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
 {
     using GadrocsWorkshop.Helios.Gauges.AV8B;
     using GadrocsWorkshop.Helios.ComponentModel;
@@ -21,18 +21,18 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.Fuel", "AV-8B Fuel Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.FuelPanel", "AV-8B Fuel Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
     class fuel: AV8BDevice
     {
         public fuel()
-            : base("Fuel Panel", new Size(334,125))
+            : base("Fuel Panel", new Size(1839,729))
         {
-            AddDisplay("Total Quantity", new Helios.Gauges.AV8B.FiveDigitDisplay(), new Point(98, 14), new Size(77, 20));
-            AddDisplay("Left Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(34, 42), new Size(64, 20));
-            AddDisplay("Right Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(157, 42), new Size(64, 20));
-            AddDisplay("Bingo Quantity", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(95, 68), new Size(56, 20));
-            AddKnob("Fuel Selector", new Point(246, 24), new Size(80, 80));
-            AddEncoder("Bingo Knob", new Point(165,80), new Size(30,30));
+            AddDisplay("Total Quantity", new Helios.Gauges.AV8B.FuelPanel.FiveDigitDisplay(), new Point(580, 84), new Size(448, 108));
+            AddDisplay("Left Quantity", new Helios.Gauges.AV8B.FuelPanel.FourDigitDisplay(), new Point(212, 263), new Size(355, 103));
+            AddDisplay("Right Quantity", new Helios.Gauges.AV8B.FuelPanel.FourDigitDisplay(), new Point(919, 263), new Size(355, 103));
+            AddDisplay("Bingo Quantity", new Helios.Gauges.AV8B.FuelPanel.FourDigitDisplay(), new Point(587, 435), new Size(288, 100));
+            AddKnob("Fuel Selector", new Point(1458, 270), new Size(208, 208));
+            AddEncoder("Bingo Knob", new Point(960,540), new Size(124,124));
 
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize)
@@ -58,13 +58,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 0, "Outboard", 200d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, "Inboard", 225d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, "Wing", 250d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 3, "Internal", 275d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 4, "Total", 300d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 5, "Feed", 325d));
-            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 6, "BIT", 350d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 0, "Outboard", 190d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 1, "Inboard", 215d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 2, "Wing", 240d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 3, "Internal", 265d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 4, "Total", 290d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 5, "Feed", 315d));
+            _knob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_knob, 6, "BIT", 340d));
             _knob.CurrentPosition = 4;
             _knob.DefaultPosition = 4;
             _knob.Top = posn.Y;
@@ -81,7 +81,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             //Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
             Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Rotary.png";
+            _knob.KnobImage = "{Helios}/Images/AV-8B/Fuel Bingo Knob.png";
             _knob.StepValue = 0.01;
             _knob.RotationStep = 5;
             _knob.Top = posn.Y;
@@ -128,7 +128,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         }
         public override string BezelImage
         {
-            get { return "{Helios}/Gauges/AV-8B/Fuel Panel/fuel_faceplate.xaml"; }
+            get { return "{Helios}/Images/AV-8B/AV8B Fuel Panel.png"; }
         }
     }
 }

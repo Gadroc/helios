@@ -1,6 +1,8 @@
 1.4.2019.0nnn Release
 ----------------------------
-* Adjustments to the method to identify the scripts directoy 
+* Adjustments to the method to identify the scripts directory
+* Graphical improvements to AV-8B SMC, Fuel Gauge
+* Fix for problem with new Export.lua not sending data after the first set of sends
 
 1.4.2019.0823 Release
 ----------------------------
