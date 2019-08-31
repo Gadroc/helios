@@ -68,7 +68,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/FA-18C/AMPCD frame.png"; }
+            get { return "{FA-18C}/Images/AMPCD frame.png"; }
         }
 
         #endregion
@@ -92,8 +92,8 @@ namespace GadrocsWorkshop.Helios.Controls
             button.Width = 42;
             button.Height = 42;
             //button.TextPushOffset = new System.Windows.Media.TranslateTransform(1,1);
-            //button.Image = "{Helios}/Images/FA-18C/MFD Button 1 Up.png";
-            //button.PushedImage = "{Helios}/Images/FA-18C/MFD Button 1 Dn.png";
+            //button.Image = "{FA-18C}/Images/MFD Button 1 Up.png";
+            //button.PushedImage = "{FA-18C}/Images/MFD Button 1 Dn.png";
             if (!horizontal)
             {
                 button.Image = "{AV-8B}/Images/MFD Button 1 UpV.png";

@@ -21,6 +21,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
     using Microsoft.Win32;
     using System;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Input;
 
     /// <summary>
@@ -58,13 +59,37 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         }
 
         private string _dcsPath = null;
+        private uint _bestDCSInstallType = 0;
 
         public M2000CInterfaceEditor()
         {
             InitializeComponent();
-            Configuration = new DCSConfigurator("DCSM2000C", DCSPath);
+            _bestDCSInstallType = 3;
+            Configuration = new DCSConfigurator("DCS Mirage 2000C", DCSPath);
             Configuration.ExportConfigPath = "Config\\Export";
+            switch (_bestDCSInstallType)
+            {
+                case 3:
+                    Configuration.DCSInstallType = "GA";
+                    Configuration.InstallTypeGA = true;
+                    break;
+                case 2:
+                    Configuration.DCSInstallType = "OpenBeta";
+                    Configuration.InstallTypeBeta = true;
+                    break;
+                case 1:
+                    Configuration.DCSInstallType = "OpenAlpha";
+                    Configuration.InstallTypeAlpha = true;
+                    break;
+                default:
+                    Configuration.DCSInstallType = "";
+                    Configuration.InstallTypeGA = false;
+                    Configuration.InstallTypeBeta = false;
+                    Configuration.InstallTypeAlpha = false;
+                    break;
+            }
             Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000C/ExportFunctions.lua";
+
         }
 
         #region Properties
@@ -83,11 +108,23 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         {
             get
             {
+
                 if (_dcsPath == null)
                 {
                     RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey == null)
                     {
+                        --_bestDCSInstallType;
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+                    }
+                    if (pathKey == null)
+                    {
+                        --_bestDCSInstallType;
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
+                    }
+                    if (pathKey == null)
+                    {
+                        --_bestDCSInstallType;
                         pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS M2000C");
                     }
 
@@ -95,14 +132,50 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
                         pathKey.Close();
-                        ConfigManager.LogManager.LogDebug("DCS Mirage-2000C Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+                        ConfigManager.LogManager.LogDebug("DCS Mirage 2000C Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
                     }
                     else
                     {
+                        ConfigManager.LogManager.LogDebug("DCS Mirage 2000C Interface Editor - No DCS Installation Paths Found in registry");
+                        _bestDCSInstallType = 0;
                         _dcsPath = "";
                     }
                 }
                 return _dcsPath;
+            }
+            set
+            {
+                _dcsPath = value;
+            }
+        }
+        public void ForceDCSPath()
+        {
+            RegistryKey pathKey = null;
+            if (Configuration.InstallTypeGA)
+            {
+                pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
+            }
+            else if (Configuration.InstallTypeBeta)
+            {
+                pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+            }
+            else if (Configuration.InstallTypeAlpha)
+            {
+                pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
+            }
+
+            if (pathKey != null)
+            {
+                _dcsPath = (string)pathKey.GetValue("Path");
+                Configuration.AppPath = _dcsPath;
+                pathKey.Close();
+                ConfigManager.LogManager.LogDebug("DCS Mirage 2000C Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+            }
+            else
+            {
+                _dcsPath = "";
+                Configuration.AppPath = "";
+                ConfigManager.LogManager.LogDebug("DCS Mirage 2000C Interface Editor - Forced DCS Install Type Path not found (Installation Type=\"" + Configuration.DCSInstallType + "\")");
             }
         }
 
@@ -122,11 +195,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         {
             if (Configuration.UpdateExportConfig())
             {
-                MessageBox.Show(Window.GetWindow(this), "DCS M-2000C has been configured.");
+                MessageBox.Show(Window.GetWindow(this), "DCS Mirage 2000C has been configured.");
             }
             else
             {
-                MessageBox.Show(Window.GetWindow(this), "Error updating DCS M-2000C configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
+                MessageBox.Show(Window.GetWindow(this), "Error updating DCS Mirage 2000C configuration.  Please do one of the following and try again:\n\nOption 1) Run Helios as Administrator\nOption 2) Install DCS outside the Program Files Directory\nOption 3) Disable UAC.");
             }
         }
 
@@ -142,5 +215,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         {
             Configuration.RestoreConfig();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton _rb = (RadioButton)sender;
+            if (_rb.GroupName == "DCSInstallTypeGroup")
+            {
+                // an override for the installation type has been declared 
+                Configuration.DCSInstallType = (string)_rb.Tag;
+                ForceDCSPath();
+            }
+        }
+
     }
 }

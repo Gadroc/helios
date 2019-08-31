@@ -784,24 +784,9 @@
     <Resource Include="Interfaces\DCS\Common\Export_Stub.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Post.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Pre.lua" />
-    <None Include="Templates\Base\M2000C\short-black-switch-toggle.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\M2000C\long-black-switch-toggle.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\M2000C\CautionPanelRedIndicator.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\M2000C\CautionPanelYellowIndicator.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\M2000C\Red-switch-toggle.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Panels\Empty Panel.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Content Include="Templates\Base\Panels\Empty Panel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="_Documents\Helios Release 1.4 Users Guide.docx" />
     <None Include="_Documents\Helios Release 1.4 Users Guide.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -838,465 +823,399 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Interfaces\DCS\F14B\ExportFunctions.lua" />
-    <None Include="Templates\Base\A-10\0.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\1.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\2.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\3.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\4.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\5.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\6.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\7.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\8.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\9.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\AFT.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Altitude Alert.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\ANCHR.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Blank.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Clear.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Data.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\EGI.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Enter.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Fire Pull APU.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Fire Pull Left.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Fire Pull Right.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\FM Indicator.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Func.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\FWD.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Gear Handle.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Hack.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\HARS.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Horizontal Rocker.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\ILS.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\LTR.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Mark.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Master Caution.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\MID.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\RWR Bezel.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Sel.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Space.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\STR PT.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\TCN.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\TISL.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\UHF Indicator.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Vertical Rocker.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\2-way Toggle Domed.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\3-way Toggle Domed.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\AV-8B Canopy Lock Lever.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\AV-8B Flaps Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\AV-8B Pointy Toggle.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Comms Rotary Encoder.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Flare Salvo Button.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Fuel Cutoff Lever.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Ground Safety Lever.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\H2O Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Hexagonal Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Landing Gear Lever.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Landing Lights Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Master Arm Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\MPCD Button Horizontal.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\MPCD Button Vertical.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\MPCD Rocker Angled Left.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\MPCD Rocker Angled Right.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\MPCD Rocker Vertical.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\Rotary Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\SMC Square 3-way Toggle A.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\AV-8B\SMC Square 3-Way Toggle B.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\MFD Lit.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\MFD.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Push - Red.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Push - White.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Tactile Round - Light.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Tactile Round.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Tactile Square - Light.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom Left.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom Right.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Left.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Right.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Top Left.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Top Right.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Top.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Caution.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Screw.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Encoders\Encoder - Knob 2.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Encoders\Encoder - Knob 3.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Encoders\Encoder - Knob 4.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Encoders\Encoder - Knob 5.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\0.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\1.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\2.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\3.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\4.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\5.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\6.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\7.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\8.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\9.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\A-A.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\A-G.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Arrow.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\CMDS Outline.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\COM 1.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\COM 2.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\DED Bezel.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\ENTR.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\F-16 ICP Panel.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\F-16 Panel.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Gear Handle.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Gear Light Diagarm.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Horizontal Panel Guard.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\IFF.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\LIST.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Panel Screw.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\RCL.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Seat Arming Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Spider Canopy Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Vertical Panel Guard.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\WX.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Yaw Trim Scale.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Hats\DCS Switch.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Indicators\Anunciator.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Indicators\Green Light.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Indicators\Indicator - Square.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Panels\Generic Backplate.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Panels\Generic Screws.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Push Button Indicators\Push Indicator - Square.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Arrows - Dark.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Arrows - Light.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Blank - Dark.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Blank - Light.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Dark Wheel.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Plus Minus - Dark - Horizontal.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Plus Minus - Dark.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Plus Minus - Light - Horizontal.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Plus Minus - Light.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Triangles - Dark.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Triangles - Light.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\White Wheel.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rotaries\Rotary - Knob 1.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rotaries\Rotary - Knob 3.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rotaries\Rotary - Knob 4.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rotaries\Rotary - Knob 5.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Flat Top - Locking.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Flat Top.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Orange Seal - Round.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Orange Seal.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Round - Locking.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Round.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Square - Tan.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Flat Top - Locking.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Flat Top.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Orange Seal - Round.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Orange Seal.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Round - Locking.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Round.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Square - Tan.htpl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Content Include="Templates\Base\A-10\0.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\6.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\7.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\8.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\9.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\AFT.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Altitude Alert.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\ANCHR.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Blank.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Clear.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Data.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\EGI.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Enter.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Fire Pull APU.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Fire Pull Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Fire Pull Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\FM Indicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Func.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\FWD.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Gear Handle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Hack.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\HARS.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Horizontal Rocker.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\ILS.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\LTR.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Mark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Master Caution.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\MID.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\RWR Bezel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Sel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Space.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\STR PT.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\TCN.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\TISL.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\UHF Indicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\A-10\Vertical Rocker.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Buttons\MFD Lit.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Buttons\MFD.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Buttons\Push - Red.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Buttons\Push - White.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Buttons\Tactile Round - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Buttons\Tactile Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Buttons\Tactile Square - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Bottom Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Bottom Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Bottom.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Top Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Top Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Top.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Caution.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Decorations\Screw.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Encoders\Encoder - Knob 2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Encoders\Encoder - Knob 3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Encoders\Encoder - Knob 4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Encoders\Encoder - Knob 5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\0.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\6.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\7.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\8.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\9.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\A-A.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\A-G.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Arrow.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\CMDS Outline.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\COM 1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\COM 2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\DED Bezel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\ENTR.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\F-16 ICP Panel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\F-16 Panel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Gear Handle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Gear Light Diagarm.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Horizontal Panel Guard.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\IFF.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\LIST.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Panel Screw.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\RCL.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Seat Arming Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Spider Canopy Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Vertical Panel Guard.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\WX.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\F-16\Yaw Trim Scale.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Hats\DCS Switch.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Indicators\Anunciator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Indicators\Green Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Indicators\Indicator - Square.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Panels\Generic Backplate.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Panels\Generic Screws.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Push Button Indicators\Push Indicator - Square.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Arrows - Dark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Arrows - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Blank - Dark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Blank - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Dark Wheel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Plus Minus - Dark - Horizontal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Plus Minus - Dark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Plus Minus - Light - Horizontal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Plus Minus - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Triangles - Dark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\Triangles - Light.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rockers\White Wheel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rotaries\Rotary - Knob 1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rotaries\Rotary - Knob 3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rotaries\Rotary - Knob 4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Rotaries\Rotary - Knob 5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Flat Top - Locking.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Flat Top.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Orange Seal - Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Orange Seal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Round - Locking.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Square - Tan.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Toggles\Flat Top - Locking.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Toggles\Flat Top.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Toggles\Orange Seal - Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Toggles\Orange Seal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Toggles\Round - Locking.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Toggles\Round.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Base\Toggles\Square - Tan.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Interfaces\DCS\A10C\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Common\Export.lua" />
     <Resource Include="Interfaces\DCS\BlackShark\ExportFunctions.lua" />
@@ -3046,15 +2965,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\Controls\" />
-    <Folder Include="Images\Mi-8\" />
     <Folder Include="Interfaces\DCS\F14B\Functions\" />
     <Folder Include="Interfaces\DCS\Mi8Simple\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
-    <Folder Include="Templates\Base\FA-18C\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\FA-18C\MPCD Knob.png" />
-    <Resource Include="Images\FA-18C\UFC Rotator_U.png" />
     <Resource Include="Gauges\FA-18C\Altimeter\Altimeter_Faceplate.png" />
     <Resource Include="Gauges\FA-18C\Altimeter\RADAR_Altimeter_Faceplate.png" />
     <Resource Include="Gauges\FA-18C\Battery\Battery_Faceplate.png" />
@@ -3677,60 +3592,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\FA-18C\AMPCD Frame.png" />
-    <Resource Include="Images\FA-18C\MPCD Frame.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\UFC Button Dn AP.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn DL.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn ILS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\UFC Button Up AP.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up DL.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up ILS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\UFC Button Dn 0.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\MFD Button DnH.png" />
-    <Resource Include="Images\FA-18C\MFD Button DnV.png" />
-    <Resource Include="Images\FA-18C\MFD Button UpH.png" />
-    <Resource Include="Images\FA-18C\MFD Button UpV.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Gauges\FA-18C\Altimeter\RADAR_Altimeter_Cover.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\HydraulicPressure\PRESS_1.png" />
     <Resource Include="Gauges\FA-18C\HydraulicPressure\PRESS_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\panel_Right_front.png" />
-    <Resource Include="Images\FA-18C\Pull to Cage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\Push to Test.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\indicator_green.png" />
-    <Resource Include="Images\FA-18C\indicator_red.png" />
-    <Resource Include="Images\FA-18C\indicator_off.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\Radar Altimeter Off Flag.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\Radar Altimeter Blank.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\brake_PULLED_1.png" />
-    <Resource Include="Images\FA-18C\brake_PULLED_2.png" />
-    <Resource Include="Images\FA-18C\brake_PULLED_3.png" />
-    <Resource Include="Images\FA-18C\brake_PUSHED_1.png" />
-    <Resource Include="Images\FA-18C\brake_PUSHED_2.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\ADI\adi_bezel.png" />
@@ -3744,9 +3610,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\ADI\adi_ball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\FA-18C\UFC Faceplate.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\FA-18C\IFEI\IFEI.png" />
@@ -3765,342 +3628,6 @@
     <Resource Include="Gauges\FA-18C\IFEI\IFEI Reflections.png" />
     <Resource Include="Images\KneeBoards\default_kneeboard_image.png" />
     <Content Include="Helios.ico" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 0 a.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 1.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 2.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 3.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 4.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 5.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 6.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 7.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 8.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn 9.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn ALT.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn AWL.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn BCN.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn CLR.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn Dash.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn Dot.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn EMCON.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn ENT.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn IFF.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn ONOFF.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn SVE.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn TCN.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn TMR.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn TOO.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn WOF.png" />
-    <Resource Include="Images\FA-18C\UFC Button Dn WPN.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 0 a.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 1.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 2.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 3.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 4.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 5.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 6.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 7.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 8.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up 9.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up ALT.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up AWL.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up BCN.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up CLR.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up Dash.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up Dot.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up EMCON.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up ENT.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up IFF.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up ONOFF.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up SVE.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up TCN.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up TMR.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up TOO.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up WOF.png" />
-    <Resource Include="Images\FA-18C\UFC Button Up WPN.png" />
-    <Resource Include="Images\M2000C\Switches\long-black-down.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\Switches\long-black-up.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\5mno2-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\5mno2-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\alt2-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\alt1-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\alt1-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\alt2-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\anemo-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\anemo-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\batt-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\batt-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\becs-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\becs-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bingo-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bingo-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bp-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bp-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bpd-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bpd-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bpg-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bpg-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\calc-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\calc-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\caution-panel.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\cc-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\cc-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\condit-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\condit-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\conf-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\conf-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\decol-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\decol-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\dom-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\dom-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\dsv-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\dsv-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\ep-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\ep-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\gain-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\gain-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\huile-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\huile-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyds-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyd1-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyd1-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyd2-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyd2-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyds-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\man-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\man-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\niveau-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\niveau-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\o2ha-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\o2ha-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pa-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pa-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\park-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\park-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pcab-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pcab-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pelle-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pelle-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\rego2-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\rego2-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\rpm-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\rpm-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\souris-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\souris-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\t7-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\t7-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\temp-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\temp-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\tr-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\tr-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\transf-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\transf-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\usel-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\usel-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\zeichen-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\zeichen-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\red-indicator-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\red-indicator-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\red-left.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\red-right.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\Switches\red-up.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\yellow-indicator-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\yellow-indicator-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\Switches\short-black-down.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\Switches\short-black-up.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\Switches\long-black-mid.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\Switches\red-mid.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\AV-8B\AV8B Flare Salvo Panel.png" />
-    <Resource Include="Images\AV-8B\AV8B Fuel Panel.png" />
-    <Resource Include="Images\AV-8B\AV8B Master Arm Panel.png" />
-    <Resource Include="Images\AV-8B\Fuel Bingo Knob.png" />
-    <Resource Include="Images\AV-8B\SMC Cool Switch Dn.png" />
-    <Resource Include="Images\AV-8B\SMC Cool Switch Up.png" />
-    <Resource Include="Images\AV-8B\SMC Jettison Button.png" />
-    <Resource Include="Images\AV-8B\SMC Jettison Knob.png" />
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -4112,9 +3639,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RAZBAM_AV-8BNA\AV-8B.csproj">
+    <ProjectReference Include="..\Aircraft AV-8B\Aircraft AV-8B.csproj">
       <Project>{2b00f04b-3cb2-44e7-b49b-da94ff74c66c}</Project>
-      <Name>AV-8B</Name>
+      <Name>Aircraft AV-8B</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aircraft FA-18C\Aircraft FA-18C.csproj">
+      <Project>{4fdce381-aa97-4c5e-b4cf-f9ec6792dd2c}</Project>
+      <Name>Aircraft FA-18C</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aircraft M2000C\Aircraft M2000C.csproj">
+      <Project>{bd8b2678-7d32-4e3d-8a9d-ca1ce201285f}</Project>
+      <Name>Aircraft M2000C</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

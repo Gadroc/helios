@@ -89,7 +89,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             Add3PosnToggle(
                 name: "Lights Test Switch",
                 posn: new Point(165, 70),
-                image: "{Helios}/Images/M2000C/SWitches/long-black-",
+                image: "{M2000C}/Images/Switches/long-black-",
                 interfaceDevice: _interfaceDeviceName,
                 interfaceElement: "Lights Test Switch",
                 fromCenter: false
@@ -100,7 +100,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/M2000C/CautionPanel/caution-panel.png"; }
+            get { return "{M2000C}/Images/CautionPanel/caution-panel.png"; }
         }
 
         #endregion
@@ -122,8 +122,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 name: name,
                 posn: posn,
                 size: new Size(32,15),
-                onImage: "{Helios}/Images/M2000C/CautionPanel/" + name + "-on.png",
-                offImage: "{Helios}/Images/M2000C/CautionPanel/" + name + "-off.png",
+                onImage: "{M2000C}/Images/CautionPanel/" + name + "-on.png",
+                offImage: "{M2000C}/Images/CautionPanel/" + name + "-off.png",
                 onTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text
                 offTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text
                 font: "", //don’t need it because not using text
@@ -140,8 +140,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 posn: posn,
                 size: new Size(25, 70),
                 defaultPosition: defaultPosition,
-                positionOneImage: "{Helios}/Images/M2000C/Switches/" + imagePrefix + "up.png",
-                positionTwoImage: "{Helios}/Images/M2000C/SWitches/" + imagePrefix + "mid.png",
+                positionOneImage: "{M2000C}/Images/Switches/" + imagePrefix + "up.png",
+                positionTwoImage: "{M2000C}/Images/SWitches/" + imagePrefix + "mid.png",
                 defaultType: defaultType,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,

@@ -82,8 +82,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             button.Left = x;
             button.Width = size.Width;
             button.Height = size.Height;
-            button.Image = "{AV-8B}/Images/ODU Button Up " + name + ".png";
-            button.PushedImage = "{AV-8B}/Images/ODU Button Dn " + name + ".png";
+            button.Image = "{AV-8B}/Images/ODU Button Up.png";
+            button.PushedImage = "{AV-8B}/Images/ODU Button Dn.png";
             button.Text = "";
             button.Name = "ODU Key " + name;
 

@@ -92,7 +92,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/FA-18C/UFC Faceplate.png"; }
+            get { return "{FA-18C}/Images/UFC Faceplate.png"; }
         }
 
         private void AddPot(string name, Point posn, Size size, string interfaceElementName)
@@ -118,7 +118,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 name: name,
                 size: size,
                 posn: posn,
-                knobImage: "{Helios}/Images/FA-18C/UFC Rotator_U.png",
+                knobImage: "{FA-18C}/Images/UFC Rotator_U.png",
                 stepValue: 0.1,
                 rotationStep: 5,
                 interfaceDeviceName: _interfaceDeviceName,
@@ -161,8 +161,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 name: name,
                 posn: pos,
                 size: size,
-                image: "{Helios}/Images/FA-18C/UFC Button Up " + name + ".png",
-                pushedImage: "{Helios}/Images/FA-18C/UFC Button Dn " + name + ".png",
+                image: "{FA-18C}/Images/UFC Button Up " + name + ".png",
+                pushedImage: "{FA-18C}/Images/UFC Button Dn " + name + ".png",
                 buttonText: "",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,

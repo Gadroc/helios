@@ -21,6 +21,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
     using Microsoft.Win32;
     using System;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Input;
 
     /// <summary>
@@ -58,13 +59,37 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         }
 
         private string _dcsPath = null;
+        private uint _bestDCSInstallType = 0;
 
         public AV8BInterfaceEditor()
         {
             InitializeComponent();
-            Configuration = new DCSConfigurator("DCSAV8B", DCSPath);
-            Configuration.ExportConfigPath = "Scripts";
+            _bestDCSInstallType = 3;
+            Configuration = new DCSConfigurator("DCS AV-8B", DCSPath);
+            Configuration.ExportConfigPath = "Config\\Export";
+            switch (_bestDCSInstallType)
+            {
+                case 3:
+                    Configuration.DCSInstallType = "GA";
+                    Configuration.InstallTypeGA = true;
+                    break;
+                case 2:
+                    Configuration.DCSInstallType = "OpenBeta";
+                    Configuration.InstallTypeBeta = true;
+                    break;
+                case 1:
+                    Configuration.DCSInstallType = "OpenAlpha";
+                    Configuration.InstallTypeAlpha = true;
+                    break;
+                default:
+                    Configuration.DCSInstallType = "";
+                    Configuration.InstallTypeGA = false;
+                    Configuration.InstallTypeBeta = false;
+                    Configuration.InstallTypeAlpha = false;
+                    break;
+            }
             Configuration.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/AV8B/ExportFunctions.lua";
+
         }
 
         #region Properties
@@ -83,21 +108,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         {
             get
             {
+
                 if (_dcsPath == null)
                 {
                     RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey == null)
                     {
-                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS AV8BNA");
-                    }
-                    if (pathKey == null)
-                    {
+                        --_bestDCSInstallType;
                         pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
                     }
                     if (pathKey == null)
                     {
+                        --_bestDCSInstallType;
                         pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
                     }
+                    if (pathKey == null)
+                    {
+                        --_bestDCSInstallType;
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS AV8B");
+                    }
+
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");
@@ -106,10 +136,46 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
                     }
                     else
                     {
+                        ConfigManager.LogManager.LogDebug("DCS AV-8B Interface Editor - No DCS Installation Paths Found in registry");
+                        _bestDCSInstallType = 0;
                         _dcsPath = "";
                     }
                 }
                 return _dcsPath;
+            }
+            set
+            {
+                _dcsPath = value;
+            }
+        }
+        public void ForceDCSPath()
+        {
+            RegistryKey pathKey = null;
+            if (Configuration.InstallTypeGA)
+            {
+                pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
+            }
+            else if (Configuration.InstallTypeBeta)
+            {
+                pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+            }
+            else if (Configuration.InstallTypeAlpha)
+            {
+                pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
+            }
+
+            if (pathKey != null)
+            {
+                _dcsPath = (string)pathKey.GetValue("Path");
+                Configuration.AppPath = _dcsPath;
+                pathKey.Close();
+                ConfigManager.LogManager.LogDebug("DCS AV-8B Interface Editor - Found DCS Path (Path=\"" + _dcsPath + "\")");
+            }
+            else
+            {
+                _dcsPath = "";
+                Configuration.AppPath = "";
+                ConfigManager.LogManager.LogDebug("DCS AV-8B Interface Editor - Forced DCS Install Type Path not found (Installation Type=\"" + Configuration.DCSInstallType + "\")");
             }
         }
 
@@ -149,5 +215,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         {
             Configuration.RestoreConfig();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton _rb = (RadioButton)sender;
+            if (_rb.GroupName == "DCSInstallTypeGroup")
+            {
+                // an override for the installation type has been declared 
+                Configuration.DCSInstallType = (string)_rb.Tag;
+                ForceDCSPath();
+            }
+        }
+
     }
 }

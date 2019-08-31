@@ -1,0 +1,16 @@
+﻿<ControlTemplate>
+  <Name>Cockpit Front 16x9</Name>
+  <Category>M2000C</Category>
+  <TypeIdentifier>Helios.Panel</TypeIdentifier>
+  <Template>
+    <TemplateValues>
+      <Location>0,0</Location>
+      <Size>1920,1080</Size>
+      <Hidden>False</Hidden>
+      <Background>
+        <Image>{M2000C}/Images/M2000C_16x9.png</Image>
+        <ImageAlignment>Stretched</ImageAlignment>
+      </Background>
+    </TemplateValues>
+  </Template>
+</ControlTemplate>
