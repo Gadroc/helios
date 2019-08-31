@@ -82,7 +82,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/Common Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -111,7 +111,7 @@ namespace GadrocsWorkshop.Helios.Controls
                     _knob.KnobImage = "{Helios}/Images/FA-18C/MPCD Knob.png";
                     break;
                 default:
-                    _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+                    _knob.KnobImage = "{AV-8B}/Images/Common Knob.png";
                     break;                
             }
             _knob.InitialRotation = 219;

@@ -65,7 +65,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/MPCD bezel.png"; }
+            get { return "{AV-8B}/Images/MPCD bezel.png"; }
         }
 
         #endregion
@@ -84,7 +84,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/Common Knob.png";
             _knob.InitialRotation = 219;
             _knob.RotationTravel = 291;
             _knob.MinValue = 0;
@@ -115,14 +115,14 @@ namespace GadrocsWorkshop.Helios.Controls
             //button.PushedImage = "{Helios}/Images/FA-18C/MFD Button 1 Dn.png";
             if (!horizontal)
             {
-                button.Image = "{Helios}/Images/AV-8B/MFD Button 1 UpV.png";
-                button.PushedImage = "{Helios}/Images/AV-8B/MFD Button 1 DnV.png";
+                button.Image = "{AV-8B}/Images/MFD Button 1 UpV.png";
+                button.PushedImage = "{AV-8B}/Images/MFD Button 1 DnV.png";
                 //button.Rotation = HeliosVisualRotation.CCW;
             }
             else
             {
-                button.Image = "{Helios}/Images/AV-8B/MFD Button 1 UpH.png";
-                button.PushedImage = "{Helios}/Images/AV-8B/MFD Button 1 DnH.png";
+                button.Image = "{AV-8B}/Images/MFD Button 1 UpH.png";
+                button.PushedImage = "{AV-8B}/Images/MFD Button 1 DnH.png";
             }
 
             button.Name = name;
@@ -155,27 +155,27 @@ namespace GadrocsWorkshop.Helios.Controls
             rocker.Name = name;
             rocker.SwitchType = Helios.Controls.ThreeWayToggleSwitchType.MomOnMom;
             rocker.ClickType = Helios.Controls.ClickType.Touch;
-            rocker.PositionTwoImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Mid.png";
+            rocker.PositionTwoImage = "{AV-8B}/Images/" + imagePrefix + " " + imageOrientation + " Mid.png";
 
             rocker.Top = y;
             rocker.Left = x;
             switch (imageOrientation) {
                 case ("V"):
                     //rocker.Orientation = Helios.Controls.ToggleSwitchOrientation.Horizontal;
-                    rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
-                    rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                    rocker.PositionOneImage = "{AV-8B}/Images/" + imagePrefix + " " + imageOrientation + " Up.png";
+                    rocker.PositionThreeImage = "{AV-8B}/Images/" + imagePrefix + " " + imageOrientation + " Dn.png";
                     rocker.Height = 56;
                     rocker.Width = 27;
                     break;
                 case ("L"):
-                        rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
-                        rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                        rocker.PositionOneImage = "{AV-8B}/Images/" + imagePrefix + " " + imageOrientation + " Up.png";
+                        rocker.PositionThreeImage = "{AV-8B}/Images/" + imagePrefix + " " + imageOrientation + " Dn.png";
                     rocker.Width = 54;
                     rocker.Height = 45;
                     break;
                 case ("R"):
-                    rocker.PositionOneImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Up.png";
-                    rocker.PositionThreeImage = "{Helios}/Images/AV-8B/" + imagePrefix + " " + imageOrientation + " Dn.png";
+                    rocker.PositionOneImage = "{AV-8B}/Images/" + imagePrefix + " " + imageOrientation + " Up.png";
+                    rocker.PositionThreeImage = "{AV-8B}/Images/" + imagePrefix + " " + imageOrientation + " Dn.png";
                     rocker.Width = 54;
                     rocker.Height = 45;
                     break;

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>GadrocsWorkshop.Helios.AV8B</RootNamespace>
+    <PackageId>Helios AV-8BNA</PackageId>
+  </PropertyGroup>
+
+</Project>

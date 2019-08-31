@@ -326,6 +326,10 @@
       <Name>Helios</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\RAZBAM_AV-8BNA\AV-8B.csproj">
+      <Project>{2b00f04b-3cb2-44e7-b49b-da94ff74c66c}</Project>
+      <Name>AV-8B</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ToolbarGraphics\AlignBottom.png" />

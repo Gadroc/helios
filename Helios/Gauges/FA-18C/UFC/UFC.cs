@@ -100,7 +100,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddPot(name: name, 
                 posn: posn, 
                 size: size, 
-                knobImage: "{Helios}/Images/AV-8B/Common Knob.png", 
+                knobImage: "{AV-8B}/Images/Common Knob.png", 
                 initialRotation: 219, 
                 rotationTravel: 291, 
                 minValue: 0, 

@@ -103,7 +103,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 name: "Brightness Control",
                 posn: new Point(82, 630),
                 size: new Size(60, 60),
-                knobImage: "{Helios}/Images/AV-8B/Common Knob.png",
+                knobImage: "{AV-8B}/Images/Common Knob.png",
                 initialRotation: 219,
                 rotationTravel: 291,
                 minValue: 0,
