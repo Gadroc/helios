@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="54" Height="79">
+    <Canvas.Resources/>
+    <Canvas Name="layer3">
+        <Canvas Name="flowRoot3938" Opacity="1">
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <!--g-->
+                        <MatrixTransform Matrix="1.4267155,0,0,1.5097248,-54.337056,-7.1196493"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3959" Fill="#FFF5F5F5" Data="m 188.62109 52.965664 10.56641 -18.90625 -7.20703 -12.910157 c -0.69011 -1.705691 -0.33204 -2.952435 1.07422 -3.740234 1.40624 -0.78772 2.65624 -0.432903 3.75 1.064453 l 5.50781 9.941406 5.54687 -9.941406 c 1.09373 -1.497356 2.33722 -1.855428 3.73047 -1.074219 1.39321 0.781289 1.75779 2.037798 1.09375 3.769532 l -7.1875 12.890625 10.54688 18.90625 c 0.7031 1.718752 0.33851 2.972006 -1.09375 3.759765 -1.43232 0.78776 -2.66279 0.419922 -3.69141 -1.103515 l -8.94531 -15.9375 -8.84766 15.9375 c -1.13281 1.484375 -2.39909 1.842447 -3.79882 1.074218 -1.39974 -0.768228 -1.74805 -2.011716 -1.04493 -3.730468 z" Width="37.82" Canvas.Left="38.106" Stretch="Fill" Canvas.Top="4.78" Height="52.157"/>
+            </Canvas>
+        </Canvas>
+    </Canvas>
+</Canvas>
