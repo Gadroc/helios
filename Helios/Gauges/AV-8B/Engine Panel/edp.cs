@@ -68,7 +68,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             indicator.Width = size.Width;
             indicator.Height = size.Height;
             indicator.OnImage = "{Helios}/Gauges/AV-8B/Engine Panel/edp_water_light.xaml";
-            indicator.OffImage = "{Helios}/Images/AV-8B/_transparant.png";
+            indicator.OffImage = "{AV-8B}/Images/_transparant.png";
             indicator.Text = "";
             indicator.Name = name;
 

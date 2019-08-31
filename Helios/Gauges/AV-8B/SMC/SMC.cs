@@ -78,7 +78,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/AV-8B SMC Faceplate.png"; }
+            get { return "{AV-8B}/Images/AV-8B SMC Faceplate.png"; }
         }
             
         private new void AddTrigger(IBindingTrigger trigger, string device)
@@ -96,7 +96,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/SMC Selector Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/SMC Selector Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -118,7 +118,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/SMC Jettison Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/SMC Jettison Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -163,8 +163,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             }
             else
             {
-                button.Image = "{Helios}/Images/AV-8B/SMC Jettison Button.png";
-                button.PushedImage = "{Helios}/Images/AV-8B/SMC Jettison Button.png";
+                button.Image = "{AV-8B}/Images/SMC Jettison Button.png";
+                button.PushedImage = "{AV-8B}/Images/SMC Jettison Button.png";
             }
 
 
@@ -187,8 +187,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             toggle.Width = size.Width;
             toggle.Height = size.Height;
             toggle.DefaultPosition = ToggleSwitchPosition.Two;
-            toggle.PositionOneImage = "{Helios}/Images/AV-8B/SMC Cool Switch Up.png";
-            toggle.PositionTwoImage = "{Helios}/Images/AV-8B/SMC Cool Switch Dn.png";
+            toggle.PositionOneImage = "{AV-8B}/Images/SMC Cool Switch Up.png";
+            toggle.PositionTwoImage = "{AV-8B}/Images/SMC Cool Switch Dn.png";
             toggle.Name = name;
 
             Children.Add(toggle);
@@ -203,9 +203,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             toggle.Width = size.Width;
             toggle.Height = size.Height;
             toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
-            toggle.PositionOneImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Up 1.png";
-            toggle.PositionTwoImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Mid 1.png";
-            toggle.PositionThreeImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Down 1.png";
+            toggle.PositionOneImage = "{AV-8B}/Images/3 Way Toggle Square Up 1.png";
+            toggle.PositionTwoImage = "{AV-8B}/Images/3 Way Toggle Square Mid 1.png";
+            toggle.PositionThreeImage = "{AV-8B}/Images/3 Way Toggle Square Down 1.png";
             toggle.SwitchType = ThreeWayToggleSwitchType.MomOnMom;
             toggle.Name = name;
 
@@ -221,8 +221,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             indicator.Left = x;
             indicator.Width = size.Width;
             indicator.Height = size.Height;
-            indicator.OnImage = "AV-8B/AV8BNA_SEL_On.png";
-            indicator.OffImage = "AV-8B/AV8BNA_SEL_Off.png";
+            indicator.OnImage = "{AV-8B}/Images/AV8BNA_SEL_On.png";
+            indicator.OffImage = "{AV-8B}/Images/AV8BNA_SEL_Off.png";
             indicator.Text = "";
             indicator.Name = name;
 

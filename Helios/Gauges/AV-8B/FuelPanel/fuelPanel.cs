@@ -54,7 +54,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Fuel Selector Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/Fuel Selector Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -81,7 +81,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
             //Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
             Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Fuel Bingo Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/Fuel Bingo Knob.png";
             _knob.StepValue = 0.01;
             _knob.RotationStep = 5;
             _knob.Top = posn.Y;
@@ -128,7 +128,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
         }
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/AV8B Fuel Panel.png"; }
+            get { return "{AV-8B}/Images/AV8B Fuel Panel.png"; }
         }
     }
 }

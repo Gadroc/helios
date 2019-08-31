@@ -103,7 +103,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/AV-8B UFC 1080.png"; }
+            get { return "{AV-8B}/Images/AV-8B UFC 1080.png"; }
         }
 
         private new void AddTrigger(IBindingTrigger trigger, string device)
@@ -121,7 +121,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Helios.Controls.Potentiometer _knob = new Helios.Controls.Potentiometer();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/Common Knob.png";
             _knob.InitialRotation = 219;
             _knob.RotationTravel = 291;
             _knob.MinValue = 0;
@@ -145,7 +145,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             //Helios.Controls.RotaryEncoderPushable _knob = new Helios.Controls.RotaryEncoderPushable();
             Helios.Controls.RotaryEncoder _knob = new Helios.Controls.RotaryEncoder();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/AV8BNA_Rotary5.png";
+            _knob.KnobImage = "{AV-8B}/Images/AV8BNA_Rotary5.png";
             _knob.StepValue = 0.1;
             _knob.RotationStep = 5;
             _knob.Top = posn.Y;
@@ -172,8 +172,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             button.Left = x;
             button.Width = size.Width;
             button.Height = size.Height;
-            button.Image = "{Helios}/Images/AV-8B/UFC Button Up " + name + ".png";
-            button.PushedImage = "{Helios}/Images/AV-8B/UFC Button Dn " + name + ".png";
+            button.Image = "{AV-8B}/Images/UFC Button Up " + name + ".png";
+            button.PushedImage = "{AV-8B}/Images/UFC Button Dn " + name + ".png";
             button.Text = "";
             button.Name = "UFC Key " + name;
 

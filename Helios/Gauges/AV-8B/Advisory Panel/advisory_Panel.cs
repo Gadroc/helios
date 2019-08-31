@@ -90,7 +90,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/Advisory Panel Frame.png"; }
+            get { return "{AV-8B}/Images/Advisory Panel Frame.png"; }
         }
 
         private new void AddTrigger(IBindingTrigger trigger, string device)

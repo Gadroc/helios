@@ -57,7 +57,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/ODU.png"; }
+            get { return "{AV-8B}/Images/ODU.png"; }
         }
 
         private new void AddTrigger(IBindingTrigger trigger, string device)
@@ -82,8 +82,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             button.Left = x;
             button.Width = size.Width;
             button.Height = size.Height;
-            button.Image = "{Helios}/Images/AV-8B/ODU Button Up " + name + ".png";
-            button.PushedImage = "{Helios}/Images/AV-8B/ODU Button Dn " + name + ".png";
+            button.Image = "{AV-8B}/Images/ODU Button Up.png";
+            button.PushedImage = "{AV-8B}/Images/ODU Button Dn.png";
             button.Text = "";
             button.Name = "ODU Key " + name;
 
