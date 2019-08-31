@@ -134,6 +134,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, PWRPNL, "523", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3523"), new SwitchPosition("0.0", "ON", "3523") }, "Caution Panel", "Alternator 2 Switch", "%0.1f"));
             AddFunction(new Switch(this, PWRPNL, "524", new SwitchPosition[] { new SwitchPosition("1.0", "1", "3524"), new SwitchPosition("0.0", "OFF", "3524"), new SwitchPosition("-1.0", "2", "3524") }, "Caution Panel", "Lights Test Switch", "%0.1f"));
             #endregion
+            #region MCL Panel
+            AddFunction(new FlagValue(this, "199", "Master Caution Lights Panel", "panne-yellow", "Master-warning"));
+            AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "panne-red", "Master-caution"));
+            #endregion
             #region Indicators
             // !!!! Any duplicate "name" values in a function will cause Helios to go bang.  Make sure that when you change the name, that it is unique
             AddFunction(new FlagValue(this, "185", "Indicators", "Indicators 185", "LIM, MIP,"));
@@ -188,8 +192,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "373", "Indicators", "Indicators 373", "Afterburner light"));
             AddFunction(new FlagValue(this, "376", "Indicators", "Indicators 376", "Starter light"));
             AddFunction(new FlagValue(this, "198", "Indicators", "Indicators 198", "Tranfere"));
-            AddFunction(new FlagValue(this, "199", "Indicators", "Indicators 199", "Master-warning"));
-            AddFunction(new FlagValue(this, "200", "Indicators", "Indicators 200", "Master-caution"));
             AddFunction(new FlagValue(this, "362", "Indicators", "Indicators 362", "Fuel Left RL"));
             AddFunction(new FlagValue(this, "363", "Indicators", "Indicators 363", "Fuel Center RL"));
             AddFunction(new FlagValue(this, "364", "Indicators", "Indicators 364", "Fuel Right RL"));
@@ -433,7 +435,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                                                                                                                                          // 
             #endregion
             #region  ELECTRICAL PANEL
-            //AddFunction(Switch.CreateToggleSwitch(this, PWRPNL, "3524", "524", "ELECTRICAL PANEL", "Lights Test Switch", "%0.1f"));    // elements["PTN_524"] = default_2_way_spring_switch(_("Lights Test Switch"),devices.PWRPNL, device_commands.Button_524, 524,true)
             AddFunction(new PushButton(this, PWRPNL, "3654", "654", "ELECTRICAL PANEL", "Alert Network (QRA) Switch"));    // elements["PTN_654"] = default_2_position_tumb(_("Alert Network (QRA) Switch"),devices.PWRPNL, device_commands.Button_654, 654)
 
             #endregion

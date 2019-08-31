@@ -543,7 +543,7 @@ namespace GadrocsWorkshop.Helios
         }
 
         protected IndicatorPushButton AddIndicatorPushButton(string name, Point pos, Size size,
-            string image, string pushedImage, Color textColor, Color onTextColor, string font)
+            string image, string pushedImage, Color textColor, Color onTextColor, string font, bool withText = true)
         {
             string componentName = GetComponentName(name);
             IndicatorPushButton indicator = new Helios.Controls.IndicatorPushButton
@@ -554,21 +554,28 @@ namespace GadrocsWorkshop.Helios
                 Height = size.Height,
                 Image = image,
                 PushedImage = pushedImage,
-                Text = name,
                 Name = componentName,
                 OnTextColor = onTextColor,
                 TextColor = textColor
             };
-            indicator.TextFormat.FontStyle = FontStyles.Normal;
-            indicator.TextFormat.FontWeight = FontWeights.Normal;
-            indicator.TextFormat.FontSize = 18;
-            indicator.TextFormat.FontFamily = new FontFamily(font);
-            indicator.TextFormat.PaddingLeft = 0;
-            indicator.TextFormat.PaddingRight = 0;
-            indicator.TextFormat.PaddingTop = 0;
-            indicator.TextFormat.PaddingBottom = 0;
-            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
+            if(withText)
+            {
+                indicator.TextFormat.FontStyle = FontStyles.Normal;
+                indicator.TextFormat.FontWeight = FontWeights.Normal;
+                indicator.TextFormat.FontSize = 18;
+                indicator.TextFormat.FontFamily = new FontFamily(font);
+                indicator.TextFormat.PaddingLeft = 0;
+                indicator.TextFormat.PaddingRight = 0;
+                indicator.TextFormat.PaddingTop = 0;
+                indicator.TextFormat.PaddingBottom = 0;
+                indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
+                indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
+                indicator.Text = name;
+            }
+            else
+            {
+                indicator.Text = "";
+            }
 
             Children.Add(indicator);
             AddTrigger(indicator.Triggers["pushed"], componentName);

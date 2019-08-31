@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
+    <Compile Include="Gauges\M2000C\MCLPanel\MCL_Panel.cs" />
     <Compile Include="Gauges\M2000C\CautionPanel\Caution_Panel.cs" />
     <Compile Include="Controls\PotentiometerWithTranslate.cs" />
     <Compile Include="Controls\PotentiometerWithTranslateAppearanceEditor.xaml.cs">
@@ -4014,264 +4015,94 @@
     <Resource Include="Images\M2000C\Switches\long-black-up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\5mno2-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\5mno2-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\alt2-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\alt1-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\alt1-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\alt2-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\anemo-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\anemo-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\batt-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\batt-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\becs-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\becs-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bingo-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bingo-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bp-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bp-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bpd-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bpd-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bpg-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\bpg-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\calc-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\calc-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\caution-panel.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\cc-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\cc-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\condit-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\condit-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\conf-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\conf-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\decol-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\decol-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\dom-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\dom-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\dsv-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\dsv-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\ep-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\ep-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\gain-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\gain-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\huile-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\huile-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyds-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyd1-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyd1-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyd2-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyd2-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\hyds-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\man-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\man-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\niveau-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\niveau-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\o2ha-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\o2ha-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pa-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pa-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\park-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\park-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pcab-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pcab-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pelle-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\pelle-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\rego2-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\rego2-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\rpm-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\rpm-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\souris-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\souris-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\t7-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\t7-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\temp-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\temp-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\tr-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\tr-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\transf-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\transf-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\usel-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\usel-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\zeichen-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\CautionPanel\zeichen-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\red-indicator-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\red-indicator-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\red-left.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\red-right.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Images\M2000C\CautionPanel\5mno2-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\5mno2-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\alt2-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\alt1-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\alt1-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\alt2-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\anemo-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\anemo-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\batt-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\batt-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\becs-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\becs-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\bingo-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\bingo-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\bp-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\bp-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\bpd-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\bpd-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\bpg-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\bpg-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\calc-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\calc-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\caution-panel.png" />
+    <Resource Include="Images\M2000C\CautionPanel\cc-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\cc-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\condit-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\condit-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\conf-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\conf-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\decol-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\decol-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\dom-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\dom-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\dsv-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\dsv-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\ep-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\ep-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\gain-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\gain-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\huile-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\huile-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\hyds-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\hyd1-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\hyd1-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\hyd2-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\hyd2-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\hyds-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\man-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\man-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\niveau-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\niveau-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\o2ha-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\o2ha-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\pa-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\pa-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\park-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\park-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\pcab-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\pcab-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\pelle-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\pelle-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\rego2-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\rego2-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\rpm-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\rpm-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\souris-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\souris-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\t7-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\t7-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\temp-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\temp-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\tr-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\tr-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\transf-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\transf-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\usel-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\usel-on.png" />
+    <Resource Include="Images\M2000C\CautionPanel\zeichen-off.png" />
+    <Resource Include="Images\M2000C\CautionPanel\zeichen-on.png" />
+    <Resource Include="Images\M2000C\red-indicator-off.png" />
+    <Resource Include="Images\M2000C\red-indicator-on.png" />
+    <Resource Include="Images\M2000C\red-left.png" />
+    <Resource Include="Images\M2000C\red-right.png" />
     <Resource Include="Images\M2000C\Switches\red-up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\M2000C\yellow-indicator-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\M2000C\yellow-indicator-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Images\M2000C\yellow-indicator-off.png" />
+    <Resource Include="Images\M2000C\yellow-indicator-on.png" />
     <Resource Include="Images\M2000C\Switches\short-black-down.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -4292,11 +4123,29 @@
     <Resource Include="Images\AV-8B\SMC Cool Switch Up.png" />
     <Resource Include="Images\AV-8B\SMC Jettison Button.png" />
     <Resource Include="Images\AV-8B\SMC Jettison Knob.png" />
+    <Resource Include="Images\M2000C\MCLPanel\panne-red-off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\MCLPanel\panne-red-on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\MCLPanel\panne-yellow-off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\MCLPanel\panne-yellow-on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\MCLPanel\mcl-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="_Documents\GNU Lesser General Public License.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_Documents\Helios.M2000C.Read.Me.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="_Documents\Helios.Read.Me.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
