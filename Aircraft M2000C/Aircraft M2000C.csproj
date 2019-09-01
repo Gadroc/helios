@@ -287,12 +287,6 @@
     <Resource Include="Images\red-indicator-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\red-left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\red-right.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Switches\long-black-down.png" />
   </ItemGroup>
   <ItemGroup>
@@ -320,33 +314,40 @@
     <Resource Include="Images\yellow-indicator-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\M2000C_16x10.png" />
-    <Resource Include="Images\M2000C_16x9.png" />
+    <Resource Include="Images\M2000C_16x10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C_16x9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Templates\M2000C\CautionPanelRedIndicator.htpl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="Templates\CautionPanelRedIndicator.htpl" />
+    <Content Include="Templates\CautionPanelYellowIndicator.htpl" />
+    <Content Include="Templates\Cockpit Front 16x10.htpl" />
+    <Content Include="Templates\Cockpit Front 16x9.htpl" />
+    <Content Include="Templates\long-black-switch-toggle.htpl" />
+    <Content Include="Templates\Red-switch-toggle.htpl">
+      <SubType>Code</SubType>
     </Content>
-    <Content Include="Templates\M2000C\CautionPanelYellowIndicator.htpl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\M2000C\Cockpit Front 16x10.htpl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\M2000C\Cockpit Front 16x9.htpl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\M2000C\long-black-switch-toggle.htpl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\M2000C\Red-switch-toggle.htpl">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Templates\M2000C\short-black-switch-toggle.htpl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Templates\short-black-switch-toggle.htpl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MCLPanel\mcl-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MCLPanel\panne-red-off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MCLPanel\panne-red-on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MCLPanel\panne-yellow-off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MCLPanel\panne-yellow-on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

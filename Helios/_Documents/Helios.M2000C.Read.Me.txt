@@ -50,3 +50,4 @@ relevant then open a new issue.
 	   - not all has been tested but most of the switches might work
 
 Thanks for your patience and feedback
+ShadowMan
