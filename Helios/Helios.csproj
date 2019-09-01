@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
+    <Compile Include="Gauges\M2000C\EnginePanel\Engine_Start_Panel.cs" />
     <Compile Include="Gauges\M2000C\CautionPanel\Caution_Panel.cs" />
     <Compile Include="Controls\PotentiometerWithTranslate.cs" />
     <Compile Include="Controls\PotentiometerWithTranslateAppearanceEditor.xaml.cs">

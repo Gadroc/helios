@@ -492,7 +492,7 @@ namespace GadrocsWorkshop.Helios
 
         protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
             string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName, 
-            bool horizontal, bool fromCenter)
+            bool fromCenter, bool horizontal= false)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);
@@ -505,20 +505,15 @@ namespace GadrocsWorkshop.Helios
             newSwitch.DefaultPosition = defaultPosition;
             newSwitch.PositionOneImage = positionOneImage;
             newSwitch.PositionTwoImage = positionTwoImage;
+            newSwitch.Width = size.Width;
+            newSwitch.Height = size.Height;
 
             newSwitch.Top = posn.Y;
             newSwitch.Left = posn.X;
             if (horizontal)
             {
+                newSwitch.Rotation = HeliosVisualRotation.CW;
                 newSwitch.Orientation = ToggleSwitchOrientation.Horizontal;
-                newSwitch.Width = size.Height;
-                newSwitch.Height = size.Width;
-            }
-            else
-            {
-                newSwitch.Orientation = ToggleSwitchOrientation.Vertical;
-                newSwitch.Width = size.Width;
-                newSwitch.Height = size.Height;
             }
 
             Children.Add(newSwitch);
