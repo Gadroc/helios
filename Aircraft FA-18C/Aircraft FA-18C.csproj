@@ -298,7 +298,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)Templates\*.*" "$(SolutionDir)$(OutDir)Templates\$(TargetName)\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
