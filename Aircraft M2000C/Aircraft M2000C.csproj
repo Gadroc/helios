@@ -325,26 +325,26 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Templates\M2000C\CautionPanelRedIndicator.htpl">
+    <Content Include="Templates\CautionPanelRedIndicator.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\M2000C\CautionPanelYellowIndicator.htpl">
+    <Content Include="Templates\CautionPanelYellowIndicator.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\M2000C\Cockpit Front 16x10.htpl">
+    <Content Include="Templates\Cockpit Front 16x10.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\M2000C\Cockpit Front 16x9.htpl">
+    <Content Include="Templates\Cockpit Front 16x9.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\M2000C\long-black-switch-toggle.htpl">
+    <Content Include="Templates\long-black-switch-toggle.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\M2000C\Red-switch-toggle.htpl">
+    <Content Include="Templates\Red-switch-toggle.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\M2000C\short-black-switch-toggle.htpl">
+    <Content Include="Templates\short-black-switch-toggle.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

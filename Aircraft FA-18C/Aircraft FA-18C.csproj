@@ -291,7 +291,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Templates\FA-18C\2-way Toggle Domed.htpl">
+    <Content Include="Templates\2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

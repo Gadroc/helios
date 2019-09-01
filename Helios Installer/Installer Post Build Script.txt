@@ -1,0 +1,23 @@
+set NewVer='1.4.2019.0901'
+cscript //nologo "$(ProjectDir)WiRunSql.vbs" "$(BuiltOuputPath)" "INSERT INTO Property(Property, Value) VALUES ('DISABLEADVTSHORTCUTS', '1')"
+cscript //nologo "$(ProjectDir)WiRunSql.vbs" "$(BuiltOuputPath)" "UPDATE Property SET Value = '1.4.2019.0901' WHERE Property = 'ProductVersion'"
+cscript //nologo "$(ProjectDir)WiRunSql.vbs" "$(BuiltOuputPath)" "UPDATE File SET Version = '1.4.2019.0901' WHERE Version = '1.4.2019.901'"
+cscript //nologo "$(ProjectDir)WiRunSql.vbs" "$(BuiltOuputPath)" "UPDATE MsiAssemblyName SET Value = '1.4.2019.0901' WHERE Value = '1.4.2019.901'"
+cscript //nologo "$(ProjectDir)WiRunSql.vbs" "$(BuiltOuputPath)" "UPDATE Upgrade SET VersionMin = '1.4.2019.0901' WHERE UpgradeCode = '{589D8667-3ED9-478B-8F67-A56E4FADBC63}'"
+del "$(ProjectDir)Helios setup.exe"
+ren "$(ProjectDir)setup.exe" "Helios setup.exe"
+
+
+
+Notes:
+Restrictions on MSI SQL:
+	There is no support for DESC or LIKE, and ORDER BY may not handle strings as you expect
+	Update queries cannot modify a value in a primary key column
+	There is no way to escape the apostrophe character ' in a SQL query. If you need to match a string value like 'It's', you have to use the a question mark ? placeholder in the query and pass a record containing the value to view.Execute(record)
+	
+Point 2 is likely the reason why "UPDATE Upgrade SET VersionMin = '1.4.2019.0901' WHERE UpgradeCode = '{589D8667-3ED9-478B-8F67-A56E4FADBC63}'" does not work!
+
+For Upgrade, only the first three character groups are used, so changing it is a little pointless. 
+
+See https://blogs.msdn.microsoft.com/vsnetsetup/2012/04/02/you-may-receive-msi-api-error-80004005-when-running-update-syntax-on-a-msi-table-using-wirunsql-vbs-script/
+
