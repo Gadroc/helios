@@ -88,6 +88,25 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             _phantomLeft = config.PhantomFixLeft;
             _phantomTop = config.PhantomFixTop;
 
+            #region TACAN Panel
+            //            AddFunction(new Switch(this, TACAN, "623", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 10 Selector", "%0.1f"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
+            //            AddFunction(new Switch(this, TACAN, "625", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 1 Selector", "%0.1f"));    // elements["PTN_625"] = default_multiposition_knob(_("TACAN Channel 1 Selector"),devices.TACAN,device_commands.Button_625,625, 10, 0.1, false, 0)
+            //            AddFunction(new ScaledNetworkValue(this, TACAN_DISPLAY, 0d, "TACAN", "Channel output for display", "Current channel", "use rotary encoder with initial 0, min0, max 13, step 0.1", BindingValueUnits.Numeric, 0d, "%.4f"));
+            //            AddFunction(new RotaryEncoder(this, TACAN, CMD + TACAN_C10_SELECTOR, TACAN_C10_SELECTOR, 0.1d, "TACAN", "Channel 10 Selector"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
+            AddFunction(new Axis(this, TACAN, TACAN_C10_SELECTOR, CMD + TACAN_C10_SELECTOR, 0.0769d, 0d, 0.9228d, "Tacan Panel", "Channel 10 Selector"));
+            AddFunction(new Switch(this, TACAN, TACAN_XY_SELECTOR, new SwitchPosition[] {
+                new SwitchPosition("0.0", "X", CMD + TACAN_XY_SELECTOR),
+                new SwitchPosition("1.0", "Y", CMD + TACAN_XY_SELECTOR) }
+                , "Tacan Panel", "X/Y Selector", "%0.1f"));
+            AddFunction(new Axis(this, TACAN, TACAN_C1_SELECTOR, CMD + TACAN_C1_SELECTOR, 0.1, 0d, 0.9d, "Tacan Panel", "Channel 1 Selector"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
+            AddFunction(new Switch(this, TACAN, TACAN_MODE_SELECTOR, new SwitchPosition[] {
+                new SwitchPosition("0.0", "OFF", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("0.3", "REC", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("0.7", "T/R", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("1.0", "A/A", CMD + TACAN_MODE_SELECTOR) }
+                , "Tacan Panel", "Mode Selector", " %0.1f"));
+            AddFunction(new TACANChannel(this));
+            #endregion
             #region Caution Panel
             AddFunction(new FlagValue(this, "525", "Caution Panel", "BATT", "WP BATT"));
             AddFunction(new FlagValue(this, "526", "Caution Panel", "TR", "TR"));
@@ -558,25 +577,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_WHOLE, CMD + VORILS_FREQUENCY_CHANGE_WHOLE, 0.1d, 0.0d, 1.0d, "VOR/ILS", "Frequency Change whole"));
             AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_DECIMAL, CMD + VORILS_FREQUENCY_CHANGE_DECIMAL, 0.05d, 0.0d, 1.0d, "VOR/ILS", "Frequency Change Decimal"));
             AddFunction(new Switch(this, VORILS, VORILS_POWER, new SwitchPosition[] { new SwitchPosition("0.0", "On", CMD + VORILS_POWER), new SwitchPosition("1.0", "Off", CMD + VORILS_POWER) }, "VOR/ILS", "Power Dial", "%0.1f"));
-            #endregion
-            #region TACAN Panel
-            //            AddFunction(new Switch(this, TACAN, "623", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 10 Selector", "%0.1f"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
-            //            AddFunction(new Switch(this, TACAN, "625", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 1 Selector", "%0.1f"));    // elements["PTN_625"] = default_multiposition_knob(_("TACAN Channel 1 Selector"),devices.TACAN,device_commands.Button_625,625, 10, 0.1, false, 0)
-//            AddFunction(new ScaledNetworkValue(this, TACAN_DISPLAY, 0d, "TACAN", "Channel output for display", "Current channel", "use rotary encoder with initial 0, min0, max 13, step 0.1", BindingValueUnits.Numeric, 0d, "%.4f"));
-//            AddFunction(new RotaryEncoder(this, TACAN, CMD + TACAN_C10_SELECTOR, TACAN_C10_SELECTOR, 0.1d, "TACAN", "Channel 10 Selector"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
-            AddFunction(new Axis(this, TACAN, TACAN_C10_SELECTOR, CMD + TACAN_C10_SELECTOR, 0.0769d, 0d, 0.9228d, "TACAN", "Channel 10 Selector"));
-            AddFunction(new Switch(this, TACAN, TACAN_XY_SELECTOR, new SwitchPosition[] {
-                new SwitchPosition("0.0", "X", CMD + TACAN_XY_SELECTOR),
-                new SwitchPosition("1.0", "Y", CMD + TACAN_XY_SELECTOR) }
-                , "TACAN", "X/Y Select", "%0.1f"));
-            AddFunction(new Axis(this, TACAN, TACAN_C1_SELECTOR, CMD + TACAN_C1_SELECTOR, 0.1, 0d, 0.9d, "TACAN", "Channel 1 Selector"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
-            AddFunction(new Switch(this, TACAN, TACAN_MODE_SELECTOR, new SwitchPosition[] {
-                new SwitchPosition("0.0", "OFF", CMD + TACAN_MODE_SELECTOR),
-                new SwitchPosition("0.3", "REC", CMD + TACAN_MODE_SELECTOR),
-                new SwitchPosition("0.7", "T/R", CMD + TACAN_MODE_SELECTOR),
-                new SwitchPosition("1.0", "A/A Receive", CMD + TACAN_MODE_SELECTOR) }
-                , "TACAN", "Mode Select", " %0.1f"));
-            AddFunction(new TACANChannel(this));
             #endregion
             #region  Miscellaneous Left Panel
             AddFunction(new PushButton(this, MISCPANELS, "3400", "400", "Miscellaneous Left Panel", "Cockpit Clock"));    // elements["PTN_400"] = default_2_position_tumb(_("Cockpit Clock"), devices.MISCPANELS, device_commands.Button_400, 400)

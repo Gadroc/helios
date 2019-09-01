@@ -441,6 +441,7 @@
     <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDeviceRenderer.cs" />
     <Compile Include="Gauges\M2000C\ILSFrequency\ILSFrequency.cs" />
     <Compile Include="Gauges\M2000C\TACANChannel\TACANChannel.cs" />
+    <Compile Include="Gauges\M2000C\TACANChannel\Tacan_Panel.cs" />
     <Compile Include="Gauges\M2000C\UVHFPanel\UVHFChannelDisplay.cs" />
     <Compile Include="Gauges\Mi-8\ADI\ADI.cs" />
     <Compile Include="Gauges\MiG-21\BatteryCapacity\BatteryCapacity.cs" />
@@ -4136,6 +4137,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\M2000C\MCLPanel\mcl-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\TacanPanel\low-switch-tacan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\TacanPanel\tacan-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\M2000C\TacanPanel\up-switch-tacan.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Content Include="_Documents\changelog.txt">

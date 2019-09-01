@@ -300,7 +300,7 @@ namespace GadrocsWorkshop.Helios
         protected Potentiometer AddPot(string name, Point posn, Size size, string knobImage,
             double initialRotation, double rotationTravel, double minValue, double maxValue, 
             double initialValue, double stepValue,
-            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter, ClickType clickType = ClickType.Swipe)
         {
             string componentName = GetComponentName(name);
             if (fromCenter)
@@ -320,6 +320,7 @@ namespace GadrocsWorkshop.Helios
                 Width = size.Width,
                 Height = size.Height
             };
+
 
             Children.Add(_knob);
             foreach (IBindingTrigger trigger in _knob.Triggers)
@@ -587,7 +588,46 @@ namespace GadrocsWorkshop.Helios
             return indicator;
         }
 
-        protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
+        protected RotarySwitch AddRotarySwitch(RotarySwitch rotarySwitch, string name, Point posn, Size size, string knobImage,
+                int defaultPosition, string interfaceDeviceName, string interfaceElementName, bool fromCenter, ClickType clickType = ClickType.Swipe)
+            {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+
+            rotarySwitch.Name = componentName;
+            rotarySwitch.ClickType = clickType;
+            rotarySwitch.DefaultPosition = defaultPosition;
+            rotarySwitch.KnobImage = knobImage;
+            rotarySwitch.DrawLabels = false;
+            rotarySwitch.DrawLines = false;
+            rotarySwitch.Top = posn.Y;
+            rotarySwitch.Left = posn.X;
+            rotarySwitch.Width = size.Width;
+            rotarySwitch.Height = size.Height;
+
+            Children.Add(rotarySwitch);
+
+            foreach (IBindingTrigger trigger in rotarySwitch.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(rotarySwitch.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+            return rotarySwitch;
+            }
+
+            protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
             ThreeWayToggleSwitchPosition defaultPosition, ThreeWayToggleSwitchType switchType,
             string interfaceDeviceName, string interfaceElementName, bool fromCenter,
             string positionOneImage = "{Helios}/Images/Toggles/round-up.png",
@@ -636,6 +676,16 @@ namespace GadrocsWorkshop.Helios
 
             return toggle;
         }
+
+/*        protected GadrocsWorkshop.Helios.Gauges.GaugeDrumCounter AddGaugeDrumCounter(string name, string gaugeImage, Point posn, string format, Size size, Size rendererSize, RectangleGeometry recGeo)
+        {
+            GadrocsWorkshop.Helios.Gauges.GaugeDrumCounter drum = new GadrocsWorkshop.Helios.Gauges.GaugeDrumCounter(gaugeImage, posn, format, size, rendererSize);
+            drum.Clip = new RectangleGeometry(new Rect(posn, size));
+
+            Children.Add(drum);
+
+            return drum;
+        }*/
 
         protected TextDisplay AddTextDisplay(
             string name,

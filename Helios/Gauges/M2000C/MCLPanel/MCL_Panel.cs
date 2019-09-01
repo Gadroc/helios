@@ -41,7 +41,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/M2000C/MCLPanel/mcl_panel.png"; }
+            get { return "{Helios}/Images/M2000C/MCLPanel/mcl-panel.png"; }
         }
 
         #endregion

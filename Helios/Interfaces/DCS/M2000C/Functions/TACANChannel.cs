@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C.Functions
 
     public class TACANChannel : NetworkFunction
     {
-        private static DCSDataElement[] _dataElements = new DCSDataElement[] { new DCSDataElement("623", "%.3f", false), new DCSDataElement("625", "%.3f", false) };
+        private static DCSDataElement[] _dataElements = new DCSDataElement[] { new DCSDataElement("2037", "%.4f", false) };
 
 //        private static BindingValue _xValue = new BindingValue(1);
 //        private static BindingValue _yValue = new BindingValue(2);
@@ -35,7 +35,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C.Functions
         public TACANChannel(BaseUDPInterface sourceInterface)
             : base(sourceInterface)
         {
-            _channel = new HeliosValue(sourceInterface, BindingValue.Empty, "TACAN", "Channel", "Currently tuned TACAN channel.", "", BindingValueUnits.Numeric);
+            _channel = new HeliosValue(sourceInterface, BindingValue.Empty, "Tacan Panel", "Channel", "Currently tuned TACAN channel.", "", BindingValueUnits.Numeric);
             Values.Add(_channel);
             Triggers.Add(_channel);
         }
@@ -49,7 +49,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C.Functions
         {
             switch (id)
             {
-                case "623":
+                case "2037":
                     switch (value)
                     {
                         case "0.00":
