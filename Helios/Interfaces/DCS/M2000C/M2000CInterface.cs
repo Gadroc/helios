@@ -144,6 +144,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, ENGPANEL, "651", new SwitchPosition[] { new SwitchPosition("0.0", "CLOSE", "3651"), new SwitchPosition("1.0", "OPEN", "3651") }, "Engine Start Panel", "Fuel Cutoff Switch Cover", "%0.1f"));    // elements["PTN_651"] = default_2_position_tumb(_("Fuel Cutoff Switch Cover"), devices.ENGPANEL, device_commands.Button_651, 651)
             AddFunction(new Switch(this, ENGPANEL, "652", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3652"), new SwitchPosition("0.0", "ON", "3652") }, "Engine Start Panel", "Fuel Shut-Off Switch", "%0.1f"));    // elements["PTN_652"] = default_2_position_tumb(_("Fuel Cutoff Switch"), devices.ENGPANEL, device_commands.Button_652, 652)
             #endregion
+            #region  Landing Gear
+            AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
+            AddFunction(new FlagValue(this, "411", "Landing Gear Panel", "F", "F Warnlamp"));
+            AddFunction(new FlagValue(this, "412", "Landing Gear Panel", "DIRAV", "DIRA Warnlamp, blau"));
+            AddFunction(new FlagValue(this, "413", "Landing Gear Panel", "FREIN", "FREIN"));
+            AddFunction(new FlagValue(this, "414", "Landing Gear Panel", "CROSS", "Cross"));
+            AddFunction(new FlagValue(this, "415", "Landing Gear Panel", "SPAD", "SPAD"));
+            AddFunction(new FlagValue(this, "416", "Landing Gear Panel", "BIP", "Red Warnlamp under BIP"));
+            AddFunction(new FlagValue(this, "417", "Landing Gear Panel", "left-gear", "Left Gear"));
+            AddFunction(new FlagValue(this, "418", "Landing Gear Panel", "nose-gear", "Nose Gear"));
+            AddFunction(new FlagValue(this, "419", "Landing Gear Panel", "right-gear", "Right Gear"));
+            AddFunction(new Switch(this, INSTPANEL, "404", new SwitchPosition[] { new SwitchPosition("0.0", "UP", "3404"), new SwitchPosition("1.0", "DOWN", "3404") }, "Landing Gear Panel", "Landing Gear Lever", "%0.1f"));    // elements["PTN_404"] = default_animated_lever(_("Landing Gear Lever"), devices.INSTPANEL, device_commands.Button_404, 404,5.0)
+            AddFunction(new Switch(this, PCA_PPA, "463", new SwitchPosition[] { new SwitchPosition("1.0", "SECU", "3463"), new SwitchPosition("0.0", "ARMED", "3463") }, "Landing Gear Panel", "Gun Arming Switch", "%0.1f"));    // elements["PTN_463"] = default_2_position_tumb(_("Gun Arm/Safe Switch"), devices.PCA_PPA, device_commands.Button_463, 463)
+            AddFunction(new Switch(this, ENGINE, "421", new SwitchPosition[] { new SwitchPosition("0.0", "NORM", "3421"), new SwitchPosition("1.0", "GAIN CDVE", "3421") }, "Landing Gear Panel", "Fly by Wire Gain Mode Switch", "%0.1f"));    // elements["PTN_421"] = default_2_position_tumb(_("FBW Gain Mode Switch"),  devices.ENGINE, device_commands.Button_421, 421)
+            AddFunction(new Switch(this, ENGINE, "422", new SwitchPosition[] { new SwitchPosition("0.0", "AA", "3422"), new SwitchPosition("1.0", "CHARGES", "3422") }, "Landing Gear Panel", "Fly by Wire G Limiter Switch", "%0.1f"));    // elements["PTN_422"] = default_2_position_tumb(_("FBW G-Limiter Switch"),  devices.ENGINE, device_commands.Button_422, 422)
+//            AddFunction(new Switch(this, INSTPANEL, "408", new SwitchPosition[] { new SwitchPosition("0.0", "ON", "3408"), new SwitchPosition("1.0", "OFF", "3408") }, "Landing Gear Panel", "Emergency Landing Gear Lever", "%0.1f"));    // elements["PTN_408"] = default_animated_lever(_("Landing Gear Emergency Release Lever"), devices.INSTPANEL, device_commands.Button_408, 408, 5.0)
+            AddFunction(new Switch(this, INSTPANEL, "408", new SwitchPosition[] { }, "Landing Gear Panel", "Emergency Landing Gear Lever", "%0.1f"));    // elements["PTN_408"] = default_animated_lever(_("Landing Gear Emergency Release Lever"), devices.INSTPANEL, device_commands.Button_408, 408, 5.0)
+            AddFunction(new PushButton(this, PCA_PPA, "3409", "409", "Landing Gear Panel", "Emergency Jettison Lever"));    // elements["PTN_409"] = default_button(_("Emergency Jettison"), devices.PCA_PPA, device_commands.Button_409, 409, 0, 1)
+            // 
+            #endregion
             #region MCL Panel
             AddFunction(new FlagValue(this, "199", "Master Caution Lights Panel", "panne-yellow", "Master-warning"));
             AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "panne-red", "Master-caution"));
@@ -210,16 +230,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "367", "Indicators", "Indicators 367", "Fuel Left V"));
             AddFunction(new FlagValue(this, "368", "Indicators", "Indicators 368", "Fuel Right V"));
             AddFunction(new FlagValue(this, "405", "Indicators", "Indicators 405", "Gearhandle Innenleuchte, red"));
-            AddFunction(new FlagValue(this, "410", "Indicators", "Indicators 410", "A Warnlamp"));
-            AddFunction(new FlagValue(this, "411", "Indicators", "Indicators 411", "F Warnlamp"));
-            AddFunction(new FlagValue(this, "412", "Indicators", "Indicators 412", "DIRA Warnlamp, blau"));
-            AddFunction(new FlagValue(this, "413", "Indicators", "Indicators 413", "FREIN"));
-            AddFunction(new FlagValue(this, "414", "Indicators", "Indicators 414", "Cross"));
-            AddFunction(new FlagValue(this, "415", "Indicators", "Indicators 415", "SPAD"));
-            AddFunction(new FlagValue(this, "416", "Indicators", "Indicators 416", "Red Warnlamp under BIP"));
-            AddFunction(new FlagValue(this, "417", "Indicators", "Indicators 417", "Left Gear"));
-            AddFunction(new FlagValue(this, "418", "Indicators", "Indicators 418", "Nose Gear"));
-            AddFunction(new FlagValue(this, "419", "Indicators", "Indicators 419", "Right Gear"));
             AddFunction(new FlagValue(this, "677", "Indicators", "Indicators 677", "COM left green lamp"));
             AddFunction(new FlagValue(this, "519", "Indicators", "Indicators 519", "Oxy flow lamp"));
             AddFunction(new FlagValue(this, "490", "Indicators", "Indicators 490", "Left consule VAL"));
@@ -319,11 +329,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 new SwitchPosition("0.95", "Channel 19", CMD+UVHF_CHANNEL), new SwitchPosition("1", "Channel 20", CMD+UVHF_CHANNEL)}, "Radio Panel", "U/VHF Channel Selector", "%0.2f"));
                 */
             #endregion
-            #region  Landing Gear
-            //AddFunction(Switch.CreateToggleSwitch(this, INSTPANEL, "3404", "404", "Landing Gear", "Landing Gear Lever", "%0.1f"));    // elements["PTN_404"] = default_animated_lever(_("Landing Gear Lever"), devices.INSTPANEL, device_commands.Button_404, 404,5.0)
-            //AddFunction(Switch.CreateToggleSwitch(this, INSTPANEL, "3408", "408", "Landing Gear", "Landing Gear Emergency Release Lever", "%0.1f"));    // elements["PTN_408"] = default_animated_lever(_("Landing Gear Emergency Release Lever"), devices.INSTPANEL, device_commands.Button_408, 408, 5.0)
-            // 
-            #endregion
             #region  HUD/VTB"
             AddFunction(new Switch(this, VTH_VTB, "201", new SwitchPosition[] { }, "HUD/VTB", "HUD Power Switch", "%0.1f"));    // elements["PTN_201"] = multiposition_switch_limited(_("HUD Power Switch"), devices.VTH_VTB, device_commands.Button_201, 201, 3, 0.5, false, 0)
             //AddFunction(Switch.CreateToggleSwitch(this, VTH_VTB, "3203", "203", "HUD/VTB", "HUD Declutter Switch", "%0.1f"));    // elements["PTN_203"] = default_2_way_spring_switch(_("HUD Declutter Switch"), devices.VTH_VTB, device_commands.Button_203, 203, true)
@@ -354,7 +359,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
             #endregion
             #region  PCA/PPA
-            AddFunction(new PushButton(this, PCA_PPA, "3463", "463", "PCA/PPA", "Gun Arm/Safe Switch"));    // elements["PTN_463"] = default_2_position_tumb(_("Gun Arm/Safe Switch"), devices.PCA_PPA, device_commands.Button_463, 463)
             AddFunction(new PushButton(this, PCA_PPA, "3234", "234", "PCA/PPA", "Master Arm Switch"));    // elements["PTN_234"] = default_2_position_tumb(_("Master Arm Switch"), devices.PCA_PPA, device_commands.Button_234, 234)
             AddFunction(new PushButton(this, PCA_PPA, "3248", "248", "PCA/PPA", "Selective Jettison Switch Cover"));    // elements["PTN_248"] = default_2_position_tumb(_("Selective Jettison Switch Cover"), devices.PCA_PPA, device_commands.Button_248, 248)
             AddFunction(new PushButton(this, PCA_PPA, "3249", "249", "PCA/PPA", "Selective Jettison Switch"));    // elements["PTN_249"] = default_2_position_tumb(_("Selective Jettison Switch"), devices.PCA_PPA, device_commands.Button_249, 249)
@@ -384,7 +388,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                                                                                                                                          //AddFunction(Switch.CreateToggleSwitch(this, PCA_PPA, "3277", "277", "PCA/PPA", "Bomb Release Quantity Selector Switch", "%0.1f"));    // elements["PTN_277"] = default_2_way_spring_switch(_("Bomb Release Quantity Selector Switch"), devices.PCA_PPA, device_commands.Button_277, 277, true)
                                                                                                                                          //AddFunction(Switch.CreateToggleSwitch(this, PCA_PPA, "3278", "278", "PCA/PPA", "Bomb Release Interval Selector Switch", "%0.1f"));    // elements["PTN_278"] = default_2_way_spring_switch(_("Bomb Release Interval Selector Switch"), devices.PCA_PPA, device_commands.Button_278, 278, true)
                                                                                                                                          // 
-            AddFunction(new PushButton(this, PCA_PPA, "3409", "409", "PCA/PPA", "Emergency Jettison"));    // elements["PTN_409"] = default_button(_("Emergency Jettison"), devices.PCA_PPA, device_commands.Button_409, 409, 0, 1)
 
             #endregion
             #region  AFCS
@@ -409,8 +412,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #region  FBW
             AddFunction(new PushButton(this, ENGINE, "3330", "330", "FBW", "FBW Spin Mode Switch"));    // elements["PTN_330"] = default_2_position_tumb(_("FBW Spin Mode Switch"), devices.ENGINE, device_commands.Button_330, 330)
             AddFunction(new PushButton(this, ENGINE, "3420", "420", "FBW", "FBW Gain Mode Switch Cover"));    // elements["PTN_420"] = default_2_position_tumb(_("FBW Gain Mode Switch Cover"),  devices.ENGINE, device_commands.Button_420, 420)
-            AddFunction(new PushButton(this, ENGINE, "3421", "421", "FBW", "FBW Gain Mode Switch"));    // elements["PTN_421"] = default_2_position_tumb(_("FBW Gain Mode Switch"),  devices.ENGINE, device_commands.Button_421, 421)
-            AddFunction(new PushButton(this, ENGINE, "3422", "422", "FBW", "FBW G-Limiter Switch"));    // elements["PTN_422"] = default_2_position_tumb(_("FBW G-Limiter Switch"),  devices.ENGINE, device_commands.Button_422, 422)
             AddFunction(new PushButton(this, AFCS, "3423", "423", "FBW", "FBW Reset Button"));    // elements["PTN_423"] = default_button(_("FBW Reset Button"),  devices.AFCS, device_commands.Button_423, 423)
 
             #endregion

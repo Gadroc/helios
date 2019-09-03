@@ -51,7 +51,14 @@ relevant then open a new issue.
 	b) Known issue
 	   - for now, removed the two red Guard Covers because we are not able to use the switches/button under
       
-4) Others things
+4) Landing Gear Panel
+	a) What is working
+       - the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators
+	b) Known issues
+	   - removed the two red Guard Covers because we are not able to use the switches/button under
+	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositoVisual.cs
+      
+5) Others things
 	a) What is working
 	   - not all has been tested but most of the switches might work
 
