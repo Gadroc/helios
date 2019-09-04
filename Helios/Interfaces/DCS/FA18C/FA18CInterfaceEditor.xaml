@@ -97,7 +97,7 @@
     <GroupBox Header="Third Party Scripts" Margin="0,4,0,0">
       <StackPanel>
         <TextBlock Margin="4" TextWrapping="Wrap">
-          Helios will add the following scripts as dofile lines when it configures DCS F/A-18C exports. (Example:TARS = "./Config/Export/TARSExportFA18C.lua").
+          Helios will add the following scripts as dofile lines when it configures DCS F/A-18C exports. (Example:TARS = "./Config/Export/TARSExport.lua").
         </TextBlock>
         <Border BorderBrush="#FF808080" BorderThickness="0,1" Margin="12">
           <ItemsControl ItemTemplate="{StaticResource DoFileTemplate}"

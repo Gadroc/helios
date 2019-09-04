@@ -39,25 +39,25 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C.Instruments
             : base("RADAR Altimeter", new Size(420, 420))
         {
             //  The first three images are the default images which appear behind the indicators.
-            Components.Add(new GaugeImage("{Helios}/Images/FA-18C/indicator_off.png", new Rect(108d, 177d, 50d, 50d)));
-            Components.Add(new GaugeImage("{Helios}/Images/FA-18C/indicator_off.png", new Rect(260d, 177d, 50d, 50d)));
-            Components.Add(new GaugeImage("{Helios}/Images/FA-18C/Radar Altimeter Blank.png", new Rect(179d, 288d, 56d, 22d)));
+            Components.Add(new GaugeImage("{FA-18C}/Images/indicator_off.png", new Rect(108d, 177d, 50d, 50d)));
+            Components.Add(new GaugeImage("{FA-18C}/Images/indicator_off.png", new Rect(260d, 177d, 50d, 50d)));
+            Components.Add(new GaugeImage("{FA-18C}/Images/Radar Altimeter Blank.png", new Rect(179d, 288d, 56d, 22d)));
 
-            _giRed = new GaugeImage("{Helios}/Images/FA-18C/indicator_red.png", new Rect(108d, 177d, 50d, 50d));
+            _giRed = new GaugeImage("{FA-18C}/Images/indicator_red.png", new Rect(108d, 177d, 50d, 50d));
             Components.Add(_giRed);
             _redIndicator = new HeliosValue(this, new BindingValue(0d), "", "RADAR Altimeter Red", "Red Indicator.", "", BindingValueUnits.Boolean);
             _redIndicator.Execute += new HeliosActionHandler(RedIndicator_Execute);
             Values.Add(_redIndicator);
             Actions.Add(_redIndicator);
 
-            _giGreen = new GaugeImage("{Helios}/Images/FA-18C/indicator_green.png", new Rect(260d, 177d, 50d, 50d));
+            _giGreen = new GaugeImage("{FA-18C}/Images/indicator_green.png", new Rect(260d, 177d, 50d, 50d));
             Components.Add(_giGreen);
             _greenIndicator = new HeliosValue(this, new BindingValue(0d), "", "RADAR Altimeter Green", "Green Indicator.", "", BindingValueUnits.Boolean);
             _greenIndicator.Execute += new HeliosActionHandler(GreenIndicator_Execute);
             Values.Add(_greenIndicator);
             Actions.Add(_greenIndicator);
 
-            _giOff = new GaugeImage("{Helios}/Images/FA-18C/Radar Altimeter Off Flag.png", new Rect(179d, 287d, 56d, 24d));
+            _giOff = new GaugeImage("{FA-18C}/Images/Radar Altimeter Off Flag.png", new Rect(179d, 287d, 56d, 24d));
             Components.Add(_giOff);
             _offIndicator = new HeliosValue(this, new BindingValue(0d), "", "RADAR Altimeter Off", "Off Indicator.", "", BindingValueUnits.Boolean);
             _offIndicator.Execute += new HeliosActionHandler(OffIndicator_Execute);

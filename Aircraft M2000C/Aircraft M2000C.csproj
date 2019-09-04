@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD8B2678-7D32-4E3D-8A9D-CA1CE201285F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GadrocsWorkshop.Helios</RootNamespace>
+    <AssemblyName>M2000C</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\5mno2-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\5mno2-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\alt1-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\alt1-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\alt2-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\alt2-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\anemo-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\anemo-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\batt-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\batt-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\becs-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\becs-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\bingo-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\bingo-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\bp-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\bp-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\bpd-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\bpd-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\bpg-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\bpg-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\calc-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\calc-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\caution-panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\cc-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\cc-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\condit-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\condit-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\conf-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\conf-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\decol-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\decol-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\dom-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\dom-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\dsv-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\dsv-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\ep-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\ep-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\gain-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\gain-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\huile-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\huile-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\hyd1-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\hyd1-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\hyd2-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\hyd2-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\hyds-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\hyds-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\man-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\man-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\niveau-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\niveau-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\o2ha-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\o2ha-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\pa-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\pa-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\park-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\park-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\pcab-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\pcab-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\pelle-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\pelle-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\rego2-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\rego2-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\rpm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\rpm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\souris-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\souris-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\t7-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\t7-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\temp-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\temp-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\tr-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\tr-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\transf-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\transf-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\usel-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\usel-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\zeichen-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CautionPanel\zeichen-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\red-indicator-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\red-indicator-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\red-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\red-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Switches\long-black-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Switches\long-black-mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Switches\long-black-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Switches\red-mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Switches\red-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Switches\short-black-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Switches\short-black-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\yellow-indicator-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\yellow-indicator-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\M2000C_16x10.png" />
+    <Resource Include="Images\M2000C_16x9.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Templates\M2000C\CautionPanelRedIndicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\M2000C\CautionPanelYellowIndicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\M2000C\Cockpit Front 16x10.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\M2000C\Cockpit Front 16x9.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\M2000C\long-black-switch-toggle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\M2000C\Red-switch-toggle.htpl">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\M2000C\short-black-switch-toggle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
