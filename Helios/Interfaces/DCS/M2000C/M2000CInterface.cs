@@ -134,6 +134,40 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, PWRPNL, "523", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3523"), new SwitchPosition("0.0", "ON", "3523") }, "Caution Panel", "Alternator 2 Switch", "%0.1f"));
             AddFunction(new Switch(this, PWRPNL, "524", new SwitchPosition[] { new SwitchPosition("1.0", "1", "3524"), new SwitchPosition("0.0", "OFF", "3524"), new SwitchPosition("-1.0", "2", "3524") }, "Caution Panel", "Lights Test Switch", "%0.1f"));
             #endregion
+            #region  Engine Start Panel
+            AddFunction(new Switch(this, ENGPANEL, "645", new SwitchPosition[] { new SwitchPosition("0.0", "CLOSE", "3645"), new SwitchPosition("1.0", "OPEN", "3645") }, "Engine Start Panel", "Engine Start Switch Cover", "%0.1f"));    // elements["PTN_645"] = default_2_position_tumb(_("Engine Start Switch Cover"), devices.ENGPANEL, device_commands.Button_645, 645)
+            AddFunction(new PushButton(this, ENGPANEL, "3649", "649", "Engine Start Panel", "Engine Start Switch"));    // elements["PTN_649"] = default_button(_("Engine Start Switch"), devices.ENGPANEL, device_commands.Button_649, 649, 0, 1)
+            AddFunction(new Switch(this, ENGPANEL, "646", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3646"), new SwitchPosition("1.0", "ON", "3646") }, "Engine Start Panel", "Starter Fuel Pump Switch", "%0.1f"));    // elements["PTN_646"] = default_2_position_tumb(_("Starter Fuel Pump Switch"), devices.ENGPANEL, device_commands.Button_646, 646)
+            AddFunction(new Switch(this, INSTPANEL, "647", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3647"), new SwitchPosition("1.0", "ON", "3647") }, "Engine Start Panel", "Left Fuel Pump Switch", "%0.1f"));    // elements["PTN_647"] = default_2_position_tumb(_("Engine Fuel Left Boost Pump Switch"), devices.INSTPANEL, device_commands.Button_647, 647)
+            AddFunction(new Switch(this, INSTPANEL, "648", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3648"), new SwitchPosition("1.0", "ON", "3648") }, "Engine Start Panel", "Right Fuel Pump Switch", "%0.1f"));    // elements["PTN_648"] = default_2_position_tumb(_("Engine Fuel Right Boost Pump Switch"), devices.INSTPANEL, device_commands.Button_648, 648)
+            AddFunction(new Switch(this, ENGPANEL, "650", new SwitchPosition[] { new SwitchPosition("0.0", "VENT", "3650"), new SwitchPosition("0.5", "G", "3650"), new SwitchPosition("1.0", "D", "3650") }, "Engine Start Panel", "Ignition Ventilation Selector Switch", "%0.1f"));    // elements["PTN_650"] = multiposition_switch_limited(_("Ventilation Selector Switch"), devices.ENGPANEL, device_commands.Button_650, 650, 3, 0.50, false, 0)
+            AddFunction(new Switch(this, ENGPANEL, "651", new SwitchPosition[] { new SwitchPosition("0.0", "CLOSE", "3651"), new SwitchPosition("1.0", "OPEN", "3651") }, "Engine Start Panel", "Fuel Cutoff Switch Cover", "%0.1f"));    // elements["PTN_651"] = default_2_position_tumb(_("Fuel Cutoff Switch Cover"), devices.ENGPANEL, device_commands.Button_651, 651)
+            AddFunction(new Switch(this, ENGPANEL, "652", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3652"), new SwitchPosition("0.0", "ON", "3652") }, "Engine Start Panel", "Fuel Shut-Off Switch", "%0.1f"));    // elements["PTN_652"] = default_2_position_tumb(_("Fuel Cutoff Switch"), devices.ENGPANEL, device_commands.Button_652, 652)
+            #endregion
+            #region  Landing Gear
+            AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
+            AddFunction(new FlagValue(this, "411", "Landing Gear Panel", "F", "F Warnlamp"));
+            AddFunction(new FlagValue(this, "412", "Landing Gear Panel", "DIRAV", "DIRA Warnlamp, blau"));
+            AddFunction(new FlagValue(this, "413", "Landing Gear Panel", "FREIN", "FREIN"));
+            AddFunction(new FlagValue(this, "414", "Landing Gear Panel", "CROSS", "Cross"));
+            AddFunction(new FlagValue(this, "415", "Landing Gear Panel", "SPAD", "SPAD"));
+            AddFunction(new FlagValue(this, "416", "Landing Gear Panel", "BIP", "Red Warnlamp under BIP"));
+            AddFunction(new FlagValue(this, "417", "Landing Gear Panel", "left-gear", "Left Gear"));
+            AddFunction(new FlagValue(this, "418", "Landing Gear Panel", "nose-gear", "Nose Gear"));
+            AddFunction(new FlagValue(this, "419", "Landing Gear Panel", "right-gear", "Right Gear"));
+            AddFunction(new Switch(this, INSTPANEL, "404", new SwitchPosition[] { new SwitchPosition("0.0", "UP", "3404"), new SwitchPosition("1.0", "DOWN", "3404") }, "Landing Gear Panel", "Landing Gear Lever", "%0.1f"));    // elements["PTN_404"] = default_animated_lever(_("Landing Gear Lever"), devices.INSTPANEL, device_commands.Button_404, 404,5.0)
+            AddFunction(new Switch(this, PCA_PPA, "463", new SwitchPosition[] { new SwitchPosition("1.0", "SECU", "3463"), new SwitchPosition("0.0", "ARMED", "3463") }, "Landing Gear Panel", "Gun Arming Switch", "%0.1f"));    // elements["PTN_463"] = default_2_position_tumb(_("Gun Arm/Safe Switch"), devices.PCA_PPA, device_commands.Button_463, 463)
+            AddFunction(new Switch(this, ENGINE, "421", new SwitchPosition[] { new SwitchPosition("0.0", "NORM", "3421"), new SwitchPosition("1.0", "GAIN CDVE", "3421") }, "Landing Gear Panel", "Fly by Wire Gain Mode Switch", "%0.1f"));    // elements["PTN_421"] = default_2_position_tumb(_("FBW Gain Mode Switch"),  devices.ENGINE, device_commands.Button_421, 421)
+            AddFunction(new Switch(this, ENGINE, "422", new SwitchPosition[] { new SwitchPosition("0.0", "AA", "3422"), new SwitchPosition("1.0", "CHARGES", "3422") }, "Landing Gear Panel", "Fly by Wire G Limiter Switch", "%0.1f"));    // elements["PTN_422"] = default_2_position_tumb(_("FBW G-Limiter Switch"),  devices.ENGINE, device_commands.Button_422, 422)
+//            AddFunction(new Switch(this, INSTPANEL, "408", new SwitchPosition[] { new SwitchPosition("0.0", "ON", "3408"), new SwitchPosition("1.0", "OFF", "3408") }, "Landing Gear Panel", "Emergency Landing Gear Lever", "%0.1f"));    // elements["PTN_408"] = default_animated_lever(_("Landing Gear Emergency Release Lever"), devices.INSTPANEL, device_commands.Button_408, 408, 5.0)
+            AddFunction(new Switch(this, INSTPANEL, "408", new SwitchPosition[] { }, "Landing Gear Panel", "Emergency Landing Gear Lever", "%0.1f"));    // elements["PTN_408"] = default_animated_lever(_("Landing Gear Emergency Release Lever"), devices.INSTPANEL, device_commands.Button_408, 408, 5.0)
+            AddFunction(new PushButton(this, PCA_PPA, "3409", "409", "Landing Gear Panel", "Emergency Jettison Lever"));    // elements["PTN_409"] = default_button(_("Emergency Jettison"), devices.PCA_PPA, device_commands.Button_409, 409, 0, 1)
+            // 
+            #endregion
+            #region MCL Panel
+            AddFunction(new FlagValue(this, "199", "Master Caution Lights Panel", "panne-yellow", "Master-warning"));
+            AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "panne-red", "Master-caution"));
+            #endregion
             #region Indicators
             // !!!! Any duplicate "name" values in a function will cause Helios to go bang.  Make sure that when you change the name, that it is unique
             AddFunction(new FlagValue(this, "185", "Indicators", "Indicators 185", "LIM, MIP,"));
@@ -188,8 +222,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "373", "Indicators", "Indicators 373", "Afterburner light"));
             AddFunction(new FlagValue(this, "376", "Indicators", "Indicators 376", "Starter light"));
             AddFunction(new FlagValue(this, "198", "Indicators", "Indicators 198", "Tranfere"));
-            AddFunction(new FlagValue(this, "199", "Indicators", "Indicators 199", "Master-warning"));
-            AddFunction(new FlagValue(this, "200", "Indicators", "Indicators 200", "Master-caution"));
             AddFunction(new FlagValue(this, "362", "Indicators", "Indicators 362", "Fuel Left RL"));
             AddFunction(new FlagValue(this, "363", "Indicators", "Indicators 363", "Fuel Center RL"));
             AddFunction(new FlagValue(this, "364", "Indicators", "Indicators 364", "Fuel Right RL"));
@@ -198,16 +230,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "367", "Indicators", "Indicators 367", "Fuel Left V"));
             AddFunction(new FlagValue(this, "368", "Indicators", "Indicators 368", "Fuel Right V"));
             AddFunction(new FlagValue(this, "405", "Indicators", "Indicators 405", "Gearhandle Innenleuchte, red"));
-            AddFunction(new FlagValue(this, "410", "Indicators", "Indicators 410", "A Warnlamp"));
-            AddFunction(new FlagValue(this, "411", "Indicators", "Indicators 411", "F Warnlamp"));
-            AddFunction(new FlagValue(this, "412", "Indicators", "Indicators 412", "DIRA Warnlamp, blau"));
-            AddFunction(new FlagValue(this, "413", "Indicators", "Indicators 413", "FREIN"));
-            AddFunction(new FlagValue(this, "414", "Indicators", "Indicators 414", "Cross"));
-            AddFunction(new FlagValue(this, "415", "Indicators", "Indicators 415", "SPAD"));
-            AddFunction(new FlagValue(this, "416", "Indicators", "Indicators 416", "Red Warnlamp under BIP"));
-            AddFunction(new FlagValue(this, "417", "Indicators", "Indicators 417", "Left Gear"));
-            AddFunction(new FlagValue(this, "418", "Indicators", "Indicators 418", "Nose Gear"));
-            AddFunction(new FlagValue(this, "419", "Indicators", "Indicators 419", "Right Gear"));
             AddFunction(new FlagValue(this, "677", "Indicators", "Indicators 677", "COM left green lamp"));
             AddFunction(new FlagValue(this, "519", "Indicators", "Indicators 519", "Oxy flow lamp"));
             AddFunction(new FlagValue(this, "490", "Indicators", "Indicators 490", "Left consule VAL"));
@@ -279,6 +301,20 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             //AddFunction(new FlagValue(this, "2036", "Indicators", "Indicators 2036", "Mode VOR ILS"));
             //AddFunction(new FlagValue(this, "2037", "Indicators", "Indicators 2037", "Mode TACAN"));
             #endregion
+            #region  Infligt Engine Panel
+            AddFunction(new PushButton(this, ENGPANEL, "3468", "468", "Engine Start Panel", "Engine In-Flight Start Switch"));    // elements["PTN_468"] = default_2_position_tumb(_("Engine In-Flight Start Switch"), devices.ENGPANEL, device_commands.Button_468, 468, 0, 1)
+            AddFunction(new PushButton(this, ENGPANEL, "3467", "467", "Engine Start Panel", "Engine Shutdown Button"));    // elements["PTN_467"] = default_button(_("Engine Shutdown Button"), devices.ENGPANEL, device_commands.Button_467, 467)
+            AddFunction(new PushButton(this, INSTPANEL, "3477", "477", "Engine Start Panel", "Fuel Dump Switch Cover"));    // elements["PTN_477"] = default_2_position_tumb(_("Fuel Dump Switch Cover"), devices.INSTPANEL, device_commands.Button_477, 477)
+            AddFunction(new PushButton(this, INSTPANEL, "3478", "478", "Engine Start Panel", "Fuel Dump Switch"));    // elements["PTN_478"] = default_2_position_tumb(_("Fuel Dump Switch"), devices.INSTPANEL, device_commands.Button_478, 478)
+            AddFunction(new PushButton(this, INSTPANEL, "3471", "471", "Engine Start Panel", "A/B Emergency Cutoff Switch Cover"));    // elements["PTN_471"] = default_2_position_tumb(_("A/B Emergency Cutoff Switch Cover"), devices.INSTPANEL, device_commands.Button_471, 471)
+            AddFunction(new PushButton(this, INSTPANEL, "3472", "472", "Engine Start Panel", "A/B Emergency Cutoff Switch"));    // elements["PTN_472"] = default_2_position_tumb(_("A/B Emergency Cutoff Switch"), devices.INSTPANEL, device_commands.Button_472, 472)
+            AddFunction(new PushButton(this, ENGPANEL, "3464", "464", "Engine Start Panel", "Emergency Throttle Cover"));    // elements["PTN_464"] = default_2_position_tumb(_("Emergency Throttle Cover"), devices.ENGPANEL, device_commands.Button_464, 464)
+            AddFunction(new Axis(this, ENGPANEL, "3465", "465", 0.15d, 0d, 1d, "Engine Start Panel", "Emergency Throttle Handle"));    // elements["PTN_465"] = default_axis_limited(_("Emergency Throttle Handle"),devices.ENGPANEL,device_commands.Button_465,465, 0.8, 0.5, true, false, {0.0, 1.0})
+            AddFunction(new PushButton(this, ENGPANEL, "3473", "473", "Engine Start Panel", "Secondary Oil Control Cover"));    // elements["PTN_473"] = default_2_position_tumb(_("Secondary Oil Control Cover"), devices.ENGPANEL, device_commands.Button_473, 473)
+            AddFunction(new PushButton(this, ENGPANEL, "3474", "474", "Engine Start Panel", "Secondary Oil Control Switch"));    // elements["PTN_474"] = default_2_position_tumb(_("Secondary Oil Control Switch"), devices.ENGPANEL, device_commands.Button_474, 474)
+            AddFunction(new PushButton(this, ENGPANEL, "3475", "475", "Engine Start Panel", "Engine Emergency Control Cover"));    // elements["PTN_475"] = default_2_position_tumb(_("Engine Emergency Control Cover"), devices.ENGPANEL, device_commands.Button_475, 475)
+            AddFunction(new Switch(this, ENGPANEL, "476", new SwitchPosition[] { }, "Engine Start Panel", "Engine Emergency Control Switch", "%0.1f"));    // elements["PTN_476"] = multiposition_switch_limited(_("Engine Emergency Control Switch"), devices.ENGPANEL, device_commands.Button_476, 476,3, 0.5, true, 0)
+            #endregion  
             #region U/VHF Panel
             AddFunction(new ScaledNetworkValue(this, UVHF_PRESET_DISPLAY, 0d, "U/VHF", "Preset output for display", "Current preset channel", "use rotary encoder with initial 0, min0, max 20, step 0.1", BindingValueUnits.Numeric, 0d, "%.4f"));
             AddFunction(new Axis(this, UVHF, UVHF_PRESET_KNOB, CMD + UVHF_PRESET_KNOB, 0.05d, 0d, 1.0d, "U/VHF", "Preset frequency change"));
@@ -292,11 +328,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 new SwitchPosition("0.8", "Channel 16", CMD+UVHF_CHANNEL), new SwitchPosition("0.85", "Channel 17", CMD+UVHF_CHANNEL) , new SwitchPosition("0.9", "Channel 18", CMD+UVHF_CHANNEL),
                 new SwitchPosition("0.95", "Channel 19", CMD+UVHF_CHANNEL), new SwitchPosition("1", "Channel 20", CMD+UVHF_CHANNEL)}, "Radio Panel", "U/VHF Channel Selector", "%0.2f"));
                 */
-            #endregion
-            #region  Landing Gear
-            //AddFunction(Switch.CreateToggleSwitch(this, INSTPANEL, "3404", "404", "Landing Gear", "Landing Gear Lever", "%0.1f"));    // elements["PTN_404"] = default_animated_lever(_("Landing Gear Lever"), devices.INSTPANEL, device_commands.Button_404, 404,5.0)
-            //AddFunction(Switch.CreateToggleSwitch(this, INSTPANEL, "3408", "408", "Landing Gear", "Landing Gear Emergency Release Lever", "%0.1f"));    // elements["PTN_408"] = default_animated_lever(_("Landing Gear Emergency Release Lever"), devices.INSTPANEL, device_commands.Button_408, 408, 5.0)
-            // 
             #endregion
             #region  HUD/VTB"
             AddFunction(new Switch(this, VTH_VTB, "201", new SwitchPosition[] { }, "HUD/VTB", "HUD Power Switch", "%0.1f"));    // elements["PTN_201"] = multiposition_switch_limited(_("HUD Power Switch"), devices.VTH_VTB, device_commands.Button_201, 201, 3, 0.5, false, 0)
@@ -328,7 +359,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
             #endregion
             #region  PCA/PPA
-            AddFunction(new PushButton(this, PCA_PPA, "3463", "463", "PCA/PPA", "Gun Arm/Safe Switch"));    // elements["PTN_463"] = default_2_position_tumb(_("Gun Arm/Safe Switch"), devices.PCA_PPA, device_commands.Button_463, 463)
             AddFunction(new PushButton(this, PCA_PPA, "3234", "234", "PCA/PPA", "Master Arm Switch"));    // elements["PTN_234"] = default_2_position_tumb(_("Master Arm Switch"), devices.PCA_PPA, device_commands.Button_234, 234)
             AddFunction(new PushButton(this, PCA_PPA, "3248", "248", "PCA/PPA", "Selective Jettison Switch Cover"));    // elements["PTN_248"] = default_2_position_tumb(_("Selective Jettison Switch Cover"), devices.PCA_PPA, device_commands.Button_248, 248)
             AddFunction(new PushButton(this, PCA_PPA, "3249", "249", "PCA/PPA", "Selective Jettison Switch"));    // elements["PTN_249"] = default_2_position_tumb(_("Selective Jettison Switch"), devices.PCA_PPA, device_commands.Button_249, 249)
@@ -358,7 +388,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                                                                                                                                          //AddFunction(Switch.CreateToggleSwitch(this, PCA_PPA, "3277", "277", "PCA/PPA", "Bomb Release Quantity Selector Switch", "%0.1f"));    // elements["PTN_277"] = default_2_way_spring_switch(_("Bomb Release Quantity Selector Switch"), devices.PCA_PPA, device_commands.Button_277, 277, true)
                                                                                                                                          //AddFunction(Switch.CreateToggleSwitch(this, PCA_PPA, "3278", "278", "PCA/PPA", "Bomb Release Interval Selector Switch", "%0.1f"));    // elements["PTN_278"] = default_2_way_spring_switch(_("Bomb Release Interval Selector Switch"), devices.PCA_PPA, device_commands.Button_278, 278, true)
                                                                                                                                          // 
-            AddFunction(new PushButton(this, PCA_PPA, "3409", "409", "PCA/PPA", "Emergency Jettison"));    // elements["PTN_409"] = default_button(_("Emergency Jettison"), devices.PCA_PPA, device_commands.Button_409, 409, 0, 1)
 
             #endregion
             #region  AFCS
@@ -383,8 +412,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #region  FBW
             AddFunction(new PushButton(this, ENGINE, "3330", "330", "FBW", "FBW Spin Mode Switch"));    // elements["PTN_330"] = default_2_position_tumb(_("FBW Spin Mode Switch"), devices.ENGINE, device_commands.Button_330, 330)
             AddFunction(new PushButton(this, ENGINE, "3420", "420", "FBW", "FBW Gain Mode Switch Cover"));    // elements["PTN_420"] = default_2_position_tumb(_("FBW Gain Mode Switch Cover"),  devices.ENGINE, device_commands.Button_420, 420)
-            AddFunction(new PushButton(this, ENGINE, "3421", "421", "FBW", "FBW Gain Mode Switch"));    // elements["PTN_421"] = default_2_position_tumb(_("FBW Gain Mode Switch"),  devices.ENGINE, device_commands.Button_421, 421)
-            AddFunction(new PushButton(this, ENGINE, "3422", "422", "FBW", "FBW G-Limiter Switch"));    // elements["PTN_422"] = default_2_position_tumb(_("FBW G-Limiter Switch"),  devices.ENGINE, device_commands.Button_422, 422)
             AddFunction(new PushButton(this, AFCS, "3423", "423", "FBW", "FBW Reset Button"));    // elements["PTN_423"] = default_button(_("FBW Reset Button"),  devices.AFCS, device_commands.Button_423, 423)
 
             #endregion
@@ -433,7 +460,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                                                                                                                                          // 
             #endregion
             #region  ELECTRICAL PANEL
-            //AddFunction(Switch.CreateToggleSwitch(this, PWRPNL, "3524", "524", "ELECTRICAL PANEL", "Lights Test Switch", "%0.1f"));    // elements["PTN_524"] = default_2_way_spring_switch(_("Lights Test Switch"),devices.PWRPNL, device_commands.Button_524, 524,true)
             AddFunction(new PushButton(this, PWRPNL, "3654", "654", "ELECTRICAL PANEL", "Alert Network (QRA) Switch"));    // elements["PTN_654"] = default_2_position_tumb(_("Alert Network (QRA) Switch"),devices.PWRPNL, device_commands.Button_654, 654)
 
             #endregion
@@ -496,28 +522,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Axis(this, SYSLIGHTS, "3643", "643", 0.15d, 0d, 1d, "Panel Lights", "Casution/Advisory Lights Rheostat"));    // elements["PTN_643"] = default_axis_limited(_("Casution/Advisory Lights Rheostat"), devices.SYSLIGHTS, device_commands.Button_643, 643, 10, 0.3, false, 0)
             AddFunction(new Axis(this, SYSLIGHTS, "3644", "644", 0.15d, 0d, 1d, "Panel Lights", "White Flood Lights Knob"));    // elements["PTN_644"] = default_axis_limited(_("White Flood Lights Knob"), devices.SYSLIGHTS, device_commands.Button_644, 644, 10, 0.3, false, 0)
             AddFunction(new Axis(this, SYSLIGHTS, "Button_920", "920", 0.15d, 0d, 1d, "Panel Lights", "Refuel Lights Brightness Knob"));    // elements["PTN_920"] = default_axis_limited(_("Refuel Lights Brightness Knob"),devices.SYSLIGHTS,device_commands.Button_920, 920, 10, 0.3, false, 0)
-            #endregion  
-            #region  Engine Start Panel
-            AddFunction(new PushButton(this, ENGPANEL, "3468", "468", "Engine Start Panel", "Engine In-Flight Start Switch"));    // elements["PTN_468"] = default_2_position_tumb(_("Engine In-Flight Start Switch"), devices.ENGPANEL, device_commands.Button_468, 468, 0, 1)
-            AddFunction(new PushButton(this, ENGPANEL, "3467", "467", "Engine Start Panel", "Engine Shutdown Button"));    // elements["PTN_467"] = default_button(_("Engine Shutdown Button"), devices.ENGPANEL, device_commands.Button_467, 467)
-            AddFunction(new PushButton(this, ENGPANEL, "3645", "645", "Engine Start Panel", "Engine Start Switch Cover"));    // elements["PTN_645"] = default_2_position_tumb(_("Engine Start Switch Cover"), devices.ENGPANEL, device_commands.Button_645, 645)
-            AddFunction(new PushButton(this, ENGPANEL, "3646", "646", "Engine Start Panel", "Starter Fuel Pump Switch"));    // elements["PTN_646"] = default_2_position_tumb(_("Starter Fuel Pump Switch"), devices.ENGPANEL, device_commands.Button_646, 646)
-            AddFunction(new PushButton(this, INSTPANEL, "3647", "647", "Engine Start Panel", "Engine Fuel Left Boost Pump Switch"));    // elements["PTN_647"] = default_2_position_tumb(_("Engine Fuel Left Boost Pump Switch"), devices.INSTPANEL, device_commands.Button_647, 647)
-            AddFunction(new PushButton(this, INSTPANEL, "3648", "648", "Engine Start Panel", "Engine Fuel Right Boost Pump Switch"));    // elements["PTN_648"] = default_2_position_tumb(_("Engine Fuel Right Boost Pump Switch"), devices.INSTPANEL, device_commands.Button_648, 648)
-            AddFunction(new PushButton(this, ENGPANEL, "3649", "649", "Engine Start Panel", "Engine Start Switch"));    // elements["PTN_649"] = default_button(_("Engine Start Switch"), devices.ENGPANEL, device_commands.Button_649, 649, 0, 1)
-            AddFunction(new Switch(this, ENGPANEL, "650", new SwitchPosition[] { }, "Engine Start Panel", "Ventilation Selector Switch", "%0.1f"));    // elements["PTN_650"] = multiposition_switch_limited(_("Ventilation Selector Switch"), devices.ENGPANEL, device_commands.Button_650, 650, 3, 0.50, false, 0)
-            AddFunction(new PushButton(this, ENGPANEL, "3651", "651", "Engine Start Panel", "Fuel Cutoff Switch Cover"));    // elements["PTN_651"] = default_2_position_tumb(_("Fuel Cutoff Switch Cover"), devices.ENGPANEL, device_commands.Button_651, 651)
-            AddFunction(new PushButton(this, ENGPANEL, "3652", "652", "Engine Start Panel", "Fuel Cutoff Switch"));    // elements["PTN_652"] = default_2_position_tumb(_("Fuel Cutoff Switch"), devices.ENGPANEL, device_commands.Button_652, 652)
-            AddFunction(new PushButton(this, INSTPANEL, "3477", "477", "Engine Start Panel", "Fuel Dump Switch Cover"));    // elements["PTN_477"] = default_2_position_tumb(_("Fuel Dump Switch Cover"), devices.INSTPANEL, device_commands.Button_477, 477)
-            AddFunction(new PushButton(this, INSTPANEL, "3478", "478", "Engine Start Panel", "Fuel Dump Switch"));    // elements["PTN_478"] = default_2_position_tumb(_("Fuel Dump Switch"), devices.INSTPANEL, device_commands.Button_478, 478)
-            AddFunction(new PushButton(this, INSTPANEL, "3471", "471", "Engine Start Panel", "A/B Emergency Cutoff Switch Cover"));    // elements["PTN_471"] = default_2_position_tumb(_("A/B Emergency Cutoff Switch Cover"), devices.INSTPANEL, device_commands.Button_471, 471)
-            AddFunction(new PushButton(this, INSTPANEL, "3472", "472", "Engine Start Panel", "A/B Emergency Cutoff Switch"));    // elements["PTN_472"] = default_2_position_tumb(_("A/B Emergency Cutoff Switch"), devices.INSTPANEL, device_commands.Button_472, 472)
-            AddFunction(new PushButton(this, ENGPANEL, "3464", "464", "Engine Start Panel", "Emergency Throttle Cover"));    // elements["PTN_464"] = default_2_position_tumb(_("Emergency Throttle Cover"), devices.ENGPANEL, device_commands.Button_464, 464)
-            AddFunction(new Axis(this, ENGPANEL, "3465", "465", 0.15d, 0d, 1d, "Engine Start Panel", "Emergency Throttle Handle"));    // elements["PTN_465"] = default_axis_limited(_("Emergency Throttle Handle"),devices.ENGPANEL,device_commands.Button_465,465, 0.8, 0.5, true, false, {0.0, 1.0})
-            AddFunction(new PushButton(this, ENGPANEL, "3473", "473", "Engine Start Panel", "Secondary Oil Control Cover"));    // elements["PTN_473"] = default_2_position_tumb(_("Secondary Oil Control Cover"), devices.ENGPANEL, device_commands.Button_473, 473)
-            AddFunction(new PushButton(this, ENGPANEL, "3474", "474", "Engine Start Panel", "Secondary Oil Control Switch"));    // elements["PTN_474"] = default_2_position_tumb(_("Secondary Oil Control Switch"), devices.ENGPANEL, device_commands.Button_474, 474)
-            AddFunction(new PushButton(this, ENGPANEL, "3475", "475", "Engine Start Panel", "Engine Emergency Control Cover"));    // elements["PTN_475"] = default_2_position_tumb(_("Engine Emergency Control Cover"), devices.ENGPANEL, device_commands.Button_475, 475)
-            AddFunction(new Switch(this, ENGPANEL, "476", new SwitchPosition[] { }, "Engine Start Panel", "Engine Emergency Control Switch", "%0.1f"));    // elements["PTN_476"] = multiposition_switch_limited(_("Engine Emergency Control Switch"), devices.ENGPANEL, device_commands.Button_476, 476,3, 0.5, true, 0)
             #endregion  
             #region  Fuel Panel"
             AddFunction(new Switch(this, ENGPANEL, "193", new SwitchPosition[] { }, "Fuel Panel", "Refuel Transfer Switch", "%0.1f"));    // elements["PTN_193"] = multiposition_switch_limited(_("Refuel Transfer Switch"), devices.ENGPANEL, device_commands.Button_193, 193, 3, 0.5, false, 0)

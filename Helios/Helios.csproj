@@ -129,6 +129,8 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
+    <Compile Include="Gauges\M2000C\LGPanel\LG_Panel.cs" />
+    <Compile Include="Gauges\M2000C\EnginePanel\Engine_Start_Panel.cs" />
     <Compile Include="Gauges\M2000C\CautionPanel\Caution_Panel.cs" />
     <Compile Include="Controls\PotentiometerWithTranslate.cs" />
     <Compile Include="Controls\PotentiometerWithTranslateAppearanceEditor.xaml.cs">
@@ -439,6 +441,7 @@
     <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDevice.cs" />
     <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDeviceRenderer.cs" />
     <Compile Include="Gauges\M2000C\ILSFrequency\ILSFrequency.cs" />
+    <Compile Include="Gauges\M2000C\MCLPanel\MCL_Panel.cs" />
     <Compile Include="Gauges\M2000C\TACANChannel\TACANChannel.cs" />
     <Compile Include="Gauges\M2000C\UVHFPanel\UVHFChannelDisplay.cs" />
     <Compile Include="Gauges\Mi-8\ADI\ADI.cs" />
@@ -3634,6 +3637,7 @@
     <Content Include="_Documents\GNU Lesser General Public License.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="_Documents\Helios.M2000C.Read.Me.txt" />
     <Content Include="_Documents\Helios.Read.Me.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
