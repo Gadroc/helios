@@ -382,6 +382,49 @@ namespace GadrocsWorkshop.Helios
             return _knob;
         }
 
+        protected RotarySwitch AddRotarySwitch(string name, Point posn, Size size,
+            string knobImage, int defaultPosition, //Helios.Gauges.M2000C.RSPositions[] positions,
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+            RotarySwitch _knob = new RotarySwitch
+            {
+                Name = componentName,
+                KnobImage = knobImage,
+                DrawLabels = false,
+                DrawLines = false,
+                Top = posn.Y,
+                Left = posn.X,
+                Width = size.Width,
+                Height = size.Height,
+                DefaultPosition = defaultPosition
+            };
+            _knob.Positions.Clear();
+            _knob.DefaultPosition = defaultPosition;
+
+
+            Children.Add(_knob);
+
+            foreach (IBindingTrigger trigger in _knob.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(_knob.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+            return _knob;
+        }
 
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
             string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
@@ -493,7 +536,7 @@ namespace GadrocsWorkshop.Helios
 
         protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
             string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName, 
-            bool horizontal, bool fromCenter)
+            bool fromCenter, bool horizontal= false)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);
@@ -506,20 +549,15 @@ namespace GadrocsWorkshop.Helios
             newSwitch.DefaultPosition = defaultPosition;
             newSwitch.PositionOneImage = positionOneImage;
             newSwitch.PositionTwoImage = positionTwoImage;
+            newSwitch.Width = size.Width;
+            newSwitch.Height = size.Height;
 
             newSwitch.Top = posn.Y;
             newSwitch.Left = posn.X;
             if (horizontal)
             {
+                newSwitch.Rotation = HeliosVisualRotation.CW;
                 newSwitch.Orientation = ToggleSwitchOrientation.Horizontal;
-                newSwitch.Width = size.Height;
-                newSwitch.Height = size.Width;
-            }
-            else
-            {
-                newSwitch.Orientation = ToggleSwitchOrientation.Vertical;
-                newSwitch.Width = size.Width;
-                newSwitch.Height = size.Height;
             }
 
             Children.Add(newSwitch);

@@ -41,7 +41,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/M2000C/MCLPanel/mcl-panel.png"; }
+            get { return "{M2000C}/Images/MCLPanel/mcl-panel.png"; }
         }
 
         #endregion
@@ -75,8 +75,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 name: name,
                 posn: posn,
                 size: new Size(70, 70),
-                onImage: "{Helios}/Images/M2000C/MCLPanel/" + name + "-on.png",
-                offImage: "{Helios}/Images/M2000C/MCLPanel/" + name + "-off.png",
+                onImage: "{M2000C}/Images/MCLPanel/" + name + "-on.png",
+                offImage: "{M2000C}/Images/MCLPanel/" + name + "-off.png",
                 offTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
                 onTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
                 font: "", //don’t need it because not using text,
