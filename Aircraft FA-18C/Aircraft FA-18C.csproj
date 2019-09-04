@@ -291,14 +291,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Templates\FA-18C\2-way Toggle Domed.htpl">
+    <Content Include="Templates\2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)Templates\*.*" "$(SolutionDir)$(OutDir)Templates\Base\$(TargetName)\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
