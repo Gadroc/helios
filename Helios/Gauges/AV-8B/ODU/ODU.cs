@@ -31,12 +31,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
             // these need to be recalculated!!!!!
 
-        private static readonly Rect SCREEN_RECT_L = new Rect(0, 135, 38, 415);
-        private Rect _scaledScreenRectL = SCREEN_RECT_L;
-        private static readonly Rect SCREEN_RECT_LB = new Rect(38, 476, 103, 74);
-        private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
-        private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
-        private Rect _scaledScreenRectR = SCREEN_RECT_R;
+        private Rect _scaledScreenRectTL = new Rect(0, 0, 398, 116);
+        private Rect _scaledScreenRectB = new Rect(76, 384, 648, 87);
         private string _interfaceDeviceName = "ODU";
         private string _ufcNumbers16 = "`0=«;`1=¬;`2=­;`3=®;`4=¯;`5=°;`6=±;`7=²;`8=³;`9=´;~0=µ;0=¡;1=¢;2=£;3=¤;4=¥;5=¦;6=§;7=¨;8=©;9=ª;_=É"; //Numeric mapping into characters in the UFC font
         private string _ufcCueing = "!=È";
@@ -50,16 +46,17 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddButton("ODU Button 3", 410, 150, new Size(65, 65), "ODU Option Select Pushbutton 3");
             AddButton("ODU Button 4", 84, 250, new Size(65, 65), "ODU Option Select Pushbutton 4");
             AddButton("ODU Button 5", 410, 250, new Size(65, 65), "ODU Option Select Pushbutton 5");
-            AddTextDisplay("OptionDisplay1", 486, 57, new Size(238, 56), "Option Display 1", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            AddTextDisplay("OptionCueing1", 486, 57, new Size(40, 56), "Option Display 1 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
-            AddTextDisplay("OptionDisplay2", 158, 155, new Size(238, 56), "Option Display 2", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            AddTextDisplay("OptionCueing2", 158, 155, new Size(40, 56), "Option Display 2 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
-            AddTextDisplay("OptionDisplay3", 486, 155, new Size(238, 56), "Option Display 3", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            AddTextDisplay("OptionCueing3", 486, 155, new Size(40, 56), "Option Display 3 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
-            AddTextDisplay("OptionDisplay4", 158, 254, new Size(238, 56), "Option Display 4", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            AddTextDisplay("OptionCueing4", 158, 254, new Size(40, 56), "Option Display 4 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
-            AddTextDisplay("OptionDisplay5", 486, 254, new Size(238, 56), "Option Display 5", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            AddTextDisplay("OptionCueing5", 486, 254, new Size(40, 56), "Option Display 5 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            //Await discovery of the text values for these displays
+            //AddTextDisplay("OptionDisplay1", 486, 57, new Size(238, 56), "Option Display 1", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            //AddTextDisplay("OptionCueing1", 486, 57, new Size(40, 56), "Option Display 1 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            //AddTextDisplay("OptionDisplay2", 158, 155, new Size(238, 56), "Option Display 2", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            //AddTextDisplay("OptionCueing2", 158, 155, new Size(40, 56), "Option Display 2 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            //AddTextDisplay("OptionDisplay3", 486, 155, new Size(238, 56), "Option Display 3", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            //AddTextDisplay("OptionCueing3", 486, 155, new Size(40, 56), "Option Display 3 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            //AddTextDisplay("OptionDisplay4", 158, 254, new Size(238, 56), "Option Display 4", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            //AddTextDisplay("OptionCueing4", 158, 254, new Size(40, 56), "Option Display 4 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            //AddTextDisplay("OptionDisplay5", 486, 254, new Size(238, 56), "Option Display 5", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            //AddTextDisplay("OptionCueing5", 486, 254, new Size(40, 56), "Option Display 5 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
         }
 
         public override string BezelImage
@@ -126,7 +123,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override bool HitTest(Point location)
         {
-            if (_scaledScreenRectL.Contains(location) || _scaledScreenRectLB.Contains(location) || _scaledScreenRectR.Contains(location))
+            if (_scaledScreenRectTL.Contains(location) || _scaledScreenRectB.Contains(location))
             {
                 return false;
             }

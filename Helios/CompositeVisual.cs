@@ -428,6 +428,30 @@ namespace GadrocsWorkshop.Helios
 
             return _knob;
         }
+        protected void AddRotarySwitchBindings(string name, Point posn, Size size, RotarySwitch rotarySwitch,
+            string interfaceDeviceName, string interfaceElementName)
+        {
+            string componentName = GetComponentName(name);
+            Children.Add(rotarySwitch);
+
+            foreach (IBindingTrigger trigger in rotarySwitch.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(rotarySwitch.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+        }
+
 
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
             string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter)

@@ -392,7 +392,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #endregion
 
-
             #region Left Hand Left Hand Switches Fuel External Lights SAAHS
             ////         --Trim Panel
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));

@@ -62,8 +62,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddThreeWayToggle("Interval 1's", 911, 140, new Size(65, 153), "Armament Release interval units");
             AddTwoWayToggle("IR Cool Switch", 1094, 294, new Size(67, 154), "IR Cool Switch");
 
-            AddKnobSMC1("Fuzing Options", new Point(1025,76), new Size(110,110));
-            AddKnobSMC2("Stores Jettison Switch", new Point(96, 278), new Size(186, 186));
+            AddKnobSMC1("Fuzing Options", new Point(1025,76), new Size(110,110), "Manual Fuzing Release Control");
+            AddKnobSMC2("Stores Jettison Switch", new Point(96, 278), new Size(186, 186), "Jettison Mode Selector");
             AddButton("Jettison Button", 131, 312, new Size(118, 118), true, true, "Jettison Stores");
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize, string interfaceElementName)
@@ -77,7 +77,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 interfaceElementName: interfaceElementName
                 );
             _gauge.Name = "SMC_" + name;
-
         }
 
         public override string BezelImage
@@ -96,10 +95,10 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             action.Device = device;
             Actions.Add(action);
         }
-        private void AddKnobSMC1(string name, Point posn, Size size)
+        private void AddKnobSMC1(string name, Point posn, Size size, string interfaceElementName)
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
-            _knob.Name = name;
+            _knob.Name = "SMC_" + name;
             _knob.KnobImage = "{AV-8B}/Images/SMC Selector Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
@@ -114,14 +113,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _knob.Width = size.Width;
             _knob.Height = size.Height;
 
-            Children.Add(_knob);
-            AddTrigger(_knob.Triggers["position.changed"], name);
-            AddAction(_knob.Actions["set.position"], name);
+            AddRotarySwitchBindings(name, posn, size, _knob, _interfaceDeviceName, interfaceElementName);
         }
-        private void AddKnobSMC2(string name, Point posn, Size size)
+        private void AddKnobSMC2(string name, Point posn, Size size, string interfaceElementName)
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
-            _knob.Name = name;
+            _knob.Name = "SMC_" + name;
             _knob.KnobImage = "{AV-8B}/Images/SMC Jettison Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
@@ -137,9 +134,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _knob.Width = size.Width;
             _knob.Height = size.Height;
 
-            Children.Add(_knob);
-            AddTrigger(_knob.Triggers["position.changed"], name);
-            AddAction(_knob.Actions["set.position"], name);
+            AddRotarySwitchBindings(name, posn, size, _knob, _interfaceDeviceName, interfaceElementName);
         }
 
 
