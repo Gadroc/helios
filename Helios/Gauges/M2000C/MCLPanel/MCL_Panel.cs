@@ -62,7 +62,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             // there is an issue because the 2 indicators are pushable to aknowledge warning
             /*            AddIndicatorPushButton(
                             name: name,
-                            pos: posn,
+                            posn: posn,
                             size: new Size(70, 70),
                             image: "{Helios}/Images/M2000C/MCLPanel/" + name + "-on.png",
                             pushedImage: "{Helios}/Images/M2000C/MCLPanel/" + name + "-on.png",

@@ -594,6 +594,7 @@
     <Resource Include="Images\AV-8B_Cockpit.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\ODU Panel.png" />
     <Content Include="Templates\2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

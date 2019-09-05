@@ -425,15 +425,14 @@
     <Resource Include="Images\Switches\red-down.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Content Include="Templates\CautionPanelRedIndicator.htpl" />
+    <Resource Include="Images\M2000C_16x10.png" />
+    <Resource Include="Images\M2000C_16x9.png" /> 
+ <Content Include="Templates\CautionPanelRedIndicator.htpl" />
     <Content Include="Templates\CautionPanelYellowIndicator.htpl" />
     <Content Include="Templates\Cockpit Front 16x10.htpl" />
     <Content Include="Templates\Cockpit Front 16x9.htpl" />
     <Content Include="Templates\long-black-switch-toggle.htpl" />
-    <Content Include="Templates\Red-switch-toggle.htpl">
-      <SubType>Code</SubType>
-    <Resource Include="Images\M2000C_16x10.png" />
-    <Resource Include="Images\M2000C_16x9.png" />
+    <Content Include="Templates\Red-switch-toggle.htpl" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

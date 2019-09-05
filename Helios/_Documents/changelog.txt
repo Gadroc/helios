@@ -1,7 +1,8 @@
-1.4.2019.0901 Release
+1.4.2019.0903 Release
 ----------------------------
 * Adjustments to the method to identify the scripts directory
-* Graphical improvements to AV-8B SMC, Fuel Gauge
+* Graphical improvements to AV-8B SMC, Fuel Gauge, ODU
+* AV-8B Autobinding for ODU and introduction of text based displays
 * Fix for problem with new Export.lua not sending data after the first set of sends
 * Refactoring to move images and templates from Helios.dll into aircraft specific dlls.  Any profiles which make use
 	of images for M2000C, AV-8B or F/A-18C embedded within Helios will have to change references 

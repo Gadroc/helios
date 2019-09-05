@@ -153,13 +153,13 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         {
             AddThreeWayToggle(
                 name: name,
-                pos: posn,
+                posn: posn,
                 size: new Size(37, 75),
                 positionOneImage: image + "up.png",
                 positionTwoImage: image + "mid.png",
                 positionThreeImage: image + "down.png",
                 defaultPosition: ThreeWayToggleSwitchPosition.Two,
-                switchType: ThreeWayToggleSwitchType.MomOnMom,
+                defaultType: ThreeWayToggleSwitchType.MomOnMom,
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 horizontal: true,
