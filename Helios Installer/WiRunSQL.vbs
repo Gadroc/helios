@@ -18,6 +18,7 @@ Option Explicit
 Const msiOpenDatabaseModeReadOnly = 0
 Const msiOpenDatabaseModeTransact = 1
 
+
 Dim argNum, argCount:argCount = Wscript.Arguments.Count
 If (argCount < 2) Then
 	Wscript.Echo "Windows Installer utility to execute SQL queries against an installer database." &_

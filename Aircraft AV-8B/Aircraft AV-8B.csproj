@@ -594,80 +594,79 @@
     <Resource Include="Images\AV-8B_Cockpit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\AV-8B\2-way Toggle Domed.htpl">
+    <Content Include="Templates\2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\3-way Toggle Domed.htpl">
+    <Content Include="Templates\3-way Toggle Domed.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\AV-8B Canopy Lock Lever.htpl">
+    <Content Include="Templates\AV-8B Canopy Lock Lever.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\AV-8B Flaps Switch.htpl">
+    <Content Include="Templates\AV-8B Flaps Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\AV-8B Pointy Toggle.htpl">
+    <Content Include="Templates\AV-8B Pointy Toggle.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Cockpit Front 16x9.htpl">
+    <Content Include="Templates\Cockpit Front 16x9.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Comms Rotary Encoder.htpl">
+    <Content Include="Templates\Comms Rotary Encoder.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Flare Salvo Button.htpl">
+    <Content Include="Templates\Flare Salvo Button.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Fuel Cutoff Lever.htpl">
+    <Content Include="Templates\Fuel Cutoff Lever.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Ground Safety Lever.htpl">
+    <Content Include="Templates\Ground Safety Lever.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\H2O Switch.htpl">
+    <Content Include="Templates\H2O Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Hexagonal Switch.htpl">
+    <Content Include="Templates\Hexagonal Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Landing Gear Lever.htpl">
+    <Content Include="Templates\Landing Gear Lever.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Landing Lights Switch.htpl">
+    <Content Include="Templates\Landing Lights Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Master Arm Switch.htpl">
+    <Content Include="Templates\Master Arm Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\MPCD Button Horizontal.htpl">
+    <Content Include="Templates\MPCD Button Horizontal.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\MPCD Button Vertical.htpl">
+    <Content Include="Templates\MPCD Button Vertical.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\MPCD Rocker Angled Left.htpl">
+    <Content Include="Templates\MPCD Rocker Angled Left.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\MPCD Rocker Angled Right.htpl">
+    <Content Include="Templates\MPCD Rocker Angled Right.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\MPCD Rocker Vertical.htpl">
+    <Content Include="Templates\MPCD Rocker Vertical.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\Rotary Switch.htpl">
+    <Content Include="Templates\Rotary Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\SMC Square 3-way Toggle A.htpl">
+    <Content Include="Templates\SMC Square 3-way Toggle A.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\AV-8B\SMC Square 3-Way Toggle B.htpl">
+    <Content Include="Templates\SMC Square 3-Way Toggle B.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)Templates\*.*" "$(SolutionDir)$(OutDir)Templates\Base\$(TargetName)\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
