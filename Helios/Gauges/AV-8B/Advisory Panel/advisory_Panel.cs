@@ -93,17 +93,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             get { return "{AV-8B}/Images/Advisory Panel Frame.png"; }
         }
 
-        private new void AddTrigger(IBindingTrigger trigger, string device)
-        {
-            trigger.Device = device;
-            Triggers.Add(trigger);
-        }
-
-        private new void AddAction(IBindingAction action, string device)
-        {
-            action.Device = device;
-            Actions.Add(action);
-        }
             private void AddIndicator(string name, Point posn, Size size, string interfaceElementName) { AddIndicator(name, posn, size, false, interfaceElementName); }
             private void AddIndicator(string name, Point posn, Size size, bool _vertical, string interfaceElementName)
             {

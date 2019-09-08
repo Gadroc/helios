@@ -177,9 +177,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, UFCCONTROL, "3297", "297", "UFC", "UFC I/P Pushbutton"));
             AddFunction(new PushButton(this, UFCCONTROL, "3309", "309", "UFC", "UFC Keypad Pushbutton SVE"));
             AddFunction(new PushButton(this, LTWCA, "3198", "198", "Caution/Warning", "Master Caution Button"));
-            AddFunction(new FlagValue(this, "196", "Caution/Warning", "Master Caution", "Master Caution indicator"));
+            AddFunction(new FlagValue(this, "196", "Caution/Warning", "Master Caution Indicator", "Master Caution indicator"));
             AddFunction(new PushButton(this, LTWCA, "3199", "199", "Caution/Warning", "Master Warning Button"));
-            AddFunction(new FlagValue(this, "197", "Caution/Warning", "Master Warning", "Master warning indicator"));
+            AddFunction(new FlagValue(this, "197", "Caution/Warning", "Master Warning Indicator", "Master Warning indicator"));
             AddFunction(new Axis(this, UFCCONTROL, "3295", "295", 0.1d, 0d, 1d, "UFC", "UFC Brightness Control Knob"));
             AddFunction(new Axis(this, UFCCONTROL, "3298", "298", 0.1d, 0d, 1d, "UFC", "UFC COMM 1 Volume Control Knob"));
             AddFunction(new Axis(this, UFCCONTROL, "3299", "299", 0.1d, 0d, 1d, "UFC", "UFC COMM 2 Volume Control Knob"));
@@ -193,6 +193,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Axis(this, HUDCONTROL, "3291", "291", 0.1d, 0d, 1d, "HUD Control", "Video Brightness"));
             AddFunction(new Axis(this, HUDCONTROL, "3292", "292", 0.1d, 0d, 1d, "HUD Control", "Video Contrast"));
             AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "293", "0", "RDR", "1", "Baro", "HUD Control", "Altimeter Mode Switch", "%1d"));
+
+            AddFunction(new Text(this, "2094", "UFC", "Scratchpad Number", "Value of the scratchpad number display"));
+            AddFunction(new Text(this, "2095", "UFC", "Comm Channel 1", "Value of Communications Channel 1 display"));
+            AddFunction(new Text(this, "2096", "UFC", "Comm Channel 2", "Value of Communications Channel 2 display"));
+
 
             #endregion
 
@@ -212,8 +217,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, ODUCONTROL, "3248", "248", "ODU", "ODU Option Select Pushbutton 4"));
             AddFunction(new PushButton(this, ODUCONTROL, "3249", "249", "ODU", "ODU Option Select Pushbutton 5"));
 
-            //AddFunction(new Text(this, "2080", "ODU", "ODU Unsure 1", "Value of the (unsure!)"));
-            //AddFunction(new Text(this, "2081", "ODU", "ODU Mask", "Value of the ODU Mask"));
             AddFunction(new Text(this, "2082", "ODU", "Option Display 1", "Text Value of the Option Display #1"));
             AddFunction(new Text(this, "2083", "ODU", "Option Display 2", "Text Value of the Option Display #2"));
             AddFunction(new Text(this, "2084", "ODU", "Option Display 3", "Text Value of the Option Display #3"));
@@ -224,11 +227,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Text(this, "2089", "ODU", "Option Display 3 Selected", "Option Display #3 Selected"));
             AddFunction(new Text(this, "2090", "ODU", "Option Display 4 Selected", "Option Display #4 Selected"));
             AddFunction(new Text(this, "2091", "ODU", "Option Display 5 Selected", "Option Display #5 Selected"));
-            //AddFunction(new Text(this, "2092", "ODU", "Scratchpad 1", "Value of the first scratchpad display"));
-            //AddFunction(new Text(this, "2093", "ODU", "Scratchpad 2", "Value of the second scratchpad display"));
-            //AddFunction(new Text(this, "2094", "ODU", "Scratchpad Number", "Value of the scratchpad number display"));
-            //AddFunction(new Text(this, "2095", "ODU", "Comm Channel 1", "Value of Communications Channel 1 display"));
-            //AddFunction(new Text(this, "2096", "ODU", "Comm Channel 2", "Value of Communications Channel 2 display"));
+
 
             #endregion
 
@@ -275,6 +274,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits4Display(this, FQIS, "2012", "Fuel Quantity", "Right Tank display", "Fuel right tank quantity"));
             AddFunction(new Digits4Display(this, FQIS, "2013", "Fuel Quantity", "Bingo value display", "Fuel Bingo amount"));
             AddFunction(new FuelTotalDisplay(this));
+            AddFunction(new FlagValue(this, "365", "Fuel Quantity", "Off Flag", "FQIS is off"));
             #endregion
 
             #region ECM
@@ -435,28 +435,28 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Stores Management Controller
             AddFunction(Switch.CreateToggleSwitch(this, SMC, "3287", "287", "1", "Armed", "0", "Safe", "Stores Management", "Master Arm Switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3396", "396", "1", "Up", "0", "Off", "-1", "Dn", "Stores Management", "Armament Mode control", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "397", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Fuzing control", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "398", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Tens", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "399", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Units", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "400", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Multiple Release", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "401", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval hundreds", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "402", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval tens", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "403", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval units", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "397", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Fuzing control", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "398", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Quantity Tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "399", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Quantity Units", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "400", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Multiple Release", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "401", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Release interval hundreds", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "402", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Release interval tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "403", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Release interval units", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, SMC, "3420", "420", "1", "Cooling", "0", "Off", "Stores Management", "IR Cool Switch", "%1d"));
             AddFunction(new PushButton(this, SMC, "3407", "407", "Stores Management", "Station 1 Button"));
-            AddFunction(new FlagValue(this, "406", "Stores Management", "Station 1 Selected", "Station 1 selected indicator"));
+            AddFunction(new FlagValue(this, "406", "Stores Management", "Station 1 Selected Indicator", "Station selected flag"));
             AddFunction(new PushButton(this, SMC, "3409", "409", "Stores Management", "Station 2 Button"));
-            AddFunction(new FlagValue(this, "408", "Stores Management", "Station 2 Selected", "station 2 selected indicator"));
+            AddFunction(new FlagValue(this, "408", "Stores Management", "Station 2 Selected Indicator", "Station selected flag"));
             AddFunction(new PushButton(this, SMC, "3411", "411", "Stores Management", "Station 3 Button"));
-            AddFunction(new FlagValue(this, "410", "Stores Management", "Station 3 Selected", "station 3 selected indicator"));
+            AddFunction(new FlagValue(this, "410", "Stores Management", "Station 3 Selected Indicator", "Station selected flag"));
             AddFunction(new PushButton(this, SMC, "3413", "413", "Stores Management", "Station 4 Button"));
-            AddFunction(new FlagValue(this, "412", "Stores Management", "Station 4 Selected", "station 4 selected indicator"));
+            AddFunction(new FlagValue(this, "412", "Stores Management", "Station 4 Selected Indicator", "Station selected flag"));
             AddFunction(new PushButton(this, SMC, "3415", "415", "Stores Management", "Station 5 Button"));
-            AddFunction(new FlagValue(this, "414", "Stores Management", "Station 5 Selected", "station 5 selected indicator"));
+            AddFunction(new FlagValue(this, "414", "Stores Management", "Station 5 Selected Indicator", "Station selected flag"));
             AddFunction(new PushButton(this, SMC, "3417", "417", "Stores Management", "Station 6 Button"));
-            AddFunction(new FlagValue(this, "416", "Stores Management", "Station 6 Selected", "station 6 selected indicator"));
+            AddFunction(new FlagValue(this, "416", "Stores Management", "Station 6 Selected Indicator", "Station selected flag"));
             AddFunction(new PushButton(this, SMC, "3419", "419", "Stores Management", "Station 7 Button"));
-            AddFunction(new FlagValue(this, "418", "Stores Management", "Station 7 Selected", "station 7 selected indicator"));
+            AddFunction(new FlagValue(this, "418", "Stores Management", "Station 7 Selected Indicator", "Station 7 Selected Indicator"));
             AddFunction(new PushButton(this, SMC, "3286", "286", "Stores Management", "Launch Flare Salvo"));
             AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("-1.0", "STA", "3404"), new SwitchPosition("-0.5", "STOR", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("1.0", "FUEL", "3404") },  "Stores Management", "Jettison Mode Selector", "%0.1f"));
             AddFunction(new PushButton(this, SMC, "3405", "405", "Stores Management", "Jettison Stores"));

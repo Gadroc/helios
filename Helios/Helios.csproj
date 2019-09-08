@@ -129,6 +129,12 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
+    <Compile Include="Gauges\AV-8B\MFD\MFD-Right-AV8B.cs" />
+    <Compile Include="Gauges\AV-8B\MFD\MFD-Left-AV8B.cs" />
+    <Compile Include="Gauges\AV-8B\MFD\MPCD.cs" />
+    <Compile Include="Gauges\AV-8B\ODU\ODU_1.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\SMC_1.cs" />
+    <Compile Include="Gauges\AV-8B\UFC\UFC_1.cs" />
     <Compile Include="Gauges\M2000C\LGPanel\LG_Panel.cs" />
     <Compile Include="Gauges\M2000C\EnginePanel\Engine_Start_Panel.cs" />
     <Compile Include="Gauges\M2000C\CautionPanel\Caution_Panel.cs" />
@@ -234,9 +240,9 @@
       <DependentUpon>RectangleFillAppearanceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RectangleFillRenderer.cs" />
-    <Compile Include="Gauges\AV-8B\FuelPanel\4 Digit Display\4DigitDisplay.cs" />
-    <Compile Include="Gauges\AV-8B\FuelPanel\5 Digit Display\5DigitDisplay.cs" />
-    <Compile Include="Gauges\AV-8B\FuelPanel\fuelPanel.cs" />
+    <Compile Include="Gauges\AV-8B\Fuel Panel\4 Digit Display\4DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\Fuel Panel\5 Digit Display\5DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
     <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
     <Compile Include="Gauges\AV-8B\ODU\ODU.cs" />
     <Compile Include="Gauges\AV-8B\SMC\1 Digit Display\1DigitDisplay.cs" />
@@ -375,7 +381,7 @@
     <Compile Include="Gauges\A-10\VVI\VVI.cs" />
     <Compile Include="Gauges\AV-8B\Altimeter\AV-8B Altimeter.cs" />
     <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
-    <Compile Include="Gauges\AV-8B\Engine Panel\edp.cs" />
+    <Compile Include="Gauges\AV-8B\Engine Panel\EDP.cs" />
     <Compile Include="Gauges\AV-8B\SMC\fuzeDisplay.cs" />
     <Compile Include="Gauges\AV-8B\SMC\smcDisplay.cs" />
     <Compile Include="Gauges\AV-8B\SMC\SMC.cs" />
@@ -2625,7 +2631,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\FuelPanel\fuel_faceplate.xaml">
+    <Resource Include="Gauges\AV-8B\Fuel Panel\fuel_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2817,11 +2823,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\FuelPanel\4 Digit Display\digit_faceplate.xaml">
+    <Resource Include="Gauges\AV-8B\Fuel Panel\4 Digit Display\digit_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\AV-8B\FuelPanel\5 Digit Display\digit_faceplate.xaml">
+    <Resource Include="Gauges\AV-8B\Fuel Panel\5 Digit Display\digit_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -3637,7 +3643,7 @@
     <Content Include="_Documents\GNU Lesser General Public License.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="_Documents\Helios.M2000C.Read.Me.txt" />
+    <None Include="_Documents\Helios.M2000C.Read.Me.txt" />
     <Content Include="_Documents\Helios.Read.Me.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.edpNoz", "EDP Nozzle", "AV-8B", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.edpNoz", "EDP Nozzle", "", typeof(GaugeRenderer))]
     public class edpNoz: BaseGauge
     {
         private HeliosValue _angle;
@@ -34,7 +34,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _needle = new GaugeNeedle("{Helios}/Gauges/AV-8B/Engine Panel/nozzle_needle.xaml", new Point(0d, 0d), new Size(12d, 48d), new Point(6d, 42d), 90d);
             Components.Add(_needle);
 
-            _angle = new HeliosValue(this, new BindingValue(0d), "", "nozzle angle", "Current position of Nozzles.", "(0 - 120)", BindingValueUnits.Degrees);
+            _angle = new HeliosValue(this, new BindingValue(0d), "", "value", "Current position of Nozzles.", "(0 - 120)", BindingValueUnits.Degrees);
             _angle.Execute += new HeliosActionHandler(Angle_Execute);
             Actions.Add(_angle);
         }

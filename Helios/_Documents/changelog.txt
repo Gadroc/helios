@@ -1,8 +1,11 @@
-1.4.2019.0903 Release
+1.4.2019.0908 Release
 ----------------------------
 * Adjustments to the method to identify the scripts directory
-* Graphical improvements to AV-8B SMC, Fuel Gauge, ODU
-* AV-8B Autobinding for ODU and introduction of text based displays
+* Graphical improvements to AV-8B SMC, FQIS, ODU, EDP, UFC, MFD including support for automatically
+	binding the controls to the AV-8B interface if it has been added.  
+	* * * Note:  We've tried to limit any beakages, but there are certain to be some issues with existing
+	       AV-8B profiles.
+* AV-8B ODU and UFC text based displays - to avoid viewports for these devices
 * Fix for problem with new Export.lua not sending data after the first set of sends
 * Refactoring to move images and templates from Helios.dll into aircraft specific dlls.  Any profiles which make use
 	of images for M2000C, AV-8B or F/A-18C embedded within Helios will have to change references 
@@ -13,6 +16,28 @@
 * New Autobinding Caution Panel for Mirage 2000C
 * Updates to the Interfaces for A-10C, F/A-18C, AV-8B, and Mirage 2000C to improve integration with the different
 	types of DCS World installations
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+|	* * * * * * * * * * * * * * * * * *
+|	* * *       Shadowman's       * * *
+|	* * *   M2000C Status as of   * * *
+|	* * *    31st August 2019     * * *
+|	* * * * * * * * * * * * * * * * * *
+|
+|	* Caution Panel:  What is working:  all the indicators; all the switches
+|	* Master Caution Lights Panel:  What is working: 2 red and yellow PANNE indicators
+|	* Start Engine Panel:  The 5 switches work
+|	* Landing Gear Panel: the 3 switches, the landing gear lever, the emergency jettison lever and all 
+|                         the indicators are working	
+|	* Other:  Testing is incomplete, but more of the switches should work.				
+|	
+|	Known issues:
+|		Master Caution Lights Panel: this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
+|		Start Engine Panel: Temporarily removed the two red Guard Covers because we are not able to use the switches/button under
+|		Landing Gear Panel: two red Guard Covers removed; the emergency landing gear lever : it seems there is nothing coming from DCS
+|			and need to work a little on the RotarySwitch in CompositoVisual.cs
+|
++-----------------------------------------------------------------------------------------------------------------------------------------+
 
 1.4.2019.0823 Release
 ----------------------------

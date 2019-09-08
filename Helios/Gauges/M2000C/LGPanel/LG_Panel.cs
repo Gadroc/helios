@@ -46,7 +46,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         public M2000C_LGPanel()
             : base("Landing Gear Panel", new Size(300, 390))
         {
-            int row0 = 30, row1 = 173, row2 = 191, row3 = 210, row4 = 228, row5 = 232, row6 = 242, row7 = 214, row8 = 234;
+            //int row0 = 30, row1 = 173, row2 = 191, row3 = 210, row4 = 228, row5 = 232, row6 = 242, row7 = 214, row8 = 234;
+            int  row1 = 173, row2 = 191, row3 = 210, row4 = 228, row5 = 232, row6 = 242;
             int column1 = 202, column2 = 217, column3 = 232, column4 = 248, column5 = 262;
             int sizeIndicX = 23, sizeIndicY = 14;
             AddPushButton("Emergency Jettison Lever");

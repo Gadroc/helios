@@ -21,76 +21,88 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.edp", "AV-8B Engine Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.EDP", "Engine Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
     class edp: AV8BDevice
     {
+        private string _interfaceDeviceName = "EDP";
+
         public edp()
             : base("Engine Panel", new Size(528,302))
         {
-            AddDisplay("Nozzle Position", new Helios.Gauges.AV8B.edpNoz(), new Point(405d, 140d), new Size(18d, 72d));  //nozzle needle
-            AddDisplay("Engine RPM Indicator", new Helios.Gauges.AV8B.FourDigitDisplay(), new Point(186, 45), new Size(120, 42));
-            AddDisplay("Engine Duct Indicator", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(44, 45), new Size(90, 42));
-            AddDisplay("Engine FF Indicator", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(44, 137), new Size(90, 42));
-            AddDisplay("Jet Pipe Temp Indicator", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(214, 137), new Size(90, 42));
-            AddDisplay("Stabilizer Direction Indicator", new Helios.Gauges.AV8B.stabilizerDisplay(), new Point(44, 232), new Size(30, 42));
-            AddDisplay("Stabilizer Angle Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(73, 232), new Size(60, 42));
-            AddDisplay("H2O Amount Indicator", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(214, 232), new Size(60, 42));
-            AddIndicator("H2O Flow Indicator",new Point(158,234),new Size(32,32));
-
+            AddDisplay("Nozzle Position", new edpNoz(), new Point(405d, 140d), new Size(18d, 72d), "Nozzle Position");  //nozzle needle
+            AddDisplay("Engine RPM Indicator", new FourDigitDisplay(), new Point(186, 45), new Size(120, 42), "RPM display");
+            AddDisplay("Engine Duct Indicator", new ThreeDigitDisplay(), new Point(44, 45), new Size(90, 42), "Duct pressure display");
+            AddDisplay("Engine FF Indicator", new ThreeDigitDisplay(), new Point(44, 137), new Size(90, 42), "FF display");
+            AddDisplay("Jet Pipe Temp Indicator", new ThreeDigitDisplay(), new Point(214, 137), new Size(90, 42), "JPT display");
+            AddDisplay("Stabilizer Direction Indicator", new stabilizerDisplay(), new Point(44, 232), new Size(30, 42), "Up/Down Arrow for the stabilizer");
+            AddDisplay("Stabilizer Angle Indicator", new TwoDigitDisplay(), new Point(73, 232), new Size(60, 42), "Stabiliser display");
+            AddDisplay("H2O Amount Indicator", new TwoDigitDisplay(), new Point(214, 232), new Size(60, 42), "H2O display");
+            AddIndicator("H2O Flow Indicator",new Point(158,234),new Size(32,32), "H2O flow indicator");
+            //AddButton("BIT button",-45,0,new Size(45,40), "BIT");
+            //AddPot("EDP Brightness", new Point(528, 216), new Size(64, 64), "Off/Brightness Control");
         }
-        private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize)
+        private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize, string interfaceElementName)
         {
-            _gauge.Name = name;
-            _gauge.Width = displaySize.Width;
-            _gauge.Height = displaySize.Height;
-            _gauge.Left = posn.X;
-            _gauge.Top = posn.Y;
-            Children.Add(_gauge);
-            foreach (IBindingTrigger trigger in _gauge.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            if(name == "Nozzle Position")
-            {
-                AddAction(_gauge.Actions["set.nozzle angle"], name);
-            }
-            else
-            {
-                AddAction(_gauge.Actions["set.value"], name);
-            }
-
+            AddDisplay(
+                name: name,
+                gauge: _gauge,
+                posn: posn,
+                size: displaySize,
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: interfaceElementName
+                );
+            _gauge.Name = "Engine Panel_" + name;
         }
-        private void AddIndicator(string name, Point posn , Size size)
+        private void AddIndicator(string name, Point posn, Size size, string interfaceElementName) { AddIndicator(name, posn, size, false, interfaceElementName); }
+        private void AddIndicator(string name, Point posn, Size size, bool _vertical, string interfaceElementName)
         {
-            Helios.Controls.Indicator indicator = new Helios.Controls.Indicator();
-            indicator.Top = posn.Y;
-            indicator.Left = posn.X;
-            indicator.Width = size.Width;
-            indicator.Height = size.Height;
-            indicator.OnImage = "{Helios}/Gauges/AV-8B/Engine Panel/edp_water_light.xaml";
-            indicator.OffImage = "{AV-8B}/Images/_transparant.png";
+            Indicator indicator = AddIndicator(
+                name: name,
+                posn: posn,
+                size: size,
+                onImage: "{Helios}/Gauges/AV-8B/Engine Panel/edp_water_light.xaml",
+                offImage: "{AV-8B}/Images/_transparant.png",
+                onTextColor: System.Windows.Media.Color.FromArgb(0x00, 0x24, 0x8D, 0x22),
+                offTextColor: System.Windows.Media.Color.FromArgb(0x00, 0x1C, 0x1C, 0x1C),
+                font: "MS 33558",
+                vertical: _vertical,
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: interfaceElementName,
+                fromCenter: false
+                );
             indicator.Text = "";
-            indicator.Name = name;
-
-            Children.Add(indicator);
-            foreach (IBindingTrigger trigger in indicator.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            AddAction(indicator.Actions["set.indicator"], name);
-
-
+            indicator.Name = "Engine Panel_" + name;
         }
-        private new void AddTrigger(IBindingTrigger trigger, string device)
+        private void AddButton(string name, double x, double y, Size size, string interfaceElementName)
         {
-            trigger.Device = device;
-            Triggers.Add(trigger);
+            Point pos = new Point(x, y);
+            AddButton(
+                name: name,
+                posn: pos,
+                size: size,
+                image: "{AV-8B}/Images/EDP Bit Button Normal.png",
+                pushedImage: "{AV-8B}/Images/EDP Bit Button Pressed.png",
+                buttonText: "",
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: interfaceElementName,
+                fromCenter: false
+                );
         }
-
-        private new void AddAction(IBindingAction action, string device)
+        private void AddPot(string name, Point posn, Size size, string interfaceElementName)
         {
-            action.Device = device;
-            Actions.Add(action);
+            AddPot(name: name,
+                posn: posn,
+                size: size,
+                knobImage: "{AV-8B}/Images/Common Knob.png",
+                initialRotation: 219,
+                rotationTravel: 291,
+                minValue: 0,
+                maxValue: 1,
+                initialValue: 0,
+                stepValue: 0.1,
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: interfaceElementName,
+                fromCenter: false);
         }
         public override bool HitTest(Point location)
         {

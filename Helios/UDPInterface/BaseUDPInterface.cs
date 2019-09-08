@@ -188,7 +188,7 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                         // Don't create the extra strings if we don't need to
                         if (ConfigManager.LogManager.LogLevel == LogLevel.Debug)
                         {
-                            ConfigManager.LogManager.LogDebug("UDP Interface received packet. (Interfae=\"" + Name + "\", Packet=\"" + iso_8859_1.GetString(_dataBuffer, 0, receivedByteCount) + "\")");
+                            ConfigManager.LogManager.LogDebug("UDP Interface received packet. (Interface=\"" + Name + "\", Packet=\"" + iso_8859_1.GetString(_dataBuffer, 0, receivedByteCount) + "\")");
                         }
 
                         String packetClientID = iso_8859_1.GetString(_dataBuffer, 0, 8);

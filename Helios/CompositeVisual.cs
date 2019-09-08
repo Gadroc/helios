@@ -340,6 +340,10 @@ namespace GadrocsWorkshop.Helios
                 deviceTriggerName: "value.changed",
                 interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.value");
             return _knob;
         }
 

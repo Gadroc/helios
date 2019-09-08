@@ -13,6 +13,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/// <summary>
+/// This has been deprecated in favour of ODU_1 which uses text displays and a higher res background image
+/// </summary>
+
+
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.Gauges.AV8B;
@@ -28,40 +33,26 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     class ODU_AV8B : AV8BDevice
     {
         // these three sections are the dead space in the ODU image.
-
-            // these need to be recalculated!!!!!
-
-        private Rect _scaledScreenRectTL = new Rect(0, 0, 398, 116);
-        private Rect _scaledScreenRectB = new Rect(76, 384, 648, 87);
-        private string _interfaceDeviceName = "ODU";
-        private string _ufcNumbers16 = "`0=«;`1=¬;`2=­;`3=®;`4=¯;`5=°;`6=±;`7=²;`8=³;`9=´;~0=µ;0=¡;1=¢;2=£;3=¤;4=¥;5=¦;6=§;7=¨;8=©;9=ª;_=É"; //Numeric mapping into characters in the UFC font
-        private string _ufcCueing = "!=È";
-
+        private static readonly Rect SCREEN_RECT_L = new Rect(0, 135, 38, 415);
+        private Rect _scaledScreenRectL = SCREEN_RECT_L;
+        private static readonly Rect SCREEN_RECT_LB = new Rect(38, 476, 103, 74);
+        private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
+        private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
+        private Rect _scaledScreenRectR = SCREEN_RECT_R;
 
         public ODU_AV8B()
-            : base("Option Display Unit", new Size(800, 471))
+            : base("Option Display Unit", new Size(808, 550))
         {
-            AddButton("ODU Button 1", 410, 50, new Size(65, 65), "ODU Option Select Pushbutton 1");
-            AddButton("ODU Button 2", 84, 150, new Size(65, 65), "ODU Option Select Pushbutton 2");
-            AddButton("ODU Button 3", 410, 150, new Size(65, 65), "ODU Option Select Pushbutton 3");
-            AddButton("ODU Button 4", 84, 250, new Size(65, 65), "ODU Option Select Pushbutton 4");
-            AddButton("ODU Button 5", 410, 250, new Size(65, 65), "ODU Option Select Pushbutton 5");
-            //Await discovery of the text values for these displays
-            //AddTextDisplay("OptionDisplay1", 486, 57, new Size(238, 56), "Option Display 1", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            //AddTextDisplay("OptionCueing1", 486, 57, new Size(40, 56), "Option Display 1 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
-            //AddTextDisplay("OptionDisplay2", 158, 155, new Size(238, 56), "Option Display 2", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            //AddTextDisplay("OptionCueing2", 158, 155, new Size(40, 56), "Option Display 2 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
-            //AddTextDisplay("OptionDisplay3", 486, 155, new Size(238, 56), "Option Display 3", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            //AddTextDisplay("OptionCueing3", 486, 155, new Size(40, 56), "Option Display 3 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
-            //AddTextDisplay("OptionDisplay4", 158, 254, new Size(238, 56), "Option Display 4", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            //AddTextDisplay("OptionCueing4", 158, 254, new Size(40, 56), "Option Display 4 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
-            //AddTextDisplay("OptionDisplay5", 486, 254, new Size(238, 56), "Option Display 5", 48, "~~~~", TextHorizontalAlignment.Left, _ufcNumbers16);
-            //AddTextDisplay("OptionCueing5", 486, 254, new Size(40, 56), "Option Display 5 Selected", 48, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddButton("ODU 1", 302, 42, new Size(40, 40));
+            AddButton("ODU 2", 302, 107, new Size(40, 40));
+            AddButton("ODU 3", 302, 175, new Size(40, 40));
+            AddButton("ODU 4", 302, 241, new Size(40, 40));
+            AddButton("ODU 5", 302, 310, new Size(40, 40));
         }
 
         public override string BezelImage
         {
-            get { return "{AV-8B}/Images/ODU Panel.png"; }
+            get { return "{AV-8B}/Images/ODU.png"; }
         }
 
         private new void AddTrigger(IBindingTrigger trigger, string device)
@@ -75,55 +66,36 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             action.Device = device;
             Actions.Add(action);
         }
-
-        private void AddButton(string name, double x, double y, Size size, string interfaceElementName)
-        { AddButton(name, x, y, size, interfaceElementName, true); }
-        private void AddButton(string name, double x, double y, Size size, string interfaceElementName, Boolean glyph)
+        private void AddButton(string name, double x, double y) { AddButton(name, x, y, false); }
+        private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
+        private void AddButton(string name, double x, double y, bool horizontal) { AddButton(name, x, y, new Size(40, 40), false); }
+        private void AddButton(string name, double x, double y, Size size, bool horizontal) { AddButton(name, x, y, size, horizontal, false); }
+        private void AddButton(string name, double x, double y, Size size, bool horizontal, bool altImage)
         {
-            Point pos = new Point(x, y);
-            PushButton button = AddButton(
-                name: name,
-                posn: pos,
-                size: size,
-                image: "{Helios}/Images/Buttons/tactile-dark-round.png",
-                pushedImage: "{Helios}/Images/Buttons/tactile-dark-round-in.png",
-                buttonText: "",
-                interfaceDeviceName: _interfaceDeviceName,
-                interfaceElementName: interfaceElementName,
-                fromCenter: false
-                );
+            Helios.Controls.PushButton button = new Helios.Controls.PushButton();
+            button.Top = y;
+            button.Left = x;
+            button.Width = size.Width;
+            button.Height = size.Height;
+            button.Image = "{AV-8B}/Images/ODU Button Up " + name + ".png";
+            button.PushedImage = "{AV-8B}/Images/ODU Button Dn " + name + ".png";
+            button.Text = "";
+            button.Name = "ODU Key " + name;
 
-            if (glyph)
-            {
-                button.Glyph = PushButtonGlyph.Circle;
-                button.GlyphThickness = 3;
-                button.GlyphColor = Color.FromArgb(0xFF, 0xC0, 0xC0, 0xC0);
-            }
+            Children.Add(button);
+
+            AddTrigger(button.Triggers["pushed"], "ODU Key " + name);
+            AddTrigger(button.Triggers["released"], "ODU Key " + name);
+
+            AddAction(button.Actions["push"], "ODU Key " + name);
+            AddAction(button.Actions["release"], "ODU Key " + name);
+            AddAction(button.Actions["set.physical state"], "ODU Key " + name);
         }
-            private void AddTextDisplay(string name, double x, double y, Size size,
-            string interfaceElementName, double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign, string ufcDictionary)
-        {
-            TextDisplay display = AddTextDisplay(
-                name: name,
-                posn: new Point(x, y),
-                size: size,
-                font: "Hornet UFC",
-                baseFontsize: baseFontsize,
-                horizontalAlignment: hTextAlign,
-                verticalAligment: TextVerticalAlignment.Center,
-                testTextDisplay: testDisp,
-                textColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72),
-                backgroundColor: Color.FromArgb(0xff, 0x26, 0x3f, 0x36),
-                useBackground: true,
-                interfaceDeviceName: _interfaceDeviceName,
-                interfaceElementName: interfaceElementName,
-                textDisplayDictionary: ufcDictionary
-                );
-        }
+
 
         public override bool HitTest(Point location)
         {
-            if (_scaledScreenRectTL.Contains(location) || _scaledScreenRectB.Contains(location))
+            if (_scaledScreenRectL.Contains(location) || _scaledScreenRectLB.Contains(location) || _scaledScreenRectR.Contains(location))
             {
                 return false;
             }

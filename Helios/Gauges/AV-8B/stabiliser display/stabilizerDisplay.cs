@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.stabilizerDisplay", "Stabilizer Direction Display", "AV-8B", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.stabilizerDisplay", "Stabilizer Direction Display", "", typeof(GaugeRenderer))]
     public class stabilizerDisplay : BaseGauge
     {
         private HeliosValue _one_digit_display;

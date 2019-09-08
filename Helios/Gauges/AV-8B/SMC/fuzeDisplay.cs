@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.fuzeDisplay", "SMC Fuze Display", "AV-8B", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.fuzeDisplay", "SMC Fuze Display", "", typeof(GaugeRenderer))]
     public class fuzeDisplay : BaseGauge
     {
         private HeliosValue _fuze_display;
