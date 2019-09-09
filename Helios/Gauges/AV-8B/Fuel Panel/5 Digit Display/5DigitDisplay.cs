@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.FuelPanel.FiveDigitDisplay", "Five Digit Display", "", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.FuelPanel.FiveDigitDisplay", "Five Digit Display", "_Spare Parts", typeof(GaugeRenderer))]
     public class FiveDigitDisplay : BaseGauge
     {
         private HeliosValue _five_digit_display;

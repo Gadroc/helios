@@ -37,6 +37,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private String _font = "MS 33558";
         private string _interfaceDeviceName = "UFC";
         private string _ufcNumbers16 = "`0=«;`1=¬;`2=­;`3=®;`4=¯;`5=°;`6=±;`7=²;`8=³;`9=´;~0=µ;0=¡;1=¢;2=£;3=¤;4=¥;5=¦;6=§;7=¨;8=©;9=ª;_=É"; //Numeric mapping into characters in the UFC font
+        private string _ufcNumbers7 = "_=É"; //Numeric mapping into characters in the UFC font
 
         public UFC_1()
             : base("UFC1", new Size(968, 970))
@@ -107,7 +108,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddButton("Comm 1", 215, 526, new Size(60, 60), "UFC", "UFC COMM 1 Channel Selector Pull");
             AddButton("Comm 2", 697, 526, new Size(60, 60), "UFC", "UFC COMM 2 Channel Selector Pull");
 
-            AddTextDisplay("Scratchpad", 327, 53, new Size(326,60), "Scratchpad Number", 38, "1234567", TextHorizontalAlignment.Left, _ufcNumbers16);
+            
+            AddTextDisplay("Left Scratchpad", 327, 53, new Size(80, 60), "Left Scratchpad Data", 38, "XX", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("Scratchpad", 387, 53, new Size(256,60), "Scratchpad Number", 38, "1234567", TextHorizontalAlignment.Right, _ufcNumbers7);
             AddTextDisplay("Comm 1 Display", 196,367, new Size(100, 60), "Comm Channel 1", 40, "~~", TextHorizontalAlignment.Center, _ufcNumbers16);
             AddTextDisplay("Comm 2 Display", 679,367, new Size(100, 60), "Comm Channel 2", 40, "~~", TextHorizontalAlignment.Center, _ufcNumbers16);
 
@@ -149,8 +152,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 size: size,
                 posn: posn,
                 knobImage: "{AV-8B}/Images/AV8BNA_Rotary5.png",
-                stepValue: 0.1,
-                rotationStep: 5,
+                stepValue: 0.005,
+                rotationStep: 10,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 fromCenter: false

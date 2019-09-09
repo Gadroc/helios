@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.SMC
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.SMC.OneDigitDisplay", "One Digit Display", "", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.SMC.OneDigitDisplay", "One Digit Display", "_Spare Parts", typeof(GaugeRenderer))]
     public class OneDigitDisplay : BaseGauge
     {
         private HeliosValue _one_digit_display;

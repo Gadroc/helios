@@ -796,6 +796,8 @@
     <Content Include="Templates\Base\Panels\Empty Panel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Interfaces\DCS\AV8B\ExportFunctions - New - Post.lua" />
+    <Resource Include="Interfaces\DCS\AV8B\ExportFunctions - New - Pre.lua" />
     <None Include="_Documents\Helios Release 1.4 Users Guide.docx" />
     <None Include="_Documents\Helios Release 1.4 Users Guide.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

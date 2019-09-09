@@ -183,17 +183,18 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Axis(this, UFCCONTROL, "3295", "295", 0.1d, 0d, 1d, "UFC", "UFC Brightness Control Knob"));
             AddFunction(new Axis(this, UFCCONTROL, "3298", "298", 0.1d, 0d, 1d, "UFC", "UFC COMM 1 Volume Control Knob"));
             AddFunction(new Axis(this, UFCCONTROL, "3299", "299", 0.1d, 0d, 1d, "UFC", "UFC COMM 2 Volume Control Knob"));
-            AddFunction(new Axis(this, UFCCONTROL, "3300", "300", 0.1d, 0d, 1d, "UFC", "UFC COMM 1 Channel Selector Knob"));
-            AddFunction(new Axis(this, UFCCONTROL, "3301", "301", 0.1d, 0d, 1d, "UFC", "UFC COMM 2 Channel Selector Knob"));
+            AddFunction(new Axis(this, UFCCONTROL, "3300", "300", 0.005d, -1d, 1d, "UFC", "UFC COMM 1 Channel Selector Knob"));
+            AddFunction(new Axis(this, UFCCONTROL, "3301", "301", 0.005d, -1d, 1d, "UFC", "UFC COMM 2 Channel Selector Knob"));
             AddFunction(new PushButton(this, UFCCONTROL, "3178", "178", "UFC", "UFC COMM 1 Channel Selector Pull"));
             AddFunction(new PushButton(this, UFCCONTROL, "3179", "179", "UFC", "UFC COMM 2 Channel Selector Pull"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "288", "0", "Norm", "0.5", "Reject 1", "1", "Reject 2", "HUD Control", "Declutter switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "288", "1", "Norm", "0.5", "Reject 1", "0", "Reject 2", "HUD Control", "Declutter switch", "%.1f"));
             AddFunction(new Axis(this, HUDCONTROL, "3289", "289", 0.1d, 0d, 1d, "HUD Control", "Off/Brightness control"));
             AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "290", "0", "Day", "0.5", "Auto", "1", "Night", "HUD Control", "Display Mode switch", "%.1f"));
             AddFunction(new Axis(this, HUDCONTROL, "3291", "291", 0.1d, 0d, 1d, "HUD Control", "Video Brightness"));
             AddFunction(new Axis(this, HUDCONTROL, "3292", "292", 0.1d, 0d, 1d, "HUD Control", "Video Contrast"));
             AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "293", "0", "RDR", "1", "Baro", "HUD Control", "Altimeter Mode Switch", "%1d"));
 
+            AddFunction(new Text(this, "2092", "UFC", "Left Scratchpad Data", "Value of the scratchpad left display"));
             AddFunction(new Text(this, "2094", "UFC", "Scratchpad Number", "Value of the scratchpad number display"));
             AddFunction(new Text(this, "2095", "UFC", "Comm Channel 1", "Value of Communications Channel 1 display"));
             AddFunction(new Text(this, "2096", "UFC", "Comm Channel 2", "Value of Communications Channel 2 display"));

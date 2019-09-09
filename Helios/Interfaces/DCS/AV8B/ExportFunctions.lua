@@ -7,9 +7,20 @@ end
 
 function ProcessLowImportance(mainPanelDevice)
 
- 	local li = parse_indication(5)
+	li = parse_indication(5)
 	if li then
-		--Helios.log.write(thisScript,string.format("ODU Dump " .. Heliosdump(li)))
+		--Helios.log.write(thisScript,string.format("UFC Dump " .. Heliosdump(li)))
+		--Helios.log.write(thisScript,string.format("UFC Comm 1: " .. check(li.ufc_chnl_1_m) .. check(li.ufc_chnl_1_v)))
+        SendData("2092", string.format("%2s",check(li.ufc_left_position)))
+        SendData("2094", string.format("%7s",check(li.ufc_right_position)))
+        SendData("2095", string.format("%2s",check(li.ufc_chnl_1_m) .. check(li.ufc_chnl_1_v)))
+		SendData("2096", string.format("%2s",check(li.ufc_chnl_2_m) .. check(li.ufc_chnl_2_v)))
+	--[ufc_left_position]  string: "ON"
+    --[ufc_right_position] = string: "16"
+	end
+
+ 	local li = parse_indication(6)
+	if li then
 		SendData("2082", string.format("%4s",check(li.ODU_Option_1_Text)))
 		SendData("2083", string.format("%4s",check(li.ODU_Option_2_Text)))
 		SendData("2084", string.format("%4s",check(li.ODU_Option_3_Text)))
@@ -23,13 +34,6 @@ function ProcessLowImportance(mainPanelDevice)
 		-- -- test command 00000000*2096=20:2095=13:2087=!:2088=!:2089=!:2090=!:2091=!:2082=BLUE:2083=FIN :2084=BIMA:2085=2019:2086=test:2094=123.567:2092=~0:2093=-:326=1:336=1:197=1:365=1:196=1: 
 	end
 	
-	li = parse_indication(6)
-	if li then
-		--Helios.log.write(thisScript,string.format("UFC Dump " .. Heliosdump(li)))
-        SendData("2094", string.format("%7s",check(li.ufc_right_position)))
-        SendData("2095", string.format("%2s",check(li.ufc_chnl_1_m)))
-        SendData("2096", string.format("%2s",check(li.ufc_chnl_2_m)))
-	end
 
     SendData(2001, string.format("%.0f",mainPanelDevice:get_argument_value(253) * 1000+mainPanelDevice:get_argument_value(254) * 100+mainPanelDevice:get_argument_value(255) * 10))     -- Engine Duct
     SendData(2002, string.format("%.0f",mainPanelDevice:get_argument_value(256) * 10000+mainPanelDevice:get_argument_value(257) * 1000+mainPanelDevice:get_argument_value(258) * 100+mainPanelDevice:get_argument_value(259) * 10))     -- Engine RPM
@@ -50,3 +54,4 @@ function ProcessLowImportance(mainPanelDevice)
     SendData(2016, string.format("%.0f",mainPanelDevice:get_argument_value(553) * 1000+mainPanelDevice:get_argument_value(554) * 100+mainPanelDevice:get_argument_value(555) * 10))    -- Pressure Hyd 1
     SendData(2017, string.format("%.0f",mainPanelDevice:get_argument_value(556) * 1000+mainPanelDevice:get_argument_value(557) * 100+mainPanelDevice:get_argument_value(558) * 10))    -- Pressure Hyd 2
 end
+
