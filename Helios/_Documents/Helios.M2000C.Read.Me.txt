@@ -48,19 +48,20 @@ relevant then open a new issue.
 3) Start Engine Panel
 	a) What is working
        - the 5 switches
+	   - the 2 guards
 	b) Known issue
-	   - for now, removed the two red Guard Covers because we are not able to use the switches/button under
+	   - nothing, … for now…
       
 4) Landing Gear Panel
 	a) What is working
        - the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators
 	b) Known issues
-	   - removed the two red Guard Covers because we are not able to use the switches/button under
+	   - removed the two red Guard Covers because we are not able to use the switches/button under --> just need to apply the same solution than the Engine Panel
 	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositoVisual.cs
       
 5) Others things
 	a) What is working
-	   - not all has been tested but most of the switches might work
+	   - not all has been tested so far but most of the switches might work
 
 Thanks for your patience and feedback
 ShadowMan
