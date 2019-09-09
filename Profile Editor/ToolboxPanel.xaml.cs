@@ -47,7 +47,6 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
 
                 ConfigManager.TemplateManager.UserTemplates.CollectionChanged += new NotifyCollectionChangedEventHandler(UserTemplates_CollectionChanged);
             }
-
             InitializeComponent();
         }
 
@@ -86,20 +85,22 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
 
         private void AddTool(ToolboxItem tool)
         {
-            ToolboxGroup group;
-
-            if (_toolboxGroups.ContainsKey(tool.Category))
+            if (tool.Category != "_Hidden Parts")
             {
-                group = _toolboxGroups[tool.Category];
-            }
-            else
-            {
-                group = new ToolboxGroup(tool.Category);
-                group.DragAdvisor = new ToolboxDragAdvisor();
-                _toolboxGroups.Add(group);
-            }
+                ToolboxGroup group;
+                if (_toolboxGroups.ContainsKey(tool.Category))
+                {
+                    group = _toolboxGroups[tool.Category];
+                }
+                else
+                {
+                    group = new ToolboxGroup(tool.Category);
+                    group.DragAdvisor = new ToolboxDragAdvisor();
+                    _toolboxGroups.Add(group);
+                }
 
-            group.Add(tool);
+                group.Add(tool);
+            }
         }
 
         private void RemoveTemplateTool(HeliosTemplate template)
