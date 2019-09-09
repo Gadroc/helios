@@ -33,7 +33,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
         public FiveDigitDisplay()
             : base("Five Digit Display", new Size(339, 100))
         {
-            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/FuelPanel/5 Digit Display/digit_faceplate.xaml", new Rect(0d, 0d, 339d, 100d)));
+            Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/Fuel Panel/5 Digit Display/digit_faceplate.xaml", new Rect(0d, 0d, 339d, 100d)));
 
             _10kDrum = new GaugeDrumCounter("{Helios}/Gauges/AV-8B/Common/drum_tape.xaml", new Point(13.5d, 11.5d), "#", new Size(10d, 15d), new Size(50d, 75d));
             _10kDrum.Clip = new RectangleGeometry(new Rect(13.5d, 11.5d, 50d, 75d));

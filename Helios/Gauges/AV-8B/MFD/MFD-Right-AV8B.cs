@@ -21,7 +21,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Globalization;
     using System.Windows;
 
-    [HeliosControl("AV8B.MPCD1", "MPCD (Right)", "AV-8B", typeof(MFDRenderer))]
+    [HeliosControl("AV8B.MPCDR", "MPCD (Right)", "AV-8B", typeof(MFDRenderer))]
     class Right_MPCD_1 : MPCD
     {
         public Right_MPCD_1()
