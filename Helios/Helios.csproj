@@ -107,6 +107,7 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />
     <Compile Include="Collections\NoResetObservablecollection.cs" />

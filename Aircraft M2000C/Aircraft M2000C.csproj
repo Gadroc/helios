@@ -314,19 +314,13 @@
     <Resource Include="Images\yellow-indicator-on.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\EnginePanel\coupe-feu-guarded.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\EnginePanel\coupe-feu-unguarded.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Images\EnginePanel\engine-start-panel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\EnginePanel\engine-start-guarded.png">
+    <Resource Include="Images\EnginePanel\engine-start-down.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\EnginePanel\engine-start-unguarded.png">
+    <Resource Include="Images\EnginePanel\engine-start-up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\EnginePanel\start-engine-not-pushed.png">
@@ -423,6 +417,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Switches\red-down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\EnginePanel\coupe-feu-down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\EnginePanel\coupe-feu-up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Content Include="Templates\CautionPanelRedIndicator.htpl" />

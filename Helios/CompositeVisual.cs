@@ -58,6 +58,7 @@ namespace GadrocsWorkshop.Helios
         protected string _defaultInterfaceName; // default name of the interface to be used
         protected string _defaultBindingName;   // the name of the default binding in the interface
         protected HeliosInterface _defaultInterface;
+        private NonClickableZone[] nonClickableZones;
 
 
         public CompositeVisual(string name, Size nativeSize)
@@ -535,7 +536,7 @@ namespace GadrocsWorkshop.Helios
 
         protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
             string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName, 
-            bool fromCenter, bool horizontal= false)
+            bool fromCenter, NonClickableZone[] nonClickableZones = null, bool horizontal = false, bool horizontalRender = false)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);
@@ -550,10 +551,19 @@ namespace GadrocsWorkshop.Helios
             newSwitch.PositionTwoImage = positionTwoImage;
             newSwitch.Width = size.Width;
             newSwitch.Height = size.Height;
+            newSwitch.NonClickableZones = nonClickableZones;
+            if (horizontal)
+            {
+                newSwitch.Orientation = ToggleSwitchOrientation.Horizontal;
+            }
+            else
+            {
+                newSwitch.Orientation = ToggleSwitchOrientation.Vertical;
+            }
 
             newSwitch.Top = posn.Y;
             newSwitch.Left = posn.X;
-            if (horizontal)
+            if (horizontalRender)
             {
                 newSwitch.Rotation = HeliosVisualRotation.CW;
                 newSwitch.Orientation = ToggleSwitchOrientation.Horizontal;
