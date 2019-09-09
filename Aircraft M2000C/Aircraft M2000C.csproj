@@ -430,8 +430,7 @@
     <Content Include="Templates\Cockpit Front 16x10.htpl" />
     <Content Include="Templates\Cockpit Front 16x9.htpl" />
     <Content Include="Templates\long-black-switch-toggle.htpl" />
-    <Content Include="Templates\Red-switch-toggle.htpl">
-      <SubType>Code</SubType>
+    <Content Include="Templates\Red-switch-toggle.htpl" />
     <Resource Include="Images\M2000C_16x10.png" />
     <Resource Include="Images\M2000C_16x9.png" />
   </ItemGroup>
