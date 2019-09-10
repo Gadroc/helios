@@ -58,7 +58,6 @@ namespace GadrocsWorkshop.Helios
         protected string _defaultInterfaceName; // default name of the interface to be used
         protected string _defaultBindingName;   // the name of the default binding in the interface
         protected HeliosInterface _defaultInterface;
-        private NonClickableZone[] nonClickableZones;
 
 
         public CompositeVisual(string name, Size nativeSize)

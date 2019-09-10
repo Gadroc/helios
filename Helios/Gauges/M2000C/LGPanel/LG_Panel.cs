@@ -46,7 +46,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         public M2000C_LGPanel()
             : base("Landing Gear Panel", new Size(300, 390))
         {
-            int row0 = 30, row1 = 173, row2 = 191, row3 = 210, row4 = 228, row5 = 232, row6 = 242, row7 = 214, row8 = 234;
+            int row1 = 173, row2 = 191, row3 = 210, row4 = 228, row5 = 232, row6 = 242;
             int column1 = 202, column2 = 217, column3 = 232, column4 = 248, column5 = 262;
             int sizeIndicX = 23, sizeIndicY = 14;
             AddPushButton("Emergency Jettison Lever");
@@ -68,11 +68,15 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             //Sixth row
             AddIndicator("nose-gear", new Point(242, row6), new Size(7, 17));
 
-            AddSwitch("Gun Arming Switch", "{M2000C}/Images/Switches/red-", new Point(156, 173), new Size(25, 70), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
-            AddSwitch("Fly by Wire Gain Mode Switch", "{M2000C}/Images/Switches/black-circle-", new Point(163, 257), new Size(25, 70), ToggleSwitchPosition.One, ToggleSwitchType.OnOn);
+            AddSwitch("Gun Arming Switch", "{M2000C}/Images/LGPanel/gun-arming-guard-", new Point(146, 173), new Size(47, 63), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
+            ToggleSwitch fbwgSwitch = AddSwitch("Fly by Wire Gain Mode Switch", "{M2000C}/Images/Switches/black-circle-", new Point(163, 257), new Size(25, 70), ToggleSwitchPosition.One, ToggleSwitchType.OnOn);
             AddSwitch("Fly by Wire G Limiter Switch", "{M2000C}/Images/Switches/black-circle-", new Point(241, 255), new Size(25, 70), ToggleSwitchPosition.One, ToggleSwitchType.OnOn);
             AddSwitch("Landing Gear Lever", "{M2000C}/Images/LGPanel/landing-gear-", new Point(70, 140), new Size(50, 170), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
 
+/*            AddGuard("Fly By Wire Gain Switch Guard", "fbwg-guard-", new Point(152, 242), new Size(43, 90), ToggleSwitchPosition.One, ToggleSwitchType.OnOn,
+                new NonClickableZone[] { new NonClickableZone(new Rect(0, 0, 43, 70), ToggleSwitchPosition.Two, fbwgSwitch, ToggleSwitchPosition.One) },
+                false, false);
+*/
             AddRotarySwitch("Emergency Landing Gear Lever");
         }
 
@@ -114,9 +118,9 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 withText: false); //added in Composite Visual as an optional value with a default value set to true
         }
 
-        private void AddSwitch(string name, string imagePrefix, Point posn, Size size, ToggleSwitchPosition defaultPosition, ToggleSwitchType defaultType, bool horizontal = false)
+        private ToggleSwitch AddSwitch(string name, string imagePrefix, Point posn, Size size, ToggleSwitchPosition defaultPosition, ToggleSwitchType defaultType, bool horizontal = false)
         {
-            AddToggleSwitch(name: name,
+            return AddToggleSwitch(name: name,
                 posn: posn,
                 size: size,
                 defaultPosition: defaultPosition,
@@ -128,6 +132,24 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 horizontal: horizontal,
                 fromCenter: false);
          }
+
+        private void AddGuard(string name, string imagePrefix, Point posn, Size size, ToggleSwitchPosition defaultPosition,
+            ToggleSwitchType defaultType, NonClickableZone[] nonClickableZones, bool horizontal = true, bool horizontalRender = true)
+        {
+            AddToggleSwitch(name: name,
+                posn: posn,
+                size: size,
+                defaultPosition: defaultPosition,
+                positionOneImage: "{M2000C}/Images/LGPanel/" + imagePrefix + "down.png",
+                positionTwoImage: "{M2000C}/Images/LGPanel/" + imagePrefix + "up.png",
+                defaultType: defaultType,
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                horizontal: horizontal,
+                horizontalRender: horizontalRender,
+                nonClickableZones: nonClickableZones,
+                fromCenter: false);
+        }
 
         private void AddPushButton(string name)
         {

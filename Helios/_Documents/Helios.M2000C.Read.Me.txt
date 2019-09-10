@@ -55,8 +55,9 @@ relevant then open a new issue.
 4) Landing Gear Panel
 	a) What is working
        - the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators
+	   - the guard for the gun safe switch is working
 	b) Known issues
-	   - removed the two red Guard Covers because we are not able to use the switches/button under --> just need to apply the same solution than the Engine Panel
+	   - removed the Guard for the fly by wire gain switch. Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
 	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositoVisual.cs
       
 5) Miscellaneous Panels
