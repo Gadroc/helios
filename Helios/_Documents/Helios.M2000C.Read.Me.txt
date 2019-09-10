@@ -59,7 +59,15 @@ relevant then open a new issue.
 	   - removed the two red Guard Covers because we are not able to use the switches/button under --> just need to apply the same solution than the Engine Panel
 	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositoVisual.cs
       
-5) Others things
+5) Miscellaneous Panels
+	a) What is working
+       - Post Combustion Indicator
+       - Fire Warning Indicators
+	   - Demar Indicator
+	b) Known issues
+	   - I don’t know how to test the Fire Warning Indicators. If someone has a match :-)
+      
+6) Others things
 	a) What is working
 	   - not all has been tested so far but most of the switches might work
 

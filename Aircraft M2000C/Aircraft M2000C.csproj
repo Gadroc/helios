@@ -575,6 +575,27 @@
     <Resource Include="Images\PPAPanel\small-black-right.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\LGPanel\fbwg-guard-down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LGPanel\fbwg-guard-up.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LGPanel\gun-arming-guard-down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LGPanel\gun-arming-guard-up.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Miscellaneous\demar-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Miscellaneous\fire-warning-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Miscellaneous\pc-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Templates\CautionPanelRedIndicator.htpl" />
     <Content Include="Templates\CautionPanelYellowIndicator.htpl" />
     <Content Include="Templates\Cockpit Front 16x10.htpl" />

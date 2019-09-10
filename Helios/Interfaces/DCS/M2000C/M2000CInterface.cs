@@ -168,6 +168,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "199", "Master Caution Lights Panel", "panne-yellow", "Master-warning"));
             AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "panne-red", "Master-caution"));
             #endregion
+            #region Miscellaneous Panels and indicators
+            AddFunction(new FlagValue(this, "373", "Post Combustion Indicator Panel", "pc", "Post Combustion"));
+            AddFunction(new FlagValue(this, "374", "Fire Warning Panel", "fire-warning-engine-chamber", "Fire Warning Engine Chamber"));
+            AddFunction(new FlagValue(this, "375", "Fire Warning Panel", "fire-warning-afterburner-chamber", "Fire Warning Afterburner Chamber"));
+            AddFunction(new FlagValue(this, "376", "Demar Indicator Panel", "demar", "Start-up"));
+            #endregion
             #region Indicators
             // !!!! Any duplicate "name" values in a function will cause Helios to go bang.  Make sure that when you change the name, that it is unique
             AddFunction(new FlagValue(this, "185", "Indicators", "Indicators 185", "LIM, MIP,"));
@@ -205,8 +211,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "246", "Indicators", "Indicators 246", "button KL1 light"));
             AddFunction(new FlagValue(this, "247", "Indicators", "Indicators 247", "button KL2 light"));
             AddFunction(new FlagValue(this, "321", "Indicators", "Indicators 321", "ADI ILS light"));
-            AddFunction(new FlagValue(this, "374", "Indicators", "Indicators 374", "Fire light 1"));
-            AddFunction(new FlagValue(this, "375", "Indicators", "Indicators 375", "Fire light 2"));
             AddFunction(new FlagValue(this, "283", "Indicators", "Indicators 283", "AUTOPILOT P"));
             AddFunction(new FlagValue(this, "284", "Indicators", "Indicators 284", "AUTOPILOT A"));
             AddFunction(new FlagValue(this, "286", "Indicators", "Indicators 286", "AUTOPILOT Alt 1"));
@@ -219,8 +223,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "296", "Indicators", "Indicators 296", "AUTOPILOT blank L"));
             AddFunction(new FlagValue(this, "297", "Indicators", "Indicators 297", "AUTOPILOT G"));
             AddFunction(new FlagValue(this, "298", "Indicators", "Indicators 298", "AUTOPILOT blank G"));
-            AddFunction(new FlagValue(this, "373", "Indicators", "Indicators 373", "Afterburner light"));
-            AddFunction(new FlagValue(this, "376", "Indicators", "Indicators 376", "Starter light"));
             AddFunction(new FlagValue(this, "198", "Indicators", "Indicators 198", "Tranfere"));
             AddFunction(new FlagValue(this, "362", "Indicators", "Indicators 362", "Fuel Left RL"));
             AddFunction(new FlagValue(this, "363", "Indicators", "Indicators 363", "Fuel Center RL"));
