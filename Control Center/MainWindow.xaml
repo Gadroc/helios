@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ControlCenter"
     Title="Helios Control Center"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-    Height="316" Width="525" Background="Red" WindowStyle="None" ResizeMode="NoResize" Name="HeliosWindow" Icon="Icon.png" Topmost="True" Loaded="Widnow_Loaded" ContentRendered="Window_Opened">
+    Height="595" Width="504" Background="Red" WindowStyle="None" ResizeMode="NoResize" Name="HeliosWindow" Icon="Icon.png" Topmost="True" Loaded="Window_Loaded" ContentRendered="Window_Opened">
     <Window.Resources>
 
         <Style TargetType="{x:Type CheckBox}" x:Key="HeliosSwitchStyle">
@@ -108,26 +108,30 @@
         <CommandBinding Command="Close" Executed="Close_Executed" />
     </Window.CommandBindings>
     <Grid Name="WindowGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel Margin="0">
-            <Canvas Name="ControlCenterCanvas" Margin="0" Height="277" Width="504">
+        <StackPanel Margin="0,0,0,0">
+            <Canvas x:Name="ControlCenterCanvas" Margin="0,0,0,0" Height="276">
                 <Image Source="ControlCenterBackground.png" Canvas.Top="0" Canvas.Left="0" />
-                <Thumb Name="ControlCenterDragThumb" Width="504" Height="277" Opacity="0"  DragDelta="MoveThumb_DragDelta" />
-                <Button Canvas.Left="70" Canvas.Top="171" Height="50" Name="StartButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StartProfile"/>
-                <Button Canvas.Left="161" Canvas.Top="171" Height="50" Name="StopButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StopProfile"/>
-                <Button Canvas.Left="254" Canvas.Top="171" Height="50" Name="ResetProfileButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.ResetProfile" />
-                <Button Canvas.Left="413" Canvas.Top="49" Height="50" Name="PrefsButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.TogglePreferences" />
-                <Button Canvas.Left="323" Canvas.Top="26" Height="50" Name="PrevButton" Width="50" Style="{StaticResource HeliosPrevButtonStyle}" Command="local:ControlCenterCommands.PreviousProfile" />
-                <Button Canvas.Left="323" Canvas.Top="82" Height="50" Name="NextButton" Width="50" Style="{StaticResource HeliosNextButtonStyle}" Command="local:ControlCenterCommands.NextProfile" />
-                <Button Canvas.Left="413" Canvas.Top="171" Height="50" Name="DeleteButton" Width="50" Style="{StaticResource HeliosRoundPushButtonStyle}" Command="local:ControlCenterCommands.DeleteProfile" />
-                <CheckBox Canvas.Left="7" Canvas.Top="30" Height="100" Name="PowerButton" Width="50" Style="{StaticResource HeliosSwitchStyle}" IsChecked="True" Unchecked="PowerButton_Unchecked" />
-                <TextBlock Canvas.Left="76" Canvas.Top="36" Height="29" Name="ProfileName" Text="{Binding SelectedProfileName}" Width="223" Foreground="#FF79CC87" FontFamily="Franklin Gothic" FontSize="20" />
-                <TextBlock Canvas.Left="76" Canvas.Top="71" Height="53" Name="MesssgeText" Text="{Binding Message}" Width="223" FontFamily="Franklin Gothic" Foreground="#FF79CC87" FontSize="10" TextWrapping="Wrap" />
+                <Thumb x:Name="ControlCenterDragThumb" Width="504" Height="277" Opacity="0" Canvas.Left="0" DragDelta="MoveThumb_DragDelta" />
+                <Button Canvas.Left="70" Canvas.Top="171" Height="50" x:Name="StartButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StartProfile"/>
+                <Button Canvas.Left="161" Canvas.Top="171" Height="50" x:Name="StopButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StopProfile"/>
+                <Button Canvas.Left="254" Canvas.Top="171" Height="50" x:Name="ResetProfileButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.ResetProfile" />
+                <Button Canvas.Left="413" Canvas.Top="49" Height="50" x:Name="PrefsButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.TogglePreferences" />
+                <Button Canvas.Left="323" Canvas.Top="26" Height="50" x:Name="PrevButton" Width="50" Style="{StaticResource HeliosPrevButtonStyle}" Command="local:ControlCenterCommands.PreviousProfile" />
+                <Button Canvas.Left="323" Canvas.Top="82" Height="50" x:Name="NextButton" Width="50" Style="{StaticResource HeliosNextButtonStyle}" Command="local:ControlCenterCommands.NextProfile" />
+                <Button Canvas.Left="413" Canvas.Top="171" Height="50" x:Name="DeleteButton" Width="50" Style="{StaticResource HeliosRoundPushButtonStyle}" Command="local:ControlCenterCommands.DeleteProfile" />
+                <CheckBox Canvas.Left="7" Canvas.Top="30" Height="100" x:Name="PowerButton" Width="50" Style="{StaticResource HeliosSwitchStyle}" IsChecked="True" Unchecked="PowerButton_Unchecked" />
+                <TextBlock Canvas.Left="76" Canvas.Top="36" Height="29" x:Name="ProfileName" Text="{Binding SelectedProfileName}" Width="223" Foreground="#FF79CC87" FontFamily="Franklin Gothic" FontSize="20" />
+                <TextBlock Canvas.Left="76" Canvas.Top="71" Height="53" x:Name="MesssgeText" Text="{Binding Message}" Width="223" FontFamily="Franklin Gothic" Foreground="#FF79CC87" FontSize="10" TextWrapping="Wrap" />
                 <Button Canvas.Left="40" Canvas.Top="242" Content="Hide" FontWeight="Bold" Foreground="White" Height="25" Style="{StaticResource HeliosPushButtonStyle}" Width="80" Click="Button_Click" />
             </Canvas>
-            <Canvas Name="PreferencesCanvas" Margin="0" Height="200" Width="504" Visibility="Collapsed">
+            <Canvas Name="PreferencesCanvas" Margin="0" Height="320" Width="504" Visibility="Collapsed">
                 <Image Source="PreferencesBackground.png" />
-                <Thumb Name="PrefsDragThumb" Width="504" Height="200" Opacity="0" DragDelta="MoveThumb_DragDelta" />
+                <Thumb Name="PrefsDragThumb" Width="504" Height="320" Opacity="0" DragDelta="MoveThumb_DragDelta" Canvas.Left="0" Canvas.Top="0" />
                 <CheckBox Canvas.Left="39" Canvas.Top="50" Height="100" Name="MinimizeCheckBox" Width="50" Style="{StaticResource HeliosSwitchStyle}" Checked="MinimizeCheckBox_Checked" Unchecked="MinimizeCheckBox_Unchecked" />
                 <CheckBox Canvas.Left="142" Canvas.Top="50" Height="100" Name="AutoStartCheckBox" Width="50" Style="{StaticResource HeliosSwitchStyle}" Checked="AutoStartCheckBox_Checked" Unchecked="AutoStartCheckBox_Unchecked" />
                 <CheckBox Canvas.Left="256" Canvas.Top="50" Height="100" Name="AutoHideCheckBox" Width="50" Style="{StaticResource HeliosSwitchStyle}" Checked="AutoHideCheckBox_Checked" Unchecked="AutoHideCheckBox_Unchecked" />
@@ -139,6 +143,15 @@
                 <TextBlock FontFamily="Franklin Gothic" Foreground="LimeGreen" FontSize="11" Text="{Binding HotKeyDescription}" Canvas.Left="333" Canvas.Top="124" Width="150" TextAlignment="Center" Height="28" TextWrapping="Wrap" />
                 <Button Canvas.Left="351" Canvas.Top="74" Height="40" Name="SetHotkey" Width="40" Style="{StaticResource HeliosPushButtonStyle}" Click="SetHotkey_Click" />
                 <Button Canvas.Left="423" Canvas.Top="74" Height="40" Name="ClearHotkey" Width="40" Style="{StaticResource HeliosPushButtonStyle}" Click="ClearHotkey_Click" />
+                <CheckBox Canvas.Left="39" Canvas.Top="182" Height="100" Name="TBDCheckBox" Width="50" Style="{StaticResource HeliosSwitchStyle}" Checked="TBDCheckBox_Checked" Unchecked="TBDCheckBox_Unchecked" Visibility="Hidden"/>
+                <TextBlock FontFamily="Franklin Gothic" FontSize="14" Foreground="GhostWhite" Text="TOUCHSCREEN" Canvas.Left="124" Canvas.Top="160" Width="92" TextAlignment="Center" TextWrapping="Wrap"/>
+                <TextBlock FontFamily="Franklin Gothic" FontSize="12" Foreground="GhostWhite" Text="SUPPRESS 2ND TRIGGER" Canvas.Left="120" Canvas.Top="189" Width="96" TextAlignment="Center" TextWrapping="Wrap"/>
+                <TextBlock FontFamily="Franklin Gothic" FontSize="12" Foreground="GhostWhite" Text="ALLOW ALL TRIGGERS" Canvas.Left="130" Canvas.Top="256" Width="72" TextAlignment="Center" TextWrapping="Wrap"/>
+                <CheckBox Canvas.Left="142" Canvas.Top="182" Height="100" Name="TouchscreenCheckBox" Width="50" ToolTipService.ToolTip="Suppress 2nd trigger if you appear to get double touches from a touchscreen." Style="{StaticResource HeliosSwitchStyle}" Checked="TouchscreenCheckBox_Checked" Unchecked="TouchscreenCheckBox_Unchecked" />
+                <Rectangle x:Name="TouchScreenDelayBorder" Stroke="GhostWhite" Width="244" Height="52" Canvas.Left="241" Canvas.Top="198" Visibility="Hidden"/>
+                <TextBlock x:Name="TouchScreenDelayTitle" FontFamily="Franklin Gothic" FontSize="14" Foreground="GhostWhite" Text="IGNORE 2ND TRIGGER FOR" ToolTipService.ToolTip="The period when a secondary mouse trigger from a touchscreen is ignored." Canvas.Left="245" Canvas.Top="202"  Visibility="Hidden"/>
+                <TextBlock x:Name="TouchscreenDelayTextBlock" FontFamily="Franklin Gothic" FontSize="14" Foreground="LimeGreen" Text="0 ms" Canvas.Left="410" Canvas.Top="202"  Visibility="Hidden"/>
+                <Slider x:Name="TouchScreenDelaySlider" Minimum="0" Maximum="1000" TickFrequency="200" TickPlacement="BottomRight" ValueChanged="TouchScreenDelaySlider_ValueChanged" Width="240" Canvas.Left="245" Canvas.Top="218" ToolTipService.ToolTip="The period when a secondary mouse trigger from a touchscreen is ignored."  Visibility="Hidden"/>
             </Canvas>
         </StackPanel>
 

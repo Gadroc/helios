@@ -29,8 +29,10 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
         private string _interfaceDeviceName = "UFC";
-        private String _font = "MS 33558";
-        //private String _font = "Franklin Gothic";
+        private string _font = "MS 33558";
+        private string _ufcNumbers16 = "`0=«;`1=¬;`2=­;`3=®;`4=¯;`5=°;`6=±;`7=²;`8=³;`9=´;~0=µ;0=¡;1=¢;2=£;3=¤;4=¥;5=¦;6=§;7=¨;8=©;9=ª;_=É"; //Numeric mapping into characters in the UFC font
+        private string _ufcCueing = "!=È"; 
+
         public UFC_FA18C()
             : base("UFC", new Size(602, 470))
         {
@@ -71,26 +73,26 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddButtonIP("Radio 2 Pull", 523, 408, new Size(28, 28), "UFC COMM 2 Channel Selector Pull", false);
 
             /// adding the displays
-            AddTextDisplay("OptionCueing1", 358, 45, new Size(40, 42), "Option Display 1 Selected");
-            AddTextDisplay("OptionDisplay1", 381, 45, new Size(129, 42), "Option Display 1");
-            AddTextDisplay("OptionCueing2", 358, 111, new Size(40, 42), "Option Display 2 Selected");
-            AddTextDisplay("OptionDisplay2", 381, 111, new Size(129, 42), "Option Display 2");
-            AddTextDisplay("OptionCueing3", 358, 177, new Size(40, 42), "Option Display 3 Selected");
-            AddTextDisplay("OptionDisplay3", 381, 177, new Size(129, 42), "Option Display 3");
-            AddTextDisplay("OptionCueing4", 358, 244, new Size(40, 42), "Option Display 4 Selected");
-            AddTextDisplay("OptionDisplay4", 381, 244, new Size(129,42), "Option Display 4");
-            AddTextDisplay("OptionCueing5", 358, 310, new Size(40, 42), "Option Display 5 Selected");
-            AddTextDisplay("OptionDisplay5", 381, 310, new Size(129,42), "Option Display 5");
-            AddTextDisplay("ScratchPadCharacter1", 92, 35, new Size(32, 48), "Scratchpad 1", 30);
-            AddTextDisplay("ScratchPadCharacter2", 122, 35, new Size(32, 48), "Scratchpad 2", 30);
-            AddTextDisplay("ScratchPadNumbers", 152, 35, new Size(135, 48), "Scratchpad Number", 30, TextHorizontalAlignment.Right);
-            AddTextDisplay("Comm1", 26, 314, new Size(41, 42), "Comm Channel 1", TextHorizontalAlignment.Center);
-            AddTextDisplay("Comm2", 538, 309, new Size(40, 42), "Comm Channel 2", TextHorizontalAlignment.Center);
+            AddTextDisplay("OptionCueing1", 358, 45, new Size(40, 42), "Option Display 1 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay1", 381, 45, new Size(129, 42), "Option Display 1", 32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("OptionCueing2", 358, 111, new Size(40, 42), "Option Display 2 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay2", 381, 111, new Size(129, 42), "Option Display 2",32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("OptionCueing3", 358, 177, new Size(40, 42), "Option Display 3 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay3", 381, 177, new Size(129, 42), "Option Display 3", 32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("OptionCueing4", 358, 244, new Size(40, 42), "Option Display 4 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay4", 381, 244, new Size(129,42), "Option Display 4", 32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("OptionCueing5", 358, 310, new Size(40, 42), "Option Display 5 Selected", 32, "~", TextHorizontalAlignment.Left, _ufcCueing);
+            AddTextDisplay("OptionDisplay5", 381, 310, new Size(129,42), "Option Display 5", 32, "~", TextHorizontalAlignment.Left, _ufcNumbers16);
+            AddTextDisplay("ScratchPadCharacter1", 92, 35, new Size(32, 48), "Scratchpad 1", 30, "~", TextHorizontalAlignment.Left, " =;" + _ufcNumbers16);
+            AddTextDisplay("ScratchPadCharacter2", 122, 35, new Size(32, 48), "Scratchpad 2", 30, "~", TextHorizontalAlignment.Left, " =;" + _ufcNumbers16);
+            AddTextDisplay("ScratchPadNumbers", 152, 35, new Size(135, 48), "Scratchpad Number", 30, "~", TextHorizontalAlignment.Right, " =<");
+            AddTextDisplay("Comm1", 26, 314, new Size(41, 42), "Comm Channel 1",32, "~", TextHorizontalAlignment.Center, " =;" + _ufcNumbers16);
+            AddTextDisplay("Comm2", 538, 309, new Size(40, 42), "Comm Channel 2",32, "~", TextHorizontalAlignment.Center, " =;" + _ufcNumbers16);
         }
 
         public override string BezelImage
         {
-            get { return "{Helios}/Gauges/FA-18C/UFC/UFC Faceplate.png"; }
+            get { return "{FA-18C}/Images/UFC Faceplate.png"; }
         }
 
         private void AddPot(string name, Point posn, Size size, string interfaceElementName)
@@ -98,7 +100,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             AddPot(name: name, 
                 posn: posn, 
                 size: size, 
-                knobImage: "{Helios}/Images/AV-8B/Common Knob.png", 
+                knobImage: "{AV-8B}/Images/Common Knob.png", 
                 initialRotation: 219, 
                 rotationTravel: 291, 
                 minValue: 0, 
@@ -116,7 +118,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 name: name,
                 size: size,
                 posn: posn,
-                knobImage: "{Helios}/Images/FA-18C/UFC Rotator_U.png",
+                knobImage: "{FA-18C}/Images/UFC Rotator_U.png",
                 stepValue: 0.1,
                 rotationStep: 5,
                 interfaceDeviceName: _interfaceDeviceName,
@@ -129,29 +131,13 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         //{
         //    AddTextDisplay(name, x, y, size, 32, testDisp, TextHorizontalAlignment.Left);
         //}
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName,
-            double baseFontsize, TextHorizontalAlignment hTextAlign)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, baseFontsize, "~",  hTextAlign);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName, double baseFontsize)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, baseFontsize, "~", TextHorizontalAlignment.Left);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName, TextHorizontalAlignment hTextAlign)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, 32, "~", hTextAlign);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string interfaceElementName)
-        {
-            AddTextDisplay(name, x, y, size, interfaceElementName, 32, "~", TextHorizontalAlignment.Left);
-        }
+
         private void AddTextDisplay(string name, double x, double y, Size size,
-            string interfaceElementName, double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign)
+            string interfaceElementName, double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign, string ufcDictionary)
         {
             TextDisplay display = AddTextDisplay(
                 name: name,
-                pos: new Point(x, y),
+                posn: new Point(x, y),
                 size: size,
                 font: "Hornet UFC",
                 baseFontsize: baseFontsize,
@@ -162,9 +148,11 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 backgroundColor: Color.FromArgb(0xff, 0x26, 0x3f, 0x36),
                 useBackground: false,
                 interfaceDeviceName: _interfaceDeviceName,
-                interfaceElementName: interfaceElementName
+                interfaceElementName: interfaceElementName,
+                textDisplayDictionary: ufcDictionary
                 );
         }
+
 
         private void AddButton(string name, double x, double y, Size size, string interfaceElementName)
         {
@@ -173,8 +161,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 name: name,
                 posn: pos,
                 size: size,
-                image: "{Helios}/Images/FA-18C/UFC Button Up " + name + ".png",
-                pushedImage: "{Helios}/Images/FA-18C/UFC Button Dn " + name + ".png",
+                image: "{FA-18C}/Images/UFC Button Up " + name + ".png",
+                pushedImage: "{FA-18C}/Images/UFC Button Dn " + name + ".png",
                 buttonText: "",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
@@ -226,39 +214,16 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 );
         }
 
-        private void AddIndicatorPushButton(string name, double x, double y, Size size)
-        {
-            Color onTextColor;
-            if (name == "MASTER WARNING")
-            {
-                onTextColor = Color.FromArgb(0xff, 0xc7, 0x1e, 0x1e);
-            }
-            else
-            {
-                onTextColor = Color.FromArgb(0xff, 0xb3, 0xa2, 0x29);
-            }
 
-            AddIndicatorPushButton(
-                name: name,
-                pos: new Point(x, y),
-                size: size,
-                image: "{Helios}/Images/Indicators/indicator.png",
-                pushedImage: "{Helios}/Images/Indicators/indicator-push.png",
-                textColor: Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C),
-                onTextColor: onTextColor,
-                font: _font
-                );
-
-        }
         private void AddThreeWayToggle(string name, double x, double y, Size size, string interfaceElementName)
         {
 
             AddThreeWayToggle(
                 name: name,
-                pos: new Point(x, y),
+                posn: new Point(x, y),
                 size: size,
                 defaultPosition: ThreeWayToggleSwitchPosition.Two,
-                switchType: ThreeWayToggleSwitchType.OnOnOn,
+                defaultType: ThreeWayToggleSwitchType.OnOnOn,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 fromCenter: false

@@ -10,6 +10,9 @@ When the aircraft specific interface is deployed from the **Profile Editor**, it
 
 ### Recent Change History
 
+* August 2019 - bug fix for Hornet UFC and potential improvement for scaling of Windows displays.
+* June #2 2019 - Minor bug fixes
+* June #1 2019 - Kneeboard and Black Shark changes.
 * March 2019 - Autobinding and Hornet IFEI & UFC demonstration [YouTube](https://www.youtube.com/watch?v=lEhG-TtENWc)
 * October 2018 - Helios 1.4.2018.1008 Beta released including interfaces for Hornet and Harrier
 * September 2018 - Helios 1.4.2018.0924 Beta released including interfaces for Hornet and Harrier

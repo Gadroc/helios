@@ -1,0 +1,702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B00F04B-3CB2-44E7-B49B-DA94FF74C66C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GadrocsWorkshop.Helios</RootNamespace>
+    <AssemblyName>AV-8B</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons\AV-8B.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\_transparant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2 way Dome Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2 way Dome Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3 Way Toggle Square Down 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3 Way Toggle Square Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3 Way Toggle Square Mid 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3 Way Toggle Square Mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3 Way Toggle Square Up 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3 Way Toggle Square Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3way DomeHead Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3way DomeHead Mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3way DomeHead Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ADI Cage Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ADI Cage Scale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Advisory Panel Frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Advisory Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8B Flare Salvo Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8B Fuel Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8B Master Arm Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B SMC Faceplate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8B Toggle Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8B Toggle Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV-8B UFC 1080.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_FLR_SAL_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_FLR_SAL_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_Green_L_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_Green_M_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_Green_N_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_Green_R_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_L_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_M_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_N_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_Orange_L_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_Orange_M_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_Orange_N_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_Orange_R_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Gear_R_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_Rotary5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_SEL_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AV8BNA_SEL_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Blank Panel 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bulkhead DECS switch Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bulkhead DECS switch Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Chan Freq Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Combat Button Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Combat Button Pushed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Combat Button SEL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Common Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Defog Rotary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Flaps and Gear Lever.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Flaps Auto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Flaps Cruise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Flaps STOL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fuel and External Lights Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fuel Bingo Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fuel Cutoff Lever Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fuel Cutoff Lever Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fuel Cutoff Panel 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fuel Selector Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gear Lever Dn Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gear Lever Dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gear Lever Up Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gear Lever Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ground Safety Handle Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ground Safety Handle Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\H2O Switch Norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\H2O Switch TO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\H2O Switch VTOL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Heart Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hexagonal Switch Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hexagonal Switch On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Internal Lights.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Knob 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Knob 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Landing Gear Lights.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Left Canopy Handle Closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Left Canopy Handle Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Master Arm Switch Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Master Arm Switch Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Button 1 DnH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Button 1 DnV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Button 1 UpH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Button 1 UpV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker L Dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker L Mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker L Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker R Dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker R Mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker R Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker V Dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker V Mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Rocker V Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Mic Volume Knob Lower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Mic Volume Knob Upper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MPCD Bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ODU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Parking Brake Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Parking Brake On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Parking Brake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Radio Cutout 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Radio Cutout 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Radio Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Right Canopy Handle Closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Right Canopy Handle Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Right Canopy Lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Right Canopy unLock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Rotary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SAAHS Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Seat and Lights.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Selector Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SMC Cool Switch Dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SMC Cool Switch Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SMC Jettison Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SMC Jettison Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SMC Selector Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\STO Indicator Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\STO Indicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sw_lng-lgt_cent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sw_lng-lgt_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sw_lng-lgt_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Threat AAA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Threat AI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Threat CW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Threat SAM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn ALT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn AWL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn BCN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn CLR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn Dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn Dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn EMCON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn ENT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn IFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn ONOFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn SVE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn TCN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn TMR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn TOO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn WOF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn WPN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up ALT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up AWL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up BCN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up CLR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up Dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up Dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up EMCON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up ENT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up IFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up ONOFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up SVE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up TCN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up TMR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up TOO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up WOF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up WPN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UVHF Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UVHF Volume Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Water and CMBT Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Water Control Indicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\AV-8B.ico" />
+    <Content Include="Icons\DCS-AV-8B.ico" />
+    <Resource Include="Images\ODU Button Dn.png" />
+    <Resource Include="Images\ODU Button Up.png" />
+    <Resource Include="Images\AV-8B_Cockpit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ODU Panel.png" />
+    <Resource Include="Images\Fuel Panel Off Flag.png" />
+    <Resource Include="Images\Caution 15 Sec.png" />
+    <Resource Include="Images\Caution Bingo.png" />
+    <Resource Include="Images\Caution EFC.png" />
+    <Resource Include="Images\Caution Fire.png" />
+    <Resource Include="Images\Caution Flaps.png" />
+    <Resource Include="Images\Caution Gear.png" />
+    <Resource Include="Images\Caution GEN.png" />
+    <Resource Include="Images\Caution H2O.png" />
+    <Resource Include="Images\Caution HYD.png" />
+    <Resource Include="Images\Caution JPTL.png" />
+    <Resource Include="Images\Caution L Fuel.png" />
+    <Resource Include="Images\Caution L Tank.png" />
+    <Resource Include="Images\Caution LAW.png" />
+    <Resource Include="Images\Caution MFS.png" />
+    <Resource Include="Images\Caution OT.png" />
+    <Resource Include="Images\Caution R Fuel.png" />
+    <Resource Include="Images\Caution R Tank.png" />
+    <Resource Include="Images\Caution Unknown 1.png" />
+    <Resource Include="Images\Caution Unknown 2.png" />
+    <Resource Include="Images\MPCD Bezel 1.png" />
+    <Resource Include="Images\ODU Panel 2.png" />
+    <Resource Include="Images\MPCD Bezel 2.png" />
+    <Resource Include="Images\UFC Bezel Large.png" />
+    <Resource Include="Images\Caution Master Caution.png" />
+    <Resource Include="Images\Caution Master Warning.png" />
+    <Resource Include="Images\EDP Bit Button Normal.png" />
+    <Resource Include="Images\EDP Bit Button Pressed.png" />
+    <Resource Include="Images\AV-8B SMC Faceplate 0.png" />
+    <Content Include="Templates\Switch 2-way Toggle Domed.htpl">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch 3-way Toggle Domed.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Lever AV-8B Canopy Lock.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch AV-8B Flaps.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch AV-8B Pointy Toggle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Panel Cockpit Front 16x9.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Encoder Comms Rotary.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Button Flare Salvo.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Lever Fuel Cutoff.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Lever Ground Safety.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch H2O.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch Hexagonal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Lever Landing Gear.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch Landing Lights.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch Master Arm.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch MPCD Button Horizontal.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch MPCD Button Vertical.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch MPCD Rocker Angled Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch MPCD Rocker Angled Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch MPCD Rocker Vertical.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch Rotary.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch SMC Square 3-way Toggle A.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Switch SMC Square 3-Way Toggle B.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)Templates\*.*" "$(SolutionDir)$(OutDir)Templates\Base\$(TargetName)\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

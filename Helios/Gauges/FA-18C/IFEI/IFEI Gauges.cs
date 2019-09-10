@@ -22,11 +22,13 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.IFEIGauges", "IFEI Needles & Flags", "F/A-18C Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.FA18C.IFEIGauges", "IFEI Needles & Flags", "_Hidden Parts", typeof(GaugeRenderer))]
     public class IFEI_Gauges : BaseGauge
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
+        private double _GlassReflectionOpacity;
+        public const double GLASS_REFLECTION_OPACITY_DEFAULT = 1.0;
 
         //private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff,220, 220, 220);
@@ -285,7 +287,40 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             _rightNozzleNeedle.Execute += new HeliosActionHandler(Indicator_Execute);
             Actions.Add(_rightNozzleNeedle);
 
+            // initialize opacity value and related visual
+            GlassReflectionOpacity = GLASS_REFLECTION_OPACITY_DEFAULT;
         }
+
+        #region Properties
+        public double GlassReflectionOpacity
+        {
+            get
+            {
+                return _GlassReflectionOpacity;
+            }
+            set
+            {
+                // clamp to max opacity
+                double newValue = Math.Min(value, 1.0);
+
+                double oldValue = _GlassReflectionOpacity;
+                if (newValue != oldValue)
+                {
+                    _GlassReflectionOpacity = newValue;
+
+                    // don't render at all if fully transparent
+                    _gireflection.IsHidden = (newValue == 0.0);
+
+                    // render at this opacity, if applicable
+                    _gireflection.Opacity = newValue;
+
+                    // notify change after change is made
+                    OnPropertyChanged("GlassReflectionOpacity", oldValue, newValue, true);
+                }
+            }
+        }
+        #endregion
+
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
         }

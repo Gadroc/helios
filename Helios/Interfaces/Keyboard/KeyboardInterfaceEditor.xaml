@@ -15,6 +15,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Key Delay</Label>
                 <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Interface.KeyDelay}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" MaxWidth="40" />
@@ -27,5 +28,11 @@
                 <TextBlock Margin="4" TextWrapping="Wrap" Text="{Binding SpecialKeysText}" />
             </StackPanel>
         </GroupBox>
+        <GroupBox Header="Keyboard Sender Information" Margin="0,4,0,0">
+            <StackPanel>
+                <TextBlock Margin="4" TextWrapping="Wrap">Helios supports sending keypresses to a remote DCS machine which has the Keypress Receiver installed and running.  The port used is TCP port 9088.</TextBlock>
+            </StackPanel>
+        </GroupBox>
+
     </StackPanel>
 </HeliosSdk:HeliosInterfaceEditor>

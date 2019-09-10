@@ -118,7 +118,8 @@ namespace GadrocsWorkshop.Helios
 
         public List<DefaultInputBinding> DefaultInputBindings
         {
-            get {
+            get
+            {
                 return _defaultInputBindings;
             }
         }
@@ -193,6 +194,8 @@ namespace GadrocsWorkshop.Helios
         {
             HeliosBinding binding = new HeliosBinding(trigger, action);
 
+            binding.BypassCascadingTriggers = true;
+
             if (action.ActionRequiresValue && (ConfigManager.ModuleManager.CanConvertUnit(trigger.Unit, action.Unit)))
             {
                 binding.ValueSource = BindingValueSources.TriggerValue;
@@ -211,8 +214,9 @@ namespace GadrocsWorkshop.Helios
                 return;
 
             /// grab the default interface, if it exists
-            if (_defaultInterfaceName == "") {
-                return; 
+            if (_defaultInterfaceName == "")
+            {
+                return;
             }
             if (!Profile.Interfaces.ContainsKey(_defaultInterfaceName))
             {
@@ -242,7 +246,7 @@ namespace GadrocsWorkshop.Helios
                     continue;
                 }
                 ConfigManager.LogManager.LogDebug("Auto binding trigger " + defaultBinding.InterfaceTriggerName + " to " + defaultBinding.DeviceActionName);
-                child.OutputBindings.Add(CreateNewBinding(_defaultInterface.Triggers[defaultBinding.InterfaceTriggerName], 
+                child.OutputBindings.Add(CreateNewBinding(_defaultInterface.Triggers[defaultBinding.InterfaceTriggerName],
                     child.Actions[defaultBinding.DeviceActionName]));
 
                 //child.OutputBindings.Add(
@@ -251,13 +255,16 @@ namespace GadrocsWorkshop.Helios
             }
 
             /// now looping for all default output bindings to assign the value
-            foreach (DefaultOutputBinding defaultBinding in _defaultOutputBindings) {
-                if (!Children.ContainsKey(defaultBinding.ChildName)) {
+            foreach (DefaultOutputBinding defaultBinding in _defaultOutputBindings)
+            {
+                if (!Children.ContainsKey(defaultBinding.ChildName))
+                {
                     ConfigManager.LogManager.LogError("Cannot find child " + defaultBinding.ChildName);
                     continue;
                 }
                 HeliosVisual child = Children[defaultBinding.ChildName];
-                if (!child.Triggers.ContainsKey(defaultBinding.DeviceTriggerName)) {
+                if (!child.Triggers.ContainsKey(defaultBinding.DeviceTriggerName))
+                {
                     ConfigManager.LogManager.LogError("Cannot find trigger " + defaultBinding.DeviceTriggerName);
                     continue;
                 }
@@ -269,14 +276,15 @@ namespace GadrocsWorkshop.Helios
                 ConfigManager.LogManager.LogDebug("Child Output binding trigger " + defaultBinding.DeviceTriggerName + " to " + defaultBinding.InterfaceActionName);
                 child.OutputBindings.Add(CreateNewBinding(child.Triggers[defaultBinding.DeviceTriggerName],
                                       _defaultInterface.Actions[defaultBinding.InterfaceActionName]));
-        //            child.OutputBindings.Add(
-        //new HeliosBinding(child.Triggers[defaultBinding.DeviceTriggerName],
-        //                  _defaultInterface.Actions[defaultBinding.InterfaceActionName]));
+                //            child.OutputBindings.Add(
+                //new HeliosBinding(child.Triggers[defaultBinding.DeviceTriggerName],
+                //                  _defaultInterface.Actions[defaultBinding.InterfaceActionName]));
             }
         }
 
-        private Point FromCenter(Point pos, Size size) {
-            return new Point(pos.X - size.Width / 2.0, pos.Y - size.Height / 2.0);
+        private Point FromCenter(Point posn, Size size)
+        {
+            return new Point(posn.X - size.Width / 2.0, posn.Y - size.Height / 2.0);
         }
 
         protected void AddTrigger(IBindingTrigger trigger, string device)
@@ -291,12 +299,13 @@ namespace GadrocsWorkshop.Helios
             Actions.Add(action);
         }
 
-        private string GetComponentName(string name) {
+        private string GetComponentName(string name)
+        {
             return Name + "_" + name;
         }
 
         protected Potentiometer AddPot(string name, Point posn, Size size, string knobImage,
-            double initialRotation, double rotationTravel, double minValue, double maxValue, 
+            double initialRotation, double rotationTravel, double minValue, double maxValue,
             double initialValue, double stepValue,
             string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
@@ -331,14 +340,15 @@ namespace GadrocsWorkshop.Helios
                 deviceTriggerName: "value.changed",
                 interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
            );
-
-
-
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.value");
             return _knob;
         }
 
-        protected RotaryEncoder AddEncoder(string name, Point posn, Size size, 
-            string knobImage, double stepValue, double rotationStep, 
+        protected RotaryEncoder AddEncoder(string name, Point posn, Size size,
+            string knobImage, double stepValue, double rotationStep,
             string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
             if (fromCenter)
@@ -379,6 +389,73 @@ namespace GadrocsWorkshop.Helios
             return _knob;
         }
 
+        protected RotarySwitch AddRotarySwitch(string name, Point posn, Size size,
+            string knobImage, int defaultPosition, //Helios.Gauges.M2000C.RSPositions[] positions,
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+            RotarySwitch _knob = new RotarySwitch
+            {
+                Name = componentName,
+                KnobImage = knobImage,
+                DrawLabels = false,
+                DrawLines = false,
+                Top = posn.Y,
+                Left = posn.X,
+                Width = size.Width,
+                Height = size.Height,
+                DefaultPosition = defaultPosition
+            };
+            _knob.Positions.Clear();
+            _knob.DefaultPosition = defaultPosition;
+
+
+            Children.Add(_knob);
+
+            foreach (IBindingTrigger trigger in _knob.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(_knob.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+            return _knob;
+        }
+        protected void AddRotarySwitchBindings(string name, Point posn, Size size, RotarySwitch rotarySwitch,
+            string interfaceDeviceName, string interfaceElementName)
+        {
+            string componentName = GetComponentName(name);
+            Children.Add(rotarySwitch);
+
+            foreach (IBindingTrigger trigger in rotarySwitch.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(rotarySwitch.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+        }
+
 
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
             string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
@@ -411,7 +488,7 @@ namespace GadrocsWorkshop.Helios
             AddDefaultOutputBinding(
                 childName: componentName,
                 deviceTriggerName: "pushed",
-                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName 
+                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
                 );
             AddDefaultOutputBinding(
                 childName: componentName,
@@ -428,11 +505,11 @@ namespace GadrocsWorkshop.Helios
 
         protected Indicator AddIndicator(string name, Point posn, Size size,
             string onImage, string offImage, Color onTextColor, Color offTextColor, string font,
-            bool vertical, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+            bool vertical, string interfaceDeviceName, string interfaceElementName, bool fromCenter, bool withText = true)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);
-            string componentName = GetComponentName("Annunciator " + name);
+            string componentName = GetComponentName(name);
             Indicator indicator = new Helios.Controls.Indicator
             {
                 Top = posn.Y,
@@ -443,27 +520,35 @@ namespace GadrocsWorkshop.Helios
                 OffImage = offImage
             };
 
-            indicator.Text = name;
             indicator.Name = componentName;
-            indicator.OnTextColor = onTextColor;
-            indicator.OffTextColor = offTextColor;
-            indicator.TextFormat.FontStyle = FontStyles.Normal;
-            indicator.TextFormat.FontWeight = FontWeights.Normal;
-            if (vertical)
+
+            if (withText)
             {
-                indicator.TextFormat.FontSize = 8;
+                indicator.Text = name;
+                indicator.OnTextColor = onTextColor;
+                indicator.OffTextColor = offTextColor;
+                indicator.TextFormat.FontStyle = FontStyles.Normal;
+                indicator.TextFormat.FontWeight = FontWeights.Normal;
+                if (vertical)
+                {
+                    indicator.TextFormat.FontSize = 8;
+                }
+                else
+                {
+                    indicator.TextFormat.FontSize = 12;
+                }
+                indicator.TextFormat.FontFamily = new FontFamily(font);
+                indicator.TextFormat.PaddingLeft = 0;
+                indicator.TextFormat.PaddingRight = 0;
+                indicator.TextFormat.PaddingTop = 0;
+                indicator.TextFormat.PaddingBottom = 0;
+                indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
+                indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
             }
             else
             {
-                indicator.TextFormat.FontSize = 12;
+                indicator.Text = "";
             }
-            indicator.TextFormat.FontFamily = new FontFamily(font);
-            indicator.TextFormat.PaddingLeft = 0;
-            indicator.TextFormat.PaddingRight = 0;
-            indicator.TextFormat.PaddingTop = 0;
-            indicator.TextFormat.PaddingBottom = 0;
-            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
 
             Children.Add(indicator);
             foreach (IBindingTrigger trigger in indicator.Triggers)
@@ -472,36 +557,97 @@ namespace GadrocsWorkshop.Helios
             }
             AddAction(indicator.Actions["set.indicator"], componentName);
 
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.indicator");
+
             return indicator;
         }
 
-        protected IndicatorPushButton AddIndicatorPushButton(string name, Point pos, Size size,
-            string image, string pushedImage, Color textColor, Color onTextColor, string font)
+        protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition,
+            string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName,
+            bool fromCenter, bool horizontal = false)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+
+            ToggleSwitch newSwitch = new ToggleSwitch();
+            newSwitch.Name = componentName;
+            newSwitch.SwitchType = defaultType;
+            newSwitch.ClickType = ClickType.Touch;
+            newSwitch.DefaultPosition = defaultPosition;
+            newSwitch.PositionOneImage = positionOneImage;
+            newSwitch.PositionTwoImage = positionTwoImage;
+            newSwitch.Width = size.Width;
+            newSwitch.Height = size.Height;
+
+            newSwitch.Top = posn.Y;
+            newSwitch.Left = posn.X;
+            if (horizontal)
+            {
+                newSwitch.Rotation = HeliosVisualRotation.CW;
+                newSwitch.Orientation = ToggleSwitchOrientation.Horizontal;
+            }
+
+            Children.Add(newSwitch);
+
+            foreach (IBindingTrigger trigger in newSwitch.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(newSwitch.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+            return newSwitch;
+        }
+
+        protected IndicatorPushButton AddIndicatorPushButton(string name, Point posn, Size size,
+            string image, string pushedImage, Color textColor, Color onTextColor, string font,
+            string interfaceDeviceName, string interfaceElementName,
+            bool withText = true)
         {
             string componentName = GetComponentName(name);
             IndicatorPushButton indicator = new Helios.Controls.IndicatorPushButton
             {
-                Top = pos.Y,
-                Left = pos.X,
+                Top = posn.Y,
+                Left = posn.X,
                 Width = size.Width,
                 Height = size.Height,
                 Image = image,
                 PushedImage = pushedImage,
-                Text = name,
                 Name = componentName,
                 OnTextColor = onTextColor,
                 TextColor = textColor
             };
-            indicator.TextFormat.FontStyle = FontStyles.Normal;
-            indicator.TextFormat.FontWeight = FontWeights.Normal;
-            indicator.TextFormat.FontSize = 18;
-            indicator.TextFormat.FontFamily = new FontFamily(font);
-            indicator.TextFormat.PaddingLeft = 0;
-            indicator.TextFormat.PaddingRight = 0;
-            indicator.TextFormat.PaddingTop = 0;
-            indicator.TextFormat.PaddingBottom = 0;
-            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
+            if (withText)
+            {
+                indicator.TextFormat.FontStyle = FontStyles.Normal;
+                indicator.TextFormat.FontWeight = FontWeights.Normal;
+                indicator.TextFormat.FontSize = 18;
+                indicator.TextFormat.FontFamily = new FontFamily(font);
+                indicator.TextFormat.PaddingLeft = 0;
+                indicator.TextFormat.PaddingRight = 0;
+                indicator.TextFormat.PaddingTop = 0;
+                indicator.TextFormat.PaddingBottom = 0;
+                indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
+                indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
+                indicator.Text = name;
+            }
+            else
+            {
+                indicator.Text = "";
+            }
 
             Children.Add(indicator);
             AddTrigger(indicator.Triggers["pushed"], componentName);
@@ -510,30 +656,58 @@ namespace GadrocsWorkshop.Helios
             AddAction(indicator.Actions["push"], componentName);
             AddAction(indicator.Actions["release"], componentName);
             AddAction(indicator.Actions["set.indicator"], componentName);
+
+            // add the default actions
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "pushed",
+                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName
+                );
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "released",
+                interfaceActionName: interfaceDeviceName + ".release." + interfaceElementName
+                );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.physical state");
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.indicator");
             return indicator;
         }
 
-        protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
-            ThreeWayToggleSwitchPosition defaultPosition, ThreeWayToggleSwitchType switchType,
-            string interfaceDeviceName, string interfaceElementName, bool fromCenter, 
-            string positionOneImage = "{Helios}/Images/Toggles/round-up.png", 
-            string positionTwoImage = "{Helios}/Images/Toggles/round-norm.png", 
-            string positionThreeImage = "{Helios}/Images/Toggles/round-down.png")
+        protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point posn, Size size,
+            ThreeWayToggleSwitchPosition defaultPosition, ThreeWayToggleSwitchType defaultType,
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter,
+            string positionOneImage = "{Helios}/Images/Toggles/round-up.png",
+            string positionTwoImage = "{Helios}/Images/Toggles/round-norm.png",
+            string positionThreeImage = "{Helios}/Images/Toggles/round-down.png",
+            ClickType clickType = ClickType.Swipe,
+            bool horizontal = false)
         {
             string componentName = GetComponentName(name);
             ThreeWayToggleSwitch toggle = new ThreeWayToggleSwitch
             {
-                Top = pos.Y,
-                Left =  pos.X,
+                Top = posn.Y,
+                Left = posn.X,
                 Width = size.Width,
                 Height = size.Height,
                 DefaultPosition = defaultPosition,
                 PositionOneImage = positionOneImage,
                 PositionTwoImage = positionTwoImage,
                 PositionThreeImage = positionThreeImage,
-                SwitchType = switchType,
+                SwitchType = defaultType,
                 Name = componentName
             };
+            toggle.ClickType = clickType;
+            if (horizontal)
+            {
+                toggle.Rotation = HeliosVisualRotation.CW;
+                toggle.Orientation = ToggleSwitchOrientation.Horizontal;
+            }
 
             Children.Add(toggle);
             foreach (IBindingTrigger trigger in toggle.Triggers)
@@ -556,26 +730,27 @@ namespace GadrocsWorkshop.Helios
         }
 
         protected TextDisplay AddTextDisplay(
-            string name, 
-            Point pos, 
-            Size size, 
-            string font, 
+            string name,
+            Point posn,
+            Size size,
+            string font,
             TextHorizontalAlignment horizontalAlignment,
             TextVerticalAlignment verticalAligment,
-            double baseFontsize, 
+            double baseFontsize,
             string testTextDisplay,
             Color textColor,
             Color backgroundColor,
             bool useBackground,
-            string interfaceDeviceName, 
-            string interfaceElementName
+            string interfaceDeviceName,
+            string interfaceElementName,
+            string textDisplayDictionary
             )
         {
             string componentName = GetComponentName(name);
             TextDisplay display = new TextDisplay
             {
-                Top = pos.Y,
-                Left = pos.X,
+                Top = posn.Y,
+                Left = posn.X,
                 Width = size.Width,
                 Height = size.Height,
                 Name = componentName
@@ -596,7 +771,15 @@ namespace GadrocsWorkshop.Helios
             display.OnTextColor = textColor; // Color.FromArgb(0xff, 0x40, 0xb3, 0x29);
             display.BackgroundColor = backgroundColor; // Color.FromArgb(0xff, 0x00, 0x00, 0x00);
             display.UseBackground = useBackground;
-            display.ParserDictionary = "";
+            if (textDisplayDictionary.Equals(""))
+            {
+                display.ParserDictionary = "";
+            }
+            else
+            {
+                display.ParserDictionary = textDisplayDictionary;
+                display.UseParseDictionary = true;
+            }
             display.TextTestValue = testTextDisplay;
             Children.Add(display);
             AddAction(display.Actions["set.TextDisplay"], componentName);
@@ -609,6 +792,33 @@ namespace GadrocsWorkshop.Helios
             return display;
         }
 
-    }
+        protected Gauges.BaseGauge AddDisplay(
+            string name,
+            Gauges.BaseGauge gauge,
+            Point posn,
+            Size size,
+            string interfaceDeviceName,
+            string interfaceElementName
+            )
+        {
+            gauge.Name = name;
+            gauge.Top = posn.Y;
+            gauge.Left = posn.X;
+            gauge.Width = size.Width;
+            gauge.Height = size.Height;
 
+            string componentName = GetComponentName(name);
+            gauge.Name = componentName;
+
+            Children.Add(gauge);
+
+            AddAction(gauge.Actions["set.value"], componentName);
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.value");
+            return gauge;
+        }
+    }
 }

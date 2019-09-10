@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.RPM
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.F16.RPM", "RPM", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.RPM", "RPM", "F-16", typeof(GaugeRenderer))]
     public class RPM : BaseGauge
     {
         private HeliosValue _rpm;

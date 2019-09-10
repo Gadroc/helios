@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.fuzeDisplay", "SMC Fuze Display", "AV-8B", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.fuzeDisplay", "SMC Fuze Display", "_Hidden Parts", typeof(GaugeRenderer))]
     public class fuzeDisplay : BaseGauge
     {
         private HeliosValue _fuze_display;
@@ -28,7 +28,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private GaugeDrumCounter _rightDrum;
 
         public fuzeDisplay()
-            : base("Fuze Mode Display", new Size(140, 50))
+            : base("Fuze Mode Display", new Size(112, 50))
         {
             //Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/SMC/fuze_digit_faceplate.xaml", new Rect(0d, 0d, 140d, 50d)));
 

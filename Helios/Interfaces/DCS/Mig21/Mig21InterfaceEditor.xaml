@@ -84,7 +84,7 @@
                 <TextBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"
                  MaxWidth="40" Text="{Binding ElementName=MiG21PropertiesWindow, Path=Configuration.ExportFrequency}"/>
                 <TextBlock Grid.Column="1" Grid.Row="5" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">
-          Number of times per second that intrument guages will be exported per second (min 4).
+          Number of times per second that instrument guages will be exported per second (min 4).
                 </TextBlock>
 
             </Grid>
@@ -128,7 +128,7 @@
                 </Grid>
                 <StackPanel Style="{StaticResource PathInvalid}">
                     <TextBlock Margin="4" Foreground="Red" TextWrapping="Wrap">
-            Can not find game install.
+            Cannot find game install.
                     </TextBlock>
                 </StackPanel>
                 <StackPanel Style="{StaticResource UpToDateStyle}">
@@ -139,7 +139,7 @@
                 </StackPanel>
                 <StackPanel Style="{StaticResource OutOfDateStyle}">
                     <TextBlock Margin="4" TextWrapping="Wrap">
-            In order for Helios to interface with DCS MiG21 an updated Export.lua file must be installed. This will back up and existing Export.lua file and deploy the necessary Helios configuration.
+            In order for Helios to interface with DCS MiG21 an updated Export.lua file must be installed. This will back up an existing Export.lua file and deploy the necessary Helios configuration.
                     </TextBlock>
                     <Button Click="Configure_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2">Setup DCS MiG21</Button>
                 </StackPanel>

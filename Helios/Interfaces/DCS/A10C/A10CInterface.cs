@@ -334,7 +334,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C
             AddFunction(new PushButton(this, UFC, BUTTON_10, "395", "UFC", "0"));
             AddFunction(new PushButton(this, UFC, BUTTON_11, "396", "UFC", "Space"));
             AddFunction(new PushButton(this, UFC, BUTTON_12, "394", "UFC", "Display Hack Time"));
-            AddFunction(new PushButton(this, UFC, BUTTON_13, "397", "UFC", "Select Funciton Mode"));
+            AddFunction(new PushButton(this, UFC, BUTTON_13, "397", "UFC", "Select function Mode"));
             AddFunction(new PushButton(this, UFC, BUTTON_14, "398", "UFC", "Select Letter Mode"));
             AddFunction(new PushButton(this, UFC, BUTTON_15, "399", "UFC", "Clear"));
             AddFunction(new PushButton(this, UFC, BUTTON_16, "400", "UFC", "Enter"));
@@ -871,7 +871,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C
             {
                 if (_dcsPath == null)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS A-10C");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

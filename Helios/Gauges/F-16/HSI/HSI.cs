@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.HSI
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.F16.HSI", "HSI", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.HSI", "HSI", "F-16", typeof(GaugeRenderer))]
     public class HSI : BaseGauge
     {
         private HeliosValue _bearing;

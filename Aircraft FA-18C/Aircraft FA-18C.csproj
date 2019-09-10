@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4FDCE381-AA97-4C5E-B4CF-F9EC6792DD2C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GadrocsWorkshop.Helios</RootNamespace>
+    <AssemblyName>FA-18C</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AMPCD Frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brake_PULLED_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brake_PULLED_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brake_PULLED_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brake_PUSHED_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brake_PUSHED_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\indicator_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\indicator_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\indicator_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Button DnH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Button DnV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Button UpH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MFD Button UpV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MPCD Frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MPCD Knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\panel_Right_front.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pull to Cage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Push to Test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Radar Altimeter Blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Radar Altimeter Off Flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 0 a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn 9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn ALT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn AP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn AWL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn BCN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn CLR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn Dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn DL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn Dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn EMCON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn ENT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn IFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn ILS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn ONOFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn SVE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn TCN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn TMR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn TOO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn WOF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Dn WPN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 0 a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up 9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up ALT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up AP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up AWL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up BCN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up CLR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up Dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up DL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up Dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up EMCON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up ENT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up IFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up ILS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up ONOFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up SVE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up TCN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up TMR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up TOO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up WOF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Button Up WPN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Faceplate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UFC Rotator_U.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Templates\2-way Toggle Domed.htpl">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)Templates\*.*" "$(SolutionDir)$(OutDir)Templates\Base\$(TargetName)\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

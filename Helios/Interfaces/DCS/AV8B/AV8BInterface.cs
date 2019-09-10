@@ -79,7 +79,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         #endregion
 
         public AV8BInterface()
-            : base("DCS AV-8B N/A")
+            : base("DCS AV-8B")
         {
             DCSConfigurator config = new DCSConfigurator("DCSAV8B", DCSPath);
             config.ExportConfigPath = "Config\\Export";
@@ -149,50 +149,57 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region UFC
-            AddFunction(new PushButton(this, UFCCONTROL, "3302", "302", "UFC", "1"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3303", "303", "UFC", "2/N"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3304", "304", "UFC", "3"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3306", "306", "UFC", "4/W"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3307", "307", "UFC", "5"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3308", "308", "UFC", "6/E"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3310", "310", "UFC", "7"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3311", "311", "UFC", "8/S"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3312", "312", "UFC", "9"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3315", "315", "UFC", "0"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3316", "316", "UFC", "."));
-            AddFunction(new PushButton(this, UFCCONTROL, "3313", "313", "UFC", "-"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3314", "314", "UFC", "Enter"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3305", "305", "UFC", "Clear"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3294", "294", "UFC", "Timer"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3324", "324", "UFC", "Altitude"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3318", "318", "UFC", "IFF"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3319", "319", "UFC", "TACAN"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3320", "320", "UFC", "All Weather Landing"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3317", "317", "UFC", "On/Off"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3325", "325", "UFC", "Emmission Control"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3296", "296", "UFC", "Target of Opportunity"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3322", "322", "UFC", "Waypoint Overfly"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3321", "321", "UFC", "Weapons"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3323", "323", "UFC", "RADAR Beacon"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3297", "297", "UFC", "I/P"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3309", "309", "UFC", "Save"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3302", "302", "UFC", "UFC Keypad Pushbutton 1"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3303", "303", "UFC", "UFC Keypad Pushbutton 2"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3304", "304", "UFC", "UFC Keypad Pushbutton 3"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3306", "306", "UFC", "UFC Keypad Pushbutton 4"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3307", "307", "UFC", "UFC Keypad Pushbutton 5"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3308", "308", "UFC", "UFC Keypad Pushbutton 6"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3310", "310", "UFC", "UFC Keypad Pushbutton 7"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3311", "311", "UFC", "UFC Keypad Pushbutton 8"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3312", "312", "UFC", "UFC Keypad Pushbutton 9"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3315", "315", "UFC", "UFC Keypad Pushbutton 0"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3316", "316", "UFC", "UFC Keypad Pushbutton ."));
+            AddFunction(new PushButton(this, UFCCONTROL, "3313", "313", "UFC", "UFC Keypad Pushbutton -"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3314", "314", "UFC", "UFC Keypad Pushbutton ENT"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3305", "305", "UFC", "UFC Keypad Pushbutton CLR"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3294", "294", "UFC", "UFC Function Selector Pushbutton TMR"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3324", "324", "UFC", "UFC Function Selector Pushbutton ALT"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3318", "318", "UFC", "UFC Function Selector Pushbutton IFF"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3319", "319", "UFC", "UFC Function Selector Pushbutton TCN"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3320", "320", "UFC", "UFC Function Selector Pushbutton AWL"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3317", "317", "UFC", "UFC Function Selector Pushbutton ON/OFF"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3325", "325", "UFC", "UFC Emission Control Pushbutton"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3296", "296", "UFC", "UFC Function Selector Pushbutton TOO"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3322", "322", "UFC", "UFC Function Selector Pushbutton WOF"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3321", "321", "UFC", "UFC Function Selector Pushbutton WPN"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3323", "323", "UFC", "UFC Function Selector Pushbutton BCN"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3297", "297", "UFC", "UFC I/P Pushbutton"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3309", "309", "UFC", "UFC Keypad Pushbutton SVE"));
             AddFunction(new PushButton(this, LTWCA, "3198", "198", "Caution/Warning", "Master Caution Button"));
-            AddFunction(new FlagValue(this, "196", "Caution/Warning", "Master Caution", "Master Caution indicator"));
+            AddFunction(new FlagValue(this, "196", "Caution/Warning", "Master Caution Indicator", "Master Caution indicator"));
             AddFunction(new PushButton(this, LTWCA, "3199", "199", "Caution/Warning", "Master Warning Button"));
-            AddFunction(new FlagValue(this, "197", "Caution/Warning", "Master Warning", "Master warning indicator"));
-            AddFunction(new Axis(this, UFCCONTROL, "3295", "295", 0.1d, 0d, 1d, "UFC", "Display Brightness"));
-            AddFunction(new Axis(this, UFCCONTROL, "3298", "298", 0.1d, 0d, 1d, "UFC", "Comm 1 Volume"));
-            AddFunction(new Axis(this, UFCCONTROL, "3299", "299", 0.1d, 0d, 1d, "UFC", "Comm 2 Volume"));
-            AddFunction(new Axis(this, UFCCONTROL, "3300", "300", 0.1d, 0d, 1d, "UFC", "Comm 1 Channel selector"));
-            AddFunction(new Axis(this, UFCCONTROL, "3301", "301", 0.1d, 0d, 1d, "UFC", "Comm 2 Channel selector"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3178", "178", "UFC", "Comm 1 Channel selector button"));
-            AddFunction(new PushButton(this, UFCCONTROL, "3179", "179", "UFC", "Comm 2 Channel selector button"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "288", "0", "Norm", "0.5", "Reject 1", "1", "Reject 2", "HUD Control", "Declutter switch", "%.1f"));
+            AddFunction(new FlagValue(this, "197", "Caution/Warning", "Master Warning Indicator", "Master Warning indicator"));
+            AddFunction(new Axis(this, UFCCONTROL, "3295", "295", 0.1d, 0d, 1d, "UFC", "UFC Brightness Control Knob"));
+            AddFunction(new Axis(this, UFCCONTROL, "3298", "298", 0.1d, 0d, 1d, "UFC", "UFC COMM 1 Volume Control Knob"));
+            AddFunction(new Axis(this, UFCCONTROL, "3299", "299", 0.1d, 0d, 1d, "UFC", "UFC COMM 2 Volume Control Knob"));
+            AddFunction(new Axis(this, UFCCONTROL, "3300", "300", 0.005d, -1d, 1d, "UFC", "UFC COMM 1 Channel Selector Knob"));
+            AddFunction(new Axis(this, UFCCONTROL, "3301", "301", 0.005d, -1d, 1d, "UFC", "UFC COMM 2 Channel Selector Knob"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3178", "178", "UFC", "UFC COMM 1 Channel Selector Pull"));
+            AddFunction(new PushButton(this, UFCCONTROL, "3179", "179", "UFC", "UFC COMM 2 Channel Selector Pull"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3288", "288", "1", "Norm", "0.5", "Reject 1", "0", "Reject 2", "HUD Control", "Declutter switch", "%.1f"));
             AddFunction(new Axis(this, HUDCONTROL, "3289", "289", 0.1d, 0d, 1d, "HUD Control", "Off/Brightness control"));
             AddFunction(Switch.CreateThreeWaySwitch(this, HUDCONTROL, "3290", "290", "0", "Day", "0.5", "Auto", "1", "Night", "HUD Control", "Display Mode switch", "%.1f"));
             AddFunction(new Axis(this, HUDCONTROL, "3291", "291", 0.1d, 0d, 1d, "HUD Control", "Video Brightness"));
             AddFunction(new Axis(this, HUDCONTROL, "3292", "292", 0.1d, 0d, 1d, "HUD Control", "Video Contrast"));
             AddFunction(Switch.CreateToggleSwitch(this, HUDCONTROL, "3293", "293", "0", "RDR", "1", "Baro", "HUD Control", "Altimeter Mode Switch", "%1d"));
+
+            AddFunction(new Text(this, "2092", "UFC", "Left Scratchpad Data", "Value of the scratchpad left display"));
+            AddFunction(new Text(this, "2094", "UFC", "Scratchpad Number", "Value of the scratchpad number display"));
+            AddFunction(new Text(this, "2095", "UFC", "Comm Channel 1", "Value of Communications Channel 1 display"));
+            AddFunction(new Text(this, "2096", "UFC", "Comm Channel 2", "Value of Communications Channel 2 display"));
+
+
             #endregion
 
             #region Master Modes
@@ -205,11 +212,24 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region ODU
-            AddFunction(new PushButton(this, ODUCONTROL, "3250", "250", "ODU", "1"));
-            AddFunction(new PushButton(this, ODUCONTROL, "3251", "251", "ODU", "2"));
-            AddFunction(new PushButton(this, ODUCONTROL, "3252", "252", "ODU", "3"));
-            AddFunction(new PushButton(this, ODUCONTROL, "3248", "248", "ODU", "4"));
-            AddFunction(new PushButton(this, ODUCONTROL, "3249", "249", "ODU", "5"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3250", "250", "ODU", "ODU Option Select Pushbutton 1"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3251", "251", "ODU", "ODU Option Select Pushbutton 2"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3252", "252", "ODU", "ODU Option Select Pushbutton 3"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3248", "248", "ODU", "ODU Option Select Pushbutton 4"));
+            AddFunction(new PushButton(this, ODUCONTROL, "3249", "249", "ODU", "ODU Option Select Pushbutton 5"));
+
+            AddFunction(new Text(this, "2082", "ODU", "Option Display 1", "Text Value of the Option Display #1"));
+            AddFunction(new Text(this, "2083", "ODU", "Option Display 2", "Text Value of the Option Display #2"));
+            AddFunction(new Text(this, "2084", "ODU", "Option Display 3", "Text Value of the Option Display #3"));
+            AddFunction(new Text(this, "2085", "ODU", "Option Display 4", "Text Value of the Option Display #4"));
+            AddFunction(new Text(this, "2086", "ODU", "Option Display 5", "Text Value of the Option Display #5"));
+            AddFunction(new Text(this, "2087", "ODU", "Option Display 1 Selected", "Option Display #1 Selected"));
+            AddFunction(new Text(this, "2088", "ODU", "Option Display 2 Selected", "Option Display #2 Selected"));
+            AddFunction(new Text(this, "2089", "ODU", "Option Display 3 Selected", "Option Display #3 Selected"));
+            AddFunction(new Text(this, "2090", "ODU", "Option Display 4 Selected", "Option Display #4 Selected"));
+            AddFunction(new Text(this, "2091", "ODU", "Option Display 5 Selected", "Option Display #5 Selected"));
+
+
             #endregion
 
             #region Threat Indicators
@@ -220,26 +240,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Caution Indicators
-            AddFunction(new FlagValue(this, "326", "Caution Indicators", "L Fuel Indicator", ""));
-            AddFunction(new FlagValue(this, "327", "Caution Indicators", "R fuel Indicator", ""));
-            AddFunction(new FlagValue(this, "328", "Caution Indicators", "15 Sec Indicator", "JPT above normal lift rating"));
-            AddFunction(new FlagValue(this, "329", "Caution Indicators", "MFS", "Manual Fuel System on"));
-            AddFunction(new FlagValue(this, "330", "Caution Indicators", "Bingo", "Bingo Warning Light"));
-            AddFunction(new FlagValue(this, "331", "Caution Indicators", "H2O", "Less than 15 secs water left"));
+            AddFunction(new FlagValue(this, "326", "Caution Indicators", "Caution L Fuel Indicator", ""));
+            AddFunction(new FlagValue(this, "327", "Caution Indicators", "Caution R fuel Indicator", ""));
+            AddFunction(new FlagValue(this, "328", "Caution Indicators", "Caution 15 Sec Indicator", "JPT above normal lift rating"));
+            AddFunction(new FlagValue(this, "329", "Caution Indicators", "Caution MFS", "Manual Fuel System on"));
+            AddFunction(new FlagValue(this, "330", "Caution Indicators", "Caution Bingo", "Bingo Warning Light"));
+            AddFunction(new FlagValue(this, "331", "Caution Indicators", "Caution H2O", "Less than 15 secs water left"));
             #endregion
 
             #region Warning Indicators
-            AddFunction(new FlagValue(this, "334", "Warning Indicators", "Fire", "Fire in engine"));
-            AddFunction(new FlagValue(this, "335", "Warning Indicators", "LAW", "Low alt warning"));
-            AddFunction(new FlagValue(this, "336", "Warning Indicators", "Flaps Warning Light", "Flap System Failure"));
-            AddFunction(new FlagValue(this, "337", "Warning Indicators", "L Tank", "Left tank over pressure"));
-            AddFunction(new FlagValue(this, "338", "Warning Indicators", "R Tank", "Right Tank Over pressure"));
-            AddFunction(new FlagValue(this, "339", "Warning Indicators", "HYD", "Both hydraulics failed"));
-            AddFunction(new FlagValue(this, "340", "Warning Indicators", "Gear", "Gear Warning Light"));
-            AddFunction(new FlagValue(this, "341", "Warning Indicators", "OT", "Over temp JPT"));
-            AddFunction(new FlagValue(this, "342", "Warning Indicators", "JPTL", "JPTL Control Fail"));
-            AddFunction(new FlagValue(this, "343", "Warning Indicators", "EFC", "All Digital engine controls failed"));
-            AddFunction(new FlagValue(this, "344", "Warning Indicators", "GEN", "AC Generator offline"));
+            AddFunction(new FlagValue(this, "334", "Warning Indicators", "Warning Fire", "Fire in engine"));
+            AddFunction(new FlagValue(this, "335", "Warning Indicators", "Warning LAW", "Low alt warning"));
+            AddFunction(new FlagValue(this, "336", "Warning Indicators", "Warning Flaps", "Flap System Failure"));
+            AddFunction(new FlagValue(this, "337", "Warning Indicators", "Warning L Tank", "Left tank over pressure"));
+            AddFunction(new FlagValue(this, "338", "Warning Indicators", "Warning R Tank", "Right Tank Over pressure"));
+            AddFunction(new FlagValue(this, "339", "Warning Indicators", "Warning HYD", "Both hydraulics failed"));
+            AddFunction(new FlagValue(this, "340", "Warning Indicators", "Warning Gear", "Gear Warning Light"));
+            AddFunction(new FlagValue(this, "341", "Warning Indicators", "Warning OT", "Over temp JPT"));
+            AddFunction(new FlagValue(this, "342", "Warning Indicators", "Warning JPTL", "JPTL Control Fail"));
+            AddFunction(new FlagValue(this, "343", "Warning Indicators", "Warning EFC", "All Digital engine controls failed"));
+            AddFunction(new FlagValue(this, "344", "Warning Indicators", "Warning GEN", "AC Generator offline"));
             #endregion
 
             #region Refueling Indicators
@@ -255,6 +275,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new Digits4Display(this, FQIS, "2012", "Fuel Quantity", "Right Tank display", "Fuel right tank quantity"));
             AddFunction(new Digits4Display(this, FQIS, "2013", "Fuel Quantity", "Bingo value display", "Fuel Bingo amount"));
             AddFunction(new FuelTotalDisplay(this));
+            AddFunction(new FlagValue(this, "365", "Fuel Quantity", "Off Flag", "FQIS is off"));
             #endregion
 
             #region ECM
@@ -264,53 +285,53 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region Advisory indicators
-            AddFunction(new FlagValue(this, "560", "Advisory Indicators", "OXY", "OBOGS malfunction"));
-            AddFunction(new FlagValue(this, "561", "Advisory Indicators", "WSHLD", "Windshield hot"));
-            AddFunction(new FlagValue(this, "562", "Advisory Indicators", "HYD 1", "HYD 1 pressure ≤ 1400 psi"));
-            AddFunction(new FlagValue(this, "563", "Advisory Indicators", "HYD 2", "HYD 2 pressure ≤ 1400 psi"));
-            AddFunction(new FlagValue(this, "564", "Advisory Indicators", "L PUMP", "Left fuel boost pump pressure low"));
-            AddFunction(new FlagValue(this, "565", "Advisory Indicators", "R PUMP", "Right fuel boost pump pressure low"));
-            AddFunction(new FlagValue(this, "566", "Advisory Indicators", "L TRANS", "Low air pressure to the left feeder tank"));
-            AddFunction(new FlagValue(this, "567", "Advisory Indicators", "R TRANS", "Low air pressure to the right feeder tank"));
-            AddFunction(new FlagValue(this, "568", "Advisory Indicators", "FLAPS 1", "Flaps 1 channel failed"));
-            AddFunction(new FlagValue(this, "569", "Advisory Indicators", "FLAPS 2", "Flaps 2 channel failed"));
-            AddFunction(new FlagValue(this, "570", "Advisory Indicators", "AUT FLP", "Auto flap mode or ADC failed"));
-            AddFunction(new FlagValue(this, "571", "Advisory Indicators", "PROP", "Fuel proportioner off or failed"));
-            AddFunction(new FlagValue(this, "572", "Advisory Indicators", "LIDS", "LIDS not in correct position"));
-            AddFunction(new FlagValue(this, "573", "Advisory Indicators", "OIL", "Oil pressure low"));
-            AddFunction(new FlagValue(this, "574", "Advisory Indicators", "APU GEN", "APU selected and emergency generator failed"));
-            AddFunction(new FlagValue(this, "575", "Advisory Indicators", "Blank 1", "Unused"));
-            AddFunction(new FlagValue(this, "576", "Advisory Indicators", "GPS", "GPS not valid"));
-            AddFunction(new FlagValue(this, "577", "Advisory Indicators", "DEP RES", "Departure resistance reduced"));
-            AddFunction(new FlagValue(this, "578", "Advisory Indicators", "DC", "Main transformer-rectifier failed"));
-            AddFunction(new FlagValue(this, "579", "Advisory Indicators", "STBY TRU", "Standby TRU inoperative or off line"));
-            AddFunction(new FlagValue(this, "580", "Advisory Indicators", "CS COOL", "Cockpit avionics cooling fan failed"));
-            AddFunction(new FlagValue(this, "581", "Advisory Indicators", "LOAD", "Fuel asymmetry over VL limit"));
-            AddFunction(new FlagValue(this, "582", "Advisory Indicators", "CANOPY", "Canopy not closed and locked"));
-            AddFunction(new FlagValue(this, "583", "Advisory Indicators", "INS", "INS aligning or failed"));
-            AddFunction(new FlagValue(this, "584", "Advisory Indicators", "SKID", "Anti-Skid System Malfunction"));
-            AddFunction(new FlagValue(this, "585", "Advisory Indicators", "EFC", "DECU 1 or DECU 2 has failed"));
-            AddFunction(new FlagValue(this, "586", "Advisory Indicators", "NWS", "Nosewheel Steering malfunction"));
-            AddFunction(new FlagValue(this, "587", "Advisory Indicators", "AFC", "AFC malfunction or AFC deselected"));
-            AddFunction(new FlagValue(this, "588", "Advisory Indicators", "C*AUT", "Computed delivery mode (AUTO and CCIP) not available"));
-            AddFunction(new FlagValue(this, "589", "Advisory Indicators", "H2O SEL", "Over 250 knots and water switch not OFF"));
-            AddFunction(new FlagValue(this, "590", "Advisory Indicators", "APU", "APU operating"));
-            AddFunction(new FlagValue(this, "591", "Advisory Indicators", "PITCH", "Pitch stab aug off or failed"));
-            AddFunction(new FlagValue(this, "592", "Advisory Indicators", "IFF", "Mode 4 off, not zeroized or not responding"));
-            AddFunction(new FlagValue(this, "593", "Advisory Indicators", "SPD BRK", "Gear up and speed brake extended. Gear down and speed brake not 250"));
-            AddFunction(new FlagValue(this, "594", "Advisory Indicators", "DROOP", "Ailerons dropped"));
-            AddFunction(new FlagValue(this, "595", "Advisory Indicators", "ROLL", "Roll stab aug off or failed"));
-            AddFunction(new FlagValue(this, "596", "Advisory Indicators", "AFT BAY", "Aft avionics bay ECS failed"));
-            AddFunction(new FlagValue(this, "597", "Advisory Indicators", "AV BIT", "Refuelng Right Light"));
-            AddFunction(new FlagValue(this, "598", "Advisory Indicators", "Blank 2", "Unused"));
-            AddFunction(new FlagValue(this, "599", "Advisory Indicators", "YAW", "Yaw stab aug off or failed"));
-            AddFunction(new FlagValue(this, "600", "Advisory Indicators", "CW NOGO", "Jammer Failure. Cannot jam CW radars"));
-            AddFunction(new FlagValue(this, "601", "Advisory Indicators", "P JAM", "Jammer Pod Active: Jamming Pulse-Doppler radar signals"));
-            AddFunction(new FlagValue(this, "602", "Advisory Indicators", "JMR HOT", "Jammer pod overtemp"));
-            AddFunction(new FlagValue(this, "603", "Advisory Indicators", "ENG EXC", "Engine overspeed, overtemperature or over g was detected"));
-            AddFunction(new FlagValue(this, "604", "Advisory Indicators", "P NOGO", "Jammer Failure. Cannot jam Pulse-Doppler radars"));
-            AddFunction(new FlagValue(this, "605", "Advisory Indicators", "CW JAM", "Jammer Pod Active: Jamming CW radar signals"));
-            AddFunction(new FlagValue(this, "606", "Advisory Indicators", "REPLY", "IFF responding to Mode 4 interrogation"));
+            AddFunction(new FlagValue(this, "560", "Advisory Indicators", "Advisory OXY", "OBOGS malfunction"));
+            AddFunction(new FlagValue(this, "561", "Advisory Indicators", "Advisory WSHLD", "Windshield hot"));
+            AddFunction(new FlagValue(this, "562", "Advisory Indicators", "Advisory HYD 1", "HYD 1 pressure ≤ 1400 psi"));
+            AddFunction(new FlagValue(this, "563", "Advisory Indicators", "Advisory HYD 2", "HYD 2 pressure ≤ 1400 psi"));
+            AddFunction(new FlagValue(this, "564", "Advisory Indicators", "Advisory L PUMP", "Left fuel boost pump pressure low"));
+            AddFunction(new FlagValue(this, "565", "Advisory Indicators", "Advisory R PUMP", "Right fuel boost pump pressure low"));
+            AddFunction(new FlagValue(this, "566", "Advisory Indicators", "Advisory L TRANS", "Low air pressure to the left feeder tank"));
+            AddFunction(new FlagValue(this, "567", "Advisory Indicators", "Advisory R TRANS", "Low air pressure to the right feeder tank"));
+            AddFunction(new FlagValue(this, "568", "Advisory Indicators", "Advisory FLAPS 1", "Flaps 1 channel failed"));
+            AddFunction(new FlagValue(this, "569", "Advisory Indicators", "Advisory FLAPS 2", "Flaps 2 channel failed"));
+            AddFunction(new FlagValue(this, "570", "Advisory Indicators", "Advisory AUT FLP", "Auto flap mode or ADC failed"));
+            AddFunction(new FlagValue(this, "571", "Advisory Indicators", "Advisory PROP", "Fuel proportioner off or failed"));
+            AddFunction(new FlagValue(this, "572", "Advisory Indicators", "Advisory LIDS", "LIDS not in correct position"));
+            AddFunction(new FlagValue(this, "573", "Advisory Indicators", "Advisory OIL", "Oil pressure low"));
+            AddFunction(new FlagValue(this, "574", "Advisory Indicators", "Advisory APU GEN", "APU selected and emergency generator failed"));
+            AddFunction(new FlagValue(this, "575", "Advisory Indicators", "Advisory Blank 1", "Unused"));
+            AddFunction(new FlagValue(this, "576", "Advisory Indicators", "Advisory GPS", "GPS not valid"));
+            AddFunction(new FlagValue(this, "577", "Advisory Indicators", "Advisory DEP RES", "Departure resistance reduced"));
+            AddFunction(new FlagValue(this, "578", "Advisory Indicators", "Advisory DC", "Main transformer-rectifier failed"));
+            AddFunction(new FlagValue(this, "579", "Advisory Indicators", "Advisory STBY TRU", "Standby TRU inoperative or off line"));
+            AddFunction(new FlagValue(this, "580", "Advisory Indicators", "Advisory CS COOL", "Cockpit avionics cooling fan failed"));
+            AddFunction(new FlagValue(this, "581", "Advisory Indicators", "Advisory LOAD", "Fuel asymmetry over VL limit"));
+            AddFunction(new FlagValue(this, "582", "Advisory Indicators", "Advisory CANOPY", "Canopy not closed and locked"));
+            AddFunction(new FlagValue(this, "583", "Advisory Indicators", "Advisory INS", "INS aligning or failed"));
+            AddFunction(new FlagValue(this, "584", "Advisory Indicators", "Advisory SKID", "Anti-Skid System Malfunction"));
+            AddFunction(new FlagValue(this, "585", "Advisory Indicators", "Advisory EFC", "DECU 1 or DECU 2 has failed"));
+            AddFunction(new FlagValue(this, "586", "Advisory Indicators", "Advisory NWS", "Nosewheel Steering malfunction"));
+            AddFunction(new FlagValue(this, "587", "Advisory Indicators", "Advisory AFC", "AFC malfunction or AFC deselected"));
+            AddFunction(new FlagValue(this, "588", "Advisory Indicators", "Advisory C*AUT", "Computed delivery mode (AUTO and CCIP) not available"));
+            AddFunction(new FlagValue(this, "589", "Advisory Indicators", "Advisory H2O SEL", "Over 250 knots and water switch not OFF"));
+            AddFunction(new FlagValue(this, "590", "Advisory Indicators", "Advisory APU", "APU operating"));
+            AddFunction(new FlagValue(this, "591", "Advisory Indicators", "Advisory PITCH", "Pitch stab aug off or failed"));
+            AddFunction(new FlagValue(this, "592", "Advisory Indicators", "Advisory IFF", "Mode 4 off, not zeroized or not responding"));
+            AddFunction(new FlagValue(this, "593", "Advisory Indicators", "Advisory SPD BRK", "Gear up and speed brake extended. Gear down and speed brake not 250"));
+            AddFunction(new FlagValue(this, "594", "Advisory Indicators", "Advisory DROOP", "Ailerons dropped"));
+            AddFunction(new FlagValue(this, "595", "Advisory Indicators", "Advisory ROLL", "Roll stab aug off or failed"));
+            AddFunction(new FlagValue(this, "596", "Advisory Indicators", "Advisory AFT BAY", "Aft avionics bay ECS failed"));
+            AddFunction(new FlagValue(this, "597", "Advisory Indicators", "Advisory AV BIT", "Refuelng Right Light"));
+            AddFunction(new FlagValue(this, "598", "Advisory Indicators", "Advisory Blank 2", "Unused"));
+            AddFunction(new FlagValue(this, "599", "Advisory Indicators", "Advisory YAW", "Yaw stab aug off or failed"));
+            AddFunction(new FlagValue(this, "600", "Advisory Indicators", "Advisory CW NOGO", "Jammer Failure. Cannot jam CW radars"));
+            AddFunction(new FlagValue(this, "601", "Advisory Indicators", "Advisory P JAM", "Jammer Pod Active: Jamming Pulse-Doppler radar signals"));
+            AddFunction(new FlagValue(this, "602", "Advisory Indicators", "Advisory JMR HOT", "Jammer pod overtemp"));
+            AddFunction(new FlagValue(this, "603", "Advisory Indicators", "Advisory ENG EXC", "Engine overspeed, overtemperature or over g was detected"));
+            AddFunction(new FlagValue(this, "604", "Advisory Indicators", "Advisory P NOGO", "Jammer Failure. Cannot jam Pulse-Doppler radars"));
+            AddFunction(new FlagValue(this, "605", "Advisory Indicators", "Advisory CW JAM", "Jammer Pod Active: Jamming CW radar signals"));
+            AddFunction(new FlagValue(this, "606", "Advisory Indicators", "Advisory REPLY", "IFF responding to Mode 4 interrogation"));
             #endregion
 
             #region Landing Gear
@@ -372,7 +393,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #endregion
 
-
             #region Left Hand Left Hand Switches Fuel External Lights SAAHS
             ////         --Trim Panel
             AddFunction(Switch.CreateThreeWaySwitch(this, FLIGHTCONTROLS, "3471", "471", "1", "Test", "0.5", "On", "0", "Off", "SAAHS", "RPS/YAW Trim Switch", "%.1f"));
@@ -416,28 +436,28 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region Stores Management Controller
             AddFunction(Switch.CreateToggleSwitch(this, SMC, "3287", "287", "1", "Armed", "0", "Safe", "Stores Management", "Master Arm Switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3396", "396", "1", "Up", "0", "Off", "-1", "Dn", "Stores Management", "Armament Mode control", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "397", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Fuzing control", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "398", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Tens", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "399", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Quantity Units", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "400", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Multiple Release", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "401", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval hundreds", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "402", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval tens", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "403", "1", "Increase", "0", "Off", "-1", "decrease", "Stores Management", "Armament Release interval units", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3397", "397", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Fuzing control", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3398", "398", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Quantity Tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3399", "399", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Quantity Units", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3400", "400", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Multiple Release", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3401", "401", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Release interval hundreds", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3402", "402", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Release interval tens", "%1d"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, SMC, "3403", "403", "1", "Increase", "0", "Off", "-1", "Decrease", "Stores Management", "Armament Release interval units", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, SMC, "3420", "420", "1", "Cooling", "0", "Off", "Stores Management", "IR Cool Switch", "%1d"));
-            AddFunction(new PushButton(this, SMC, "3407", "407", "Stores Management", "Select station 1"));
-            AddFunction(new FlagValue(this, "406", "Stores Management", "Station 1 Selected", "Station 1 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3409", "409", "Stores Management", "Select station 2"));
-            AddFunction(new FlagValue(this, "408", "Stores Management", "Station 2 Selected", "station 2 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3411", "411", "Stores Management", "Select station 3"));
-            AddFunction(new FlagValue(this, "410", "Stores Management", "Station 3 Selected", "station 3 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3413", "413", "Stores Management", "Select station 4"));
-            AddFunction(new FlagValue(this, "412", "Stores Management", "Station 4 Selected", "station 4 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3415", "415", "Stores Management", "Select station 5"));
-            AddFunction(new FlagValue(this, "414", "Stores Management", "Station 5 Selected", "station 5 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3417", "417", "Stores Management", "Select station 6"));
-            AddFunction(new FlagValue(this, "416", "Stores Management", "Station 6 Selected", "station 6 selected indicator"));
-            AddFunction(new PushButton(this, SMC, "3419", "419", "Stores Management", "Select station 7"));
-            AddFunction(new FlagValue(this, "418", "Stores Management", "Station 7 Selected", "station 7 selected indicator"));
+            AddFunction(new PushButton(this, SMC, "3407", "407", "Stores Management", "Station 1 Button"));
+            AddFunction(new FlagValue(this, "406", "Stores Management", "Station 1 Selected Indicator", "Station selected flag"));
+            AddFunction(new PushButton(this, SMC, "3409", "409", "Stores Management", "Station 2 Button"));
+            AddFunction(new FlagValue(this, "408", "Stores Management", "Station 2 Selected Indicator", "Station selected flag"));
+            AddFunction(new PushButton(this, SMC, "3411", "411", "Stores Management", "Station 3 Button"));
+            AddFunction(new FlagValue(this, "410", "Stores Management", "Station 3 Selected Indicator", "Station selected flag"));
+            AddFunction(new PushButton(this, SMC, "3413", "413", "Stores Management", "Station 4 Button"));
+            AddFunction(new FlagValue(this, "412", "Stores Management", "Station 4 Selected Indicator", "Station selected flag"));
+            AddFunction(new PushButton(this, SMC, "3415", "415", "Stores Management", "Station 5 Button"));
+            AddFunction(new FlagValue(this, "414", "Stores Management", "Station 5 Selected Indicator", "Station selected flag"));
+            AddFunction(new PushButton(this, SMC, "3417", "417", "Stores Management", "Station 6 Button"));
+            AddFunction(new FlagValue(this, "416", "Stores Management", "Station 6 Selected Indicator", "Station selected flag"));
+            AddFunction(new PushButton(this, SMC, "3419", "419", "Stores Management", "Station 7 Button"));
+            AddFunction(new FlagValue(this, "418", "Stores Management", "Station 7 Selected Indicator", "Station 7 Selected Indicator"));
             AddFunction(new PushButton(this, SMC, "3286", "286", "Stores Management", "Launch Flare Salvo"));
             AddFunction(new Switch(this, SMC, "3404", new SwitchPosition[] { new SwitchPosition("-1.0", "STA", "3404"), new SwitchPosition("-0.5", "STOR", "3404"), new SwitchPosition("0.0", "SAFE", "3404"), new SwitchPosition("0.5", "CMBT", "3404"), new SwitchPosition("1.0", "FUEL", "3404") },  "Stores Management", "Jettison Mode Selector", "%0.1f"));
             AddFunction(new PushButton(this, SMC, "3405", "405", "Stores Management", "Jettison Stores"));
@@ -613,7 +633,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             {
                 if (_dcsPath == null)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS AV-8B");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

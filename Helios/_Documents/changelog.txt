@@ -1,12 +1,133 @@
-1.4.2019.0330 Release
+1.4.2019.???? Release
+----------------------------
+
+
+1.4.2019.0908 Release
+----------------------------
+* Adjustments to the method to identify the scripts directory
+* Graphical improvements to AV-8B SMC, FQIS, ODU, EDP, UFC, MFD including support for automatically
+	binding the controls to the AV-8B interface if it has been added.  
+	* * * Note:  We've tried to limit any beakages, but there are certain to be some issues with existing
+	       AV-8B profiles.
+* AV-8B ODU and UFC text based displays - to avoid viewports for these devices
+* Fix for problem with new Export.lua not sending data after the first set of sends
+* Refactoring to move images and templates from Helios.dll into aircraft specific dlls.  Any profiles which make use
+	of images for M2000C, AV-8B or F/A-18C embedded within Helios will have to change references 
+	from 
+		{helios}\Images\aircraft\xxxx.png 
+	to 
+		{M2000C}\Images\xxxx.png, {AV-8B}\Images\xxxx.png, {FA-18C}\Images\xxxx.png
+* New Autobinding Caution Panel for Mirage 2000C
+* Updates to the Interfaces for A-10C, F/A-18C, AV-8B, and Mirage 2000C to improve integration with the different
+	types of DCS World installations
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+|	* * * * * * * * * * * * * * * * * *
+|	* * *       Shadowman's       * * *
+|	* * *   M2000C Status as of   * * *
+|	* * *    31st August 2019     * * *
+|	* * * * * * * * * * * * * * * * * *
+|
+|	* Caution Panel:  What is working:  all the indicators; all the switches
+|	* Master Caution Lights Panel:  What is working: 2 red and yellow PANNE indicators
+|	* Start Engine Panel:  The 5 switches work
+|	* Landing Gear Panel: the 3 switches, the landing gear lever, the emergency jettison lever and all 
+|                         the indicators are working	
+|	* Other:  Testing is incomplete, but more of the switches should work.				
+|	
+|	Known issues:
+|		Master Caution Lights Panel: this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
+|		Start Engine Panel: Temporarily removed the two red Guard Covers because we are not able to use the switches/button under
+|		Landing Gear Panel: two red Guard Covers removed; the emergency landing gear lever : it seems there is nothing coming from DCS
+|			and need to work a little on the RotarySwitch in CompositoVisual.cs
+|
++-----------------------------------------------------------------------------------------------------------------------------------------+
+
+1.4.2019.0823 Release
+----------------------------
+* Adjustments made to templates for F-16 gauges, parts, etc in toolbox 
+* Empty panel template created for toolbox
+* Helios exports.lua plays nicely when in a chain of exports.
+* Breaking backwards compatibility on the Hornet UFC (*** you'll need to re-add the F/A-18C Export.lua interface ***) 
+*	Bug fix for Hornet UFC font (now 1.2)
+*	Bug fix for datastream encoding in non-Latin locales.
+* Bug fix for 10 second delay on profile start introduced in 1.4.2019.0616
+* Special Guest submission from Jabbers.... Control Center size independent of the Windows scaling value - Let us know what you think 
+
+1.4.2019.0616 Release
+----------------------------
+* Fixed bug stopping both Profile Editor and Control Center not running at the same time
+* Extended the 0611 change log.
+* Changed the Helios Update process and version checking
+* Reduced the nagging frequency when there is a new release available
+* Fix for Control Center window positioning not working.
+
+1.4.2019.0611 Release
+----------------------------
+* Original Helios User Guide refreshed and included
+* GNU LESSER GENERAL PUBLIC LICENSE file added to the distribution
+* Returned missing BMS F-16 images
+* New control - Potentiometer with Translate and rotate. (Rasmaninoff)
+* New custom gauge providing standard way to create a new suction gauge with only one needle (Capt Zeen)
+* Rectangle Fill control used to create instruments like the Su25 Fuel bars and Mi-8 doppler bars (Capt Zeen)
+* Kneeboard control added (Capt Zeen)
+* Black Shark Interface changes(Capt Zeen) 
+	- Corrected Device numbers: PPK, ILLUMINATION INTERFACE, SIGNAL_FLARE_DISPENSER, STBY_ADI,  PSHK7, ZMS_3, K041
+	- Added ACCELEROMETER device 61
+	- Added CLOCK device 29
+	- modified DH/DT device to NAV_SYSTEMS
+	- modified Abris power swith from 1 0 to 1.0 0.0
+	- Added plafond switch
+	- Added lightimg auxiliar panel switch
+	- Swapped values in INU fixating method swith from 1 to 0
+	- Change device to the Datalink Power switch to DATALAINK
+	- Corrected Pitot AOA switch
+	- Corrected Pitot Hat RAM switch
+	- Swapped values in Engine rotor anti-ice switch from 1 to 0
+	- Added Baro QFE Knob encoder
+	- Added lighting back panel switch
+	- added lighting NAVG switch
+	- added lighting main panel switch
+	- Added lighting ADI HSI switch
+	- Added UV26 Messages display
+	- Added PVI message digits
+	- Added EKRAN messages displays
+	- Modified and corrected the Magnetic variation function
+	- Modified device on Accelerometer Reset button to ACCELEROMETER and BUTTON_1
+	- Corrected AC/DC Inverter switch from 01.f to 0.1f
+	- Corrected fire extinguisher work/off/test guard values to float
+	- Corrected EEG Power Turbine Test guard to floats
+	- Magnetic variatoin selection btn_1 is a rotary encoder now
+	- Latitude Correction btn_1 is a rotary encoder now
+	- Added test backup adi button
+	- Added Backup ADI Longitudinal Deviation Bar
+	- Added Backup ADI Lateral Deviation Bar
+	- Added ambient temperature
+	- Corrected UV26 power guard and Test guard buttons numbers
+	- Corrected System Bit selector to rotaryswitch
+* Configurable reflectivity for front Glass of IFEI (derammo)
+* Control Center Preference added to stop secondary mouse events that some touch screens generate afrter a touch event (derammo)
+* Update Phidgets to version Phidget21 2.1.9 Build date Feb 15 2018 (KiwiLostInMelb)
+* Fixed Phidgits crashing on startup and closure (KiwiLostInMelb)
+* Fixed Phidgit's to handle out of range acceleration and travel entries entered in the Profile Editor (KiwiLostInMelb)
+* Added events for startup, connect aircraft and shutdown - used for re-centering real guages before shutdown to a known state - needed with Phidgits interface as it doesnt remember state across restarts - eliminates broken needle issues. (KiwiLostInMelb)
+* Added Key Press Receiver program (Runs on PC which is running DCS) to issue key presses on DCS machine served from Control Center running on a different PC (KiwiLostInMelb)   
+* Added ability to send key presses to a different PC using TCP on port 9088 (KiwiLostInMelb)
+* The usual minor bug changes
+
+1.4.2019.0317 Release
 ----------------------------
 * TextDisplay Control Added
 * Hornet UFC updated to remove the need for a viewport
 * Hornet IFEI updated to remove the need for a viewport
+* Auto-binding for some devices to their intended interface
 * MS33558 Font incorporated (c) Derek Higgs 2000 which some sites claim is postcardware but I was unable to find an address / email
 * Seven Segment font incorporated (free for personal use) http://www.kraftilab.com/portfolio/7-segment-display-font/
 * Reimplement the version checking for Control Center using HTTPS
- 
+* Minor bug fixes
+* Distributing Iris Screen Exporter for people who run Control Center remotely (it is in the Helios directory in My Documents)
+* Code corrected to identify destination directory for DCS, Betas and Alphas 
+* Stricter version numbering which breaks the installer's version checking so previous Helios needs to be uninstalled manually.
 
 1.4.2018.1008 Release
 ----------------------------

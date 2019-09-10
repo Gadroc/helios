@@ -28,7 +28,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
 
     public class DCSConfigurator : NotificationObject
     {
-        private static Guid FolderSavedGames = new Guid("4C5C32FF-BB9D-43b0-B5B4-2D72E54EAAA4");
+        private Guid FolderSavedGames = new Guid("4C5C32FF-BB9D-43b0-B5B4-2D72E54EAAA4");
 
         private static RoutedUICommand AddDoFileCommand = new RoutedUICommand("Adds a do file to a DCS config.", "AddDoFile", typeof(DCSConfigurator));
         private static RoutedUICommand RemoveDoFileCommand = new RoutedUICommand("Removes a do file to a DCS config.", "RemoveDoFile", typeof(DCSConfigurator));
@@ -40,6 +40,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
 
         private string _defaultAppPath;
         private string _appPath;
+        private string _savedgamesPath = "";
 
         private bool _phantomFix;
         private int _phantomFixLeft;
@@ -64,6 +65,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
         private bool _isConfigUpToDate = false;
         private bool _isPathValid = false;
 
+        private string _dcsInstallType = "GA";
+
+        private bool _dcsInstallTypeGA = true;
+        private bool _dcsInstallTypeAlpha = false;
+        private bool _dcsInstallTypeBeta = false;
+
+        private bool _dcsUseNewExport = false;
+
         private ObservableCollection<string> _doFiles = new ObservableCollection<string>();
 
         public DCSConfigurator(string preferencesPrefix, string defaultAppPath) : this(preferencesPrefix, defaultAppPath, true)
@@ -83,6 +92,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
         {
             _allowDCSWorld = allowDCSWorld;
             _defaultAppPath = defaultAppPath;
+            _dcsInstallType = "";
 
             _prefPrefix = preferencesPrefix;
             _mainExportLUA = exportLuaPath;
@@ -268,19 +278,22 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
             {
                 if (_allowDCSWorld)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
-                    if (pathKey != null)
+                    if (InstallTypeGA)
                     {
-                        pathKey.Close();
-
-                        String path;
-                        IntPtr pathPtr;
-                        int hr = NativeMethods.SHGetKnownFolderPath(ref FolderSavedGames, 0, IntPtr.Zero, out pathPtr);
-                        if (hr == 0)
+                        return System.IO.Path.Combine(SavedGamesFolder, "DCS");
+                    }
+                    else
+                    {
+                        if (InstallTypeBeta)
                         {
-                            path = Marshal.PtrToStringUni(pathPtr);
-                            Marshal.FreeCoTaskMem(pathPtr);
-                            return System.IO.Path.Combine(path, "DCS");
+                            return System.IO.Path.Combine(SavedGamesFolder, "DCS.openbeta");
+                        }
+                        else
+                        {
+                            if (InstallTypeAlpha)
+                            {
+                                return System.IO.Path.Combine(SavedGamesFolder, "DCS.openalpha");
+                            }
                         }
                     }
                 }
@@ -300,6 +313,20 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
                         pathKey.Close();
                         return "Scripts";
                     }
+                    pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+                    if (pathKey != null)
+                    {
+                        pathKey.Close();
+                        return "Scripts";
+                    }
+                    pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
+                    if (pathKey != null)
+                    {
+                        pathKey.Close();
+                        return "Scripts";
+                    }
+
+
                 }
                 return _exportConfigPath;
             }
@@ -439,6 +466,50 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
             return true;
         }
 
+        public string DCSInstallType
+        {
+            get
+            {
+                return _dcsInstallType;
+             }
+            set
+            {
+                if ((_dcsInstallType == null && value != null)
+                    || (_dcsInstallType != null && !_dcsInstallType.Equals(value)))
+                {
+                    string oldValue = _dcsInstallType;
+                    _dcsInstallType = value;
+                    OnPropertyChanged("DCSInstallType", oldValue, value, false);
+                    UpdateHeliosProperties();
+                    ConfigManager.SettingsManager.SaveSetting(_prefPrefix, "DCSInstallType", _dcsInstallType);
+                }
+            }
+        }
+
+        public string SavedGamesFolder
+        {
+            get
+            {
+                if (_savedgamesPath == "")
+                {
+                    // We attempt to get the Saved Games known folder from the native method to cater for situations
+                    // when the locale of the installation has the folder name in non-English.
+                    IntPtr pathPtr;
+                    int hr = NativeMethods.SHGetKnownFolderPath(ref FolderSavedGames, 0, IntPtr.Zero, out pathPtr);
+                    if (hr == 0)
+                    {
+                        _savedgamesPath = Marshal.PtrToStringUni(pathPtr);
+                        Marshal.FreeCoTaskMem(pathPtr);
+                    }
+                    else
+                    {
+                        _savedgamesPath = Environment.GetEnvironmentVariable("userprofile") + "Saved Games";
+                    }
+                }
+                return _savedgamesPath;
+            }
+        }
+
         public bool RestoreConfig()
         {
             return RestoreConfig("Export.lua");
@@ -523,24 +594,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
 
         private void UpdateHeliosProperties()
         {
+            string _luaVarScope = "g";                  // default to globals
+            if (_dcsUseNewExport) _luaVarScope = "l";   // the new structure for export.lua code attempts to avoid the use of globals.
             if (_udpInterface != null)
             {
                 double exportInterval = Math.Round(1d / Math.Max(4, _exportFrequency), 3);
                 int lowExportTickInterval = Math.Min(1, (int)Math.Floor(0.250d / exportInterval));
 
                 StringWriter configFile = new StringWriter();
-                configFile.WriteLine("gHost = \"" + IPAddress + "\"");
-                configFile.WriteLine("gPort = " + Port.ToString(CultureInfo.InvariantCulture));
-                configFile.WriteLine("gExportInterval = " + exportInterval.ToString(CultureInfo.InvariantCulture));
-                configFile.WriteLine("gExportLowTickInterval = " + lowExportTickInterval.ToString(CultureInfo.InvariantCulture));
+                configFile.WriteLine(_luaVarScope + "Host = \"" + IPAddress + "\"");
+                configFile.WriteLine(_luaVarScope + "Port = " + Port.ToString(CultureInfo.InvariantCulture));
+                configFile.WriteLine(_luaVarScope + "ExportInterval = " + exportInterval.ToString(CultureInfo.InvariantCulture));
+                configFile.WriteLine(_luaVarScope + "ExportLowTickInterval = " + lowExportTickInterval.ToString(CultureInfo.InvariantCulture));
                 bool addEveryFrameComma = false;
                 bool addComma = false;
                 StringBuilder everyFrameArguments = new StringBuilder();
                 StringBuilder arguments = new StringBuilder();
 
-                foreach (NetworkFunction funciton in _udpInterface.Functions)
+                foreach (NetworkFunction function in _udpInterface.Functions)
                 {
-                    foreach (ExportDataElement element in funciton.GetDataElements())
+                    foreach (ExportDataElement element in function.GetDataElements())
                     {
                         DCSDataElement dcsElement = element as DCSDataElement;
                         if (dcsElement != null && dcsElement.Format != null)
@@ -575,11 +648,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
                     }
                 }
 
-                configFile.Write("gEveryFrameArguments = {");
+                configFile.Write(_luaVarScope + "EveryFrameArguments = {");
                 configFile.Write(everyFrameArguments.ToString());
                 configFile.WriteLine("}");
 
-                configFile.Write("gArguments = {");
+                configFile.Write(_luaVarScope + "Arguments = {");
                 configFile.Write(arguments.ToString());
                 configFile.WriteLine("}");
 
@@ -624,5 +697,71 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
         {
             UpdateHeliosProperties();
         }
+
+        public bool InstallTypeGA
+        {
+            get
+            {
+                return _dcsInstallTypeGA;
+            }
+            set
+            {
+                if (!_dcsInstallTypeGA.Equals(value))
+                {
+                    bool oldValue = _dcsInstallTypeGA;
+                    _dcsInstallTypeGA = value;
+                    OnPropertyChanged("InstallTypeGA", oldValue, value, false);
+                }
+            }
+        }
+        public bool InstallTypeBeta
+        {
+            get
+            {
+                return _dcsInstallTypeBeta;
+            }
+            set
+            {
+                if (!_dcsInstallTypeBeta.Equals(value))
+                {
+                    bool oldValue = _dcsInstallTypeBeta;
+                    _dcsInstallTypeBeta = value;
+                    OnPropertyChanged("InstallTypeBeta", oldValue, value, false);
+                }
+            }
+        }
+        public bool InstallTypeAlpha
+        {
+            get
+            {
+                return _dcsInstallTypeAlpha;
+            }
+            set
+            {
+                if (!_dcsInstallTypeAlpha.Equals(value))
+                {
+                    bool oldValue = _dcsInstallTypeAlpha;
+                    _dcsInstallTypeAlpha = value;
+                    OnPropertyChanged("InstallTypeAlpha", oldValue, value, false);
+                }
+            }
+        }
+        public bool UseNewExport
+        {
+            get
+            {
+                return _dcsUseNewExport;
+            }
+            set
+            {
+                if (!_dcsUseNewExport.Equals(value))
+                {
+                    bool oldValue = _dcsUseNewExport;
+                    _dcsUseNewExport = value;
+                    OnPropertyChanged("UseNewExport", oldValue, value, false);
+                }
+            }
+        }
+        
     }
 }

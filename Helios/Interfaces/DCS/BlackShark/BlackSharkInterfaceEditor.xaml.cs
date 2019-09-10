@@ -95,7 +95,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
                     {
                         pathKey = Registry.LocalMachine.OpenSubKey(@"Software\Eagle Dynamics\BlackShark");
                     }
-
+                    if (pathKey == null)
+                    {
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenBeta");
+                    }
+                    if (pathKey == null)
+                    {
+                        pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World OpenAlpha");
+                    }
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

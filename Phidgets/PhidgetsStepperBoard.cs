@@ -171,7 +171,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.Phidgets
 
                     RegisterBindings(i);                    
                 }
+                if (_steppers[i].VelocityLimit > _stepperBoard.steppers[i].VelocityMax)
+                    _steppers[i].VelocityLimit = _stepperBoard.steppers[i].VelocityMax;
+                if (_steppers[i].VelocityLimit < _stepperBoard.steppers[i].VelocityMin)
+                    _steppers[i].VelocityLimit = _stepperBoard.steppers[i].VelocityMin;
+
                 _stepperBoard.steppers[i].VelocityLimit = _steppers[i].VelocityLimit;
+
+                if (_steppers[i].Acceleration > _stepperBoard.steppers[i].AccelerationMax)
+                    _steppers[i].Acceleration = _stepperBoard.steppers[i].AccelerationMax;
+                if (_steppers[i].Acceleration < _stepperBoard.steppers[i].AccelerationMin)
+                    _steppers[i].Acceleration = _stepperBoard.steppers[i].AccelerationMin;
                 _stepperBoard.steppers[i].Acceleration = _steppers[i].Acceleration;
             }
 
@@ -206,19 +216,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.Phidgets
             {
                 try
                 {
+                    /*
                     SetTargetPosition(0, 0);
                     SetTargetPosition(1, 0);
                     SetTargetPosition(2, 0);
                     SetTargetPosition(3, 0);
+                    */
 
-                    while (!_stepperBoard.steppers[0].Stopped ||
-                            !_stepperBoard.steppers[1].Stopped ||
-                            !_stepperBoard.steppers[2].Stopped ||
-                            !_stepperBoard.steppers[3].Stopped)
+                    try
+                    {
+                        foreach (StepperStepper stepper in _stepperBoard.steppers)
+                        {
+                            while (!stepper.Stopped)
                     {
                         // Wait for all steppers to reset to their zero position.
-                        System.Threading.Thread.Sleep(500);
+                                System.Threading.Thread.Sleep(50);
                     }
+                        }
+                    }
+                    catch { }
+
 
                     foreach (StepperStepper stepper in _stepperBoard.steppers)
                     {
@@ -250,8 +267,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.Phidgets
         {
             if (_stepperBoard != null && _stepperBoard.Attached)
             {
+                try
+                {
+
                 _stepperBoard.steppers[motorNumber].TargetPosition = position;
                 _stepperBoard.steppers[motorNumber].Engaged = true;
+            }
+                catch
+                { }
             }
         }
 
@@ -259,6 +282,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.Phidgets
         {
             if (_stepperBoard != null && _stepperBoard.Attached)
             {
+                if (acceleration > _stepperBoard.steppers[motorNumber].AccelerationMax)
+                    acceleration = _stepperBoard.steppers[motorNumber].AccelerationMax;
+                if (acceleration < _stepperBoard.steppers[motorNumber].AccelerationMin)
+                    acceleration = _stepperBoard.steppers[motorNumber].AccelerationMin;
+
                 _stepperBoard.steppers[motorNumber].Acceleration = acceleration;
             }
         }

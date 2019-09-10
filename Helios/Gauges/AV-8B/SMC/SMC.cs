@@ -13,6 +13,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/// <summary>
+/// This has been deprecated in favour of SMC_1 which uses text displays and a higher res background image
+/// </summary>
+ 
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.Gauges.AV8B;
@@ -22,9 +26,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
 
     [HeliosControl("Helios.AV8B.SMC", "Stores Management Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
-    class SMC_AV8B: AV8BDevice
+    class SMC_AV8B : AV8BDevice
     {
- 
+
         public SMC_AV8B()
             : base("Stores Management Panel", new Size(703, 254))
         {
@@ -78,9 +82,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/AV-8B SMC faceplate.png"; }
+            get { return "{AV-8B}/Images/AV-8B SMC faceplate 0.png"; }
         }
-            
+
         private new void AddTrigger(IBindingTrigger trigger, string device)
         {
             trigger.Device = device;
@@ -96,7 +100,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/SMC Selector Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/SMC Selector Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -139,7 +143,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         }
         private void AddButton(string name, double x, double y) { AddButton(name, x, y, false); }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
-        private void AddButton(string name, double x, double y, bool horizontal) { AddButton(name, x, y, new Size(40,40),false); }
+        private void AddButton(string name, double x, double y, bool horizontal) { AddButton(name, x, y, new Size(40, 40), false); }
         private void AddButton(string name, double x, double y, Size size, bool horizontal) { AddButton(name, x, y, size, horizontal, false); }
         private void AddButton(string name, double x, double y, Size size, bool horizontal, bool altImage)
         {
@@ -179,7 +183,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddAction(button.Actions["release"], name);
             AddAction(button.Actions["set.physical state"], name);
         }
-       private void AddTwoWayToggle(string name, double x, double y, Size size)
+        private void AddTwoWayToggle(string name, double x, double y, Size size)
         {
             Helios.Controls.ToggleSwitch toggle = new Helios.Controls.ToggleSwitch();
             toggle.Top = y;
@@ -203,9 +207,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             toggle.Width = size.Width;
             toggle.Height = size.Height;
             toggle.DefaultPosition = ThreeWayToggleSwitchPosition.Two;
-            toggle.PositionOneImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Up 1.png";
-            toggle.PositionTwoImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Mid 1.png";
-            toggle.PositionThreeImage = "{Helios}/Images/AV-8B/3 Way Toggle Square Down 1.png";
+            toggle.PositionOneImage = "{AV-8B}/Images/3 Way Toggle Square Up 1.png";
+            toggle.PositionTwoImage = "{AV-8B}/Images/3 Way Toggle Square Mid 1.png";
+            toggle.PositionThreeImage = "{AV-8B}/Images/3 Way Toggle Square Down 1.png";
             toggle.SwitchType = ThreeWayToggleSwitchType.MomOnMom;
             toggle.Name = name;
 
@@ -221,8 +225,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             indicator.Left = x;
             indicator.Width = size.Width;
             indicator.Height = size.Height;
-            indicator.OnImage = "AV-8B/AV8BNA_SEL_On.png";
-            indicator.OffImage = "AV-8B/AV8BNA_SEL_Off.png";
+            indicator.OnImage = "{AV-8B}/Images/AV8BNA_SEL_On.png";
+            indicator.OffImage = "{AV-8B}/Images/AV8BNA_SEL_Off.png";
             indicator.Text = "";
             indicator.Name = name;
 
@@ -254,8 +258,5 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             // No-Op
         }
-
-
-
     }
 }

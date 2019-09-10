@@ -20,6 +20,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System;
     using System.Windows.Media;
     using System.Windows;
+    using System.Xml;
+    using System.Globalization;
 
     [HeliosControl("Helios.FA18C.IFEI", "IFEI", "F/A-18C", typeof(FA18CDeviceRenderer))]
     class IFEI_FA18C : FA18CDevice
@@ -33,6 +35,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
         private string _imageLocation = "{Helios}/Gauges/FA-18C/IFEI/";
         private bool _useBackGround = false;
+        private IFEI_Gauges _IFEI_gauges;
 
         public IFEI_FA18C()
             : base("IFEI_Gauge", new Size(779, 702))
@@ -100,7 +103,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 name: "Brightness Control",
                 posn: new Point(82, 630),
                 size: new Size(60, 60),
-                knobImage: "{Helios}/Images/AV-8B/Common Knob.png",
+                knobImage: "{AV-8B}/Images/Common Knob.png",
                 initialRotation: 219,
                 rotationTravel: 291,
                 minValue: 0,
@@ -143,6 +146,25 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 );
        }
 
+        #region Properties
+        public double GlassReflectionOpacity
+        {
+            get
+            {
+                return _IFEI_gauges.GlassReflectionOpacity;
+            }
+            set
+            {
+                double oldValue = _IFEI_gauges.GlassReflectionOpacity;
+                _IFEI_gauges.GlassReflectionOpacity = value;
+                if (value != oldValue)
+                {
+                    OnPropertyChanged("GlassReflectionOpacity", oldValue, value, true);
+                }
+            }
+        }
+        #endregion
+
         protected override void OnProfileChanged(HeliosProfile oldProfile) {
             base.OnProfileChanged(oldProfile);
         }
@@ -157,7 +179,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             TextDisplay display = AddTextDisplay(
                 name: name,
-                pos: new Point(x, y),
+                posn: new Point(x, y),
                 size: size,
                 font: _font,
                 baseFontsize: baseFontsize,
@@ -168,7 +190,8 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 backgroundColor: _backGroundColor,
                 useBackground: _useBackGround,
                 interfaceDeviceName: interfaceDevice,
-                interfaceElementName: interfaceElement
+                interfaceElementName: interfaceElement,
+                textDisplayDictionary: ""
                 );
             display.TextFormat.FontWeight = FontWeights.Heavy;
         }
@@ -192,13 +215,13 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             AddThreeWayToggle(
                 name: name,
-                pos: posn,
+                posn: posn,
                 size: size,
                 positionOneImage: image + "up.png",
                 positionTwoImage: image + "norm.png",
                 positionThreeImage: image + "down.png",
                 defaultPosition: ThreeWayToggleSwitchPosition.Two,
-                switchType: ThreeWayToggleSwitchType.OnOnOn,
+                defaultType: ThreeWayToggleSwitchType.OnOnOn,
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 fromCenter: false
@@ -206,7 +229,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         }
         private void AddIFEIParts(string name, double x, double y, Size size, string interfaceDevice, string interfaceElement)
         {
-            IFEI_Gauges IFEI_gauges = new IFEI_Gauges
+            _IFEI_gauges = new IFEI_Gauges
             {
                 Top = y,
                 Left = x,
@@ -215,12 +238,12 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 Name = name
             };
 
-            Children.Add(IFEI_gauges);
-            foreach (IBindingTrigger trigger in IFEI_gauges.Triggers)
+            Children.Add(_IFEI_gauges);
+            foreach (IBindingTrigger trigger in _IFEI_gauges.Triggers)
             {
                 AddTrigger(trigger, trigger.Name);
             }
-            foreach (IBindingAction action in IFEI_gauges.Actions)
+            foreach (IBindingAction action in _IFEI_gauges.Actions)
             {
                 AddAction(action, action.Name);
                 // Create the automatic input bindings for the IFEI_Gauge sub component
@@ -257,5 +280,22 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
             // No-Op
         }
 
+        public override void WriteXml(XmlWriter writer)
+        {
+            base.WriteXml(writer);
+            if (_IFEI_gauges.GlassReflectionOpacity != IFEI_Gauges.GLASS_REFLECTION_OPACITY_DEFAULT)
+            {
+                writer.WriteElementString("GlassReflectionOpacity", GlassReflectionOpacity.ToString(CultureInfo.InvariantCulture));
+            }
+        }
+
+        public override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+            if (reader.Name.Equals("GlassReflectionOpacity"))
+            {
+                GlassReflectionOpacity = double.Parse(reader.ReadElementString("GlassReflectionOpacity"), CultureInfo.InvariantCulture);
+            }   
+        }
     }
 }

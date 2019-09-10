@@ -1,0 +1,66 @@
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* *                                                                         * * 
+* *                       Helios 1.4.2019.0908                              * * 
+* *                                                                         * * 
+* *                                READ.ME                                  * * 
+* *                                                                         * * 
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* *                                                                         * * 
+* *  Copyright 2014 Craig Courtney                                          * * 
+* *  Helios is free software: you can redistribute it and/or modify         * * 
+* *  it under the terms of the GNU General Public License as published by   * * 
+* *  the Free Software Foundation, either version 3 of the License, or      * * 
+* *  (at your option) any later version.                                    * * 
+* *                                                                         * * 
+* *  Helios is distributed in the hope that it will be useful,              * * 
+* *  but WITHOUT ANY WARRANTY; without even the implied warranty of         * * 
+* *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          * * 
+* *  GNU General Public License for more details.                           * * 
+* *                                                                         * * 
+* *  You should have received a copy of the GNU General Public License      * * 
+* *  along with this program.  If not, see http://www.gnu.org/licenses/.    * * 
+* *                                                                         * *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+If you encounter problems, please check for known issues here 
+https://github.com/BlueFinBima/helios/issues and if nothing appears to be 
+relevant then open a new issue.
+  
+* * * Working Elements on M2000C * * *
+* * *      31st August 2019      * * *
+
+1) Caution Panel
+	a) What is working
+	   - all the indicators
+	   - all the switches
+	b) Known issue
+	   - nothing, … for now…
+
+2) Master Caution Lights Panel
+	a) What is working
+       - the 2 red and yellow PANNE indicators
+	b) Known issue
+	   - this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
+      
+3) Start Engine Panel
+	a) What is working
+       - the 5 switches
+	b) Known issue
+	   - for now, removed the two red Guard Covers because we are not able to use the switches/button under
+      
+4) Landing Gear Panel
+	a) What is working
+       - the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators
+	b) Known issues
+	   - removed the two red Guard Covers because we are not able to use the switches/button under
+	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositoVisual.cs
+      
+5) Others things
+	a) What is working
+	   - not all has been tested but most of the switches might work
+
+Thanks for your patience and feedback
+ShadowMan

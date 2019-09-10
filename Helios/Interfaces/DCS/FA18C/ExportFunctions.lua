@@ -76,39 +76,27 @@ function ProcessHighImportance(mainPanelDevice)
 --
 	-- getting the UFC data
 	local li = parse_indication(6)  -- 6 for UFC
+	--Helios.log.write(thisScript,string.format("UFC Dump 6" .. Heliosdump(li)))
+
 	if li then
-        --SendData("2098", string.format("%s",li))
-		local function UFCSendData(UFCcode, UFCvalue)
-			-- This is a 16 segment display so we need to map numerals to a single charcter in the Hornet UFC.ttf font
-			-- the dash has already been catered for and the alphabetic characters should map without change
-			-- Also need to special case 12 because sending ascii 172 is problematic in the Helios code
-			if tonumber(UFCvalue) ~= nil then
-					if tonumber(UFCvalue) == 12 then
-						UFCvalue = string.char(125)  
-					else
-						UFCvalue = string.char(161+UFCvalue)
-					end
-			end
-		SendData(UFCcode,string.format("%1s",UFCvalue))
-		end
-        SendData("2080", string.format("%s",check(li.UFC_MainDummy)))
+		SendData("2080", string.format("%s",check(li.UFC_MainDummy)))
         SendData("2081", string.format("%s",check(li.UFC_mask)))
-        SendData("2082", string.format("%s",check(li.UFC_OptionDisplay1))) -- These may need special treatment for Hornet_UFC_Unified.ttf if there are special chars or numbers in the data
-        SendData("2083", string.format("%s",check(li.UFC_OptionDisplay2))) -- These may need special treatment for Hornet_UFC_Unified.ttf if there are special chars or numbers in the data
-        SendData("2084", string.format("%s",check(li.UFC_OptionDisplay3))) -- These may need special treatment for Hornet_UFC_Unified.ttf if there are special chars or numbers in the data
-        SendData("2085", string.format("%s",check(li.UFC_OptionDisplay4))) -- These may need special treatment for Hornet_UFC_Unified.ttf if there are special chars or numbers in the data
-        SendData("2086", string.format("%s",check(li.UFC_OptionDisplay5))) -- These may need special treatment for Hornet_UFC_Unified.ttf if there are special chars or numbers in the data
-        SendData("2087", string.format("%1s",check(li.UFC_OptionCueing1)):gsub(":",string.char(200)))  -- 16 Segment two-dot colon in Hornet_UFC_Unified.ttf
-        SendData("2088", string.format("%1s",check(li.UFC_OptionCueing2)):gsub(":",string.char(200)))  -- 16 Segment two-dot colon in Hornet_UFC_Unified.ttf
-        SendData("2089", string.format("%1s",check(li.UFC_OptionCueing3)):gsub(":",string.char(200)))  -- 16 Segment two-dot colon in Hornet_UFC_Unified.ttf
-        SendData("2090", string.format("%1s",check(li.UFC_OptionCueing4)):gsub(":",string.char(200)))  -- 16 Segment two-dot colon in Hornet_UFC_Unified.ttf
-        SendData("2091", string.format("%1s",check(li.UFC_OptionCueing5)):gsub(":",string.char(200)))  -- 16 Segment two-dot colon in Hornet_UFC_Unified.ttf
-        UFCSendData("2092", string.format("%2s",check(li.UFC_ScratchPadString1Display)):gsub("_",string.char(201)):gsub("`","1"):gsub("~","2"):gsub(" ",""))
-        UFCSendData("2093", string.format("%2s",check(li.UFC_ScratchPadString2Display)):gsub("_",string.char(201)):gsub("`","1"):gsub("~","2"):gsub(" ",""))
-        SendData("2094", string.format("%7s",check(li.UFC_ScratchPadNumberDisplay)):gsub(" ","<"))
-        UFCSendData("2095", string.format("%2s",check(li.UFC_Comm1Display)):gsub("`","1"):gsub("~","2"):gsub(" ",""))
-        UFCSendData("2096", string.format("%2s",check(li.UFC_Comm2Display)):gsub("`","1"):gsub("~","2"):gsub(" ",""))
-		-- test command 00000000*2095=~:2093=É:2092=~:2096=~:2094=8888888:2082=~~~~:2083=~~~~:2084=~~~~:2085=~~~~:2086=~~~~:2087=È:2088=È:2089=È:2090=È:2091=È 
+        SendData("2082", string.format("%s",check(li.UFC_OptionDisplay1)))
+        SendData("2083", string.format("%s",check(li.UFC_OptionDisplay2)))
+        SendData("2084", string.format("%s",check(li.UFC_OptionDisplay3)))
+        SendData("2085", string.format("%s",check(li.UFC_OptionDisplay4)))
+        SendData("2086", string.format("%s",check(li.UFC_OptionDisplay5)))
+        SendData("2087", string.format("%1s",check(li.UFC_OptionCueing1)):gsub(":","!"))  -- ":" is reserved
+        SendData("2088", string.format("%1s",check(li.UFC_OptionCueing2)):gsub(":","!"))  -- ":" is reserved
+        SendData("2089", string.format("%1s",check(li.UFC_OptionCueing3)):gsub(":","!"))  -- ":" is reserved
+        SendData("2090", string.format("%1s",check(li.UFC_OptionCueing4)):gsub(":","!"))  -- ":" is reserved
+        SendData("2091", string.format("%1s",check(li.UFC_OptionCueing5)):gsub(":","!"))  -- ":" is reserved
+        SendData("2092", string.format("%2s",check(li.UFC_ScratchPadString1Display)))
+        SendData("2093", string.format("%2s",check(li.UFC_ScratchPadString2Display)))
+        SendData("2094", string.format("%7s",check(li.UFC_ScratchPadNumberDisplay)))
+        SendData("2095", string.format("%2s",check(li.UFC_Comm1Display)))
+        SendData("2096", string.format("%2s",check(li.UFC_Comm2Display)))
+		-- -- test command 00000000*2096=~0:2095=`3:2087=!:2088=!:2089=!:2090=!:2091=!:2082=BLUE:2083=FIN :2084=BIMA:2085=2019:2086=test:2094=123 567:2092=~0:2093=-:
 	end
 
 	

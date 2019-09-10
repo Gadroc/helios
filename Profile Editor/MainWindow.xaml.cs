@@ -34,6 +34,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
     using System.Windows.Threading;
     using Xceed.Wpf.AvalonDock.Layout;
     using Xceed.Wpf.AvalonDock.Layout.Serialization;
+    using GadrocsWorkshop.Helios.Splash;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -401,7 +402,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             }
             else
             {
-                throw new ArgumentException("Can not create a editor document for profileobject requested.", "profileObject");
+                throw new ArgumentException("Cannot create a editor document for profileobject requested.", "profileObject");
             }
 
             return editor;

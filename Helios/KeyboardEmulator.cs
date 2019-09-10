@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios
 
     /// <summary>
     /// Keyboard emulator which can send keyboard events to the application with focus.  Special keys can be sent by
-    /// sending there names in brackets.
+    /// sending their names in brackets.
     /// 
     /// BACKSPACE, TAB, CLEAR, RETURN, LSHIFT, RSHIFT, LCONTROL, RCONTROL, LALT, RALT, PAUSE, CAPSLOCK, ESCAPE, SPACE,
     /// PAGEUP, PAGEDOWN, END, HOME, LEFT, UP, RIGHT, DOWN, PRINTSCREEN, INSERT, DELETE, LWIN, RWIN, APPS, NUMPAD0,
@@ -33,7 +33,7 @@ namespace GadrocsWorkshop.Helios
     public class KeyboardEmulator
     {
         private static IntPtr _hkl;
-        private static KeyboardThread _keyboardThread = new KeyboardThread(30);
+        private static KeyboardThread _keyboardThread;
 
         private static Dictionary<string, ushort> _keycodes = new Dictionary<string, ushort>{
             {"BACKSPACE", 0x08},
@@ -111,6 +111,7 @@ namespace GadrocsWorkshop.Helios
 
         static KeyboardEmulator()
         {
+            _keyboardThread = new KeyboardThread(30);
             _hkl = NativeMethods.GetKeyboardLayout(0);
         }
 
@@ -127,6 +128,17 @@ namespace GadrocsWorkshop.Helios
             set
             {
                 _keyboardThread.KeyDelay = value;
+            }
+        }
+        public static bool ControlCenterSession
+        {
+            get
+            {
+                return _keyboardThread.ControlCenterSession;
+            }
+            set
+            {
+                _keyboardThread.ControlCenterSession = value;
             }
         }
 

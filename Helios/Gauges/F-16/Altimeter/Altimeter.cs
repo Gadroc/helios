@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.Altimeter
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.F16.Altimeter", "Altimeter", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.Altimeter", "Altimeter", "F-16", typeof(GaugeRenderer))]
     public class Altimeter : BaseGauge
     {
         private HeliosValue _altitdue;

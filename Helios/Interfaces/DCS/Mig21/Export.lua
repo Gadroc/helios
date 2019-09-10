@@ -1728,6 +1728,9 @@ end
 function LuaExportStop()
 -- Works once just after mission stop.
     -- c:close()
+    
+    -- Send DISCONNECT message so we can fire the Helios Disconnect event
+    -- socket.try(c:sendto("DISCONNECT\n", gHost, gPort))
 
     -- DEBUGGING STUFF:
 	if debug_output_file then

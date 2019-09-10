@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         public AV8BDevice(string name, Size size)
             : base(name, size)
         {
-                //PersistChildren = true;
+            DefaultInterfaceName = "DCS AV-8B";
         }
 
         #region Properties

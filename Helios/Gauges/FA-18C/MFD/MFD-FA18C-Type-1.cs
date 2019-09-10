@@ -63,7 +63,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/FA-18C/MPCD frame.png"; }
+            get { return "{FA-18C}/Images/MPCD frame.png"; }
         }
 
         #endregion
@@ -82,7 +82,7 @@ namespace GadrocsWorkshop.Helios.Controls
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+            _knob.KnobImage = "{AV-8B}/Images/Common Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -108,10 +108,10 @@ namespace GadrocsWorkshop.Helios.Controls
             switch (knobType)
             {
                 case 1:
-                    _knob.KnobImage = "{Helios}/Images/FA-18C/MPCD Knob.png";
+                    _knob.KnobImage = "{FA-18C}/Images/MPCD Knob.png";
                     break;
                 default:
-                    _knob.KnobImage = "{Helios}/Images/AV-8B/Common Knob.png";
+                    _knob.KnobImage = "{AV-8B}/Images/Common Knob.png";
                     break;                
             }
             _knob.InitialRotation = 219;
@@ -144,18 +144,18 @@ namespace GadrocsWorkshop.Helios.Controls
             button.Width = 40;
             button.Height = 40;
             //button.TextPushOffset = new System.Windows.Media.TranslateTransform(1,1);
-            //button.Image = "{Helios}/Images/FA-18C/MFD Button Up.png";
-            //button.PushedImage = "{Helios}/Images/FA-18C/MFD Button Dn.png";
+            //button.Image = "{FA-18C}/Images/MFD Button Up.png";
+            //button.PushedImage = "{FA-18C}/Images/MFD Button Dn.png";
             if (!horizontal)
             {
-                button.Image = "{Helios}/Images/FA-18C/MFD Button UpV.png";
-                button.PushedImage = "{Helios}/Images/FA-18C/MFD Button DnV.png";
+                button.Image = "{FA-18C}/Images/MFD Button UpV.png";
+                button.PushedImage = "{FA-18C}/Images/MFD Button DnV.png";
                 //button.Rotation = HeliosVisualRotation.CCW;
             }
             else
             {
-                button.Image = "{Helios}/Images/FA-18C/MFD Button UpH.png";
-                button.PushedImage = "{Helios}/Images/FA-18C/MFD Button DnH.png";
+                button.Image = "{FA-18C}/Images/MFD Button UpH.png";
+                button.PushedImage = "{FA-18C}/Images/MFD Button DnH.png";
             }
 
             button.Name = name;

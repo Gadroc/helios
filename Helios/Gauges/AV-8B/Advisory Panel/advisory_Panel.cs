@@ -24,7 +24,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows.Threading;
 
 
-    [HeliosControl("Helios.AV8B.Advisory", "AV-8B Advisory Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.Advisory", "Advisory Indicators", "AV-8B", typeof(AV8BDeviceRenderer))]
     class advisoryPanel : AV8BDevice
     {
         // these three sections are the dead space in the UFC image.
@@ -34,119 +34,119 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private Rect _scaledScreenRect2 = SCREEN_RECT2;
 
         private String _font = "MS 33558";
-        //private String _font = "Franklin Gothic";
+        private string _interfaceDeviceName = "Advisory Indicators";
 
         public advisoryPanel()
-            : base("AV-8B Advisory Panel", new Size(555, 1024))
+            : base("Advisory Indicators", new Size(555, 1024))
         {
-            AddIndicator("OXY", new Point(22,86), new Size(104,40));
-            AddIndicator("HYD 1", new Point(22,146), new Size(104,40));
-            AddIndicator("L PUMP", new Point(22,204), new Size(104,40));
-            AddIndicator("L TRANS", new Point(22,262), new Size(104,40));
-            AddIndicator("FLAPS 1", new Point(22,323), new Size(104,40));
-            AddIndicator("PROP", new Point(22,382), new Size(104,40));
-            AddIndicator("APU GEN", new Point(22,441), new Size(104,40));
-            AddIndicator("DEP RES", new Point(22,499), new Size(104,40));
-            AddIndicator("CS COOL", new Point(22,557), new Size(104,40));
-            AddIndicator("INS", new Point(22,616), new Size(104,40));
-            AddIndicator("AFC", new Point(22,676), new Size(104,40));
-            AddIndicator("PITCH", new Point(22,734), new Size(104,40));
-            AddIndicator("ROLL", new Point(22,792), new Size(104,40));
-            AddIndicator("YAW", new Point(22,850), new Size(104,40));
-            AddIndicator("ENG EXC", new Point(22,909), new Size(104,40));
-            AddIndicator("WSHLD", new Point(154,86), new Size(104,40));
-            AddIndicator("HYD 2", new Point(154,146), new Size(104,40));
-            AddIndicator("R PUMP", new Point(154,204), new Size(104,40));
-            AddIndicator("R TRANS", new Point(154,262), new Size(104,40));
-            AddIndicator("FLAPS 2", new Point(154,323), new Size(104,40));
-            AddIndicator("LIDS", new Point(154,382), new Size(104,40));
-            AddIndicator("Blank 1", new Point(154,441), new Size(104,40));
-            AddIndicator("DC", new Point(154,499), new Size(104,40));
-            AddIndicator("LOAD", new Point(154,557), new Size(104,40));
-            AddIndicator("SKID", new Point(154,616), new Size(104,40));
-            AddIndicator("C*AUT", new Point(154,676), new Size(104,40));
-            AddIndicator("IFF", new Point(154,734), new Size(104,40));
-            AddIndicator("AFT BAY", new Point(154,792), new Size(104,40));
-            AddIndicator("CW NOGO", new Point(154,850), new Size(104,40));
-            AddIndicator("P NOGO", new Point(154,909), new Size(104,40));
-            AddIndicator("AUT FLP", new Point(294,323), new Size(104,40));
-            AddIndicator("OIL", new Point(294,382), new Size(104,40));
-            AddIndicator("GPS", new Point(294,441), new Size(104,40));
-            AddIndicator("STBY TR", new Point(294,499), new Size(104,40));
-            AddIndicator("CANOPY", new Point(294,557), new Size(104,40));
-            AddIndicator("EFC", new Point(294,616), new Size(104,40));
-            AddIndicator("H2O SEL", new Point(294,676), new Size(104,40));
-            AddIndicator("SPD BRK", new Point(294,734), new Size(104,40));
-            AddIndicator("AV BIT", new Point(294,792), new Size(104,40));
-            AddIndicator("P JAM", new Point(294,850), new Size(104,40));
-            AddIndicator("CW JAM", new Point(294,909), new Size(104,40));
-            AddIndicator("NWS", new Point(426,616), new Size(104,40));
-            AddIndicator("APU", new Point(426,676), new Size(104,40));
-            AddIndicator("DROOP", new Point(426,734), new Size(104,40));
-            AddIndicator("Blank 2", new Point(426,792), new Size(104,40));
-            AddIndicator("JMR HOT", new Point(426,850), new Size(104,40));
-            AddIndicator("REPLY", new Point(426,909), new Size(104,40));
+            AddIndicator("OXY", new Point(22,86), new Size(104,40), "Advisory OXY");
+            AddIndicator("HYD 1", new Point(22, 146), new Size(104, 40), "Advisory HYD 1");
+            AddIndicator("L PUMP", new Point(22, 204), new Size(104, 40), "Advisory L PUMP");
+            AddIndicator("L TRANS", new Point(22, 262), new Size(104, 40), "Advisory L TRANS");
+            AddIndicator("FLAPS 1", new Point(22, 323), new Size(104, 40), "Advisory FLAPS 1");
+            AddIndicator("PROP", new Point(22, 382), new Size(104, 40), "Advisory PROP");
+            AddIndicator("APU GEN", new Point(22, 441), new Size(104, 40), "Advisory APU GEN");
+            AddIndicator("DEP RES", new Point(22, 499), new Size(104, 40), "Advisory DEP RES");
+            AddIndicator("CS COOL", new Point(22, 557), new Size(104, 40), "Advisory CS COOL");
+            AddIndicator("INS", new Point(22, 616), new Size(104, 40), "Advisory INS");
+            AddIndicator("AFC", new Point(22, 676), new Size(104, 40), "Advisory AFC");
+            AddIndicator("PITCH", new Point(22, 734), new Size(104, 40), "Advisory PITCH");
+            AddIndicator("ROLL", new Point(22, 792), new Size(104, 40), "Advisory ROLL");
+            AddIndicator("YAW", new Point(22, 850), new Size(104, 40), "Advisory YAW");
+            AddIndicator("ENG EXC", new Point(22, 909), new Size(104, 40), "Advisory ENG EXC");
+            AddIndicator("WSHLD", new Point(154, 86), new Size(104, 40), "Advisory WSHLD");
+            AddIndicator("HYD 2", new Point(154, 146), new Size(104, 40), "Advisory HYD 2");
+            AddIndicator("R PUMP", new Point(154, 204), new Size(104, 40), "Advisory R PUMP");
+            AddIndicator("R TRANS", new Point(154, 262), new Size(104, 40), "Advisory R TRANS");
+            AddIndicator("FLAPS 2", new Point(154, 323), new Size(104, 40), "Advisory FLAPS 2");
+            AddIndicator("LIDS", new Point(154, 382), new Size(104, 40), "Advisory LIDS");
+            AddIndicator("Blank 1", new Point(154, 441), new Size(104, 40), "Advisory Blank 1");
+            AddIndicator("DC", new Point(154, 499), new Size(104, 40), "Advisory DC");
+            AddIndicator("LOAD", new Point(154, 557), new Size(104, 40), "Advisory LOAD");
+            AddIndicator("SKID", new Point(154, 616), new Size(104, 40), "Advisory SKID");
+            AddIndicator("C*AUT", new Point(154, 676), new Size(104, 40), "Advisory C*AUT");
+            AddIndicator("IFF", new Point(154, 734), new Size(104, 40), "Advisory IFF");
+            AddIndicator("AFT BAY", new Point(154, 792), new Size(104, 40), "Advisory AFT BAY");
+            AddIndicator("CW NOGO", new Point(154, 850), new Size(104, 40), "Advisory CW NOGO");
+            AddIndicator("P NOGO", new Point(154, 909), new Size(104, 40), "Advisory P NOGO");
+            AddIndicator("AUT FLP", new Point(294, 323), new Size(104, 40), "Advisory AUT FLP");
+            AddIndicator("OIL", new Point(294, 382), new Size(104, 40), "Advisory OIL");
+            AddIndicator("GPS", new Point(294, 441), new Size(104, 40), "Advisory GPS");
+            AddIndicator("STBY TR", new Point(294, 499), new Size(104, 40), "Advisory STBY TRU");
+            AddIndicator("CANOPY", new Point(294, 557), new Size(104, 40), "Advisory CANOPY");
+            AddIndicator("EFC", new Point(294, 616), new Size(104, 40), "Advisory EFC");
+            AddIndicator("H2O SEL", new Point(294, 676), new Size(104, 40), "Advisory H2O SEL");
+            AddIndicator("SPD BRK", new Point(294, 734), new Size(104, 40), "Advisory SPD BRK");
+            AddIndicator("AV BIT", new Point(294, 792), new Size(104, 40), "Advisory AV BIT");
+            AddIndicator("P JAM", new Point(294, 850), new Size(104, 40), "Advisory P JAM");
+            AddIndicator("CW JAM", new Point(294, 909), new Size(104, 40), "Advisory CW JAM");
+            AddIndicator("NWS", new Point(426, 616), new Size(104, 40), "Advisory NWS");
+            AddIndicator("APU", new Point(426, 676), new Size(104, 40), "Advisory APU");
+            AddIndicator("DROOP", new Point(426, 734), new Size(104, 40), "Advisory DROOP");
+            AddIndicator("Blank 2", new Point(426, 792), new Size(104, 40), "Advisory Blank 2");
+            AddIndicator("JMR HOT", new Point(426, 850), new Size(104, 40), "Advisory JMR HOT");
+            AddIndicator("REPLY", new Point(426, 909), new Size(104, 40), "Advisory REPLY");
         }
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/Advisory Panel Frame.png"; }
+            get { return "{AV-8B}/Images/Advisory Panel Frame.png"; }
         }
 
-        private new void AddTrigger(IBindingTrigger trigger, string device)
-        {
-            trigger.Device = device;
-            Triggers.Add(trigger);
-        }
+            private void AddIndicator(string name, Point posn, Size size, string interfaceElementName) { AddIndicator(name, posn, size, false, interfaceElementName); }
+            private void AddIndicator(string name, Point posn, Size size, bool _vertical, string interfaceElementName)
+            {
+                Indicator indicator = AddIndicator(
+                    name: name,
+                    posn: posn,
+                    size: size,
+                    onImage: "{Helios}/Images/Indicators/anunciator.png",
+                    offImage: "{Helios}/Images/Indicators/anunciator.png",
+                    onTextColor: Color.FromArgb(0xff, 0x24, 0x8D, 0x22),
+                    offTextColor: Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C),
+                    font: _font,
+                    vertical: _vertical,
+                    interfaceDeviceName: _interfaceDeviceName,
+                    interfaceElementName: interfaceElementName,
+                    fromCenter: false
+                    );
+                if (name == "Unknown 1" || name == "Unknown 2")
+                {
+                    indicator.Text = ".";
+                }
+                else
+                {
+                    indicator.Text = name;
+                }
+                indicator.Name = "Advisory Indicators_" + name;
+                indicator.OnTextColor = Color.FromArgb(0xff, 0x94, 0xEB, 0xA6);
+                indicator.OffTextColor = Color.FromArgb(0xff, 0x10, 0x10, 0x10);
+                indicator.TextFormat.FontStyle = FontStyles.Normal;
+                indicator.TextFormat.FontWeight = FontWeights.Normal;
+                if (_vertical)
+                {
+                    if (_font == "MS 33558")
+                    {
+                        indicator.TextFormat.FontSize = 8;
+                    }
+                    else
+                    {
+                        indicator.TextFormat.FontSize = 11;
+                    }
+                }
+                else
+                {
+                    indicator.TextFormat.FontSize = 12;
+                }
+                indicator.TextFormat.FontFamily = new FontFamily(_font);  // this probably needs to change before release
+                indicator.TextFormat.PaddingLeft = 0;
+                indicator.TextFormat.PaddingRight = 0;
+                indicator.TextFormat.PaddingTop = 0;
+                indicator.TextFormat.PaddingBottom = 0;
+                indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
+                indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
+            }
 
-        private new void AddAction(IBindingAction action, string device)
-        {
-            action.Device = device;
-            Actions.Add(action);
-        }
-        private void AddIndicator(string name, Point point, Size size) { AddIndicator(name, point.X, point.Y, size, false); }
-        private void AddIndicator(string name, double x, double y, Size size) { AddIndicator(name, x, y, size, false); }
-        private void AddIndicator(string name, double x, double y, Size size, bool _vertical)
-        {
-            Helios.Controls.Indicator indicator = new Helios.Controls.Indicator();
-            indicator.Top = y;
-            indicator.Left = x;
-            indicator.Width = size.Width;
-            indicator.Height = size.Height;
-            indicator.OnImage = "{Helios}/Images/Indicators/anunciator.png";
-            indicator.OffImage = "{Helios}/Images/Indicators/anunciator.png";
-            if (name == "Blank 1" || name == "Blank 2")
-            {
-                indicator.Text = "-";
-            }
-            else
-            {
-                indicator.Text = name;
-            }
-            indicator.Name = "Annunciator " + name;
-            indicator.OnTextColor = Color.FromArgb(0xff, 0x94, 0xEB, 0xA6);
-            indicator.OffTextColor = Color.FromArgb(0xff, 0x10, 0x10, 0x10);
-            indicator.TextFormat.FontStyle = FontStyles.Normal;
-            indicator.TextFormat.FontWeight = FontWeights.Normal;
-            indicator.TextFormat.FontSize = 16;
-            indicator.TextFormat.FontFamily = new FontFamily(_font);  // this probably needs to change before release
-            indicator.TextFormat.PaddingLeft = 0;
-            indicator.TextFormat.PaddingRight = 0;
-            indicator.TextFormat.PaddingTop = 0;
-            indicator.TextFormat.PaddingBottom = 0;
-            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
-
-            Children.Add(indicator);
-            foreach (IBindingTrigger trigger in indicator.Triggers)
-            {
-                AddTrigger(trigger, name);
-            }
-            foreach (IBindingAction action in indicator.Actions)
-            {
-                AddAction(action, name);
-            }
-        }
 
         public override bool HitTest(Point location)
         {

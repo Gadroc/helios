@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
     using Microsoft.Win32;
     using System;
 
-    [HeliosInterface("Helios.FA18C", "DCS FA-18C", typeof(FA18CInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
+    [HeliosInterface("Helios.FA18C", "DCS F/A-18C", typeof(FA18CInterfaceEditor), typeof(UniqueHeliosInterfaceFactory))]
     public class FA18CInterface : BaseUDPInterface
     {
         private string _dcsPath;
@@ -112,8 +112,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         public FA18CInterface()
             : base("DCS F/A-18C")
         {
-            DCSConfigurator config = new DCSConfigurator("DCSFA18C", DCSPath);
-            config.ExportConfigPath = "Config\\Export";
+            DCSConfigurator config = new DCSConfigurator("DCS F/A-18C", DCSPath);
+            config.ExportConfigPath = "Scripts";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/FA18C/ExportFunctions.lua";
             Port = config.Port;
             _phantomFix = config.PhantomFix;
@@ -737,7 +737,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             {
                 if (_dcsPath == null)
                 {
-                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS FA-18C");
+                    RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Eagle Dynamics\DCS World");
                     if (pathKey != null)
                     {
                         _dcsPath = (string)pathKey.GetValue("Path");

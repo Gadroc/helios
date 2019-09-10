@@ -13,6 +13,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/// <summary>
+/// This has been deprecated in favour of ODU_1 which uses text displays and a higher res background image
+/// </summary>
+
+
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.Gauges.AV8B;
@@ -34,7 +39,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
         private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
         private Rect _scaledScreenRectR = SCREEN_RECT_R;
- 
+
         public ODU_AV8B()
             : base("Option Display Unit", new Size(808, 550))
         {
@@ -43,21 +48,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddButton("ODU 3", 302, 175, new Size(40, 40));
             AddButton("ODU 4", 302, 241, new Size(40, 40));
             AddButton("ODU 5", 302, 310, new Size(40, 40));
-            AddTextDisplay("OptionCueing1", 358, 45, new Size(40, 42));
-            AddTextDisplay("OptionDisplay1", 381, 45, new Size(129, 42));
-            AddTextDisplay("OptionCueing2", 358, 111, new Size(40, 42));
-            AddTextDisplay("OptionDisplay2", 381, 111, new Size(129, 42));
-            AddTextDisplay("OptionCueing3", 358, 177, new Size(40, 42));
-            AddTextDisplay("OptionDisplay3", 381, 177, new Size(129, 42));
-            AddTextDisplay("OptionCueing4", 358, 244, new Size(40, 42));
-            AddTextDisplay("OptionDisplay4", 381, 244, new Size(129, 42));
-            AddTextDisplay("OptionCueing5", 358, 310, new Size(40, 42));
-            AddTextDisplay("OptionDisplay5", 381, 310, new Size(129, 42));
         }
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/AV-8B/ODU.png"; }
+            get { return "{AV-8B}/Images/ODU.png"; }
         }
 
         private new void AddTrigger(IBindingTrigger trigger, string device)
@@ -82,8 +77,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             button.Left = x;
             button.Width = size.Width;
             button.Height = size.Height;
-            button.Image = "{Helios}/Images/AV-8B/ODU Button Up " + name + ".png";
-            button.PushedImage = "{Helios}/Images/AV-8B/ODU Button Dn " + name + ".png";
+            button.Image = "{AV-8B}/Images/ODU Button Up.png";
+            button.PushedImage = "{AV-8B}/Images/ODU Button Dn.png";
             button.Text = "";
             button.Name = "ODU Key " + name;
 
@@ -95,57 +90,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddAction(button.Actions["push"], "ODU Key " + name);
             AddAction(button.Actions["release"], "ODU Key " + name);
             AddAction(button.Actions["set.physical state"], "ODU Key " + name);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, string testDisp)
-        {
-            AddTextDisplay(name, x, y, size, 32, testDisp, TextHorizontalAlignment.Left);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, TextHorizontalAlignment hTextAlign)
-        {
-            AddTextDisplay(name, x, y, size, baseFontsize, "~", hTextAlign);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize)
-        {
-            AddTextDisplay(name, x, y, size, baseFontsize, "~", TextHorizontalAlignment.Left);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, TextHorizontalAlignment hTextAlign)
-        {
-            AddTextDisplay(name, x, y, size, 32, "~", hTextAlign);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size)
-        {
-            AddTextDisplay(name, x, y, size, 32, "~", TextHorizontalAlignment.Left);
-        }
-        private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign)
-        {
-            Helios.Controls.TextDisplay display = new Helios.Controls.TextDisplay
-            {
-                Top = y,
-                Left = x,
-                Width = size.Width,
-                Height = size.Height,
-                Name = name
-            };
-            // display.FontSize = 20;
-            TextFormat textFormat = new TextFormat
-            {
-                FontFamily = new FontFamily("Hornet UFC"),
-                HorizontalAlignment = hTextAlign,
-                VerticalAlignment = TextVerticalAlignment.Center,
-                FontSize = baseFontsize
-            };
-            //textFormat.FontFamily.Baseline = 0;
-            textFormat.PaddingRight = 0;
-            textFormat.PaddingLeft = 0;
-            textFormat.PaddingTop = 0;
-            textFormat.PaddingBottom = 0;
-            display.TextFormat = textFormat;
-            display.OnTextColor = Color.FromArgb(0xff, 0x7e, 0xde, 0x72);
-            display.BackgroundColor = Color.FromArgb(0xff, 0x26, 0x3f, 0x36);
-            display.UseBackground = true;
-            display.TextTestValue = testDisp;
-            Children.Add(display);
-            AddAction(display.Actions["set.TextDisplay"], "ODU Display " + name);
         }
 
 
