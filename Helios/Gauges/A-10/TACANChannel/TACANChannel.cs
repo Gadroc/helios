@@ -35,8 +35,8 @@ namespace GadrocsWorkshop.Helios.Gauges.A_10.TACANChannel
             : base("TACAN Channel", new Size(275, 100))
         {
             Components.Add(new GaugeImage("{Helios}/Gauges/A-10/TACANChannel/tacan_channel_faceplate.xaml", new Rect(0d, 0d, 275d, 100d)));
-
-            _hundredsDrum = new GaugeDrumCounter("{Helios}/Gauges/A-10/TACANChannel/tacan_channel_hundreds_tape.xaml", new Point(15.5d, 11.5d), "#", new Size(10d, 15d), new Size(50d, 75d));
+			//_hundredsDrum = new GaugeDrumCounter("{Helios}/Gauges/A-10/TACANChannel/tacan_channel_hundreds_tape.xaml", new Point(15.5d, 11.5d), "#", new Size(10d, 15d), new Size(50d, 75d));
+			_hundredsDrum = new GaugeDrumCounter("{Helios}/Gauges/A-10/Common/drum_tape.xaml", new Point(15.5d, 11.5d), "#", new Size(10d, 15d), new Size(50d, 75d));
             _hundredsDrum.Clip = new RectangleGeometry(new Rect(15.5d, 11.5d, 50d, 75d));
             Components.Add(_hundredsDrum);
 
@@ -68,13 +68,13 @@ namespace GadrocsWorkshop.Helios.Gauges.A_10.TACANChannel
         {
             _onesDrum.Value = e.Value.DoubleValue;
             _tensDrum.Value = _onesDrum.Value / 10d;
-            _hundredsDrum.Value = _tensDrum.Value / 10d;
+            _hundredsDrum.Value = Math.Floor(e.Value.DoubleValue / 100d);
         }
 
         void Mode_Execute(object action, HeliosActionEventArgs e)
         {
-            _xModeImage.IsHidden = e.Value.StringValue.Equals("1");
-            _yModeImage.IsHidden = e.Value.StringValue.Equals("2");
+            _xModeImage.IsHidden = e.Value.StringValue.Equals("2");
+            _yModeImage.IsHidden = e.Value.StringValue.Equals("1");
         }
     }
 }
