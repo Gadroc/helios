@@ -41,13 +41,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
         private const string HELMET = "23";
         private const string DATALINK = "25";
         private const string NAV_INTERFACE = "28";
-        private const string CLOCK = "29";
         private const string HSI = "30";
         private const string ADI = "31";
         private const string AUTOPILOT = "33";
         private const string CPT_MECH = "34";
         private const string LASER_WARNING_SYSTEM = "36";
-        private const string PPK = "32";
+        private const string PPK = "37";
         private const string RADAR_ALTIMETER = "38";
         private const string FIRE_EXTING_INTERFACE = "40";
         private const string MISC_SYSTEMS_INTERFACE = "41";
@@ -58,13 +57,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
         private const string R_800 = "48";
         private const string R_828 = "49";
         private const string SPU_9 = "50";
-        private const string ILLUMINATION_INTERFACE = "51";
-        private const string SIGNAL_FLARE_DISPENSER = "52";
-        private const string STBY_ADI = "55";
-        private const string PShk_7 = "57";
-        private const string ZMS_3 = "58";
-        private const string K041 = "59";
-        private const string ACCELEROMETER = "61";
+        private const string ILLUMINATION_INTERFACE = "52";
+        private const string SIGNAL_FLARE_DISPENSER = "53";
+        private const string STBY_ADI = "56";
+        private const string PShk_7 = "58";
+        private const string ZMS_3 = "59";
+        private const string K041 = "60";
         #endregion
 
         #region Buttons
@@ -181,8 +179,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new ScaledNetworkValue(this, "87", 10000d, "Barometric Altimeter", "Altitude", "Barometric altitude.", "(0-10000)", BindingValueUnits.Meters));
             AddFunction(new ScaledNetworkValue(this, "88", 200d, "Barometric Altimeter", "QFE Pressure", "", "600-800", BindingValueUnits.MilimetersOfMercury, 600d, "%0.2f"));
             AddFunction(new ScaledNetworkValue(this, "89", 10000d, "Barometric Altimeter", "Commanded Altitude", "Commanded altitude.", "(0-10000)", BindingValueUnits.Meters));
-            AddFunction(new Axis(this, MISC_SYSTEMS_INTERFACE, BUTTON_5, "90", 0.001, 0, 1, "Barometric Altimeter", "Baro pressure QFE knob"));
-
 
             // HSI
             AddFunction(new ScaledNetworkValue(this, "112", 360d, "HSI", "Heading", "Current heading displayed on the HSI", "(0-360)", BindingValueUnits.Degrees));
@@ -233,7 +229,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new ScaledNetworkValue(this, "97", 6d, "Accelerometer", "Acceleration", "Current gs", "", BindingValueUnits.Numeric, -2d, "%0.2f"));
             AddFunction(new ScaledNetworkValue(this, "98", 6d, "Accelerometer", "Maxium acceleration", "Max Gs attained.", "", BindingValueUnits.Numeric, -2d, "%0.2f"));
             AddFunction(new ScaledNetworkValue(this, "99", 6d, "Accelerometer", "Minimum acceleration", "Min Gs attained.", "", BindingValueUnits.Numeric, -2d, "%0.2f"));
-            AddFunction(new PushButton(this, ACCELEROMETER, BUTTON_1, "572", "Accelerometer", "Reset"));
+            AddFunction(new PushButton(this, CPT_MECH, BUTTON_6, "572", "Accelerometer", "Reset"));
 
             // Lamp Test Button
             AddFunction(new PushButton(this, SYST_CONTROLLER, BUTTON_2, "45", "System Controller", "Lamp Test"));
@@ -247,33 +243,19 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new ScaledNetworkValue(this, "531", 60d, "Clock", "Flight Time Minutes", "Current minute of the simulation flight time.", "", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "73", 30d, "Clock", "Stop Watch Minutes", "Current minute of the stop watch.", "", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "532", 30d, "Clock", "Stop Watch Seconds", "Current seconds of the stop watch.", "", BindingValueUnits.Numeric));
-            AddFunction(new Switch(this, CLOCK, "76", new SwitchPosition[] { new SwitchPosition("1.0", "pushed", "3001"), new SwitchPosition("0.0", "normal", "3001"), new SwitchPosition("-1.0", "pulled", "3002") }, "Clock", "Mech clock left Button", "%0.1f"));
-            AddFunction(new RotaryEncoder(this, CLOCK, BUTTON_3, "511", 0.001d, "Clock", "Mech clock left lever"));
-            AddFunction(new PushButton(this, CLOCK, BUTTON_4, "77", "Clock", "Mech clock right Button"));
-            AddFunction(new RotaryEncoder(this, CLOCK, BUTTON_5, "525", 0.001d, "Clock", "Mech clock right lever"));
-
-
-
-
             #endregion
 
             #region Right Front Panel
             // EKRAN
             AddFunction(new Text(this, "2004", "EKRAN", "Message", "EKRAN Message Text"));
-            AddFunction(new Text(this, "2006", "EKRAN", "Queue message", "Queue window Message Text"));
-            AddFunction(new Text(this, "2007", "EKRAN", "Failure message", "Failure window Message Text"));
-            AddFunction(new Text(this, "2008", "EKRAN", "Memory message", "Memory window Message Text"));
 
             // Backup ADI
             AddFunction(new ScaledNetworkValue(this, "142", 180d, "Backup ADI", "roll", "Current roll displayed on the AGR-81 backup ADI.", "(-180 to 180)", BindingValueUnits.Degrees));
             AddFunction(new ScaledNetworkValue(this, "143", -90d, "Backup ADI", "pitch", "Current pitch displayed on the AGR-81 backup ADI.", "(-90 to 90)", BindingValueUnits.Degrees));
             AddFunction(new NetworkValue(this, "144", "Backup ADI", "side slip", "Current amount of side slip displayed on the AGR-81 backup ADI.", "(-1 to 1)", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "599", "Backup ADI", "LongitudinalDeviationBar", "Current amount of Longitudinal Deviation Bar.", "(-1 to 1)", BindingValueUnits.Numeric));
-            AddFunction(new NetworkValue(this, "613", "Backup ADI", "LateralDeviationBar", "Current amount of Lateral Deviation Bar.", "(-1 to 1)", BindingValueUnits.Numeric));
             AddFunction(new FlagValue(this, "145", "Backup ADI", "warning flag", "Indicates whether the warning flag is displayed on the AGR-81 backup ADI."));
             AddFunction(new RotaryEncoder(this, STBY_ADI, BUTTON_3, "597", 1d, "Backup ADI", "Cage"));
             AddFunction(Switch.CreateToggleSwitch(this, STBY_ADI, BUTTON_4, "230", "1", "On", "0", "Off", "Backup ADI", "Power", "%1d"));
-            AddFunction(new PushButton(this, STBY_ADI, BUTTON_1, "141", "Backup ADI", "Test backup ADI Button"));
 
             // Exhaust Gas Test Buttons
             AddFunction(new PushButton(this, ENGINE_INTERFACE, BUTTON_22, "131", "Engine", "Running EGT Test Button"));
@@ -303,7 +285,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new PushButton(this, ABRIS, BUTTON_7, "523", "ABRIS", "Cursor Select"));
             AddFunction(new RotaryEncoder(this, ABRIS, BUTTON_6, "518", 0.04, "ABRIS", "Cursor"));
             AddFunction(new Axis(this, ABRIS, BUTTON_8, "517", 0.05, 0, 1, "ABRIS", "Brightness"));
-            AddFunction(new Switch(this, ABRIS, "130", new SwitchPosition[] { new SwitchPosition("1.0", "On", "3009"), new SwitchPosition("0.0", "Off", "3009") }, "ABRIS", "Power", "%0.1f"));
+            AddFunction(new Switch(this, ABRIS, "130", new SwitchPosition[] { new SwitchPosition("1", "On", "3009"), new SwitchPosition("0", "Off", "3009") }, "ABRIS", "Power", "%0.1f"));
             #endregion
 
             #region Center Panel
@@ -366,8 +348,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             #region Overhead Panel Left
             AddFunction(new Switch(this, NAVLIGHT_SYSTEM, "146", new SwitchPosition[] { new SwitchPosition("0.0", "Off", BUTTON_4), new SwitchPosition("0.1", "10%", BUTTON_4), new SwitchPosition("0.2", "30%", BUTTON_4), new SwitchPosition("0.3", "100%", BUTTON_4), new SwitchPosition("0.4", "Signal", BUTTON_5, BUTTON_5, "0.4") }, "Navigation Light System", "Brightness", "%0.1f"));
             AddFunction(new Switch(this, CPT_MECH, "147", new SwitchPosition[] { new SwitchPosition("0.0", "Off", BUTTON_7), new SwitchPosition("0.1", "Fast", BUTTON_7), new SwitchPosition("0.2", "Speed 1", BUTTON_7), new SwitchPosition("0.3", "Speed 2", BUTTON_7), new SwitchPosition("0.4", "Return", BUTTON_8, BUTTON_8, "0.4") }, "Mechanical", "Windshield Wiper Switch", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECH, BUTTON_8, "539", "1", "On", "0", "Off", "Mechanical", "Pitot Static Port and AoA Heat Switch", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECH, BUTTON_9, "151", "1", "On", "0", "Off", "Mechanical", "Pitot Ram Air and Clock Heat Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECH, BUTTON_9, "539", "0", "On", "1", "Off", "Mechanical", "Pitot Static Port and AoA Heat Switch", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, CPT_MECH, BUTTON_10, "151", "0", "On", "1", "Off", "Mechanical", "Pitot Ram Air and Clock Heat Switch", "%1d"));
             AddFunction(new FlagValue(this, "170", "Left Warning Panel", "R-Alt Hold Indicator", "Radar altitude-hold autopilot mode on"));
             AddFunction(new FlagValue(this, "175", "Left Warning Panel", "Auto Hover", "Hover autopilot mode is on"));
             AddFunction(new FlagValue(this, "172", "Left Warning Panel", "Auto Descent", "Controlled descent autopilot mode is on"));
@@ -383,8 +365,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new FlagValue(this, "187", "Left Warning Panel", "Turbo Gear", "Accessory gearbox disconnected from rotor drive"));
             AddFunction(new FlagValue(this, "204", "Left Warning Panel", "AGB Oil Press", "Gearbox oil pressure normal (before start)"));
             AddFunction(new FlagValue(this, "213", "Left Warning Panel", "SL Hook Open", "Sling load lock (hook) is open"));
-            AddFunction(new ScaledNetworkValue(this, "587", 60d, "Misc", "Ambien Temperature", "Current ambient temperature", "-60 - 50", BindingValueUnits.Celsius));
-
             #endregion
 
             #region Magnetic Compass
@@ -394,7 +374,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             #endregion
 
             #region Overhad Panel Right
-            AddFunction(Switch.CreateToggleSwitch(this, ENGINE_INTERFACE, BUTTON_13, "153", "1", "On", "0", "Off", "Engine", "Rotor De-icing system", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, ENGINE_INTERFACE, BUTTON_13, "153", "0", "On", "1", "Off", "Engine", "Rotor De-icing system", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, ENGINE_INTERFACE, BUTTON_14, "154", "1.0", "De-ice", "0.5", "Off", "0.0", "Dust Protection", "Engine", "Enginges De-icing / dust-protection system", "%0.1f"));
             AddFunction(new PushButton(this, CPT_MECH, BUTTON_11, "156", "Mechanical", "Pitot heat system test."));
             AddFunction(new FlagValue(this, "167", "Right Warning Panel", "Master Arm On", "Master is is on"));
@@ -465,9 +445,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new PushButton(this, UV_26, BUTTON_9, "40", "UV-26 CMD", "Stop dispense"));
             AddFunction(new FlagValue(this, "541", "UV-26 CMD", "Left Dispense Lamp", "Lit when set to dispense from left dispenser"));
             AddFunction(new FlagValue(this, "542", "UV-26 CMD", "Right Dispense Lamp", "Lit when set to dispense from right dispenser"));
-            AddFunction(GuardedSwitch.CreateToggleSwitch(this, UV_26, BUTTON_10, "496", BUTTON_12, "497", "1", "0", "1", "On", "0", "Off", "UV-26 CMD", "Power", "%1d"));
-            AddFunction(GuardedSwitch.CreateToggleSwitch(this, UV_26, BUTTON_11, "498", BUTTON_13, "499", "1", "0", "1", "On", "0", "Off", "UV-26 CMD", "Test", "%1d"));
-            AddFunction(new Text(this, "2005", "UV-26 CMD", "Display digits", "UV-26 Message Text"));
+            AddFunction(GuardedSwitch.CreateToggleSwitch(this, UV_26, BUTTON_10, "496", BUTTON_11, "497", "1", "0", "1", "On", "0", "Off", "UV-26 CMD", "Power", "%1d"));
+            AddFunction(GuardedSwitch.CreateToggleSwitch(this, UV_26, BUTTON_12, "498", BUTTON_13, "499", "1", "0", "1", "On", "0", "Off", "UV-26 CMD", "Test", "%1d"));
             #endregion
 
             #region PVI-800
@@ -497,17 +476,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new IndicatorPushButton(this, PVI, BUTTON_24, "322", "PVI-800 Control Panel", "True Heading/Time/Range"));
             AddFunction(new IndicatorPushButton(this, PVI, BUTTON_25, "323", "PVI-800 Control Panel", "Bearing/Range"));
             AddFunction(new Switch(this, PVI, "324", new SwitchPosition[] { new SwitchPosition("0.0", "Off", BUTTON_26), new SwitchPosition("0.1", "Verification", BUTTON_26), new SwitchPosition("0.2", "Edit", BUTTON_26), new SwitchPosition("0.3", "Operation", BUTTON_26), new SwitchPosition("0.4", "Simulate", BUTTON_26), new SwitchPosition("0.5", "K-1", BUTTON_26), new SwitchPosition("0.6", "K-2", BUTTON_26) }, "PVI-800 Control Panel", "Master Mode", "%0.1f"));
-            AddFunction(Switch.CreateToggleSwitch(this, PVI, BUTTON_28, "325", "1", "Shkval", "0", "Fly Over", "PVI-800 Control Panel", "INU fixtaking method", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, DATALINK, BUTTON_16, "326", "1", "On", "0", "Off", "PVI-800 Control Panel", "Datalink power", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, PVI, BUTTON_28, "325", "1", "Shkval", "1", "Fly Over", "PVI-800 Control Panel", "INU fixtaking method", "%1d"));
+            AddFunction(Switch.CreateToggleSwitch(this, PVI, BUTTON_29, "326", "1", "On", "0", "Off", "PVI-800 Control Panel", "Datalink power", "%1d"));
             AddFunction(new Axis(this, PVI, BUTTON_29, "327", 0.001, 0d, 1d, "PVI-800 Control Panel", "Brightness"));
-            AddFunction(new Text(this, "2009", "PVI-800 Control Panel", "Upper big display digits", "Upper big display digits Message Text"));
-            AddFunction(new Text(this, "2010", "PVI-800 Control Panel", "Upper big display apostrophe1", "Upper big display apostrophe1 Text"));
-            AddFunction(new Text(this, "2011", "PVI-800 Control Panel", "Upper big display apostrophe2", "Upper big display apostrophe2 Text"));
-            AddFunction(new Text(this, "2012", "PVI-800 Control Panel", "Upper small display digit", "Upper small display digit Message Text"));
-            AddFunction(new Text(this, "2013", "PVI-800 Control Panel", "Lower big display digits", "Upper big display digits Message Text"));
-            AddFunction(new Text(this, "2014", "PVI-800 Control Panel", "Lower big display apostrophe1", "Upper big display apostrophe1 Text"));
-            AddFunction(new Text(this, "2015", "PVI-800 Control Panel", "Lower big display apostrophe2", "Upper big display apostrophe2 Text"));
-            AddFunction(new Text(this, "2016", "PVI-800 Control Panel", "Lower small display digit", "Upper big display digit Message Text"));
             #endregion
 
             #region PVTz-800 Data Link Mode Panel
@@ -522,7 +493,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new IndicatorPushButton(this, AUTOPILOT, BUTTON_4, "333", "Autopilot", "Altitude hold"));
             AddFunction(new IndicatorPushButton(this, AUTOPILOT, BUTTON_5, "334", "Autopilot", "Flight Director"));
             AddFunction(Switch.CreateThreeWaySwitch(this, AUTOPILOT, BUTTON_6, "335", "0.0", "Barometric", "0.5", "N/A", "1.0", "Radar", "Autopilot", "Altitude Source", "%0.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, NAV_INTERFACE, BUTTON_3, "336", "0.0", "Desired Heading", "0.5", "N/A", "1.0", "Desired Track", "Autopilot", "Autopilot Heading/Course", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, AUTOPILOT, BUTTON_7, "336", "0.0", "Desired Heading", "0.5", "N/A", "1.0", "Desired Track", "Autopilot", "Autopilot Heading/Course", "%0.1f"));
             #endregion
 
             #region ADF ARK-22
@@ -539,7 +510,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new PushButton(this, R_828, BUTTON_3, "373", "R-828 VHF-1 Radio", "Tuner Button"));
             AddFunction(Switch.CreateToggleSwitch(this, R_828, BUTTON_4, "374", "1", "On", "0", "Off", "R-828 VHF-1 Radio", "Squelch", "%1d"));
             AddFunction(new FlagValue(this, "375", "R-828 VHF-1 Radio", "Tuner Lamp", "Lit if R828 is under power and the automatic tuner button is pressed and radio has not been tuned."));
-            AddFunction(new Text(this, "2017", "R-828 VHF-1 Radio", "Display digits", "Actual frequency selected"));
             #endregion
 
             #region Signal Flares
@@ -623,7 +593,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, BUTTON_7, "267", "1", "On", "0", "Off", "Electrical", "AC Ground Power", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, BUTTON_8, "268", "1", "On", "0", "Off", "Electrical", "AC Left Generator", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ELEC_INTERFACE, BUTTON_9, "269", "1", "On", "0", "Off", "Electrical", "AC Right Generator", "%1d"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, BUTTON_10, "270", "0.2", "Auto", "0.1", "Off", "0.0", "Manual", "Electrical", "DC/AC Inverter", "%0.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ELEC_INTERFACE, BUTTON_10, "270", "0.2", "Auto", "0.1", "Off", "0.0", "Manual", "Electrical", "DC/AC Inverter", "%01.f"));
             #endregion
 
             #region Fuel Pumps
@@ -674,19 +644,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(GuardedSwitch.CreateToggleSwitch(this, ENGINE_INTERFACE, BUTTON_1, "290", BUTTON_2, "291", "1", "0", "1", "On", "0", "Off", "Engine", "Left EEG", "%1d"));
             AddFunction(GuardedSwitch.CreateToggleSwitch(this, ENGINE_INTERFACE, BUTTON_3, "292", BUTTON_4, "293", "1", "0", "1", "On", "0", "Off", "Engine", "Right EEG", "%1d"));
             AddFunction(GuardedSwitch.CreateToggleSwitch(this, ENGINE_INTERFACE, BUTTON_15, "294", BUTTON_16, "569", "1", "0", "1", "Test", "0", "Operate", "Engine", "EEG Gas Generator Test", "%1d"));
-            AddFunction(GuardedSwitch.CreateThreeWaySwitch(this, ENGINE_INTERFACE, BUTTON_17, "295", BUTTON_18, "570", "1.0", "0.0", "0.2", "PT-2 Test", "0.1", "Operate", "0.0", "PT-1 Test", "Engine", "EEG Power Turbine Test", "%0.1f"));
+            AddFunction(GuardedSwitch.CreateThreeWaySwitch(this, ENGINE_INTERFACE, BUTTON_17, "295", BUTTON_18, "570", "1", "0", "0.2", "PT-2 Test", "0.1", "Operate", "0.0", "PT-1 Test", "Engine", "EEG Power Turbine Test", "%0.1f"));
             AddFunction(new PushButton(this, ENGINE_INTERFACE, BUTTON_19, "457", "Engine", "Left EGT Governor Button"));
             AddFunction(new PushButton(this, ENGINE_INTERFACE, BUTTON_20, "458", "Engine", "Right EGT Governor Button"));
             AddFunction(new PushButton(this, ENGINE_INTERFACE, BUTTON_21, "459", "Engine", "Vibrations Monitoring System Button"));
             AddFunction(Switch.CreateToggleSwitch(this, ILLUMINATION_INTERFACE, BUTTON_1, "300", "1", "On", "0", "Off", "Lighting", "Panel Lights", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ILLUMINATION_INTERFACE, BUTTON_7, "299", "1", "On", "0", "Off", "Lighting", "Night Vision Lighting", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, ILLUMINATION_INTERFACE, BUTTON_3, "298", "1", "On", "0", "Off", "Lighting", "ADI & SAI Lights", "%1d"));
-            AddFunction(Switch.CreateToggleSwitch(this, ILLUMINATION_INTERFACE, BUTTON_5, "450", "1", "On", "0", "Off", "Lighting", "Lighting auxiliary panel switch", "%1d"));
-            AddFunction(new Switch(this, ILLUMINATION_INTERFACE, "1001", new SwitchPosition[] { new SwitchPosition("1.0", "On", "3009"), new SwitchPosition("0.0", "Off", "3009") }, "Lighting", "Plafond Light", "%0.1f"));
-            AddFunction(new Axis(this, ILLUMINATION_INTERFACE, BUTTON_6, "451", 0.01, 0d, 1d, "Lighting", "Lighting auxiliary panel brightness knob"));
-            AddFunction(new Axis(this, ILLUMINATION_INTERFACE, BUTTON_8, "507", 0.01, 0d, 1d, "Lighting", "Lighting night vision cockpit brightness knob"));
-            AddFunction(new Axis(this, ILLUMINATION_INTERFACE, BUTTON_2, "593", 0.01, 0d, 1d, "Lighting", "Lighting cockpit panel brightness knob"));
-            AddFunction(new Axis(this, ILLUMINATION_INTERFACE, BUTTON_4, "508", 0.01, 0d, 1d, "Lighting", "Lighting HSI and ADI brightness knob"));
             #endregion
 
             #region Fire Extinguishers Controls
@@ -694,7 +658,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new PushButton(this, FIRE_EXTING_INTERFACE, BUTTON_2, "238", "Fire Extinguishers", "APU"));
             AddFunction(new PushButton(this, FIRE_EXTING_INTERFACE, BUTTON_3, "240", "Fire Extinguishers", "Right Engine"));
             AddFunction(new PushButton(this, FIRE_EXTING_INTERFACE, BUTTON_4, "242", "Fire Extinguishers", "Ventilator"));
-            AddFunction(GuardedSwitch.CreateThreeWaySwitch(this, FIRE_EXTING_INTERFACE, BUTTON_5, "248", BUTTON_7, "249", "1.0", "0.0", "0.2", "Work", "0.1", "Off", "0.0", "Test", "Fire Extinguishers", "Work/Off/Test", "%0.1f"));
+            AddFunction(GuardedSwitch.CreateThreeWaySwitch(this, FIRE_EXTING_INTERFACE, BUTTON_5, "248", BUTTON_7, "249", "1", "0", "0.2", "Work", "0.1", "Off", "0.0", "Test", "Fire Extinguishers", "Work/Off/Test", "%0.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, FIRE_EXTING_INTERFACE, BUTTON_8, "250", "1", "Warn", "0", "Off", "Fire Extinguishers", "Signaling", "%1d"));
             AddFunction(GuardedSwitch.CreateToggleSwitch(this, FIRE_EXTING_INTERFACE, BUTTON_9, "246", BUTTON_10, "247", "1", "0", "0", "Manual", "1", "Auto", "Fire Extinguishers", "Mode Select", "%1d"));
             AddFunction(new FlagValue(this, "237", "Fire Extinguishers", "Left Engine Fire Indicator", "Lit when a fire has been detected in the left enigne bay."));
@@ -719,8 +683,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
                 "0.3", "3", "0.4", "4", "0.5", "5", "0.6", "6", "0.7", "7", "0.8", "8", "0.9", "9", "1.0", "10" }));
             AddFunction(Switch.CreateRotarySwitch(this, WEAP_INTERFACE, BUTTON_23, "484", "PUI-800", "Unguided Ballistics Selector", "%0.1f", new string[] {"0.0", "0", "0.1", "1", "0.2", "2",
                 "0.3", "3", "0.4", "4", "0.5", "5", "0.6", "6", "0.7", "7", "0.8", "8", "0.9", "9", "1.0", "10" }));
-            AddFunction(Switch.CreateRotarySwitch(this, PPK, BUTTON_3, "485", "PPK", "Systems BIT Selector", "%0.1f", new string[] {"0.0", "0", "0.1", "1", "0.2", "2",
-                "0.3", "3", "0.4", "4", "0.5", "5", "0.6", "6", "0.7", "7", "0.8", "8" }));
+            AddFunction(Switch.CreateToggleSwitch(this, PPK, BUTTON_3, "485", "1", "On", "0", "Off", "PPK", "Systems BIT Selector", "%1d"));
             AddFunction(Switch.CreateToggleSwitch(this, PPK, BUTTON_4, "486", "1", "On", "0", "Off", "PPK", "Computer BIT Selector", "%1d"));
             AddFunction(new PushButton(this, PPK, BUTTON_7, "489", "PPK", "Self Test Button"));
             AddFunction(Switch.CreateToggleSwitch(this, PPK, BUTTON_8, "490", "1", "On", "0", "Off", "PPK", "Emergency INU Alignment", "%1d"));
@@ -759,11 +722,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark
             AddFunction(new ScaledNetworkValue(this, "476", gearboxOilTempScale, "Hydraulics", "Main Temperature", "", "", BindingValueUnits.Celsius));
 
             // Mag Variation Panel
-            AddFunction(new RotaryEncoder(this, PShk_7, BUTTON_1, "340", 0.001, "PShK-7 Latitude Entry", "Latitude Correction"));
+            AddFunction(new Axis(this, PShk_7, BUTTON_1, "340", 0.12, 0, 1, "PShK-7 Latitude Entry", "Latitude Correction"));
             AddFunction(Switch.CreateToggleSwitch(this, PShk_7, BUTTON_2, "341", "1", "North", "0", "South", "PShK-7 Latitude Entry", "Latitidue Correction Switch", "%1d"));
             AddFunction(new FlagValue(this, "342", "PShK-7 Latitude Entry", "Auto Lamp", ""));
             AddFunction(new Functions.LatitudeEntry(this));
-            AddFunction(new RotaryEncoder(this, ZMS_3, BUTTON_1, "338", 0.001, "ZMS-3 Magnetic Variation", "Magnetic variatoin selection"));
+            AddFunction(new Axis(this, ZMS_3, BUTTON_1, "338", 0.12, 0, 1, "ZMS-3 Magnetic Variation", "Magnetic variatoin selection"));
             AddFunction(new Functions.MagVariation(this));
         }
     }

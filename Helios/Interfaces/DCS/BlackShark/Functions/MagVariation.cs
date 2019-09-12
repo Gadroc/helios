@@ -47,14 +47,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark.Functions
             switch (id)
             {
                 case "337":
-                    _tens = ClampedParse(value, 18d);
+                    _tens = ClampedParse(value, 100d);
                     if (_tens < 0) _tens += 360d;
                     break;
                 case "596":
                     _units = Parse(value, 1d);
                     break;
             }
-           // double distance = _tens;
             double distance = _tens + _units;
             _variation.SetValue(new BindingValue(distance), false);
         }
@@ -67,7 +66,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark.Functions
                 if (scaledValue < 1.0d)
                 {
                     scaledValue *= scale * 10d;
-
                 }
                 else
                 {
@@ -84,15 +82,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.BlackShark.Functions
             {
                 if (scaledValue < 1.0d)
                 {
-                    if (scaledValue < 0.0d)
-                    {
-                        scaledValue = Math.Truncate((scaledValue * 18) - 0.1) * 10; // round negative values
-                    }
-                    else
-                    {
-                        scaledValue = Math.Truncate((scaledValue * 18) + 0.1)*10; // round positive values
-                    }
- 
+                    scaledValue = Math.Truncate(scaledValue * 10d) * scale;
                 }
                 else
                 {
