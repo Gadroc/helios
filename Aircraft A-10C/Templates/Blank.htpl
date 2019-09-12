@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>Blank</Name><Category>A-10C</Category><TypeIdentifier>Helios.Base.PushButton</TypeIdentifier><Template><TemplateValues><Location>496,161</Location><Size>50,50</Size><Type>Momentary</Type><Image>{A-10C}/Images/ufc_blank.png</Image><PushedImage>{A-10C}/Images/ufc_blank_in.png</PushedImage></TemplateValues></Template></ControlTemplate>

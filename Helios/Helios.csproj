@@ -3651,6 +3651,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aircraft A-10C\Aircraft A-10C.csproj">
+      <Project>{80870108-efe4-4adf-969d-a0ce06123271}</Project>
+      <Name>Aircraft A-10C</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Aircraft AV-8B\Aircraft AV-8B.csproj">
       <Project>{2b00f04b-3cb2-44e7-b49b-da94ff74c66c}</Project>
       <Name>Aircraft AV-8B</Name>
