@@ -107,7 +107,9 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Gauges\M2000C\FuelPanel\Fuel_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\Demar_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\RWR_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\FireWarning_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\PCI_Panel.cs" />
     <Compile Include="NonClickableZone.cs" />

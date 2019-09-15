@@ -533,6 +533,35 @@ namespace GadrocsWorkshop.Helios
             return indicator;
         }
 
+        protected RectangleFill AddRectangleFill(string name, Point posn, Size size, Color color, 
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+            RectangleFill rectangleFill = new RectangleFill();
+            rectangleFill.Name = componentName;
+            rectangleFill.Left = posn.X;
+            rectangleFill.Top = posn.Y;
+            rectangleFill.Height = size.Height;
+            rectangleFill.Width = size.Width;
+            rectangleFill.FillColor = color;
+
+            Children.Add(rectangleFill);
+            foreach (IBindingTrigger trigger in rectangleFill.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(rectangleFill.Actions["set.Height"], componentName);
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.Height");
+                
+            return rectangleFill;
+        }
+
         protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
             string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName, 
             bool fromCenter, NonClickableZone[] nonClickableZones = null, bool horizontal = false, bool horizontalRender = false)

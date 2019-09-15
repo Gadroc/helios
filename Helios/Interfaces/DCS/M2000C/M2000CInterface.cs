@@ -144,6 +144,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, ENGPANEL, "651", new SwitchPosition[] { new SwitchPosition("0.0", "CLOSE", "3651"), new SwitchPosition("1.0", "OPEN", "3651") }, "Engine Start Panel", "Fuel Shut-Off Switch Guard", "%0.1f"));    // elements["PTN_651"] = default_2_position_tumb(_("Fuel Cutoff Switch Cover"), devices.ENGPANEL, device_commands.Button_651, 651)
             AddFunction(new Switch(this, ENGPANEL, "652", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3652"), new SwitchPosition("0.0", "ON", "3652") }, "Engine Start Panel", "Fuel Shut-Off Switch", "%0.1f"));    // elements["PTN_652"] = default_2_position_tumb(_("Fuel Cutoff Switch"), devices.ENGPANEL, device_commands.Button_652, 652)
             #endregion
+            #region Fuel Panel
+            AddFunction(new FlagValue(this, "198", "Fuel Panel", "Air Refueling", "Air Refueling"));
+            AddFunction(new FlagValue(this, "362", "Fuel Panel", "left-rl", "Fuel Left RL"));
+            AddFunction(new FlagValue(this, "363", "Fuel Panel", "center-rl", "Fuel Center RL"));
+            AddFunction(new FlagValue(this, "364", "Fuel Panel", "right-rl", "Fuel Right RL"));
+            AddFunction(new FlagValue(this, "365", "Fuel Panel", "left-av", "Fuel Left AV"));
+            AddFunction(new FlagValue(this, "366", "Fuel Panel", "right-av", "Fuel Right AV"));
+            AddFunction(new FlagValue(this, "367", "Fuel Panel", "left-v", "Fuel Left V"));
+            AddFunction(new FlagValue(this, "368", "Fuel Panel", "right-v", "Fuel Right V"));
+            AddFunction(new Axis(this, MISCPANELS, "357", "3357", 0d, 0d, 1d, "Fuel Panel", "Fuel Crossfeed Switch"));
+            #endregion
             #region  Landing Gear
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
             AddFunction(new FlagValue(this, "411", "Landing Gear Panel", "F", "F Warnlamp"));
@@ -170,6 +181,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "panne-red", "Master-caution"));
             #endregion
             #region Miscellaneous Panels and indicators
+            AddFunction(new FlagValue(this, "229", "RWR Panel", "RWR V", "RWR V"));
+            AddFunction(new FlagValue(this, "230", "RWR Panel", "RWR BR", "RWR BR"));
+            AddFunction(new FlagValue(this, "231", "RWR Panel", "RWR DA", "RWR DA"));
+            AddFunction(new FlagValue(this, "232", "RWR Panel", "RWR D2M", "RWR D2M"));
+            AddFunction(new FlagValue(this, "233", "RWR Panel", "RWR LL", "RWR LL"));
+            AddFunction(new FlagValue(this, "358", "Fuel Panel", "internal-fuel-needle", "Internal Fuel Quantity Needle"));
+            AddFunction(new FlagValue(this, "359", "Fuel Panel", "total-fuel-needle", "Total Fuel Quantity Needle"));
             AddFunction(new FlagValue(this, "373", "Post Combustion Indicator Panel", "pc", "Post Combustion"));
             AddFunction(new FlagValue(this, "374", "Fire Warning Panel", "fire-warning-engine-chamber", "Fire Warning Engine Chamber"));
             AddFunction(new FlagValue(this, "375", "Fire Warning Panel", "fire-warning-afterburner-chamber", "Fire Warning Afterburner Chamber"));
@@ -181,11 +199,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "186", "Indicators", "Indicators 186", "IFF, MIP, Acc"));
             AddFunction(new FlagValue(this, "187", "Indicators", "Indicators 187", "LED green, ADI"));
             AddFunction(new FlagValue(this, "188", "Indicators", "Indicators 188", "LED green, ADI"));
-            AddFunction(new FlagValue(this, "229", "Indicators", "Indicators 229", "RWR V"));
-            AddFunction(new FlagValue(this, "230", "Indicators", "Indicators 230", "RWR BR"));
-            AddFunction(new FlagValue(this, "231", "Indicators", "Indicators 231", "RWR DA"));
-            AddFunction(new FlagValue(this, "232", "Indicators", "Indicators 232", "RWR D2M"));
-            AddFunction(new FlagValue(this, "233", "Indicators", "Indicators 233", "RWR LL"));
             AddFunction(new FlagValue(this, "267", "Indicators", "Indicators 267", "Autopilot button P light"));
             AddFunction(new FlagValue(this, "268", "Indicators", "Indicators 268", "Autopilot button MIS light"));
             AddFunction(new FlagValue(this, "270", "Indicators", "Indicators 270", "Autopilot button AUT light"));
@@ -224,14 +237,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "296", "Indicators", "Indicators 296", "AUTOPILOT blank L"));
             AddFunction(new FlagValue(this, "297", "Indicators", "Indicators 297", "AUTOPILOT G"));
             AddFunction(new FlagValue(this, "298", "Indicators", "Indicators 298", "AUTOPILOT blank G"));
-            AddFunction(new FlagValue(this, "198", "Indicators", "Indicators 198", "Tranfere"));
-            AddFunction(new FlagValue(this, "362", "Indicators", "Indicators 362", "Fuel Left RL"));
-            AddFunction(new FlagValue(this, "363", "Indicators", "Indicators 363", "Fuel Center RL"));
-            AddFunction(new FlagValue(this, "364", "Indicators", "Indicators 364", "Fuel Right RL"));
-            AddFunction(new FlagValue(this, "365", "Indicators", "Indicators 365", "Fuel Left AV"));
-            AddFunction(new FlagValue(this, "366", "Indicators", "Indicators 366", "Fuel Right AV"));
-            AddFunction(new FlagValue(this, "367", "Indicators", "Indicators 367", "Fuel Left V"));
-            AddFunction(new FlagValue(this, "368", "Indicators", "Indicators 368", "Fuel Right V"));
             AddFunction(new FlagValue(this, "405", "Indicators", "Indicators 405", "Gearhandle Innenleuchte, red"));
             AddFunction(new FlagValue(this, "677", "Indicators", "Indicators 677", "COM left green lamp"));
             AddFunction(new FlagValue(this, "519", "Indicators", "Indicators 519", "Oxy flow lamp"));
@@ -414,7 +419,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #endregion
             #region  FBW
             AddFunction(new PushButton(this, ENGINE, "3330", "330", "FBW", "FBW Spin Mode Switch"));    // elements["PTN_330"] = default_2_position_tumb(_("FBW Spin Mode Switch"), devices.ENGINE, device_commands.Button_330, 330)
-            AddFunction(new PushButton(this, ENGINE, "3420", "420", "FBW", "FBW Gain Mode Switch Cover"));    // elements["PTN_420"] = default_2_position_tumb(_("FBW Gain Mode Switch Cover"),  devices.ENGINE, device_commands.Button_420, 420)
+//            AddFunction(new PushButton(this, ENGINE, "3420", "420", "FBW", "FBW Gain Mode Switch Cover"));    // elements["PTN_420"] = default_2_position_tumb(_("FBW Gain Mode Switch Cover"),  devices.ENGINE, device_commands.Button_420, 420)
             AddFunction(new PushButton(this, AFCS, "3423", "423", "FBW", "FBW Reset Button"));    // elements["PTN_423"] = default_button(_("FBW Reset Button"),  devices.AFCS, device_commands.Button_423, 423)
 
             #endregion
@@ -526,11 +531,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Axis(this, SYSLIGHTS, "3644", "644", 0.15d, 0d, 1d, "Panel Lights", "White Flood Lights Knob"));    // elements["PTN_644"] = default_axis_limited(_("White Flood Lights Knob"), devices.SYSLIGHTS, device_commands.Button_644, 644, 10, 0.3, false, 0)
             AddFunction(new Axis(this, SYSLIGHTS, "Button_920", "920", 0.15d, 0d, 1d, "Panel Lights", "Refuel Lights Brightness Knob"));    // elements["PTN_920"] = default_axis_limited(_("Refuel Lights Brightness Knob"),devices.SYSLIGHTS,device_commands.Button_920, 920, 10, 0.3, false, 0)
             #endregion  
-            #region  Fuel Panel"
+            #region  Fuel Panel 2
             AddFunction(new Switch(this, ENGPANEL, "193", new SwitchPosition[] { }, "Fuel Panel", "Refuel Transfer Switch", "%0.1f"));    // elements["PTN_193"] = multiposition_switch_limited(_("Refuel Transfer Switch"), devices.ENGPANEL, device_commands.Button_193, 193, 3, 0.5, false, 0)
             AddFunction(new Switch(this, INSTPANEL, "360", new SwitchPosition[] { }, "Fuel Panel", "Bingo Fuel 1 000 kg Selector", "%0.1f"));    // elements["PTN_360"] = default_multiposition_knob(_("Bingo Fuel 1,000 kg Selector"), devices.INSTPANEL, device_commands.Button_360, 360,  10, 0.1, false, 0)
             AddFunction(new Switch(this, INSTPANEL, "361", new SwitchPosition[] { }, "Fuel Panel", "Bingo Fuel 100 kg Selector", "%0.1f"));    // elements["PTN_361"] = default_multiposition_knob(_("Bingo Fuel 100 kg Selector"), devices.INSTPANEL, device_commands.Button_361, 361,  10, 0.1, false, 0)
-            AddFunction(new PushButton(this, INSTPANEL, "3357", "357", "Fuel Panel", "Fuel Crossfeeed Switch"));    // elements["PTN_357"] = default_2_position_tumb(_("Fuel Crossfeeed Switch"), devices.INSTPANEL, device_commands.Button_357, 357)
             #endregion  
             #region  Radio Panel
 //            AddFunction(new PushButton(this, UHF, "3429", "429", "Radio Panel", "UHF Power 5W/25W Switch"));    // elements["PTN_429"] = default_2_position_tumb(_("UHF Power 5W/25W Switch"), devices.UHF, device_commands.Button_429, 429)

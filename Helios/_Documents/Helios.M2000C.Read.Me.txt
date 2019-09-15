@@ -30,7 +30,7 @@ https://github.com/BlueFinBima/helios/issues and if nothing appears to be
 relevant then open a new issue.
   
 * * * Working Elements on M2000C * * *
-* * *      31st August 2019      * * *
+* * *      15th September 2019      * * *
 
 1) Caution Panel
 	a) What is working
@@ -60,15 +60,26 @@ relevant then open a new issue.
 	   - removed the Guard for the fly by wire gain switch. Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
 	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositoVisual.cs
       
-5) Miscellaneous Panels
+5) Fuel Panel
+	a) What is working
+       - the 7 indicators about the full or empty tanks
+	   - the refueling indicator
+	b) Known issues
+	   - the Fuel CrossFeed Switch
+	   - the two toggle switch (seems not to be used in DCS)
+	   - the two lever gauges
+	   - the two drums
+
+6) Miscellaneous Panels
 	a) What is working
        - Post Combustion Indicator
        - Fire Warning Indicators
 	   - Demar Indicator
+	   - RWR 5 indicators
 	b) Known issues
 	   - I don’t know how to test the Fire Warning Indicators. If someone has a match :-)
       
-6) Others things
+7) Others things
 	a) What is working
 	   - not all has been tested so far but most of the switches might work
 
