@@ -32,7 +32,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         public M2000C_FuelPanel()
             : base("Fuel Panel", new Size(223, 396))
         {
-            int row1 = 6, row2 = 178, row3 = 199, row4 = 220, row5 = 163;
+            int row1 = 6, row2 = 178, row3 = 199, row4 = 220, row5 = 163, row6 = 107;
             int column1 = 93, column2 = 81, column3 = 102, column4 = 122;
             //First row
             AddIndicator("Air Refueling", "air-refueling", new Point (column1, row1), new Size(28,28));
@@ -51,6 +51,9 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
             AddRectangleFill("Internal Fuel Quantity Needle", new Point(41, row5));
             AddRectangleFill("Total Fuel Quantity Needle", new Point(192, row5));
+
+            AddDrum("Internal Fuel Quantity", new Point(50, row6), 28);
+            AddDrum("Total Fuel Quantity", new Point(195, row6), 118);
         }
 
         #region Properties
@@ -93,7 +96,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
         private void AddPot()
         {
-            AddPot("Fuel CrossFeed Switch", new Point(112, 360), new Size(45, 45), "{M2000C}/Images/FuelPanel/fuel-transfer-knob.png", 0d, 90d, 0d, 1d, 0d, 0.1d, _interfaceDeviceName, "Fuel CrossFeed Switch", true);
+            AddPot("Fuel CrossFeed Switch", new Point(112, 360), new Size(45, 45), "{M2000C}/Images/FuelPanel/fuel-transfer-knob.png", 90d, 180d, 0d, 1d, 0d, 0.1d, _interfaceDeviceName, "Fuel CrossFeed Switch", true);
         }
 
         private void AddRectangleFill(string name, Point posn)
@@ -104,6 +107,17 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 color: Color.FromArgb(0xff, 0xff, 0xff, 0xff),
                 initialValue: 0d,
                 interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                fromCenter: false);
+        }
+
+        private void AddDrum(string name, Point posn, int offsetX)
+        {
+            AddDrum(name: name,
+                posn: posn,
+                size: new Size(100, 28),
+                offsetX: offsetX,
+                interfaceDeviceName: "Fuel Panel",
                 interfaceElementName: name,
                 fromCenter: false);
         }

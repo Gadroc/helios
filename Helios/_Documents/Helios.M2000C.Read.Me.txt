@@ -30,58 +30,57 @@ https://github.com/BlueFinBima/helios/issues and if nothing appears to be
 relevant then open a new issue.
   
 * * * Working Elements on M2000C * * *
-* * *      16th September 2019      * * *
+* * *      16th September 2019   * * *
 
-1) Caution Panel
-	a) What is working
-	   - all the indicators
-	   - all the switches
-	b) Known issue
-	   - nothing, … for now…
+* * * * * * * * * * * * * * * * * * * * * * * *
+* * * Next Release Helios v1.4.2019.xxxx  * * *
+* * * * * * * * * * * * * * * * * * * * * * * *
+What’s new
+----------
+	* Added the Fuel Panel
+       - added the 7 indicators empty tanks
+	   - added the refueling indicator
+	   - added the left and right neddle gauges
+	   - added the JAUG and DETOT drums
+	* Improvement of the Engine Panel
+	   - added the 2 guards
+	* Improvement of the Landing Gear Panel
+	   - added the guard for the gun safe switch 
+	* Miscellaneous Panels
+       - Added the Post Combustion Indicator
+       - Added the 2 Fire Warning Indicators
+	   - Added the Demar Indicator
+	   - Added the 5 RWR indicators
 
-2) Master Caution Lights Panel
-	a) What is working
-       - the 2 red and yellow PANNE indicators
-	b) Known issue
+Known issues
+------------
+	* Fuel Panel
+	   - the Fuel CrossFeed Switch doesn’t work
+	   - the two toggle switches don’t work (seems not to be used in DCS)
+    * Master Caution lights Panel
 	   - this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
-      
-3) Start Engine Panel
-	a) What is working
-       - the 5 switches
-	   - the 2 guards
-	b) Known issue
-	   - nothing, … for now…
-      
-4) Landing Gear Panel
-	a) What is working
-       - the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators
-	   - the guard for the gun safe switch is working
-	b) Known issues
-	   - removed the Guard for the fly by wire gain switch. Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
-	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositoVisual.cs
-      
-5) Fuel Panel
-	a) What is working
-       - the 7 indicators about the full or empty tanks
-	   - the refueling indicator
-	   - the two lever gauges
-	b) Known issues
-	   - the Fuel CrossFeed Switch
-	   - the two toggle switch (seems not to be used in DCS)
-	   - the two drums
+	* Landing Gear Panel
+	   - removed the Guard for the "fly by wire gain switch". Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
+	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositeVisual.cs
+	* Miscellaneous Panels
+	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 
-6) Miscellaneous Panels
-	a) What is working
-       - Post Combustion Indicator
-       - Fire Warning Indicators
-	   - Demar Indicator
-	   - RWR 5 indicators
-	b) Known issues
-	   - I don’t know how to test the Fire Warning Indicators. If someone has a match :-)
-      
-7) Others things
-	a) What is working
-	   - not all has been tested so far but most of the switches might work
+* * * * * * * * * * * * * * * * * * * * * 
+* * * Release Helios v1.4.2019.0908 * * *
+* * * * * * * * * * * * * * * * * * * * * 
+	* Added the Caution Panel
+	   - added all the indicators
+	   - added all the switches
 
+	 *Added the Master Caution Lights Panel
+       - added the 2 red and yellow PANNE indicators
+      
+	* Added the Start Engine Panel
+       - added the 5 switches
+      
+	* Added the Landing Gear Panel
+       - added the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators
+      
+Please take note that not all has been tested so far, but most of the switches might work.
 Thanks for your patience and feedback
 ShadowMan

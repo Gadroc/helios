@@ -21,6 +21,7 @@ namespace GadrocsWorkshop.Helios
     using System.Windows.Media;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
+    using GadrocsWorkshop.Helios.Gauges.M2000C.FuelGauge;
 
     // for inputs, a trigger on the interface creates an action on the device
     public struct DefaultInputBinding
@@ -561,6 +562,43 @@ namespace GadrocsWorkshop.Helios
                 deviceActionName: "set.Height");
                 
             return rectangleFill;
+        }
+
+        protected FuelGauge AddDrum(string name, Point posn, Size size, int offsetX,
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+
+            FuelGauge newGauge = new FuelGauge(componentName, size, offsetX);
+
+            Children.Add(newGauge);
+            foreach (IBindingTrigger trigger in newGauge.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            foreach (IBindingAction action in newGauge.Actions)
+            {
+                AddAction(action, componentName);
+            }
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + " (Tens).changed",
+                deviceActionName: "set.tens quantity");
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + " (Hundreds).changed",
+                deviceActionName: "set.hundred quantity");
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + " (Thousands).changed",
+                deviceActionName: "set.thousand quantity");
+
+            return newGauge;
         }
 
         protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
