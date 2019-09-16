@@ -153,6 +153,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "366", "Fuel Panel", "right-av", "Fuel Right AV"));
             AddFunction(new FlagValue(this, "367", "Fuel Panel", "left-v", "Fuel Left V"));
             AddFunction(new FlagValue(this, "368", "Fuel Panel", "right-v", "Fuel Right V"));
+            AddFunction(new ScaledNetworkValue(this, "358", 1.55d, "Fuel Panel", "Internal Fuel Quantity Needle", "Internal Fuel Quantity.", "0-7", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "359", 1.55d, "Fuel Panel", "Total Fuel Quantity Needle", "Total Fuel Quantity.", "0-7", BindingValueUnits.Numeric));
             AddFunction(new Axis(this, MISCPANELS, "357", "3357", 0d, 0d, 1d, "Fuel Panel", "Fuel Crossfeed Switch"));
             #endregion
             #region  Landing Gear
@@ -186,8 +188,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "231", "RWR Panel", "RWR DA", "RWR DA"));
             AddFunction(new FlagValue(this, "232", "RWR Panel", "RWR D2M", "RWR D2M"));
             AddFunction(new FlagValue(this, "233", "RWR Panel", "RWR LL", "RWR LL"));
-            AddFunction(new FlagValue(this, "358", "Fuel Panel", "internal-fuel-needle", "Internal Fuel Quantity Needle"));
-            AddFunction(new FlagValue(this, "359", "Fuel Panel", "total-fuel-needle", "Total Fuel Quantity Needle"));
             AddFunction(new FlagValue(this, "373", "Post Combustion Indicator Panel", "pc", "Post Combustion"));
             AddFunction(new FlagValue(this, "374", "Fire Warning Panel", "fire-warning-engine-chamber", "Fire Warning Engine Chamber"));
             AddFunction(new FlagValue(this, "375", "Fire Warning Panel", "fire-warning-afterburner-chamber", "Fire Warning Afterburner Chamber"));

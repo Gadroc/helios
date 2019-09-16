@@ -30,7 +30,7 @@ https://github.com/BlueFinBima/helios/issues and if nothing appears to be
 relevant then open a new issue.
   
 * * * Working Elements on M2000C * * *
-* * *      15th September 2019      * * *
+* * *      16th September 2019      * * *
 
 1) Caution Panel
 	a) What is working
@@ -64,10 +64,10 @@ relevant then open a new issue.
 	a) What is working
        - the 7 indicators about the full or empty tanks
 	   - the refueling indicator
+	   - the two lever gauges
 	b) Known issues
 	   - the Fuel CrossFeed Switch
 	   - the two toggle switch (seems not to be used in DCS)
-	   - the two lever gauges
 	   - the two drums
 
 6) Miscellaneous Panels

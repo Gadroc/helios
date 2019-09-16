@@ -32,7 +32,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         public M2000C_FuelPanel()
             : base("Fuel Panel", new Size(223, 396))
         {
-            int row1 = 6, row2 = 178, row3 = 199, row4 = 220, row5 = 148;
+            int row1 = 6, row2 = 178, row3 = 199, row4 = 220, row5 = 163;
             int column1 = 93, column2 = 81, column3 = 102, column4 = 122;
             //First row
             AddIndicator("Air Refueling", "air-refueling", new Point (column1, row1), new Size(28,28));
@@ -100,8 +100,9 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         {
             AddRectangleFill(name: name,
                 posn: posn,
-                size: new Size(5,197),
+                size: new Size(5,182),
                 color: Color.FromArgb(0xff, 0xff, 0xff, 0xff),
+                initialValue: 0d,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
                 fromCenter: false);

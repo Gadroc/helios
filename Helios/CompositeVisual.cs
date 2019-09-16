@@ -533,7 +533,7 @@ namespace GadrocsWorkshop.Helios
             return indicator;
         }
 
-        protected RectangleFill AddRectangleFill(string name, Point posn, Size size, Color color, 
+        protected RectangleFill AddRectangleFill(string name, Point posn, Size size, Color color, Double initialValue,
             string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
             if (fromCenter)
@@ -546,6 +546,7 @@ namespace GadrocsWorkshop.Helios
             rectangleFill.Height = size.Height;
             rectangleFill.Width = size.Width;
             rectangleFill.FillColor = color;
+            rectangleFill.FillHeight = initialValue;
 
             Children.Add(rectangleFill);
             foreach (IBindingTrigger trigger in rectangleFill.Triggers)
