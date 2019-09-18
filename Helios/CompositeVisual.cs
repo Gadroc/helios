@@ -658,7 +658,7 @@ namespace GadrocsWorkshop.Helios
         }
 
         protected IndicatorPushButton AddIndicatorPushButton(string name, Point pos, Size size,
-            string image, string pushedImage, Color textColor, Color onTextColor, string font, bool withText = true)
+            string image, string pushedImage, Color textColor, Color onTextColor, string font, string onImage = "", bool withText = true)
         {
             string componentName = GetComponentName(name);
             IndicatorPushButton indicator = new Helios.Controls.IndicatorPushButton
@@ -669,6 +669,7 @@ namespace GadrocsWorkshop.Helios
                 Height = size.Height,
                 Image = image,
                 PushedImage = pushedImage,
+                IndicatorOnImage = onImage,
                 Name = componentName,
                 OnTextColor = onTextColor,
                 TextColor = textColor
@@ -709,7 +710,8 @@ namespace GadrocsWorkshop.Helios
             string positionTwoImage = "{Helios}/Images/Toggles/round-norm.png",
             string positionThreeImage = "{Helios}/Images/Toggles/round-down.png",
             ClickType clickType = ClickType.Swipe,
-            bool horizontal = false)
+            bool horizontal = false,
+            bool horizontalRender = false)
         {
             string componentName = GetComponentName(name);
             ThreeWayToggleSwitch toggle = new ThreeWayToggleSwitch
@@ -726,7 +728,15 @@ namespace GadrocsWorkshop.Helios
                 Name = componentName
             };
             toggle.ClickType = clickType;
-            if(horizontal)
+            if (horizontal)
+            {
+                toggle.Orientation = ToggleSwitchOrientation.Horizontal;
+            }
+            else
+            {
+                toggle.Orientation = ToggleSwitchOrientation.Vertical;
+            }
+            if (horizontalRender)
             {
                 toggle.Rotation = HeliosVisualRotation.CW;
                 toggle.Orientation = ToggleSwitchOrientation.Horizontal;

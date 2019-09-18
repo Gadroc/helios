@@ -161,7 +161,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new ScaledNetworkValue(this, "354", 1d, "Fuel Panel", "Total Fuel Quantity (Tens)", "Internal Fuel Quantity (Tens).", "0-9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "358", 1.55d, "Fuel Panel", "Internal Fuel Quantity Needle", "Internal Fuel Quantity.", "0-7", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "359", 1.55d, "Fuel Panel", "Total Fuel Quantity Needle", "Total Fuel Quantity.", "0-7", BindingValueUnits.Numeric));
-            AddFunction(new Axis(this, MISCPANELS, "357", "3357", 0d, 0d, 1d, "Fuel Panel", "Fuel Crossfeed Switch"));
+//            AddFunction(new Axis(this, MISCPANELS, "357", "3357", 0d, 0d, 1d, "Fuel Panel", "Fuel Crossfeed Switch"));
+            AddFunction(new Switch(this, MISCPANELS, "357", new SwitchPosition[] {
+                new SwitchPosition("0.0", "Open", "3357"), new SwitchPosition("1.0", "Close", "3357") },
+                "Fuel Panel", "Fuel Crossfeed Switch", "%0.1f"));
             #endregion
             #region  Landing Gear
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
@@ -391,18 +394,35 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new PushButton(this, PCA_PPA, "3259", "259", "PCA/PPA", "Weapons Selector Button 4"));    // elements["PTN_259"] = default_button(_("Weapons Selector Button 4"), devices.PCA_PPA, device_commands.Button_259, 259, 0, 1)
             AddFunction(new PushButton(this, PCA_PPA, "3262", "262", "PCA/PPA", "Weapons Selector Button 5"));    // elements["PTN_262"] = default_button(_("Weapons Selector Button 5"), devices.PCA_PPA, device_commands.Button_262, 262, 0, 1)
                                                                                                                   // 
-            AddFunction(new PushButton(this, PCA_PPA, "3266", "266", "PCA/PPA", "S530 Standby"));    // elements["PTN_266"] = default_button(_("S530 Standby"), devices.PCA_PPA, device_commands.Button_266, 266, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3269", "269", "PCA/PPA", "AUTO/MAN Button"));    // elements["PTN_269"] = default_button(_("AUTO/MAN Button"), devices.PCA_PPA, device_commands.Button_269, 269, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3272", "272", "PCA/PPA", "MAGIC Standby"));    // elements["PTN_272"] = default_button(_("MAGIC Standby"), devices.PCA_PPA, device_commands.Button_272, 272, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3279", "279", "PCA/PPA", "530D/Rockets/Guns Firing Mode Selector"));    // elements["PTN_279"] = default_button(_("530D/Rockets/Guns Firing Mode Selector"), devices.PCA_PPA, device_commands.Button_279, 279, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3266", "266", "PPA Panel", "S530 Missile Enabler Button"));    // elements["PTN_266"] = default_button(_("S530 Standby"), devices.PCA_PPA, device_commands.Button_266, 266, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3269", "269", "PPA Panel", "Missile Fire Mode Selector"));    // elements["PTN_269"] = default_button(_("AUTO/MAN Button"), devices.PCA_PPA, device_commands.Button_269, 269, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3272", "272", "PPA Panel", "Magic II Missile Enabler Button"));    // elements["PTN_272"] = default_button(_("MAGIC Standby"), devices.PCA_PPA, device_commands.Button_272, 272, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3279", "279", "PPA Panel", "Guns/Rockets/Missiles Firing Mode Selector"));    // elements["PTN_279"] = default_button(_("530D/Rockets/Guns Firing Mode Selector"), devices.PCA_PPA, device_commands.Button_279, 279, 0, 1)
 
-            AddFunction(new Switch(this, PCA_PPA, "265", new SwitchPosition[] { }, "PCA/PPA", "Missile Selector Switch", "%0.1f"));    // elements["PTN_265"] = default_3_position_tumb(_("Missile Selector Switch"), devices.PCA_PPA, device_commands.Button_265, 265, false, false)
-            //AddFunction(Switch.CreateToggleSwitch(this, PCA_PPA, "3275", "275", "PCA/PPA", "PPA Test Switch", "%0.1f"));    // elements["PTN_275"] = default_2_way_spring_switch(_("PPA Test Switch"), devices.PCA_PPA, device_commands.Button_275, 275, false)
-            AddFunction(new Switch(this, PCA_PPA, "276", new SwitchPosition[] { }, "PCA/PPA", "Bomb Fuze Selector Switch", "%0.1f"));    // elements["PTN_276"] = multiposition_switch_limited(_("Bomb Fuze Selector Switch"), devices.PCA_PPA, device_commands.Button_276, 276, 3, 0.5, true, 0)
-                                                                                                                                         //AddFunction(Switch.CreateToggleSwitch(this, PCA_PPA, "3277", "277", "PCA/PPA", "Bomb Release Quantity Selector Switch", "%0.1f"));    // elements["PTN_277"] = default_2_way_spring_switch(_("Bomb Release Quantity Selector Switch"), devices.PCA_PPA, device_commands.Button_277, 277, true)
-                                                                                                                                         //AddFunction(Switch.CreateToggleSwitch(this, PCA_PPA, "3278", "278", "PCA/PPA", "Bomb Release Interval Selector Switch", "%0.1f"));    // elements["PTN_278"] = default_2_way_spring_switch(_("Bomb Release Interval Selector Switch"), devices.PCA_PPA, device_commands.Button_278, 278, true)
-                                                                                                                                         // 
-
+            AddFunction(new Switch(this, PCA_PPA, "265", new SwitchPosition[] {
+                new SwitchPosition("0.0", "Gauche","3265"),
+                new SwitchPosition("1.0", "Droite","3265"),
+                new SwitchPosition("0.5", "Auto","3265"),
+                }, "PPA Panel", "Missile Selector Switch", "%0.1f"));    // elements["PTN_265"] = default_3_position_tumb(_("Missile Selector Switch"), devices.PCA_PPA, device_commands.Button_265, 265, false, false)
+            AddFunction(new Switch(this, PCA_PPA, "275", new SwitchPosition[] {
+                new SwitchPosition("0.0", "TEST","3275"),
+                new SwitchPosition("1.0", "PRES","3275"),
+            }, "PPA Panel", "Test Switch", "%0.1f"));    // elements["PTN_276"] = multiposition_switch_limited(_("Bomb Fuze Selector Switch"), devices.PCA_PPA, device_commands.Button_276, 276, 3, 0.5, true, 0)
+            AddFunction(new Switch(this, PCA_PPA, "276", new SwitchPosition[] {
+                new SwitchPosition("0.0", "INST.","3276"),
+                new SwitchPosition("1.0", "RET.","3276"),
+                new SwitchPosition("0.5", "INERT.","3276"),
+            }, "PPA Panel", "Bomb Fuse Selector", "%0.1f"));    // elements["PTN_276"] = multiposition_switch_limited(_("Bomb Fuze Selector Switch"), devices.PCA_PPA, device_commands.Button_276, 276, 3, 0.5, true, 0)
+            AddFunction(new Switch(this, PCA_PPA, "277", new SwitchPosition[] {
+                new SwitchPosition("0.0", "-","3277"),
+                new SwitchPosition("1.0", "+","3277"),
+                new SwitchPosition("0.5", "Neutre","3277"),
+            }, "PPA Panel", "Release Quantity Selector", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "278", new SwitchPosition[] {
+                new SwitchPosition("0.0", "-","3278"),
+                new SwitchPosition("1.0", "+","3278"),
+                new SwitchPosition("0.5", "Neutre","3278"),
+            }, "PPA Panel", "Bomb Drop Interval", "%0.1f"));
             #endregion
             #region  AFCS
             AddFunction(new PushButton(this, AFCS, "3282", "282", "AFCS", "Autopilot Master Button"));    // elements["PTN_282"] = default_button(_("Autopilot Master Button"), devices.AFCS, device_commands.Button_282, 282, 0, 1)

@@ -494,7 +494,7 @@
     <Resource Include="Images\FuelPanel\fuel-panel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\FuelPanel\fuel-transfer-knob.png">
+    <Resource Include="Images\FuelPanel\fuel-transfer-knob-off.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\FuelPanel\rl-off.png">
@@ -566,13 +566,13 @@
     <Resource Include="Images\PPAPanel\ppa-tot-par-on.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\PPAPanel\small-black-left.png">
+    <Resource Include="Images\PPAPanel\small-black-down.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\PPAPanel\small-black-mid.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\PPAPanel\small-black-right.png">
+    <Resource Include="Images\PPAPanel\small-black-up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\fbwg-guard-down.png">
@@ -600,6 +600,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Miscellaneous\rwr-light-on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\FuelPanel\fuel-transfer-knob-on.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Content Include="Templates\CautionPanelRedIndicator.htpl" />

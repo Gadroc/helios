@@ -47,7 +47,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             AddIndicator("left-v", "v", new Point(column2, row4), new Size(21, 21));
             AddIndicator("right-v", "v", new Point(column4, row4), new Size(21, 21));
 
-            AddPot();
+//            AddPot();
+            AddSwitch("Fuel CrossFeed Switch", new Point(112, 360), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
 
             AddRectangleFill("Internal Fuel Quantity Needle", new Point(41, row5));
             AddRectangleFill("Total Fuel Quantity Needle", new Point(192, row5));
@@ -92,6 +93,23 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 interfaceElementName: name,
                 fromCenter: false,
                 withText: false); //added in Composite Visual as an optional value with a default value set to true
+        }
+
+        private void AddSwitch(string name, Point posn, ToggleSwitchPosition defaultPosition, ToggleSwitchType defaultType)
+        {
+            AddToggleSwitch(name: name,
+                posn: posn,
+                size: new Size(45, 45),
+                defaultPosition: defaultPosition,
+                positionOneImage: "{M2000C}/Images/FuelPanel/fuel-transfer-knob-on.png",
+                positionTwoImage: "{M2000C}/Images/FuelPanel/fuel-transfer-knob-off.png",
+                defaultType: defaultType,
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                horizontal: true,
+                horizontalRender: true,
+                nonClickableZones: null,
+                fromCenter: true);
         }
 
         private void AddPot()
