@@ -2,12 +2,13 @@
 ----------------------------
 * M2000C Interface 
 	* Added the Fuel Panel with the 7 empty tanks indicators, the refueling indicator, the left and right neddle gauges and the JAUG and DETOT drums
+	* Added the PCA Panel with the 8 indicators on the buttons, the 4 buttons and the 5 switches
 	* Improvement of the Engine Panel by adding the 2 guards
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch 
 	* Improvement of the pictures of the cockpit
 	* Miscellaneous: Added the Post Combustion Indicator, the 2 Fire Warning Indicators, the Demar Indicator, the 5 RWR indicators
 	* Known issues: 
-		* Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seems not to be used in DCS)
+		* Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
 		* Master Caution lights Panel: this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
 		* Landing Gear Panel: the Guard for the "fly by wire gain switch", the emergency landing gear lever
 

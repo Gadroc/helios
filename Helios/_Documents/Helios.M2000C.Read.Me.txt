@@ -30,7 +30,7 @@ https://github.com/BlueFinBima/helios/issues and if nothing appears to be
 relevant then open a new issue.
   
 * * * Working Elements on M2000C * * *
-* * *      16th September 2019   * * *
+* * *      18th September 2019   * * *
 
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * * Next Release Helios v1.4.2019.xxxx  * * *
@@ -41,7 +41,10 @@ What’s new
        - added the 7 indicators empty tanks
 	   - added the refueling indicator
 	   - added the left and right neddle gauges
-	   - added the JAUG and DETOT drums
+	* Added the PCA Panel
+       - added the 8 indicators on the buttons
+	   - added the 4 buttons
+	   - added the 5 switches
 	* Improvement of the Engine Panel
 	   - added the 2 guards
 	* Improvement of the Landing Gear Panel

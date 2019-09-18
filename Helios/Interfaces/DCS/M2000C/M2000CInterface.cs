@@ -164,7 +164,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 //            AddFunction(new Axis(this, MISCPANELS, "357", "3357", 0d, 0d, 1d, "Fuel Panel", "Fuel Crossfeed Switch"));
             AddFunction(new Switch(this, MISCPANELS, "357", new SwitchPosition[] {
                 new SwitchPosition("0.0", "Open", "3357"), new SwitchPosition("1.0", "Close", "3357") },
-                "Fuel Panel", "Fuel Crossfeed Switch", "%0.1f"));
+                "Fuel Panel", "Fuel CrossFeed Switch", "%0.1f"));
             #endregion
             #region  Landing Gear
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
@@ -208,14 +208,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "186", "Indicators", "Indicators 186", "IFF, MIP, Acc"));
             AddFunction(new FlagValue(this, "187", "Indicators", "Indicators 187", "LED green, ADI"));
             AddFunction(new FlagValue(this, "188", "Indicators", "Indicators 188", "LED green, ADI"));
-            AddFunction(new FlagValue(this, "267", "Indicators", "Indicators 267", "Autopilot button P light"));
-            AddFunction(new FlagValue(this, "268", "Indicators", "Indicators 268", "Autopilot button MIS light"));
-            AddFunction(new FlagValue(this, "270", "Indicators", "Indicators 270", "Autopilot button AUT light"));
-            AddFunction(new FlagValue(this, "271", "Indicators", "Indicators 271", "Autopilot button MAN light"));
-            AddFunction(new FlagValue(this, "273", "Indicators", "Indicators 273", "Autopilot button MAG-P light"));
-            AddFunction(new FlagValue(this, "274", "Indicators", "Indicators 274", "Autopilot button MAG-MAG light"));
-            AddFunction(new FlagValue(this, "280", "Indicators", "Indicators 280", "button TOT light"));
-            AddFunction(new FlagValue(this, "281", "Indicators", "Indicators 281", "button PAP light"));
             AddFunction(new FlagValue(this, "236", "Indicators", "Indicators 236", "Weapon panel 1. line B1 S"));
             AddFunction(new FlagValue(this, "238", "Indicators", "Indicators 238", "Weapon panel 1. line B2 S"));
             AddFunction(new FlagValue(this, "240", "Indicators", "Indicators 240", "Weapon panel 1. line B3 S"));
@@ -400,29 +392,38 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new PushButton(this, PCA_PPA, "3279", "279", "PPA Panel", "Guns/Rockets/Missiles Firing Mode Selector"));    // elements["PTN_279"] = default_button(_("530D/Rockets/Guns Firing Mode Selector"), devices.PCA_PPA, device_commands.Button_279, 279, 0, 1)
 
             AddFunction(new Switch(this, PCA_PPA, "265", new SwitchPosition[] {
-                new SwitchPosition("0.0", "Gauche","3265"),
-                new SwitchPosition("1.0", "Droite","3265"),
-                new SwitchPosition("0.5", "Auto","3265"),
+                new SwitchPosition("-1.0", "Gauche","3265"),
+                new SwitchPosition("0.0", "Droite","3265"),
+                new SwitchPosition("1.0", "Auto","3265"),
                 }, "PPA Panel", "Missile Selector Switch", "%0.1f"));    // elements["PTN_265"] = default_3_position_tumb(_("Missile Selector Switch"), devices.PCA_PPA, device_commands.Button_265, 265, false, false)
             AddFunction(new Switch(this, PCA_PPA, "275", new SwitchPosition[] {
-                new SwitchPosition("0.0", "TEST","3275"),
+                new SwitchPosition("-1.0", "TEST","3275"),
+                new SwitchPosition("0.0", "NEUTRE","3275"),
                 new SwitchPosition("1.0", "PRES","3275"),
             }, "PPA Panel", "Test Switch", "%0.1f"));    // elements["PTN_276"] = multiposition_switch_limited(_("Bomb Fuze Selector Switch"), devices.PCA_PPA, device_commands.Button_276, 276, 3, 0.5, true, 0)
             AddFunction(new Switch(this, PCA_PPA, "276", new SwitchPosition[] {
                 new SwitchPosition("0.0", "INST.","3276"),
-                new SwitchPosition("1.0", "RET.","3276"),
-                new SwitchPosition("0.5", "INERT.","3276"),
+                new SwitchPosition("0.5", "RET.","3276"),
+                new SwitchPosition("1.0", "INERT.","3276"),
             }, "PPA Panel", "Bomb Fuse Selector", "%0.1f"));    // elements["PTN_276"] = multiposition_switch_limited(_("Bomb Fuze Selector Switch"), devices.PCA_PPA, device_commands.Button_276, 276, 3, 0.5, true, 0)
             AddFunction(new Switch(this, PCA_PPA, "277", new SwitchPosition[] {
-                new SwitchPosition("0.0", "-","3277"),
-                new SwitchPosition("1.0", "+","3277"),
-                new SwitchPosition("0.5", "Neutre","3277"),
+                new SwitchPosition("1.0", "-","3277"),
+                new SwitchPosition("0.0", "+","3277"),
+                new SwitchPosition("-1.0", "Neutre","3277"),
             }, "PPA Panel", "Release Quantity Selector", "%0.1f"));
             AddFunction(new Switch(this, PCA_PPA, "278", new SwitchPosition[] {
-                new SwitchPosition("0.0", "-","3278"),
-                new SwitchPosition("1.0", "+","3278"),
-                new SwitchPosition("0.5", "Neutre","3278"),
+                new SwitchPosition("1.0", "-","3278"),
+                new SwitchPosition("0.0", "+","3278"),
+                new SwitchPosition("-1.0", "Neutre","3278"),
             }, "PPA Panel", "Bomb Drop Interval", "%0.1f"));
+            AddFunction(new FlagValue(this, "267", "PPA Panel", "S530D P", "S530D P"));
+            AddFunction(new FlagValue(this, "268", "PPA Panel", "S530D MIS", "S530D MIS"));
+            AddFunction(new FlagValue(this, "270", "PPA Panel", "Missile AUT Mode", "Missile AUT Mode"));
+            AddFunction(new FlagValue(this, "271", "PPA Panel", "Missile MAN Mode", "Missile MAN Mode"));
+            AddFunction(new FlagValue(this, "273", "PPA Panel", "MAGIC P", "MAGIC P"));
+            AddFunction(new FlagValue(this, "274", "PPA Panel", "MAGIC MAG", "MAGIC MAG"));
+            AddFunction(new FlagValue(this, "280", "PPA Panel", "TOT Firing Mode", "TOT Firing Mode"));
+            AddFunction(new FlagValue(this, "281", "PPA Panel", "PAR Firing Mode", "PAR Firing Mode"));
             #endregion
             #region  AFCS
             AddFunction(new PushButton(this, AFCS, "3282", "282", "AFCS", "Autopilot Master Button"));    // elements["PTN_282"] = default_button(_("Autopilot Master Button"), devices.AFCS, device_commands.Button_282, 282, 0, 1)

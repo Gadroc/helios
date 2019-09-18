@@ -94,10 +94,20 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 );
 
             AddPushButton("S530 Missile Enabler Button", new Point(113, 12), "ppa-p-mis");
-            AddPushButton("Missile Fire Mode Selector", new Point(161, 12), "ppa-aut-man");
+            AddPushButton("Missile Fire Mode Selector", new Point(161, 12), "ppa-button");
             AddPushButton("Magic II Missile Enabler Button", new Point(216, 12), "ppa-p-mag");
-            AddPushButton("Guns/Rockets/Missiles Firing Mode Selector", new Point(275, 100), "ppa-tot-par");
+            AddPushButton("Guns/Rockets/Missiles Firing Mode Selector", new Point(275, 100), "ppa-button");
 
+            int column0 = 130, column1 = 178, column2 = 235, column3 = 293;
+            int row0 = 30, row1 = 60, row2 = 118, row3 = 148;
+            AddIndicator("S530D P", "p", new Point(column0, row0), new Size(5, 9));
+            AddIndicator("S530D MIS", "mis", new Point(column0, row1), new Size(16, 9));
+            AddIndicator("Missile AUT Mode", "aut", new Point(column1, row0), new Size(16, 9));
+            AddIndicator("Missile MAN Mode", "man", new Point(column1, row1), new Size(16, 9));
+            AddIndicator("MAGIC P", "p", new Point(column2, row0), new Size(5, 9));
+            AddIndicator("MAGIC MAG", "mag", new Point(column2, row1), new Size(16, 9));
+            AddIndicator("TOT Firing Mode", "tot", new Point(column3, row2), new Size(16, 9));
+            AddIndicator("PAR Firing Mode", "par", new Point(column3, row3), new Size(16, 9));
         }
 
         #region Properties
@@ -143,16 +153,33 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
         private void AddPushButton(string name, Point posn, string imagePrefix)
         {
-            AddIndicatorPushButton(name: name,
-                pos: posn,
+            AddButton(name: name,
+                posn: posn,
                 size: new Size(36, 61),
-                image: "{M2000C}/Images/PPAPanel/" + imagePrefix + "-off.png",
-                pushedImage: "{M2000C}/Images/PPAPanel/" + imagePrefix + "-off.png",
-                textColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72),
-                onTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72),
-                font: "",
+                image: "{M2000C}/Images/PPAPanel/" + imagePrefix + ".png",
+                pushedImage: "{M2000C}/Images/PPAPanel/" + imagePrefix + ".png",
+                buttonText: "",
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                fromCenter: false);
+        }
+
+        private void AddIndicator(string name, string imagePrefix, Point posn, Size size)
+        {
+            AddIndicator(
+                name: name,
+                posn: posn,
+                size: size,
                 onImage: "{M2000C}/Images/PPAPanel/" + imagePrefix + "-on.png",
-                withText: false);
+                offImage: "{M2000C}/Images/PPAPanel/void.png", //empty picture to permit the indicator to work because I’ve nothing to display when off
+                onTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text
+                offTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text
+                font: "", //don’t need it because not using text
+                vertical: false, //don’t need it because not using text
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                fromCenter: true,
+                withText: false); //added in Composite Visual as an optional value with a default value set to true
         }
 
         public override bool HitTest(Point location)

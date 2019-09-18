@@ -32,7 +32,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         public M2000C_EnginePanel()
             : base("Engine Start Panel", new Size(700, 251))
         {
-            int row0 = 44, row1 = 163;
+            int row0 = 44, row1 = 166;
 
             ToggleSwitch starterFuelPumpSwitch = AddSwitch("Starter Fuel Pump Switch", "long-black-", new Point(208, row0), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
             AddSwitch("Left Fuel Pump Switch", "long-black-", new Point(343, row0), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
@@ -52,7 +52,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
             Add3PosnToggle(
                 name: "Ignition Ventilation Selector Switch",
-                posn: new Point(246, row1),
+                posn: new Point(233, row1),
                 image: "{M2000C}/Images/Switches/long-black-",
                 interfaceDevice: _interfaceDeviceName,
                 interfaceElement: "Ignition Ventilation Selector Switch",
@@ -121,7 +121,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             AddThreeWayToggle(
                 name: name,
                 pos: posn,
-                size: new Size(37, 75),
+                size: new Size(33, 100),
                 positionOneImage: image + "down.png",
                 positionTwoImage: image + "mid.png",
                 positionThreeImage: image + "up.png",
@@ -130,8 +130,9 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 horizontal: true,
+                horizontalRender: true,
                 clickType: ClickType.Touch,
-                fromCenter: false
+                fromCenter: true
                 );
         }
 
