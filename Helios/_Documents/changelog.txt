@@ -3,6 +3,7 @@
 * M2000C Interface 
 	* Added the Fuel Panel with the 7 empty tanks indicators, the refueling indicator, the left and right neddle gauges and the JAUG and DETOT drums
 	* Added the PCA Panel with the 8 indicators on the buttons, the 4 buttons and the 5 switches
+	* Added the PCA Panel with the 17 indicators on the buttons, the 11 buttons, the 2 switches and the guard on the Jettison switch
 	* Improvement of the Engine Panel by adding the 2 guards
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch 
 	* Improvement of the pictures of the cockpit
@@ -11,6 +12,7 @@
 		* Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
 		* Master Caution lights Panel: this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
 		* Landing Gear Panel: the Guard for the "fly by wire gain switch", the emergency landing gear lever
+		* PCA Panel: the red Gun Arm Switch, the click is reversed
 
 1.4.2019.0901 Release
 ----------------------------

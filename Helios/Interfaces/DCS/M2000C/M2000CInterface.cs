@@ -209,23 +209,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "186", "Indicators", "Indicators 186", "IFF, MIP, Acc"));
             AddFunction(new FlagValue(this, "187", "Indicators", "Indicators 187", "LED green, ADI"));
             AddFunction(new FlagValue(this, "188", "Indicators", "Indicators 188", "LED green, ADI"));
-            AddFunction(new FlagValue(this, "236", "Indicators", "Indicators 236", "Weapon panel 1. line B1 S"));
-            AddFunction(new FlagValue(this, "238", "Indicators", "Indicators 238", "Weapon panel 1. line B2 S"));
-            AddFunction(new FlagValue(this, "240", "Indicators", "Indicators 240", "Weapon panel 1. line B3 S"));
-            AddFunction(new FlagValue(this, "242", "Indicators", "Indicators 242", "Weapon panel 1. line B4 S"));
-            AddFunction(new FlagValue(this, "244", "Indicators", "Indicators 244", "Weapon panel 1. line B5 S"));
-            AddFunction(new FlagValue(this, "251", "Indicators", "Indicators 251", "Weapon panel 2. line B1 S"));
-            AddFunction(new FlagValue(this, "252", "Indicators", "Indicators 252", "Weapon panel 2. line B1 P"));
-            AddFunction(new FlagValue(this, "254", "Indicators", "Indicators 254", "Weapon panel 2. line B2 S"));
-            AddFunction(new FlagValue(this, "255", "Indicators", "Indicators 255", "Weapon panel 2. line B2 P"));
-            AddFunction(new FlagValue(this, "257", "Indicators", "Indicators 257", "Weapon panel 2. line B3 S"));
-            AddFunction(new FlagValue(this, "258", "Indicators", "Indicators 258", "Weapon panel 2. line B3 P"));
-            AddFunction(new FlagValue(this, "260", "Indicators", "Indicators 260", "Weapon panel 2. line B4 S"));
-            AddFunction(new FlagValue(this, "261", "Indicators", "Indicators 261", "Weapon panel 2. line B4 P"));
-            AddFunction(new FlagValue(this, "263", "Indicators", "Indicators 263", "Weapon panel 2. line B5 S"));
-            AddFunction(new FlagValue(this, "264", "Indicators", "Indicators 264", "Weapon panel 2. line B5 P"));
-            AddFunction(new FlagValue(this, "246", "Indicators", "Indicators 246", "button KL1 light"));
-            AddFunction(new FlagValue(this, "247", "Indicators", "Indicators 247", "button KL2 light"));
             AddFunction(new FlagValue(this, "321", "Indicators", "Indicators 321", "ADI ILS light"));
             AddFunction(new FlagValue(this, "283", "Indicators", "Indicators 283", "AUTOPILOT P"));
             AddFunction(new FlagValue(this, "284", "Indicators", "Indicators 284", "AUTOPILOT A"));
@@ -369,24 +352,48 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
             #endregion
             #region  PCA/PPA
-            AddFunction(new PushButton(this, PCA_PPA, "3234", "234", "PCA/PPA", "Master Arm Switch"));    // elements["PTN_234"] = default_2_position_tumb(_("Master Arm Switch"), devices.PCA_PPA, device_commands.Button_234, 234)
-            AddFunction(new PushButton(this, PCA_PPA, "3248", "248", "PCA/PPA", "Selective Jettison Switch Cover"));    // elements["PTN_248"] = default_2_position_tumb(_("Selective Jettison Switch Cover"), devices.PCA_PPA, device_commands.Button_248, 248)
-            AddFunction(new PushButton(this, PCA_PPA, "3249", "249", "PCA/PPA", "Selective Jettison Switch"));    // elements["PTN_249"] = default_2_position_tumb(_("Selective Jettison Switch"), devices.PCA_PPA, device_commands.Button_249, 249)
+            AddFunction(new Switch(this, PCA_PPA, "234", new SwitchPosition[] {
+                new SwitchPosition("0.0", "OFF", "3234"), new SwitchPosition("1.0", "ON", "3234")
+                }, "PCA Panel", "Master Arm Switch", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "248", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CLOSE", "3248"), new SwitchPosition("1.0", "OPEN", "3248")
+                }, "PCA Panel", "Selective Jettison Switch Guard", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "249", new SwitchPosition[] {
+                new SwitchPosition("1.0", "OFF", "3249"), new SwitchPosition("0.0", "ON", "3249")
+                }, "PCA Panel", "Selective Jettison Switch", "%0.1f"));
                                                                                                                   // 
-            AddFunction(new PushButton(this, PCA_PPA, "3235", "235", "PCA/PPA", "PCA Button 1"));    // elements["PTN_235"] = default_button(_("PCA Button 1"), devices.PCA_PPA, device_commands.Button_235, 235, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3237", "237", "PCA/PPA", "PCA Button 2"));    // elements["PTN_237"] = default_button(_("PCA Button 2"), devices.PCA_PPA, device_commands.Button_237, 237, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3239", "239", "PCA/PPA", "PCA Button 3"));    // elements["PTN_239"] = default_button(_("PCA Button 3"), devices.PCA_PPA, device_commands.Button_239, 239, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3241", "241", "PCA/PPA", "PCA Button 4"));    // elements["PTN_241"] = default_button(_("PCA Button 4"), devices.PCA_PPA, device_commands.Button_241, 241, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3243", "243", "PCA/PPA", "PCA Button 5"));    // elements["PTN_243"] = default_button(_("PCA Button 5"), devices.PCA_PPA, device_commands.Button_243, 243, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3235", "235", "PCA Panel", "Targeting Mode Selection"));    // elements["PTN_235"] = default_button(_("PCA Button 1"), devices.PCA_PPA, device_commands.Button_235, 235, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3237", "237", "PCA Panel", "Master Mode Selection"));    // elements["PTN_237"] = default_button(_("PCA Button 2"), devices.PCA_PPA, device_commands.Button_237, 237, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3239", "239", "PCA Panel", "Approach Mode Selection"));    // elements["PTN_239"] = default_button(_("PCA Button 3"), devices.PCA_PPA, device_commands.Button_239, 239, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3241", "241", "PCA Panel", "Fligt Plan Route Selection"));    // elements["PTN_241"] = default_button(_("PCA Button 4"), devices.PCA_PPA, device_commands.Button_241, 241, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3243", "243", "PCA Panel", "INS Calibration"));    // elements["PTN_243"] = default_button(_("PCA Button 5"), devices.PCA_PPA, device_commands.Button_243, 243, 0, 1)
                                                                                                      // 
-            AddFunction(new PushButton(this, PCA_PPA, "3245", "245", "PCA/PPA", "Gun Mode Button"));    // elements["PTN_245"] = default_button(_("Gun Mode Button"), devices.PCA_PPA, device_commands.Button_245, 245, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3245", "245", "PCA Panel", "Gun Mode Selector"));    // elements["PTN_245"] = default_button(_("Gun Mode Button"), devices.PCA_PPA, device_commands.Button_245, 245, 0, 1)
                                                                                                         // 
-            AddFunction(new PushButton(this, PCA_PPA, "3250", "250", "PCA/PPA", "Weapons Selector Button 1"));    // elements["PTN_250"] = default_button(_("Weapons Selector Button 1"), devices.PCA_PPA, device_commands.Button_250, 250, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3253", "253", "PCA/PPA", "Weapons Selector Button 2"));    // elements["PTN_253"] = default_button(_("Weapons Selector Button 2"), devices.PCA_PPA, device_commands.Button_253, 253, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3256", "256", "PCA/PPA", "Weapons Selector Button 3"));    // elements["PTN_256"] = default_button(_("Weapons Selector Button 3"), devices.PCA_PPA, device_commands.Button_256, 256, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3259", "259", "PCA/PPA", "Weapons Selector Button 4"));    // elements["PTN_259"] = default_button(_("Weapons Selector Button 4"), devices.PCA_PPA, device_commands.Button_259, 259, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3262", "262", "PCA/PPA", "Weapons Selector Button 5"));    // elements["PTN_262"] = default_button(_("Weapons Selector Button 5"), devices.PCA_PPA, device_commands.Button_262, 262, 0, 1)
-                                                                                                                  // 
+            AddFunction(new PushButton(this, PCA_PPA, "3250", "250", "PCA Panel", "Weapon Store Selector 1"));    // elements["PTN_250"] = default_button(_("Weapons Selector Button 1"), devices.PCA_PPA, device_commands.Button_250, 250, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3253", "253", "PCA Panel", "Weapon Store Selector 2"));    // elements["PTN_253"] = default_button(_("Weapons Selector Button 2"), devices.PCA_PPA, device_commands.Button_253, 253, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3256", "256", "PCA Panel", "Weapon Store Selector 3"));    // elements["PTN_256"] = default_button(_("Weapons Selector Button 3"), devices.PCA_PPA, device_commands.Button_256, 256, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3259", "259", "PCA Panel", "Weapon Store Selector 4"));    // elements["PTN_259"] = default_button(_("Weapons Selector Button 4"), devices.PCA_PPA, device_commands.Button_259, 259, 0, 1)
+            AddFunction(new PushButton(this, PCA_PPA, "3262", "262", "PCA Panel", "Weapon Store Selector 5"));    // elements["PTN_262"] = default_button(_("Weapons Selector Button 5"), devices.PCA_PPA, device_commands.Button_262, 262, 0, 1)
+
+            AddFunction(new FlagValue(this, "236", "PCA Panel", "TMS S", "TMS S"));
+            AddFunction(new FlagValue(this, "238", "PCA Panel", "MMS", "MMS"));
+            AddFunction(new FlagValue(this, "240", "PCA Panel", "AMS", "AMS"));
+            AddFunction(new FlagValue(this, "242", "PCA Panel", "FPRS", "FPRS"));
+            AddFunction(new FlagValue(this, "244", "PCA Panel", "INS C", "INS C"));
+            AddFunction(new FlagValue(this, "251", "PCA Panel", "WSS1 S", "WSS1 S"));
+            AddFunction(new FlagValue(this, "252", "PCA Panel", "WSS1 P", "WSS1 P"));
+            AddFunction(new FlagValue(this, "254", "PCA Panel", "WSS2 S", "WSS2 S"));
+            AddFunction(new FlagValue(this, "255", "PCA Panel", "WSS2 P", "WSS2 P"));
+            AddFunction(new FlagValue(this, "257", "PCA Panel", "WSS3 S", "WSS3 S"));
+            AddFunction(new FlagValue(this, "258", "PCA Panel", "WSS3 P", "WSS3 P"));
+            AddFunction(new FlagValue(this, "260", "PCA Panel", "WSS4 S", "WSS4 S"));
+            AddFunction(new FlagValue(this, "261", "PCA Panel", "WSS4 P", "WSS4 P"));
+            AddFunction(new FlagValue(this, "263", "PCA Panel", "WSS5 S", "WSS5 S"));
+            AddFunction(new FlagValue(this, "264", "PCA Panel", "WSS5 P", "WSS5 P"));
+            AddFunction(new FlagValue(this, "246", "PCA Panel", "KL1", "KL1"));
+            AddFunction(new FlagValue(this, "247", "PCA Panel", "KL2", "KL2"));
+            // 
             AddFunction(new PushButton(this, PCA_PPA, "3266", "266", "PPA Panel", "S530 Missile Enabler Button"));    // elements["PTN_266"] = default_button(_("S530 Standby"), devices.PCA_PPA, device_commands.Button_266, 266, 0, 1)
             AddFunction(new PushButton(this, PCA_PPA, "3269", "269", "PPA Panel", "Missile Fire Mode Selector"));    // elements["PTN_269"] = default_button(_("AUTO/MAN Button"), devices.PCA_PPA, device_commands.Button_269, 269, 0, 1)
             AddFunction(new PushButton(this, PCA_PPA, "3272", "272", "PPA Panel", "Magic II Missile Enabler Button"));    // elements["PTN_272"] = default_button(_("MAGIC Standby"), devices.PCA_PPA, device_commands.Button_272, 272, 0, 1)

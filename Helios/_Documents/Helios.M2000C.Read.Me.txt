@@ -42,6 +42,11 @@ What’s new
 	   - added the refueling indicator
 	   - added the left and right neddle gauges
 	* Added the PCA Panel
+       - added the 17 indicators on the buttons
+	   - added the 11 buttons
+	   - added the 2 switches
+	   - added the guard
+	* Added the PPA Panel
        - added the 8 indicators on the buttons
 	   - added the 4 buttons
 	   - added the 5 switches
@@ -65,6 +70,8 @@ Known issues
 	* Landing Gear Panel
 	   - removed the Guard for the "fly by wire gain switch". Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
 	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositeVisual.cs
+	* PCA Panel
+	   - the red Gun Arm Switch, the click is reversed
 	* Miscellaneous Panels
 	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 
