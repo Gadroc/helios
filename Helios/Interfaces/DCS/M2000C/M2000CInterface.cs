@@ -190,6 +190,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #region MCL Panel
             AddFunction(new FlagValue(this, "199", "Master Caution Lights Panel", "panne-yellow", "Master-warning"));
             AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "panne-red", "Master-caution"));
+            AddFunction(new PushButton(this, SYSLIGHTS, "3191", "191", "Master Caution Lights Panel", "Acknowledge alarms"));    // elements["PTN_250"] = default_button(_("Weapons Selector Button 1"), devices.PCA_PPA, device_commands.Button_250, 250, 0, 1)
             #endregion
             #region Miscellaneous Panels and indicators
             AddFunction(new FlagValue(this, "229", "RWR Panel", "RWR V", "RWR V"));
@@ -617,7 +618,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #endregion
             #region  Miscellaneous Left Panel
             AddFunction(new PushButton(this, MISCPANELS, "3400", "400", "Miscellaneous Left Panel", "Cockpit Clock"));    // elements["PTN_400"] = default_2_position_tumb(_("Cockpit Clock"), devices.MISCPANELS, device_commands.Button_400, 400)
-            AddFunction(new PushButton(this, SYSLIGHTS, "", "191", "Miscellaneous Left Panel", "Audio Warning Reset"));    // elements["PTN_191"] = default_button(_("Audio Warning Reset"), devices.SYSLIGHTS, Keys.PlaneResetMasterWarning, 191, 0, 1)
             AddFunction(new PushButton(this, MISCPANELS, "3458", "458", "Miscellaneous Left Panel", "Anti-Skid Switch Cover"));    // elements["PTN_458"] = default_2_position_tumb(_("Anti-Skid Switch Cover"), devices.MISCPANELS, device_commands.Button_458, 458)
             AddFunction(new PushButton(this, MISCPANELS, "3459", "459", "Miscellaneous Left Panel", "Anti-Skid Switch"));    // elements["PTN_459"] = default_2_position_tumb(_("Anti-Skid Switch"), devices.MISCPANELS, device_commands.Button_459, 459)
             //AddFunction(Switch.CreateToggleSwitch(this, MISCPANELS, "3666", "666", "Miscellaneous Left Panel", "Parking Brake Lever", "%0.1f"));    // elements["PTN_666"] = default_animated_lever(_("Parking Brake Lever"), devices.MISCPANELS, device_commands.Button_666, 666,5.0)

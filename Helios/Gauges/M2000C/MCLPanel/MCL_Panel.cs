@@ -35,6 +35,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
             AddIndicator("panne-yellow", new Point(0, 0));
             AddIndicator("panne-red", new Point(0, 0));
+            AddPushButton("Acknowledge alarms", new Point(0, 0));
         }
 
         #region Properties
@@ -55,6 +56,19 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 _scaledScreenRect.Scale(scaleX, scaleY);
             }
             base.OnPropertyChanged(args);
+        }
+
+        private void AddPushButton(string name, Point posn)
+        {
+            AddButton(name: name,
+                posn: posn,
+                size: new Size(66, 66),
+                image: "{M2000C}/Images/MCLPanel/void.png",
+                pushedImage: "{M2000C}/Images/MCLPanel/void.png",
+                buttonText: "",
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                fromCenter: false);
         }
 
         private void AddIndicator(string name, Point posn)
