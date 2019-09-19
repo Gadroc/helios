@@ -281,7 +281,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #region ECM
             AddFunction(new Switch(this, RWRCONTROL, "3273", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3273"), new SwitchPosition("0.3", "posn 1", "3273"), new SwitchPosition("0.4", "posn 2", "3273"), new SwitchPosition("0.5", "posn 3", "3273"), new SwitchPosition("0.6", "posn 4", "3273"), new SwitchPosition("0.7", "posn 5", "3273"), new SwitchPosition("0.8", "posn 6", "3273"), new SwitchPosition("0.9", "posn 7", "3273"), new SwitchPosition("1.0", "posn 8", "3273") }, "RWR / ECM", "Off/Volume", "%0.1f"));
             AddFunction(new Switch(this, EWS, "3274", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3274"),new SwitchPosition("0.25", "AUTO", "3274"), new SwitchPosition("0.50", "UP", "3274"), new SwitchPosition("0.75", "Down", "3274"), new SwitchPosition("1.00", "RWR", "3274") }, "RWR / ECM", "Decoy Dispenser Control", "%0.1f"));
-            AddFunction(new Switch(this, EWS, "3275", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3275"),new SwitchPosition("0.25", "STBY", "3275"), new SwitchPosition("0.50", "BIT", "3275"), new SwitchPosition("0.75", "RPT", "3275"), new SwitchPosition("1.00", "RPT", "3275")}, "RWR / ECM", "Jammer Control", "%0.1f"));
+            AddFunction(new Switch(this, EWS, "3275", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3275"),new SwitchPosition("0.25", "STBY", "3275"), new SwitchPosition("0.50", "BIT", "3275"), new SwitchPosition("0.75", "RCV", "3275"), new SwitchPosition("1.00", "RPT", "3275")}, "RWR / ECM", "Jammer Control", "%0.1f"));
             #endregion
 
             #region Advisory indicators

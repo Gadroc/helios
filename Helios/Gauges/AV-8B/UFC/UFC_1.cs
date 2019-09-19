@@ -13,9 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/// <summary>
+/// This is the revised version of the Up Front Controller which is larger and uses text displays to avoid cutouts for the exported viewport.
+/// It has a slightly different name because the old version is retained to help with backward compatability
+/// </summary>
+/// 
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
-    using GadrocsWorkshop.Helios.Gauges.AV8B;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
     using System;
@@ -40,7 +44,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private string _ufcNumbers7 = "_=É"; //Numeric mapping into characters in the UFC font
 
         public UFC_1()
-            : base("UFC1", new Size(968, 970))
+            : base("UFC", new Size(968, 970))
         {
             AddButton("TMR", 228, 76, new Size(64, 64), "UFC Function Selector Pushbutton TMR");
             AddButton("TOO", 228, 168, new Size(64, 64), "UFC Function Selector Pushbutton TOO");
@@ -125,7 +129,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{AV-8B}/Images/UFC Bezel Large.png"; }
+            get { return "{AV-8B}/Images/WQHD/Panel/UFC Large.png"; }
         }
 
         private void AddPot(string name, Point posn, Size size, string interfaceElementName)

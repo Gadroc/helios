@@ -22,12 +22,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
     using System.Windows;
 
     [HeliosControl("Helios.AV8B.FuelPanel", "Fuel Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
-    class fuel: AV8BDevice
+    class FQIS: AV8BDevice
     {
         private string _interfaceDeviceName = "Fuel Quantity";
         private string _font = "MS 33558";
 
-        public fuel()
+        public FQIS()
             : base("Fuel Panel", new Size(1839,729))
         {
             AddDisplay("Total Quantity", new FiveDigitDisplay(), new Point(580, 84), new Size(448, 108), "Total display");

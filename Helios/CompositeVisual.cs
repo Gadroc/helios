@@ -820,5 +820,114 @@ namespace GadrocsWorkshop.Helios
                 deviceActionName: "set.value");
             return gauge;
         }
-    }
+
+        protected CompositeVisual AddDevice(
+            string name,
+            CompositeVisual device,
+            Point posn,
+            Size size,
+            string interfaceDeviceName,
+            string interfaceElementName
+            )
+        {
+            device.Name = name;
+            device.Top = posn.Y;
+            device.Left = posn.X;
+            device.Width = size.Width;
+            device.Height = size.Height;
+
+            string componentName = GetComponentName(name);
+            device.Name = componentName;
+
+            Children.Add(device);
+            foreach (IBindingTrigger trigger in device.Triggers)
+            {
+                AddTrigger(trigger, trigger.Device);
+            }
+            foreach (IBindingAction action in device.Actions)
+            {
+                if (action.Name != "hidden")
+                {
+                    AddAction(action, action.Device);
+                    // Create the automatic input bindings for the IFEI_Gauge sub component
+                    AddDefaultInputBinding(
+                        childName: name,
+                        deviceActionName: action.ActionVerb + "." + action.Device,
+                        interfaceTriggerName: name + "." + action.Device + ".changed"
+                        );
+                }
+            }
+            return device;
+        }
+
+        protected Gauges.BaseGauge AddGauge(
+            string name,
+            Gauges.BaseGauge gauge,
+            Point posn,
+            Size size,
+            string interfaceDeviceName,
+            string interfaceElementName
+            )
+        {
+            gauge.Name = name;
+            gauge.Top = posn.Y;
+            gauge.Left = posn.X;
+            gauge.Width = size.Width;
+            gauge.Height = size.Height;
+
+            string componentName = GetComponentName(name);
+            gauge.Name = componentName;
+
+            Children.Add(gauge);
+            foreach (IBindingTrigger trigger in gauge.Triggers)
+            {
+                AddTrigger(trigger, trigger.Device); 
+            }
+            foreach (IBindingAction action in gauge.Actions)
+            {
+                if (action.Name != "hidden")
+                {
+                    //string _actionName = action.Device;
+                    //if (_actionName == "")
+                    //{
+                    //    _actionName = action.Name;
+                    //}
+                    AddAction(action, action.Device);
+                    AddDefaultInputBinding(
+                        childName: componentName,
+                        interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                        deviceActionName: action.Device + "." + action.ActionVerb + "." + action.Name
+                        );
+
+                    // previously working (mostly)
+                    //AddDefaultInputBinding(
+                    //    childName: name,
+                    //    interfaceTriggerName: name + "." + interfaceElementName + ".changed",
+                    //    deviceActionName: action.ActionVerb + "." + _actionName
+                    //    );
+
+                    //AddDefaultInputBinding(
+                    //    childName: componentName,
+                    //    interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                    //    deviceActionName: "set.value");
+
+
+                }
+            }
+            return gauge;
+        }
+        protected HeliosPanel AddPanel(string name, Point posn, Size size, string background)
+        {
+            HeliosPanel _panel = new HeliosPanel();
+            _panel.Left = posn.X;
+            _panel.Top = posn.Y;
+            _panel.Width = size.Width;
+            _panel.Height = size.Height;
+            _panel.BackgroundImage = background;
+            _panel.Name = GetComponentName(name);
+            Children.Add(_panel);
+            return _panel;
+ 
+        }
+}
 }

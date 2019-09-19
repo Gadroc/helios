@@ -1,6 +1,7 @@
 1.4.2019.???? Release
 ----------------------------
-
+* Profile Editor now polices only a single UDP interface being added.
+* A-10C DLL added and images can be referenced by {A-10C}/Images/xxxx.png
 
 1.4.2019.0908 Release
 ----------------------------

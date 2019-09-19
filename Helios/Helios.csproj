@@ -129,12 +129,27 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
+    <Compile Include="Gauges\AV-8B\ADI\ADI.cs" />
+    <Compile Include="Gauges\AV-8B\Altimeter\Altimeter.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\AV-8B Front Cockpit.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-Right-AV8B.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-Left-AV8B.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MPCD.cs" />
     <Compile Include="Gauges\AV-8B\ODU\ODU_1.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Flight Instrument Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\CockpitAppearanceEditor.xaml.cs">
+      <DependentUpon>CockpitAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\H2O Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\FlightInstrumentAppearanceEditor.xaml.cs">
+      <DependentUpon>FlightInstrumentAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\Threat Indicator Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Master Arm Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Right RWR.cs" />
     <Compile Include="Gauges\AV-8B\SMC\SMC_1.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_1.cs" />
+    <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
     <Compile Include="Gauges\M2000C\LGPanel\LG_Panel.cs" />
     <Compile Include="Gauges\M2000C\EnginePanel\Engine_Start_Panel.cs" />
     <Compile Include="Gauges\M2000C\CautionPanel\Caution_Panel.cs" />
@@ -403,7 +418,7 @@
     <Compile Include="Gauges\AV-8B\IAS\IAS.cs" />
     <Compile Include="Gauges\AV-8B\4 Digit Display\4DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\2 Digit Display\2DigitDisplay.cs" />
-    <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
+    <Compile Include="Gauges\AV-8B\VVI\VVI 1.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDeviceRenderer.cs" />
@@ -2833,6 +2848,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Page Include="Gauges\AV-8B\Small Panels\CockpitAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Gauges\AV-8B\Small Panels\FlightInstrumentAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Gauges\FA-18C\IFEI\IFEI Nozzle Gauge Marks.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
