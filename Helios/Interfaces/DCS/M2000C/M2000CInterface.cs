@@ -203,6 +203,54 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "375", "Fire Warning Panel", "fire-warning-afterburner-chamber", "Fire Warning Afterburner Chamber"));
             AddFunction(new FlagValue(this, "376", "Demar Indicator Panel", "demar", "Start-up"));
             #endregion
+            #region  PCN
+            AddFunction(new FlagValue(this, "564", "PCN Panel", "PRET", "PRET"));
+            AddFunction(new FlagValue(this, "565", "PCN Panel", "ALN", "ALN"));
+            AddFunction(new FlagValue(this, "566", "PCN Panel", "MIP", "MIP"));
+            AddFunction(new FlagValue(this, "571", "PCN Panel", "PREP", "PREP"));
+            AddFunction(new FlagValue(this, "573", "PCN Panel", "DEST", "DEST"));
+            AddFunction(new FlagValue(this, "577", "PCN Panel", "BAD", "BAD"));
+            AddFunction(new FlagValue(this, "579", "PCN Panel", "REC", "REC"));
+            AddFunction(new FlagValue(this, "581", "PCN Panel", "VAL", "VAL"));
+            AddFunction(new FlagValue(this, "583", "PCN Panel", "MRC", "MRC"));
+            AddFunction(new FlagValue(this, "595", "PCN Panel", "EFF", "EFF"));
+            AddFunction(new FlagValue(this, "597", "PCN Panel", "INS", "INS"));
+            AddFunction(new PushButton(this, PCN_NAV, "3570", "570", "PCN Panel", "INS PREP Switch"));    // elements["PTN_570"] = default_button(_("INS PREP Switch"),     devices.PCN_NAV, device_commands.Button_570, 570, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3572", "572", "PCN Panel", "INS DEST Switch"));    // elements["PTN_572"] = default_button(_("INS DEST Switch"),     devices.PCN_NAV, device_commands.Button_572, 572, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3576", "576", "PCN Panel", "Offset Waypoint/Target"));    // elements["PTN_576"] = default_button(_("Offset Waypoint/Target"), devices.PCN_NAV, device_commands.Button_576, 576, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3578", "578", "PCN Panel", "INS Update"));    // elements["PTN_578"] = default_button(_("INS Update"),             devices.PCN_NAV, device_commands.Button_578, 578, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3580", "580", "PCN Panel", "Validate Data Entry"));    // elements["PTN_580"] = default_button(_("Validate Data Entry"),    devices.PCN_NAV, device_commands.Button_580, 580, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3582", "582", "PCN Panel", "Mark Position"));    // elements["PTN_582"] = default_button(_("Mark Position"),          devices.PCN_NAV, device_commands.Button_582, 582, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3667", "667", "PCN Panel", "AUTO Navigation"));    // elements["PTN_667"] = default_button(_("AUTO Navigation"),        devices.PCN_NAV, device_commands.Button_667, 667, 0, 1)
+            AddFunction(new RotaryEncoder(this,PCN_NAV,"3574","574",0.1d, "PCN Panel", "INS Parameter Selector"));
+            AddFunction(new Switch(this, PCN_NAV, "574", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CP/PD", "3574"),
+                new SwitchPosition("0.3", "ALT", "3574"),
+                new SwitchPosition("0.7", "L/G", "3574"),
+                new SwitchPosition("0.0", "RT/TD", "3574"),
+                new SwitchPosition("0.3", "dL/dG", "3574"),
+                new SwitchPosition("0.7", "dALT", "3574"),
+                new SwitchPosition("0.0", "P/t", "3574"),
+                new SwitchPosition("0.3", "DEC", "3574"),
+                new SwitchPosition("0.7", "DV/FV", "3574"),
+                new SwitchPosition("0.0", "TR/VS", "3574"),
+                new SwitchPosition("0.3", "D/RLT", "3574"),
+                }, "PCN Panel", "INS Parameter Selector", "%0.2f"));    // elements["PTN_574"] = default_multiposition_knob(_("INS Parameter Selector"), devices.PCN_NAV, device_commands.Button_574,   574, 11, 0.1, false, 0)
+//            AddFunction(new Axis(this, SYSLIGHTS, "3575", "575", 0.15d, 0d, 1d, "PCN Panel", "Light Brightnes Control/Test"));    // elements["PTN_575"] = default_axis_limited(_("Light Brightnes Control/Test"), devices.SYSLIGHTS, device_commands.Button_575, 575, 10, 0.1, false, 0)
+            AddFunction(new PushButton(this, PCN_NAV, "3584", "584", "PCN Panel", "INS Button 1"));    // elements["PTN_584"] = default_button(_("INS Button 1"), devices.PCN_NAV, device_commands.Button_584, 584, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3585", "585", "PCN Panel", "INS Button 2"));    // elements["PTN_585"] = default_button(_("INS Button 2"), devices.PCN_NAV, device_commands.Button_585, 585, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3586", "586", "PCN Panel", "INS Button 3"));    // elements["PTN_586"] = default_button(_("INS Button 3"), devices.PCN_NAV, device_commands.Button_586, 586, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3587", "587", "PCN Panel", "INS Button 4"));    // elements["PTN_587"] = default_button(_("INS Button 4"), devices.PCN_NAV, device_commands.Button_587, 587, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3588", "588", "PCN Panel", "INS Button 5"));    // elements["PTN_588"] = default_button(_("INS Button 5"), devices.PCN_NAV, device_commands.Button_588, 588, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3589", "589", "PCN Panel", "INS Button 6"));    // elements["PTN_589"] = default_button(_("INS Button 6"), devices.PCN_NAV, device_commands.Button_589, 589, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3590", "590", "PCN Panel", "INS Button 7"));    // elements["PTN_590"] = default_button(_("INS Button 7"), devices.PCN_NAV, device_commands.Button_590, 590, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3591", "591", "PCN Panel", "INS Button 8"));    // elements["PTN_591"] = default_button(_("INS Button 8"), devices.PCN_NAV, device_commands.Button_591, 591, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3592", "592", "PCN Panel", "INS Button 9"));    // elements["PTN_592"] = default_button(_("INS Button 9"), devices.PCN_NAV, device_commands.Button_592, 592, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3593", "593", "PCN Panel", "INS Button 0"));    // elements["PTN_593"] = default_button(_("INS Button 0"), devices.PCN_NAV, device_commands.Button_593, 593, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3594", "594", "PCN Panel", "INS Clear Button"));    // elements["PTN_594"] = default_button(_("INS Clear Button"), devices.PCN_NAV, device_commands.Button_594, 594, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3596", "596", "PCN Panel", "INS ENTER Button"));    // elements["PTN_596"] = default_button(_("INS ENTER Button"), devices.PCN_NAV, device_commands.Button_596, 596, 0, 1)
+                                                                                                     // 
+            #endregion
             #region Indicators
             // !!!! Any duplicate "name" values in a function will cause Helios to go bang.  Make sure that when you change the name, that it is unique
             AddFunction(new FlagValue(this, "185", "Indicators", "Indicators 185", "LIM, MIP,"));
@@ -234,23 +282,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "511", "Indicators", "Indicators 511", "Left consule HYD"));
             AddFunction(new FlagValue(this, "512", "Indicators", "Indicators 512", "Left consule Red"));
             AddFunction(new FlagValue(this, "513", "Indicators", "Indicators 513", "Left consule Green"));
-            AddFunction(new FlagValue(this, "564", "Indicators", "Indicators 564", "Right Console PRET"));
-            AddFunction(new FlagValue(this, "565", "Indicators", "Indicators 565", "ALN"));
-            AddFunction(new FlagValue(this, "566", "Indicators", "Indicators 566", "MIP"));
             AddFunction(new FlagValue(this, "567", "Indicators", "Indicators 567", "N.DEG"));
             AddFunction(new FlagValue(this, "568", "Indicators", "Indicators 568", "SEC"));
             AddFunction(new FlagValue(this, "569", "Indicators", "Indicators 569", "UNI"));
             AddFunction(new FlagValue(this, "669", "Indicators", "Indicators 669", "M01"));
             AddFunction(new FlagValue(this, "670", "Indicators", "Indicators 670", "M02"));
             AddFunction(new FlagValue(this, "671", "Indicators", "Indicators 671", "M03"));
-            AddFunction(new FlagValue(this, "571", "Indicators", "Indicators 571", "PREP"));
-            AddFunction(new FlagValue(this, "573", "Indicators", "Indicators 573", "DEST"));
-            AddFunction(new FlagValue(this, "577", "Indicators", "Indicators 577", "BAD"));
-            AddFunction(new FlagValue(this, "579", "Indicators", "Indicators 579", "REC"));
-            AddFunction(new FlagValue(this, "581", "Indicators", "Indicators 581", "VAL"));
-            AddFunction(new FlagValue(this, "583", "Indicators", "Indicators 583", "MRC"));
-            AddFunction(new FlagValue(this, "595", "Indicators", "Indicators 595", "EFF"));
-            AddFunction(new FlagValue(this, "597", "Indicators", "Indicators 597", "INS"));
             AddFunction(new FlagValue(this, "668", "Indicators", "Indicators 668", "ENC"));
             AddFunction(new FlagValue(this, "632", "Indicators", "Indicators 632", "TACAN C"));
             AddFunction(new FlagValue(this, "634", "Indicators", "Indicators 634", "TACAN F"));
@@ -505,30 +542,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #region  ELECTRICAL PANEL
             AddFunction(new PushButton(this, PWRPNL, "3654", "654", "ELECTRICAL PANEL", "Alert Network (QRA) Switch"));    // elements["PTN_654"] = default_2_position_tumb(_("Alert Network (QRA) Switch"),devices.PWRPNL, device_commands.Button_654, 654)
 
-            #endregion
-            #region  PCN
-            AddFunction(new PushButton(this, PCN_NAV, "3570", "570", "PCN", "INS PREP Switch"));    // elements["PTN_570"] = default_button(_("INS PREP Switch"),     devices.PCN_NAV, device_commands.Button_570, 570, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3572", "572", "PCN", "INS DEST Switch"));    // elements["PTN_572"] = default_button(_("INS DEST Switch"),     devices.PCN_NAV, device_commands.Button_572, 572, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3576", "576", "PCN", "Offset Waypoint/Target"));    // elements["PTN_576"] = default_button(_("Offset Waypoint/Target"), devices.PCN_NAV, device_commands.Button_576, 576, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3578", "578", "PCN", "INS Update"));    // elements["PTN_578"] = default_button(_("INS Update"),             devices.PCN_NAV, device_commands.Button_578, 578, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3580", "580", "PCN", "Validate Data Entry"));    // elements["PTN_580"] = default_button(_("Validate Data Entry"),    devices.PCN_NAV, device_commands.Button_580, 580, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3582", "582", "PCN", "Mark Position"));    // elements["PTN_582"] = default_button(_("Mark Position"),          devices.PCN_NAV, device_commands.Button_582, 582, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3667", "667", "PCN", "AUTO Navigation"));    // elements["PTN_667"] = default_button(_("AUTO Navigation"),        devices.PCN_NAV, device_commands.Button_667, 667, 0, 1)
-            AddFunction(new Switch(this, PCN_NAV, "574", new SwitchPosition[] { }, "PCN", "INS Parameter Selector", "%0.1f"));    // elements["PTN_574"] = default_multiposition_knob(_("INS Parameter Selector"), devices.PCN_NAV, device_commands.Button_574,   574, 11, 0.1, false, 0)
-            AddFunction(new Axis(this, SYSLIGHTS, "3575", "575", 0.15d, 0d, 1d, "PCN", "Light Brightnes Control/Test"));    // elements["PTN_575"] = default_axis_limited(_("Light Brightnes Control/Test"), devices.SYSLIGHTS, device_commands.Button_575, 575, 10, 0.1, false, 0)
-            AddFunction(new PushButton(this, PCN_NAV, "3584", "584", "PCN", "INS Button 1"));    // elements["PTN_584"] = default_button(_("INS Button 1"), devices.PCN_NAV, device_commands.Button_584, 584, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3585", "585", "PCN", "INS Button 2"));    // elements["PTN_585"] = default_button(_("INS Button 2"), devices.PCN_NAV, device_commands.Button_585, 585, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3586", "586", "PCN", "INS Button 3"));    // elements["PTN_586"] = default_button(_("INS Button 3"), devices.PCN_NAV, device_commands.Button_586, 586, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3587", "587", "PCN", "INS Button 4"));    // elements["PTN_587"] = default_button(_("INS Button 4"), devices.PCN_NAV, device_commands.Button_587, 587, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3588", "588", "PCN", "INS Button 5"));    // elements["PTN_588"] = default_button(_("INS Button 5"), devices.PCN_NAV, device_commands.Button_588, 588, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3589", "589", "PCN", "INS Button 6"));    // elements["PTN_589"] = default_button(_("INS Button 6"), devices.PCN_NAV, device_commands.Button_589, 589, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3590", "590", "PCN", "INS Button 7"));    // elements["PTN_590"] = default_button(_("INS Button 7"), devices.PCN_NAV, device_commands.Button_590, 590, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3591", "591", "PCN", "INS Button 8"));    // elements["PTN_591"] = default_button(_("INS Button 8"), devices.PCN_NAV, device_commands.Button_591, 591, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3592", "592", "PCN", "INS Button 9"));    // elements["PTN_592"] = default_button(_("INS Button 9"), devices.PCN_NAV, device_commands.Button_592, 592, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3593", "593", "PCN", "INS Button 0"));    // elements["PTN_593"] = default_button(_("INS Button 0"), devices.PCN_NAV, device_commands.Button_593, 593, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3594", "594", "PCN", "INS Clear Button"));    // elements["PTN_594"] = default_button(_("INS Clear Button"), devices.PCN_NAV, device_commands.Button_594, 594, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3596", "596", "PCN", "INS ENTER Button"));    // elements["PTN_596"] = default_button(_("INS ENTER Button"), devices.PCN_NAV, device_commands.Button_596, 596, 0, 1)
-                                                                                                     // 
             #endregion
             #region  PSM
             AddFunction(new Switch(this, PCN_NAV, "627", new SwitchPosition[] { }, "PSM", "INS Mode Selector", "%0.1f"));    // elements["PTN_627"] = multiposition_switch_limited(_("INS Mode Selector"), devices.PCN_NAV, device_commands.Button_627, 627, 8, 0.1, false, 0)

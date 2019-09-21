@@ -107,6 +107,7 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />
     <Compile Include="Gauges\M2000C\PCAPanel\PCA_Panel.cs" />
     <Compile Include="Gauges\M2000C\PPAPanel\PPA_Panel.cs" />
     <Compile Include="Gauges\M2000C\FuelPanel\FuelGauge.cs" />
