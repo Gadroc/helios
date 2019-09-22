@@ -2,17 +2,20 @@
 ----------------------------
 * M2000C Interface 
 	* Added the Fuel Panel with the 7 empty tanks indicators, the refueling indicator, the left and right neddle gauges and the JAUG and DETOT drums
-	* Added the PCA Panel with the 8 indicators on the buttons, the 4 buttons and the 5 switches
+	* Added the PPA Panel with the 8 indicators on the buttons, the 4 buttons and the 5 switches
 	* Added the PCA Panel with the 17 indicators on the buttons, the 11 buttons, the 2 switches and the guard on the Jettison switch
+	* Added the PCN	Panel with the 9 indicators, the 9 indicators buttons, the 10 keypad buttons and the Parameter selector working only from DCS to Helios
 	* Improvement of the Engine Panel by adding the 2 guards
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch 
 	* Improvement of the pictures of the cockpit
+	* Improvement of the Master Caution lights Panel, trying to make the 2 indicators clickable with the same solution as the PCN Panel
 	* Miscellaneous: Added the Post Combustion Indicator, the 2 Fire Warning Indicators, the Demar Indicator, the 5 RWR indicators
 	* Known issues: 
 		* Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
-		* Master Caution lights Panel: this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
+		* Master Caution lights Panel: still not working despite the modification with IndicatorPushButton. Seems the id is not the good one when clicking on the 2 indicators ?
 		* Landing Gear Panel: the Guard for the "fly by wire gain switch", the emergency landing gear lever
 		* PCA Panel: the red Gun Arm Switch, the click is reversed
+		* PCN Panel: the Parameter selector doesn’t work from Helios to DCS
 
 1.4.2019.0901 Release
 ----------------------------

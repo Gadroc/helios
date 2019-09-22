@@ -172,6 +172,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 knobImage: "{M2000C}/Images/LGPanel/emergency-landing-gear-lever.png",
 //                positions: new RSPositions[] { new RSPositions( 0, "on", 0d ), new RSPositions( 1, "off", 90d) },
                 defaultPosition: 0,
+                clickType: ClickType.Touch,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name, 
                 fromCenter:true);

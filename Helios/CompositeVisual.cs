@@ -383,7 +383,7 @@ namespace GadrocsWorkshop.Helios
         }
 
         protected RotarySwitch AddRotarySwitch(string name, Point posn, Size size,
-            string knobImage, int defaultPosition, //Helios.Gauges.M2000C.RSPositions[] positions,
+            string knobImage, int defaultPosition, ClickType clickType,
             string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
             if (fromCenter)
@@ -399,11 +399,10 @@ namespace GadrocsWorkshop.Helios
                 Left = posn.X,
                 Width = size.Width,
                 Height = size.Height,
-                DefaultPosition = defaultPosition
+                DefaultPosition = defaultPosition,
+                ClickType = clickType,
             };
             _knob.Positions.Clear();
-            _knob.DefaultPosition = defaultPosition;
-
 
             Children.Add(_knob);
 
@@ -413,16 +412,19 @@ namespace GadrocsWorkshop.Helios
             }
             AddAction(_knob.Actions["set.position"], componentName);
 
-            AddDefaultOutputBinding(
-                childName: componentName,
-                deviceTriggerName: "position.changed",
-                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
-            );
+            foreach (RotarySwitchPosition position in _knob.Positions)
+            {
+                AddDefaultOutputBinding(
+                    childName: componentName,
+                    deviceTriggerName: "position " + position.Index + "entered",
+                    interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+                );
+            }
             AddDefaultInputBinding(
                 childName: componentName,
                 interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
                 deviceActionName: "set.position");
-
+                
             return _knob;
         }
 
@@ -657,10 +659,13 @@ namespace GadrocsWorkshop.Helios
             return newSwitch;
         }
 
-        protected IndicatorPushButton AddIndicatorPushButton(string name, Point pos, Size size,
-            string image, string pushedImage, Color textColor, Color onTextColor, string font, string onImage = "", bool withText = true)
+        protected IndicatorPushButton AddIndicatorPushButton(string name, Point pos, Size size, string image, string pushedImage, Color textColor, Color onTextColor, string font, 
+            string interfaceDeviceName = "", string interfaceElementName = "", string onImage = "", bool fromCenter = false, bool withText = true)
         {
+            if (fromCenter)
+                pos = FromCenter(pos, size);
             string componentName = GetComponentName(name);
+
             IndicatorPushButton indicator = new Helios.Controls.IndicatorPushButton
             {
                 Top = pos.Y,
@@ -670,6 +675,7 @@ namespace GadrocsWorkshop.Helios
                 Image = image,
                 PushedImage = pushedImage,
                 IndicatorOnImage = onImage,
+                PushedIndicatorOnImage = onImage,
                 Name = componentName,
                 OnTextColor = onTextColor,
                 TextColor = textColor
@@ -694,12 +700,32 @@ namespace GadrocsWorkshop.Helios
             }
 
             Children.Add(indicator);
-            AddTrigger(indicator.Triggers["pushed"], componentName);
-            AddTrigger(indicator.Triggers["released"], componentName);
+            foreach (IBindingTrigger trigger in indicator.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            foreach (IBindingAction action in indicator.Actions)
+            {
+                AddAction(action, componentName);
+            }
+            
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.indicator");
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + " Button.changed",
+                deviceActionName: "set.physical state");
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "pushed",
+                interfaceActionName: interfaceDeviceName + ".push." + interfaceElementName + " Button");
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "released",
+                interfaceActionName: interfaceDeviceName + ".release." + interfaceElementName + " Button");
 
-            AddAction(indicator.Actions["push"], componentName);
-            AddAction(indicator.Actions["release"], componentName);
-            AddAction(indicator.Actions["set.indicator"], componentName);
             return indicator;
         }
 

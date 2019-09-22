@@ -32,10 +32,10 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         public M2000C_PCNPanel()
             : base("PCN Panel", new Size(690, 530))
         {
-            int row0 = 231, row1 = 234, row2 = 233, row3 = 316, row4 = 323, row5 = 396, row6 = 394, row7 = 482, row8 = 480, row9 = 115;
-            int column0 = 121, column1 = 208, column2 = 220, column3 = 321, column4 = 327, column5 = 426, column6 = 507, column7 = 586, column8 = 395, column9 = 453, column10 = 506;
-//            AddPushButton("INS PREP Switch", "ins-prep", new Point(column0, row0), new Size(60, 60));
-//            AddPushButton("INS DEST Switch", "ins-dest", new Point(column3, row0), new Size(60, 60));
+            int row0 = 231, row1 = 234, row2 = 233, row3 = 316, row4 = 323, row5 = 396, row6 = 394, row7 = 468, row8 = 481, row9 = 127, row10 = 100, row11 = 140;
+            int column0 = 123, column1 = 221, column2 = 210, column3 = 324, column4 = 327, column5 = 429, column6 = 507, column7 = 587, column8 = 398, column9 = 452, column10 = 503, column11 = 557, column12 = 610;
+            AddIndicatorPushButton("PREP", "prep", new Point(column0, row0), new Size(50, 50));
+            AddIndicatorPushButton("DEST", "dest", new Point(column3, row0), new Size(50, 50));
             AddPushButton("INS Button 1", "ins-1" ,new Point(column5, row2), new Size(52, 60));
             AddPushButton("INS Button 2", "ins-2", new Point(column6, row2), new Size(52, 60));
             AddPushButton("INS Button 3", "ins-3", new Point(column7, row2), new Size(52, 60));
@@ -46,12 +46,24 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             AddPushButton("INS Button 8", "ins-8", new Point(column6, row5), new Size(52, 60));
             AddPushButton("INS Button 9", "ins-9", new Point(column7, row5), new Size(52, 60));
             AddPushButton("INS Button 0", "ins-0", new Point(column6, row8), new Size(52, 60));
-//            AddPushButton("INS Clear Button", "ins-clear", new Point(column5, row8), new Size(60, 60));
-//            AddPushButton("INS ENTER Button", "ins-enter", new Point(column7, row8), new Size(60, 60));
+            AddIndicatorPushButton("EFF", "eff", new Point(column5, row8), new Size(50, 50));
+            AddIndicatorPushButton("INS", "ins", new Point(column7, row8), new Size(50, 50));
 
-            AddIndicator("PRET", "pret", new Point(column8, row9), new Size(5, 9));
-            AddIndicator("ALN", "aln", new Point(column9, row9), new Size(5, 9));
-            AddIndicator("MIP", "mip", new Point(column10, row9), new Size(5, 9));
+            AddIndicatorPushButton("Offset Waypoint/Target", "enc", new Point(column1, row1), new Size(58, 40));
+            AddIndicatorPushButton("AUTO Navigation", "bad", new Point(column4, row4), new Size(58, 40));
+            AddIndicatorPushButton("INS Update", "rec", new Point(column4, row6), new Size(58, 40));
+            AddIndicatorPushButton("Marq Position", "mrq", new Point(column4, row7), new Size(58, 40));
+            AddIndicatorPushButton("Validate Data Entry", "val", new Point(column2, row7), new Size(58, 40));
+
+            AddIndicator("M91", "m91", new Point(column8, row10), new Size(25, 13));
+            AddIndicator("M92", "m92", new Point(column9, row10), new Size(27, 13));
+            AddIndicator("M93", "m93", new Point(column10, row10), new Size(27, 13));
+            AddIndicator("PRET", "pret", new Point(column8, row9), new Size(40, 13));
+            AddIndicator("ALN", "aln", new Point(column9, row9), new Size(30, 13));
+            AddIndicator("MIP", "mip", new Point(column10, row9), new Size(25, 13));
+            AddIndicator("NDEG", "ndeg", new Point(column11, row9), new Size(45, 13));
+            AddIndicator("SEC", "sec", new Point(column12, row9), new Size(32, 13));
+            AddIndicator("UNI", "uni", new Point(column9, row11), new Size(24, 13));
 
             AddSwitch("INS Parameter Selector", "{M2000C}/Images/PCNPanel/ins-parameter-selector.png", new Point(149, 349), new Size(118, 118), true);
         }
@@ -89,6 +101,23 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 fromCenter: true);
         }
 
+        private void AddIndicatorPushButton(string name, string imagePrefix, Point pos, Size size)
+        {
+            AddIndicatorPushButton(name: name,
+                pos: pos,
+                size: size,
+                image: "{M2000C}/Images/PCNPanel/" + imagePrefix + ".png",
+                pushedImage: "{M2000C}/Images/PCNPanel/" + imagePrefix + ".png",
+                textColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
+                onTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
+                font: "",
+                onImage: "{M2000C}/Images/PCNPanel/" + imagePrefix + "-on.png",
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                fromCenter: true,
+                withText: false);
+        }
+
         private void AddIndicator(string name, string imagePrefix, Point posn, Size size)
         {
             AddIndicator(
@@ -109,33 +138,29 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
         private void AddSwitch(string name, string knobImage, Point posn, Size size, bool fromCenter)
         {
-            AddRotarySwitch(name: name,
+            RotarySwitch rSwitch = AddRotarySwitch(name: name,
                 posn: posn,
                 size: size,
                 knobImage: knobImage,
-                defaultPosition: 0, //Helios.Gauges.M2000C.RSPositions[] positions,
+                defaultPosition: 0, 
+                clickType: ClickType.Touch,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
                 fromCenter: fromCenter);
+            rSwitch.Positions.Clear();
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 0, "TR/VS", 220d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "D/RLT", 240d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "CP/PD", 270d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 3, "ALT", 300d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 4, "L/G", 325d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 5, "RD/TD", 0d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 6, "dL/dG", 40d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 7, "dALT", 70d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 8, "P/t", 95d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 9, "REC", 135d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 10, "DV/FV", 185d));
         }
-/*
-        private void AddSwitch(string name, string imagePrefix, Point posn, Size size, ToggleSwitchPosition defaultPosition, ToggleSwitchType defaultType, bool horizontal)
-        {
-            AddToggleSwitch(name: name,
-                posn: posn,
-                size: size,
-                defaultPosition: defaultPosition,
-                positionOneImage: "{M2000C}/Images/PCNPanel/" + imagePrefix + ".png",
-                positionTwoImage: "{M2000C}/Images/Switches/" + imagePrefix + "up.png",
-                defaultType: defaultType,
-                interfaceDeviceName: _interfaceDeviceName,
-                interfaceElementName: name,
-                horizontal: horizontal,
-                horizontalRender: horizontal,
-                nonClickableZones: null,
-                fromCenter: false);
-        }
-        */
+
         public override bool HitTest(Point location)
         {
             if (_scaledScreenRect.Contains(location))

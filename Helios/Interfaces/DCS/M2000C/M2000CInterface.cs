@@ -188,8 +188,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             // 
             #endregion
             #region MCL Panel
-            AddFunction(new FlagValue(this, "199", "Master Caution Lights Panel", "panne-yellow", "Master-warning"));
-            AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "panne-red", "Master-caution"));
+            AddFunction(new FlagValue(this, "199", "Master Caution Lights Panel", "Panne Yellow", "Master-warning"));
+            AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "Panne Red", "Master-caution"));
             AddFunction(new PushButton(this, SYSLIGHTS, "3191", "191", "Master Caution Lights Panel", "Acknowledge alarms"));    // elements["PTN_250"] = default_button(_("Weapons Selector Button 1"), devices.PCA_PPA, device_commands.Button_250, 250, 0, 1)
             #endregion
             #region Miscellaneous Panels and indicators
@@ -207,36 +207,42 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "564", "PCN Panel", "PRET", "PRET"));
             AddFunction(new FlagValue(this, "565", "PCN Panel", "ALN", "ALN"));
             AddFunction(new FlagValue(this, "566", "PCN Panel", "MIP", "MIP"));
-            AddFunction(new FlagValue(this, "571", "PCN Panel", "PREP", "PREP"));
-            AddFunction(new FlagValue(this, "573", "PCN Panel", "DEST", "DEST"));
-            AddFunction(new FlagValue(this, "577", "PCN Panel", "BAD", "BAD"));
-            AddFunction(new FlagValue(this, "579", "PCN Panel", "REC", "REC"));
-            AddFunction(new FlagValue(this, "581", "PCN Panel", "VAL", "VAL"));
-            AddFunction(new FlagValue(this, "583", "PCN Panel", "MRC", "MRC"));
             AddFunction(new FlagValue(this, "595", "PCN Panel", "EFF", "EFF"));
             AddFunction(new FlagValue(this, "597", "PCN Panel", "INS", "INS"));
-            AddFunction(new PushButton(this, PCN_NAV, "3570", "570", "PCN Panel", "INS PREP Switch"));    // elements["PTN_570"] = default_button(_("INS PREP Switch"),     devices.PCN_NAV, device_commands.Button_570, 570, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3572", "572", "PCN Panel", "INS DEST Switch"));    // elements["PTN_572"] = default_button(_("INS DEST Switch"),     devices.PCN_NAV, device_commands.Button_572, 572, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3576", "576", "PCN Panel", "Offset Waypoint/Target"));    // elements["PTN_576"] = default_button(_("Offset Waypoint/Target"), devices.PCN_NAV, device_commands.Button_576, 576, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3578", "578", "PCN Panel", "INS Update"));    // elements["PTN_578"] = default_button(_("INS Update"),             devices.PCN_NAV, device_commands.Button_578, 578, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3580", "580", "PCN Panel", "Validate Data Entry"));    // elements["PTN_580"] = default_button(_("Validate Data Entry"),    devices.PCN_NAV, device_commands.Button_580, 580, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3582", "582", "PCN Panel", "Mark Position"));    // elements["PTN_582"] = default_button(_("Mark Position"),          devices.PCN_NAV, device_commands.Button_582, 582, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3667", "667", "PCN Panel", "AUTO Navigation"));    // elements["PTN_667"] = default_button(_("AUTO Navigation"),        devices.PCN_NAV, device_commands.Button_667, 667, 0, 1)
-            AddFunction(new RotaryEncoder(this,PCN_NAV,"3574","574",0.1d, "PCN Panel", "INS Parameter Selector"));
+            AddFunction(new FlagValue(this, "567", "PCN Panel", "NDEG", "NDEG"));
+            AddFunction(new FlagValue(this, "568", "PCN Panel", "SEC", "SEC"));
+            AddFunction(new FlagValue(this, "569", "PCN Panel", "UNI", "UNI"));
+            AddFunction(new FlagValue(this, "669", "PCN Panel", "M91", "M91"));
+            AddFunction(new FlagValue(this, "670", "PCN Panel", "M92", "M92"));
+            AddFunction(new FlagValue(this, "671", "PCN Panel", "M93", "M93"));
+            AddFunction(new PushButton(this, PCN_NAV, "3570", "570", "PCN Panel", "PREP Button"));    // elements["PTN_570"] = default_button(_("INS PREP Switch"),     devices.PCN_NAV, device_commands.Button_570, 570, 0, 1)
+            AddFunction(new FlagValue(this, "571", "PCN Panel", "PREP", "PREP"));
+            AddFunction(new PushButton(this, PCN_NAV, "3572", "572", "PCN Panel", "DEST Button"));    // elements["PTN_572"] = default_button(_("INS DEST Switch"),     devices.PCN_NAV, device_commands.Button_572, 572, 0, 1)
+            AddFunction(new FlagValue(this, "573", "PCN Panel", "DEST", "DEST"));
+            AddFunction(new PushButton(this, PCN_NAV, "3667", "667", "PCN Panel", "Offset Waypoint/Target Button"));    // elements["PTN_576"] = default_button(_("Offset Waypoint/Target"), devices.PCN_NAV, device_commands.Button_576, 576, 0, 1)
+            AddFunction(new FlagValue(this, "668", "PCN Panel", "Offset Waypoint/Target", "ENC"));
+            AddFunction(new PushButton(this, PCN_NAV, "3578", "578", "PCN Panel", "INS Update Button"));    // elements["PTN_578"] = default_button(_("INS Update"),             devices.PCN_NAV, device_commands.Button_578, 578, 0, 1)
+            AddFunction(new FlagValue(this, "579", "PCN Panel", "INS Update", "REC"));
+            AddFunction(new PushButton(this, PCN_NAV, "3580", "580", "PCN Panel", "Validate Data Entry Button"));    // elements["PTN_580"] = default_button(_("Validate Data Entry"),    devices.PCN_NAV, device_commands.Button_580, 580, 0, 1)
+            AddFunction(new FlagValue(this, "581", "PCN Panel", "Validate Data Entry", "VAL"));
+            AddFunction(new PushButton(this, PCN_NAV, "3582", "582", "PCN Panel", "Marq Position Button"));    // elements["PTN_582"] = default_button(_("Mark Position"),          devices.PCN_NAV, device_commands.Button_582, 582, 0, 1)
+            AddFunction(new FlagValue(this, "583", "PCN Panel", "Marq Position", "MRQ"));
+            AddFunction(new PushButton(this, PCN_NAV, "3576", "576", "PCN Panel", "AUTO Navigation Button"));    // elements["PTN_667"] = default_button(_("AUTO Navigation"),        devices.PCN_NAV, device_commands.Button_667, 667, 0, 1)
+            AddFunction(new FlagValue(this, "577", "PCN Panel", "AUTO Navigation", "BAD"));
             AddFunction(new Switch(this, PCN_NAV, "574", new SwitchPosition[] {
-                new SwitchPosition("0.0", "CP/PD", "3574"),
-                new SwitchPosition("0.3", "ALT", "3574"),
-                new SwitchPosition("0.7", "L/G", "3574"),
-                new SwitchPosition("0.0", "RT/TD", "3574"),
-                new SwitchPosition("0.3", "dL/dG", "3574"),
-                new SwitchPosition("0.7", "dALT", "3574"),
-                new SwitchPosition("0.0", "P/t", "3574"),
-                new SwitchPosition("0.3", "DEC", "3574"),
-                new SwitchPosition("0.7", "DV/FV", "3574"),
-                new SwitchPosition("0.0", "TR/VS", "3574"),
-                new SwitchPosition("0.3", "D/RLT", "3574"),
+                new SwitchPosition("0.0", "TR/VS", "574"),
+                new SwitchPosition("0.1", "D/RLT", "574"),
+                new SwitchPosition("0.2", "CP/PD", "574"),
+                new SwitchPosition("0.3", "ALT", "574"),
+                new SwitchPosition("0.4", "L/G", "574"),
+                new SwitchPosition("0.5", "RT/TD", "574"),
+                new SwitchPosition("0.6", "dL/dG", "574"),
+                new SwitchPosition("0.7", "dALT", "574"),
+                new SwitchPosition("0.8", "P/t", "574"),
+                new SwitchPosition("0.9", "DEC", "574"),
+                new SwitchPosition("1.0", "DV/FV", "574"),
                 }, "PCN Panel", "INS Parameter Selector", "%0.2f"));    // elements["PTN_574"] = default_multiposition_knob(_("INS Parameter Selector"), devices.PCN_NAV, device_commands.Button_574,   574, 11, 0.1, false, 0)
-//            AddFunction(new Axis(this, SYSLIGHTS, "3575", "575", 0.15d, 0d, 1d, "PCN Panel", "Light Brightnes Control/Test"));    // elements["PTN_575"] = default_axis_limited(_("Light Brightnes Control/Test"), devices.SYSLIGHTS, device_commands.Button_575, 575, 10, 0.1, false, 0)
+            AddFunction(new Axis(this, SYSLIGHTS, "3575", "575", 0.15d, 0d, 1d, "PCN Panel", "Light Brightnes Control/Test"));    // elements["PTN_575"] = default_axis_limited(_("Light Brightnes Control/Test"), devices.SYSLIGHTS, device_commands.Button_575, 575, 10, 0.1, false, 0)
             AddFunction(new PushButton(this, PCN_NAV, "3584", "584", "PCN Panel", "INS Button 1"));    // elements["PTN_584"] = default_button(_("INS Button 1"), devices.PCN_NAV, device_commands.Button_584, 584, 0, 1)
             AddFunction(new PushButton(this, PCN_NAV, "3585", "585", "PCN Panel", "INS Button 2"));    // elements["PTN_585"] = default_button(_("INS Button 2"), devices.PCN_NAV, device_commands.Button_585, 585, 0, 1)
             AddFunction(new PushButton(this, PCN_NAV, "3586", "586", "PCN Panel", "INS Button 3"));    // elements["PTN_586"] = default_button(_("INS Button 3"), devices.PCN_NAV, device_commands.Button_586, 586, 0, 1)
@@ -247,8 +253,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new PushButton(this, PCN_NAV, "3591", "591", "PCN Panel", "INS Button 8"));    // elements["PTN_591"] = default_button(_("INS Button 8"), devices.PCN_NAV, device_commands.Button_591, 591, 0, 1)
             AddFunction(new PushButton(this, PCN_NAV, "3592", "592", "PCN Panel", "INS Button 9"));    // elements["PTN_592"] = default_button(_("INS Button 9"), devices.PCN_NAV, device_commands.Button_592, 592, 0, 1)
             AddFunction(new PushButton(this, PCN_NAV, "3593", "593", "PCN Panel", "INS Button 0"));    // elements["PTN_593"] = default_button(_("INS Button 0"), devices.PCN_NAV, device_commands.Button_593, 593, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3594", "594", "PCN Panel", "INS Clear Button"));    // elements["PTN_594"] = default_button(_("INS Clear Button"), devices.PCN_NAV, device_commands.Button_594, 594, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3596", "596", "PCN Panel", "INS ENTER Button"));    // elements["PTN_596"] = default_button(_("INS ENTER Button"), devices.PCN_NAV, device_commands.Button_596, 596, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3594", "594", "PCN Panel", "EFF Button"));    // elements["PTN_594"] = default_button(_("INS Clear Button"), devices.PCN_NAV, device_commands.Button_594, 594, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3596", "596", "PCN Panel", "INS Button"));    // elements["PTN_596"] = default_button(_("INS ENTER Button"), devices.PCN_NAV, device_commands.Button_596, 596, 0, 1)
                                                                                                      // 
             #endregion
             #region Indicators
@@ -282,13 +288,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "511", "Indicators", "Indicators 511", "Left consule HYD"));
             AddFunction(new FlagValue(this, "512", "Indicators", "Indicators 512", "Left consule Red"));
             AddFunction(new FlagValue(this, "513", "Indicators", "Indicators 513", "Left consule Green"));
-            AddFunction(new FlagValue(this, "567", "Indicators", "Indicators 567", "N.DEG"));
-            AddFunction(new FlagValue(this, "568", "Indicators", "Indicators 568", "SEC"));
-            AddFunction(new FlagValue(this, "569", "Indicators", "Indicators 569", "UNI"));
-            AddFunction(new FlagValue(this, "669", "Indicators", "Indicators 669", "M01"));
-            AddFunction(new FlagValue(this, "670", "Indicators", "Indicators 670", "M02"));
-            AddFunction(new FlagValue(this, "671", "Indicators", "Indicators 671", "M03"));
-            AddFunction(new FlagValue(this, "668", "Indicators", "Indicators 668", "ENC"));
             AddFunction(new FlagValue(this, "632", "Indicators", "Indicators 632", "TACAN C"));
             AddFunction(new FlagValue(this, "634", "Indicators", "Indicators 634", "TACAN F"));
             AddFunction(new FlagValue(this, "675", "Indicators", "Indicators 675", "COM Panel, lamp red"));

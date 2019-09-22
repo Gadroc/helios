@@ -30,7 +30,7 @@ https://github.com/BlueFinBima/helios/issues and if nothing appears to be
 relevant then open a new issue.
   
 * * * Working Elements on M2000C * * *
-* * *      18th September 2019   * * *
+* * *      22nd September 2019   * * *
 
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * * Next Release Helios v1.4.2019.xxxx  * * *
@@ -46,6 +46,11 @@ What’s new
 	   - added the 11 buttons
 	   - added the 2 switches
 	   - added the guard
+	* Added the PCN	Panel
+       - added the 9 indicators 
+	   - added the 9 indicators buttons
+	   - added the 10 keypad buttons
+	   - added the Parameter selector working only from DCS to Helios
 	* Added the PPA Panel
        - added the 8 indicators on the buttons
 	   - added the 4 buttons
@@ -54,6 +59,9 @@ What’s new
 	   - added the 2 guards
 	* Improvement of the Landing Gear Panel
 	   - added the guard for the gun safe switch 
+	* Improvement of the Master Caution lights Panel
+	   - try to make the 2 indicators clickable with the same solution as the PCN Panel
+	* Improvement of the pictures of the cockpit
 	* Miscellaneous Panels
        - Added the Post Combustion Indicator
        - Added the 2 Fire Warning Indicators
@@ -66,12 +74,14 @@ Known issues
 	   - the Fuel CrossFeed Switch doesn’t work
 	   - the two toggle switches don’t work (seems not to be used in DCS)
     * Master Caution lights Panel
-	   - this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
+	   - seems the id is not the good one when clicking on the 2 indicators ?
 	* Landing Gear Panel
 	   - removed the Guard for the "fly by wire gain switch". Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
 	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositeVisual.cs
 	* PCA Panel
 	   - the red Gun Arm Switch, the click is reversed
+	* PCN Panel
+	   - the Parameter selector doesn’t work from Helios to DCS
 	* Miscellaneous Panels
 	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 
