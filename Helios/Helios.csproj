@@ -107,6 +107,16 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />
+    <Compile Include="Gauges\M2000C\PCAPanel\PCA_Panel.cs" />
+    <Compile Include="Gauges\M2000C\PPAPanel\PPA_Panel.cs" />
+    <Compile Include="Gauges\M2000C\FuelPanel\FuelGauge.cs" />
+    <Compile Include="Gauges\M2000C\FuelPanel\Fuel_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\Demar_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\RWR_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\FireWarning_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\PCI_Panel.cs" />
+    <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />
     <Compile Include="Collections\NoResetObservablecollection.cs" />
@@ -788,6 +798,9 @@
     <Resource Include="Interfaces\DCS\Common\Export_Stub.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Post.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Pre.lua" />
+    <Resource Include="Images\Buttons\green-push-in.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Templates\Base\Panels\Empty Panel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
