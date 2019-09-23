@@ -26,60 +26,36 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     [HeliosControl("Helios.AV8B.Cockpit", "Front Cockpit", "AV-8B", typeof(AV8BDeviceRenderer))]
     class FrontCockpit : AV8BDevice
     {
+        private static readonly Double SCREENRES = 1.0;
+
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
         private string _interfaceDeviceName = "AV-8B Cockpit";
 
-        private String _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
+        private string _font = "Hornet IFEI Mono"; // "Segment7 Standard"; //"Seven Segment";
         private Color _textColor = Color.FromArgb(0xff, 220, 220, 220);
         private Color _backGroundColor = Color.FromArgb(100, 100, 20, 50);
         private string _imageLocation = "{AV-8B}/Images/";
         private bool _useBackGround = false;
-        private static readonly Double SCREENRES = 1.33333;
  
         public FrontCockpit()
-            : base("Front Cockpit", new Size(2560, 1440))
+            : base("Front Cockpit", new Size(2560 * SCREENRES, 1440 * SCREENRES))
         {
-            AddPanel("EDP Surround", new Point(1673, 55), new Size(624, 292), _imageLocation + "WQHD/Panel/EDP Surround.png", _interfaceDeviceName,"EDP Surround Panel Element");
-            AddPart("ODU Device", new ODU_1(), new Point(207 * SCREENRES, 39 * SCREENRES), new Size(456 * SCREENRES, 269 * SCREENRES), _interfaceDeviceName, "ODU Element");
-            AddPart("Master Arm Device", new MasterArmPanel(), new Point(156,417), new Size(149,558), _interfaceDeviceName, "Master Arm Element");
-            AddPart("MFD Left Device", new Left_MPCD_1(), new Point(226 * SCREENRES, 260 * SCREENRES), new Size(420 * SCREENRES, 474 * SCREENRES), _interfaceDeviceName, "MFD Left Element");
-            AddPart("MFD Right Device", new Right_MPCD_1(), new Point(1280 * SCREENRES, 260 * SCREENRES), new Size(420 * SCREENRES, 474 * SCREENRES), _interfaceDeviceName, "MFD Left Element");
-            AddPart("EDP Device", new EDP(), new Point(1327 * SCREENRES, 64 * SCREENRES), new Size(304 * SCREENRES, 175 * SCREENRES), _interfaceDeviceName, "EDP Element");
-            AddPart("UFC Device", new UFC_1(), new Point(640 * SCREENRES, 20 * SCREENRES), new Size(654 * SCREENRES, 657 * SCREENRES), _interfaceDeviceName, "UFC Element");
-            AddPart("Flight Instrument Device", new FlightInstrumentPanel(), new Point(998, 858), new Size(774, 556), _interfaceDeviceName, "Flight Instrument Panel");
-            AddPart("SMC Device", new SMC_1(), new Point(206 * SCREENRES, 740 * SCREENRES), new Size(531 * SCREENRES, 203 * SCREENRES), _interfaceDeviceName, "SMC Element");
-            AddPart("FQIS Device", new FuelPanel.FQIS(), new Point(1331 * SCREENRES, 760 * SCREENRES), new Size(381 * SCREENRES, 151 * SCREENRES), _interfaceDeviceName, "FQIS Element");
-            AddPart("H2O Device", new H2OPanel(), new Point(165, 987), new Size(108, 321), _interfaceDeviceName, "H2O Element");
-            AddPart("RWR / ECM Device", new RWRPanel(), new Point(2291, 410), new Size(141, 521), _interfaceDeviceName, "RWR Element");
-            AddPart("Threat Indicator Device", new ThreatIndicatorPanel(), new Point(2184,122), new Size(186, 268), _interfaceDeviceName, "Threat Indicator Element");
-
-            //AddPot(
-            //    name: "Brightness Control",
-            //    posn: new Point(82, 630),
-            //    size: new Size(60, 60),
-            //    knobImage: "{AV-8B}/Images/Common Knob.png",
-            //    initialRotation: 219,
-            //    rotationTravel: 291,
-            //    minValue: 0,
-            //    maxValue: 1,
-            //    initialValue: 0,
-            //    stepValue: 0.1,
-            //    interfaceDeviceName: _interfaceDeviceName,
-            //    interfaceElementName: "IFEI Brightness Control Knob",
-            //    fromCenter: true
-            //    );
-            //Size ThreeWayToggleSize = new Size(70, 140);
-            //Add3PosnToggle(
-            //    name: "Video Record DDI",
-            //    posn: new Point(236, 570),
-            //    size: ThreeWayToggleSize,
-            //    image: "{Helios}/Images/Toggles/orange-round-",
-            //    interfaceDevice: _interfaceDeviceName,
-            //    interfaceElement: "Video Record Selector Switch HMD/LDDI/RDDI",
-            //    fromCenter: false
-            //    );
-
+            AddPanel("EDP Surround", new Point(1673 , 55), new Size(624 , 292), _imageLocation + "WQHD/Panel/EDP Surround.png", _interfaceDeviceName,"EDP Surround Panel Element");
+            AddPart("Master Arm Device", new MasterArmPanel(), new Point(164, 304), new Size(138, 617), _interfaceDeviceName, "Master Arm Element");
+            AddPart("ODU Device", new ODU_1(), new Point(351 , 42), new Size(546 , 313), _interfaceDeviceName, "ODU Element");
+            AddPart("MFD Left Device", new Left_MPCD_1(), new Point(301 , 347), new Size(560 , 632), _interfaceDeviceName, "MFD Left Element");
+            AddPart("MFD Right Device", new Right_MPCD_1(), new Point(1707 , 347), new Size(560 , 632), _interfaceDeviceName, "MFD Left Element");
+            AddPart("EDP Device", new EDP(), new Point(1769, 85), new Size(405, 233), _interfaceDeviceName, "EDP Element");
+            AddPart("Landing Gear Indicators", new GearIndicatorPanel(), new Point(859, 759), new Size(135, 225), _interfaceDeviceName, "Gear Indicator Element");
+            AddButton("Landing Gear Indicators", 859, 759, new Size(135, 225), _interfaceDeviceName, "Gear Indicator Button");  // this is to allow pressing the indicator panel to activate something
+            AddPart("UFC Device", new UFC_1(), new Point(856 , 20), new Size(872 , 876), _interfaceDeviceName, "UFC Element");
+            AddPart("Flight Instrument Device", new FlightInstrumentPanel(), new Point(998 , 858), new Size(774 , 556), _interfaceDeviceName, "Flight Instrument Panel");
+            AddPart("SMC Device", new SMC_1(), new Point(275 , 987), new Size(708 , 271), _interfaceDeviceName, "SMC Element");
+            AddPart("FQIS Device", new FuelPanel.FQIS(), new Point(1774 , 983), new Size(484 , 191), _interfaceDeviceName, "FQIS Element");
+            AddPart("H2O Device", new H2OPanel(), new Point(165 , 987), new Size(108 , 321), _interfaceDeviceName, "H2O Element");
+            AddPart("RWR / ECM Device", new RWRPanel(), new Point(2291 , 410), new Size(141 , 521), _interfaceDeviceName, "RWR Element");
+            AddPart("Threat Indicator Device", new ThreatIndicatorPanel(), new Point(2184 , 122), new Size(186 , 268), _interfaceDeviceName, "Threat Indicator Element");
         }
 
         #region Properties
@@ -114,9 +90,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private void AddTextDisplay(string name, double x, double y, Size size, double baseFontsize, string testDisp,
             string interfaceDevice, string interfaceElement)
         {
+            size.Width *= SCREENRES;
+            size.Height *= SCREENRES;
+
             TextDisplay display = AddTextDisplay(
                 name: name,
-                posn: new Point(x, y),
+                posn: new Point(x * SCREENRES, y * SCREENRES),
                 size: size,
                 font: _font,
                 baseFontsize: baseFontsize,
@@ -129,27 +108,33 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 textDisplayDictionary: ""
-                );
+               );
             display.TextFormat.FontWeight = FontWeights.Heavy;
         }
 
         private void AddButton(string name, double x, double y, Size size, string interfaceDevice, string interfaceElement)
         {
-            Point pos = new Point(x, y);
+            size.Width *= SCREENRES;
+            size.Height *= SCREENRES;
             AddButton(
                 name: name,
-                posn: pos,
+                posn: new Point(x * SCREENRES, y * SCREENRES),
                 size: size,
-                image: _imageLocation + "IFEI_" + name + ".png",
-                pushedImage: _imageLocation + "IFEI_" + name + "_DN.png",
+                image: _imageLocation + "_transparent.png",
+                pushedImage: _imageLocation + "_transparent.png",
                 buttonText: "",
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 fromCenter: false
-                );
+               );
         }
         private void Add3PosnToggle(string name, Point posn, Size size, string image, string interfaceDevice, string interfaceElement, bool fromCenter)
         {
+            size.Width *= SCREENRES;
+            size.Height *= SCREENRES;
+            posn.X *= SCREENRES;
+            posn.Y *= SCREENRES;
+
             AddThreeWayToggle(
                 name: name,
                 posn: posn,
@@ -162,10 +147,15 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 fromCenter: false
-                );
+               );
         }
         private void AddPart(string name, CompositeVisual Part, Point posn, Size size, string interfaceDevice, string interfaceElement)
         {
+            size.Width *= SCREENRES;
+            size.Height *= SCREENRES;
+            posn.X *= SCREENRES;
+            posn.Y *= SCREENRES;
+
             CompositeVisual _part = AddDevice(
                 name: name,
                 device: Part,
@@ -173,14 +163,18 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 posn: posn, 
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement
-                );
+               );
             {
                 _part.Name = name;
             };
         }
-
         private new void AddGauge(string name, BaseGauge Part, Point posn, Size size, string interfaceDevice, string interfaceElement)
         {
+            size.Width *= SCREENRES;
+            size.Height *= SCREENRES;
+            posn.X *= SCREENRES;
+            posn.Y *= SCREENRES;
+
             BaseGauge _part = AddGauge(
                 name: name,
                 gauge: Part,
@@ -188,19 +182,24 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 posn: posn,
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement
-                );
+               );
             {
                 _part.Name = name;
             };
         }
-
         private void AddPanel(string name, Point posn, Size size, string background, string interfaceDevice, string interfaceElement)
-        {  HeliosPanel _panel =  AddPanel(
+        {
+            size.Width *= SCREENRES;
+            size.Height *= SCREENRES;
+            posn.X *= SCREENRES;
+            posn.Y *= SCREENRES;
+
+            HeliosPanel _panel =  AddPanel(
                 name: name,
                 posn: posn,
                 size: size,
                 background: background
-                 );
+                );
             _panel.FillBackground = false;
             _panel.DrawBorder = false;
             //_panel.BackgroundAlignment = ImageAlignment.Centered;
@@ -211,6 +210,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override bool HitTest(Point location)
         {
+
             if (_scaledScreenRect.Contains(location))
             {
                 return false;

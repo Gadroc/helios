@@ -144,6 +144,7 @@
     <Compile Include="Gauges\AV-8B\Small Panels\FlightInstrumentAppearanceEditor.xaml.cs">
       <DependentUpon>FlightInstrumentAppearanceEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\Landing Gear Indicator Panel.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\Threat Indicator Panel.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\Master Arm Panel.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\Right RWR.cs" />

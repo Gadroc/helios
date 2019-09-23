@@ -21,24 +21,28 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.ThreatIndicatorPanel", "Threat Indicator Panel", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
-    class ThreatIndicatorPanel: AV8BDevice
+    [HeliosControl("Helios.AV8B.GearIndicatorPanel", "Gear Indicator Panel", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
+    class GearIndicatorPanel: AV8BDevice
     {
-        private string _interfaceDeviceName = "Threat Indicators";
-        private string _imageLocation = "{AV-8B}/Images/WQHD/";
+        private string _interfaceDeviceName = "Landing Gear";
+        private string _imageLocation = "{AV-8B}/Images/";
         private String _font = "MS 33558";
 
-        public ThreatIndicatorPanel()
-            : base("Threat Indicator Panel", new Size(251, 361))
+        public GearIndicatorPanel()
+            : base("Gear Indicator Panel", new Size(248, 418))
         {
-            AddIndicator("SAM", 24, 9, new Size(45, 49), "SAM");
-            AddIndicator("CW", 67, 74, new Size(45, 49), "CW");
-            AddIndicator("AI", 108  , 139, new Size(45, 49), "AI");
-            AddIndicator("AAA", 154, 203, new Size(45, 49), "AAA");
+            AddIndicator("Nose Green", 80, 35, new Size(82, 46), "Nose");
+            AddIndicator("Nose Amber", 80, 93, new Size(82, 46), "Nose Wrn");
+            AddIndicator("Left Green", 30, 160, new Size(82, 46), "Left");
+            AddIndicator("Left Amber", 30, 219, new Size(82, 46), "Left Wrn");
+            AddIndicator("Right Green", 132, 160, new Size(82, 46), "Right");
+            AddIndicator("Right Amber", 132, 219, new Size(82, 46), "Right Wrn");
+            AddIndicator("Main Green", 80, 287, new Size(82, 46), "Main");
+            AddIndicator("Main Amber", 80, 345, new Size(82, 46), "Main Wrn");
         }
         public override string BezelImage
         {
-            get { return _imageLocation + "Panel/Threat Indicator Panel.png"; }
+            get { return _imageLocation + "WQHD/Panel/Landing Gear Indicator.png"; }
         }
             
         private void AddIndicator(string name, double x, double y, Size size, string interfaceElementName) { AddIndicator(name, x, y, size, false, interfaceElementName); }
@@ -48,8 +52,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 name: name,
                 posn: new Point(x, y),
                 size: size,
-                onImage: _imageLocation + "indicator/" + name + " On.png",
-                offImage: "{av-8b}/Images/_transparent.png",
+                onImage: _imageLocation + "WQHD/indicator/Gear " + name + ".png",
+                offImage: _imageLocation + "_transparent.png",
                 onTextColor: System.Windows.Media.Color.FromArgb(0x00, 0xff, 0xff, 0xff),
                 offTextColor: System.Windows.Media.Color.FromArgb(0x00, 0x00, 0x00, 0x00),
                 font: _font,
@@ -59,7 +63,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 fromCenter: false
                 );
                 indicator.Text = "";
-                indicator.Name = "Threat Indicator Panel_" + name;
+                indicator.Name = "Gear Indicator Panel_" + name;
         }
 
         public override bool HitTest(Point location)

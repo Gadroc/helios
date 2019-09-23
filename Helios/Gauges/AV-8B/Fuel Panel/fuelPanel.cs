@@ -100,7 +100,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
                 posn: new Point(x, y),
                 size: size,
                 onImage: "{AV-8B}/Images/Fuel Panel Off Flag.png",
-                offImage: "{AV-8B}/Images/_transparant.png",
+                offImage: "{AV-8B}/Images/_transparent.png",
                 onTextColor: System.Windows.Media.Color.FromArgb(0x00, 0xff, 0xff, 0xff),
                 offTextColor: System.Windows.Media.Color.FromArgb(0x00, 0x00, 0x00, 0x00),
                 font: _font,

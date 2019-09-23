@@ -80,7 +80,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 posn: posn,
                 size: size,
                 onImage: "{Helios}/Gauges/AV-8B/Engine Panel/edp_water_light.xaml",
-                offImage: "{AV-8B}/Images/_transparant.png",
+                offImage: "{AV-8B}/Images/_transparent.png",
                 onTextColor: System.Windows.Media.Color.FromArgb(0x00, 0x24, 0x8D, 0x22),
                 offTextColor: System.Windows.Media.Color.FromArgb(0x00, 0x1C, 0x1C, 0x1C),
                 font: "MS 33558",

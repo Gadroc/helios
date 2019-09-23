@@ -26,7 +26,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);
         private Rect _scaledScreenRect = SCREEN_RECT;
         private string _imageLocation = "{AV-8B}/Images/";
-        private static readonly Double SCREENRES = 1.33333;
         private string _interfaceDeviceName = "Flight Instruments";
         private static string _generalComponentName = "Flight Instruments";
         private double _GlassReflectionOpacity = 0;
@@ -44,7 +43,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _interfaceDeviceName = "NAV course";
             AddEncoder("Course Set Knob", new Point(150, 40), new Size(80, 80), "Course Setting");
             _interfaceDeviceName = "Altimeter";
-            AddGauge("Altimeter Gauge", new Altimeter(), new Point(727, 351), new Size(261, 272), _interfaceDeviceName, "Altitude", _generalComponentName);
+            AddGauge("Altimeter Gauge", new Altimeter(), new Point(727, 351), new Size(261, 272), _interfaceDeviceName, "Pressure");
             AddEncoder("Altimeter Adjust", new Point(720, 558), new Size(60,60), "Barometric pressure calibration adjust");
         }
 

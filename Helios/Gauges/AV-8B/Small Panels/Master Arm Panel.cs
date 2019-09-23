@@ -29,17 +29,17 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private string _imageLocation = "{AV-8B}/Images/";
 
         public MasterArmPanel()
-            : base("Master Arm Panel", new Size(196, 735))
+            : base("Master Arm Panel", new Size(196, 881))
         {
-            AddButton("Nav Button", 14, 234, new Size(68, 37), "NAV Button");
-            AddIndicator("Nav", 14, 234, new Size(68, 37), "Nav Indicator");
-            AddButton("VSTOL Button", 107, 234, new Size(68, 37), "VSTOL Button");
-            AddIndicator("VSTOL", 107, 234, new Size(68, 37), "VSTOL Indicator");
-            AddButton("AG Button", 99, 52, new Size(68, 37), "A/G Button");
-            AddIndicator("AG", 99, 52, new Size(68, 37), "A/G Indicator");
+            AddIndicator("Nav", 14, 380, new Size(68, 37), "Nav Indicator");
+            AddButton("Nav Button", 14, 380, new Size(68, 37), true, true, "NAV Button");
+            AddIndicator("VSTOL", 107, 380, new Size(68, 37), "VSTOL Indicator");
+            AddButton("VSTOL Button", 107, 380, new Size(68, 37), true, true, "VSTOL Button");
+            AddIndicator("AG", 99, 198, new Size(68, 37), "A/G Indicator");
+            AddButton("AG Button", 99, 198, new Size(68, 37), true, true, "A/G Button");
             _interfaceDeviceName = "Stores Management";
-            AddTwoWayToggle("Master Arm", 71, 601, new Size(74, 81), "Master Arm Switch");
-            AddButton("Flare Salvo Button", 69, 370, new Size(86, 82), "Launch Flare Salvo");
+            AddTwoWayToggle("Master Arm", 71, 747, new Size(74, 81), "Master Arm Switch");
+            AddButton("Flare Salvo Button", 69, 518, new Size(86, 82), "Launch Flare Salvo");
         }
         public override string BezelImage
         {
@@ -64,6 +64,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                     interfaceElementName: interfaceElementName,
                     fromCenter: false
                     );
+            if (altImage)
+            {
+                button.Image = _imageLocation + "_transparent.png";
+                button.PushedImage = _imageLocation + "_transparent.png";
+            }
             button.Name = "Master Arm Panel_" + name;
         }
        private void AddTwoWayToggle(string name, double x, double y, Size size, string interfaceElementName)
@@ -78,6 +83,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 positionTwoImage: _imageLocation + "WQHD/Switch/" + name + " Down.png",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
+                clickType: ClickType.Swipe,
                 fromCenter: false
                 );
             toggle.Name = "Master Arm Panel_" + name;
@@ -104,15 +110,15 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 indicator.Name = "Master Arm Panel_" + name;
         }
 
-        public override bool HitTest(Point location)
-        {
-            //if (_scaledScreenRect.Contains(location))
-            //{
-            //    return false;
-            //}
+        //public override bool HitTest(Point location)
+        //{
+        //    //if (_scaledScreenRect.Contains(location))
+        //    //{
+        //    //    return false;
+        //    //}
 
-            return true;
-        }
+        //    return true;
+        //}
 
         public override void MouseDown(Point location)
         {

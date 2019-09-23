@@ -47,7 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\_transparant.png" />
+    <Resource Include="Images\_transparent.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\2 way Dome Down.png" />
@@ -667,6 +667,15 @@
     <Resource Include="Images\WQHD\Panel\crystal_reflection_round.png" />
     <Resource Include="Images\WQHD\Panel\EDP Reflection.png" />
     <Resource Include="Images\WQHD\Panel\UFC Large.png" />
+    <Resource Include="Images\WQHD\Panel\Landing Gear Indicator.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Left Amber.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Left Green.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Main Amber.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Main Green.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Nose Amber.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Nose Green.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Right Amber.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Right Green.png" />
     <Content Include="Templates\Switch 2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

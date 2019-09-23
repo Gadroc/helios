@@ -566,7 +566,15 @@ namespace GadrocsWorkshop.Helios
         }
 
         protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition,
-            string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName,
+           string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName,
+           bool fromCenter, bool horizontal = false)
+        {
+            return AddToggleSwitch(name, posn, size, defaultPosition, positionOneImage, positionTwoImage, defaultType, ClickType.Touch, interfaceDeviceName, interfaceElementName,
+                fromCenter, horizontal);
+        }
+
+        protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition,
+            string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, ClickType clickType, string interfaceDeviceName, string interfaceElementName,
             bool fromCenter, bool horizontal = false)
         {
             if (fromCenter)
@@ -576,7 +584,7 @@ namespace GadrocsWorkshop.Helios
             ToggleSwitch newSwitch = new ToggleSwitch();
             newSwitch.Name = componentName;
             newSwitch.SwitchType = defaultType;
-            newSwitch.ClickType = ClickType.Touch;
+            newSwitch.ClickType = clickType;
             newSwitch.DefaultPosition = defaultPosition;
             newSwitch.PositionOneImage = positionOneImage;
             newSwitch.PositionTwoImage = positionTwoImage;
