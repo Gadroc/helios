@@ -5,6 +5,7 @@
 	* Added the PPA Panel with the 8 indicators on the buttons, the 4 buttons and the 5 switches
 	* Added the PCA Panel with the 17 indicators on the buttons, the 11 buttons, the 2 switches and the guard on the Jettison switch
 	* Added the PCN	Panel with the 9 indicators, the 9 indicators buttons, the 10 keypad buttons and the Parameter selector working only from DCS to Helios
+	* Added the TACAN Panel with the frequency display and the 2 switches (X/Y Mode and Mode Select) working only from DCS to Helios
 	* Improvement of the Engine Panel by adding the 2 guards
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch 
 	* Improvement of the pictures of the cockpit
@@ -16,6 +17,7 @@
 		* Landing Gear Panel: the Guard for the "fly by wire gain switch", the emergency landing gear lever
 		* PCA Panel: the red Gun Arm Switch, the click is reversed
 		* PCN Panel: the Parameter selector doesn’t work from Helios to DCS
+		* TACAN Panel: the 2 switches to change the X/Y Mode and the Mode are not working from Helios to DCS, the 2 switches to change the TACAN frequency are not implemented and the display of the channel X/Y mode displays nothing
 
 1.4.2019.0901 Release
 ----------------------------

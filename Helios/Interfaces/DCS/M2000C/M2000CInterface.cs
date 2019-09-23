@@ -91,21 +91,18 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #region TACAN Panel
             //            AddFunction(new Switch(this, TACAN, "623", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 10 Selector", "%0.1f"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
             //            AddFunction(new Switch(this, TACAN, "625", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 1 Selector", "%0.1f"));    // elements["PTN_625"] = default_multiposition_knob(_("TACAN Channel 1 Selector"),devices.TACAN,device_commands.Button_625,625, 10, 0.1, false, 0)
-            //            AddFunction(new ScaledNetworkValue(this, TACAN_DISPLAY, 0d, "TACAN", "Channel output for display", "Current channel", "use rotary encoder with initial 0, min0, max 13, step 0.1", BindingValueUnits.Numeric, 0d, "%.4f"));
-            //            AddFunction(new RotaryEncoder(this, TACAN, CMD + TACAN_C10_SELECTOR, TACAN_C10_SELECTOR, 0.1d, "TACAN", "Channel 10 Selector"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
-            AddFunction(new Axis(this, TACAN, TACAN_C10_SELECTOR, CMD + TACAN_C10_SELECTOR, 0.0769d, 0d, 0.9228d, "Tacan Panel", "Channel 10 Selector"));
+            AddFunction(new ScaledNetworkValue(this, TACAN_C1_SELECTOR, 1d, "Tacan Panel", "Channel output for display (Ones)", "Current channel (Ones)", "(0-9)", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, TACAN_C10_SELECTOR, 1.31d, "Tacan Panel", "Channel output for display (Tens)", "Current channel (Tens)", "(0-12)", BindingValueUnits.Numeric));
             AddFunction(new Switch(this, TACAN, TACAN_XY_SELECTOR, new SwitchPosition[] {
-                new SwitchPosition("0.0", "X", CMD + TACAN_XY_SELECTOR),
-                new SwitchPosition("1.0", "Y", CMD + TACAN_XY_SELECTOR) }
+                new SwitchPosition("0.0", "X", TACAN_XY_SELECTOR),
+                new SwitchPosition("1.0", "Y", TACAN_XY_SELECTOR) }
                 , "Tacan Panel", "X/Y Selector", "%0.1f"));
-            AddFunction(new Axis(this, TACAN, TACAN_C1_SELECTOR, CMD + TACAN_C1_SELECTOR, 0.1, 0d, 0.9d, "Tacan Panel", "Channel 1 Selector"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
             AddFunction(new Switch(this, TACAN, TACAN_MODE_SELECTOR, new SwitchPosition[] {
-                new SwitchPosition("0.0", "OFF", CMD + TACAN_MODE_SELECTOR),
-                new SwitchPosition("0.3", "REC", CMD + TACAN_MODE_SELECTOR),
-                new SwitchPosition("0.7", "T/R", CMD + TACAN_MODE_SELECTOR),
-                new SwitchPosition("1.0", "A/A", CMD + TACAN_MODE_SELECTOR) }
+                new SwitchPosition("0.0", "OFF", TACAN_MODE_SELECTOR),
+                new SwitchPosition("0.3", "REC", TACAN_MODE_SELECTOR),
+                new SwitchPosition("0.7", "T/R", TACAN_MODE_SELECTOR),
+                new SwitchPosition("1.0", "A/A", TACAN_MODE_SELECTOR) }
                 , "Tacan Panel", "Mode Selector", " %0.1f"));
-            AddFunction(new TACANChannel(this));
             #endregion
             #region Caution Panel
             AddFunction(new FlagValue(this, "525", "Caution Panel", "BATT", "WP BATT"));

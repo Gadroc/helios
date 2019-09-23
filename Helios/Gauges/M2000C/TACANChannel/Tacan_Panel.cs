@@ -39,49 +39,27 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.TACANChannel
         public M2000C_TacanPanel()
             : base("Tacan Panel", new Size(350, 312))
         {
-            RotarySwitch rsXYModeSelector = new RotarySwitch();
-            RotarySwitch rsModeSelector = new RotarySwitch();
-
-            AddRotarySwitch(rsXYModeSelector, "X/Y Selector", "low-", new Point(83, 193), new RotarySwitchPosition[] {
-                new RotarySwitchPosition(rsXYModeSelector, 0, "X", 0d),
-                new RotarySwitchPosition(rsXYModeSelector, 1, "Y", 10d) });
-            AddRotarySwitch(rsModeSelector, "Mode Selector", "low-", new Point(262, 191), new RotarySwitchPosition[] {
-                new RotarySwitchPosition(rsModeSelector, 0, "OFF", 180d),
-                new RotarySwitchPosition(rsModeSelector, 1, "REC", 200d),
-                new RotarySwitchPosition(rsModeSelector, 2, "TR", 220d),
-                new RotarySwitchPosition(rsModeSelector, 3, "AA", 240d) }); 
-            //                new SwitchPosition("0.0", "X", "3624"),
-            //                new SwitchPosition("1.0", "Y", "3624") });
-
-            AddPot("Channel 10 Selector", new Point(83, 192), "up-",
-                20d, 26.692d, 0.0d, 0.9228d, 0.0769d, 0.0769d, "Channel 10 Selector", false);
-            AddPot("Channel 1 Selector", new Point(262, 190), "up-",
-                216d, 36d, 0.0d, 0.9d, 0.6d, 0.1d, "Channel 1 Selector", false);
-/*
-            new GaugeImage("{Helios}/Gauges/M2000C/TACANChannel/tacan_channel_faceplate.xaml", new Rect(0d, 0d, 243d, 100d));
-
-            AddGaugeDrumCounter("Tacan Hundred","{Helios}/Gauges/M2000C/TACANChannel/tacan_channel_hundreds_tape.xaml", new Point(84d, 11.5d), "##", new Size(10d, 15d), new Size(50d, 75d));
-//            _tensDrum = new GaugeDrumCounter("{Helios}/Gauges/M2000C/TACANChannel/tacan_channel_hundreds_tape.xaml", new Point(84d, 11.5d), "##", new Size(10d, 15d), new Size(50d, 75d));
-//            _tensDrum.Clip = new RectangleGeometry(new Rect(84d, 11.5d, 100d, 75d));
-//            Components.Add(_tensDrum);
-
-            _onesDrum = new GaugeDrumCounter("{Helios}/Gauges/M2000C/Common/drum_tape.xaml", new Point(177d, 11.5d), "#", new Size(10d, 15d), new Size(50d, 75d));
-            _onesDrum.Clip = new RectangleGeometry(new Rect(177d, 11.5d, 50d, 75d));
-//            Components.Add(_onesDrum);
-
-            _xModeImage = new GaugeImage("{Helios}/Gauges/M2000C/TACANChannel/tacan_channel_x_mode.xaml", new Rect(20d, 20d, 44d, 59d));
-  //          Components.Add(_xModeImage);
-
-            _yModeImage = new GaugeImage("{Helios}/Gauges/M2000C/TACANChannel/tacan_channel_y_mode.xaml", new Rect(20d, 20d, 44d, 59d));
-            _yModeImage.IsHidden = true;
-    //        Components.Add(_yModeImage);*/
+            AddRotarySwitch("X/Y Selector", new Point(83, 193), new Size(133, 133), "low-switch-tacan");
+            AddRotarySwitch("Mode Selector", new Point(262, 191), new Size(133, 133), "low-switch-tacan");
+            /*
+                        AddPot("Channel 10 Selector", new Point(83, 192), "up-switch-tacan",
+                            20d, 26.692d, 0.0d, 0.9228d, 0.0769d, 0.0769d, "Channel 10 Selector", false);
+                        AddPot("Channel 1 Selector", new Point(262, 190), "up-switch-tacan",
+                            216d, 36d, 0.0d, 0.9d, 0.6d, 0.1d, "Channel 1 Selector", false);
+            */
+            AddDrum("Channel output for display (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones frequency", "(0 - 9)", "#", 
+                new Point(210, 60), new Size(10d, 15d), new Size(33d, 52d));
+            AddDrum("Channel output for display (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens frequency", "(0 - 12)", "##", 
+                new Point(144, 60), new Size(10d, 15d), new Size(33d, 52d));
+            AddDrum("X/Y Drum", "{Helios}/Gauges/M2000C/TACANChannel/tacan_channel_mode.xaml", "X/Y mode", "(1 - 2)", "#",
+                new Point(110, 60), new Size(10d, 15d), new Size(33d, 52d));
         }
 
         #region Properties
 
         public override string BezelImage
         {
-            get { return "{Helios}/Images/M2000C/TacanPanel/tacan-panel.png"; }
+            get { return "{M2000C}/Images/TacanPanel/tacan-panel.png"; }
         }
 
         #endregion
@@ -104,7 +82,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.TACANChannel
                 name: name,
                 posn: posn,
                 size: new Size(104, 104),
-                knobImage: "{Helios}/Images/M2000C/TacanPanel/" + imagePrefix + "switch-tacan.png",
+                knobImage: "{M2000C}/Images/TacanPanel/" + imagePrefix + ".png",
                 initialRotation: initialRotation,
                 rotationTravel: rotationTravel,
                 minValue: minValue,
@@ -117,31 +95,52 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.TACANChannel
                 clickType: ClickType.Touch);
         }
 
-        private void AddRotarySwitch(RotarySwitch rotarySwitch, string name, string imagePrefix, Point posn, RotarySwitchPosition[] switchPositions)
+        private void AddRotarySwitch(string name, Point posn, Size size, string imagePrefix)
         {
-            AddRotarySwitch(rotarySwitch: rotarySwitch,
-                name: name,
+            RotarySwitch rSwitch = AddRotarySwitch(name: name,
                 posn: posn,
-                size: new Size(133, 133),
-                knobImage: "{Helios}/Images/M2000C/TacanPanel/" + imagePrefix + "switch-tacan.png",
-//                switchPositions: switchPositions,
+                size: size,
+                knobImage: "{M2000C}/Images/TacanPanel/" + imagePrefix + ".png",
                 defaultPosition: 0,
+                clickType: ClickType.Touch,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
-                fromCenter: true,
-                clickType: ClickType.Touch);
-         }
-         
-/*        private void AddGaugeDrumCounter(string name, string gaugeImage, Point posn, string format, Size size, Size rendererSize)
+                fromCenter: true);
+            rSwitch.Positions.Clear();
+            switch(name)
+            {
+                case "X/Y Selector":
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "X", 0d));
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "Y", 45d));
+                    break;
+                case "Mode Selector":
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "OFF", 215d));
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "REC", 240d));
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 3, "T/R", 270d));
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 4, "A/A", 300d));
+                    break;
+            }
+            foreach (RotarySwitchPosition position in rSwitch.Positions)
+            {
+                AddTrigger(rSwitch.Triggers["position " + position.Index + ".entered"], rSwitch.Name);
+            }
+            rSwitch.DefaultPosition = 1;
+        }
+
+        private void AddDrum(string name, string gaugeImage, string actionIdentifier, string valueDescription, string format, Point posn, Size size, Size renderSize)
         {
-            AddGaugeDrumCounter(name: name,
+            AddDrumGauge(name: name,
                 gaugeImage: gaugeImage,
                 posn: posn,
-                format: format,
                 size: size,
-                rendererSize: rendererSize,
-                RectangleGeometry: new RectangleGeometry(new Rect(posn, new Size(rendererSize.Width*format.Length,rendererSize.Height));
-        }*/
+                renderSize: renderSize,
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                actionIdentifier: actionIdentifier,
+                valueDescription: valueDescription,
+                format: format,
+                fromCenter: false);
+        }
 
         public override bool HitTest(Point location)
         {

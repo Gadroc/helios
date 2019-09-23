@@ -22,6 +22,7 @@ namespace GadrocsWorkshop.Helios
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
     using GadrocsWorkshop.Helios.Gauges.M2000C.FuelGauge;
+    using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CDrumGauge;
 
     // for inputs, a trigger on the interface creates an action on the device
     public struct DefaultInputBinding
@@ -411,16 +412,20 @@ namespace GadrocsWorkshop.Helios
             {
                 AddTrigger(trigger, componentName);
             }
-            AddAction(_knob.Actions["set.position"], componentName);
-
-            foreach (RotarySwitchPosition position in _knob.Positions)
+            foreach (IBindingAction action in _knob.Actions)
             {
-                AddDefaultOutputBinding(
-                    childName: componentName,
-                    deviceTriggerName: "position " + position.Index + "entered",
-                    interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
-                );
+                AddAction(action, componentName);
             }
+            //            AddAction(_knob.Actions["set.position"], componentName);
+
+            /*            foreach (RotarySwitchPosition position in _knob.Positions)
+                        {
+                            AddDefaultOutputBinding(
+                                childName: componentName,
+                                deviceTriggerName: "position " + position.Index + "entered",
+                                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+                            );
+                        }*/
             AddDefaultInputBinding(
                 childName: componentName,
                 interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
@@ -604,6 +609,33 @@ namespace GadrocsWorkshop.Helios
             return newGauge;
         }
 
+         protected Mk2CDrumGauge AddDrumGauge(string name, string gaugeImage, Point posn, Size size, Size renderSize, string format,
+            string interfaceDeviceName, string interfaceElementName, string actionIdentifier, string valueDescription, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+
+            Mk2CDrumGauge newGauge = new Mk2CDrumGauge(componentName, gaugeImage, actionIdentifier, valueDescription, format, posn, size, renderSize);
+
+            Children.Add(newGauge);
+            foreach (IBindingTrigger trigger in newGauge.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            foreach (IBindingAction action in newGauge.Actions)
+            {
+                AddAction(action, componentName);
+            }
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set." + actionIdentifier);
+
+            return newGauge;
+        }
+
         protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
             string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName, 
             bool fromCenter, NonClickableZone[] nonClickableZones = null, bool horizontal = false, bool horizontalRender = false)
@@ -730,46 +762,7 @@ namespace GadrocsWorkshop.Helios
             return indicator;
         }
 
-        protected RotarySwitch AddRotarySwitch(RotarySwitch rotarySwitch, string name, Point posn, Size size, string knobImage,
-                int defaultPosition, string interfaceDeviceName, string interfaceElementName, bool fromCenter, ClickType clickType = ClickType.Swipe)
-            {
-            if (fromCenter)
-                posn = FromCenter(posn, size);
-            string componentName = GetComponentName(name);
-
-            rotarySwitch.Name = componentName;
-            rotarySwitch.ClickType = clickType;
-            rotarySwitch.DefaultPosition = defaultPosition;
-            rotarySwitch.KnobImage = knobImage;
-            rotarySwitch.DrawLabels = false;
-            rotarySwitch.DrawLines = false;
-            rotarySwitch.Top = posn.Y;
-            rotarySwitch.Left = posn.X;
-            rotarySwitch.Width = size.Width;
-            rotarySwitch.Height = size.Height;
-
-            Children.Add(rotarySwitch);
-
-            foreach (IBindingTrigger trigger in rotarySwitch.Triggers)
-            {
-                AddTrigger(trigger, componentName);
-            }
-            AddAction(rotarySwitch.Actions["set.position"], componentName);
-
-            AddDefaultOutputBinding(
-                childName: componentName,
-                deviceTriggerName: "position.changed",
-                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
-            );
-            AddDefaultInputBinding(
-                childName: componentName,
-                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
-                deviceActionName: "set.position");
-
-            return rotarySwitch;
-            }
-
-            protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
+        protected ThreeWayToggleSwitch AddThreeWayToggle(string name, Point pos, Size size,
             ThreeWayToggleSwitchPosition defaultPosition, ThreeWayToggleSwitchType switchType,
             string interfaceDeviceName, string interfaceElementName, bool fromCenter,
             string positionOneImage = "{Helios}/Images/Toggles/round-up.png",
@@ -827,16 +820,6 @@ namespace GadrocsWorkshop.Helios
 
             return toggle;
         }
-
-/*        protected GadrocsWorkshop.Helios.Gauges.GaugeDrumCounter AddGaugeDrumCounter(string name, string gaugeImage, Point posn, string format, Size size, Size rendererSize, RectangleGeometry recGeo)
-        {
-            GadrocsWorkshop.Helios.Gauges.GaugeDrumCounter drum = new GadrocsWorkshop.Helios.Gauges.GaugeDrumCounter(gaugeImage, posn, format, size, rendererSize);
-            drum.Clip = new RectangleGeometry(new Rect(posn, size));
-
-            Children.Add(drum);
-
-            return drum;
-        }*/
 
         protected TextDisplay AddTextDisplay(
             string name,

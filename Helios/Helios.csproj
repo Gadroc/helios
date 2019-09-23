@@ -107,6 +107,7 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
     <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />
     <Compile Include="Gauges\M2000C\PCAPanel\PCA_Panel.cs" />
     <Compile Include="Gauges\M2000C\PPAPanel\PPA_Panel.cs" />
@@ -452,7 +453,6 @@
     <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDeviceRenderer.cs" />
     <Compile Include="Gauges\M2000C\ILSFrequency\ILSFrequency.cs" />
     <Compile Include="Gauges\M2000C\MCLPanel\MCL_Panel.cs" />
-    <Compile Include="Gauges\M2000C\TACANChannel\TACANChannel.cs" />
     <Compile Include="Gauges\M2000C\TACANChannel\Tacan_Panel.cs" />
     <Compile Include="Gauges\M2000C\UVHFPanel\UVHFChannelDisplay.cs" />
     <Compile Include="Gauges\Mi-8\ADI\ADI.cs" />
@@ -795,6 +795,10 @@
       <DependentUpon>TextStaticEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Controls\TypefaceListItem.cs" />
+    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_x_mode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Resource>
     <Resource Include="Interfaces\DCS\Common\Export_Stub.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Post.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Pre.lua" />
@@ -2875,15 +2879,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_hundreds_tape.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_x_mode.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_y_mode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_mode.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>

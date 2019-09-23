@@ -55,6 +55,9 @@ What’s new
        - added the 8 indicators on the buttons
 	   - added the 4 buttons
 	   - added the 5 switches
+	* Added the TACAN Panel
+       - added the frequency display
+	   - added the 2 switches (X/Y Mode and Mode Select)
 	* Improvement of the Engine Panel
 	   - added the 2 guards
 	* Improvement of the Landing Gear Panel
@@ -82,6 +85,10 @@ Known issues
 	   - the red Gun Arm Switch, the click is reversed
 	* PCN Panel
 	   - the Parameter selector doesn’t work from Helios to DCS
+	* TACAN Panel
+	   - the 2 switches to change the X/Y Mode and the Mode are not working from Helios to DCS
+	   - the 2 switches to change the TACAN frequency are not implemented
+	   - the display of the channel X/Y mode displays nothing
 	* Miscellaneous Panels
 	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 
