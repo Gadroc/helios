@@ -135,12 +135,12 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, PWRPNL, "524", new SwitchPosition[] { new SwitchPosition("1.0", "1", "3524"), new SwitchPosition("0.0", "OFF", "3524"), new SwitchPosition("-1.0", "2", "3524") }, "Caution Panel", "Lights Test Switch", "%0.1f"));
             #endregion
             #region Engine Sensors Panel
-            AddFunction(new ScaledNetworkValue(this, "371", 1d, "Engine Sensors Panel", "Engine RPM (%) (Tens)", "Engine RPM (Tens).", "0 - 10", BindingValueUnits.Numeric));
-            AddFunction(new ScaledNetworkValue(this, "372", 1d, "Engine Sensors Panel", "Engine RPM (%) (Ones)", "Engine RPM (Ones).", "0 - 9", BindingValueUnits.Numeric));
-            CalibrationPointCollectionDouble engineRPMScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 100d);
+            AddFunction(new ScaledNetworkValue(this, "371", 10d, "Engine Sensors Panel", "Engine RPM (%) (Tens)", "Engine RPM (Tens).", "0 - 10", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "372", 10d, "Engine Sensors Panel", "Engine RPM (%) (Ones)", "Engine RPM (Ones).", "0 - 9", BindingValueUnits.Numeric));
+            CalibrationPointCollectionDouble engineRPMScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 100d, 100d);
             AddFunction(new ScaledNetworkValue(this, "369", engineRPMScale, "Engine Sensors Panel", "Engine RPM Needle", "Engine RPM Needle.", "0 - 100", BindingValueUnits.RPMPercent));
-            CalibrationPointCollectionDouble engineTempScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1.0d, 100d);
-            AddFunction(new ScaledNetworkValue(this, "370", engineTempScale, "Engine T7 (C°*100)", "Engine Temp Needle", "Engine Temp Needle.", "0 - 10", BindingValueUnits.Numeric));
+            CalibrationPointCollectionDouble engineTempScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 10d, 10d);
+            AddFunction(new ScaledNetworkValue(this, "370", engineTempScale, "Engine Sensors Panel", "Engine T7 Needle", "Engine Temp Needle.", "0 - 10", BindingValueUnits.Numeric));
             #endregion
             #region  Engine Start Panel
             AddFunction(new Switch(this, ENGPANEL, "645", new SwitchPosition[] { new SwitchPosition("0.0", "CLOSE", "3645"), new SwitchPosition("1.0", "OPEN", "3645") }, "Engine Start Panel", "Engine Start Switch Guard", "%0.1f"));    // elements["PTN_645"] = default_2_position_tumb(_("Engine Start Switch Cover"), devices.ENGPANEL, device_commands.Button_645, 645)

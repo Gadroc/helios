@@ -36,10 +36,10 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 new Point(48, 104), new Size(10d, 30d), new Size(14d, 30d));
             AddDrum("Engine RPM (%) (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones engine pourcentage", "(0 - 9)", "#",
                 new Point(76, 101), new Size(10d, 36d), new Size(14d, 36d));
-            AddNeedle("Engine RPM (%)", "{Helios}/Gauges/M2000C/Common/needleA.xaml", "engine pourcentage", "(0 - 100)", 
-                new Point(90, 45), new Size(10d, 70d), new Point(20d, 30d), BindingValueUnits.RPMPercent);
-            AddNeedle("Engine T7 (C°*100)", "{Helios}/Gauges/M2000C/Common/needleB.xaml", "engine pourcentage", "(0 - 10)",
-                new Point(90, 210), new Size(10d, 80d), new Point(20d, 30d), BindingValueUnits.Numeric);
+            AddNeedle("Engine RPM Needle", "{Helios}/Gauges/M2000C/Common/needleA.xaml", "engine pourcentage", "(0 - 100)", 
+                new Point(90, 45), new Size(10d, 70d), new Point(90d, 40d), BindingValueUnits.RPMPercent);
+            AddNeedle("Engine T7 Needle", "{Helios}/Gauges/M2000C/Common/needleB.xaml", "engine pourcentage", "(0 - 10)",
+                new Point(90, 210), new Size(10d, 80d), new Point(90d, 200d), BindingValueUnits.Numeric);
         }
 
         #region Properties

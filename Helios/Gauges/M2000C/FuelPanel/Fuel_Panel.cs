@@ -53,8 +53,18 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             AddRectangleFill("Internal Fuel Quantity Needle", new Point(41, row5));
             AddRectangleFill("Total Fuel Quantity Needle", new Point(192, row5));
 
-            AddDrum("Internal Fuel Quantity", new Point(50, row6), 28);
-            AddDrum("Total Fuel Quantity", new Point(195, row6), 118);
+            AddDrum("Internal Fuel Quantity (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens quantity", "(0 - 10)", "#",
+                new Point(50, row6), new Size(10d, 30d), new Size(14d, 30d));
+            AddDrum("Internal Fuel Quantity (Hundreds)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "hundreds quantity", "(0 - 10)", "#",
+                new Point(50, row6), new Size(10d, 30d), new Size(14d, 30d));
+            AddDrum("Internal Fuel Quantity (Thousands)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "thousands quantity", "(0 - 10)", "#",
+                new Point(50, row6), new Size(10d, 30d), new Size(14d, 30d));
+            AddDrum("Total Fuel Quantity (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens quantity", "(0 - 10)", "#",
+                new Point(195, row6), new Size(10d, 30d), new Size(14d, 30d));
+            AddDrum("Total Fuel Quantity (Hundreds)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "hundreds quantity", "(0 - 10)", "#",
+                new Point(195, row6), new Size(10d, 30d), new Size(14d, 30d));
+            AddDrum("Total Fuel Quantity (Thousands)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "thousands quantity", "(0 - 10)", "#",
+                new Point(195, row6), new Size(10d, 30d), new Size(14d, 30d));
         }
 
         #region Properties
@@ -129,14 +139,18 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 fromCenter: false);
         }
 
-        private void AddDrum(string name, Point posn, int offsetX)
+        private void AddDrum(string name, string gaugeImage, string actionIdentifier, string valueDescription, string format, Point posn, Size size, Size renderSize)
         {
-            AddDrum(name: name,
+            AddDrumGauge(name: name,
+                gaugeImage: gaugeImage,
                 posn: posn,
-                size: new Size(100, 28),
-                offsetX: offsetX,
-                interfaceDeviceName: "Fuel Panel",
+                size: size,
+                renderSize: renderSize,
+                interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
+                actionIdentifier: actionIdentifier,
+                valueDescription: valueDescription,
+                format: format,
                 fromCenter: false);
         }
 
