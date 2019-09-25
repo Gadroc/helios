@@ -58,6 +58,7 @@ What’s new
 	* Added the TACAN Panel
        - added the frequency display
 	   - added the 2 switches (X/Y Mode and Mode Select)
+	* Added the Engine Sensors Panel (still in beta)
 	* Improvement of the Engine Panel
 	   - added the 2 guards
 	* Improvement of the Landing Gear Panel

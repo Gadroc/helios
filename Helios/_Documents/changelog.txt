@@ -6,6 +6,7 @@
 	* Added the PCA Panel with the 17 indicators on the buttons, the 11 buttons, the 2 switches and the guard on the Jettison switch
 	* Added the PCN	Panel with the 9 indicators, the 9 indicators buttons, the 10 keypad buttons and the Parameter selector working only from DCS to Helios
 	* Added the TACAN Panel with the frequency display and the 2 switches (X/Y Mode and Mode Select) working only from DCS to Helios
+	* Added the Engine Sensors Panel (still in beta)
 	* Improvement of the Engine Panel by adding the 2 guards
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch 
 	* Improvement of the pictures of the cockpit

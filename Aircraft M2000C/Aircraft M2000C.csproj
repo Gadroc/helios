@@ -773,7 +773,7 @@
     <Resource Include="Images\TacanPanel\up-switch-tacan.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\EngineWorkingPanel\engine-working-panel.png">
+    <Resource Include="Images\EngineSensorsPanel\engine-sensors-panel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Content Include="Templates\CautionPanelRedIndicator.htpl" />

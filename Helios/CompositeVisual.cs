@@ -23,6 +23,7 @@ namespace GadrocsWorkshop.Helios
     using GadrocsWorkshop.Helios.Controls;
     using GadrocsWorkshop.Helios.Gauges.M2000C.FuelGauge;
     using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CDrumGauge;
+    using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CNeedle;
 
     // for inputs, a trigger on the interface creates an action on the device
     public struct DefaultInputBinding
@@ -634,6 +635,33 @@ namespace GadrocsWorkshop.Helios
                 deviceActionName: "set." + actionIdentifier);
 
             return newGauge;
+        }
+
+         protected Mk2CNeedle AddNeedle(string name, string needleImage, Point posn, Size size, Point centerPoint, 
+            string interfaceDeviceName, string interfaceElementName, string actionIdentifier, string valueDescription, BindingValueUnit typeValue, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+
+            Mk2CNeedle newNeedle = new Mk2CNeedle(componentName, needleImage, actionIdentifier, valueDescription, posn, size, centerPoint, typeValue);
+
+            Children.Add(newNeedle);
+            foreach (IBindingTrigger trigger in newNeedle.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            foreach (IBindingAction action in newNeedle.Actions)
+            {
+                AddAction(action, componentName);
+            }
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set." + actionIdentifier);
+
+            return newNeedle;
         }
 
         protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
