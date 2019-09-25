@@ -25,29 +25,32 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
     [HeliosControl("HELIOS.M2000C.HSI_PANEL", "HSI Panel", "M2000C Gauges", typeof(M2000CDeviceRenderer))]
     class M2000C_HSIPanel : M2000CDevice
     {
-        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 200, 200);
+        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 300, 287);
         private string _interfaceDeviceName = "HSI Panel";
         private Rect _scaledScreenRect = SCREEN_RECT;
 
         public M2000C_HSIPanel()
-            : base("HSI Panel", new Size(200, 200))
+            : base("HSI Panel", new Size(300, 287))
         {
-            int row0 = 38;
-            int column0 = 63, column1 = 83, column2 = 103, column3 = 123;
+            int row0 = 85;
+            int column0 = 98, column1 = 132, column2 = 162, column3 = 192;
 
             AddDrum("Distance (Decimals)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "decimal distance", "(0 - 9)", "#",
-                new Point(column0, row0), new Size(10d, 15d), new Size(14d, 20d));
+                new Point(column3, row0), new Size(10d, 15d), new Size(20d, 30d));
             AddDrum("Distance (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones distance", "(0 - 9)", "#",
-                new Point(column1, row0), new Size(10d, 15d), new Size(14d, 20d));
+                new Point(column2, row0), new Size(10d, 15d), new Size(20d, 30d));
             AddDrum("Distance (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens distance", "(0 - 9)", "#",
-                new Point(column2, row0), new Size(10d, 15d), new Size(14d, 20d));
+                new Point(column1, row0), new Size(10d, 15d), new Size(20d, 30d));
             AddDrum("Distance (Hundreds)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "hundreds distance", "(0 - 9)", "#",
-                new Point(column3, row0), new Size(10d, 15d), new Size(14d, 20d));
+                new Point(column0, row0), new Size(10d, 15d), new Size(20d, 30d));
             AddNeedle("Compass Rose", "{Helios}/Gauges/M2000C/HSIPanel/compass.xaml", "compass", "(0 - 360)", 
-                new Point(100, 100), new Size(200d, 200d), new Point(100d, 100d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 360d, 360d });
-/*                                    AddNeedle("Engine T7 Needle", "{Helios}/Gauges/M2000C/Common/needleB.xaml", "engine temperature", "(0 - 10)",
-                                        new Point(72, 190), new Size(10d, 80d), new Point(0d, 10d), BindingValueUnits.Numeric, new double[] { 0d, -100d, 10d, 100d });
-                          */
+                new Point(187d, 170d), new Size(230d, 230d), new Point(150d, 142d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 360d, 360d });
+            /*                                    AddNeedle("Engine T7 Needle", "{Helios}/Gauges/M2000C/Common/needleB.xaml", "engine temperature", "(0 - 10)",
+                                                    new Point(72, 190), new Size(10d, 80d), new Point(0d, 10d), BindingValueUnits.Numeric, new double[] { 0d, -100d, 10d, 100d });
+                                      */
+            AddIndicator("Flag 1", "distance-flag", new Point(90, 92), new Size(120, 15));
+            AddIndicator("Flag 2", "left-flag", new Point(100, 143), new Size(30, 15));
+            AddIndicator("Flag CAP", "right-flag", new Point(145, 143), new Size(30, 15));
         }
 
         #region Properties
@@ -89,6 +92,24 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 typeValue: typeValue,
                 initialCalibration: initialCalibration,
                 fromCenter: false);
+        }
+
+        private void AddIndicator(string name, string imagePrefix, Point posn, Size size)
+        {
+            AddIndicator(
+                name: name,
+                posn: posn,
+                size: size,
+                onImage: "{M2000C}/Images/HSIPanel/" + imagePrefix + ".png",
+                offImage: "{M2000C}/Images/Miscellaneous/void.png",
+                onTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text
+                offTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text
+                font: "", //don’t need it because not using text
+                vertical: false, //don’t need it because not using text
+                interfaceDeviceName: _interfaceDeviceName,
+                interfaceElementName: name,
+                fromCenter: false,
+                withText: false); //added in Composite Visual as an optional value with a default value set to true
         }
 
         protected override void OnPropertyChanged(PropertyNotificationEventArgs args)

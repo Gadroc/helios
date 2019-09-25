@@ -135,8 +135,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, PWRPNL, "524", new SwitchPosition[] { new SwitchPosition("1.0", "1", "3524"), new SwitchPosition("0.0", "OFF", "3524"), new SwitchPosition("-1.0", "2", "3524") }, "Caution Panel", "Lights Test Switch", "%0.1f"));
             #endregion
             #region Engine Sensors Panel
-            AddFunction(new ScaledNetworkValue(this, "371", 10d, "Engine Sensors Panel", "Engine RPM (%) (Tens)", "Engine RPM (Tens).", "0 - 10", BindingValueUnits.Numeric));
-            AddFunction(new ScaledNetworkValue(this, "372", 10d, "Engine Sensors Panel", "Engine RPM (%) (Ones)", "Engine RPM (Ones).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "371", 1d, "Engine Sensors Panel", "Engine RPM (%) (Tens)", "Engine RPM (Tens).", "0 - 10", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "372", 1d, "Engine Sensors Panel", "Engine RPM (%) (Ones)", "Engine RPM (Ones).", "0 - 9", BindingValueUnits.Numeric));
             CalibrationPointCollectionDouble engineRPMScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1d, 110d);
             AddFunction(new ScaledNetworkValue(this, "369", engineRPMScale, "Engine Sensors Panel", "Engine RPM Needle", "Engine RPM Needle.", "0 - 110", BindingValueUnits.RPMPercent));
             CalibrationPointCollectionDouble engineTempScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1d, 10d);
@@ -175,14 +175,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 "Fuel Panel", "Fuel CrossFeed Switch", "%0.1f"));
             #endregion
             #region  HSI
-            AddFunction(new Axis(this, NAVINST, "3340", "340", 0.15d, 0d, 1d, "HSI", "HSI VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
-            AddFunction(new Switch(this, NAVINST, "341", new SwitchPosition[] { }, "HSI", "HSI Mode Selector Switch", "%0.1f"));    // elements["PTN_341"] = multiposition_switch_limited(_("HSI Mode Selector Switch"), devices.NAVINST, device_commands.Button_341, 341, 7, 0.1, false, 0)
+            AddFunction(new Axis(this, NAVINST, "3340", "340", 0.15d, 0d, 1d, "HSI Panel", "HSI VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
+            AddFunction(new Switch(this, NAVINST, "341", new SwitchPosition[] { }, "HSI Panel", "HSI Mode Selector Switch", "%0.1f"));    // elements["PTN_341"] = multiposition_switch_limited(_("HSI Mode Selector Switch"), devices.NAVINST, device_commands.Button_341, 341, 7, 0.1, false, 0)
             CalibrationPointCollectionDouble compassScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
             AddFunction(new ScaledNetworkValue(this, "342", compassScale, "HSI Panel", "Compass Rose", "Compass Rose.", "0 - 360", BindingValueUnits.Numeric));
-            AddFunction(new ScaledNetworkValue(this, "336", 10d, "HSI Panel", "Distance (Hundreds)", "Distance (Hundreds).", "0 - 9", BindingValueUnits.Numeric));
-            AddFunction(new ScaledNetworkValue(this, "337", 10d, "HSI Panel", "Distance (Tens)", "Engine RPM (Tens).", "0 - 9", BindingValueUnits.Numeric));
-            AddFunction(new ScaledNetworkValue(this, "338", 10d, "HSI Panel", "Distance (Ones)", "Distance (Ones).", "0 - 9", BindingValueUnits.Numeric));
-            AddFunction(new ScaledNetworkValue(this, "339", 10d, "HSI Panel", "Distance (Decimals)", "Distance (Decimals).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "336", 1d, "HSI Panel", "Distance (Hundreds)", "Distance (Hundreds).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "337", 1d, "HSI Panel", "Distance (Tens)", "Engine RPM (Tens).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "338", 1d, "HSI Panel", "Distance (Ones)", "Distance (Ones).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "339", 1d, "HSI Panel", "Distance (Decimals)", "Distance (Decimals).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new FlagValue(this, "344", "HSI Panel", "Flag 1", "Flag 1"));
+            AddFunction(new FlagValue(this, "345", "HSI Panel", "Flag 2", "Flag 2"));
+            AddFunction(new FlagValue(this, "346", "HSI Panel", "Flag CAP", "Flag CAP"));
             #endregion
             #region  Landing Gear
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));

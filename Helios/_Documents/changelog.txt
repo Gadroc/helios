@@ -6,7 +6,8 @@
 	* Added the PCA Panel with the 17 indicators on the buttons, the 11 buttons, the 2 switches and the guard on the Jettison switch
 	* Added the PCN	Panel with the 9 indicators, the 9 indicators buttons, the 10 keypad buttons and the Parameter selector working only from DCS to Helios
 	* Added the TACAN Panel with the frequency display and the 2 switches (X/Y Mode and Mode Select) working only from DCS to Helios
-	* Added the Engine Sensors Panel (still in beta)
+	* Added the Engine Sensors Panel (still in beta) with the 2 needles and the drum
+	* Added the HSI Panel (still in beta) with the drum and the 3 stop flags
 	* Improvement of the Engine Panel by adding the 2 guards
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch 
 	* Improvement of the pictures of the cockpit
@@ -19,6 +20,8 @@
 		* PCA Panel: the red Gun Arm Switch, the click is reversed
 		* PCN Panel: the Parameter selector doesn’t work from Helios to DCS
 		* TACAN Panel: the 2 switches to change the X/Y Mode and the Mode are not working from Helios to DCS, the 2 switches to change the TACAN frequency are not implemented and the display of the channel X/Y mode displays nothing
+		* Engine Sensor Panel: the 2 needles need adjustments, the ones of the drum doesn’t work and the drum need adjustment
+		* HSI Panel: the 3 stop flags need to be tested, the compass rose doesn’t work and need to be redisign and need to add 4 more needles and two switches
 
 1.4.2019.0901 Release
 ----------------------------
