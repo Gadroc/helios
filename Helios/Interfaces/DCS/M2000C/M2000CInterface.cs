@@ -137,9 +137,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #region Engine Sensors Panel
             AddFunction(new ScaledNetworkValue(this, "371", 10d, "Engine Sensors Panel", "Engine RPM (%) (Tens)", "Engine RPM (Tens).", "0 - 10", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "372", 10d, "Engine Sensors Panel", "Engine RPM (%) (Ones)", "Engine RPM (Ones).", "0 - 9", BindingValueUnits.Numeric));
-            CalibrationPointCollectionDouble engineRPMScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 100d, 100d);
-            AddFunction(new ScaledNetworkValue(this, "369", engineRPMScale, "Engine Sensors Panel", "Engine RPM Needle", "Engine RPM Needle.", "0 - 100", BindingValueUnits.RPMPercent));
-            CalibrationPointCollectionDouble engineTempScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 10d, 10d);
+            CalibrationPointCollectionDouble engineRPMScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1d, 110d);
+            AddFunction(new ScaledNetworkValue(this, "369", engineRPMScale, "Engine Sensors Panel", "Engine RPM Needle", "Engine RPM Needle.", "0 - 110", BindingValueUnits.RPMPercent));
+            CalibrationPointCollectionDouble engineTempScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1d, 10d);
             AddFunction(new ScaledNetworkValue(this, "370", engineTempScale, "Engine Sensors Panel", "Engine T7 Needle", "Engine Temp Needle.", "0 - 10", BindingValueUnits.Numeric));
             #endregion
             #region  Engine Start Panel
@@ -173,6 +173,16 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, MISCPANELS, "357", new SwitchPosition[] {
                 new SwitchPosition("0.0", "Open", "3357"), new SwitchPosition("1.0", "Close", "3357") },
                 "Fuel Panel", "Fuel CrossFeed Switch", "%0.1f"));
+            #endregion
+            #region  HSI
+            AddFunction(new Axis(this, NAVINST, "3340", "340", 0.15d, 0d, 1d, "HSI", "HSI VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
+            AddFunction(new Switch(this, NAVINST, "341", new SwitchPosition[] { }, "HSI", "HSI Mode Selector Switch", "%0.1f"));    // elements["PTN_341"] = multiposition_switch_limited(_("HSI Mode Selector Switch"), devices.NAVINST, device_commands.Button_341, 341, 7, 0.1, false, 0)
+            CalibrationPointCollectionDouble compassScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
+            AddFunction(new ScaledNetworkValue(this, "342", compassScale, "HSI Panel", "Compass Rose", "Compass Rose.", "0 - 360", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "336", 10d, "HSI Panel", "Distance (Hundreds)", "Distance (Hundreds).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "337", 10d, "HSI Panel", "Distance (Tens)", "Engine RPM (Tens).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "338", 10d, "HSI Panel", "Distance (Ones)", "Distance (Ones).", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "339", 10d, "HSI Panel", "Distance (Decimals)", "Distance (Decimals).", "0 - 9", BindingValueUnits.Numeric));
             #endregion
             #region  Landing Gear
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
@@ -517,11 +527,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 //            AddFunction(new PushButton(this, ENGINE, "3420", "420", "FBW", "FBW Gain Mode Switch Cover"));    // elements["PTN_420"] = default_2_position_tumb(_("FBW Gain Mode Switch Cover"),  devices.ENGINE, device_commands.Button_420, 420)
             AddFunction(new PushButton(this, AFCS, "3423", "423", "FBW", "FBW Reset Button"));    // elements["PTN_423"] = default_button(_("FBW Reset Button"),  devices.AFCS, device_commands.Button_423, 423)
 
-            #endregion
-            #region  HSI
-            AddFunction(new Axis(this, NAVINST, "3340", "340", 0.15d, 0d, 1d, "HSI", "HSI VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
-            AddFunction(new Switch(this, NAVINST, "341", new SwitchPosition[] { }, "HSI", "HSI Mode Selector Switch", "%0.1f"));    // elements["PTN_341"] = multiposition_switch_limited(_("HSI Mode Selector Switch"), devices.NAVINST, device_commands.Button_341, 341, 7, 0.1, false, 0)
-                                                                                                                                    // 
             #endregion
             #region  PELLES, SOURIES AND BECS
             AddFunction(new PushButton(this, ENGINE, "3460", "460", "PELLES, SOURIES AND BECS", "Intake Slats Operation Switch"));    // elements["PTN_460"] = default_2_position_tumb(_("Intake Slats Operation Switch"), devices.ENGINE, device_commands.Button_460, 460)

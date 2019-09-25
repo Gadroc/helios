@@ -22,31 +22,39 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("HELIOS.M2000C.ENGINESENSORS_PANEL", "Engine Sensors Panel", "M2000C Gauges", typeof(M2000CDeviceRenderer))]
-    class M2000C_ENGINESENSORSPanel : M2000CDevice
+    [HeliosControl("HELIOS.M2000C.HSI_PANEL", "HSI Panel", "M2000C Gauges", typeof(M2000CDeviceRenderer))]
+    class M2000C_HSIPanel : M2000CDevice
     {
-        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 151, 270);
-        private string _interfaceDeviceName = "Engine Sensors Panel";
+        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 200, 200);
+        private string _interfaceDeviceName = "HSI Panel";
         private Rect _scaledScreenRect = SCREEN_RECT;
 
-        public M2000C_ENGINESENSORSPanel()
-            : base("Engine Sensors Panel", new Size(151, 270))
+        public M2000C_HSIPanel()
+            : base("HSI Panel", new Size(200, 200))
         {
-            AddDrum("Engine RPM (%) (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens engine pourcentage", "(0 - 10)", "##",
-                new Point(48, 104), new Size(10d, 15d), new Size(14d, 30d));
-            AddDrum("Engine RPM (%) (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones engine pourcentage", "(0 - 9)", "#",
-                new Point(76, 101), new Size(10d, 36d), new Size(14d, 36d));
-            AddNeedle("Engine RPM Needle", "{Helios}/Gauges/M2000C/Common/needleA.xaml", "engine pourcentage", "(0 - 100)", 
-                new Point(72, 25), new Size(10d, 70d), new Point(0d, 10d), BindingValueUnits.RPMPercent, new double[] { 0d, -135d, 110d, 135d });
-            AddNeedle("Engine T7 Needle", "{Helios}/Gauges/M2000C/Common/needleB.xaml", "engine temperature", "(0 - 10)",
-                new Point(72, 190), new Size(10d, 80d), new Point(0d, 10d), BindingValueUnits.Numeric, new double[] { 0d, -100d, 10d, 100d });
+            int row0 = 38;
+            int column0 = 63, column1 = 83, column2 = 103, column3 = 123;
+
+            AddDrum("Distance (Decimals)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "decimal distance", "(0 - 9)", "#",
+                new Point(column0, row0), new Size(10d, 15d), new Size(14d, 20d));
+            AddDrum("Distance (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones distance", "(0 - 9)", "#",
+                new Point(column1, row0), new Size(10d, 15d), new Size(14d, 20d));
+            AddDrum("Distance (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens distance", "(0 - 9)", "#",
+                new Point(column2, row0), new Size(10d, 15d), new Size(14d, 20d));
+            AddDrum("Distance (Hundreds)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "hundreds distance", "(0 - 9)", "#",
+                new Point(column3, row0), new Size(10d, 15d), new Size(14d, 20d));
+            AddNeedle("Compass Rose", "{Helios}/Gauges/M2000C/HSIPanel/compass.xaml", "compass", "(0 - 360)", 
+                new Point(100, 100), new Size(200d, 200d), new Point(100d, 100d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 360d, 360d });
+/*                                    AddNeedle("Engine T7 Needle", "{Helios}/Gauges/M2000C/Common/needleB.xaml", "engine temperature", "(0 - 10)",
+                                        new Point(72, 190), new Size(10d, 80d), new Point(0d, 10d), BindingValueUnits.Numeric, new double[] { 0d, -100d, 10d, 100d });
+                          */
         }
 
         #region Properties
 
         public override string BezelImage
         {
-            get { return "{M2000C}/Images/EngineSensorsPanel/engine-sensors-panel.png"; }
+            get { return "{M2000C}/Images/HSIPanel/hsi-panel.png"; }
         }
 
         #endregion

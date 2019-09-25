@@ -573,44 +573,7 @@ namespace GadrocsWorkshop.Helios
             return rectangleFill;
         }
 
-        protected FuelGauge AddDrum(string name, Point posn, Size size, int offsetX,
-            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
-        {
-            if (fromCenter)
-                posn = FromCenter(posn, size);
-            string componentName = GetComponentName(name);
-
-            FuelGauge newGauge = new FuelGauge(componentName, size, offsetX);
-
-            Children.Add(newGauge);
-            foreach (IBindingTrigger trigger in newGauge.Triggers)
-            {
-                AddTrigger(trigger, componentName);
-            }
-            foreach (IBindingAction action in newGauge.Actions)
-            {
-                AddAction(action, componentName);
-            }
-
-            AddDefaultInputBinding(
-                childName: componentName,
-                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + " (Tens).changed",
-                deviceActionName: "set.tens quantity");
-
-            AddDefaultInputBinding(
-                childName: componentName,
-                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + " (Hundreds).changed",
-                deviceActionName: "set.hundred quantity");
-
-            AddDefaultInputBinding(
-                childName: componentName,
-                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + " (Thousands).changed",
-                deviceActionName: "set.thousand quantity");
-
-            return newGauge;
-        }
-
-         protected Mk2CDrumGauge AddDrumGauge(string name, string gaugeImage, Point posn, Size size, Size renderSize, string format,
+        protected Mk2CDrumGauge AddDrumGauge(string name, string gaugeImage, Point posn, Size size, Size renderSize, string format,
             string interfaceDeviceName, string interfaceElementName, string actionIdentifier, string valueDescription, bool fromCenter)
         {
             if (fromCenter)
@@ -638,13 +601,13 @@ namespace GadrocsWorkshop.Helios
         }
 
          protected Mk2CNeedle AddNeedle(string name, string needleImage, Point posn, Size size, Point centerPoint, 
-            string interfaceDeviceName, string interfaceElementName, string actionIdentifier, string valueDescription, BindingValueUnit typeValue, bool fromCenter)
+            string interfaceDeviceName, string interfaceElementName, string actionIdentifier, string valueDescription, BindingValueUnit typeValue, double[] initialCalibration, bool fromCenter)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);
             string componentName = GetComponentName(name);
 
-            Mk2CNeedle newNeedle = new Mk2CNeedle(componentName, needleImage, actionIdentifier, valueDescription, posn, size, centerPoint, typeValue);
+            Mk2CNeedle newNeedle = new Mk2CNeedle(componentName, needleImage, actionIdentifier, valueDescription, posn, size, centerPoint, typeValue, initialCalibration);
 
             Children.Add(newNeedle);
             foreach (IBindingTrigger trigger in newNeedle.Triggers)

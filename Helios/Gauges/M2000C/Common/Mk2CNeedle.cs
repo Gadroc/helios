@@ -27,14 +27,16 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CNeedle
         private CalibrationPointCollectionDouble _needleCalibration;
 
         public Mk2CNeedle()
-            : this("Mk2C Needle", "{ Helios}/Gauges/M2000C/Common/needleB.xaml", "", "", new Point(0,0), new Size(10d, 15d), new Point(12d, 19d), BindingValueUnits.Numeric)
+            : this("Mk2C Needle", "{ Helios}/Gauges/M2000C/Common/needleB.xaml", "", "", 
+                  new Point(0,0), new Size(10d, 15d), new Point(12d, 19d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 1d, 360d })
         {
         }
 
-        public Mk2CNeedle(string name, string needleWay, string actionIdentifier, string valueDescription, Point posn, Size size, Point centerPoint, BindingValueUnit typeValue)
+        public Mk2CNeedle(string name, string needleWay, string actionIdentifier, string valueDescription, 
+            Point posn, Size size, Point centerPoint, BindingValueUnit typeValue, double[] initialCalibration)
             : base(name, size)
         {
-            _needleCalibration = new CalibrationPointCollectionDouble(0d, 0d, 1d, 100d);
+            _needleCalibration = new CalibrationPointCollectionDouble(initialCalibration[0], initialCalibration[1], initialCalibration[2], initialCalibration[3]);
             _needle = new GaugeNeedle(needleWay, posn, size, centerPoint);
             Components.Add(_needle);
 

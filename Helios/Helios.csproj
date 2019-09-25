@@ -109,6 +109,7 @@
     <Compile Include="CalibrationPointLong.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CNeedle.cs" />
+    <Compile Include="Gauges\M2000C\HSIPanel\HSI_Panel.cs" />
     <Compile Include="Gauges\M2000C\EngineSensorsPanel\EngineSensors_Panel.cs" />
     <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />
     <Compile Include="Gauges\M2000C\PCAPanel\PCA_Panel.cs" />
@@ -2894,6 +2895,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\M2000C\Common\needleB.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\HSIPanel\compass.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
