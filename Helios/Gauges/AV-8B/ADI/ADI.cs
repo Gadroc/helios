@@ -67,19 +67,19 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
             Components.Add(new GaugeImage("{Helios}/Gauges/A-10/ADI/adi_bezel.png", new Rect(0d, 0d, 350d, 350d)));
 
-            _pitch = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Pitch", "Current ptich of the aircraft.", "(0 - 360)", BindingValueUnits.Degrees);
+            _pitch = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "SAI Pitch", "Current ptich of the aircraft.", "(0 - 360)", BindingValueUnits.Degrees);
             _pitch.Execute += new HeliosActionHandler(Pitch_Execute);
             Actions.Add(_pitch);
 
-            _roll = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Bank", "Current bank of the aircraft.", "(0 - 360)", BindingValueUnits.Degrees);
+            _roll = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "SAI Bank", "Current bank of the aircraft.", "(0 - 360)", BindingValueUnits.Degrees);
             _roll.Execute += new HeliosActionHandler(Bank_Execute);
             Actions.Add(_roll);
 
-            _pitchAdjustment = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Pitch adjustment offset", "Location of pitch reference wings.", "(0 to 1) 0 full up and 1 is full down.", BindingValueUnits.Numeric);
+            _pitchAdjustment = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "SAI Pitch adjustment offset", "Location of pitch reference wings.", "(0 to 1) 0 full up and 1 is full down.", BindingValueUnits.Numeric);
             _pitchAdjustment.Execute += new HeliosActionHandler(PitchAdjsut_Execute);
             Actions.Add(_pitchAdjustment);
 
-            _warningFlag = new HeliosValue(this, new BindingValue(false), "Flight Instruments", "ADI Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
+            _warningFlag = new HeliosValue(this, new BindingValue(false), "Flight Instruments", "SAI Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
             _warningFlag.Execute += new HeliosActionHandler(OffFlag_Execute);
             Actions.Add(_warningFlag);
         }

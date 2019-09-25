@@ -61,12 +61,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             _gauge.Opacity = 0.4;
             Components.Add(_gauge);
 
-            _airPressure = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "air pressure", "Current air pressure calibaration setting for the altimeter.", "Value in Inches Hg", BindingValueUnits.InchesOfMercury);
+            _airPressure = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Air Pressure", "Current air pressure calibaration setting for the altimeter.", "Value in Inches Hg", BindingValueUnits.InchesOfMercury);
             _airPressure.SetValue(new BindingValue(29.92), true);
             _airPressure.Execute += new HeliosActionHandler(AirPressure_Execute);
             Actions.Add(_airPressure);
 
-            _altitdue = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "altitude", "Current altitude of the aricraft.", "Value in Feet", BindingValueUnits.Feet);
+            _altitdue = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Altitude", "Current altitude of the aricraft.", "Value in Feet", BindingValueUnits.Feet);
             _altitdue.Execute += new HeliosActionHandler(Altitude_Execute);
             Actions.Add(_altitdue);
         }

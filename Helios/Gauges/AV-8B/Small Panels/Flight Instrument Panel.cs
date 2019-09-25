@@ -39,12 +39,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddGauge("AOA Gauge", new AOA(), new Point(61, 473), new Size(221, 221), _interfaceDeviceName, "Angle of Attack", _generalComponentName);
             AddGauge("ADI Gauge", new ADI(), new Point(350,59), new Size(293,293), _interfaceDeviceName, "Backup ADI Element", _generalComponentName);
             _interfaceDeviceName = "Flight Instruments";
-            AddEncoder("Backup ADI Adjust", new Point(575, 278), new Size(60, 60), "SAI Cage/Pitch Adjust Knob", "WQHD/Knob/Cage Knob.png");
+            AddEncoder("ADI Pitch Adjust", new Point(575, 278), new Size(60, 60), "SAI Cage/Pitch Adjust Knob", "WQHD/Knob/Cage Knob.png");
             _interfaceDeviceName = "NAV course";
             AddEncoder("Course Set Knob", new Point(150, 40), new Size(80, 80), "Course Setting");
-            _interfaceDeviceName = "Altimeter";
-            AddGauge("Altimeter Gauge", new Altimeter(), new Point(727, 351), new Size(261, 272), _interfaceDeviceName, "Pressure");
-            AddEncoder("Altimeter Adjust", new Point(720, 558), new Size(60,60), "Barometric pressure calibration adjust");
+            _interfaceDeviceName = "Flight Instruments";
+            AddGauge("Altimeter Gauge", new Altimeter(), new Point(727, 351), new Size(261, 272), _interfaceDeviceName, "Altitude", _generalComponentName);
+            AddEncoder("Altimeter Pressure Adjust", new Point(720, 558), new Size(60,60), "Barometric pressure calibration adjust");
         }
 
         public double GlassReflectionOpacity

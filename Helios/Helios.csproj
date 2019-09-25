@@ -117,6 +117,7 @@
     <Compile Include="ComponentModel\HeliosUnitConverterAttribute.cs" />
     <Compile Include="ComponentModel\IPropertyNotification.cs" />
     <Compile Include="ComponentModel\PropertyNotificationEventArgs.cs" />
+    <Compile Include="Gauges\AV-8B\CompositeVisualAV8B.cs" />
     <Compile Include="CompositeVisual.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="Controls\ClickType.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Controls\CustonNeedle.cs" />
     <Compile Include="Gauges\AV-8B\ADI\ADI.cs" />
     <Compile Include="Gauges\AV-8B\Altimeter\Altimeter.cs" />
+    <Compile Include="Gauges\AV-8B\Radio\Radio.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\AV-8B Front Cockpit.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-Right-AV8B.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-Left-AV8B.cs" />

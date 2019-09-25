@@ -676,6 +676,7 @@
     <Resource Include="Images\WQHD\Indicator\Gear Nose Green.png" />
     <Resource Include="Images\WQHD\Indicator\Gear Right Amber.png" />
     <Resource Include="Images\WQHD\Indicator\Gear Right Green.png" />
+    <Resource Include="Images\WQHD\Panel\Right Radio.png" />
     <Content Include="Templates\Switch 2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

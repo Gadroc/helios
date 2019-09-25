@@ -102,6 +102,11 @@ namespace GadrocsWorkshop.Helios
         #region Properties
         public string DefaultInterfaceName
         {
+            get
+            {
+                return _defaultInterfaceName;
+            }
+
             set
             {
                 _defaultInterfaceName = value;

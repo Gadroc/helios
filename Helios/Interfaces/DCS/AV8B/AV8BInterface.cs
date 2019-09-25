@@ -597,8 +597,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Flight Instruments
 
-            AddFunction(new Altimeter(this,"Altimeter","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Pressure", "Manually set barometric altitude.",""));
-            AddFunction(new Axis(this, ADC, "3653", "653", 0.01d, 0d, 1d, "Altimeter", "Barometric pressure calibration adjust", true, "%.3f"));
+            AddFunction(new Altimeter(this,"Flight Instruments","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Air Pressure", "Manually set barometric altitude.",""));
+            AddFunction(new Axis(this, ADC, "3653", "653", 0.01d, 0d, 1d, "Flight Instruments", "Barometric pressure calibration adjust", true, "%.3f"));
 
             CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-0.6d, -6000d, 0.6d, 6000d);
             vviScale.Add(new CalibrationPointDouble(0d, 0d));
