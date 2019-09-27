@@ -21,7 +21,6 @@ namespace GadrocsWorkshop.Helios
     using System.Windows.Media;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
-    using GadrocsWorkshop.Helios.Gauges.M2000C.FuelGauge;
     using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CDrumGauge;
     using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CNeedle;
 

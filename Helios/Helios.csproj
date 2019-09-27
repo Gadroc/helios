@@ -114,7 +114,6 @@
     <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />
     <Compile Include="Gauges\M2000C\PCAPanel\PCA_Panel.cs" />
     <Compile Include="Gauges\M2000C\PPAPanel\PPA_Panel.cs" />
-    <Compile Include="Gauges\M2000C\FuelPanel\FuelGauge.cs" />
     <Compile Include="Gauges\M2000C\FuelPanel\Fuel_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\Demar_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\RWR_Panel.cs" />

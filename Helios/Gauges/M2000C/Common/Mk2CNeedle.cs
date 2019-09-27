@@ -43,6 +43,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CNeedle
             _value = new HeliosValue(this, new BindingValue(0d), "", actionIdentifier, name + " - " + actionIdentifier, valueDescription, typeValue);
             _value.Execute += new HeliosActionHandler(NeedleValue_Execute);
             Actions.Add(_value);
+
+            _needle.Rotation = initialCalibration[0];
         }
 
         void NeedleValue_Execute(object action, HeliosActionEventArgs e)

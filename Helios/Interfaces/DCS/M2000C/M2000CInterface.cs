@@ -175,8 +175,16 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 "Fuel Panel", "Fuel CrossFeed Switch", "%0.1f"));
             #endregion
             #region  HSI
-            AddFunction(new Axis(this, NAVINST, "3340", "340", 0.15d, 0d, 1d, "HSI Panel", "HSI VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
-            AddFunction(new Switch(this, NAVINST, "341", new SwitchPosition[] { }, "HSI Panel", "HSI Mode Selector Switch", "%0.1f"));    // elements["PTN_341"] = multiposition_switch_limited(_("HSI Mode Selector Switch"), devices.NAVINST, device_commands.Button_341, 341, 7, 0.1, false, 0)
+            AddFunction(new Axis(this, NAVINST, "3340", "340", 0.1d, 0d, 1d, "HSI Panel", "VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
+            AddFunction(new Switch(this, NAVINST, "3341", new SwitchPosition[] {
+                new SwitchPosition("0.0", "Cv/NAV", "341"),
+                new SwitchPosition("0.1", "NAV", "341"),
+                new SwitchPosition("0.2", "TAC", "341"),
+                new SwitchPosition("0.3", "VAD", "341"),
+                new SwitchPosition("0.4", "p", "341"),
+                new SwitchPosition("0.5", "t", "341"),
+                new SwitchPosition("0.6", "TEL", "341"),
+                }, "HSI Panel", "Mode Selector", "%0.1f"));    // elements["PTN_341"] = multiposition_switch_limited(_("HSI Mode Selector Switch"), devices.NAVINST, device_commands.Button_341, 341, 7, 0.1, false, 0)
             CalibrationPointCollectionDouble compassScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
             AddFunction(new ScaledNetworkValue(this, "342", compassScale, "HSI Panel", "Compass Rose", "Compass Rose.", "0 - 360", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "336", 1d, "HSI Panel", "Distance (Hundreds)", "Distance (Hundreds).", "0 - 9", BindingValueUnits.Numeric));
@@ -186,6 +194,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "344", "HSI Panel", "Flag 1", "Flag 1"));
             AddFunction(new FlagValue(this, "345", "HSI Panel", "Flag 2", "Flag 2"));
             AddFunction(new FlagValue(this, "346", "HSI Panel", "Flag CAP", "Flag CAP"));
+            CalibrationPointCollectionDouble directionNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
+            AddFunction(new ScaledNetworkValue(this, "333", directionNeedleScale, "HSI Panel", "Direction Needle", "Direction Needle.", "0 - 360", BindingValueUnits.Numeric));
+            CalibrationPointCollectionDouble bigNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
+            AddFunction(new ScaledNetworkValue(this, "334", bigNeedleScale, "HSI Panel", "Big Needle", "Big Needle.", "0 - 360", BindingValueUnits.Numeric));
+            CalibrationPointCollectionDouble smallNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
+            AddFunction(new ScaledNetworkValue(this, "335", smallNeedleScale, "HSI Panel", "Small Needle", "Small Needle.", "0 - 360", BindingValueUnits.Numeric));
+            CalibrationPointCollectionDouble modeNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
+            AddFunction(new ScaledNetworkValue(this, "347", modeNeedleScale, "HSI Panel", "Mode Needle", "Mode Needle.", "0 - 360", BindingValueUnits.Numeric));
             #endregion
             #region  Landing Gear
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));

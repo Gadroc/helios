@@ -33,7 +33,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             : base("Engine Sensors Panel", new Size(151, 270))
         {
             AddDrum("Engine RPM (%) (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens engine pourcentage", "(0 - 10)", "##",
-                new Point(48, 104), new Size(10d, 15d), new Size(14d, 30d));
+                new Point(48, 104), new Size(10d, 25d), new Size(14d, 30d));
             AddDrum("Engine RPM (%) (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones engine pourcentage", "(0 - 9)", "#",
                 new Point(76, 101), new Size(10d, 36d), new Size(14d, 36d));
             AddNeedle("Engine RPM Needle", "{Helios}/Gauges/M2000C/Common/needleA.xaml", "engine pourcentage", "(0 - 100)", 
