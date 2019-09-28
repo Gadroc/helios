@@ -9,6 +9,7 @@
 	* Added the VOR/ILS Panel with the frequency display and the 2 switches (Power and Mode Select)	
 	* Added the Engine Sensors Panel (still in beta) with the 2 needles and the drum
 	* Added the HSI Panel (still in beta) with the drum, the 4 stop flags, the 2 needles, the green needle, the mode needle, the compass rose, the switch and the potentiometer
+	* Added the ECM Box with the potentiometer and the 3 switches
 	* Improvement of the Engine Panel by adding the 2 guards
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch  and the emergency landing gear lever
 	* Improvement of the pictures of the cockpit
@@ -21,6 +22,7 @@
 		* TACAN Panel: the switch Mode is not working from Helios to DCS, the 2 switches to change the TACAN frequency are not implemented and the display of the channel X/Y mode displays nothing
 		* HSI Panel: the bottom stop flag is not tested, the compass rose, the 2 needles, the green needle are working but there is an problem of precision, the potentiometer doesn’t work properly
 		* VOR/ILS Panel: the switch Mode is not working and need to add the 2 potentiometers
+		* ECM Box: the potentiometer is not working and the 3 switches are not working from DCS to Helios
 
 1.4.2019.0901 Release
 ----------------------------

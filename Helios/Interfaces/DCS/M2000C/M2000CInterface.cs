@@ -150,6 +150,22 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 new SwitchPosition("-1.0", "2", "3524")},
                 "Caution Panel", "Lights Test Switch", "%0.1f"));
             #endregion
+            #region  ECM BOX
+            AddFunction(new Switch(this, RWR, "3194", new SwitchPosition[] {
+                new SwitchPosition("1.0", "AUTO", "3194"),
+                new SwitchPosition("0.5", "MANU", "3194"),
+                new SwitchPosition("0.0", "ARRET", "3194")},
+                "ECM Box", "Master Switch", "%0.1f"));
+            AddFunction(new Switch(this, RWR, "3195", new SwitchPosition[] {
+                new SwitchPosition("1.0", "PTF", "3195"),
+                new SwitchPosition("0.0", "C/C", "3195")},
+                "ECM Box", "Dispensing Mode Switch", "%0.1f"));
+            AddFunction(new Switch(this, RWR, "3196", new SwitchPosition[] {
+                new SwitchPosition("1.0", "OFF", "3196"),
+                new SwitchPosition("0.0", "ON", "3196")},
+                "ECM Box", "Lights Power Switch", "%0.1f"));
+            AddFunction(new Axis(this, RWR, "3197", "197", 0.075d, 0d, 1d, "ECM Box", "Brightness Selector"));    // elements["PTN_197"] = default_axis_limited(_("ECM Box LCD Display Brightness"), devices.RWR, device_commands.Button_197, 197, 5, 0.5, false, 0)
+            #endregion  
             #region Engine Sensors Panel
             AddFunction(new ScaledNetworkValue(this, "371", 1d, "Engine Sensors Panel", "Engine RPM (%) (Tens)", "Engine RPM (Tens).", "0 - 10", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "372", 1d, "Engine Sensors Panel", "Engine RPM (%) (Ones)", "Engine RPM (Ones).", "0 - 9", BindingValueUnits.Numeric));
@@ -672,12 +688,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, DDM_IND, "608", new SwitchPosition[] { }, "EW PANEL", "D2M Power Switch", "%0.1f"));    // elements["PTN_608"] = multiposition_switch_limited(_("D2M Power Switch"), devices.DDM_IND, device_commands.Button_608, 608, 3, 0.5, false, 0)
             AddFunction(new Switch(this, RWR, "609", new SwitchPosition[] { }, "EW PANEL", "Decoy Release Mode Switch", "%0.1f"));    // elements["PTN_609"] = multiposition_switch_limited(_("Decoy Release Mode Switch"), devices.RWR, device_commands.Button_609, 609, 3, 0.5, false, 0)
             AddFunction(new Switch(this, RWR, "610", new SwitchPosition[] { }, "EW PANEL", "Decoy Release Program Knob", "%0.1f"));    // elements["PTN_610"] = multiposition_switch_limited(_("Decoy Release Program Knob"), devices.RWR, device_commands.Button_610, 610, 11, 0.1, false, 0)
-            #endregion  
-            #region  ECM BOX
-            AddFunction(new Switch(this, RWR, "194", new SwitchPosition[] { }, "ECM BOX", "ECM Box Mode Switch", "%0.1f"));    // elements["PTN_194"] = multiposition_switch_limited(_("ECM Box Mode Switch"), devices.RWR, device_commands.Button_194, 194, 3, 0.5, false, 0)
-            AddFunction(new PushButton(this, RWR, "3195", "195", "ECM BOX", "ECM Box Switch"));    // elements["PTN_195"] = default_2_position_tumb(_("ECM Box Switch"), devices.RWR, device_commands.Button_195, 195)
-            AddFunction(new PushButton(this, RWR, "3196", "196", "ECM BOX", "ECM Box Lights Switch"));    // elements["PTN_196"] = default_2_position_tumb(_("ECM Box Lights Switch"), devices.RWR, device_commands.Button_196, 196)
-            AddFunction(new Axis(this, RWR, "3197", "197", 0.15d, 0d, 1d, "ECM BOX", "ECM Box LCD Display Brightness"));    // elements["PTN_197"] = default_axis_limited(_("ECM Box LCD Display Brightness"), devices.RWR, device_commands.Button_197, 197, 5, 0.5, false, 0)
             #endregion  
             #region  Panel Lights
             AddFunction(new PushButton(this, SYSLIGHTS, "3449", "449", "Panel Lights", "Police Lights Switch"));    // elements["PTN_449"] = default_2_position_tumb(_("Police Lights Switch"), devices.SYSLIGHTS, device_commands.Button_449, 449)
