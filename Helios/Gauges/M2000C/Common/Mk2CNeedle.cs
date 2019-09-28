@@ -28,23 +28,28 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CNeedle
 
         public Mk2CNeedle()
             : this("Mk2C Needle", "{ Helios}/Gauges/M2000C/Common/needleB.xaml", "", "", 
-                  new Point(0,0), new Size(10d, 15d), new Point(12d, 19d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 1d, 360d })
+                  new Point(0,0), new Size(10d, 15d), new Point(12d, 19d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 1d, 360d }, null)
         {
         }
 
         public Mk2CNeedle(string name, string needleWay, string actionIdentifier, string valueDescription, 
-            Point posn, Size size, Point centerPoint, BindingValueUnit typeValue, double[] initialCalibration)
+            Point posn, Size size, Point centerPoint, BindingValueUnit typeValue, double[] initialCalibration, double[,] calibrationPoints)
             : base(name, size)
         {
             _needleCalibration = new CalibrationPointCollectionDouble(initialCalibration[0], initialCalibration[1], initialCalibration[2], initialCalibration[3]);
+            if (calibrationPoints != null)
+            {
+                for (int c = 0; c < calibrationPoints.Length/2; c++)
+                {
+                    _needleCalibration.Add(new CalibrationPointDouble(calibrationPoints[c, 0], calibrationPoints[c, 1]));
+                }
+            }
             _needle = new GaugeNeedle(needleWay, posn, size, centerPoint);
             Components.Add(_needle);
 
             _value = new HeliosValue(this, new BindingValue(0d), "", actionIdentifier, name + " - " + actionIdentifier, valueDescription, typeValue);
             _value.Execute += new HeliosActionHandler(NeedleValue_Execute);
             Actions.Add(_value);
-
-            _needle.Rotation = initialCalibration[0];
         }
 
         void NeedleValue_Execute(object action, HeliosActionEventArgs e)

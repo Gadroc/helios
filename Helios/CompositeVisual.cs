@@ -416,21 +416,16 @@ namespace GadrocsWorkshop.Helios
             {
                 AddAction(action, componentName);
             }
-            //            AddAction(_knob.Actions["set.position"], componentName);
 
-            /*            foreach (RotarySwitchPosition position in _knob.Positions)
-                        {
-                            AddDefaultOutputBinding(
-                                childName: componentName,
-                                deviceTriggerName: "position " + position.Index + "entered",
-                                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
-                            );
-                        }*/
             AddDefaultInputBinding(
                 childName: componentName,
                 interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
                 deviceActionName: "set.position");
-                
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName);
+
             return _knob;
         }
 
@@ -600,13 +595,14 @@ namespace GadrocsWorkshop.Helios
         }
 
          protected Mk2CNeedle AddNeedle(string name, string needleImage, Point posn, Size size, Point centerPoint, 
-            string interfaceDeviceName, string interfaceElementName, string actionIdentifier, string valueDescription, BindingValueUnit typeValue, double[] initialCalibration, bool fromCenter)
+            string interfaceDeviceName, string interfaceElementName, string actionIdentifier, string valueDescription, BindingValueUnit typeValue, 
+            double[] initialCalibration, double[,] calibrationPoints, bool fromCenter)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);
             string componentName = GetComponentName(name);
 
-            Mk2CNeedle newNeedle = new Mk2CNeedle(componentName, needleImage, actionIdentifier, valueDescription, posn, size, centerPoint, typeValue, initialCalibration);
+            Mk2CNeedle newNeedle = new Mk2CNeedle(componentName, needleImage, actionIdentifier, valueDescription, posn, size, centerPoint, typeValue, initialCalibration, calibrationPoints);
 
             Children.Add(newNeedle);
             foreach (IBindingTrigger trigger in newNeedle.Triggers)

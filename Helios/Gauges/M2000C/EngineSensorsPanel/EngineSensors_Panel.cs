@@ -33,13 +33,17 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             : base("Engine Sensors Panel", new Size(151, 270))
         {
             AddDrum("Engine RPM (%) (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens engine pourcentage", "(0 - 10)", "##",
-                new Point(48, 104), new Size(10d, 25d), new Size(14d, 30d));
+                new Point(54, 112), new Size(10d, 15d), new Size(12d, 20d));
             AddDrum("Engine RPM (%) (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones engine pourcentage", "(0 - 9)", "#",
-                new Point(76, 101), new Size(10d, 36d), new Size(14d, 36d));
+                new Point(78, 112), new Size(10d, 15d), new Size(12d, 20d));
+            double[,] rpmCalibrationPoints = new double[,] {
+                 { 0.5d, -15d },
+                 { 0.8d, 60d },
+                };
             AddNeedle("Engine RPM Needle", "{Helios}/Gauges/M2000C/Common/needleA.xaml", "engine pourcentage", "(0 - 100)", 
-                new Point(78, 70), new Size(10d, 70d), new Point(5d, 60d), BindingValueUnits.RPMPercent, new double[] { 0d, -135d, 110d, 135d });
+                new Point(78, 70), new Size(10d, 70d), new Point(5d, 60d), BindingValueUnits.RPMPercent, new double[] { 0d, -135d, 100d, 109d }, rpmCalibrationPoints);
             AddNeedle("Engine T7 Needle", "{Helios}/Gauges/M2000C/Common/needleB.xaml", "engine temperature", "(0 - 10)",
-                new Point(80, 230), new Size(10d, 60d), new Point(5d, 50d), BindingValueUnits.Numeric, new double[] { 0d, -110d, 10d, 110d });
+                new Point(80, 230), new Size(10d, 60d), new Point(5d, 50d), BindingValueUnits.Numeric, new double[] { 0d, -110d, 10d, 107d });
         }
 
         #region Properties
@@ -67,7 +71,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         }
 
         private void AddNeedle(string name, string needleImage, string actionIdentifier, string valueDescription, 
-            Point posn, Size size, Point centerPoint, BindingValueUnit typeValue, double[] initialCalibration)
+            Point posn, Size size, Point centerPoint, BindingValueUnit typeValue, double[] initialCalibration, double[,] calibrationPoints = null)
         {
             AddNeedle(name: name,
                 needleImage: needleImage,
@@ -80,6 +84,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 valueDescription: valueDescription,
                 typeValue: typeValue,
                 initialCalibration: initialCalibration,
+                calibrationPoints: null,
                 fromCenter: false);
         }
 

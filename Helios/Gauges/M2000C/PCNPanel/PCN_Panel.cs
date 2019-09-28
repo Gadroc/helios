@@ -147,6 +147,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
                 fromCenter: fromCenter);
+            rSwitch.IsContinuous = true;
             rSwitch.Positions.Clear();
             rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 0, "TR/VS", 220d));
             rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "D/RLT", 240d));

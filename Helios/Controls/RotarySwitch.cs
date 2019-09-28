@@ -60,6 +60,8 @@ namespace GadrocsWorkshop.Helios.Controls
         private HeliosValue _positionValue;
         private HeliosValue _positionNameValue;
 
+        private bool _isContinuous = false;
+
         public RotarySwitch()
             : base("Rotary Switch", new Size(100, 100))
         {
@@ -209,6 +211,24 @@ namespace GadrocsWorkshop.Helios.Controls
                     bool oldValue = _drawLines;
                     _drawLines = value;
                     OnPropertyChanged("DrawLines", oldValue, value, true);
+                    Refresh();
+                }
+            }
+        }
+
+        public bool IsContinuous
+        {
+            get
+            {
+                return _isContinuous;
+            }
+            set
+            {
+                if (!_isContinuous.Equals(value))
+                {
+                    bool oldValue = _isContinuous;
+                    _isContinuous = value;
+                    OnPropertyChanged("IsContinuous", oldValue, value, true);
                     Refresh();
                 }
             }
@@ -485,9 +505,13 @@ namespace GadrocsWorkshop.Helios.Controls
 
                 if (increment)
                 {
-                    if (_currentPosition <= Positions.Count)
+                    if (_currentPosition < Positions.Count)
                     {
                         CurrentPosition = _currentPosition + 1;
+                    }
+                    else if (_isContinuous == true)
+                    {
+                        CurrentPosition = 1;
                     }
                 }
                 else
@@ -495,6 +519,10 @@ namespace GadrocsWorkshop.Helios.Controls
                     if (_currentPosition > 1)
                     {
                         CurrentPosition = _currentPosition - 1;
+                    }
+                    else if (_isContinuous == true)
+                    {
+                        CurrentPosition = Positions.Count;
                     }
                 }
             }

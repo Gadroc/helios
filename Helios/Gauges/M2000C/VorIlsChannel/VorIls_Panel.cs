@@ -13,7 +13,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.M2000C.TACANChannel
+namespace GadrocsWorkshop.Helios.Gauges.M2000C.VorIlsChannel
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
@@ -23,37 +23,39 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.TACANChannel
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("HELIOS.M2000C.TACAN_PANEL", "Tacan Panel", "M2000C Gauges", typeof(M2000CDeviceRenderer))]
-    class M2000C_TacanPanel : M2000CDevice
+    [HeliosControl("HELIOS.M2000C.VorIls_PANEL", "VOR/ILS Panel", "M2000C Gauges", typeof(M2000CDeviceRenderer))]
+    class M2000C_VorIlsPanel : M2000CDevice
     {
-        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 256, 280);
-        private string _interfaceDeviceName = "Tacan Panel";
+        private static readonly Rect SCREEN_RECT = new Rect(0, 0, 350, 314);
+        private string _interfaceDeviceName = "VOR/ILS Panel";
         private Rect _scaledScreenRect = SCREEN_RECT;
 
-        public M2000C_TacanPanel()
-            : base("Tacan Panel", new Size(350, 312))
+        public M2000C_VorIlsPanel()
+            : base("VOR/ILS Panel", new Size(350, 314))
         {
-            AddRotarySwitch("X/Y Selector", new Point(83, 193), new Size(133, 133), "low-switch-tacan");
-            AddRotarySwitch("Mode Selector", new Point(262, 191), new Size(133, 133), "low-switch-tacan");
-            
-              /*          AddPot("Channel 10 Selector", new Point(83, 192), "up-switch-tacan",
-                            20d, 26.692d, 0.0d, 0.9228d, 0.0769d, 0.0769d, "Channel 10 Selector", false);
-            */            AddPot("Channel 1 Selector", new Point(262, 190), "up-switch-tacan",
-                            216d, 360d, 0.0d, 0.9d, 0.6d, 0.1d, "Channel 1 Selector", false);
-            
-            AddDrum("Channel output for display (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones frequency", "(0 - 9)", "#", 
-                new Point(210, 60), new Size(10d, 15d), new Size(33d, 52d));
-            AddDrum("Channel output for display (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens frequency", "(0 - 12)", "##", 
-                new Point(144, 60), new Size(10d, 15d), new Size(33d, 52d));
-            AddDrum("X/Y Drum", "{Helios}/Gauges/M2000C/TACANChannel/tacan_channel_mode.xaml", "X/Y mode", "(1 - 2)", "#",
-                new Point(110, 60), new Size(10d, 15d), new Size(33d, 52d));
+            AddRotarySwitch("Power Selector", new Point(83, 241), new Size(153, 153), "low-switch-vor-ils");
+            AddRotarySwitch("Mode Selector", new Point(255, 241), new Size(153, 153), "low-switch-vor-ils");
+
+            /*          AddPot("Channel 10 Selector", new Point(83, 192), "up-switch-tacan",
+                          20d, 26.692d, 0.0d, 0.9228d, 0.0769d, 0.0769d, "Channel 10 Selector", false);
+                      AddPot("Channel 1 Selector", new Point(262, 190), "up-switch-tacan",
+                          216d, 360d, 0.0d, 0.9d, 0.6d, 0.1d, "Channel 1 Selector", false);
+          */
+            AddDrum("Channel output for display (Decimal Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "decimal ones frequency", "(0 or 5)", "#",
+                new Point(213, 67), new Size(10d, 15d), new Size(33d,60d));
+            AddDrum("Channel output for display (Decimal Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape_with_point.xaml", "decimal tens frequency", "(0 - 9)", "#",
+                new Point(176, 67), new Size(11d, 15d), new Size(36d, 60d));
+            AddDrum("Channel output for display (Ones)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "ones frequency", "(0 - 9)", "#",
+                new Point(142, 67), new Size(10d, 15d), new Size(33d, 60d));
+            AddDrum("Channel output for display (Tens)", "{Helios}/Gauges/M2000C/Common/drum_tape.xaml", "tens frequency", "(0 - 1)", "#",
+                new Point(111, 67), new Size(10d, 15d), new Size(33d, 60d));
         }
 
         #region Properties
 
         public override string BezelImage
         {
-            get { return "{M2000C}/Images/TacanPanel/tacan-panel.png"; }
+            get { return "{M2000C}/Images/VorIlsPanel/vor-ils-panel.png"; }
         }
 
         #endregion
@@ -76,7 +78,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.TACANChannel
                 name: name,
                 posn: posn,
                 size: new Size(104, 104),
-                knobImage: "{M2000C}/Images/TacanPanel/" + imagePrefix + ".png",
+                knobImage: "{M2000C}/Images/VorIlsPanel/" + imagePrefix + ".png",
                 initialRotation: initialRotation,
                 rotationTravel: rotationTravel,
                 minValue: minValue,
@@ -94,7 +96,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.TACANChannel
             RotarySwitch rSwitch = AddRotarySwitch(name: name,
                 posn: posn,
                 size: size,
-                knobImage: "{M2000C}/Images/TacanPanel/" + imagePrefix + ".png",
+                knobImage: "{M2000C}/Images/VorIlsPanel/" + imagePrefix + ".png",
                 defaultPosition: 0,
                 clickType: ClickType.Touch,
                 interfaceDeviceName: _interfaceDeviceName,
@@ -103,15 +105,13 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C.TACANChannel
             rSwitch.Positions.Clear();
             switch(name)
             {
-                case "X/Y Selector":
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "X", 0d));
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "Y", 45d));
+                case "Power Selector":
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "ON", -40d));
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "OFF", 40d));
                     break;
                 case "Mode Selector":
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "OFF", 215d));
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "REC", 240d));
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 3, "T/R", 270d));
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 4, "A/A", 300d));
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "HG", -40d));
+                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "BD", 40d));
                     break;
             }
             foreach (RotarySwitchPosition position in rSwitch.Positions)

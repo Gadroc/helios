@@ -21,6 +21,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
     using System.Globalization;
     using System.Windows;
     using System.Windows.Media;
+    using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CNeedle;
 
     [HeliosControl("HELIOS.M2000C.HSI_PANEL", "HSI Panel", "M2000C Gauges", typeof(M2000CDeviceRenderer))]
     class M2000C_HSIPanel : M2000CDevice
@@ -45,20 +46,27 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 new Point(column0, row0), new Size(10d, 15d), new Size(20d, 30d));
 
             AddNeedle("Compass Rose", "{Helios}/Gauges/M2000C/HSIPanel/compass.xaml", "compass", "(0 - 360)", 
-                new Point(186d, 169d), new Size(230d, 230d), new Point(150d, 142d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 360d, 360d });
+                new Point(152d, 141d), new Size(230d, 230d), new Point(115d, 115d), BindingValueUnits.Degrees, new double[] { 0d, 360d, 1d, 0d });
 
-            AddIndicator("Flag 1", "distance-flag", new Point(90, 92), new Size(120, 15));
-            AddIndicator("Flag 2", "left-flag", new Point(100, 143), new Size(30, 15));
-            AddIndicator("Flag CAP", "right-flag", new Point(145, 143), new Size(30, 15));
+            AddIndicator("Flag distance", "distance-flag", new Point(90, 93), new Size(120, 15));
+            AddIndicator("Flag 1", "left-flag", new Point(98, 143), new Size(30, 15));
+            AddIndicator("Flag 2", "right-flag", new Point(172, 143), new Size(30, 15));
+            AddIndicator("Flag CAP", "right-flag", new Point(130, 163), new Size(30, 15));
 
             AddNeedle("Direction Needle", "{M2000C}/Images/HSIPanel/direction-needle.png", "direction needle", "(0 - 360)",
-                new Point(152, 20), new Size(40d, 20d), new Point(20d, 10d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 360d, 360d });
+                new Point(152, 141), new Size(40d, 20d), new Point(20d, 130d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 1d, 360d });
+            double[,] modeCalibrationPoints = new double[,] {
+                 { 0.2d, 186d },
+                 { 0.3d, 169d },
+                 { 0.4d, 154d },
+                 { 0.5d, 138d },
+                };
             AddNeedle("Mode Needle", "{M2000C}/Images/HSIPanel/mode-selector-needle.png", "mode needle", "(0 - 6)",
-                new Point(90, 250), new Size(15d, 15d), new Point(60d, 100d), BindingValueUnits.Numeric, new double[] { 0d, 260d, 6d, 100d });
+                new Point(150, 125), new Size(23d, 23d), new Point(11d, 100d), BindingValueUnits.Numeric, new double[] { 0d, 220d, 0.6d, 120d }, modeCalibrationPoints);
             AddNeedle("Big Needle", "{M2000C}/Images/HSIPanel/big-needle.png", "big needle", "(0 - 360)",
-                new Point(152, 132), new Size(20d, 184d), new Point(10d, 92d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 360d, 360d });
+                new Point(152, 141), new Size(20d, 184d), new Point(10d, 100d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 1d, 360d });
             AddNeedle("Small Needle", "{M2000C}/Images/HSIPanel/small-needle.png", "small needle", "(0 - 360)",
-                new Point(152, 145), new Size(8d, 202d), new Point(4d, 101d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 360d, 360d });
+                new Point(152, 141), new Size(8d, 202d), new Point(4d, 101d), BindingValueUnits.Numeric, new double[] { 0d, 0d, 1d, 360d });
 
             AddPot("VAD Selector", new Point(30,260), new Size(45, 45), "vad-selector", 0d, 0d, 0d, 1000d, 0d, 0.1d, true);
             AddRotarySwitch("Mode Selector", new Point(270, 260), new Size(45, 45), "mode-selector");
@@ -105,19 +113,13 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 interfaceElementName: name,
                 fromCenter: true);
             rSwitch.Positions.Clear();
-            switch (name)
-            {
-                case "X/Y Selector":
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "X", 0d));
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "Y", 45d));
-                    break;
-                case "Mode Selector":
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "OFF", 215d));
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "REC", 240d));
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 3, "T/R", 270d));
-                    rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 4, "A/A", 300d));
-                    break;
-            }
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "Cv/NAV", 0d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "NAV", 20d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 3, "TAC", 40d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 4, "VAD", 60d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 5, "rho", 80d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 6, "theta", 100d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 7, "TEL", 120d));
             foreach (RotarySwitchPosition position in rSwitch.Positions)
             {
                 AddTrigger(rSwitch.Triggers["position " + position.Index + ".entered"], rSwitch.Name);
@@ -140,8 +142,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 fromCenter: false);
         }
 
-        private void AddNeedle(string name, string needleImage, string actionIdentifier, string valueDescription, 
-            Point posn, Size size, Point centerPoint, BindingValueUnit typeValue, double[] initialCalibration)
+        private void AddNeedle(string name, string needleImage, string actionIdentifier, string valueDescription,
+            Point posn, Size size, Point centerPoint, BindingValueUnit typeValue, double[] initialCalibration, double[,] calibrationPoints = null)
         {
             AddNeedle(name: name,
                 needleImage: needleImage,
@@ -154,6 +156,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 valueDescription: valueDescription,
                 typeValue: typeValue,
                 initialCalibration: initialCalibration,
+                calibrationPoints: calibrationPoints,
                 fromCenter: false);
         }
 

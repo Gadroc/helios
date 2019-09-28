@@ -119,6 +119,7 @@
     <Compile Include="Gauges\M2000C\Miscellaneous\RWR_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\FireWarning_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\PCI_Panel.cs" />
+    <Compile Include="Gauges\M2000C\VorIlsChannel\VorIls_Panel.cs" />
     <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />
@@ -2898,6 +2899,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\M2000C\HSIPanel\compass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\Common\drum_tape_with_point.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>

@@ -30,7 +30,7 @@ https://github.com/BlueFinBima/helios/issues and if nothing appears to be
 relevant then open a new issue.
   
 * * * Working Elements on M2000C * * *
-* * *      25th September 2019   * * *
+* * *      27th September 2019   * * *
 
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * * Next Release Helios v1.4.2019.xxxx  * * *
@@ -61,12 +61,20 @@ DCS M2000C
 	* Added the TACAN Panel
        - added the frequency display
 	   - added the 2 switches (X/Y Mode and Mode Select)
+	* Added the VOR/ILS Panel
+       - added the frequency display
+	   - added the 2 switches (Power and Mode Select)
 	* Added the Engine Sensors Panel (still in beta)
 	   - added the 2 needles
 	   - added the drum
 	* Added the HSI Panel (still in beta)
-	   - added the drum
-	   - added the 3 stop flags
+	   - added the drum (working)
+	   - added the 4 stop flags (2 are working)
+	   - added the 2 needles
+	   - added the green needle
+	   - added the mode needle (working)
+	   - added the compass rose (partially working)
+	   - added the switch and the potentiometer
 	* Improvement of the Engine Panel
 	   - added the 2 guards
 	* Improvement of the Landing Gear Panel
@@ -92,20 +100,18 @@ Known issues DCS M2000C
 	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositeVisual.cs
 	* PCA Panel
 	   - the red Gun Arm Switch, the click is reversed
-	* PCN Panel
-	   - the Parameter selector doesn’t work from Helios to DCS
 	* TACAN Panel
-	   - the 2 switches to change the X/Y Mode and the Mode are not working from Helios to DCS
+	   - the switch Mode is not working from Helios to DCS
 	   - the 2 switches to change the TACAN frequency are not implemented
 	   - the display of the channel X/Y mode displays nothing
-	* Engine Sensor Panel
-	   - the 2 needles need adjustments
-	   - the ones of the drum doesn’t work
-	   - the drum need adjustment
+	* VOR/ILS Panel
+	   - the switch Mode is not working 
+	   - need to add the 2 potentiometers
 	* HSI Panel
-	   - the 3 stop flags need to be tested
-	   - the compass rose doesn’t work and need to be redisign
-	   - need to add 4 more needles and two switches
+	   - the bottom stop flag is not tested
+	   - the compass rose, the 2 needles, the green needle are working but there is an problem of precision
+	   - the compass rose need to be redisign
+	   - the potentiometer doesn’t work properly
 	* Miscellaneous Panels
 	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 

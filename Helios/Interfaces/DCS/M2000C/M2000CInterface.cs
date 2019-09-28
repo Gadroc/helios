@@ -1,4 +1,4 @@
-//  Copyright 2014 Craig Courtney
+﻿//  Copyright 2014 Craig Courtney
 //    
 //  Helios is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -137,7 +137,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             #region Engine Sensors Panel
             AddFunction(new ScaledNetworkValue(this, "371", 1d, "Engine Sensors Panel", "Engine RPM (%) (Tens)", "Engine RPM (Tens).", "0 - 10", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "372", 1d, "Engine Sensors Panel", "Engine RPM (%) (Ones)", "Engine RPM (Ones).", "0 - 9", BindingValueUnits.Numeric));
-            CalibrationPointCollectionDouble engineRPMScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1d, 110d);
+            CalibrationPointCollectionDouble engineRPMScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1d, 100d);
             AddFunction(new ScaledNetworkValue(this, "369", engineRPMScale, "Engine Sensors Panel", "Engine RPM Needle", "Engine RPM Needle.", "0 - 110", BindingValueUnits.RPMPercent));
             CalibrationPointCollectionDouble engineTempScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 1d, 10d);
             AddFunction(new ScaledNetworkValue(this, "370", engineTempScale, "Engine Sensors Panel", "Engine T7 Needle", "Engine Temp Needle.", "0 - 10", BindingValueUnits.Numeric));
@@ -175,18 +175,18 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 "Fuel Panel", "Fuel CrossFeed Switch", "%0.1f"));
             #endregion
             #region  HSI
-            AddFunction(new Axis(this, NAVINST, "3340", "340", 0.1d, 0d, 1d, "HSI Panel", "VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
-            AddFunction(new Switch(this, NAVINST, "3341", new SwitchPosition[] {
-                new SwitchPosition("0.0", "Cv/NAV", "341"),
-                new SwitchPosition("0.1", "NAV", "341"),
-                new SwitchPosition("0.2", "TAC", "341"),
-                new SwitchPosition("0.3", "VAD", "341"),
-                new SwitchPosition("0.4", "p", "341"),
-                new SwitchPosition("0.5", "t", "341"),
-                new SwitchPosition("0.6", "TEL", "341"),
+            AddFunction(new Axis(this, NAVINST, "3340", "340", 0.015d, 0d, 1d, "HSI Panel", "VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
+            AddFunction(new Switch(this, NAVINST, "3341", new SwitchPosition[] {//need to be "341" but in that case, the needle doesn’t work anymore. 
+                new SwitchPosition("0.0", "Cv/NAV", "3341"),                    //So better that way because the only problem is that doesn’t work from DCS to Helios
+                new SwitchPosition("0.1", "NAV", "3341"),
+                new SwitchPosition("0.2", "TAC", "3341"),
+                new SwitchPosition("0.3", "VAD", "3341"),
+                new SwitchPosition("0.4", "rho", "3341"),
+                new SwitchPosition("0.5", "theta", "3341"),
+                new SwitchPosition("0.6", "TEL", "3341"),
                 }, "HSI Panel", "Mode Selector", "%0.1f"));    // elements["PTN_341"] = multiposition_switch_limited(_("HSI Mode Selector Switch"), devices.NAVINST, device_commands.Button_341, 341, 7, 0.1, false, 0)
-            CalibrationPointCollectionDouble compassScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
-            AddFunction(new ScaledNetworkValue(this, "342", compassScale, "HSI Panel", "Compass Rose", "Compass Rose.", "0 - 360", BindingValueUnits.Numeric));
+            CalibrationPointCollectionDouble compassScale = new CalibrationPointCollectionDouble(0d, 0d, 360d, 360d);
+            AddFunction(new ScaledNetworkValue(this, "342", compassScale, "HSI Panel", "Compass Rose", "Compass Rose.", "0 - 360", BindingValueUnits.Degrees));
             AddFunction(new ScaledNetworkValue(this, "336", 1d, "HSI Panel", "Distance (Hundreds)", "Distance (Hundreds).", "0 - 9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "337", 1d, "HSI Panel", "Distance (Tens)", "Engine RPM (Tens).", "0 - 9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "338", 1d, "HSI Panel", "Distance (Ones)", "Distance (Ones).", "0 - 9", BindingValueUnits.Numeric));
@@ -194,6 +194,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "344", "HSI Panel", "Flag 1", "Flag 1"));
             AddFunction(new FlagValue(this, "345", "HSI Panel", "Flag 2", "Flag 2"));
             AddFunction(new FlagValue(this, "346", "HSI Panel", "Flag CAP", "Flag CAP"));
+            AddFunction(new FlagValue(this, "343", "HSI Panel", "Flag distance", "Flag distance"));
             CalibrationPointCollectionDouble directionNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
             AddFunction(new ScaledNetworkValue(this, "333", directionNeedleScale, "HSI Panel", "Direction Needle", "Direction Needle.", "0 - 360", BindingValueUnits.Numeric));
             CalibrationPointCollectionDouble bigNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
@@ -201,7 +202,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             CalibrationPointCollectionDouble smallNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
             AddFunction(new ScaledNetworkValue(this, "335", smallNeedleScale, "HSI Panel", "Small Needle", "Small Needle.", "0 - 360", BindingValueUnits.Numeric));
             CalibrationPointCollectionDouble modeNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
-            AddFunction(new ScaledNetworkValue(this, "347", modeNeedleScale, "HSI Panel", "Mode Needle", "Mode Needle.", "0 - 360", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "341", modeNeedleScale, "HSI Panel", "Mode Needle", "Mode Needle.", "0 - 360", BindingValueUnits.Numeric));
             #endregion
             #region  Landing Gear
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
@@ -267,17 +268,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new PushButton(this, PCN_NAV, "3576", "576", "PCN Panel", "AUTO Navigation Button"));    // elements["PTN_667"] = default_button(_("AUTO Navigation"),        devices.PCN_NAV, device_commands.Button_667, 667, 0, 1)
             AddFunction(new FlagValue(this, "577", "PCN Panel", "AUTO Navigation", "BAD"));
             AddFunction(new Switch(this, PCN_NAV, "574", new SwitchPosition[] {
-                new SwitchPosition("0.0", "TR/VS", "574"),
-                new SwitchPosition("0.1", "D/RLT", "574"),
-                new SwitchPosition("0.2", "CP/PD", "574"),
-                new SwitchPosition("0.3", "ALT", "574"),
-                new SwitchPosition("0.4", "L/G", "574"),
-                new SwitchPosition("0.5", "RT/TD", "574"),
-                new SwitchPosition("0.6", "dL/dG", "574"),
-                new SwitchPosition("0.7", "dALT", "574"),
-                new SwitchPosition("0.8", "P/t", "574"),
-                new SwitchPosition("0.9", "DEC", "574"),
-                new SwitchPosition("1.0", "DV/FV", "574"),
+                new SwitchPosition("0.0", "TR/VS", "3574"),
+                new SwitchPosition("0.1", "D/RLT", "3574"),
+                new SwitchPosition("0.2", "CP/PD", "3574"),
+                new SwitchPosition("0.3", "ALT", "3574"),
+                new SwitchPosition("0.4", "L/G", "3574"),
+                new SwitchPosition("0.5", "RT/TD", "3574"),
+                new SwitchPosition("0.6", "dL/dG", "3574"),
+                new SwitchPosition("0.7", "dALT", "3574"),
+                new SwitchPosition("0.8", "P/t", "3574"),
+                new SwitchPosition("0.9", "DEC", "3574"),
+                new SwitchPosition("1.0", "DV/FV", "3574"),
                 }, "PCN Panel", "INS Parameter Selector", "%0.2f"));    // elements["PTN_574"] = default_multiposition_knob(_("INS Parameter Selector"), devices.PCN_NAV, device_commands.Button_574,   574, 11, 0.1, false, 0)
             AddFunction(new Axis(this, SYSLIGHTS, "3575", "575", 0.15d, 0d, 1d, "PCN Panel", "Light Brightnes Control/Test"));    // elements["PTN_575"] = default_axis_limited(_("Light Brightnes Control/Test"), devices.SYSLIGHTS, device_commands.Button_575, 575, 10, 0.1, false, 0)
             AddFunction(new PushButton(this, PCN_NAV, "3584", "584", "PCN Panel", "INS Button 1"));    // elements["PTN_584"] = default_button(_("INS Button 1"), devices.PCN_NAV, device_commands.Button_584, 584, 0, 1)
@@ -300,15 +301,31 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new ScaledNetworkValue(this, TACAN_C1_SELECTOR, 1d, "Tacan Panel", "Channel output for display (Ones)", "Current channel (Ones)", "(0-9)", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, TACAN_C10_SELECTOR, 1.31d, "Tacan Panel", "Channel output for display (Tens)", "Current channel (Tens)", "(0-12)", BindingValueUnits.Numeric));
             AddFunction(new Switch(this, TACAN, TACAN_XY_SELECTOR, new SwitchPosition[] {
-                new SwitchPosition("0.0", "X", TACAN_XY_SELECTOR),
-                new SwitchPosition("1.0", "Y", TACAN_XY_SELECTOR) }
+                new SwitchPosition("0.0", "X", CMD + TACAN_XY_SELECTOR),
+                new SwitchPosition("1.0", "Y", CMD + TACAN_XY_SELECTOR) }
                 , "Tacan Panel", "X/Y Selector", "%0.1f"));
             AddFunction(new Switch(this, TACAN, TACAN_MODE_SELECTOR, new SwitchPosition[] {
-                new SwitchPosition("0.0", "OFF", TACAN_MODE_SELECTOR),
-                new SwitchPosition("0.3", "REC", TACAN_MODE_SELECTOR),
-                new SwitchPosition("0.7", "T/R", TACAN_MODE_SELECTOR),
-                new SwitchPosition("1.0", "A/A", TACAN_MODE_SELECTOR) }
+                new SwitchPosition("0.0", "OFF", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("0.3", "REC", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("0.7", "T/R", CMD + TACAN_MODE_SELECTOR),
+                new SwitchPosition("1.0", "A/A", CMD + TACAN_MODE_SELECTOR) }
                 , "Tacan Panel", "Mode Selector", " %0.1f"));
+            #endregion
+            #region VOR.ILS Panel
+            //            AddFunction(new Switch(this, VORILS, "616", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Whole", "%0.1f"));    // elements["PTN_616"] = default_multiposition_knob(_("VOR/ILS Frequency Change Whole"),devices.VORILS,device_commands.Button_616,616, 11, 0.1, false, 0)
+            //            AddFunction(new PushButton(this, VORILS, "3617", "617", "Navigational Antennas", "VOR/ILS Power Dial"));    // elements["PTN_617"] = default_2_position_tumb(_("VOR/ILS Power Dial"), devices.VORILS,device_commands.Button_617,617)
+            //            AddFunction(new Switch(this, VORILS, "618", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Decimal", "%0.1f"));    // elements["PTN_618"] = default_multiposition_knob(_("VOR/ILS Frequency Change Decimal"),devices.VORILS,device_commands.Button_618,618, 20, 0.05,false,0.0)
+            //            AddFunction(new PushButton(this, VORILS, "3619", "619", "Navigational Antennas", "VOR/ILS Test Dial"));    // elements["PTN_619"] = default_2_position_tumb(_("VOR/ILS Test Dial"), devices.VORILS,device_commands.Button_619,619)
+            AddFunction(new ScaledNetworkValue(this, "615", 1d, "VOR/ILS Panel", "Channel output for display (Decimal Ones)", "Current channel", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "614", 1d, "VOR/ILS Panel", "Channel output for display (Decimal Tens)", "Current channel", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "613", 1d, "VOR/ILS Panel", "Channel output for display (Ones)", "Current channel", "0 - 9", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "612", 1d, "VOR/ILS Panel", "Channel output for display (Tens)", "Current channel", "0 - 1", BindingValueUnits.Numeric));
+            AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_WHOLE, CMD + VORILS_FREQUENCY_CHANGE_WHOLE, 0.1d, 0.0d, 1.0d, "VOR/ILS Panel", "Frequency Change whole"));
+            AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_DECIMAL, CMD + VORILS_FREQUENCY_CHANGE_DECIMAL, 0.05d, 0.0d, 1.0d, "VOR/ILS Panel", "Frequency Change Decimal"));
+            AddFunction(new Switch(this, VORILS, VORILS_POWER, new SwitchPosition[] {
+                new SwitchPosition("0.0", "ON", CMD + VORILS_POWER),
+                new SwitchPosition("1.0", "OFF", CMD + VORILS_POWER)
+                }, "VOR/ILS Panel", "Power Selector", "%0.1f"));
             #endregion
             #region Indicators
             // !!!! Any duplicate "name" values in a function will cause Helios to go bang.  Make sure that when you change the name, that it is unique
@@ -652,17 +669,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 //            AddFunction(new PushButton(this, UVHF, "3447", "447", "Radio Panel", "U/VHF Power 5W/25W Switch"));    // elements["PTN_447"] = default_2_position_tumb(_("U/VHF Power 5W/25W Switch"), devices.UVHF, device_commands.Button_447, 447)
 //            AddFunction(new Switch(this, UVHF, "448", new SwitchPosition[] { }, "Radio Panel", "U/VHF Manual/Preset Mode Selector", "%0.1f"));    // elements["PTN_448"] = multiposition_switch_limited(_("U/VHF Manual/Preset Mode Selector"), devices.UVHF, device_commands.Button_448, 448, 3, 0.50, false, 0)
             #endregion
-            #region VOR.ILS Panel
-            //            AddFunction(new Switch(this, VORILS, "616", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Whole", "%0.1f"));    // elements["PTN_616"] = default_multiposition_knob(_("VOR/ILS Frequency Change Whole"),devices.VORILS,device_commands.Button_616,616, 11, 0.1, false, 0)
-            //            AddFunction(new PushButton(this, VORILS, "3617", "617", "Navigational Antennas", "VOR/ILS Power Dial"));    // elements["PTN_617"] = default_2_position_tumb(_("VOR/ILS Power Dial"), devices.VORILS,device_commands.Button_617,617)
-            //            AddFunction(new Switch(this, VORILS, "618", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Decimal", "%0.1f"));    // elements["PTN_618"] = default_multiposition_knob(_("VOR/ILS Frequency Change Decimal"),devices.VORILS,device_commands.Button_618,618, 20, 0.05,false,0.0)
-            //            AddFunction(new PushButton(this, VORILS, "3619", "619", "Navigational Antennas", "VOR/ILS Test Dial"));    // elements["PTN_619"] = default_2_position_tumb(_("VOR/ILS Test Dial"), devices.VORILS,device_commands.Button_619,619)
-            AddFunction(new ScaledNetworkValue(this, VORILS_DISPLAY, 0d, "VOR/ILS", "Channel output for display", "Current channel", "use rotary encoder with initial 0, min0, max 13, step 0.1", BindingValueUnits.Numeric, 0d, "%.4f"));
-            AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_WHOLE, CMD + VORILS_FREQUENCY_CHANGE_WHOLE, 0.1d, 0.0d, 1.0d, "VOR/ILS", "Frequency Change whole"));
-            AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_DECIMAL, CMD + VORILS_FREQUENCY_CHANGE_DECIMAL, 0.05d, 0.0d, 1.0d, "VOR/ILS", "Frequency Change Decimal"));
-            AddFunction(new Switch(this, VORILS, VORILS_POWER, new SwitchPosition[] { new SwitchPosition("0.0", "On", CMD + VORILS_POWER), new SwitchPosition("1.0", "Off", CMD + VORILS_POWER) }, "VOR/ILS", "Power Dial", "%0.1f"));
-            #endregion
-            #region  Miscellaneous Left Panel
+           #region  Miscellaneous Left Panel
             AddFunction(new PushButton(this, MISCPANELS, "3400", "400", "Miscellaneous Left Panel", "Cockpit Clock"));    // elements["PTN_400"] = default_2_position_tumb(_("Cockpit Clock"), devices.MISCPANELS, device_commands.Button_400, 400)
             AddFunction(new PushButton(this, MISCPANELS, "3458", "458", "Miscellaneous Left Panel", "Anti-Skid Switch Cover"));    // elements["PTN_458"] = default_2_position_tumb(_("Anti-Skid Switch Cover"), devices.MISCPANELS, device_commands.Button_458, 458)
             AddFunction(new PushButton(this, MISCPANELS, "3459", "459", "Miscellaneous Left Panel", "Anti-Skid Switch"));    // elements["PTN_459"] = default_2_position_tumb(_("Anti-Skid Switch"), devices.MISCPANELS, device_commands.Button_459, 459)
