@@ -36,7 +36,7 @@ namespace GadrocsWorkshop.Helios.Controls
         private HeliosTrigger _positionOneExitAction;
         private HeliosTrigger _positionTwoEnterAction;
         private HeliosTrigger _positionTwoExitAction;
-        private NonClickableZone[] _nonClickableZones;
+//        private NonClickableZone[] _nonClickableZones;
         
         public ToggleSwitch()
             : base("Toggle Switch", new System.Windows.Size(50, 100))
@@ -140,7 +140,7 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
-        public NonClickableZone[] NonClickableZones
+ /*       public NonClickableZone[] NonClickableZones
         {
             get
             {
@@ -151,7 +151,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 _nonClickableZones = value;
             }
         }
-
+        */
         public string PositionOneImage
         {
             get
@@ -289,7 +289,7 @@ namespace GadrocsWorkshop.Helios.Controls
             {
                 foreach (NonClickableZone zone in NonClickableZones)
                 {
-                    if (SwitchPosition == zone.PositionWhenApplicable && zone.isClickInZone(location))
+                    if (SwitchPosition.ToString() == zone.PositionWhenApplicable.ToString() && zone.isClickInZone(location))
                     {
                         zone.ChildVisual.MouseDown(new System.Windows.Point(location.X-(zone.ChildVisual.Left-this.Left),location.Y-(zone.ChildVisual.Top-this.Top)));
                         return; //we get out to let the ChildVisual using the click

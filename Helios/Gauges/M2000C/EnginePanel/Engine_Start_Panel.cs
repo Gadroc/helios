@@ -17,7 +17,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
-    using System;
+    using System.Collections;
     using System.Globalization;
     using System.Windows;
     using System.Windows.Media;

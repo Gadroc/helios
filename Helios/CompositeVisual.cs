@@ -386,7 +386,7 @@ namespace GadrocsWorkshop.Helios
 
         protected RotarySwitch AddRotarySwitch(string name, Point posn, Size size,
             string knobImage, int defaultPosition, ClickType clickType,
-            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter, NonClickableZone[] nonClickableZones = null)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);

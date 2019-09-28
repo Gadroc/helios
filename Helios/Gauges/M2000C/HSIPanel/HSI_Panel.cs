@@ -120,10 +120,10 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 5, "rho", 80d));
             rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 6, "theta", 100d));
             rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 7, "TEL", 120d));
-            foreach (RotarySwitchPosition position in rSwitch.Positions)
+/*            foreach (RotarySwitchPosition position in rSwitch.Positions)
             {
                 AddTrigger(rSwitch.Triggers["position " + position.Index + ".entered"], rSwitch.Name);
-            }
+            }*/
             rSwitch.DefaultPosition = 1;
         }
 

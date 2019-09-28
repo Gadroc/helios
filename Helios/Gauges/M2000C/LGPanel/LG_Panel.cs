@@ -49,7 +49,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             int row1 = 173, row2 = 191, row3 = 210, row4 = 228, row5 = 232, row6 = 242;
             int column1 = 202, column2 = 217, column3 = 232, column4 = 248, column5 = 262;
             int sizeIndicX = 23, sizeIndicY = 14;
-            AddPushButton("Emergency Jettison Lever");
+           PushButton emergencyJettisonButton =  AddPushButton("Emergency Jettison Lever");
 
             //First row
             AddIndicator("A", new Point (column2, row1), new Size(sizeIndicX, sizeIndicY));
@@ -73,11 +73,13 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             AddSwitch("Fly by Wire G Limiter Switch", "{M2000C}/Images/Switches/black-circle-", new Point(241, 255), new Size(25, 70), ToggleSwitchPosition.One, ToggleSwitchType.OnOn);
             AddSwitch("Landing Gear Lever", "{M2000C}/Images/LGPanel/landing-gear-", new Point(70, 140), new Size(50, 170), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
 
-/*            AddGuard("Fly By Wire Gain Switch Guard", "fbwg-guard-", new Point(152, 242), new Size(43, 90), ToggleSwitchPosition.One, ToggleSwitchType.OnOn,
-                new NonClickableZone[] { new NonClickableZone(new Rect(0, 0, 43, 70), ToggleSwitchPosition.Two, fbwgSwitch, ToggleSwitchPosition.One) },
-                false, false);
-*/
-            AddRotarySwitch("Emergency Landing Gear Lever");
+            /*            AddGuard("Fly By Wire Gain Switch Guard", "fbwg-guard-", new Point(152, 242), new Size(43, 90), ToggleSwitchPosition.One, ToggleSwitchType.OnOn,
+                            new NonClickableZone[] { new NonClickableZone(new Rect(0, 0, 43, 70), ToggleSwitchPosition.Two, fbwgSwitch, ToggleSwitchPosition.One) },
+                            false, false);
+            */
+            
+            AddRotarySwitch("Emergency Landing Gear Lever", new NonClickableZone[] {
+                    new NonClickableZone(new Rect(0, 50, 90, 119), ToggleSwitchPosition.Two, emergencyJettisonButton, ToggleSwitchPosition.Two)});
         }
 
         #region Properties
@@ -151,9 +153,9 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 fromCenter: false);
         }
 
-        private void AddPushButton(string name)
+        private PushButton AddPushButton(string name)
         {
-            AddButton(name: name,
+            return AddButton(name: name,
                 posn: new Point(212, 81),
                 size: new Size(70, 70),
                 image: "{M2000C}/Images/LGPanel/emergency-jettison-not-pushed.png",
@@ -164,18 +166,21 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 fromCenter: false);
         }
 
-        private void AddRotarySwitch(string name)
+        private void AddRotarySwitch(string name, NonClickableZone[] nonClickableZones)
         {
-            AddRotarySwitch(name: name,
+            RotarySwitch rSwitch = AddRotarySwitch(name: name,
                 posn: new Point(169, 76),
-                size: new Size(44, 150),
+                size: new Size(150, 150),
                 knobImage: "{M2000C}/Images/LGPanel/emergency-landing-gear-lever.png",
-//                positions: new RSPositions[] { new RSPositions( 0, "on", 0d ), new RSPositions( 1, "off", 90d) },
                 defaultPosition: 0,
                 clickType: ClickType.Touch,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name, 
+                nonClickableZones: nonClickableZones,
                 fromCenter:true);
+            rSwitch.Positions.Clear();
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 1, "OFF", 0d));
+            rSwitch.Positions.Add(new RotarySwitchPosition(rSwitch, 2, "ON", 90d));
         }
 
         public override bool HitTest(Point location)

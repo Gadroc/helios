@@ -499,6 +499,17 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override void MouseDown(Point location)
         {
+            if(NonClickableZones != null)
+            {
+                foreach (NonClickableZone zone in NonClickableZones)
+                {
+/*                    if (this.Positions.Contains(zone.PositionWhenApplicable) && zone.isClickInZone(location))
+                    {
+                        zone.ChildVisual.MouseDown(new System.Windows.Point(location.X - (zone.ChildVisual.Left - this.Left), location.Y - (zone.ChildVisual.Top - this.Top)));
+                        return; //we get out to let the ChildVisual using the click
+                    }
+  */              }
+            }
             if (_clickType == ClickType.Touch)
             {
                 bool increment = (location.X > Width / 2d);
