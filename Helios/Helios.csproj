@@ -117,7 +117,7 @@
     <Compile Include="ComponentModel\HeliosUnitConverterAttribute.cs" />
     <Compile Include="ComponentModel\IPropertyNotification.cs" />
     <Compile Include="ComponentModel\PropertyNotificationEventArgs.cs" />
-    <Compile Include="Gauges\AV-8B\CompositeVisualAV8B.cs" />
+    <Compile Include="Gauges\AV-8B\AV8BCompositeVisual.cs" />
     <Compile Include="CompositeVisual.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="Controls\ClickType.cs" />

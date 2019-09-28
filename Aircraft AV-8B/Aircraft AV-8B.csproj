@@ -677,6 +677,20 @@
     <Resource Include="Images\WQHD\Indicator\Gear Right Amber.png" />
     <Resource Include="Images\WQHD\Indicator\Gear Right Green.png" />
     <Resource Include="Images\WQHD\Panel\Right Radio.png" />
+    <Resource Include="Images\WQHD\Button\Radio A Up.png" />
+    <Resource Include="Images\WQHD\Button\Radio Load Up.png" />
+    <Resource Include="Images\WQHD\Knob\Inner.png" />
+    <Resource Include="Images\WQHD\Knob\Outer.png" />
+    <Resource Include="Images\WQHD\Knob\Radio Channel Select.png" />
+    <Resource Include="Images\WQHD\Knob\Radio Selector Knob.png" />
+    <Resource Include="Images\WQHD\Knob\Radio Squlech Knob.png" />
+    <Resource Include="Images\WQHD\Button\Radio P Up.png" />
+    <Resource Include="Images\WQHD\Switch\Domed Down.png" />
+    <Resource Include="Images\WQHD\Switch\Domed Normal.png" />
+    <Resource Include="Images\WQHD\Switch\Domed Up.png" />
+    <Resource Include="Images\WQHD\Switch\Orange Down.png" />
+    <Resource Include="Images\WQHD\Switch\Orange Normal.png" />
+    <Resource Include="Images\WQHD\Switch\Orange Up.png" />
     <Content Include="Templates\Switch 2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

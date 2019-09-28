@@ -488,6 +488,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, RSC, "3618", "618", "V/UHF Radio", "Ancillary Mode Switch P mode"));
             AddFunction(new Switch(this, RSC, "3619", new SwitchPosition[] {new SwitchPosition("0.0", "AJ/M", "3619"), new SwitchPosition("0.15", "AJ", "3619"), new SwitchPosition("0.30", "MAR", "3619"), new SwitchPosition("0.45", "PRST", "3619"), new SwitchPosition("0.60", "MAN", "3619"), new SwitchPosition("0.75", "243", "3619"), new SwitchPosition("0.90", "121", "3619")}, "V/UHF Radio", "Frequency Mode Switch", "%0.2f"));
             AddFunction(new PushButton(this, RSC, "3620", "620", "V/UHF Radio", "LOAD/OFST Switch"));
+            AddFunction(new Text(this, "2100", "V/UHF Radio", "Channel Number", "Radio Channel Number text display"));
+            AddFunction(new Text(this, "2101", "V/UHF Radio", "Frequency", "Radio Frequency text display"));
 
             #endregion
 
@@ -503,6 +505,16 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "628", "1", "On", "0", "Off", "-1", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3632", "632", "1", "On", "0", "Off", "ACNIP", "IFF Operational Mode Switch", "%.1f"));
             AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "633", "1", "On", "0.5", "Mid", "0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%.1f"));
+
+            AddFunction(new Text(this, "2102", "ACNIP", "ACNIP 1 Mode Label", "Title for the ACNIP 1 Mode display"));
+            AddFunction(new Text(this, "2103", "ACNIP", "ACNIP 1 Mode", "ACNIP 1 Mode display"));
+            AddFunction(new Text(this, "2104", "ACNIP", "ACNIP 1 Code Label", "Title for the ACNIP 1 Code display"));
+            AddFunction(new Text(this, "2105", "ACNIP", "ACNIP 1 Code", "ACNIP 1 Code display"));
+            AddFunction(new Text(this, "2106", "ACNIP", "ACNIP 2 Mode Label", "Title for the ACNIP 2 Mode display"));
+            AddFunction(new Text(this, "2107", "ACNIP", "ACNIP 2 Mode", "ACNIP 2 Mode display"));
+            AddFunction(new Text(this, "2108", "ACNIP", "ACNIP 2 Code Label", "Title for the ACNIP 2 Code display"));
+            AddFunction(new Text(this, "2109", "ACNIP", "ACNIP 2 Code", "ACNIP 2 Code display"));
+
 
             #endregion
 

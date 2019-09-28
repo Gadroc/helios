@@ -44,45 +44,100 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private Rect _scaledScreenRectBR = SCREEN_RECT_BR;
         private static readonly Rect SCREEN_RECT_BM = new Rect(236, 889, 500, 81);
         private Rect _scaledScreenRectBM = SCREEN_RECT_BM;
-        private String _font = "MS 33558";
+        private String _font = "Hornet IFEI Mono";
         private string _interfaceDeviceName = "V/UHF Radio";
-        private string _ufcNumbers16 = "`0=«;`1=¬;`2=­;`3=®;`4=¯;`5=°;`6=±;`7=²;`8=³;`9=´;~0=µ;0=¡;1=¢;2=£;3=¤;4=¥;5=¦;6=§;7=¨;8=©;9=ª;_=É"; //Numeric mapping into characters in the UFC font
-        private string _ufcNumbers7 = "_=É"; //Numeric mapping into characters in the UFC font
         private string _imageLocation = "{AV-8B}/Images/";
 
         public Radio()
-            : base("Radio", new Size(727, 902))
+            : base("Radio/ACNIP", new Size(727, 902))
         {
-            //AddButton("TMR", 228, 76, new Size(64, 64), "UFC Function Selector Pushbutton TMR");
-            //AddButtonIP("IP", 685, 172, new Size(54, 54), "UFC I/P Pushbutton");
+            // 00000000*2100=99:2101=123.457:
+            AddTextDisplay("Channel Number", 200, 20, new Size(81, 80), "Channel Number", 72, "99", TextHorizontalAlignment.Left);
+            AddTextDisplay("Frequency Display", 281, 27, new Size(216, 51), "Frequency", 48, "888.888", TextHorizontalAlignment.Left);
+            AddEncoder("Radio volume", new Point(95,39), new Size(50, 50), "Volume Knob", "WQHD/Knob/Radio Squlech Knob.png");
+            AddEncoder("Channel Knob", new Point(547,37), new Size(70, 70), "Chan/Freq Knob", "WQHD/Knob/Radio Channel Select.png");
+            AddButton("A Mode Button", 260, 186, new Size(68, 68), "Ancillary Mode Pointer A mode", "WQHD/Button/Radio A Up.png");
+            AddButton("P Mode Button", 358, 186, new Size(68, 68), "Ancillary Mode Switch P mode", "WQHD/Button/Radio P Up.png");
+            AddButton("Load Switch", 628, 105, new Size(68, 68), "LOAD/OFST Switch", "WQHD/Button/Radio Load Up.png");
+            RotarySwitch _opKnob = AddKnob("Operational Mode", new Point(119, 163), new Size(90, 90), "Operational Mode Switch");
+            _opKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_opKnob, 0, "Zero", 315d));
+            _opKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_opKnob, 1, "Off", 0d));
+            _opKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_opKnob, 2, "Test", 45d));
+            _opKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_opKnob, 3, "TR+G", 90d));
+            _opKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_opKnob, 4, "TR", 135d));
+            _opKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_opKnob, 5, "ADF", 180d));
+            _opKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_opKnob, 6, "Chng PRST", 225d));
 
-            //AddIndicator("R FUEL", 100, 199, new Size(36, 88), "Caution R fuel Indicator");
+            RotarySwitch _freqKnob = AddKnob("Frequency Mode", new Point(491, 163), new Size(90, 90), "Frequency Mode Switch");
+            _freqKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_freqKnob, 0, "AJ/M", 315d));
+            _freqKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_freqKnob, 1, "AJ", 0d));
+            _freqKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_freqKnob, 2, "MAR", 45d));
+            _freqKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_freqKnob, 3, "PRST", 90d));
+            _freqKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_freqKnob, 4, "MAN", 135d));
+            _freqKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_freqKnob, 5, "342", 180d));
+            _freqKnob.Positions.Add(new Helios.Controls.RotarySwitchPosition(_freqKnob, 6, "121", 225d));
 
-            //AddPot("UFC Display Brightness", new Point(675, 67), new Size(64, 64), "UFC Brightness Control Knob");
-            //AddEncoder("Radio 1", new Point(179, 490), new Size(132, 132), "UFC COMM 1 Channel Selector Knob");
-            
-            AddTextDisplay("Left Scratchpad", 327, 53, new Size(80, 60), "Left Scratchpad Data", 38, "XX", TextHorizontalAlignment.Left, _ufcNumbers16);
-            AddTextDisplay("Scratchpad", 387, 53, new Size(256,60), "Scratchpad Number", 38, "1234567", TextHorizontalAlignment.Right, _ufcNumbers7);
-            AddTextDisplay("Comm 1 Display", 196,367, new Size(100, 60), "Comm Channel 1", 40, "~~", TextHorizontalAlignment.Center, _ufcNumbers16);
-            AddTextDisplay("Comm 2 Display", 679,367, new Size(100, 60), "Comm Channel 2", 40, "~~", TextHorizontalAlignment.Center, _ufcNumbers16);
 
-            //AddThreeWayToggle("Display Mode", 413, 761, new Size(50, 100), "Display Mode switch");
-            //AddTwoWayToggle("Altimeter Switch", 719, 761, new Size(50, 100), "Altimeter Mode Switch");
+            _interfaceDeviceName = "ACNIP";
+            // 00000000*2102=MODE:2103=PLN:2104=CODE:2105=00:2106=MODE:2107=CY:2108=CODE:2109=03: 
+            AddTextDisplay("1 Mode Label", 138, 381, new Size(68, 25), "ACNIP 1 Mode Label", 24, "MMMM", TextHorizontalAlignment.Center);
+            AddTextDisplay("1 Mode display", 138, 406, new Size(68, 25), "ACNIP 1 Mode", 24, "MMMM", TextHorizontalAlignment.Center);
+            AddTextDisplay("1 Code Label", 138, 431, new Size(68, 25), "ACNIP 1 Code Label", 24, "MMMM", TextHorizontalAlignment.Center);
+            AddTextDisplay("1 Code display", 138, 456, new Size(68, 25), "ACNIP 1 Code", 24, "MMMM", TextHorizontalAlignment.Center);
+            AddTextDisplay("2 Mode Label", 208, 381, new Size(68, 25), "ACNIP 2 Mode Label", 24, "MMMM", TextHorizontalAlignment.Center);
+            AddTextDisplay("2 Mode display", 208, 406, new Size(68, 25), "ACNIP 2 Mode", 24, "MMMM", TextHorizontalAlignment.Center);
+            AddTextDisplay("2 Code Label", 208, 431, new Size(68, 25), "ACNIP 2 Code Label", 24, "MMMM", TextHorizontalAlignment.Center);
+            AddTextDisplay("2 Code display", 208, 456, new Size(68, 25), "ACNIP 2 Code", 24, "MMMM", TextHorizontalAlignment.Center);
+            AddTwoWayToggle("Mode Switch", 323, 391, new Size(69, 107), "ACNIP Mode Switch","WQHD/Switch/Orange ");
+            AddTwoWayToggle("KY-1 Cipher Switch", 435, 372, new Size(64, 146), "KY-1 Cipher Type Selector Switch", "WQHD/Switch/Domed ");
+            AddTwoWayToggle("KY-2 Cipher Switch", 546, 372, new Size(64, 146), "KY-2 Cipher Type Selector Switch", "WQHD/Switch/Domed ");
+            AddTwoWayToggle("KY-1 Code/Mode Switch", 108,570, new Size(69, 107), "KY-1 Code/Mode Switch", "WQHD/Switch/Orange ");
+            AddTwoWayToggle("KY-2 Code/Mode Switch", 218, 570, new Size(69, 107), "KY-2 Code/Mode Switch", "WQHD/Switch/Orange ");
+            AddTwoWayToggle("ACNIP Radio Selector Switch", 323, 553, new Size(64, 146), "ACNIP Radio Selector Switch", "WQHD/Switch/Domed ");
+            AddTwoWayToggle("KY-58 Codes Clear Switch", 434, 553, new Size(64, 146), "KY-58 Codes Clear Switch", "WQHD/Switch/Domed ");
+            AddThreeWayToggle("KY-58 Load Switch", 546, 553, new Size(64, 146), "KY-58 Remote Codes Load Switch", "WQHD/Switch/Domed ");
+            AddTwoWayToggle("IFF Operational Mode Switch", 434, 733, new Size(64, 146), "IFF Operational Mode Switch", "WQHD/Switch/Domed ");
+            AddThreeWayToggle("IFF Crypto Switch", 546, 733, new Size(64, 146), "IFF Crypto Mode Switch", "WQHD/Switch/Domed ");
+            _interfaceDeviceName = "Intercomm";
+            AddThreeWayToggle("Mic Switch", 321, 750, new Size(69, 107), "Mic Operational Mode Switch", "WQHD/Switch/Orange ");
+            AddPot("Ground Volume", new Point(154, 719), new Size(120, 120), "Ground Volume Knob", "WQHD/Knob/Outer.png");
+            AddPot("Aux Volume", new Point(174, 739), new Size(80, 80), "Aux Volume Knob", "WQHD/Knob/Inner.png",270,270);
         }
 
         public override string BezelImage
         {
-            get { return "{AV-8B}/Images/WQHD/Panel/Right Radio.png"; }
+            get { return _imageLocation + "WQHD/Panel/Right Radio.png"; }
         }
 
-        private void AddPot(string name, Point posn, Size size, string interfaceElementName)
+        private RotarySwitch AddKnob(string name, Point posn, Size size, string interfaceElementName)
         {
+            Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
+            _knob.Name = "Radio/ACNIP_" + name;
+            _knob.KnobImage = _imageLocation + "WQHD/Knob/Radio Selector Knob.png";
+            _knob.DrawLabels = false;
+            _knob.DrawLines = false;
+            _knob.Positions.Clear();
+            _knob.CurrentPosition = 1;
+            _knob.Top = posn.Y;
+            _knob.Left = posn.X;
+            _knob.Width = size.Width;
+            _knob.Height = size.Height;
+
+            AddRotarySwitchBindings(name, posn, size, _knob, _interfaceDeviceName, interfaceElementName);
+            return _knob;
+        }
+
+        private void AddPot(string name, Point posn, Size size, string interfaceElementName) => AddPot(name, posn, size, interfaceElementName, "Common Knob.png");
+        private void AddPot(string name, Point posn, Size size, string interfaceElementName, string imageName) => AddPot(name, posn, size, interfaceElementName, imageName, 219,270);
+        private void AddPot(string name, Point posn, Size size, string interfaceElementName, string imageName, double initialrotation, double rotationtravel)
+        {
+
             AddPot(name: name,
                 posn: posn,
                 size: size,
-                knobImage: "{AV-8B}/Images/Common Knob.png",
-                initialRotation: 219,
-                rotationTravel: 291,
+                knobImage: _imageLocation + imageName,
+                initialRotation: initialrotation,
+                rotationTravel: rotationtravel,
                 minValue: 0,
                 maxValue: 1,
                 initialValue: 0,
@@ -92,13 +147,14 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 fromCenter: false);
         }
 
-        private void AddEncoder(string name, Point posn, Size size, string interfaceElementName)
+        private void AddEncoder(string name, Point posn, Size size, string interfaceElementName) => AddEncoder(name, posn, size, interfaceElementName, "AV8BNA_Rotary5.png");
+        private void AddEncoder(string name, Point posn, Size size, string interfaceElementName, string imageName)
         {
             AddEncoder(
                 name: name,
                 size: size,
                 posn: posn,
-                knobImage: "{AV-8B}/Images/AV8BNA_Rotary5.png",
+                knobImage: _imageLocation + imageName,
                 stepValue: 0.005,
                 rotationStep: 10,
                 interfaceDeviceName: _interfaceDeviceName,
@@ -107,11 +163,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 );
         }
 
-        //private void AddTextDisplay(string name, double x, double y, Size size, string testDisp)
-        //{
-        //    AddTextDisplay(name, x, y, size, 32, testDisp, TextHorizontalAlignment.Left);
-        //}
-
+        private void AddTextDisplay(string name, double x, double y, Size size,
+            string interfaceElementName, double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign)
+        {
+            AddTextDisplay(name, x, y, size,
+            interfaceElementName, baseFontsize, testDisp, hTextAlign, "");
+        }
         private void AddTextDisplay(string name, double x, double y, Size size,
             string interfaceElementName, double baseFontsize, string testDisp, TextHorizontalAlignment hTextAlign, string ufcDictionary)
         {
@@ -119,146 +176,40 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 name: name,
                 posn: new Point(x, y),
                 size: size,
-                font: "Hornet UFC",
+                font: _font,
                 baseFontsize: baseFontsize,
                 horizontalAlignment: hTextAlign,
                 verticalAligment: TextVerticalAlignment.Center,
                 testTextDisplay: testDisp,
-                textColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72),
-                backgroundColor: Color.FromArgb(0xff, 0x26, 0x3f, 0x36),
-                useBackground: false,
+                textColor: Color.FromArgb(0xff, 0x30, 0x30, 0x30),
+                backgroundColor: Color.FromArgb(0x00, 0xbb, 0xbb, 0xbb),
+                useBackground: true,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 textDisplayDictionary: ufcDictionary
                 );
         }
 
-        private void AddButton(string name, double x, double y, Size size, string interfaceElementName)
+        private void AddButton(string name, double x, double y, Size size, string interfaceElementName) => AddButton(name, x, y, size, interfaceElementName, _imageLocation + "");
+        private void AddButton(string name, double x, double y, Size size, string interfaceElementName, string imageStem)
         {
             Point pos = new Point(x, y);
             AddButton(
                 name: name,
                 posn: pos,
                 size: size,
-                image: "{AV-8B}/Images/UFC Button Up " + name + ".png",
-                pushedImage: "{AV-8B}/Images/UFC Button Dn " + name + ".png",
+                image: _imageLocation + imageStem,
+                pushedImage: _imageLocation + "_transparent.png",
                 buttonText: "",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 fromCenter: false
                 );
         }
-        private void AddButton(string name, double x, double y, Size size, string interfaceDeviceName, string interfaceElementName)
-        {
-            Point pos = new Point(x, y);
-            AddButton(
-                name: name,
-                posn: pos,
-                size: size,
-                image: "{AV-8B}/Images/_transparent.png",
-                pushedImage: "{AV-8B}/Images/_transparent.png",
-                buttonText: "",
-                interfaceDeviceName: interfaceDeviceName,
-                interfaceElementName: interfaceElementName,
-                fromCenter: false
-                );
-        }
 
-        private void AddButtonIP(string name, double x, double y, Size size, string interfaceElementName)
-        { AddButtonIP(name, x, y, size, interfaceElementName, true); }
-        private void AddButtonIP(string name, double x, double y, Size size, string interfaceElementName, Boolean glyph)
-        {
-            Point pos = new Point(x, y);
-            PushButton button = AddButton(
-                name: name,
-                posn: pos,
-                size: size,
-                image: "{Helios}/Images/Buttons/tactile-dark-round.png",
-                pushedImage: "{Helios}/Images/Buttons/tactile-dark-round-in.png",
-                buttonText: "",
-                interfaceDeviceName: _interfaceDeviceName,
-                interfaceElementName: interfaceElementName,
-                fromCenter: false
-                );
-
-            if (glyph)
-            {
-                button.Glyph = PushButtonGlyph.Circle;
-                button.GlyphThickness = 3;
-                button.GlyphColor = Color.FromArgb(0xFF, 0xC0, 0xC0, 0xC0);
-            }
-        }
-        private void AddIndicator(string name, double x, double y, Size size, string interfaceElementName) { AddIndicator(name, x, y, size, false, interfaceElementName); }
-        private void AddIndicator(string name, double x, double y, Size size, bool _vertical, string interfaceElementName)
-        {
-            Indicator indicator = AddIndicator(
-                name: name,
-                posn: new Point(x, y),
-                size: size,
-                onImage: _imageLocation + "Caution " + name + ".png",
-                offImage: _imageLocation + "_transparent.png",
-                onTextColor: Color.FromArgb(0x00, 0xff, 0xff, 0xff),
-                offTextColor: Color.FromArgb(0x00, 0x00, 0x00, 0x00),
-                font: _font,
-                vertical: _vertical,
-                interfaceDeviceName: _interfaceDeviceName,
-                interfaceElementName: interfaceElementName,
-                fromCenter: false
-                );
-                indicator.Text = "";
-                indicator.Name = "UFC_" + name;
-        }
-
-        private void AddCautionWarningIndicator(string name, double x, double y, Size size, string interfaceElementName)
-        {
-            Color onTextColor;
-            if (name == "MASTER WARNING")
-            {
-                onTextColor = Color.FromArgb(0x00, 0xc7, 0x1e, 0x1e);
-            }
-            else
-            {
-                onTextColor = Color.FromArgb(0x00, 0xb3, 0xa2, 0x29);
-            }
-
-            Indicator indicator = AddIndicator(
-                name: name,
-                posn: new Point(x, y),
-                size: size,
-                onImage: "{AV-8B}/Images/Caution " + name + ".png",
-                offImage: "{AV-8B}/Images/_transparent.png",
-                offTextColor: Color.FromArgb(0x00, 0x1C, 0x1C, 0x1C),
-                onTextColor: onTextColor,
-                font: _font,
-                vertical: false,
-                interfaceDeviceName: "Caution/Warning",
-                interfaceElementName: interfaceElementName,
-                fromCenter: false
-                );
-            indicator.Text = name;
-            indicator.Name = "UFC_" + name;
-            if (name == "MASTER WARNING")
-            {
-                indicator.OnTextColor = Color.FromArgb(0x00, 0xc7, 0x1e, 0x1e);
-            }
-            else
-            {
-                indicator.OnTextColor = Color.FromArgb(0x00, 0xb3, 0xa2, 0x29);
-            }
-            indicator.TextFormat.FontStyle = FontStyles.Normal;
-            indicator.TextFormat.FontWeight = FontWeights.Normal;
-            indicator.TextFormat.FontSize = 18;
-            indicator.TextFormat.FontFamily = new FontFamily(_font);
-            indicator.TextFormat.PaddingLeft = 0;
-            indicator.TextFormat.PaddingRight = 0;
-            indicator.TextFormat.PaddingTop = 0;
-            indicator.TextFormat.PaddingBottom = 0;
-            indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-            indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
-        }
-
-
-        private void AddTwoWayToggle(string name, double x, double y, Size size, string interfaceElementName)
+        private void AddTwoWayToggle(string name, double x, double y, Size size, string interfaceElementName) =>
+            AddTwoWayToggle(name, x, y, size, interfaceElementName, "Toggles/round-");
+        private void AddTwoWayToggle(string name, double x, double y, Size size, string interfaceElementName, string imageStem)
         {
             ToggleSwitch toggle = AddToggleSwitch(
                 name: name,
@@ -266,17 +217,18 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 size: size,
                 defaultPosition: ToggleSwitchPosition.One,
                 defaultType: ToggleSwitchType.OnOn,
-                positionOneImage: "{Helios}/Images/Toggles/round-up.png",
-                positionTwoImage: "{Helios}/Images/Toggles/round-down.png",
+                positionOneImage: _imageLocation + imageStem + "up.png",
+                positionTwoImage: _imageLocation + imageStem + "down.png",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 clickType: ClickType.Swipe,
                 fromCenter: false
                 );
-            toggle.Name = "UFC_" + name;
         }
 
-        private void AddThreeWayToggle(string name, double x, double y, Size size, string interfaceElementName)
+        private void AddThreeWayToggle(string name, double x, double y, Size size, string interfaceElementName) =>
+            AddThreeWayToggle(name, x, y, size, interfaceElementName, "Toggles/round-");
+        private void AddThreeWayToggle(string name, double x, double y, Size size, string interfaceElementName, string imageStem)
         {
             ThreeWayToggleSwitch toggle = AddThreeWayToggle(
                 name: name,
@@ -284,14 +236,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 size: size,
                 defaultPosition: ThreeWayToggleSwitchPosition.Two,
                 defaultType: ThreeWayToggleSwitchType.OnOnOn,
-                positionOneImage: "{Helios}/Images/Toggles/round-up.png",
-                positionTwoImage: "{Helios}/Images/Toggles/round-norm.png",
-                positionThreeImage: "{Helios}/Images/Toggles/round-down.png",
+                positionOneImage: _imageLocation + imageStem + "Up.png",
+                positionTwoImage: _imageLocation + imageStem + "Normal.png",
+                positionThreeImage: _imageLocation + imageStem + "Down.png",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 fromCenter: false
                 );
-            toggle.Name = "UFC_" + name;
         }
 
 

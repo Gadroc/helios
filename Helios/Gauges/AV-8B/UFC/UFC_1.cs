@@ -47,7 +47,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private String _font = "MS 33558";
         private string _interfaceDeviceName = "UFC";
         private string _ufcNumbers16 = "`0=«;`1=¬;`2=­;`3=®;`4=¯;`5=°;`6=±;`7=²;`8=³;`9=´;~0=µ;0=¡;1=¢;2=£;3=¤;4=¥;5=¦;6=§;7=¨;8=©;9=ª;_=É"; //Numeric mapping into characters in the UFC font
-        private string _ufcNumbers7 = "_=É"; //Numeric mapping into characters in the UFC font
+        private string _ufcNumbers7 = "_=É;.=<"; //Numeric mapping into characters in the UFC font
         private string _imageLocation = "{AV-8B}/Images/";
 
         public UFC_1()

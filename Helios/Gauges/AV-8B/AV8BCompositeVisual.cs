@@ -23,11 +23,11 @@ namespace GadrocsWorkshop.Helios
     using GadrocsWorkshop.Helios.Controls;
 
 
-    public abstract partial class CompositeVisualAV8B : CompositeVisual
+    public abstract partial class AV8BCompositeVisual : CompositeVisual
     {
         protected new HeliosInterface _defaultInterface;
 
-        public CompositeVisualAV8B(string name, Size nativeSize)
+        public AV8BCompositeVisual(string name, Size nativeSize)
             : base(name, nativeSize)
         {
             _defaultInterfaceName = "";
