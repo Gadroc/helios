@@ -26,16 +26,24 @@ namespace GadrocsWorkshop.Helios
     public class NonClickableZone
     {
         private Rect _pastToChildZone;
-        private ToggleSwitchPosition _positionWhenApplicable;
-        private HeliosVisual _childVisual;
-        private ToggleSwitchPosition _guardedChildPosition;
+        public ToggleSwitchPosition GuardedChildPosition { get; set; }
+        public HeliosVisual ChildVisual { get; set; }
+        public ToggleSwitchPosition PositionWhenApplicable { get; set; }
+        public bool AllPositions { get; set; }
 
         public NonClickableZone(Rect nonClickableZone, ToggleSwitchPosition position, HeliosVisual childVisual, ToggleSwitchPosition guardedChildPosition)
         {
             _pastToChildZone = nonClickableZone;
-            _positionWhenApplicable = position;
-            _childVisual = childVisual;
-            _guardedChildPosition = guardedChildPosition;
+            PositionWhenApplicable = position;
+            ChildVisual = childVisual;
+            GuardedChildPosition = guardedChildPosition;
+        }
+
+        public NonClickableZone(Rect nonClickableZone, bool allPosition, HeliosVisual childVisual)
+        {
+            _pastToChildZone = nonClickableZone;
+            AllPositions = allPosition;
+            ChildVisual = childVisual;
         }
 
         #region Properties
@@ -49,45 +57,6 @@ namespace GadrocsWorkshop.Helios
             set
             {
                 _pastToChildZone = value;
-            }
-        }
-
-        public ToggleSwitchPosition PositionWhenApplicable
-        {
-            get
-            {
-                return _positionWhenApplicable;
-            }
-
-            set
-            {
-                _positionWhenApplicable = value;
-            }
-        }
-
-        public HeliosVisual ChildVisual
-        {
-            get
-            {
-                return _childVisual;
-            }
-
-            set
-            {
-                _childVisual = value;
-            }
-        }
-
-        public ToggleSwitchPosition GuardedChildPosition
-        {
-            get
-            {
-                return _guardedChildPosition;
-            }
-
-            set
-            {
-                _guardedChildPosition = value;
             }
         }
 

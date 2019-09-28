@@ -503,12 +503,12 @@ namespace GadrocsWorkshop.Helios.Controls
             {
                 foreach (NonClickableZone zone in NonClickableZones)
                 {
-/*                    if (this.Positions.Contains(zone.PositionWhenApplicable) && zone.isClickInZone(location))
+                    if (zone.AllPositions && zone.isClickInZone(location))
                     {
                         zone.ChildVisual.MouseDown(new System.Windows.Point(location.X - (zone.ChildVisual.Left - this.Left), location.Y - (zone.ChildVisual.Top - this.Top)));
                         return; //we get out to let the ChildVisual using the click
                     }
-  */              }
+                }
             }
             if (_clickType == ClickType.Touch)
             {
@@ -574,6 +574,17 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override void MouseUp(Point location)
         {
+            if (NonClickableZones != null)
+            {
+                foreach (NonClickableZone zone in NonClickableZones)
+                {
+                    if (zone.AllPositions && zone.isClickInZone(location))
+                    {
+                        zone.ChildVisual.MouseUp(new System.Windows.Point(location.X - (zone.ChildVisual.Left - this.Left), location.Y - (zone.ChildVisual.Top - this.Top)));
+                        return; //we get out to let the ChildVisual using the click
+                    }
+                }
+            }
             if (_mouseDown)
             {
                 _mouseDown = false;

@@ -67,8 +67,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 
             AddSwitch("Master Arm Switch", "red-", new Point(32, 28), new Size(30, 90), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn, false);
             ToggleSwitch selectiveJettisonSwitch = AddSwitch("Selective Jettison Switch", "long-black-", new Point(36, 170), new Size(29, 60), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn, true);
-            AddGuard("Selective Jettison Switch Guard", "guard-", new Point(5, 160), new Size(100, 50), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn,
-                new NonClickableZone[] { new NonClickableZone(new Rect(30, 0, 120, 63), ToggleSwitchPosition.Two, selectiveJettisonSwitch, ToggleSwitchPosition.Two) });
+            AddGuard("Selective Jettison Switch Guard", "guard-", new Point(5, 160), new Size(100, 50), ToggleSwitchPosition.One, ToggleSwitchType.OnOn,
+                new NonClickableZone[] { new NonClickableZone(new Rect(30, 0, 120, 63), ToggleSwitchPosition.Two, selectiveJettisonSwitch, ToggleSwitchPosition.One) });
         }
 
         #region Properties
@@ -128,8 +128,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 posn: posn,
                 size: size,
                 defaultPosition: defaultPosition,
-                positionOneImage: "{M2000C}/Images/Switches/" + imagePrefix + "down.png",
-                positionTwoImage: "{M2000C}/Images/Switches/" + imagePrefix + "up.png",
+                positionOneImage: "{M2000C}/Images/Switches/" + imagePrefix + "up.png",
+                positionTwoImage: "{M2000C}/Images/Switches/" + imagePrefix + "down.png",
                 defaultType: defaultType,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,

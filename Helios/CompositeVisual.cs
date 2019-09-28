@@ -404,6 +404,7 @@ namespace GadrocsWorkshop.Helios
                 DefaultPosition = defaultPosition,
                 ClickType = clickType,
             };
+            _knob.NonClickableZones = nonClickableZones;
             _knob.Positions.Clear();
 
             Children.Add(_knob);

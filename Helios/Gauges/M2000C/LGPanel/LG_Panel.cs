@@ -21,21 +21,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
     using System.Globalization;
     using System.Windows;
     using System.Windows.Media;
-/*
-    public class RSPositions
-    {
-        private int _position;
-        private string _name;
-        private double _rotation;
 
-        public RSPositions(int position, string name, double rotation)
-        {
-            _position = position;
-            _name = name;
-            _rotation = rotation;
-        }
-    }
-    */
     [HeliosControl("HELIOS.M2000C.LG_PANEL", "Landing Gear Panel", "M2000C Gauges", typeof(M2000CDeviceRenderer))]
     class M2000C_LGPanel : M2000CDevice
     {
@@ -79,7 +65,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             */
             
             AddRotarySwitch("Emergency Landing Gear Lever", new NonClickableZone[] {
-                    new NonClickableZone(new Rect(0, 50, 90, 119), ToggleSwitchPosition.Two, emergencyJettisonButton, ToggleSwitchPosition.Two)});
+                    new NonClickableZone(new Rect(123, 81, 37, 70), true, emergencyJettisonButton)});
         }
 
         #region Properties
@@ -169,8 +155,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         private void AddRotarySwitch(string name, NonClickableZone[] nonClickableZones)
         {
             RotarySwitch rSwitch = AddRotarySwitch(name: name,
-                posn: new Point(169, 76),
-                size: new Size(150, 150),
+                posn: new Point(169, 83),
+                size: new Size(160, 160),
                 knobImage: "{M2000C}/Images/LGPanel/emergency-landing-gear-lever.png",
                 defaultPosition: 0,
                 clickType: ClickType.Touch,

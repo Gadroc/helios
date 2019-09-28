@@ -30,15 +30,13 @@ https://github.com/BlueFinBima/helios/issues and if nothing appears to be
 relevant then open a new issue.
   
 * * * Working Elements on M2000C * * *
-* * *      27th September 2019   * * *
+* * *      28th September 2019   * * *
 
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * * Next Release Helios v1.4.2019.xxxx  * * *
 * * * * * * * * * * * * * * * * * * * * * * * *
-What’s new
-----------
-DCS M2000C
-----------
+What’s new DCS M2000C
+---------------------
 	* Added the Fuel Panel
        - added the 7 indicators empty tanks
 	   - added the refueling indicator
@@ -79,6 +77,7 @@ DCS M2000C
 	   - added the 2 guards
 	* Improvement of the Landing Gear Panel
 	   - added the guard for the gun safe switch 
+ 	   - added the emergency landing gear lever
 	* Improvement of the Master Caution lights Panel
 	   - try to make the 2 indicators clickable with the same solution as the PCN Panel --> doesn’t work
 	* Improvement of the pictures of the cockpit
@@ -89,7 +88,7 @@ DCS M2000C
 	   - Added the 5 RWR indicators
 
 Known issues DCS M2000C
-------------
+-----------------------
 	* Fuel Panel
 	   - the Fuel CrossFeed Switch doesn’t work
 	   - the two toggle switches don’t work (seems not to be used in DCS)
@@ -97,9 +96,6 @@ Known issues DCS M2000C
 	   - seems the id is not the good one when clicking on the 2 indicators ?
 	* Landing Gear Panel
 	   - removed the Guard for the "fly by wire gain switch". Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
-	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositeVisual.cs
-	* PCA Panel
-	   - the red Gun Arm Switch, the click is reversed
 	* TACAN Panel
 	   - the switch Mode is not working from Helios to DCS
 	   - the 2 switches to change the TACAN frequency are not implemented

@@ -128,11 +128,27 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "561", "Caution Panel", "RPM", "RPM"));
             AddFunction(new FlagValue(this, "562", "Caution Panel", "DECOL", "DECOL"));
             AddFunction(new FlagValue(this, "563", "Caution Panel", "PARK", "PARK"));
-            AddFunction(new Switch(this, PWRPNL, "520", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3520"), new SwitchPosition("0.0", "ON", "3520") }, "Caution Panel", "Main Battery Switch", "%0.1f"));
-            AddFunction(new Switch(this, PWRPNL, "521", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3521"), new SwitchPosition("0.0", "ON", "3521") }, "Caution Panel", "Electric Power Transfer Switch", "%0.1f"));
-            AddFunction(new Switch(this, PWRPNL, "522", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3522"), new SwitchPosition("0.0", "ON", "3522") }, "Caution Panel", "Alternator 1 Switch", "%0.1f"));
-            AddFunction(new Switch(this, PWRPNL, "523", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3523"), new SwitchPosition("0.0", "ON", "3523") }, "Caution Panel", "Alternator 2 Switch", "%0.1f"));
-            AddFunction(new Switch(this, PWRPNL, "524", new SwitchPosition[] { new SwitchPosition("1.0", "1", "3524"), new SwitchPosition("0.0", "OFF", "3524"), new SwitchPosition("-1.0", "2", "3524") }, "Caution Panel", "Lights Test Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "520", new SwitchPosition[] {
+                new SwitchPosition("1.0", "OFF", "3520"),
+                new SwitchPosition("0.0", "ON", "3520")},
+                "Caution Panel", "Main Battery Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "521", new SwitchPosition[] {
+                new SwitchPosition("1.0", "OFF", "3521"),
+                new SwitchPosition("0.0", "ON", "3521")},
+                "Caution Panel", "Electric Power Transfer Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "522", new SwitchPosition[] {
+                new SwitchPosition("1.0", "OFF", "3522"),
+                new SwitchPosition("0.0", "ON", "3522")},
+                "Caution Panel", "Alternator 1 Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "523", new SwitchPosition[] {
+                new SwitchPosition("1.0", "OFF", "3523"),
+                new SwitchPosition("0.0", "ON", "3523")},
+                "Caution Panel", "Alternator 2 Switch", "%0.1f"));
+            AddFunction(new Switch(this, PWRPNL, "524", new SwitchPosition[] {
+                new SwitchPosition("1.0", "1", "3524"),
+                new SwitchPosition("0.0", "OFF", "3524"),
+                new SwitchPosition("-1.0", "2", "3524")},
+                "Caution Panel", "Lights Test Switch", "%0.1f"));
             #endregion
             #region Engine Sensors Panel
             AddFunction(new ScaledNetworkValue(this, "371", 1d, "Engine Sensors Panel", "Engine RPM (%) (Tens)", "Engine RPM (Tens).", "0 - 10", BindingValueUnits.Numeric));
@@ -143,14 +159,36 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new ScaledNetworkValue(this, "370", engineTempScale, "Engine Sensors Panel", "Engine T7 Needle", "Engine Temp Needle.", "0 - 10", BindingValueUnits.Numeric));
             #endregion
             #region  Engine Start Panel
-            AddFunction(new Switch(this, ENGPANEL, "645", new SwitchPosition[] { new SwitchPosition("0.0", "CLOSE", "3645"), new SwitchPosition("1.0", "OPEN", "3645") }, "Engine Start Panel", "Engine Start Switch Guard", "%0.1f"));    // elements["PTN_645"] = default_2_position_tumb(_("Engine Start Switch Cover"), devices.ENGPANEL, device_commands.Button_645, 645)
-            AddFunction(new PushButton(this, ENGPANEL, "3649", "649", "Engine Start Panel", "Engine Start Button"));    // elements["PTN_649"] = default_button(_("Engine Start Switch"), devices.ENGPANEL, device_commands.Button_649, 649, 0, 1)
-            AddFunction(new Switch(this, ENGPANEL, "646", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3646"), new SwitchPosition("1.0", "ON", "3646") }, "Engine Start Panel", "Starter Fuel Pump Switch", "%0.1f"));    // elements["PTN_646"] = default_2_position_tumb(_("Starter Fuel Pump Switch"), devices.ENGPANEL, device_commands.Button_646, 646)
-            AddFunction(new Switch(this, INSTPANEL, "647", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3647"), new SwitchPosition("1.0", "ON", "3647") }, "Engine Start Panel", "Left Fuel Pump Switch", "%0.1f"));    // elements["PTN_647"] = default_2_position_tumb(_("Engine Fuel Left Boost Pump Switch"), devices.INSTPANEL, device_commands.Button_647, 647)
-            AddFunction(new Switch(this, INSTPANEL, "648", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3648"), new SwitchPosition("1.0", "ON", "3648") }, "Engine Start Panel", "Right Fuel Pump Switch", "%0.1f"));    // elements["PTN_648"] = default_2_position_tumb(_("Engine Fuel Right Boost Pump Switch"), devices.INSTPANEL, device_commands.Button_648, 648)
-            AddFunction(new Switch(this, ENGPANEL, "650", new SwitchPosition[] { new SwitchPosition("0.0", "VENT", "3650"), new SwitchPosition("0.5", "G", "3650"), new SwitchPosition("1.0", "D", "3650") }, "Engine Start Panel", "Ignition Ventilation Selector Switch", "%0.1f"));    // elements["PTN_650"] = multiposition_switch_limited(_("Ventilation Selector Switch"), devices.ENGPANEL, device_commands.Button_650, 650, 3, 0.50, false, 0)
-            AddFunction(new Switch(this, ENGPANEL, "651", new SwitchPosition[] { new SwitchPosition("0.0", "CLOSE", "3651"), new SwitchPosition("1.0", "OPEN", "3651") }, "Engine Start Panel", "Fuel Shut-Off Switch Guard", "%0.1f"));    // elements["PTN_651"] = default_2_position_tumb(_("Fuel Cutoff Switch Cover"), devices.ENGPANEL, device_commands.Button_651, 651)
-            AddFunction(new Switch(this, ENGPANEL, "652", new SwitchPosition[] { new SwitchPosition("1.0", "OFF", "3652"), new SwitchPosition("0.0", "ON", "3652") }, "Engine Start Panel", "Fuel Shut-Off Switch", "%0.1f"));    // elements["PTN_652"] = default_2_position_tumb(_("Fuel Cutoff Switch"), devices.ENGPANEL, device_commands.Button_652, 652)
+            AddFunction(new Switch(this, ENGPANEL, "645", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CLOSE", "3645"),
+                new SwitchPosition("1.0", "OPEN", "3645")},
+                "Engine Start Panel", "Engine Start Switch Guard", "%0.1f"));
+            AddFunction(new PushButton(this, ENGPANEL, "3649", "649", "Engine Start Panel", "Engine Start Button"));
+            AddFunction(new Switch(this, ENGPANEL, "646", new SwitchPosition[] {
+                new SwitchPosition("0.0", "OFF", "3646"),
+                new SwitchPosition("1.0", "ON", "3646")},
+                "Engine Start Panel", "Starter Fuel Pump Switch", "%0.1f"));
+            AddFunction(new Switch(this, INSTPANEL, "647", new SwitchPosition[] {
+                new SwitchPosition("0.0", "OFF", "3647"),
+                new SwitchPosition("1.0", "ON", "3647")},
+                "Engine Start Panel", "Left Fuel Pump Switch", "%0.1f"));
+            AddFunction(new Switch(this, INSTPANEL, "648", new SwitchPosition[] {
+                new SwitchPosition("0.0", "OFF", "3648"),
+                new SwitchPosition("1.0", "ON", "3648")},
+                "Engine Start Panel", "Right Fuel Pump Switch", "%0.1f"));
+            AddFunction(new Switch(this, ENGPANEL, "650", new SwitchPosition[] {
+                new SwitchPosition("0.0", "VENT", "3650"),
+                new SwitchPosition("0.5", "G", "3650"),
+                new SwitchPosition("1.0", "D", "3650")},
+                "Engine Start Panel", "Ignition Ventilation Selector Switch", "%0.1f"));
+            AddFunction(new Switch(this, ENGPANEL, "651", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CLOSE", "3651"),
+                new SwitchPosition("1.0", "OPEN", "3651")},
+                "Engine Start Panel", "Fuel Shut-Off Switch Guard", "%0.1f"));
+            AddFunction(new Switch(this, ENGPANEL, "652", new SwitchPosition[] {
+                new SwitchPosition("1.0", "OFF", "3652"),
+                new SwitchPosition("0.0", "ON", "3652")},
+                "Engine Start Panel", "Fuel Shut-Off Switch", "%0.1f"));
             #endregion
             #region Fuel Panel
             AddFunction(new FlagValue(this, "198", "Fuel Panel", "Air Refueling", "Air Refueling"));
@@ -169,22 +207,22 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new ScaledNetworkValue(this, "354", 1d, "Fuel Panel", "Total Fuel Quantity (Tens)", "Internal Fuel Quantity (Tens).", "0-9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "358", 1.55d, "Fuel Panel", "Internal Fuel Quantity Needle", "Internal Fuel Quantity.", "0-7", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "359", 1.55d, "Fuel Panel", "Total Fuel Quantity Needle", "Total Fuel Quantity.", "0-7", BindingValueUnits.Numeric));
-//            AddFunction(new Axis(this, MISCPANELS, "357", "3357", 0d, 0d, 1d, "Fuel Panel", "Fuel Crossfeed Switch"));
             AddFunction(new Switch(this, MISCPANELS, "357", new SwitchPosition[] {
-                new SwitchPosition("0.0", "Open", "3357"), new SwitchPosition("1.0", "Close", "3357") },
+                new SwitchPosition("0.0", "Open", "3357"),
+                new SwitchPosition("1.0", "Close", "3357") },
                 "Fuel Panel", "Fuel CrossFeed Switch", "%0.1f"));
             #endregion
             #region  HSI
             AddFunction(new Axis(this, NAVINST, "3340", "340", 0.015d, 0d, 1d, "HSI Panel", "VAD Selector"));    // elements["PTN_340"] = default_axis_cycle(_("HSI VAD Selector"),devices.NAVINST, device_commands.Button_340, 340)
-            AddFunction(new Switch(this, NAVINST, "3341", new SwitchPosition[] {//need to be "341" but in that case, the needle doesn’t work anymore. 
+            AddFunction(new Switch(this, NAVINST, "3341", new SwitchPosition[] {//need to be "341" but in that case, the needle doesn’t work anymore from DCS. 
                 new SwitchPosition("0.0", "Cv/NAV", "3341"),                    //So better that way because the only problem is that doesn’t work from DCS to Helios
                 new SwitchPosition("0.1", "NAV", "3341"),
                 new SwitchPosition("0.2", "TAC", "3341"),
                 new SwitchPosition("0.3", "VAD", "3341"),
                 new SwitchPosition("0.4", "rho", "3341"),
                 new SwitchPosition("0.5", "theta", "3341"),
-                new SwitchPosition("0.6", "TEL", "3341"),
-                }, "HSI Panel", "Mode Selector", "%0.1f"));    // elements["PTN_341"] = multiposition_switch_limited(_("HSI Mode Selector Switch"), devices.NAVINST, device_commands.Button_341, 341, 7, 0.1, false, 0)
+                new SwitchPosition("0.6", "TEL", "3341")},
+                "HSI Panel", "Mode Selector", "%0.1f"));
             CalibrationPointCollectionDouble compassScale = new CalibrationPointCollectionDouble(0d, 0d, 360d, 360d);
             AddFunction(new ScaledNetworkValue(this, "342", compassScale, "HSI Panel", "Compass Rose", "Compass Rose.", "0 - 360", BindingValueUnits.Degrees));
             AddFunction(new ScaledNetworkValue(this, "336", 1d, "HSI Panel", "Distance (Hundreds)", "Distance (Hundreds).", "0 - 9", BindingValueUnits.Numeric));
@@ -204,7 +242,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             CalibrationPointCollectionDouble modeNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
             AddFunction(new ScaledNetworkValue(this, "341", modeNeedleScale, "HSI Panel", "Mode Needle", "Mode Needle.", "0 - 360", BindingValueUnits.Numeric));
             #endregion
-            #region  Landing Gear
+            #region Landing Gear Panel
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
             AddFunction(new FlagValue(this, "411", "Landing Gear Panel", "F", "F Warnlamp"));
             AddFunction(new FlagValue(this, "412", "Landing Gear Panel", "DIRAV", "DIRA Warnlamp, blau"));
@@ -215,20 +253,36 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "417", "Landing Gear Panel", "left-gear", "Left Gear"));
             AddFunction(new FlagValue(this, "418", "Landing Gear Panel", "nose-gear", "Nose Gear"));
             AddFunction(new FlagValue(this, "419", "Landing Gear Panel", "right-gear", "Right Gear"));
-            AddFunction(new Switch(this, INSTPANEL, "404", new SwitchPosition[] { new SwitchPosition("0.0", "UP", "3404"), new SwitchPosition("1.0", "DOWN", "3404") }, "Landing Gear Panel", "Landing Gear Lever", "%0.1f"));    // elements["PTN_404"] = default_animated_lever(_("Landing Gear Lever"), devices.INSTPANEL, device_commands.Button_404, 404,5.0)
-            AddFunction(new Switch(this, PCA_PPA, "463", new SwitchPosition[] { new SwitchPosition("1.0", "SECU", "3463"), new SwitchPosition("0.0", "ARMED", "3463") }, "Landing Gear Panel", "Gun Arming Switch", "%0.1f"));    // elements["PTN_463"] = default_2_position_tumb(_("Gun Arm/Safe Switch"), devices.PCA_PPA, device_commands.Button_463, 463)
-            AddFunction(new Switch(this, ENGPANEL, "420", new SwitchPosition[] { new SwitchPosition("0.0", "CLOSE", "3420"), new SwitchPosition("1.0", "OPEN", "3420") }, "Landing Gear Panel", "Fly By Wire Gain Switch Guard", "%0.1f"));    // elements["PTN_651"] = default_2_position_tumb(_("Fuel Cutoff Switch Cover"), devices.ENGPANEL, device_commands.Button_651, 651)
-            AddFunction(new Switch(this, ENGINE, "421", new SwitchPosition[] { new SwitchPosition("0.0", "NORM", "3421"), new SwitchPosition("1.0", "GAIN CDVE", "3421") }, "Landing Gear Panel", "Fly by Wire Gain Mode Switch", "%0.1f"));    // elements["PTN_421"] = default_2_position_tumb(_("FBW Gain Mode Switch"),  devices.ENGINE, device_commands.Button_421, 421)
-            AddFunction(new Switch(this, ENGINE, "422", new SwitchPosition[] { new SwitchPosition("0.0", "AA", "3422"), new SwitchPosition("1.0", "CHARGES", "3422") }, "Landing Gear Panel", "Fly by Wire G Limiter Switch", "%0.1f"));    // elements["PTN_422"] = default_2_position_tumb(_("FBW G-Limiter Switch"),  devices.ENGINE, device_commands.Button_422, 422)
-//            AddFunction(new Switch(this, INSTPANEL, "408", new SwitchPosition[] { new SwitchPosition("0.0", "ON", "3408"), new SwitchPosition("1.0", "OFF", "3408") }, "Landing Gear Panel", "Emergency Landing Gear Lever", "%0.1f"));    // elements["PTN_408"] = default_animated_lever(_("Landing Gear Emergency Release Lever"), devices.INSTPANEL, device_commands.Button_408, 408, 5.0)
-            AddFunction(new Switch(this, INSTPANEL, "408", new SwitchPosition[] { }, "Landing Gear Panel", "Emergency Landing Gear Lever", "%0.1f"));    // elements["PTN_408"] = default_animated_lever(_("Landing Gear Emergency Release Lever"), devices.INSTPANEL, device_commands.Button_408, 408, 5.0)
-            AddFunction(new PushButton(this, PCA_PPA, "3409", "409", "Landing Gear Panel", "Emergency Jettison Lever"));    // elements["PTN_409"] = default_button(_("Emergency Jettison"), devices.PCA_PPA, device_commands.Button_409, 409, 0, 1)
-            // 
+            AddFunction(new Switch(this, INSTPANEL, "404", new SwitchPosition[] {
+                new SwitchPosition("0.0", "UP", "3404"),
+                new SwitchPosition("1.0", "DOWN", "3404") },
+                "Landing Gear Panel", "Landing Gear Lever", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "463", new SwitchPosition[] {
+                new SwitchPosition("1.0", "SECU", "3463"),
+                new SwitchPosition("0.0", "ARMED", "3463") },
+                "Landing Gear Panel", "Gun Arming Switch", "%0.1f"));
+            AddFunction(new Switch(this, ENGPANEL, "420", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CLOSE", "3420"),
+                new SwitchPosition("1.0", "OPEN", "3420") },
+                "Landing Gear Panel", "Fly By Wire Gain Switch Guard", "%0.1f"));
+            AddFunction(new Switch(this, ENGINE, "421", new SwitchPosition[] {
+                new SwitchPosition("0.0", "NORM", "3421"),
+                new SwitchPosition("1.0", "GAIN CDVE", "3421") },
+                "Landing Gear Panel", "Fly by Wire Gain Mode Switch", "%0.1f"));
+            AddFunction(new Switch(this, ENGINE, "422", new SwitchPosition[] {
+                new SwitchPosition("0.0", "AA", "3422"),
+                new SwitchPosition("1.0", "CHARGES", "3422") },
+                "Landing Gear Panel", "Fly by Wire G Limiter Switch", "%0.1f"));
+            AddFunction(new Switch(this, INSTPANEL, "408", new SwitchPosition[] {
+                new SwitchPosition("0.0", "ON", "3408"),
+                new SwitchPosition("1.0", "OFF", "3408") },
+                "Landing Gear Panel", "Emergency Landing Gear Lever", "%0.1f"));
+            AddFunction(new PushButton(this, PCA_PPA, "3409", "409", "Landing Gear Panel", "Emergency Jettison Lever"));
             #endregion
             #region MCL Panel
             AddFunction(new FlagValue(this, "199", "Master Caution Lights Panel", "Panne Yellow", "Master-warning"));
             AddFunction(new FlagValue(this, "200", "Master Caution Lights Panel", "Panne Red", "Master-caution"));
-            AddFunction(new PushButton(this, SYSLIGHTS, "3191", "191", "Master Caution Lights Panel", "Acknowledge alarms"));    // elements["PTN_250"] = default_button(_("Weapons Selector Button 1"), devices.PCA_PPA, device_commands.Button_250, 250, 0, 1)
+            AddFunction(new PushButton(this, SYSLIGHTS, "3191", "191", "Master Caution Lights Panel", "Acknowledge alarms"));
             #endregion
             #region Miscellaneous Panels and indicators
             AddFunction(new FlagValue(this, "229", "RWR Panel", "RWR V", "RWR V"));
@@ -240,6 +294,85 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "374", "Fire Warning Panel", "fire-warning-engine-chamber", "Fire Warning Engine Chamber"));
             AddFunction(new FlagValue(this, "375", "Fire Warning Panel", "fire-warning-afterburner-chamber", "Fire Warning Afterburner Chamber"));
             AddFunction(new FlagValue(this, "376", "Demar Indicator Panel", "demar", "Start-up"));
+            #endregion
+            #region  PCA/PPA
+            AddFunction(new Switch(this, PCA_PPA, "234", new SwitchPosition[] {
+                new SwitchPosition("1.0", "ON", "3234"),
+                new SwitchPosition("0.0", "OFF", "3234")},
+                "PCA Panel", "Master Arm Switch", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "248", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CLOSE", "3248"),
+                new SwitchPosition("1.0", "OPEN", "3248")},
+                "PCA Panel", "Selective Jettison Switch Guard", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "249", new SwitchPosition[] {
+                new SwitchPosition("0.0", "OFF", "3249"),
+                new SwitchPosition("1.0", "ON", "3249")},
+                "PCA Panel", "Selective Jettison Switch", "%0.1f"));
+            AddFunction(new PushButton(this, PCA_PPA, "3235", "235", "PCA Panel", "Targeting Mode Selection"));
+            AddFunction(new PushButton(this, PCA_PPA, "3237", "237", "PCA Panel", "Master Mode Selection"));
+            AddFunction(new PushButton(this, PCA_PPA, "3239", "239", "PCA Panel", "Approach Mode Selection"));
+            AddFunction(new PushButton(this, PCA_PPA, "3241", "241", "PCA Panel", "Fligt Plan Route Selection"));
+            AddFunction(new PushButton(this, PCA_PPA, "3243", "243", "PCA Panel", "INS Calibration"));
+            AddFunction(new PushButton(this, PCA_PPA, "3245", "245", "PCA Panel", "Gun Mode Selector"));
+            AddFunction(new PushButton(this, PCA_PPA, "3250", "250", "PCA Panel", "Weapon Store Selector 1"));
+            AddFunction(new PushButton(this, PCA_PPA, "3253", "253", "PCA Panel", "Weapon Store Selector 2"));
+            AddFunction(new PushButton(this, PCA_PPA, "3256", "256", "PCA Panel", "Weapon Store Selector 3"));
+            AddFunction(new PushButton(this, PCA_PPA, "3259", "259", "PCA Panel", "Weapon Store Selector 4"));
+            AddFunction(new PushButton(this, PCA_PPA, "3262", "262", "PCA Panel", "Weapon Store Selector 5"));
+            AddFunction(new FlagValue(this, "236", "PCA Panel", "TMS S", "TMS S"));
+            AddFunction(new FlagValue(this, "238", "PCA Panel", "MMS", "MMS"));
+            AddFunction(new FlagValue(this, "240", "PCA Panel", "AMS", "AMS"));
+            AddFunction(new FlagValue(this, "242", "PCA Panel", "FPRS", "FPRS"));
+            AddFunction(new FlagValue(this, "244", "PCA Panel", "INS C", "INS C"));
+            AddFunction(new FlagValue(this, "251", "PCA Panel", "WSS1 S", "WSS1 S"));
+            AddFunction(new FlagValue(this, "252", "PCA Panel", "WSS1 P", "WSS1 P"));
+            AddFunction(new FlagValue(this, "254", "PCA Panel", "WSS2 S", "WSS2 S"));
+            AddFunction(new FlagValue(this, "255", "PCA Panel", "WSS2 P", "WSS2 P"));
+            AddFunction(new FlagValue(this, "257", "PCA Panel", "WSS3 S", "WSS3 S"));
+            AddFunction(new FlagValue(this, "258", "PCA Panel", "WSS3 P", "WSS3 P"));
+            AddFunction(new FlagValue(this, "260", "PCA Panel", "WSS4 S", "WSS4 S"));
+            AddFunction(new FlagValue(this, "261", "PCA Panel", "WSS4 P", "WSS4 P"));
+            AddFunction(new FlagValue(this, "263", "PCA Panel", "WSS5 S", "WSS5 S"));
+            AddFunction(new FlagValue(this, "264", "PCA Panel", "WSS5 P", "WSS5 P"));
+            AddFunction(new FlagValue(this, "246", "PCA Panel", "KL1", "KL1"));
+            AddFunction(new FlagValue(this, "247", "PCA Panel", "KL2", "KL2"));
+            AddFunction(new PushButton(this, PCA_PPA, "3266", "266", "PPA Panel", "S530 Missile Enabler Button"));
+            AddFunction(new PushButton(this, PCA_PPA, "3269", "269", "PPA Panel", "Missile Fire Mode Selector"));
+            AddFunction(new PushButton(this, PCA_PPA, "3272", "272", "PPA Panel", "Magic II Missile Enabler Button")); 
+            AddFunction(new PushButton(this, PCA_PPA, "3279", "279", "PPA Panel", "Guns/Rockets/Missiles Firing Mode Selector"));
+            AddFunction(new Switch(this, PCA_PPA, "265", new SwitchPosition[] {
+                new SwitchPosition("-1.0", "Gauche","3265"),
+                new SwitchPosition("0.0", "Droite","3265"),
+                new SwitchPosition("1.0", "Auto","3265")},
+                "PPA Panel", "Missile Selector Switch", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "275", new SwitchPosition[] {
+                new SwitchPosition("-1.0", "TEST","3275"),
+                new SwitchPosition("0.0", "NEUTRE","3275"),
+                new SwitchPosition("1.0", "PRES","3275")},
+                "PPA Panel", "Test Switch", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "276", new SwitchPosition[] {
+                new SwitchPosition("0.0", "INST.","3276"),
+                new SwitchPosition("0.5", "RET.","3276"),
+                new SwitchPosition("1.0", "INERT.","3276")},
+                "PPA Panel", "Bomb Fuse Selector", "%0.1f")); 
+            AddFunction(new Switch(this, PCA_PPA, "277", new SwitchPosition[] {
+                new SwitchPosition("1.0", "-","3277"),
+                new SwitchPosition("0.0", "+","3277"),
+                new SwitchPosition("-1.0", "Neutre","3277")},
+                "PPA Panel", "Release Quantity Selector", "%0.1f"));
+            AddFunction(new Switch(this, PCA_PPA, "278", new SwitchPosition[] {
+                new SwitchPosition("1.0", "-","3278"),
+                new SwitchPosition("0.0", "+","3278"),
+                new SwitchPosition("-1.0", "Neutre","3278")},
+                "PPA Panel", "Bomb Drop Interval", "%0.1f"));
+            AddFunction(new FlagValue(this, "267", "PPA Panel", "S530D P", "S530D P"));
+            AddFunction(new FlagValue(this, "268", "PPA Panel", "S530D MIS", "S530D MIS"));
+            AddFunction(new FlagValue(this, "270", "PPA Panel", "Missile AUT Mode", "Missile AUT Mode"));
+            AddFunction(new FlagValue(this, "271", "PPA Panel", "Missile MAN Mode", "Missile MAN Mode"));
+            AddFunction(new FlagValue(this, "273", "PPA Panel", "MAGIC P", "MAGIC P"));
+            AddFunction(new FlagValue(this, "274", "PPA Panel", "MAGIC MAG", "MAGIC MAG"));
+            AddFunction(new FlagValue(this, "280", "PPA Panel", "TOT Firing Mode", "TOT Firing Mode"));
+            AddFunction(new FlagValue(this, "281", "PPA Panel", "PAR Firing Mode", "PAR Firing Mode"));
             #endregion
             #region  PCN
             AddFunction(new FlagValue(this, "564", "PCN Panel", "PRET", "PRET"));
@@ -253,19 +386,19 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "669", "PCN Panel", "M91", "M91"));
             AddFunction(new FlagValue(this, "670", "PCN Panel", "M92", "M92"));
             AddFunction(new FlagValue(this, "671", "PCN Panel", "M93", "M93"));
-            AddFunction(new PushButton(this, PCN_NAV, "3570", "570", "PCN Panel", "PREP Button"));    // elements["PTN_570"] = default_button(_("INS PREP Switch"),     devices.PCN_NAV, device_commands.Button_570, 570, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3570", "570", "PCN Panel", "PREP Button"));
             AddFunction(new FlagValue(this, "571", "PCN Panel", "PREP", "PREP"));
-            AddFunction(new PushButton(this, PCN_NAV, "3572", "572", "PCN Panel", "DEST Button"));    // elements["PTN_572"] = default_button(_("INS DEST Switch"),     devices.PCN_NAV, device_commands.Button_572, 572, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3572", "572", "PCN Panel", "DEST Button"));
             AddFunction(new FlagValue(this, "573", "PCN Panel", "DEST", "DEST"));
-            AddFunction(new PushButton(this, PCN_NAV, "3667", "667", "PCN Panel", "Offset Waypoint/Target Button"));    // elements["PTN_576"] = default_button(_("Offset Waypoint/Target"), devices.PCN_NAV, device_commands.Button_576, 576, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3667", "667", "PCN Panel", "Offset Waypoint/Target Button"));
             AddFunction(new FlagValue(this, "668", "PCN Panel", "Offset Waypoint/Target", "ENC"));
-            AddFunction(new PushButton(this, PCN_NAV, "3578", "578", "PCN Panel", "INS Update Button"));    // elements["PTN_578"] = default_button(_("INS Update"),             devices.PCN_NAV, device_commands.Button_578, 578, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3578", "578", "PCN Panel", "INS Update Button"));
             AddFunction(new FlagValue(this, "579", "PCN Panel", "INS Update", "REC"));
-            AddFunction(new PushButton(this, PCN_NAV, "3580", "580", "PCN Panel", "Validate Data Entry Button"));    // elements["PTN_580"] = default_button(_("Validate Data Entry"),    devices.PCN_NAV, device_commands.Button_580, 580, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3580", "580", "PCN Panel", "Validate Data Entry Button"));
             AddFunction(new FlagValue(this, "581", "PCN Panel", "Validate Data Entry", "VAL"));
-            AddFunction(new PushButton(this, PCN_NAV, "3582", "582", "PCN Panel", "Marq Position Button"));    // elements["PTN_582"] = default_button(_("Mark Position"),          devices.PCN_NAV, device_commands.Button_582, 582, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3582", "582", "PCN Panel", "Marq Position Button"));
             AddFunction(new FlagValue(this, "583", "PCN Panel", "Marq Position", "MRQ"));
-            AddFunction(new PushButton(this, PCN_NAV, "3576", "576", "PCN Panel", "AUTO Navigation Button"));    // elements["PTN_667"] = default_button(_("AUTO Navigation"),        devices.PCN_NAV, device_commands.Button_667, 667, 0, 1)
+            AddFunction(new PushButton(this, PCN_NAV, "3576", "576", "PCN Panel", "AUTO Navigation Button"));
             AddFunction(new FlagValue(this, "577", "PCN Panel", "AUTO Navigation", "BAD"));
             AddFunction(new Switch(this, PCN_NAV, "574", new SwitchPosition[] {
                 new SwitchPosition("0.0", "TR/VS", "3574"),
@@ -278,22 +411,21 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 new SwitchPosition("0.7", "dALT", "3574"),
                 new SwitchPosition("0.8", "P/t", "3574"),
                 new SwitchPosition("0.9", "DEC", "3574"),
-                new SwitchPosition("1.0", "DV/FV", "3574"),
-                }, "PCN Panel", "INS Parameter Selector", "%0.2f"));    // elements["PTN_574"] = default_multiposition_knob(_("INS Parameter Selector"), devices.PCN_NAV, device_commands.Button_574,   574, 11, 0.1, false, 0)
-            AddFunction(new Axis(this, SYSLIGHTS, "3575", "575", 0.15d, 0d, 1d, "PCN Panel", "Light Brightnes Control/Test"));    // elements["PTN_575"] = default_axis_limited(_("Light Brightnes Control/Test"), devices.SYSLIGHTS, device_commands.Button_575, 575, 10, 0.1, false, 0)
-            AddFunction(new PushButton(this, PCN_NAV, "3584", "584", "PCN Panel", "INS Button 1"));    // elements["PTN_584"] = default_button(_("INS Button 1"), devices.PCN_NAV, device_commands.Button_584, 584, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3585", "585", "PCN Panel", "INS Button 2"));    // elements["PTN_585"] = default_button(_("INS Button 2"), devices.PCN_NAV, device_commands.Button_585, 585, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3586", "586", "PCN Panel", "INS Button 3"));    // elements["PTN_586"] = default_button(_("INS Button 3"), devices.PCN_NAV, device_commands.Button_586, 586, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3587", "587", "PCN Panel", "INS Button 4"));    // elements["PTN_587"] = default_button(_("INS Button 4"), devices.PCN_NAV, device_commands.Button_587, 587, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3588", "588", "PCN Panel", "INS Button 5"));    // elements["PTN_588"] = default_button(_("INS Button 5"), devices.PCN_NAV, device_commands.Button_588, 588, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3589", "589", "PCN Panel", "INS Button 6"));    // elements["PTN_589"] = default_button(_("INS Button 6"), devices.PCN_NAV, device_commands.Button_589, 589, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3590", "590", "PCN Panel", "INS Button 7"));    // elements["PTN_590"] = default_button(_("INS Button 7"), devices.PCN_NAV, device_commands.Button_590, 590, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3591", "591", "PCN Panel", "INS Button 8"));    // elements["PTN_591"] = default_button(_("INS Button 8"), devices.PCN_NAV, device_commands.Button_591, 591, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3592", "592", "PCN Panel", "INS Button 9"));    // elements["PTN_592"] = default_button(_("INS Button 9"), devices.PCN_NAV, device_commands.Button_592, 592, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3593", "593", "PCN Panel", "INS Button 0"));    // elements["PTN_593"] = default_button(_("INS Button 0"), devices.PCN_NAV, device_commands.Button_593, 593, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3594", "594", "PCN Panel", "EFF Button"));    // elements["PTN_594"] = default_button(_("INS Clear Button"), devices.PCN_NAV, device_commands.Button_594, 594, 0, 1)
-            AddFunction(new PushButton(this, PCN_NAV, "3596", "596", "PCN Panel", "INS Button"));    // elements["PTN_596"] = default_button(_("INS ENTER Button"), devices.PCN_NAV, device_commands.Button_596, 596, 0, 1)
-                                                                                                     // 
+                new SwitchPosition("1.0", "DV/FV", "3574")},
+                "PCN Panel", "INS Parameter Selector", "%0.2f"));
+            AddFunction(new Axis(this, SYSLIGHTS, "3575", "575", 0.15d, 0d, 1d, "PCN Panel", "Light Brightnes Control/Test"));
+            AddFunction(new PushButton(this, PCN_NAV, "3584", "584", "PCN Panel", "INS Button 1"));
+            AddFunction(new PushButton(this, PCN_NAV, "3585", "585", "PCN Panel", "INS Button 2"));
+            AddFunction(new PushButton(this, PCN_NAV, "3586", "586", "PCN Panel", "INS Button 3"));
+            AddFunction(new PushButton(this, PCN_NAV, "3587", "587", "PCN Panel", "INS Button 4"));
+            AddFunction(new PushButton(this, PCN_NAV, "3588", "588", "PCN Panel", "INS Button 5"));
+            AddFunction(new PushButton(this, PCN_NAV, "3589", "589", "PCN Panel", "INS Button 6"));
+            AddFunction(new PushButton(this, PCN_NAV, "3590", "590", "PCN Panel", "INS Button 7"));
+            AddFunction(new PushButton(this, PCN_NAV, "3591", "591", "PCN Panel", "INS Button 8"));
+            AddFunction(new PushButton(this, PCN_NAV, "3592", "592", "PCN Panel", "INS Button 9"));
+            AddFunction(new PushButton(this, PCN_NAV, "3593", "593", "PCN Panel", "INS Button 0"));
+            AddFunction(new PushButton(this, PCN_NAV, "3594", "594", "PCN Panel", "EFF Button"));
+            AddFunction(new PushButton(this, PCN_NAV, "3596", "596", "PCN Panel", "INS Button"));
             #endregion
             #region TACAN Panel
             //            AddFunction(new Switch(this, TACAN, "623", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 10 Selector", "%0.1f"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
@@ -302,14 +434,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new ScaledNetworkValue(this, TACAN_C10_SELECTOR, 1.31d, "Tacan Panel", "Channel output for display (Tens)", "Current channel (Tens)", "(0-12)", BindingValueUnits.Numeric));
             AddFunction(new Switch(this, TACAN, TACAN_XY_SELECTOR, new SwitchPosition[] {
                 new SwitchPosition("0.0", "X", CMD + TACAN_XY_SELECTOR),
-                new SwitchPosition("1.0", "Y", CMD + TACAN_XY_SELECTOR) }
-                , "Tacan Panel", "X/Y Selector", "%0.1f"));
+                new SwitchPosition("1.0", "Y", CMD + TACAN_XY_SELECTOR) },
+                "Tacan Panel", "X/Y Selector", "%0.1f"));
             AddFunction(new Switch(this, TACAN, TACAN_MODE_SELECTOR, new SwitchPosition[] {
                 new SwitchPosition("0.0", "OFF", CMD + TACAN_MODE_SELECTOR),
                 new SwitchPosition("0.3", "REC", CMD + TACAN_MODE_SELECTOR),
                 new SwitchPosition("0.7", "T/R", CMD + TACAN_MODE_SELECTOR),
-                new SwitchPosition("1.0", "A/A", CMD + TACAN_MODE_SELECTOR) }
-                , "Tacan Panel", "Mode Selector", " %0.1f"));
+                new SwitchPosition("1.0", "A/A", CMD + TACAN_MODE_SELECTOR) },
+                "Tacan Panel", "Mode Selector", " %0.1f"));
             #endregion
             #region VOR.ILS Panel
             //            AddFunction(new Switch(this, VORILS, "616", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Whole", "%0.1f"));    // elements["PTN_616"] = default_multiposition_knob(_("VOR/ILS Frequency Change Whole"),devices.VORILS,device_commands.Button_616,616, 11, 0.1, false, 0)
@@ -324,8 +456,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_DECIMAL, CMD + VORILS_FREQUENCY_CHANGE_DECIMAL, 0.05d, 0.0d, 1.0d, "VOR/ILS Panel", "Frequency Change Decimal"));
             AddFunction(new Switch(this, VORILS, VORILS_POWER, new SwitchPosition[] {
                 new SwitchPosition("0.0", "ON", CMD + VORILS_POWER),
-                new SwitchPosition("1.0", "OFF", CMD + VORILS_POWER)
-                }, "VOR/ILS Panel", "Power Selector", "%0.1f"));
+                new SwitchPosition("1.0", "OFF", CMD + VORILS_POWER)},
+                "VOR/ILS Panel", "Power Selector", "%0.1f"));
             #endregion
             #region Indicators
             // !!!! Any duplicate "name" values in a function will cause Helios to go bang.  Make sure that when you change the name, that it is unique
@@ -456,88 +588,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, VTH_VTB, "226", new SwitchPosition[] { }, "HUD/VTB", "Display Contrast", "%0.1f"));    // elements["PTN_226"] = multiposition_switch_limited(_("Display Contrast"), devices.VTH_VTB, device_commands.Button_226, 226, 8, 0.1, false, 0)
             AddFunction(new Switch(this, VTH_VTB, "227", new SwitchPosition[] { }, "HUD/VTB", "Display Brightness", "%0.1f"));    // elements["PTN_227"] = multiposition_switch_limited(_("Display Brightness"), devices.VTH_VTB, device_commands.Button_227, 227, 8, 0.1, false, 0)
 
-            #endregion
-            #region  PCA/PPA
-            AddFunction(new Switch(this, PCA_PPA, "234", new SwitchPosition[] {
-                new SwitchPosition("0.0", "OFF", "3234"), new SwitchPosition("1.0", "ON", "3234")
-                }, "PCA Panel", "Master Arm Switch", "%0.1f"));
-            AddFunction(new Switch(this, PCA_PPA, "248", new SwitchPosition[] {
-                new SwitchPosition("0.0", "CLOSE", "3248"), new SwitchPosition("1.0", "OPEN", "3248")
-                }, "PCA Panel", "Selective Jettison Switch Guard", "%0.1f"));
-            AddFunction(new Switch(this, PCA_PPA, "249", new SwitchPosition[] {
-                new SwitchPosition("1.0", "OFF", "3249"), new SwitchPosition("0.0", "ON", "3249")
-                }, "PCA Panel", "Selective Jettison Switch", "%0.1f"));
-                                                                                                                  // 
-            AddFunction(new PushButton(this, PCA_PPA, "3235", "235", "PCA Panel", "Targeting Mode Selection"));    // elements["PTN_235"] = default_button(_("PCA Button 1"), devices.PCA_PPA, device_commands.Button_235, 235, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3237", "237", "PCA Panel", "Master Mode Selection"));    // elements["PTN_237"] = default_button(_("PCA Button 2"), devices.PCA_PPA, device_commands.Button_237, 237, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3239", "239", "PCA Panel", "Approach Mode Selection"));    // elements["PTN_239"] = default_button(_("PCA Button 3"), devices.PCA_PPA, device_commands.Button_239, 239, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3241", "241", "PCA Panel", "Fligt Plan Route Selection"));    // elements["PTN_241"] = default_button(_("PCA Button 4"), devices.PCA_PPA, device_commands.Button_241, 241, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3243", "243", "PCA Panel", "INS Calibration"));    // elements["PTN_243"] = default_button(_("PCA Button 5"), devices.PCA_PPA, device_commands.Button_243, 243, 0, 1)
-                                                                                                     // 
-            AddFunction(new PushButton(this, PCA_PPA, "3245", "245", "PCA Panel", "Gun Mode Selector"));    // elements["PTN_245"] = default_button(_("Gun Mode Button"), devices.PCA_PPA, device_commands.Button_245, 245, 0, 1)
-                                                                                                        // 
-            AddFunction(new PushButton(this, PCA_PPA, "3250", "250", "PCA Panel", "Weapon Store Selector 1"));    // elements["PTN_250"] = default_button(_("Weapons Selector Button 1"), devices.PCA_PPA, device_commands.Button_250, 250, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3253", "253", "PCA Panel", "Weapon Store Selector 2"));    // elements["PTN_253"] = default_button(_("Weapons Selector Button 2"), devices.PCA_PPA, device_commands.Button_253, 253, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3256", "256", "PCA Panel", "Weapon Store Selector 3"));    // elements["PTN_256"] = default_button(_("Weapons Selector Button 3"), devices.PCA_PPA, device_commands.Button_256, 256, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3259", "259", "PCA Panel", "Weapon Store Selector 4"));    // elements["PTN_259"] = default_button(_("Weapons Selector Button 4"), devices.PCA_PPA, device_commands.Button_259, 259, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3262", "262", "PCA Panel", "Weapon Store Selector 5"));    // elements["PTN_262"] = default_button(_("Weapons Selector Button 5"), devices.PCA_PPA, device_commands.Button_262, 262, 0, 1)
-
-            AddFunction(new FlagValue(this, "236", "PCA Panel", "TMS S", "TMS S"));
-            AddFunction(new FlagValue(this, "238", "PCA Panel", "MMS", "MMS"));
-            AddFunction(new FlagValue(this, "240", "PCA Panel", "AMS", "AMS"));
-            AddFunction(new FlagValue(this, "242", "PCA Panel", "FPRS", "FPRS"));
-            AddFunction(new FlagValue(this, "244", "PCA Panel", "INS C", "INS C"));
-            AddFunction(new FlagValue(this, "251", "PCA Panel", "WSS1 S", "WSS1 S"));
-            AddFunction(new FlagValue(this, "252", "PCA Panel", "WSS1 P", "WSS1 P"));
-            AddFunction(new FlagValue(this, "254", "PCA Panel", "WSS2 S", "WSS2 S"));
-            AddFunction(new FlagValue(this, "255", "PCA Panel", "WSS2 P", "WSS2 P"));
-            AddFunction(new FlagValue(this, "257", "PCA Panel", "WSS3 S", "WSS3 S"));
-            AddFunction(new FlagValue(this, "258", "PCA Panel", "WSS3 P", "WSS3 P"));
-            AddFunction(new FlagValue(this, "260", "PCA Panel", "WSS4 S", "WSS4 S"));
-            AddFunction(new FlagValue(this, "261", "PCA Panel", "WSS4 P", "WSS4 P"));
-            AddFunction(new FlagValue(this, "263", "PCA Panel", "WSS5 S", "WSS5 S"));
-            AddFunction(new FlagValue(this, "264", "PCA Panel", "WSS5 P", "WSS5 P"));
-            AddFunction(new FlagValue(this, "246", "PCA Panel", "KL1", "KL1"));
-            AddFunction(new FlagValue(this, "247", "PCA Panel", "KL2", "KL2"));
-            // 
-            AddFunction(new PushButton(this, PCA_PPA, "3266", "266", "PPA Panel", "S530 Missile Enabler Button"));    // elements["PTN_266"] = default_button(_("S530 Standby"), devices.PCA_PPA, device_commands.Button_266, 266, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3269", "269", "PPA Panel", "Missile Fire Mode Selector"));    // elements["PTN_269"] = default_button(_("AUTO/MAN Button"), devices.PCA_PPA, device_commands.Button_269, 269, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3272", "272", "PPA Panel", "Magic II Missile Enabler Button"));    // elements["PTN_272"] = default_button(_("MAGIC Standby"), devices.PCA_PPA, device_commands.Button_272, 272, 0, 1)
-            AddFunction(new PushButton(this, PCA_PPA, "3279", "279", "PPA Panel", "Guns/Rockets/Missiles Firing Mode Selector"));    // elements["PTN_279"] = default_button(_("530D/Rockets/Guns Firing Mode Selector"), devices.PCA_PPA, device_commands.Button_279, 279, 0, 1)
-
-            AddFunction(new Switch(this, PCA_PPA, "265", new SwitchPosition[] {
-                new SwitchPosition("-1.0", "Gauche","3265"),
-                new SwitchPosition("0.0", "Droite","3265"),
-                new SwitchPosition("1.0", "Auto","3265"),
-                }, "PPA Panel", "Missile Selector Switch", "%0.1f"));    // elements["PTN_265"] = default_3_position_tumb(_("Missile Selector Switch"), devices.PCA_PPA, device_commands.Button_265, 265, false, false)
-            AddFunction(new Switch(this, PCA_PPA, "275", new SwitchPosition[] {
-                new SwitchPosition("-1.0", "TEST","3275"),
-                new SwitchPosition("0.0", "NEUTRE","3275"),
-                new SwitchPosition("1.0", "PRES","3275"),
-            }, "PPA Panel", "Test Switch", "%0.1f"));    // elements["PTN_276"] = multiposition_switch_limited(_("Bomb Fuze Selector Switch"), devices.PCA_PPA, device_commands.Button_276, 276, 3, 0.5, true, 0)
-            AddFunction(new Switch(this, PCA_PPA, "276", new SwitchPosition[] {
-                new SwitchPosition("0.0", "INST.","3276"),
-                new SwitchPosition("0.5", "RET.","3276"),
-                new SwitchPosition("1.0", "INERT.","3276"),
-            }, "PPA Panel", "Bomb Fuse Selector", "%0.1f"));    // elements["PTN_276"] = multiposition_switch_limited(_("Bomb Fuze Selector Switch"), devices.PCA_PPA, device_commands.Button_276, 276, 3, 0.5, true, 0)
-            AddFunction(new Switch(this, PCA_PPA, "277", new SwitchPosition[] {
-                new SwitchPosition("1.0", "-","3277"),
-                new SwitchPosition("0.0", "+","3277"),
-                new SwitchPosition("-1.0", "Neutre","3277"),
-            }, "PPA Panel", "Release Quantity Selector", "%0.1f"));
-            AddFunction(new Switch(this, PCA_PPA, "278", new SwitchPosition[] {
-                new SwitchPosition("1.0", "-","3278"),
-                new SwitchPosition("0.0", "+","3278"),
-                new SwitchPosition("-1.0", "Neutre","3278"),
-            }, "PPA Panel", "Bomb Drop Interval", "%0.1f"));
-            AddFunction(new FlagValue(this, "267", "PPA Panel", "S530D P", "S530D P"));
-            AddFunction(new FlagValue(this, "268", "PPA Panel", "S530D MIS", "S530D MIS"));
-            AddFunction(new FlagValue(this, "270", "PPA Panel", "Missile AUT Mode", "Missile AUT Mode"));
-            AddFunction(new FlagValue(this, "271", "PPA Panel", "Missile MAN Mode", "Missile MAN Mode"));
-            AddFunction(new FlagValue(this, "273", "PPA Panel", "MAGIC P", "MAGIC P"));
-            AddFunction(new FlagValue(this, "274", "PPA Panel", "MAGIC MAG", "MAGIC MAG"));
-            AddFunction(new FlagValue(this, "280", "PPA Panel", "TOT Firing Mode", "TOT Firing Mode"));
-            AddFunction(new FlagValue(this, "281", "PPA Panel", "PAR Firing Mode", "PAR Firing Mode"));
             #endregion
             #region  AFCS
             AddFunction(new PushButton(this, AFCS, "3282", "282", "AFCS", "Autopilot Master Button"));    // elements["PTN_282"] = default_button(_("Autopilot Master Button"), devices.AFCS, device_commands.Button_282, 282, 0, 1)

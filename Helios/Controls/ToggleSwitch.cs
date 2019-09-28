@@ -36,7 +36,6 @@ namespace GadrocsWorkshop.Helios.Controls
         private HeliosTrigger _positionOneExitAction;
         private HeliosTrigger _positionTwoEnterAction;
         private HeliosTrigger _positionTwoExitAction;
-//        private NonClickableZone[] _nonClickableZones;
         
         public ToggleSwitch()
             : base("Toggle Switch", new System.Windows.Size(50, 100))
@@ -140,18 +139,6 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
- /*       public NonClickableZone[] NonClickableZones
-        {
-            get
-            {
-                return _nonClickableZones;
-            }
-            set
-            {
-                _nonClickableZones = value;
-            }
-        }
-        */
         public string PositionOneImage
         {
             get
