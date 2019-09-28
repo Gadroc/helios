@@ -86,6 +86,7 @@ What’s new DCS M2000C
        - Added the 2 Fire Warning Indicators (need a match to test it :-)
 	   - Added the Demar Indicator
 	   - Added the 5 RWR indicators
+	   - Added the AOA needle
 
 Known issues DCS M2000C
 -----------------------

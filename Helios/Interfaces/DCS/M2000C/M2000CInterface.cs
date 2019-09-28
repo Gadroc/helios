@@ -294,6 +294,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "374", "Fire Warning Panel", "fire-warning-engine-chamber", "Fire Warning Engine Chamber"));
             AddFunction(new FlagValue(this, "375", "Fire Warning Panel", "fire-warning-afterburner-chamber", "Fire Warning Afterburner Chamber"));
             AddFunction(new FlagValue(this, "376", "Demar Indicator Panel", "demar", "Start-up"));
+            AddFunction(new ScaledNetworkValue(this, "331", 3.7d, "AOA Panel", "AOA Needle", "Angle Of Attack Needle.", "0-7", BindingValueUnits.Numeric, 0.08d, "%.4f"));
             #endregion
             #region  PCA/PPA
             AddFunction(new Switch(this, PCA_PPA, "234", new SwitchPosition[] {

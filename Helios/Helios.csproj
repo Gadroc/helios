@@ -109,6 +109,7 @@
     <Compile Include="CalibrationPointLong.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CNeedle.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\AOA_Panel.cs" />
     <Compile Include="Gauges\M2000C\HSIPanel\HSI_Panel.cs" />
     <Compile Include="Gauges\M2000C\EngineSensorsPanel\EngineSensors_Panel.cs" />
     <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />

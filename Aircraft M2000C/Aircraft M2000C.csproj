@@ -815,6 +815,9 @@
     <Resource Include="Images\VorIlsPanel\vor-ils-panel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Miscellaneous\aoa-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Templates\CautionPanelRedIndicator.htpl" />
     <Content Include="Templates\CautionPanelYellowIndicator.htpl" />
     <Content Include="Templates\Cockpit Front 16x10.htpl" />
