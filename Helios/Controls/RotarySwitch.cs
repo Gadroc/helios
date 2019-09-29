@@ -60,6 +60,8 @@ namespace GadrocsWorkshop.Helios.Controls
         private HeliosValue _positionValue;
         private HeliosValue _positionNameValue;
 
+        private bool _isContinuous = false;
+
         public RotarySwitch()
             : base("Rotary Switch", new Size(100, 100))
         {
@@ -209,6 +211,24 @@ namespace GadrocsWorkshop.Helios.Controls
                     bool oldValue = _drawLines;
                     _drawLines = value;
                     OnPropertyChanged("DrawLines", oldValue, value, true);
+                    Refresh();
+                }
+            }
+        }
+
+        public bool IsContinuous
+        {
+            get
+            {
+                return _isContinuous;
+            }
+            set
+            {
+                if (!_isContinuous.Equals(value))
+                {
+                    bool oldValue = _isContinuous;
+                    _isContinuous = value;
+                    OnPropertyChanged("IsContinuous", oldValue, value, true);
                     Refresh();
                 }
             }
@@ -479,15 +499,30 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override void MouseDown(Point location)
         {
+            if(NonClickableZones != null)
+            {
+                foreach (NonClickableZone zone in NonClickableZones)
+                {
+                    if (zone.AllPositions && zone.isClickInZone(location))
+                    {
+                        zone.ChildVisual.MouseDown(new System.Windows.Point(location.X - (zone.ChildVisual.Left - this.Left), location.Y - (zone.ChildVisual.Top - this.Top)));
+                        return; //we get out to let the ChildVisual using the click
+                    }
+                }
+            }
             if (_clickType == ClickType.Touch)
             {
                 bool increment = (location.X > Width / 2d);
 
                 if (increment)
                 {
-                    if (_currentPosition <= Positions.Count)
+                    if (_currentPosition < Positions.Count)
                     {
                         CurrentPosition = _currentPosition + 1;
+                    }
+                    else if (_isContinuous == true)
+                    {
+                        CurrentPosition = 1;
                     }
                 }
                 else
@@ -495,6 +530,10 @@ namespace GadrocsWorkshop.Helios.Controls
                     if (_currentPosition > 1)
                     {
                         CurrentPosition = _currentPosition - 1;
+                    }
+                    else if (_isContinuous == true)
+                    {
+                        CurrentPosition = Positions.Count;
                     }
                 }
             }
@@ -535,6 +574,17 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override void MouseUp(Point location)
         {
+            if (NonClickableZones != null)
+            {
+                foreach (NonClickableZone zone in NonClickableZones)
+                {
+                    if (zone.AllPositions && zone.isClickInZone(location))
+                    {
+                        zone.ChildVisual.MouseUp(new System.Windows.Point(location.X - (zone.ChildVisual.Left - this.Left), location.Y - (zone.ChildVisual.Top - this.Top)));
+                        return; //we get out to let the ChildVisual using the click
+                    }
+                }
+            }
             if (_mouseDown)
             {
                 _mouseDown = false;

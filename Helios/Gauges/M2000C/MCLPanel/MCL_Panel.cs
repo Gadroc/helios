@@ -33,8 +33,8 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             : base("Master Caution Lights Panel", new Size(66, 66))
         {
 
-            AddIndicator("panne-yellow", new Point(0, 0));
-            AddIndicator("panne-red", new Point(0, 0));
+            AddIndicatorPushButton("Panne Yellow", "panne-yellow", new Point(7, 10), new Size(50, 24));
+            AddIndicatorPushButton("Panne Red", "panne-red", new Point(7, 36), new Size(49, 24));
         }
 
         #region Properties
@@ -57,34 +57,21 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             base.OnPropertyChanged(args);
         }
 
-        private void AddIndicator(string name, Point posn)
+        private void AddIndicatorPushButton(string name, string imagePrefix, Point pos, Size size)
         {
-            // there is an issue because the 2 indicators are pushable to aknowledge warning
-            /*            AddIndicatorPushButton(
-                            name: name,
-                            posn: posn,
-                            size: new Size(70, 70),
-                            image: "{Helios}/Images/M2000C/MCLPanel/" + name + "-on.png",
-                            pushedImage: "{Helios}/Images/M2000C/MCLPanel/" + name + "-on.png",
-                            textColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
-                            onTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
-                            font: "",
-                            withText: false); //added in Composite Visual as an optional value with a default value set to true
-            */
-            AddIndicator(
-                name: name,
-                posn: posn,
-                size: new Size(70, 70),
-                onImage: "{M2000C}/Images/MCLPanel/" + name + "-on.png",
-                offImage: "{M2000C}/Images/MCLPanel/" + name + "-off.png",
-                offTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
+            AddIndicatorPushButton(name: name,
+                pos: pos,
+                size: size,
+                image: "{M2000C}/Images/MCLPanel/" + imagePrefix + ".png",
+                pushedImage: "{M2000C}/Images/MCLPanel/" + imagePrefix + ".png",
+                textColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
                 onTextColor: Color.FromArgb(0xff, 0x7e, 0xde, 0x72), //don’t need it because not using text,
-                font: "", //don’t need it because not using text,
-                vertical: true,
+                font: "",
+                onImage: "{M2000C}/Images/MCLPanel/" + imagePrefix + "-on.png",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
                 fromCenter: false,
-                withText: false); //added in Composite Visual as an optional value with a default value set to true
+                withText: false);
         }
 
         public override bool HitTest(Point location)

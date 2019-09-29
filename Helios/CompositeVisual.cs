@@ -46,7 +46,7 @@ namespace GadrocsWorkshop.Helios
             ChildName = childName;
             DeviceTriggerName = deviceTriggerName;
             InterfaceActionName = interfaceActionName;
-            ConfigManager.LogManager.LogInfo("Default Output Binding: Trigger " + deviceTriggerName + " to action " + interfaceActionName  + " for child " + childName);
+            ConfigManager.LogManager.LogInfo("Default Output Binding: Trigger " + deviceTriggerName + " to action " + interfaceActionName + " for child " + childName);
         }
     }
 
@@ -312,7 +312,7 @@ namespace GadrocsWorkshop.Helios
         protected Potentiometer AddPot(string name, Point posn, Size size, string knobImage,
             double initialRotation, double rotationTravel, double minValue, double maxValue,
             double initialValue, double stepValue,
-            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter, ClickType clickType = ClickType.Swipe)
         {
             string componentName = GetComponentName(name);
             if (fromCenter)
@@ -332,6 +332,7 @@ namespace GadrocsWorkshop.Helios
                 Width = size.Width,
                 Height = size.Height
             };
+            _knob.ClickType = clickType;
 
             Children.Add(_knob);
             foreach (IBindingTrigger trigger in _knob.Triggers)
