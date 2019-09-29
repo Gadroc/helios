@@ -128,7 +128,7 @@ namespace GadrocsWorkshop.Helios.M2000C
             return _knob;
         }
 
-        protected Indicator AddIndicator(string name, Point posn, Size size,
+        protected new Indicator AddIndicator(string name, Point posn, Size size,
             string onImage, string offImage, Color onTextColor, Color offTextColor, string font,
             bool vertical, string interfaceDeviceName, string interfaceElementName, bool fromCenter, bool withText = true)
         {
