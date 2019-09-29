@@ -122,7 +122,6 @@
     <Compile Include="Gauges\M2000C\Miscellaneous\FireWarning_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\PCI_Panel.cs" />
     <Compile Include="Gauges\M2000C\VorIlsChannel\VorIls_Panel.cs" />
-    <Compile Include="CompositeVisual.cs" />
     <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />
@@ -148,9 +147,7 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
-    <Compile Include="Gauges\M2000C\LGPanel\LG_Panel.cs" />
-    <Compile Include="Gauges\M2000C\EnginePanel\Engine_Start_Panel.cs" />
-    <Compile Include="Gauges\AV-8B\ADI\ADI.cs" />
+   <Compile Include="Gauges\AV-8B\ADI\ADI.cs" />
     <Compile Include="Gauges\AV-8B\Altimeter\Altimeter.cs" />
     <Compile Include="Gauges\AV-8B\Radio\Radio.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\AV-8B Front Cockpit.cs" />
