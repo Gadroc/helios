@@ -894,7 +894,7 @@ namespace GadrocsWorkshop.Helios
             Children.Add(gauge);
             foreach (IBindingTrigger trigger in gauge.Triggers)
             {
-                AddTrigger(trigger, trigger.Device);
+                AddTrigger(trigger, trigger.Device); 
             }
             foreach (IBindingAction action in gauge.Actions)
             {
@@ -940,7 +940,7 @@ namespace GadrocsWorkshop.Helios
             _panel.Name = GetComponentName(name);
             Children.Add(_panel);
             return _panel;
-
+ 
         }
-    }
+}
 }

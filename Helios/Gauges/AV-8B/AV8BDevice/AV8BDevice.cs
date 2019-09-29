@@ -18,7 +18,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    abstract class AV8BDevice : CompositeVisual
+    abstract class AV8BDevice : AV8BCompositeVisual
     {
         public AV8BDevice(string name, Size size)
             : base(name, size)

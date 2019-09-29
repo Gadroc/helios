@@ -28,7 +28,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private CalibrationPointCollectionDouble _needleCalibration;
         
         public IAS()
-            : base("IAS", new Size(300, 300))
+            : base("Flight Instruments", new Size(300, 300))
         {
 
             Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/IAS/ias_faceplate.xaml", new Rect(0d, 0d, 300, 300)));
@@ -41,8 +41,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
             Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/IAS/needle_mask.xaml", new Rect(130d, 34d, 73d, 98d)));
-
-            _indicatedAirSpeed = new HeliosValue(this, new BindingValue(0d), "", "indicated airspeed", "Current indicated airspeed of the aircraft.", "(0 - 950)", BindingValueUnits.Knots);
+            //Components.Add(new GaugeImage("{AV-8B}/Images/WQHD/Panel/crystal_reflection_round.png", new Rect(0d, 0d, 300d, 300d)));
+            GaugeImage _gauge = new GaugeImage("{AV-8B}/Images/WQHD/Panel/crystal_reflection_round.png", new Rect(0d, 0d, 300d, 300d));
+            _gauge.Opacity = 0.4;
+            Components.Add(_gauge);
+            _indicatedAirSpeed = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "indicated airspeed", "Current indicated airspeed of the aircraft.", "(0 - 950)", BindingValueUnits.Knots);
             _indicatedAirSpeed.Execute += new HeliosActionHandler(IndicatedAirSpeed_Execute);
             Actions.Add(_indicatedAirSpeed);
         }

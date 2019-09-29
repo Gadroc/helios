@@ -13,6 +13,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/// <summary>
+/// This has been deprecated in favour of SMC_1 which uses text displays and a higher res background image
+/// </summary>
+ 
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.Gauges.AV8B;
@@ -22,48 +26,48 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
 
     [HeliosControl("Helios.AV8B.SMC", "Stores Management Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
-    class SMC_AV8B: AV8BDevice
+    class SMC_AV8B : AV8BDevice
     {
- 
+
         public SMC_AV8B()
-            : base("Stores Management Panel", new Size(1231, 470))
+            : base("Stores Management Panel", new Size(703, 254))
         {
 
-            AddDisplay("Stores Mode", new Helios.Gauges.AV8B.smcModeDisplay(), new Point(81, 64), new Size(68, 41));
-            AddDisplay("Fuze Mode", new Helios.Gauges.AV8B.fuzeDisplay(), new Point(218, 59), new Size(112, 50));
-            AddDisplay("Quantity", new Helios.Gauges.AV8B.SMC.TwoDigitDisplay(), new Point(407, 66), new Size(98, 48));
-            AddDisplay("Multiple", new Helios.Gauges.AV8B.SMC.OneDigitDisplay(), new Point(607,66), new Size(41, 48));
-            AddDisplay("Interval", new Helios.Gauges.AV8B.SMC.ThreeDigitDisplay(), new Point(746, 66), new Size(168, 48));
+            AddDisplay("Stores Mode", new Helios.Gauges.AV8B.smcModeDisplay(), new Point(46, 34), new Size(34, 32));
+            AddDisplay("Fuze Mode", new Helios.Gauges.AV8B.fuzeDisplay(), new Point(120, 34), new Size(60, 32));
+            AddDisplay("Quantity", new Helios.Gauges.AV8B.TwoDigitDisplay(), new Point(226, 34), new Size(64, 32));
+            AddDisplay("Multiple", new Helios.Gauges.AV8B.OneDigitDisplay(), new Point(340, 34), new Size(32, 32));
+            AddDisplay("Interval", new Helios.Gauges.AV8B.ThreeDigitDisplay(), new Point(428, 34), new Size(96, 32));
 
-            AddButton("Station 1", 383, 392, new Size(50, 50));
-            AddButton("Station 2", 486, 392, new Size(50, 50));
-            AddButton("Station 3", 586, 392, new Size(50, 50));
-            AddButton("Station 4", 688, 392, new Size(50, 50));
-            AddButton("Station 5", 788, 392, new Size(50, 50));
-            AddButton("Station 6", 886, 392, new Size(50, 50));
-            AddButton("Station 7", 988, 392, new Size(50, 50));
+            AddButton("Station 1", 218, 211, new Size(30, 30));
+            AddButton("Station 2", 276, 211, new Size(30, 30));
+            AddButton("Station 3", 333, 211, new Size(30, 30));
+            AddButton("Station 4", 390, 211, new Size(30, 30));
+            AddButton("Station 5", 447, 211, new Size(30, 30));
+            AddButton("Station 6", 504, 211, new Size(30, 30));
+            AddButton("Station 7", 562, 211, new Size(30, 30));
 
-            AddIndicator("Station 1 Selected", 385, 330, new Size(47, 41));
-            AddIndicator("Station 2 Selected", 488, 330, new Size(47, 41)); 
-            AddIndicator("Station 3 Selected", 588, 330, new Size(47, 41));
-            AddIndicator("Station 4 Selected", 687, 330, new Size(47, 41));
-            AddIndicator("Station 5 Selected", 784, 330, new Size(47, 41));
-            AddIndicator("Station 6 Selected", 886, 330, new Size(47, 41));
-            AddIndicator("Station 7 Selected", 988, 330, new Size(47, 41));
+            AddIndicator("Station 1 Selected", 215, 175, new Size(30, 25));
+            AddIndicator("Station 2 Selected", 273, 175, new Size(30, 25));
+            AddIndicator("Station 3 Selected", 330, 175, new Size(30, 25));
+            AddIndicator("Station 4 Selected", 387, 175, new Size(30, 25));
+            AddIndicator("Station 5 Selected", 444, 175, new Size(30, 25));
+            AddIndicator("Station 6 Selected", 501, 175, new Size(30, 25));
+            AddIndicator("Station 7 Selected", 559, 175, new Size(30, 25));
 
-            AddThreeWayToggle("Aiming Mode Switch", 56, 130, new Size(65, 153));
-            AddThreeWayToggle("Fuze Toggle Switch", 256, 130, new Size(65, 153));
-            AddThreeWayToggle("Quantity 10's", 366, 134, new Size(65, 153));
-            AddThreeWayToggle("Quantity 1's", 472, 134, new Size(65, 153));
-            AddThreeWayToggle("Multiple Switch", 580, 132, new Size(65, 153));
-            AddThreeWayToggle("Interval 100's", 696, 140, new Size(65, 153));
-            AddThreeWayToggle("Interval 10's", 804, 140, new Size(65, 153));
-            AddThreeWayToggle("Interval 1's", 911, 140, new Size(65, 153));
-            AddTwoWayToggle("IR Cool Switch", 1094, 294, new Size(67, 154));
+            AddThreeWayToggle("Aiming Mode Switch", 32, 60, new Size(40, 100));
+            AddThreeWayToggle("Fuze Toggle Switch", 144, 60, new Size(40, 100));
+            AddThreeWayToggle("Quantity 10's", 206, 60, new Size(40, 100));
+            AddThreeWayToggle("Quantity 1's", 268, 60, new Size(40, 100));
+            AddThreeWayToggle("Multiple Switch", 330, 60, new Size(40, 100));
+            AddThreeWayToggle("Interval 100's", 395, 65, new Size(40, 100));
+            AddThreeWayToggle("Interval 10's", 457, 65, new Size(40, 100));
+            AddThreeWayToggle("Interval 1's", 519, 65, new Size(40, 100));
+            AddTwoWayToggle("IR Cool Switch", 620, 147, new Size(50, 100));
 
-            AddKnobSMC1("Fuzing Options", new Point(1025,76), new Size(110,110));
-            AddKnobSMC2("Stores Jettison Switch", new Point(96, 278), new Size(186, 186));
-            AddButton("Jettison Button", 131, 312, new Size(118, 118), true, true);
+            AddKnobSMC1("Fuzing Options", new Point(582, 39), new Size(75, 75));
+            AddKnobSMC2("Stores Jettison Switch", new Point(58, 150), new Size(100, 100));
+            AddButton("Jettison Button", 77, 169, new Size(62, 62), true, true);
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize)
         {
@@ -78,9 +82,9 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{AV-8B}/Images/AV-8B SMC Faceplate.png"; }
+            get { return "{AV-8B}/Images/AV-8B SMC faceplate 0.png"; }
         }
-            
+
         private new void AddTrigger(IBindingTrigger trigger, string device)
         {
             trigger.Device = device;
@@ -118,7 +122,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
             _knob.Name = name;
-            _knob.KnobImage = "{AV-8B}/Images/SMC Jettison Knob.png";
+            _knob.KnobImage = "{Helios}/Gauges/AV-8B/SMC/Jettison Knob.xaml";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
             _knob.Positions.Clear();
@@ -139,7 +143,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         }
         private void AddButton(string name, double x, double y) { AddButton(name, x, y, false); }
         private void AddButton(string name, double x, double y, Size size) { AddButton(name, x, y, size, false); }
-        private void AddButton(string name, double x, double y, bool horizontal) { AddButton(name, x, y, new Size(40,40),false); }
+        private void AddButton(string name, double x, double y, bool horizontal) { AddButton(name, x, y, new Size(40, 40), false); }
         private void AddButton(string name, double x, double y, Size size, bool horizontal) { AddButton(name, x, y, size, horizontal, false); }
         private void AddButton(string name, double x, double y, Size size, bool horizontal, bool altImage)
         {
@@ -163,8 +167,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             }
             else
             {
-                button.Image = "{AV-8B}/Images/SMC Jettison Button.png";
-                button.PushedImage = "{AV-8B}/Images/SMC Jettison Button.png";
+                button.Image = "{Helios}/Gauges/AV-8B/SMC/Jettison Button.xaml";
+                button.PushedImage = "{Helios}/Gauges/AV-8B/SMC/Jettison Button.xaml";
             }
 
 
@@ -179,7 +183,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddAction(button.Actions["release"], name);
             AddAction(button.Actions["set.physical state"], name);
         }
-       private void AddTwoWayToggle(string name, double x, double y, Size size)
+        private void AddTwoWayToggle(string name, double x, double y, Size size)
         {
             Helios.Controls.ToggleSwitch toggle = new Helios.Controls.ToggleSwitch();
             toggle.Top = y;
@@ -187,8 +191,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             toggle.Width = size.Width;
             toggle.Height = size.Height;
             toggle.DefaultPosition = ToggleSwitchPosition.Two;
-            toggle.PositionOneImage = "{AV-8B}/Images/SMC Cool Switch Up.png";
-            toggle.PositionTwoImage = "{AV-8B}/Images/SMC Cool Switch Dn.png";
+            toggle.PositionOneImage = "{Helios}/Images/Toggles/orange-round-up.png";
+            toggle.PositionTwoImage = "{Helios}/Images/Toggles/orange-round-down.png";
             toggle.Name = name;
 
             Children.Add(toggle);
@@ -254,8 +258,5 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             // No-Op
         }
-
-
-
     }
 }

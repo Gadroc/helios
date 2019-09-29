@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
     using System.Windows.Media;
     using System.Windows;
 
-    [HeliosControl("Helios.FA18C.IFEIGauges", "IFEI Needles & Flags", "F/A-18C Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.FA18C.IFEIGauges", "IFEI Needles & Flags", "_Hidden Parts", typeof(GaugeRenderer))]
     public class IFEI_Gauges : BaseGauge
     {
         private static readonly Rect SCREEN_RECT = new Rect(0, 0, 1, 1);

@@ -179,7 +179,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             TextDisplay display = AddTextDisplay(
                 name: name,
-                pos: new Point(x, y),
+                posn: new Point(x, y),
                 size: size,
                 font: _font,
                 baseFontsize: baseFontsize,
@@ -215,13 +215,13 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             AddThreeWayToggle(
                 name: name,
-                pos: posn,
+                posn: posn,
                 size: size,
                 positionOneImage: image + "up.png",
                 positionTwoImage: image + "norm.png",
                 positionThreeImage: image + "down.png",
                 defaultPosition: ThreeWayToggleSwitchPosition.Two,
-                switchType: ThreeWayToggleSwitchType.OnOnOn,
+                defaultType: ThreeWayToggleSwitchType.OnOnOn,
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 fromCenter: false

@@ -137,7 +137,7 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
         {
             TextDisplay display = AddTextDisplay(
                 name: name,
-                pos: new Point(x, y),
+                posn: new Point(x, y),
                 size: size,
                 font: "Hornet UFC",
                 baseFontsize: baseFontsize,
@@ -214,39 +214,16 @@ namespace GadrocsWorkshop.Helios.Gauges.FA18C
                 );
         }
 
-        private void AddIndicatorPushButton(string name, double x, double y, Size size)
-        {
-            Color onTextColor;
-            if (name == "MASTER WARNING")
-            {
-                onTextColor = Color.FromArgb(0xff, 0xc7, 0x1e, 0x1e);
-            }
-            else
-            {
-                onTextColor = Color.FromArgb(0xff, 0xb3, 0xa2, 0x29);
-            }
 
-            AddIndicatorPushButton(
-                name: name,
-                pos: new Point(x, y),
-                size: size,
-                image: "{Helios}/Images/Indicators/indicator.png",
-                pushedImage: "{Helios}/Images/Indicators/indicator-push.png",
-                textColor: Color.FromArgb(0xff, 0x1C, 0x1C, 0x1C),
-                onTextColor: onTextColor,
-                font: _font
-                );
-
-        }
         private void AddThreeWayToggle(string name, double x, double y, Size size, string interfaceElementName)
         {
 
             AddThreeWayToggle(
                 name: name,
-                pos: new Point(x, y),
+                posn: new Point(x, y),
                 size: size,
                 defaultPosition: ThreeWayToggleSwitchPosition.Two,
-                switchType: ThreeWayToggleSwitchType.OnOnOn,
+                defaultType: ThreeWayToggleSwitchType.OnOnOn,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 fromCenter: false

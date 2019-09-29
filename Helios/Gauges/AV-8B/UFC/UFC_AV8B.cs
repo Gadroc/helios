@@ -13,6 +13,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+/// <summary>
+/// This has been deprecated in favour of UFC_1 which uses text displays and a higher res background image
+/// </summary>
+
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.Gauges.AV8B;
@@ -35,7 +40,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
         private Rect _scaledScreenRectR = SCREEN_RECT_R;
         private String _font = "MS 33558";
-        //private String _font = "Franklin Gothic";
 
         public UFC_AV8B()
             : base("Up Front Controller", new Size(808, 550))
@@ -261,7 +265,8 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 if (_font == "MS 33558")
                 {
                     indicator.TextFormat.FontSize = 8;
-                } else
+                }
+                else
                 {
                     indicator.TextFormat.FontSize = 11;
                 }

@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.SMC
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.SMC.TwoDigitDisplay", "Two Digit Display", "AV-8B", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.SMC.TwoDigitDisplay", "Two Digit Display", "_Hidden Parts", typeof(GaugeRenderer))]
     public class TwoDigitDisplay : BaseGauge
     {
         private HeliosValue _two_digit_display;
