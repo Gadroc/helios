@@ -258,6 +258,27 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             CalibrationPointCollectionDouble modeNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
             AddFunction(new ScaledNetworkValue(this, "341", modeNeedleScale, "HSI Panel", "Mode Needle", "Mode Needle.", "0 - 360", BindingValueUnits.Numeric));
             #endregion
+            #region INS Panel
+            AddFunction(new Switch(this, PCN_NAV, "627", new SwitchPosition[] {
+                new SwitchPosition("0.0", "AR", "3627"),
+                new SwitchPosition("0.1", "VEI", "3627"),
+                new SwitchPosition("0.2", "CAL", "3627"),
+                new SwitchPosition("0.3", "TST", "3627"),
+                new SwitchPosition("0.4", "ALN", "3627"),
+                new SwitchPosition("0.5", "ALCM", "3627"),
+                new SwitchPosition("0.6", "NAV", "3627"),
+                new SwitchPosition("0.7", "SEC", "3627")
+                },
+                "INS Panel", "Mode Selector", "%0.1f"));    // elements["PTN_627"] = multiposition_switch_limited(_("INS Mode Selector"), devices.PCN_NAV, device_commands.Button_627, 627, 8, 0.1, false, 0)
+            AddFunction(new Switch(this, PCN_NAV, "629", new SwitchPosition[] {
+                new SwitchPosition("0.0", "N", "3629"),
+                new SwitchPosition("0.1", "STS", "3629"),
+                new SwitchPosition("0.2", "DCI", "3629"),
+                new SwitchPosition("0.3", "CRV", "3629"),
+                new SwitchPosition("0.4", "MAIN", "3629"),
+                },
+                "INS Panel", "Operation Selector", "%0.1f"));    // elements["PTN_629"] = multiposition_switch_limited(_("INS Operational Mode"), devices.PCN_NAV, device_commands.Button_629, 629, 5, 0.1, true, 0)
+            #endregion
             #region Landing Gear Panel
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
             AddFunction(new FlagValue(this, "411", "Landing Gear Panel", "F", "F Warnlamp"));
@@ -675,8 +696,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
             #endregion
             #region  PSM
-            AddFunction(new Switch(this, PCN_NAV, "627", new SwitchPosition[] { }, "PSM", "INS Mode Selector", "%0.1f"));    // elements["PTN_627"] = multiposition_switch_limited(_("INS Mode Selector"), devices.PCN_NAV, device_commands.Button_627, 627, 8, 0.1, false, 0)
-            AddFunction(new Switch(this, PCN_NAV, "629", new SwitchPosition[] { }, "PSM", "INS Operational Mode", "%0.1f"));    // elements["PTN_629"] = multiposition_switch_limited(_("INS Operational Mode"), devices.PCN_NAV, device_commands.Button_629, 629, 5, 0.1, true, 0)
             AddFunction(new Switch(this, PCN_NAV, "665", new SwitchPosition[] { }, "PSM", "INS Auxiliary Heading/Horizon", "%0.1f"));    // elements["PTN_665"] = multiposition_switch_limited(_("INS Auxiliary Heading/Horizon"), devices.PCN_NAV, device_commands.Button_665, 665, 3, 0.5, false, 0)
                                                                                                                                          // 
             #endregion

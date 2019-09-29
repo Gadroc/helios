@@ -76,6 +76,8 @@ What’s new DCS M2000C
 	* Added the ECM Box
 	   - added the potentiometer
 	   - added the 3 switches
+	* Added the INS Panel
+	   - added the 2 switches
 	* Improvement of the Engine Panel
 	   - added the 2 guards
 	* Improvement of the Landing Gear Panel

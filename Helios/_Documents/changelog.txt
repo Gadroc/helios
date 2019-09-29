@@ -10,6 +10,7 @@
 	* Added the Engine Sensors Panel (still in beta) with the 2 needles and the drum
 	* Added the HSI Panel (still in beta) with the drum, the 4 stop flags, the 2 needles, the green needle, the mode needle, the compass rose, the switch and the potentiometer
 	* Added the ECM Box with the potentiometer and the 3 switches
+	* Added the INS Panel with the 2 switches
 	* Improvement of the Engine Panel by adding the 2 guards
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch  and the emergency landing gear lever
 	* Improvement of the pictures of the cockpit
