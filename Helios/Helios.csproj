@@ -122,6 +122,7 @@
     <Compile Include="Gauges\M2000C\Miscellaneous\FireWarning_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\PCI_Panel.cs" />
     <Compile Include="Gauges\M2000C\VorIlsChannel\VorIls_Panel.cs" />
+    <Compile Include="CompositeVisual.cs" />
     <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />
@@ -133,7 +134,7 @@
     <Compile Include="ComponentModel\HeliosUnitConverterAttribute.cs" />
     <Compile Include="ComponentModel\IPropertyNotification.cs" />
     <Compile Include="ComponentModel\PropertyNotificationEventArgs.cs" />
-    <Compile Include="CompositeVisual.cs" />
+    <Compile Include="Gauges\M2000C\M2000CCompositeVisual.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="Controls\ClickType.cs" />
     <Compile Include="Controls\CustomGauge.cs" />
