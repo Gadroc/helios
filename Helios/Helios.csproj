@@ -142,6 +142,7 @@
     <Compile Include="Gauges\AV-8B\Small Panels\CockpitAppearanceEditor.xaml.cs">
       <DependentUpon>CockpitAppearanceEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\Gear and Flaps Panel.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\H2O Panel.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\FlightInstrumentAppearanceEditor.xaml.cs">
       <DependentUpon>FlightInstrumentAppearanceEditor.xaml</DependentUpon>

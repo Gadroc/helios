@@ -156,6 +156,77 @@ namespace GadrocsWorkshop.Helios
 
             return _knob;
         }
+        protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition,
+            string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, ClickType clickType, string interfaceDeviceName, string interfaceElementName,
+            bool fromCenter, bool horizontal = false, string interfaceIndicatorElementName = "")
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+
+            ToggleSwitch newSwitch = new ToggleSwitch(); 
+            newSwitch.Name = componentName;
+            newSwitch.SwitchType = defaultType;
+            newSwitch.ClickType = clickType;
+            newSwitch.DefaultPosition = defaultPosition;
+            newSwitch.HasIndicator = true;
+            if (interfaceIndicatorElementName != "")
+            {
+                // if there is an indicatorElementname then the image names will be partial
+                // and need to be completed
+                newSwitch.PositionOneImage = positionOneImage + " off.png";
+                newSwitch.PositionTwoImage = positionTwoImage + " off.png";
+                newSwitch.PositionOneIndicatorOnImage = positionOneImage + " on.png";
+                newSwitch.PositionTwoIndicatorOnImage = positionTwoImage + " on.png";
+                newSwitch.HasIndicator = true;
+            }
+            else
+            {
+                newSwitch.PositionOneImage = positionOneImage;
+                newSwitch.PositionTwoImage = positionTwoImage;
+                newSwitch.HasIndicator = false;
+            }
+            newSwitch.Width = size.Width;
+            newSwitch.Height = size.Height;
+
+            newSwitch.Top = posn.Y;
+            newSwitch.Left = posn.X;
+            if (horizontal)
+            {
+                newSwitch.Rotation = HeliosVisualRotation.CW;
+                newSwitch.Orientation = ToggleSwitchOrientation.Horizontal;
+            }
+
+            Children.Add(newSwitch);
+
+            foreach (IBindingTrigger trigger in newSwitch.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            AddAction(newSwitch.Actions["set.position"], componentName);
+
+            AddDefaultOutputBinding(
+                childName: componentName,
+                deviceTriggerName: "position.changed",
+                interfaceActionName: interfaceDeviceName + ".set." + interfaceElementName
+            );
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set.position");
+
+            if (newSwitch.HasIndicator)
+            {
+                AddAction(newSwitch.Actions["set.indicator"], componentName);
+
+                AddDefaultInputBinding(
+                    childName: componentName,
+                    interfaceTriggerName: interfaceDeviceName + "." + interfaceIndicatorElementName + ".changed",
+                    deviceActionName: "set.indicator");
+            }
+            return newSwitch;
+        }
+
 
     }
 }
