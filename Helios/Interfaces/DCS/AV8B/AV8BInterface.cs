@@ -504,7 +504,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3627", "627", "1", "On", "0", "Off", "ACNIP", "KY-58 Codes Clear Switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "628", "1", "On", "0", "Off", "-1", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3632", "632", "1", "On", "0", "Off", "ACNIP", "IFF Operational Mode Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "633", "1", "On", "0.5", "Mid", "0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "633", "1.0", "On", "0.0", "Mid", "-1.0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%.1f"));
 
             AddFunction(new Text(this, "2102", "ACNIP", "ACNIP 1 Mode Label", "Title for the ACNIP 1 Mode display"));
             AddFunction(new Text(this, "2103", "ACNIP", "ACNIP 1 Mode", "ACNIP 1 Mode display"));
@@ -522,7 +522,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             // switch positions still need to be labeled
             AddFunction(new Axis(this, INTERCOM, "3629", "629", 0.03d, 0d, 1d, "Intercomm", "Aux Volume Knob"));
             AddFunction(new Axis(this, INTERCOM, "3630", "630", 0.03d, 0d, 1d, "Intercomm", "Ground Volume Knob"));
-            AddFunction(new Switch(this, RSC, "3631", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3631"), new SwitchPosition("0.5", "Norm", "3631"), new SwitchPosition("1.0", "Norm", "3631") }, "Intercomm", "Mic Operational Mode Switch", "%0.1f"));
+            AddFunction(new Switch(this, INTERCOM, "3631", new SwitchPosition[] { new SwitchPosition("1.0", "Norm", "3631"), new SwitchPosition("0.5", "Norm", "3631"), new SwitchPosition("0.0", "Norm", "3631") }, "Intercomm", "Mic Operational Mode Switch", "%0.1f"));
+            //AddFunction(new Switch(this, RSC, "3631", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3631"), new SwitchPosition("0.5", "Norm", "3631"), new SwitchPosition("1.0", "Norm", "3631") }, "Intercomm", "Mic Operational Mode Switch", "%0.1f"));
 
             #endregion
 
