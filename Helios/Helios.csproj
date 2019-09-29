@@ -110,6 +110,7 @@
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CNeedle.cs" />
     <Compile Include="Gauges\M2000C\ECMBox\ECM_Box.cs" />
+    <Compile Include="Gauges\M2000C\TestPanel\Test_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\AOA_Panel.cs" />
     <Compile Include="Gauges\M2000C\HSIPanel\HSI_Panel.cs" />
     <Compile Include="Gauges\M2000C\EngineSensorsPanel\EngineSensors_Panel.cs" />
