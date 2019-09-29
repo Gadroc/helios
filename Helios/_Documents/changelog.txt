@@ -1,6 +1,9 @@
-1.4.2019.???? Release
+1.4.2019.0929 Release
 ----------------------------
-
+* Profile Editor now polices only adding only one UDP interface.
+* AV-8B Autobinding Cockpit as a single control
+* AV-8B Radios now use text displays saving viewport exports
+* A-10C DLL added and images can be referenced by {A-10C}/Images/xxxx.png
 
 1.4.2019.0908 Release
 ----------------------------

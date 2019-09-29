@@ -36,7 +36,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         // Base construcor is passed default name and native size
         public AOA()
-            : base("Angle of Attack", new Size(300, 300))
+            : base("Flight Instuments", new Size(300, 300))
         {
             Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/Common/300_Gauge.xaml", new Rect(0d, 0d, 300d, 300d)));
 
@@ -65,7 +65,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 // Initial rotation for this needle
                                       173d);
             Components.Add(_needle);
-            _warningFlag = new HeliosValue(this, new BindingValue(false), "", "Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
+            GaugeImage _gauge = new GaugeImage("{AV-8B}/Images/WQHD/Panel/crystal_reflection_round.png", new Rect(0d, 0d, 300d, 300d));
+            _gauge.Opacity = 0.4;
+            Components.Add(_gauge);
+            //Components.Add(new GaugeImage("{AV-8B}/Images/WQHD/Panel/crystal_reflection_round.png", new Rect(0d, 0d, 300d, 300d)));
+            _warningFlag = new HeliosValue(this, new BindingValue(false), "Flight Instruments", "AoA Warning Flag", "Indicates whether the AoA warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
             _warningFlag.Execute += new HeliosActionHandler(OffFlag_Execute);
             Actions.Add(_warningFlag);
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
@@ -76,7 +80,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 // Default Value
                                    new BindingValue(0d),
                 // Device Hint
-                                   "",
+                                   "Flight Instruments",
                 // Name
                                    "angle of attack",
                 // Description

@@ -112,7 +112,7 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
-        private void HeliosTestParserBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void HeliosTextParserBox_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
     }

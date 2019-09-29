@@ -47,7 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\_transparant.png" />
+    <Resource Include="Images\_transparent.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\2 way Dome Down.png" />
@@ -624,6 +624,85 @@
     <Resource Include="Images\EDP Bit Button Normal.png" />
     <Resource Include="Images\EDP Bit Button Pressed.png" />
     <Resource Include="Images\AV-8B SMC Faceplate 0.png" />
+    <Resource Include="Images\WQHD\Indicator\AG Off.png" />
+    <Resource Include="Images\WQHD\Indicator\AG On.png" />
+    <Resource Include="Images\WQHD\Indicator\CMBT Off.png" />
+    <Resource Include="Images\WQHD\Indicator\CMBT On.png" />
+    <Resource Include="Images\WQHD\Indicator\Nav Off.png" />
+    <Resource Include="Images\WQHD\Indicator\Nav On.png" />
+    <Resource Include="Images\WQHD\Indicator\SEL Off.png" />
+    <Resource Include="Images\WQHD\Indicator\SEL On.png" />
+    <Resource Include="Images\WQHD\Indicator\STO Off.png" />
+    <Resource Include="Images\WQHD\Indicator\STO On.png" />
+    <Resource Include="Images\WQHD\Indicator\VSTOL Off.png" />
+    <Resource Include="Images\WQHD\Indicator\VSTOL On.png" />
+    <Resource Include="Images\WQHD\Panel\Brow.png" />
+    <Resource Include="Images\WQHD\Panel\Flight Instruments.png" />
+    <Resource Include="Images\WQHD\Panel\H2O.png" />
+    <Resource Include="Images\WQHD\Panel\Master Arm.png" />
+    <Resource Include="Images\WQHD\Switch\H2O Down.png" />
+    <Resource Include="Images\WQHD\Switch\H2O Middle.png" />
+    <Resource Include="Images\WQHD\Switch\H2O Up.png" />
+    <Resource Include="Images\WQHD\Switch\Master Arm Down.png" />
+    <Resource Include="Images\WQHD\Switch\Master Arm Up.png" />
+    <Resource Include="Images\WQHD\Panel\Right RWR.png" />
+    <Resource Include="Images\WQHD\Button\Combat Normal.png" />
+    <Resource Include="Images\WQHD\Button\Combat Pushed.png" />
+    <Resource Include="Images\WQHD\Button\AG Button Normal.png" />
+    <Resource Include="Images\WQHD\Button\AG Button Pushed.png" />
+    <Resource Include="Images\WQHD\Button\Flare Salvo Button Normal.png" />
+    <Resource Include="Images\WQHD\Button\Flare Salvo Button Pushed.png" />
+    <Resource Include="Images\WQHD\Button\Nav Button Normal.png" />
+    <Resource Include="Images\WQHD\Button\Nav Button Pushed.png" />
+    <Resource Include="Images\WQHD\Button\VSTOL Button Normal.png" />
+    <Resource Include="Images\WQHD\Button\VSTOL Button Pushed.png" />
+    <Resource Include="Images\WQHD\Knob\Cage Knob.png" />
+    <Resource Include="Images\WQHD\Panel\AV8B Front Cockpit 2.png" />
+    <Resource Include="Images\WQHD\Panel\Threat Indicator Panel.png" />
+    <Resource Include="Images\WQHD\Indicator\AAA On.png" />
+    <Resource Include="Images\WQHD\Indicator\AI On.png" />
+    <Resource Include="Images\WQHD\Indicator\CW On.png" />
+    <Resource Include="Images\WQHD\Indicator\SAM On.png" />
+    <Resource Include="Images\WQHD\Panel\EDP Surround.png" />
+    <Resource Include="Images\WQHD\Panel\crystal_reflection_round.png" />
+    <Resource Include="Images\WQHD\Panel\EDP Reflection.png" />
+    <Resource Include="Images\WQHD\Panel\UFC Large.png" />
+    <Resource Include="Images\WQHD\Panel\Landing Gear Indicator.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Left Amber.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Left Green.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Main Amber.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Main Green.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Nose Amber.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Nose Green.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Right Amber.png" />
+    <Resource Include="Images\WQHD\Indicator\Gear Right Green.png" />
+    <Resource Include="Images\WQHD\Panel\Right Radio.png" />
+    <Resource Include="Images\WQHD\Button\Radio A Up.png" />
+    <Resource Include="Images\WQHD\Button\Radio Load Up.png" />
+    <Resource Include="Images\WQHD\Knob\Inner.png" />
+    <Resource Include="Images\WQHD\Knob\Outer.png" />
+    <Resource Include="Images\WQHD\Knob\Radio Channel Select.png" />
+    <Resource Include="Images\WQHD\Knob\Radio Selector Knob.png" />
+    <Resource Include="Images\WQHD\Knob\Radio Squlech Knob.png" />
+    <Resource Include="Images\WQHD\Button\Radio P Up.png" />
+    <Resource Include="Images\WQHD\Switch\Domed Down.png" />
+    <Resource Include="Images\WQHD\Switch\Domed Normal.png" />
+    <Resource Include="Images\WQHD\Switch\Domed Up.png" />
+    <Resource Include="Images\WQHD\Switch\Orange Down.png" />
+    <Resource Include="Images\WQHD\Switch\Orange Normal.png" />
+    <Resource Include="Images\WQHD\Switch\Orange Up.png" />
+    <Resource Include="Images\WQHD\Panel\Flaps and Landing Gear.png" />
+    <Resource Include="Images\WQHD\Switch\Flaps Switch Down.png" />
+    <Resource Include="Images\WQHD\Switch\Flaps Switch NormaL.png" />
+    <Resource Include="Images\WQHD\Switch\Flaps Switch Up.png" />
+    <Resource Include="Images\WQHD\Switch\Horizontal Switch Left.png" />
+    <Resource Include="Images\WQHD\Switch\Horizontal Switch Normal.png" />
+    <Resource Include="Images\WQHD\Switch\Horizontal Switch Right.png" />
+    <Resource Include="Images\WQHD\Switch\Landing Gear Down Off.png" />
+    <Resource Include="Images\WQHD\Switch\Landing Gear Down On.png" />
+    <Resource Include="Images\WQHD\Switch\Landing Gear Up Off.png" />
+    <Resource Include="Images\WQHD\Switch\Landing Gear Up On.png" />
+    <Resource Include="Images\WQHD\Button\Emergency Jettison Button Pushed.png" />
     <Content Include="Templates\Switch 2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -694,6 +773,9 @@
     <Content Include="Templates\Switch SMC Square 3-Way Toggle B.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Panels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -13,6 +13,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/// <summary>
+/// This is the revised version of the Left MDFD which is larger with improved images.  
+/// There is a left and right to ensure correct autobinding.
+/// It has a slightly different name because the old version is retained to help with backward compatability
+/// </summary>
+/// 
+
+
+
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 { 
     using GadrocsWorkshop.Helios.Controls;

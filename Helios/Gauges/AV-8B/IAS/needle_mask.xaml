@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  Name="svg2" Width="73" Height="98">
-        <Path Fill="#ff151515" Data="F1 M 0.000,98.250 L 10.750,98.250 L 28.500,86.000 L 40.250,86.000 L 72.750,42.865 L 61.500,31.500 L 51.433,24.130 L 46.250,22.750 L 45.500,0.000 L 0.000,0.000 L 0.000,98.250 Z"/>
+        <Path Fill="#ff303030" Data="F1 M 0.000,98.250 L 10.750,98.250 L 28.500,86.000 L 40.250,86.000 L 72.750,42.865 L 61.500,31.500 L 51.433,24.130 L 46.250,22.750 L 45.500,0.000 L 0.000,0.000 L 0.000,98.250 Z"/>
 </Canvas>
 
 
