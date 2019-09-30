@@ -111,9 +111,11 @@
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CNeedle.cs" />
     <Compile Include="Gauges\M2000C\ECMBox\ECM_Box.cs" />
+    <Compile Include="Gauges\M2000C\TestPanel\Test_Panel.cs" />
     <Compile Include="Gauges\M2000C\Miscellaneous\AOA_Panel.cs" />
     <Compile Include="Gauges\M2000C\HSIPanel\HSI_Panel.cs" />
     <Compile Include="Gauges\M2000C\EngineSensorsPanel\EngineSensors_Panel.cs" />
+    <Compile Include="Gauges\M2000C\INSPanel\INS_Panel.cs" />
     <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />
     <Compile Include="Gauges\M2000C\PCAPanel\PCA_Panel.cs" />
     <Compile Include="Gauges\M2000C\PPAPanel\PPA_Panel.cs" />
@@ -483,10 +485,8 @@
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
     <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDevice.cs" />
     <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDeviceRenderer.cs" />
-    <Compile Include="Gauges\M2000C\ILSFrequency\ILSFrequency.cs" />
     <Compile Include="Gauges\M2000C\MCLPanel\MCL_Panel.cs" />
     <Compile Include="Gauges\M2000C\TACANChannel\Tacan_Panel.cs" />
-    <Compile Include="Gauges\M2000C\UVHFPanel\UVHFChannelDisplay.cs" />
     <Compile Include="Gauges\Mi-8\ADI\ADI.cs" />
     <Compile Include="Gauges\MiG-21\BatteryCapacity\BatteryCapacity.cs" />
     <Compile Include="Gauges\MiG-21\RadioChannelDisplay\RadioChannelDisplay.cs" />
@@ -619,7 +619,6 @@
     <Compile Include="Interfaces\DCS\Generic\GenericInterfaceEditor.xaml.cs">
       <DependentUpon>GenericInterfaceEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\DCS\M2000C\Functions\TACANChannel.cs" />
     <Compile Include="Interfaces\DCS\M2000C\M2000CInterface.cs" />
     <Compile Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml.cs">
       <DependentUpon>M2000CInterfaceEditor.xaml</DependentUpon>
@@ -2917,10 +2916,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\M2000C\ILSFrequency\ils_frequency_faceplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -3041,6 +3036,7 @@
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\Controls\" />
     <Folder Include="Interfaces\DCS\F14B\Functions\" />
+    <Folder Include="Interfaces\DCS\M2000C\Functions\" />
     <Folder Include="Interfaces\DCS\Mi8Simple\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
   </ItemGroup>

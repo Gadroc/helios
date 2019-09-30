@@ -76,6 +76,12 @@ What’s new DCS M2000C
 	* Added the ECM Box
 	   - added the potentiometer
 	   - added the 3 switches
+	* Added the INS Panel
+	   - added the 2 switches
+	* Added the Test Panel
+       - added the 4 indicators 
+	   - added the 3 switches
+	   - added the 3 guards on the switches
 	* Improvement of the Engine Panel
 	   - added the 2 guards
 	* Improvement of the Landing Gear Panel
@@ -83,7 +89,7 @@ What’s new DCS M2000C
  	   - added the emergency landing gear lever
 	* Improvement of the Master Caution lights Panel
 	   - try to make the 2 indicators clickable with the same solution as the PCN Panel --> doesn’t work
-	* Improvement of the pictures of the cockpit
+	* Improvement of the pictures of the cockpit to allow the new panels to work fine
 	* Miscellaneous Panels
        - Added the Post Combustion Indicator
        - Added the 2 Fire Warning Indicators (need a match to test it :-)
@@ -102,7 +108,7 @@ Known issues DCS M2000C
 	   - removed the Guard for the "fly by wire gain switch". Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
 	* TACAN Panel
 	   - the switch Mode is not working from Helios to DCS
-	   - the 2 switches to change the TACAN frequency are not implemented
+	   - the 2 switches to change the TACAN frequency are not implemented or don’t work
 	   - the display of the channel X/Y mode displays nothing
 	* VOR/ILS Panel
 	   - the switch Mode is not working 
@@ -115,6 +121,8 @@ Known issues DCS M2000C
 	* ECM Box
 	   - the potentiometer is not working
 	   - the 3 switches are not working from DCS to Helios
+	* Test Panel
+	   - the 3 guards are not link with DCS in both ways
 	* Miscellaneous Panels
 	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 

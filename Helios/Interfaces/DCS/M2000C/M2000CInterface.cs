@@ -16,7 +16,7 @@
 namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 {
     using GadrocsWorkshop.Helios.ComponentModel;
-    using GadrocsWorkshop.Helios.Interfaces.DCS.M2000C.Functions;
+//    using GadrocsWorkshop.Helios.Interfaces.DCS.M2000C.Functions;
     using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
     using GadrocsWorkshop.Helios.UDPInterface;
     using Microsoft.Win32;
@@ -258,6 +258,27 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             CalibrationPointCollectionDouble modeNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
             AddFunction(new ScaledNetworkValue(this, "341", modeNeedleScale, "HSI Panel", "Mode Needle", "Mode Needle.", "0 - 360", BindingValueUnits.Numeric));
             #endregion
+            #region INS Panel
+            AddFunction(new Switch(this, PCN_NAV, "627", new SwitchPosition[] {
+                new SwitchPosition("0.0", "AR", "3627"),
+                new SwitchPosition("0.1", "VEI", "3627"),
+                new SwitchPosition("0.2", "CAL", "3627"),
+                new SwitchPosition("0.3", "TST", "3627"),
+                new SwitchPosition("0.4", "ALN", "3627"),
+                new SwitchPosition("0.5", "ALCM", "3627"),
+                new SwitchPosition("0.6", "NAV", "3627"),
+                new SwitchPosition("0.7", "SEC", "3627")
+                },
+                "INS Panel", "Mode Selector", "%0.1f"));    // elements["PTN_627"] = multiposition_switch_limited(_("INS Mode Selector"), devices.PCN_NAV, device_commands.Button_627, 627, 8, 0.1, false, 0)
+            AddFunction(new Switch(this, PCN_NAV, "629", new SwitchPosition[] {
+                new SwitchPosition("0.0", "N", "3629"),
+                new SwitchPosition("0.1", "STS", "3629"),
+                new SwitchPosition("0.2", "DCI", "3629"),
+                new SwitchPosition("0.3", "CRV", "3629"),
+                new SwitchPosition("0.4", "MAIN", "3629"),
+                },
+                "INS Panel", "Operation Selector", "%0.1f"));    // elements["PTN_629"] = multiposition_switch_limited(_("INS Operational Mode"), devices.PCN_NAV, device_commands.Button_629, 629, 5, 0.1, true, 0)
+            #endregion
             #region Landing Gear Panel
             AddFunction(new FlagValue(this, "410", "Landing Gear Panel", "A", "A Warnlamp"));
             AddFunction(new FlagValue(this, "411", "Landing Gear Panel", "F", "F Warnlamp"));
@@ -460,6 +481,37 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 new SwitchPosition("1.0", "A/A", CMD + TACAN_MODE_SELECTOR) },
                 "Tacan Panel", "Mode Selector", " %0.1f"));
             #endregion
+            #region Test Panel
+            AddFunction(new FlagValue(this, "510", "Test Panel", "ELEC", "ELEC indicator"));
+            AddFunction(new FlagValue(this, "511", "Test Panel", "HYD", "HYD indicator"));
+            AddFunction(new FlagValue(this, "512", "Test Panel", "Test Fail", "Test fail indicator"));
+            AddFunction(new FlagValue(this, "513", "Test Panel", "Test Ok", "Test ok indicator"));
+            AddFunction(new Switch(this, AFCS, "514", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CLOSE", "3514"),
+                new SwitchPosition("1.0", "OPEN", "3514"), },
+                "Test Panel", "Autopilot Test Guard", "%0.1f"));
+            AddFunction(new Switch(this, AFCS, "515", new SwitchPosition[] {
+                new SwitchPosition("1.0", "ON", "3515"),
+                new SwitchPosition("0.0", "OFF", "3515"), },
+                "Test Panel", "Autopilot Test Switch", "%0.1f"));
+            AddFunction(new Switch(this, AFCS, "516", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CLOSE", "3516"),
+                new SwitchPosition("1.0", "OPEN", "3516"), },
+                "Test Panel", "FBW Test Guard", "%0.1f"));
+            AddFunction(new Switch(this, AFCS, "517", new SwitchPosition[] {
+                new SwitchPosition("0.0", "C", "3517"),
+                new SwitchPosition("0.5", "OFF", "3517"),
+                new SwitchPosition("1.0", "TEST", "3517"), },
+                "Test Panel", "FBW Test Switch", "%0.1f"));
+            AddFunction(new Switch(this, AFCS, "479", new SwitchPosition[] {
+                new SwitchPosition("0.0", "CLOSE", "3479"),
+                new SwitchPosition("1.0", "OPEN", "3479"), },
+                "Test Panel", "FBW Channel 5 Guard", "%0.1f"));
+            AddFunction(new Switch(this, AFCS, "480", new SwitchPosition[] {
+                new SwitchPosition("0.0", "ON", "3480"),
+                new SwitchPosition("1.0", "OFF", "3480"), },
+                "Test Panel", "FBW Channel 5 Switch", "%0.1f"));
+            #endregion
             #region VOR.ILS Panel
             //            AddFunction(new Switch(this, VORILS, "616", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Whole", "%0.1f"));    // elements["PTN_616"] = default_multiposition_knob(_("VOR/ILS Frequency Change Whole"),devices.VORILS,device_commands.Button_616,616, 11, 0.1, false, 0)
             //            AddFunction(new PushButton(this, VORILS, "3617", "617", "Navigational Antennas", "VOR/ILS Power Dial"));    // elements["PTN_617"] = default_2_position_tumb(_("VOR/ILS Power Dial"), devices.VORILS,device_commands.Button_617,617)
@@ -503,10 +555,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "494", "Indicators", "Indicators 494", "Left consule DEC"));
             AddFunction(new FlagValue(this, "496", "Indicators", "Indicators 496", "Left consule VISU"));
             AddFunction(new FlagValue(this, "505", "Indicators", "Indicators 505", "Left consule PSIC"));
-            AddFunction(new FlagValue(this, "510", "Indicators", "Indicators 510", "Left consule ELEC"));
-            AddFunction(new FlagValue(this, "511", "Indicators", "Indicators 511", "Left consule HYD"));
-            AddFunction(new FlagValue(this, "512", "Indicators", "Indicators 512", "Left consule Red"));
-            AddFunction(new FlagValue(this, "513", "Indicators", "Indicators 513", "Left consule Green"));
             AddFunction(new FlagValue(this, "632", "Indicators", "Indicators 632", "TACAN C"));
             AddFunction(new FlagValue(this, "634", "Indicators", "Indicators 634", "TACAN F"));
             AddFunction(new FlagValue(this, "675", "Indicators", "Indicators 675", "COM Panel, lamp red"));
@@ -615,12 +663,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new Switch(this, AFCS, "299", new SwitchPosition[] { }, "AFCS", "Altitude 10 000 ft Selector", "%0.1f"));    // elements["PTN_299"] = default_multiposition_knob(_("Altitude 10,000 ft Selector"), devices.AFCS, device_commands.Button_299, 299,  6, 0.1, false, 0)
             AddFunction(new Switch(this, AFCS, "300", new SwitchPosition[] { }, "AFCS", "Altitude 1 000 ft Selector", "%0.1f"));    // elements["PTN_300"] = default_multiposition_knob(_("Altitude 1,000 ft Selector"),  devices.AFCS, device_commands.Button_300, 300, 10, 0.1, false, 0)
             AddFunction(new Switch(this, AFCS, "301", new SwitchPosition[] { }, "AFCS", "Altitude 100 ft Selector", "%0.1f"));    // elements["PTN_301"] = default_multiposition_knob(_("Altitude 100 ft Selector"),  devices.AFCS, device_commands.Button_301, 301, 10, 0.1, false4, 0)
-            AddFunction(new PushButton(this, AFCS, "3514", "514", "AFCS", "Autopilot Test Switch Cover"));    // elements["PTN_514"] = default_2_position_tumb(_("Autopilot Test Switch Cover"),  devices.AFCS, device_commands.Button_514, 514)
-            AddFunction(new PushButton(this, AFCS, "3515", "515", "AFCS", "Autopilot Test Switch"));    // elements["PTN_515"] = default_2_position_tumb(_("Autopilot Test Switch"),  devices.AFCS, device_commands.Button_515, 515)
-            AddFunction(new PushButton(this, AFCS, "3516", "516", "AFCS", "FBW Test Switch Cover"));    // elements["PTN_516"] = default_2_position_tumb(_("FBW Test Switch Cover"),  devices.AFCS, device_commands.Button_516, 516)
-            AddFunction(new Switch(this, AFCS, "517", new SwitchPosition[] { }, "AFCS", "FBW Test Switch", "%0.1f"));    // elements["PTN_517"] = multiposition_switch_limited(_("FBW Test Switch"),  devices.AFCS, device_commands.Button_517, 517, 3, 0.5, false, 0)
-            AddFunction(new PushButton(this, AFCS, "3479", "479", "AFCS", "FBW Channel 5 Switch Cover"));    // elements["PTN_479"] = default_2_position_tumb(_("FBW Channel 5 Switch Cover"), devices.AFCS, device_commands.Button_479, 479)
-            AddFunction(new PushButton(this, AFCS, "3480", "480", "AFCS", "FBW Channel 5 Switch"));    // elements["PTN_480"] = default_2_position_tumb(_("FBW Channel 5 Switch"), devices.AFCS, device_commands.Button_480, 480)
                                                                                                        //AddFunction(Switch.CreateToggleSwitch(this, AFCS, "3508", "508", "AFCS", "Trim Control Mode Dial", "%0.1f"));    // elements["PTN_508"] = default_animated_lever(_("Trim Control Mode Dial"), devices.AFCS, device_commands.Button_508, 508,5.0)
                                                                                                        //AddFunction(Switch.CreateToggleSwitch(this, AFCS, "3509", "509", "AFCS", "Rudder Trim Paddle", "%0.1f"));    // elements["PTN_509"] = default_2_way_spring_switch(_("Rudder Trim Paddle"), devices.AFCS, device_commands.Button_509, 509,true)
 
@@ -675,8 +717,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
 
             #endregion
             #region  PSM
-            AddFunction(new Switch(this, PCN_NAV, "627", new SwitchPosition[] { }, "PSM", "INS Mode Selector", "%0.1f"));    // elements["PTN_627"] = multiposition_switch_limited(_("INS Mode Selector"), devices.PCN_NAV, device_commands.Button_627, 627, 8, 0.1, false, 0)
-            AddFunction(new Switch(this, PCN_NAV, "629", new SwitchPosition[] { }, "PSM", "INS Operational Mode", "%0.1f"));    // elements["PTN_629"] = multiposition_switch_limited(_("INS Operational Mode"), devices.PCN_NAV, device_commands.Button_629, 629, 5, 0.1, true, 0)
             AddFunction(new Switch(this, PCN_NAV, "665", new SwitchPosition[] { }, "PSM", "INS Auxiliary Heading/Horizon", "%0.1f"));    // elements["PTN_665"] = multiposition_switch_limited(_("INS Auxiliary Heading/Horizon"), devices.PCN_NAV, device_commands.Button_665, 665, 3, 0.5, false, 0)
                                                                                                                                          // 
             #endregion
