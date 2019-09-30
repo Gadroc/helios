@@ -25,19 +25,19 @@
 		* HSI Panel: the bottom stop flag is not tested, the compass rose, the 2 needles, the green needle are working but there is a problem of precision, the potentiometer doesn’t work properly
 		* VOR/ILS Panel: the switch Mode is not working and the 2 potentiometers are not implemented
 		* ECM Box: the potentiometer is not working and the 3 switches are not working from DCS to Helios
+		* Test Panel: the 3 guards are not link with DCS in both ways
 * Profile Editor now polices only adding one UDP interface.
 * AV-8B Interface Elements
+	* Autobinding Master Arm Panel added
+	* Autobinding Gear and Flaps panel added
+	* Autobinding Gear Indicator Panel added
+	* Autobinding H2O Panel added
+	* Autobinding Threat Indicator panel added
+	* Autobinding RWR control panel added
 	* Autobinding Cockpit as a single control
-	* AV-8B Radios now use text displays saving viewport exports
+	* Autobinding AV-8B Radios now use text displays saving viewport exports
 	* Known issues: there has had to be some breaking changes, so profiles may not work completely as they once did, but all new items are autobinding so hopefully can be fixed easily.
-		* Test Panel: the 3 guards are not link with DCS in both ways
-
-1.4.2019.0901 Release
-----------------------------
-* Profile Editor now polices only adding only one UDP interface.
-* AV-8B Autobinding Cockpit as a single control
-* AV-8B Radios now use text displays saving viewport exports
-* A-10C DLL added and images can be referenced by {A-10C}/Images/xxxx.png
+* Small change to UFC font to allow AV-8B decimal point 
 
 1.4.2019.0908 Release
 ----------------------------
@@ -57,6 +57,14 @@
 * New Autobinding Caution Panel for Mirage 2000C
 * Updates to the Interfaces for A-10C, F/A-18C, AV-8B, and Mirage 2000C to improve integration with the different
 	types of DCS World installations
+
+1.4.2019.0901 Release
+----------------------------
+* Profile Editor now polices only adding only one UDP interface.
+* AV-8B Autobinding Cockpit as a single control
+* AV-8B Radios now use text displays saving viewport exports
+* A-10C DLL added and images can be referenced by {A-10C}/Images/xxxx.png
+
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+
 |	* * * * * * * * * * * * * * * * * *
