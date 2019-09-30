@@ -1,4 +1,4 @@
-﻿//  Copyright 2014 Craig Courtney
+﻿ //  Copyright 2014 Craig Courtney
 //    
 //  Helios is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -34,16 +34,16 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         public FlightInstrumentPanel()
             : base(_generalComponentName, new Size(1030, 739))
         {
-            AddGauge("VVI Gauge", new VVI(), new Point(387, 456), new Size(238, 247), _interfaceDeviceName, "VVI", _generalComponentName);
+            AddGauge("VVI Gauge", new VVI1(), new Point(387, 456), new Size(238, 247), _interfaceDeviceName, "VVI", _generalComponentName);
             AddGauge("IAS Gauge", new IAS(), new Point(70, 186), new Size(203, 203), _interfaceDeviceName, "IAS Airspeed", _generalComponentName);
-            AddGauge("AOA Gauge", new AOA(), new Point(61, 473), new Size(221, 221), _interfaceDeviceName, "Angle of Attack", _generalComponentName);
-            AddGauge("ADI Gauge", new ADI(), new Point(350,59), new Size(293,293), _interfaceDeviceName, "Backup ADI Element", _generalComponentName);
+            AddGauge("AOA Gauge", new AOA(), new Point(61, 473), new Size(221, 221), _interfaceDeviceName, new string[2] { "AOA Flag", "Angle of Attack" }, _generalComponentName);
+            AddGauge("ADI Gauge", new ADI(), new Point(350, 59), new Size(293, 293), _interfaceDeviceName, new string[4] { "SAI Pitch" , "SAI Bank", "SAI Cage/Pitch Adjust Knob", "SAI Warning Flag" }, _generalComponentName);
             _interfaceDeviceName = "Flight Instruments";
             AddEncoder("ADI Pitch Adjust", new Point(575, 278), new Size(60, 60), "SAI Cage/Pitch Adjust Knob", "WQHD/Knob/Cage Knob.png");
             _interfaceDeviceName = "NAV course";
             AddEncoder("Course Set Knob", new Point(150, 40), new Size(80, 80), "Course Setting");
             _interfaceDeviceName = "Flight Instruments";
-            AddGauge("Altimeter Gauge", new Altimeter(), new Point(727, 351), new Size(261, 272), _interfaceDeviceName, "Altitude", _generalComponentName);
+            AddGauge("Altimeter Gauge", new Altimeter(), new Point(727, 351), new Size(261, 272), _interfaceDeviceName, new string[2] { "Air Pressure", "Altitude"  }, _generalComponentName);
             AddEncoder("Altimeter Pressure Adjust", new Point(720, 558), new Size(60,60), "Barometric pressure calibration adjust");
         }
 
@@ -143,7 +143,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             };
         }
 
-        private void AddGauge(string name, BaseGauge Part, Point posn, Size size, string interfaceDevice, string interfaceElement, string _componentName)
+        private void AddGauge(string name, BaseGauge Part, Point posn, Size size, string interfaceDevice, string interfaceElement, string _componentName) =>
+            AddGauge(name, Part, posn, size, interfaceDevice, new string[1] { interfaceElement }, _componentName);
+        private new void AddGauge(string name, BaseGauge Part, Point posn, Size size, string interfaceDevice, string[] interfaceElementNames) =>
+            AddGauge(name, Part, posn, size, interfaceDevice, interfaceElementNames, "");
+        private void AddGauge(string name, BaseGauge Part, Point posn, Size size, string interfaceDevice, string[] interfaceElementNames, string _componentName)
         {
             Part.Name = _componentName + name;
             BaseGauge _part = AddGauge(
@@ -152,7 +156,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 size: size,
                 posn: posn,
                 interfaceDeviceName: interfaceDevice,
-                interfaceElementName: interfaceElement
+                interfaceElementNames: interfaceElementNames
                 );
             {
                 _part.Name = _componentName + "_" + name;

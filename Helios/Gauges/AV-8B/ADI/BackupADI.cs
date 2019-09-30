@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.SADI", "Backup ADI", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.SADI", "Backup ADI", "_Hidden Parts", typeof(GaugeRenderer))]
     public class BackupADI : BaseGauge
     {
         private HeliosValue _pitch;

@@ -21,7 +21,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.Altimeter1", "Altimeter", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.Altimeter1", "Altimeter", "_Hidden Parts", typeof(GaugeRenderer))]
     public class Altimeter1 : GadrocsWorkshop.Helios.Gauges.A_10.ADI.Altimeter
     {
 
@@ -30,7 +30,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         {
             Components.RemoveAt(Components.Count - 1);  // remove the bezel
             //
-            // Note that this approach might need a different format of export for tle altimeter code.
+            // Note that this approach might need a different format of export for the altimeter code.
         }
     }
 }

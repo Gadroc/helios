@@ -21,7 +21,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.FuelPanel
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.FuelPanel", "Fuel Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.FuelPanel", "Fuel Panel", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class FQIS: AV8BDevice
     {
         private string _interfaceDeviceName = "Fuel Quantity";

@@ -56,7 +56,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             Components.Add(_needle);
 
             //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
-            //Components.Add(new GaugeImage("{AV-8B}/Images/WQHD/Panel/crystal_reflection_round.png", new Rect(32d, 38d, 300d, 300d)));
+
             GaugeImage _gauge = new GaugeImage("{AV-8B}/Images/WQHD/Panel/crystal_reflection_round.png", new Rect(32d, 38d, 300d, 300d));
             _gauge.Opacity = 0.4;
             Components.Add(_gauge);

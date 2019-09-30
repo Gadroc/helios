@@ -28,7 +28,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows.Threading;
 
 
-    [HeliosControl("Helios.AV8B.UFC1", "Up Front Controller 1", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.UFC1", "Up Front Controller", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class UFC_1: AV8BDevice
     {
         // these three sections are the dead space in the UFC image.

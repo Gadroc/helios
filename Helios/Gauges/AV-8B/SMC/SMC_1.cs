@@ -21,13 +21,11 @@
 
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
-    using GadrocsWorkshop.Helios.Gauges.AV8B;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
-    using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.SMC1", "Stores Management Panel 1", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.SMC1", "Stores Management", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class SMC_1: AV8BDevice
     {
         private string _interfaceDeviceName = "Stores Management";
@@ -36,11 +34,11 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         public SMC_1()
             : base("SMC", new Size(1231, 470))
         {
-            AddDisplay("Stores Mode", new Helios.Gauges.AV8B.smcModeDisplay(), new Point(81, 64), new Size(68, 41), "SMC mode (value)");
-            AddDisplay("Fuze Mode", new Helios.Gauges.AV8B.fuzeDisplay(), new Point(218, 59), new Size(112, 50), "Fuze Mode");
-            AddDisplay("Quantity", new Helios.Gauges.AV8B.SMC.TwoDigitDisplay(), new Point(407, 66), new Size(98, 48), "Stores quantity display");
-            AddDisplay("Multiple", new Helios.Gauges.AV8B.SMC.OneDigitDisplay(), new Point(607,66), new Size(41, 48), "Stores multiple display");
-            AddDisplay("Interval", new Helios.Gauges.AV8B.SMC.ThreeDigitDisplay(), new Point(746, 66), new Size(168, 48), "Stores interval display");
+            AddDisplay("Stores Mode", new smcModeDisplay(), new Point(81, 64), new Size(68, 41), "SMC mode (value)");
+            AddDisplay("Fuze Mode", new fuzeDisplay(), new Point(218, 59), new Size(112, 50), "Fuze Mode");
+            AddDisplay("Quantity", new SMC.TwoDigitDisplay(), new Point(407, 66), new Size(98, 48), "Stores quantity display");
+            AddDisplay("Multiple", new SMC.OneDigitDisplay(), new Point(607,66), new Size(41, 48), "Stores multiple display");
+            AddDisplay("Interval", new ThreeDigitDisplay(), new Point(746, 66), new Size(168, 48), "Stores interval display");
 
             AddButton("Station 1", 383, 393, new Size(50, 50), "Station 1 Button");
             AddButton("Station 2", 486, 393, new Size(50, 50), "Station 2 Button");

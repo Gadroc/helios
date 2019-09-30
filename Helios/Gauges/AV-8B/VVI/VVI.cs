@@ -20,14 +20,14 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.VVI", "VVI", "AV-8B Gauges", typeof(GaugeRenderer))]
-    public class VVI : BaseGauge
+    [HeliosControl("Helios.AV8B.VVI (AutoBinding)", "VVI", "AV-8B Gauges", typeof(GaugeRenderer))]
+    public class VVI1 : BaseGauge
     {
         private HeliosValue _verticalVelocity;
         private GaugeNeedle _needle;
         private CalibrationPointCollectionDouble _calibrationPoints;
 
-        public VVI()
+        public VVI1()
             : base("Flight Instruments", new Size(364, 376))
         {
             Components.Add(new GaugeImage("{Helios}/Gauges/A-10/VVI/vvi_faceplate.xaml", new Rect(32d, 38d, 300d, 300d)));

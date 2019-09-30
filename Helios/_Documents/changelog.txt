@@ -1,4 +1,4 @@
-1.4.2019.0xxx Release
+1.4.2019.0930 Release
 ----------------------------
 * M2000C Interface 
 	* Added the Fuel Panel with the 7 empty tanks indicators, the refueling indicator, the left and right neddle gauges and the JAUG and DETOT drums
@@ -23,12 +23,11 @@
 		* HSI Panel: the bottom stop flag is not tested, the compass rose, the 2 needles, the green needle are working but there is an problem of precision, the potentiometer doesn’t work properly
 		* VOR/ILS Panel: the switch Mode is not working and need to add the 2 potentiometers
 		* ECM Box: the potentiometer is not working and the 3 switches are not working from DCS to Helios
-
-1.4.2019.0901 Release
-----------------------------
-* Profile Editor now polices only adding only one UDP interface.
-* AV-8B Autobinding Cockpit as a single control
-* AV-8B Radios now use text displays saving viewport exports
+* Profile Editor now polices only adding one UDP interface.
+* AV-8B Interface Elements
+	* Autobinding Cockpit as a single control
+	* AV-8B Radios now use text displays saving viewport exports
+	* Known issues: there has had to be some breaking changes, so profiles may not work completely as they once did, but all new items are autobinding so hopefully can be fixed easily.
 * A-10C DLL added and images can be referenced by {A-10C}/Images/xxxx.png
 
 1.4.2019.0908 Release

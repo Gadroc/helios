@@ -40,11 +40,11 @@ namespace GadrocsWorkshop.Helios
             return Name + "_" + name;
         }
 
-//
-// For gauges with more than one input function, we need this override to map the 
-// different interface element names to the individual functions.  This carries with it
-// a requirement for the gauge function name to equal the interface element name
-//
+        //
+        // For gauges with more than one input function, we need this override to map the 
+        // different interface element names to the individual functions.  This carries with it
+        // a requirement for the gauge function name to equal the interface element name
+        //
 
         protected new Gauges.BaseGauge AddGauge(
             string name,
@@ -53,9 +53,17 @@ namespace GadrocsWorkshop.Helios
             Size size,
             string interfaceDeviceName,
             string interfaceElementName
+            ) => AddGauge(name, gauge, posn, size, interfaceDeviceName, new string[1] { interfaceElementName });
+        protected Gauges.BaseGauge AddGauge(
+            string name,
+            Gauges.BaseGauge gauge,
+            Point posn,
+            Size size,
+            string interfaceDeviceName,
+            string[] interfaceElementNames
             )
         {
-            if (DefaultInterfaceName == "DCS AV-8B" && (name == "Altimeter Gauge" || name == "ADI Gauge" ))
+            if (DefaultInterfaceName == "DCS AV-8B" && (name == "Altimeter Gauge" || name == "ADI Gauge" || name == "Slip/Turn Gauge"|| name == "AOA Gauge"))
             {
                 gauge.Name = name;
                 gauge.Top = posn.Y;
@@ -72,24 +80,16 @@ namespace GadrocsWorkshop.Helios
                 {
                     AddTrigger(trigger, trigger.Device);
                 }
+                int i = 0;
                 foreach (IBindingAction action in gauge.Actions)
                 {
                     if (action.Name != "hidden")
                     {
                         AddAction(action, action.Device);
-                        // SAI Pitch adjustment offset
-                        // SAI Cage/Pitch Adjust Knob
-                        if (name == "ADI Gauge" && action.Name == "SAI Pitch adjustment offset")
-                        {
-                            interfaceElementName = "SAI Cage/Pitch Adjust Knob";
-                        }
-                        else
-                        {
-                            interfaceElementName = action.Name;
-                        }
+
                         AddDefaultInputBinding(
                         childName: componentName,
-                        interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                        interfaceTriggerName: interfaceDeviceName + "." + interfaceElementNames[i++] + ".changed",
                         deviceActionName: action.Device + "." + action.ActionVerb + "." + action.Name
                         );
                     }
@@ -104,7 +104,7 @@ namespace GadrocsWorkshop.Helios
                     posn,
                     size,
                     interfaceDeviceName,
-                    interfaceElementName
+                    interfaceElementNames[0]
                     );
             }
         }

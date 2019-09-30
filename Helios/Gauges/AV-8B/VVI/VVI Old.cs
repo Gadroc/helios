@@ -19,10 +19,10 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.VVI", "AV-8B Vertical Velocity Indicator", "AV-8B Gauges", typeof(GaugeRenderer))]
-    public class VVI1 : A_10.VVI.VVI
+    [HeliosControl("Helios.AV8B.VVI", "AV-8B Vertical Velocity Indicator", "_Hidden Parts", typeof(GaugeRenderer))]
+    public class VVI : A_10.VVI.VVI
     {
-        public VVI1()
+        public VVI()
             : base()
         {
             Components.RemoveAt(Components.Count - 1);  // remove the bezel

@@ -27,7 +27,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     /// It has a slightly different name because the old version is retained to help with backward compatability
     /// </summary>
     /// 
-    [HeliosControl("Helios.AV8B.ODU1", "Option Display Unit 1", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.ODU1", "Option Display Unit", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class ODU_1 : AV8BDevice
     {
         // these three sections are the dead space in the ODU image.

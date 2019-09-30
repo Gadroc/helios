@@ -30,7 +30,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Globalization;
     using System.Windows;
 
-    [HeliosControl("AV8B.MPCDL", "MPCD (Left)", "AV-8B", typeof(MFDRenderer))]
+    [HeliosControl("AV8B.MPCDL", "MPCD (Left)", "AV-8B Gauges", typeof(MFDRenderer))]
     class Left_MPCD_1 : MPCD
     {
         public Left_MPCD_1()
