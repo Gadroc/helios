@@ -86,7 +86,7 @@ namespace GadrocsWorkshop.Helios
                     if (action.Name != "hidden")
                     {
                         AddAction(action, action.Device);
-
+                        
                         AddDefaultInputBinding(
                         childName: componentName,
                         interfaceTriggerName: interfaceDeviceName + "." + interfaceElementNames[i++] + ".changed",
