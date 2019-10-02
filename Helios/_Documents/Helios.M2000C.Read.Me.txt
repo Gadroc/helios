@@ -30,42 +30,10 @@ https://github.com/BlueFinBima/helios/issues and if nothing appears to be
 relevant then open a new issue.
   
 * * * Working Elements on M2000C * * *
-* * *      2nd October 2019      * * *
+* * *      29th September 2019   * * *
 
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * * Next Release Helios v1.4.2019.xxxx  * * *
-* * * * * * * * * * * * * * * * * * * * * * * *
-What’s new DCS M2000C
----------------------
-	* Improvement of guards on the Test and LG Panels. All are working now
-
-Known issues DCS M2000C
------------------------
-	* Fuel Panel
-	   - the Fuel CrossFeed Switch doesn’t work
-	   - the two toggle switches don’t work (seems not to be used in DCS)
-    * Master Caution lights Panel
-	   - seems the id is not the good one when clicking on the 2 indicators ?
-	* TACAN Panel
-	   - the switch Mode is not working from Helios to DCS
-	   - the 2 switches to change the TACAN frequency are not implemented or don’t work
-	   - the display of the channel X/Y mode displays nothing
-	* VOR/ILS Panel
-	   - the switch Mode is not working 
-	   - need to add the 2 potentiometers
-	* HSI Panel
-	   - the bottom stop flag is not tested
-	   - the compass rose, the 2 needles, the green needle are working but there is an problem of precision
-	   - the compass rose need to be redisign
-	   - the potentiometer doesn’t work properly
-	* ECM Box
-	   - the potentiometer is not working
-	   - the 3 switches are not working from DCS to Helios
-	* Miscellaneous Panels
-	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
-
-* * * * * * * * * * * * * * * * * * * * * * * *
-* * * Release Helios v1.4.2019.0930  * * *
 * * * * * * * * * * * * * * * * * * * * * * * *
 What’s new DCS M2000C
 ---------------------
@@ -128,6 +96,35 @@ What’s new DCS M2000C
 	   - Added the Demar Indicator
 	   - Added the 5 RWR indicators
 	   - Added the AOA needle
+
+Known issues DCS M2000C
+-----------------------
+	* Fuel Panel
+	   - the Fuel CrossFeed Switch doesn’t work
+	   - the two toggle switches don’t work (seems not to be used in DCS)
+    * Master Caution lights Panel
+	   - seems the id is not the good one when clicking on the 2 indicators ?
+	* Landing Gear Panel
+	   - removed the Guard for the "fly by wire gain switch". Still an issue due to the orientation of the guard. Need to click into the NonClickableZone zone to close it.
+	* TACAN Panel
+	   - the switch Mode is not working from Helios to DCS
+	   - the 2 switches to change the TACAN frequency are not implemented or don’t work
+	   - the display of the channel X/Y mode displays nothing
+	* VOR/ILS Panel
+	   - the switch Mode is not working 
+	   - need to add the 2 potentiometers
+	* HSI Panel
+	   - the bottom stop flag is not tested
+	   - the compass rose, the 2 needles, the green needle are working but there is an problem of precision
+	   - the compass rose need to be redisign
+	   - the potentiometer doesn’t work properly
+	* ECM Box
+	   - the potentiometer is not working
+	   - the 3 switches are not working from DCS to Helios
+	* Test Panel
+	   - the 3 guards are not link with DCS in both ways
+	* Miscellaneous Panels
+	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 
 * * * * * * * * * * * * * * * * * * * * * 
 * * * Release Helios v1.4.2019.0908 * * *

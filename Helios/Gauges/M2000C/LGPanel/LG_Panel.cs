@@ -35,8 +35,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             int row1 = 173, row2 = 191, row3 = 210, row4 = 228, row5 = 232, row6 = 242;
             int column1 = 202, column2 = 217, column3 = 232, column4 = 248, column5 = 262;
             int sizeIndicX = 23, sizeIndicY = 14;
-           PushButton emergencyJettisonButton =  AddPushButton("Emergency Jettison Lever", new Point(212, 81), new Size(70, 70),
-               "{M2000C}/Images/LGPanel/emergency-jettison-not-pushed.png", "{M2000C}/Images/LGPanel/emergency-jettison-pushed.png", PushButtonType.Momentary);
+           PushButton emergencyJettisonButton =  AddPushButton("Emergency Jettison Lever");
 
             //First row
             AddIndicator("A", new Point (column2, row1), new Size(sizeIndicX, sizeIndicY));
@@ -60,10 +59,11 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             AddSwitch("Fly by Wire G Limiter Switch", "{M2000C}/Images/Switches/black-circle-", new Point(241, 255), new Size(25, 70), ToggleSwitchPosition.One, ToggleSwitchType.OnOn);
             AddSwitch("Landing Gear Lever", "{M2000C}/Images/LGPanel/landing-gear-", new Point(70, 140), new Size(50, 170), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
 
-            AddGuard("Fly By Wire Gain Switch Guard", "fbwg-guard-", new Point(152, 245), new Size(43, 110), ToggleSwitchPosition.One, ToggleSwitchType.OnOn,
-                new NonClickableZone[] { new NonClickableZone(new Rect(0, 20, 43, 90), ToggleSwitchPosition.Two, fbwgSwitch, ToggleSwitchPosition.One) },
-                false, false);
-
+            /*            AddGuard("Fly By Wire Gain Switch Guard", "fbwg-guard-", new Point(152, 242), new Size(43, 90), ToggleSwitchPosition.One, ToggleSwitchType.OnOn,
+                            new NonClickableZone[] { new NonClickableZone(new Rect(0, 0, 43, 70), ToggleSwitchPosition.Two, fbwgSwitch, ToggleSwitchPosition.One) },
+                            false, false);
+            */
+            
             AddRotarySwitch("Emergency Landing Gear Lever", new NonClickableZone[] {
                     new NonClickableZone(new Rect(123, 81, 37, 70), true, emergencyJettisonButton)});
         }
@@ -139,17 +139,16 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
                 fromCenter: false);
         }
 
-        private PushButton AddPushButton(string name, Point posn, Size size, string notPushedImage, string pushedImage, PushButtonType pushButtonType)
+        private PushButton AddPushButton(string name)
         {
             return AddButton(name: name,
-                posn: posn,
-                size: size,
-                image: notPushedImage,
-                pushedImage: pushedImage,
+                posn: new Point(212, 81),
+                size: new Size(70, 70),
+                image: "{M2000C}/Images/LGPanel/emergency-jettison-not-pushed.png",
+                pushedImage: "{M2000C}/Images/LGPanel/emergency-jettison-pushed.png",
                 buttonText: "",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
-                pushButtonType: pushButtonType,
                 fromCenter: false);
         }
 

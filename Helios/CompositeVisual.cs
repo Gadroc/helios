@@ -464,7 +464,7 @@ namespace GadrocsWorkshop.Helios
 
 
         protected PushButton AddButton(string name, Point posn, Size size, string image, string pushedImage,
-            string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter, PushButtonType pushButtonType = PushButtonType.Momentary)
+            string buttonText, string interfaceDeviceName, string interfaceElementName, bool fromCenter)
         {
             if (fromCenter)
                 posn = FromCenter(posn, size);
@@ -480,7 +480,7 @@ namespace GadrocsWorkshop.Helios
                 Text = buttonText,
                 Name = componentName
             };
-            button.ButtonType = pushButtonType;
+
             Children.Add(button);
 
             AddTrigger(button.Triggers["pushed"], componentName);

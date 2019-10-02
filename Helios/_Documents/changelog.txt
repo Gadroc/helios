@@ -1,19 +1,4 @@
-1.4.2019.xxxx Release
-----------------------------
-* M2000C Interface 
-	* What’s new 
-		* Improvement of guards on the Test and LG Panels. All are working now
-	* Known issues: 
-		* Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
-		* Master Caution lights Panel: still not working despite the modification with IndicatorPushButton. Seems the id is not the good one when clicking on the 2 indicators ?
-		* Landing Gear Panel: the Guard for the "fly by wire gain switch"
-		* TACAN Panel: the switch Mode is not working from Helios to DCS, the 2 switches to change the TACAN frequency are not implemented and the display of the channel X/Y mode displays nothing
-		* HSI Panel: the bottom stop flag is not tested, the compass rose, the 2 needles, the green needle are working but there is a problem of precision, the potentiometer doesn’t work properly
-		* VOR/ILS Panel: the switch Mode is not working and the 2 potentiometers are not implemented
-		* ECM Box: the potentiometer is not working and the 3 switches are not working from DCS to Helios
-		* Test Panel: the 3 guards are not link with DCS in both ways
-
-1.4.2019.0930 Release
+1.4.2019.0xxx Release
 ----------------------------
 * M2000C Interface 
 	* Added the Fuel Panel with the 7 empty tanks indicators, the refueling indicator, the left and right neddle gauges and the JAUG and DETOT drums
@@ -32,18 +17,22 @@
 	* Improvement of the pictures of the cockpit to allow the new panels to work fine
 	* Improvement of the Master Caution lights Panel, trying to make the 2 indicators clickable with the same solution as the PCN Panel
 	* Miscellaneous: Added the Post Combustion Indicator, the 2 Fire Warning Indicators, the Demar Indicator, the 5 RWR indicators, the AOA needle
-* Profile Editor now polices only adding one UDP interface.
-* AV-8B Interface Elements
-	* Autobinding Master Arm Panel added
-	* Autobinding Gear and Flaps panel added
-	* Autobinding Gear Indicator Panel added
-	* Autobinding H2O Panel added
-	* Autobinding Threat Indicator panel added
-	* Autobinding RWR control panel added
-	* Autobinding Cockpit as a single control
-	* Autobinding AV-8B Radios now use text displays saving viewport exports
-	* Known issues: there has had to be some breaking changes, so profiles may not work completely as they once did, but all new items are autobinding so hopefully can be fixed easily.
-* Small change to UFC font to allow AV-8B decimal point 
+	* Known issues: 
+		* Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
+		* Master Caution lights Panel: still not working despite the modification with IndicatorPushButton. Seems the id is not the good one when clicking on the 2 indicators ?
+		* Landing Gear Panel: the Guard for the "fly by wire gain switch"
+		* TACAN Panel: the switch Mode is not working from Helios to DCS, the 2 switches to change the TACAN frequency are not implemented and the display of the channel X/Y mode displays nothing
+		* HSI Panel: the bottom stop flag is not tested, the compass rose, the 2 needles, the green needle are working but there is a problem of precision, the potentiometer doesn’t work properly
+		* VOR/ILS Panel: the switch Mode is not working and the 2 potentiometers are not implemented
+		* ECM Box: the potentiometer is not working and the 3 switches are not working from DCS to Helios
+		* Test Panel: the 3 guards are not link with DCS in both ways
+
+1.4.2019.0901 Release
+----------------------------
+* Profile Editor now polices only adding only one UDP interface.
+* AV-8B Autobinding Cockpit as a single control
+* AV-8B Radios now use text displays saving viewport exports
+* A-10C DLL added and images can be referenced by {A-10C}/Images/xxxx.png
 
 1.4.2019.0908 Release
 ----------------------------
@@ -63,14 +52,6 @@
 * New Autobinding Caution Panel for Mirage 2000C
 * Updates to the Interfaces for A-10C, F/A-18C, AV-8B, and Mirage 2000C to improve integration with the different
 	types of DCS World installations
-
-1.4.2019.0901 Release
-----------------------------
-* Profile Editor now polices only adding only one UDP interface.
-* AV-8B Autobinding Cockpit as a single control
-* AV-8B Radios now use text displays saving viewport exports
-* A-10C DLL added and images can be referenced by {A-10C}/Images/xxxx.png
-
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+
 |	* * * * * * * * * * * * * * * * * *
