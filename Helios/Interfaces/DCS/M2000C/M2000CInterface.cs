@@ -68,7 +68,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         private const string UVHF_PRESET_DISPLAY = "436";
         private const string UVHF_PRESET_KNOB = "445";
         private const string VORILS_DISPLAY = "611";
-        private const string VORILS_FREQUENCY_CHANGE_WHOLE = "617";
+        private const string VORILS_FREQUENCY_CHANGE_WHOLE = "616";
         private const string VORILS_FREQUENCY_CHANGE_DECIMAL = "618";
         private const string VORILS_POWER = "617";
         private const string TACAN_DISPLAY = "621";
@@ -151,16 +151,16 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 "Caution Panel", "Lights Test Switch", "%0.1f"));
             #endregion
             #region  ECM BOX
-            AddFunction(new Switch(this, RWR, "3194", new SwitchPosition[] {
+            AddFunction(new Switch(this, RWR, "194", new SwitchPosition[] {
                 new SwitchPosition("1.0", "AUTO", "3194"),
                 new SwitchPosition("0.5", "MANU", "3194"),
                 new SwitchPosition("0.0", "ARRET", "3194")},
                 "ECM Box", "Master Switch", "%0.1f"));
-            AddFunction(new Switch(this, RWR, "3195", new SwitchPosition[] {
+            AddFunction(new Switch(this, RWR, "195", new SwitchPosition[] {
                 new SwitchPosition("1.0", "PTF", "3195"),
                 new SwitchPosition("0.0", "C/C", "3195")},
                 "ECM Box", "Dispensing Mode Switch", "%0.1f"));
-            AddFunction(new Switch(this, RWR, "3196", new SwitchPosition[] {
+            AddFunction(new Switch(this, RWR, "196", new SwitchPosition[] {
                 new SwitchPosition("1.0", "OFF", "3196"),
                 new SwitchPosition("0.0", "ON", "3196")},
                 "ECM Box", "Lights Power Switch", "%0.1f"));
@@ -466,10 +466,11 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new PushButton(this, PCN_NAV, "3596", "596", "PCN Panel", "INS Button"));
             #endregion
             #region TACAN Panel
-            //            AddFunction(new Switch(this, TACAN, "623", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 10 Selector", "%0.1f"));    // elements["PTN_623"] = default_multiposition_knob(_("TACAN Channel 10 Selector"),devices.TACAN,device_commands.Button_623,623, 13, 0.076923, false, 0.0)
-            //            AddFunction(new Switch(this, TACAN, "625", new SwitchPosition[] { }, "Navigational Antennas", "TACAN Channel 1 Selector", "%0.1f"));    // elements["PTN_625"] = default_multiposition_knob(_("TACAN Channel 1 Selector"),devices.TACAN,device_commands.Button_625,625, 10, 0.1, false, 0)
-            AddFunction(new ScaledNetworkValue(this, TACAN_C1_SELECTOR, 1d, "Tacan Panel", "Channel output for display (Ones)", "Current channel (Ones)", "(0-9)", BindingValueUnits.Numeric));
-            AddFunction(new ScaledNetworkValue(this, TACAN_C10_SELECTOR, 1.31d, "Tacan Panel", "Channel output for display (Tens)", "Current channel (Tens)", "(0-12)", BindingValueUnits.Numeric));
+            AddFunction(new Axis(this, TACAN, "3625", "625", 0.1d, 0d, 1d, "Tacan Panel", "Channel 1 Selector"));
+            AddFunction(new Axis(this, TACAN, "3623", "623", 0.077d, 0d, 0.923d, "Tacan Panel", "Channel 10 Selector"));
+            AddFunction(new ScaledNetworkValue(this, "622", 1d, "Tacan Panel", "Channel output for display (Ones)", "Current channel (Ones)", "(0-9)", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "621", 1d, "Tacan Panel", "Channel output for display (Tens)", "Current channel (Tens)", "(0-12)", BindingValueUnits.Numeric, 0.3d, "%.1"));
+            AddFunction(new ScaledNetworkValue(this, "620", 1d, "Tacan Panel", "X/Y Drum", "X/Y Mode", "(1 - 2)", BindingValueUnits.Numeric));
             AddFunction(new Switch(this, TACAN, TACAN_XY_SELECTOR, new SwitchPosition[] {
                 new SwitchPosition("0.0", "X", CMD + TACAN_XY_SELECTOR),
                 new SwitchPosition("1.0", "Y", CMD + TACAN_XY_SELECTOR) },
@@ -513,20 +514,20 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 "Test Panel", "FBW Channel 5 Switch", "%0.1f"));
             #endregion
             #region VOR.ILS Panel
-            //            AddFunction(new Switch(this, VORILS, "616", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Whole", "%0.1f"));    // elements["PTN_616"] = default_multiposition_knob(_("VOR/ILS Frequency Change Whole"),devices.VORILS,device_commands.Button_616,616, 11, 0.1, false, 0)
-            //            AddFunction(new PushButton(this, VORILS, "3617", "617", "Navigational Antennas", "VOR/ILS Power Dial"));    // elements["PTN_617"] = default_2_position_tumb(_("VOR/ILS Power Dial"), devices.VORILS,device_commands.Button_617,617)
-            //            AddFunction(new Switch(this, VORILS, "618", new SwitchPosition[] { }, "Navigational Antennas", "VOR/ILS Frequency Change Decimal", "%0.1f"));    // elements["PTN_618"] = default_multiposition_knob(_("VOR/ILS Frequency Change Decimal"),devices.VORILS,device_commands.Button_618,618, 20, 0.05,false,0.0)
-            //            AddFunction(new PushButton(this, VORILS, "3619", "619", "Navigational Antennas", "VOR/ILS Test Dial"));    // elements["PTN_619"] = default_2_position_tumb(_("VOR/ILS Test Dial"), devices.VORILS,device_commands.Button_619,619)
             AddFunction(new ScaledNetworkValue(this, "615", 1d, "VOR/ILS Panel", "Channel output for display (Decimal Ones)", "Current channel", "0 - 9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "614", 1d, "VOR/ILS Panel", "Channel output for display (Decimal Tens)", "Current channel", "0 - 9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "613", 1d, "VOR/ILS Panel", "Channel output for display (Ones)", "Current channel", "0 - 9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "612", 1d, "VOR/ILS Panel", "Channel output for display (Tens)", "Current channel", "0 - 1", BindingValueUnits.Numeric));
-            AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_WHOLE, CMD + VORILS_FREQUENCY_CHANGE_WHOLE, 0.1d, 0.0d, 1.0d, "VOR/ILS Panel", "Frequency Change whole"));
-            AddFunction(new Axis(this, VORILS, VORILS_FREQUENCY_CHANGE_DECIMAL, CMD + VORILS_FREQUENCY_CHANGE_DECIMAL, 0.05d, 0.0d, 1.0d, "VOR/ILS Panel", "Frequency Change Decimal"));
+            AddFunction(new Axis(this, VORILS, CMD + VORILS_FREQUENCY_CHANGE_WHOLE, VORILS_FREQUENCY_CHANGE_WHOLE, 0.1d, 0.0d, 1.0d, "VOR/ILS Panel", "Frequency Change whole"));
+            AddFunction(new Axis(this, VORILS, CMD + VORILS_FREQUENCY_CHANGE_DECIMAL, VORILS_FREQUENCY_CHANGE_DECIMAL, 0.05d, 0.0d, 1.0d, "VOR/ILS Panel", "Frequency Change Decimal"));
             AddFunction(new Switch(this, VORILS, VORILS_POWER, new SwitchPosition[] {
                 new SwitchPosition("0.0", "ON", CMD + VORILS_POWER),
                 new SwitchPosition("1.0", "OFF", CMD + VORILS_POWER)},
                 "VOR/ILS Panel", "Power Selector", "%0.1f"));
+            AddFunction(new Switch(this, VORILS, "619", new SwitchPosition[] {
+                new SwitchPosition("0.0", "HG", "3619"),
+                new SwitchPosition("1.0", "BD", "3619")},
+                "VOR/ILS Panel", "Mode Selector", "%0.1f"));
             #endregion
             #region Indicators
             // !!!! Any duplicate "name" values in a function will cause Helios to go bang.  Make sure that when you change the name, that it is unique

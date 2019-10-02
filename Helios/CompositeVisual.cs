@@ -312,7 +312,7 @@ namespace GadrocsWorkshop.Helios
         protected Potentiometer AddPot(string name, Point posn, Size size, string knobImage,
             double initialRotation, double rotationTravel, double minValue, double maxValue,
             double initialValue, double stepValue,
-            string interfaceDeviceName, string interfaceElementName, bool fromCenter, ClickType clickType = ClickType.Swipe)
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter, ClickType clickType = ClickType.Swipe, bool isContinuous = false)
         {
             string componentName = GetComponentName(name);
             if (fromCenter)
@@ -333,6 +333,7 @@ namespace GadrocsWorkshop.Helios
                 Height = size.Height
             };
             _knob.ClickType = clickType;
+            _knob.IsContinuous = isContinuous;
 
             Children.Add(_knob);
             foreach (IBindingTrigger trigger in _knob.Triggers)

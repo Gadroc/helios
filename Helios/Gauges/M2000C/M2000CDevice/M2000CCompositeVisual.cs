@@ -23,6 +23,7 @@ namespace GadrocsWorkshop.Helios.M2000C
     using GadrocsWorkshop.Helios.Controls;
     using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CDrumGauge;
     using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CNeedle;
+    using GadrocsWorkshop.Helios.Gauges.M2000C.Mk2CDrumTacanChannel;
 
     public abstract partial class M2000CCompositeVisual : CompositeVisual
     {
@@ -247,7 +248,34 @@ namespace GadrocsWorkshop.Helios.M2000C
             return newGauge;
         }
 
-         protected Mk2CNeedle AddNeedle(string name, string needleImage, Point posn, Size size, Point centerPoint, 
+        protected Mk2CDrumTacanChannel AddTacanDrum(string name, Point posn, Size size, 
+            string interfaceDeviceName, string interfaceElementName, bool fromCenter)
+        {
+            if (fromCenter)
+                posn = FromCenter(posn, size);
+            string componentName = GetComponentName(name);
+
+            Mk2CDrumTacanChannel newGauge = new Mk2CDrumTacanChannel(componentName, posn, size);
+
+            Children.Add(newGauge);
+            foreach (IBindingTrigger trigger in newGauge.Triggers)
+            {
+                AddTrigger(trigger, componentName);
+            }
+            foreach (IBindingAction action in newGauge.Actions)
+            {
+                AddAction(action, componentName);
+            }
+
+            AddDefaultInputBinding(
+                childName: componentName,
+                interfaceTriggerName: interfaceDeviceName + "." + interfaceElementName + ".changed",
+                deviceActionName: "set." + componentName);
+
+            return newGauge;
+        }
+
+        protected Mk2CNeedle AddNeedle(string name, string needleImage, Point posn, Size size, Point centerPoint, 
             string interfaceDeviceName, string interfaceElementName, string actionIdentifier, string valueDescription, BindingValueUnit typeValue, 
             double[] initialCalibration, double[,] calibrationPoints, bool fromCenter)
         {

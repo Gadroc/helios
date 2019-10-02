@@ -108,6 +108,7 @@
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\Slip Turn Panel.cs" />
+    <Compile Include="Gauges\M2000C\Common\Mk2CDrumTacanChannel.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CNeedle.cs" />
     <Compile Include="Gauges\M2000C\ECMBox\ECM_Box.cs" />
@@ -2916,15 +2917,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_faceplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_y_mode.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_mode.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
