@@ -298,7 +298,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 new SwitchPosition("1.0", "SECU", "3463"),
                 new SwitchPosition("0.0", "ARMED", "3463") },
                 "Landing Gear Panel", "Gun Arming Switch", "%0.1f"));
-            AddFunction(new Switch(this, ENGPANEL, "420", new SwitchPosition[] {
+            AddFunction(new Switch(this, ENGINE, "420", new SwitchPosition[] {
                 new SwitchPosition("0.0", "CLOSE", "3420"),
                 new SwitchPosition("1.0", "OPEN", "3420") },
                 "Landing Gear Panel", "Fly By Wire Gain Switch Guard", "%0.1f"));
