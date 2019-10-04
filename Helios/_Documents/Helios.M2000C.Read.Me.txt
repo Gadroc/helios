@@ -65,7 +65,7 @@ Known issues DCS M2000C
 	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 	   
 * * * * * * * * * * * * * * * * * * * * * * * *
-* * *    Release Helios v1.4.2019.0930    * * *
+* * *    Release Helios v1.4.2019.1005    * * *
 * * * * * * * * * * * * * * * * * * * * * * * *
 What’s new DCS M2000C
 ---------------------

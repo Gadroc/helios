@@ -1,7 +1,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
-* *                       Helios 1.4.2019.0930                              * * 
+* *                       Helios 1.4.2019.1005                              * * 
 * *                                                                         * * 
 * *                                READ.ME                                  * * 
 * *                                                                         * * 
@@ -25,7 +25,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Helios 1.4.2019.0930 is not an explicit collaboration with Craig Courtney, 
+Helios 1.4.2019.1005 is not an explicit collaboration with Craig Courtney, 
 but it relies heavily on the original Helios.  This distribution is not endorsed 
 by Craig Courtney.  
                                                                      
@@ -87,7 +87,7 @@ function LuaExportStop()
 end
 </code>
 
-4)  1.4.2019.0908 & 1.4.2019.0930 have made minor breaks in backward compatibility
+4)  1.4.2019.0908 & 1.4.2019.1005 have made minor breaks in backward compatibility
 	for the AV-8B
 
 * * * Known issues and work arounds * * *
