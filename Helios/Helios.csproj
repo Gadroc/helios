@@ -566,6 +566,8 @@
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder3.cs" />
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder4.cs" />
     <Compile Include="Interfaces\DCS\AV8B\Functions\SMCFuzeDisplay.cs" />
+    <Compile Include="Interfaces\DCS\Common\DualNetworkValue.cs" />
+    <Compile Include="Interfaces\DCS\Common\DualRocker.cs" />
     <Compile Include="Interfaces\DCS\F14B\F14BInterface.cs" />
     <Compile Include="Interfaces\DCS\F14B\F14BInterfaceEditor.xaml.cs">
       <DependentUpon>F14BInterfaceEditor.xaml</DependentUpon>
@@ -838,6 +840,7 @@
     <Resource Include="Interfaces\DCS\Common\Export_Stub.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Post.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Pre.lua" />
+    <Resource Include="Images\Toggles\guard-up-empty.png" />
     <Resource Include="Images\Buttons\green-push-in.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

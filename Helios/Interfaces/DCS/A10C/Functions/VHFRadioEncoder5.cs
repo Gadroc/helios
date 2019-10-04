@@ -20,13 +20,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C.Functions
 	using System;
 	using System.Globalization;
 
-	class VHFRadioEncoder1 : Axis
+	class VHFRadioEncoder5 : RotaryEncoder
 	{
 		private double _lastData = 0d;
 		private HeliosValue _windowValue;
 
-		public VHFRadioEncoder1(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, double argValue, double argMin, double argMax, string device, string name)
-			: base(sourceInterface, deviceId, buttonId, argId, argValue, argMin, argMax, device, name, false, "%.3f")
+		public VHFRadioEncoder5(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, double argValue,  string device, string name)
+			: base(sourceInterface, deviceId, buttonId,  argId, argValue, device, name)
 		{
 			_windowValue = new HeliosValue(sourceInterface, new BindingValue(0.0d), device, name + " window", "Current value displayed in this encoder.", "current value converted" , BindingValueUnits.Text);
 			Values.Add(_windowValue);

@@ -361,7 +361,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 double lScaleX = scaleX;
                 double lScaleY = scaleY;
 
-                if (visual.Rotation != HeliosVisualRotation.None)
+                if (visual.Rotation != HeliosVisualRotation.None & visual.Rotation != HeliosVisualRotation.ROT180)
                 {
                     lScaleX = scaleY;
                     lScaleY = scaleX;

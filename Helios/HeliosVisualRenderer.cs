@@ -178,7 +178,12 @@ namespace GadrocsWorkshop.Helios
                     _transform.Children.Add(new RotateTransform(-90));
                     _transform.Children.Add(new TranslateTransform(0, Visual.Width));
                     break;
-                default:
+				case HeliosVisualRotation.ROT180:
+					_transform = new TransformGroup();
+					_transform.Children.Add(new RotateTransform(180));
+					_transform.Children.Add(new TranslateTransform(0,0));
+					break;
+				default:
                     _transform = null;
                     break;
             }

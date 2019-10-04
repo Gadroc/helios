@@ -13,18 +13,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios
+namespace GadrocsWorkshop.Helios.Controls
 {
-    using System.ComponentModel;
+    using GadrocsWorkshop.Helios.ComponentModel;
+    using GadrocsWorkshop.Helios.Windows.Controls;
 
-    public enum HeliosVisualRotation
+    /// <summary>
+    /// Interaction logic for EndlessPotentiometerBehaviorEditor.xaml
+    /// </summary>
+    [HeliosPropertyEditor("Helios.Base.EndlessPotentiometer", "Behavior")]
+    public partial class EndlessPotentiometerBehaviorEditor : HeliosPropertyEditor
     {
-        None,
-        [Description("90° Clockwise")]
-        CW,
-        [Description("90° Counter Clockwise")]
-        CCW,
-		[Description("180° Turn")]
-		ROT180
-	}
+        public EndlessPotentiometerBehaviorEditor()
+        {
+            InitializeComponent();
+        }
+    }
 }
