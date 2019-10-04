@@ -30,6 +30,8 @@
 * Interfaces DCS common:
 	New DualRocker function, work like the normal rocker but this one return the actual arg value form DCS, too.
 
+* Implementation of mouse wheel control for rotaries and pots in DCS style.
+
 		
 1.4.2019.0930 Release
 ----------------------------
