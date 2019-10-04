@@ -8,7 +8,7 @@
 * Known issues: 
 		* Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
 		* Master Caution lights Panel: still not working despite the modification with IndicatorPushButton. Seems the id is not the good one when clicking on the 2 indicators ?
-		* HSI Panel: the bottom stop flag is not tested, the compass rose, the 2 needles, the green needle are working but there is a problem of precision, the potentiometer doesn’t work properly
+		* HSI Panel: the double needle is not working, the potentiometer doesn’t work properly
 		* ECM Box: the potentiometer is not working
 		
 1.4.2019.0930 Release

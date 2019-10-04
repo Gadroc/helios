@@ -55,8 +55,7 @@ Known issues DCS M2000C
     * Master Caution lights Panel
 	   - seems the id is not the good one when clicking on the 2 indicators ?
 	* HSI Panel
-	   - the bottom stop flag is not tested
-	   - the compass rose, the 2 needles, the green needle are working but there is an problem of precision
+	   - the double needle is not working
 	   - the compass rose need to be redisign
 	   - the potentiometer doesn’t work properly
 	* ECM Box

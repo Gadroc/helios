@@ -76,6 +76,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
                 {
                     _value.SetValue(new BindingValue((scaledValue * _scale) + _baseValue), false);
                 }
+                if(id=="334")
+                {
+                    id = id;
+                }
             }
         }
 
