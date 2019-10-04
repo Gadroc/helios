@@ -23,6 +23,8 @@ namespace GadrocsWorkshop.Helios
         [Description("90° Clockwise")]
         CW,
         [Description("90° Counter Clockwise")]
-        CCW
-    }
+        CCW,
+		[Description("180° Turn")]
+		ROT180
+	}
 }

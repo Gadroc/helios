@@ -467,7 +467,13 @@ namespace GadrocsWorkshop.Helios
                     m1.Translate(0, _rectangle.Width);
                     newRect.Transform(m1);
                     break;
-            }
+
+				case HeliosVisualRotation.ROT180:
+					m1.RotateAt(180, _rectangle.X + (_rectangle.Width/2), _rectangle.Y + (_rectangle.Height/2));
+					m1.Translate(0, 0);
+					newRect.Transform(m1);
+					break;
+			}
             PostUpdateRectangle(DisplayRectangle, newRect);
             DisplayRectangle = newRect;
         }
