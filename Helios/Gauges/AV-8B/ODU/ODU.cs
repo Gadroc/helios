@@ -29,25 +29,25 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows.Threading;
 
 
-    [HeliosControl("Helios.AV8B.ODU", "Option Display Unit", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.ODU", "Option Display Unit", "_Hidden Parts", typeof(AV8BDeviceRenderer))]
     class ODU_AV8B : AV8BDevice
     {
         // these three sections are the dead space in the ODU image.
-        private static readonly Rect SCREEN_RECT_L = new Rect(0, 135, 38, 415);
+        private static readonly Rect SCREEN_RECT_L = new Rect(0,168, 398,68);
         private Rect _scaledScreenRectL = SCREEN_RECT_L;
-        private static readonly Rect SCREEN_RECT_LB = new Rect(38, 476, 103, 74);
+        private static readonly Rect SCREEN_RECT_LB = new Rect(0, 0, 194, 65);
         private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
-        private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
+        private static readonly Rect SCREEN_RECT_R = new Rect(79, 0, 115, 244);
         private Rect _scaledScreenRectR = SCREEN_RECT_R;
 
         public ODU_AV8B()
-            : base("Option Display Unit", new Size(808, 550))
+            : base("Option Display Unit", new Size(398, 236))
         {
-            AddButton("ODU 1", 302, 42, new Size(40, 40));
-            AddButton("ODU 2", 302, 107, new Size(40, 40));
-            AddButton("ODU 3", 302, 175, new Size(40, 40));
-            AddButton("ODU 4", 302, 241, new Size(40, 40));
-            AddButton("ODU 5", 302, 310, new Size(40, 40));
+            AddButton("ODU 1", 199, 28, new Size(36, 36));
+            AddButton("ODU 2", 199, 78, new Size(36, 36));
+            AddButton("ODU 3", 199, 128, new Size(36, 36));
+            AddButton("ODU 4", 39, 78, new Size(36, 36));
+            AddButton("ODU 5", 39, 128, new Size(36, 36));
         }
 
         public override string BezelImage

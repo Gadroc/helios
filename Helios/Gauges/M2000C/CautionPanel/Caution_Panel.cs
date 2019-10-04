@@ -88,7 +88,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             AddSwitch("Alternator 2 Switch", "long-black-", new Point(147, row0), ToggleSwitchPosition.One, ToggleSwitchType.OnOn);
             Add3PosnToggle(
                 name: "Lights Test Switch",
-                posn: new Point(165, 70),
+                posn: new Point(152, 70),
                 image: "{M2000C}/Images/Switches/long-black-",
                 interfaceDevice: _interfaceDeviceName,
                 interfaceElement: "Lights Test Switch",
@@ -153,18 +153,19 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         {
             AddThreeWayToggle(
                 name: name,
-                posn: posn,
-                size: new Size(37, 75),
+                pos: posn,
+                size: new Size(33, 100),
                 positionOneImage: image + "up.png",
                 positionTwoImage: image + "mid.png",
                 positionThreeImage: image + "down.png",
                 defaultPosition: ThreeWayToggleSwitchPosition.Two,
-                defaultType: ThreeWayToggleSwitchType.MomOnMom,
+                switchType: ThreeWayToggleSwitchType.MomOnMom,
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 horizontal: true,
+                horizontalRender: true,
                 clickType: ClickType.Touch,
-                fromCenter: false
+                fromCenter: true
                 );
         }
 

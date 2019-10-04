@@ -22,8 +22,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows;
     using System.Windows.Threading;
 
-
-    [HeliosControl("Helios.AV8B.ODU1", "Option Display Unit 1", "AV-8B", typeof(AV8BDeviceRenderer))]
+    /// <summary>
+    /// This is the revised version of the Option Display Unit which is larger and uses text displays instead of cutouts for the exported viewport.
+    /// It has a slightly different name because the old version is retained to help with backward compatability
+    /// </summary>
+    /// 
+    [HeliosControl("Helios.AV8B.ODU1", "Option Display Unit", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class ODU_1 : AV8BDevice
     {
         // these three sections are the dead space in the ODU image.

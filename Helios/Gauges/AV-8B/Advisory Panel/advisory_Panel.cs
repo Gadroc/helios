@@ -24,7 +24,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows.Threading;
 
 
-    [HeliosControl("Helios.AV8B.Advisory", "Advisory Indicators", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.Advisory", "Advisory Indicators", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class advisoryPanel : AV8BDevice
     {
         // these three sections are the dead space in the UFC image.

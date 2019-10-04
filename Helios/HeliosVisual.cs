@@ -49,6 +49,7 @@ namespace GadrocsWorkshop.Helios
         private bool _defaultHidden = false;
 
         private HeliosValue _hiddenValue;
+        private NonClickableZone[] _nonClickableZones;
 
 
         /// <summary>
@@ -90,6 +91,18 @@ namespace GadrocsWorkshop.Helios
         public event EventHandler HiddenChanged;
 
         #region Properties
+
+        public NonClickableZone[] NonClickableZones
+        {
+            get
+            {
+                return _nonClickableZones;
+            }
+            set
+            {
+                _nonClickableZones = value;
+            }
+        }
 
         public bool PersistChildren
         {

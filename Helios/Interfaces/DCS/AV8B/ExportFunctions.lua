@@ -33,7 +33,19 @@ function ProcessLowImportance(mainPanelDevice)
 		SendData("2091", string.format("%1s",check(li.ODU_Option_5_Slc)):gsub(":","!"))  -- ":" is reserved
 		-- -- test command 00000000*2096=20:2095=13:2087=!:2088=!:2089=!:2090=!:2091=!:2082=BLUE:2083=FIN :2084=BIMA:2085=2019:2086=test:2094=123.567:2092=~0:2093=-:326=1:336=1:197=1:365=1:196=1: 
 	end
-	
+ 	local li = parse_indication(7)  --V/UHF Radio and ACNIP
+	if li then
+		SendData("2100", string.format("%2s",check(li.uvhf_channel)))
+		SendData("2101", string.format("%7s",check(li.uvhf_freq_left)))
+		SendData("2102", string.format("%s",check(li.acnip_1_label_mode)))
+		SendData("2103", string.format("%s",check(li.acnip_1_mode)))
+		SendData("2104", string.format("%s",check(li.acnip_1_label_code)))
+		SendData("2105", string.format("%s",check(li.acnip_1_code)))		
+		SendData("2106", string.format("%s",check(li.acnip_2_label_mode)))
+		SendData("2107", string.format("%s",check(li.acnip_2_mode)))
+		SendData("2108", string.format("%s",check(li.acnip_2_label_code)))
+		SendData("2109", string.format("%s",check(li.acnip_2_code)))
+	end	
 
     SendData(2001, string.format("%.0f",mainPanelDevice:get_argument_value(253) * 1000+mainPanelDevice:get_argument_value(254) * 100+mainPanelDevice:get_argument_value(255) * 10))     -- Engine Duct
     SendData(2002, string.format("%.0f",mainPanelDevice:get_argument_value(256) * 10000+mainPanelDevice:get_argument_value(257) * 1000+mainPanelDevice:get_argument_value(258) * 100+mainPanelDevice:get_argument_value(259) * 10))     -- Engine RPM

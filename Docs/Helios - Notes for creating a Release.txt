@@ -65,7 +65,7 @@ Helios was originally created by Craig "Gadroc" Courtney.  Gadroc donated his 
 
 =======================
 
-This release features additions to the Mirage 2000C and improvements to the AV-8B.
+This release features more additions to the Mirage 2000C and improvements to the AV-8B.
 
 In addition to the functionality that many know and love, this release contains an interface for the AV-8B and a partial interface for the MiG-21, the latter being contributed by "Cylution".  Additionally there is now an interface for the F/A-18C Hornet, and simple interfaces for the Mirage 2000C as well as the Mi-8.  The latter pair are prototype code.  The Changelog.txt distributed with the release describes the changes to Helios.
 

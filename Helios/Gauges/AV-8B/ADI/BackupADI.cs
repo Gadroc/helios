@@ -13,14 +13,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
+namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using System;
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.AV8B.SADI", "Backup ADI", "AV-8B Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.AV8B.SADI", "Backup ADI", "_Hidden Parts", typeof(GaugeRenderer))]
     public class BackupADI : BaseGauge
     {
         private HeliosValue _pitch;
@@ -37,7 +37,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
         private GaugeNeedle _bankNeedle;
 
         public BackupADI()
-            : base("Backup ADI", new Size(350, 350))
+            : base("Flight Instruments", new Size(350, 350))
         {
             Point center = new Point(174d, 163d);
 
@@ -60,21 +60,22 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.ADI
 
             Components.Add(new GaugeImage("{Helios}/Gauges/A-10/ADI/adi_backup_outer_ring.xaml", new Rect(0d, 0d, 350d, 350d)));
 
+
             Components.Add(new GaugeImage("{Helios}/Gauges/A-10/ADI/adi_bezel.png", new Rect(0d, 0d, 350d, 350d)));
 
-            _pitch = new HeliosValue(this, new BindingValue(0d), "", "Pitch", "Current ptich of the aircraft.", "(0 - 360)", BindingValueUnits.Degrees);
+            _pitch = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Pitch", "Current ptich of the aircraft.", "(0 - 360)", BindingValueUnits.Degrees);
             _pitch.Execute += new HeliosActionHandler(Pitch_Execute);
             Actions.Add(_pitch);
 
-            _roll = new HeliosValue(this, new BindingValue(0d), "", "Bank", "Current bank of the aircraft.", "(0 - 360)", BindingValueUnits.Degrees);
+            _roll = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Bank", "Current bank of the aircraft.", "(0 - 360)", BindingValueUnits.Degrees);
             _roll.Execute += new HeliosActionHandler(Bank_Execute);
             Actions.Add(_roll);
 
-            _pitchAdjustment = new HeliosValue(this, new BindingValue(0d), "", "Pitch adjustment offset", "Location of pitch reference wings.", "(0 to 1) 0 full up and 1 is full down.", BindingValueUnits.Numeric);
+            _pitchAdjustment = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Pitch adjustment offset", "Location of pitch reference wings.", "(0 to 1) 0 full up and 1 is full down.", BindingValueUnits.Numeric);
             _pitchAdjustment.Execute += new HeliosActionHandler(PitchAdjsut_Execute);
             Actions.Add(_pitchAdjustment);
 
-            _warningFlag = new HeliosValue(this, new BindingValue(false), "", "Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
+            _warningFlag = new HeliosValue(this, new BindingValue(false), "Flight Instruments", "ADI Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
             _warningFlag.Execute += new HeliosActionHandler(OffFlag_Execute);
             Actions.Add(_warningFlag);
         }

@@ -36,6 +36,8 @@ namespace GadrocsWorkshop.Helios.Controls
 
         private HeliosValue _potValue;
 
+        private bool _isContinuous = false;
+
         public Potentiometer()
             : base("Potentiometer", new Size(100, 100))
         {
@@ -49,6 +51,24 @@ namespace GadrocsWorkshop.Helios.Controls
         }
 
         #region Properties
+
+        public bool IsContinuous
+        {
+            get
+            {
+                return _isContinuous;
+            }
+            set
+            {
+                if (!_isContinuous.Equals(value))
+                {
+                    bool oldValue = _isContinuous;
+                    _isContinuous = value;
+                    OnPropertyChanged("IsContinuous", oldValue, value, true);
+                    Refresh();
+                }
+            }
+        }
 
         public double InitialValue
         {
@@ -206,11 +226,25 @@ namespace GadrocsWorkshop.Helios.Controls
 
             if (increment)
             {
-                newValue = Math.Min(Value + _stepValue, _maxValue);
+                if(Value == _maxValue && _isContinuous == true)
+                {
+                    newValue = _minValue;
+                }
+                else 
+                {
+                    newValue = Math.Min(Value + _stepValue, _maxValue);
+                }
             }
-            else
+            else 
             {
-                newValue = Math.Max(Value - _stepValue, _minValue);
+                if (Value == _minValue && _isContinuous == true)
+                {
+                    newValue = _maxValue;
+                }
+                else
+                {
+                    newValue = Math.Max(Value - _stepValue, _minValue);
+                }
             }
 
             Value = newValue;

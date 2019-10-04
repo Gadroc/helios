@@ -107,6 +107,26 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Slip Turn Panel.cs" />
+    <Compile Include="Gauges\M2000C\Common\Mk2CDrumTacanChannel.cs" />
+    <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
+    <Compile Include="Gauges\M2000C\Common\Mk2CNeedle.cs" />
+    <Compile Include="Gauges\M2000C\ECMBox\ECM_Box.cs" />
+    <Compile Include="Gauges\M2000C\TestPanel\Test_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\AOA_Panel.cs" />
+    <Compile Include="Gauges\M2000C\HSIPanel\HSI_Panel.cs" />
+    <Compile Include="Gauges\M2000C\EngineSensorsPanel\EngineSensors_Panel.cs" />
+    <Compile Include="Gauges\M2000C\INSPanel\INS_Panel.cs" />
+    <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />
+    <Compile Include="Gauges\M2000C\PCAPanel\PCA_Panel.cs" />
+    <Compile Include="Gauges\M2000C\PPAPanel\PPA_Panel.cs" />
+    <Compile Include="Gauges\M2000C\FuelPanel\Fuel_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\Demar_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\RWR_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\FireWarning_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\PCI_Panel.cs" />
+    <Compile Include="Gauges\M2000C\VorIlsChannel\VorIls_Panel.cs" />
+    <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />
     <Compile Include="Collections\NoResetObservablecollection.cs" />
@@ -117,7 +137,9 @@
     <Compile Include="ComponentModel\HeliosUnitConverterAttribute.cs" />
     <Compile Include="ComponentModel\IPropertyNotification.cs" />
     <Compile Include="ComponentModel\PropertyNotificationEventArgs.cs" />
+    <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BCompositeVisual.cs" />
     <Compile Include="CompositeVisual.cs" />
+    <Compile Include="Gauges\M2000C\M2000CDevice\M2000CCompositeVisual.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="Controls\ClickType.cs" />
     <Compile Include="Controls\CustomGauge.cs" />
@@ -129,12 +151,30 @@
     </Compile>
     <Compile Include="Controls\CustomGaugeRenderer.cs" />
     <Compile Include="Controls\CustonNeedle.cs" />
+    <Compile Include="Gauges\AV-8B\ADI\ADI.cs" />
+    <Compile Include="Gauges\AV-8B\Altimeter\Altimeter.cs" />
+    <Compile Include="Gauges\AV-8B\Radio\Radio.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\AV-8B Front Cockpit.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-Right-AV8B.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MFD-Left-AV8B.cs" />
     <Compile Include="Gauges\AV-8B\MFD\MPCD.cs" />
     <Compile Include="Gauges\AV-8B\ODU\ODU_1.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Flight Instrument Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\CockpitAppearanceEditor.xaml.cs">
+      <DependentUpon>CockpitAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\Gear and Flaps Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\H2O Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\FlightInstrumentAppearanceEditor.xaml.cs">
+      <DependentUpon>FlightInstrumentAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\Landing Gear Indicator Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Threat Indicator Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Master Arm Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Right RWR.cs" />
     <Compile Include="Gauges\AV-8B\SMC\SMC_1.cs" />
     <Compile Include="Gauges\AV-8B\UFC\UFC_1.cs" />
+    <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
     <Compile Include="Gauges\M2000C\LGPanel\LG_Panel.cs" />
     <Compile Include="Gauges\M2000C\EnginePanel\Engine_Start_Panel.cs" />
     <Compile Include="Gauges\M2000C\CautionPanel\Caution_Panel.cs" />
@@ -403,7 +443,7 @@
     <Compile Include="Gauges\AV-8B\IAS\IAS.cs" />
     <Compile Include="Gauges\AV-8B\4 Digit Display\4DigitDisplay.cs" />
     <Compile Include="Gauges\AV-8B\2 Digit Display\2DigitDisplay.cs" />
-    <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
+    <Compile Include="Gauges\AV-8B\VVI\VVI Old.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
     <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDeviceRenderer.cs" />
@@ -446,10 +486,8 @@
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
     <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDevice.cs" />
     <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDeviceRenderer.cs" />
-    <Compile Include="Gauges\M2000C\ILSFrequency\ILSFrequency.cs" />
     <Compile Include="Gauges\M2000C\MCLPanel\MCL_Panel.cs" />
-    <Compile Include="Gauges\M2000C\TACANChannel\TACANChannel.cs" />
-    <Compile Include="Gauges\M2000C\UVHFPanel\UVHFChannelDisplay.cs" />
+    <Compile Include="Gauges\M2000C\TACANChannel\Tacan_Panel.cs" />
     <Compile Include="Gauges\Mi-8\ADI\ADI.cs" />
     <Compile Include="Gauges\MiG-21\BatteryCapacity\BatteryCapacity.cs" />
     <Compile Include="Gauges\MiG-21\RadioChannelDisplay\RadioChannelDisplay.cs" />
@@ -584,7 +622,6 @@
     <Compile Include="Interfaces\DCS\Generic\GenericInterfaceEditor.xaml.cs">
       <DependentUpon>GenericInterfaceEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\DCS\M2000C\Functions\TACANChannel.cs" />
     <Compile Include="Interfaces\DCS\M2000C\M2000CInterface.cs" />
     <Compile Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml.cs">
       <DependentUpon>M2000CInterfaceEditor.xaml</DependentUpon>
@@ -792,10 +829,21 @@
       <DependentUpon>TextStaticEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Controls\TypefaceListItem.cs" />
+    <Resource Include="Gauges\M2000C\Common\needleA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Resource>
+    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_x_mode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Resource>
     <Resource Include="Interfaces\DCS\Common\Export_Stub.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Post.lua" />
     <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Pre.lua" />
     <Resource Include="Images\Toggles\guard-up-empty.png" />
+    <Resource Include="Images\Buttons\green-push-in.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Templates\Base\Panels\Empty Panel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2836,6 +2884,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Page Include="Gauges\AV-8B\Small Panels\CockpitAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Gauges\AV-8B\Small Panels\FlightInstrumentAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Gauges\FA-18C\IFEI\IFEI Nozzle Gauge Marks.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -2864,23 +2920,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\M2000C\ILSFrequency\ils_frequency_faceplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_faceplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_hundreds_tape.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
-    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_x_mode.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_y_mode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\Common\needleB.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\HSIPanel\compass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\Common\drum_tape_with_point.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -2980,6 +3032,7 @@
   <ItemGroup>
     <Folder Include="Gauges\FA-18C\Controls\" />
     <Folder Include="Interfaces\DCS\F14B\Functions\" />
+    <Folder Include="Interfaces\DCS\M2000C\Functions\" />
     <Folder Include="Interfaces\DCS\Mi8Simple\Functions\" />
     <Folder Include="Interfaces\DCS\MiG21\Functions\" />
   </ItemGroup>
@@ -3654,6 +3707,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aircraft A-10C\Aircraft A-10C.csproj">
+      <Project>{80870108-efe4-4adf-969d-a0ce06123271}</Project>
+      <Name>Aircraft A-10C</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Aircraft AV-8B\Aircraft AV-8B.csproj">
       <Project>{2b00f04b-3cb2-44e7-b49b-da94ff74c66c}</Project>
       <Name>Aircraft AV-8B</Name>
