@@ -703,6 +703,8 @@
     <Resource Include="Images\WQHD\Switch\Landing Gear Up Off.png" />
     <Resource Include="Images\WQHD\Switch\Landing Gear Up On.png" />
     <Resource Include="Images\WQHD\Button\Emergency Jettison Button Pushed.png" />
+    <Resource Include="Images\INS_Panel.png" />
+    <Resource Include="Images\Left Throttle Panel.png" />
     <Content Include="Templates\Switch 2-way Toggle Domed.htpl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

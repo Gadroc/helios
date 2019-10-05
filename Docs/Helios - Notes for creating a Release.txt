@@ -11,6 +11,10 @@ Update the "ChangeLog.txt" file in the Helios project's root folder.
 
 Commit the Dev branch
 
+Create a zip file to include Helios Installer.msi and Helios Setup.exe from the Helios Installer directory
+
+Run WinRAR Test on the archive
+
 Create branch for the release (optional)
 
 Create a new release in GitHub from the committed Dev branch, and attach a zip file containing the release of the code that
@@ -65,7 +69,9 @@ Helios was originally created by Craig "Gadroc" Courtney.  Gadroc donated his 
 
 =======================
 
-This release features more additions to the Mirage 2000C and improvements to the AV-8B.
+This release features more additions to the Mirage 2000C and improvements to the A-10C & AV-8B.
+
+Full change history is at https://github.com/BlueFinBima/Helios/blob/Dev/README.md
 
 In addition to the functionality that many know and love, this release contains an interface for the AV-8B and a partial interface for the MiG-21, the latter being contributed by "Cylution".  Additionally there is now an interface for the F/A-18C Hornet, and simple interfaces for the Mirage 2000C as well as the Mi-8.  The latter pair are prototype code.  The Changelog.txt distributed with the release describes the changes to Helios.
 
@@ -76,9 +82,11 @@ and a video tutorial demonstrating Installing Helios for beginners is here http
 
 Tutorials about creating profiles can be viewed https://www.youtube.com/results?search_query=dcs+helios+tutorial and Gadroc's site at http://www.gadrocsworkshop.com/downloads/ still exists which contains profiles, older information and files relating to Helios.
 
-The BlueFinBima fork of Helios development effort is aided & abetted by CaptZeen; derammo; KiwiLostInMelb; damien022; Will Hartsell; Cylution; Rachmaninoff; yzfanimal; Jabbers; Phar71
+The BlueFinBima fork of Helios development effort is aided & abetted by CaptZeen; derammo; KiwiLostInMelb; damien022; Will Hartsell; Cylution; Rachmaninoff; yzfanimal; Jabbers; Phar71; BeamRider
 
 https://forums.eagle.ru/showthread.php?p=3637870 can be used for communications about this release of Helios.
+
+
 
 ====================================================================
 Update my EDForums Signature

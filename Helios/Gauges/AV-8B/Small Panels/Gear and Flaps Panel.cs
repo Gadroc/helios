@@ -27,6 +27,16 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private string _interfaceDeviceName = "Landing Gear";
         private string _imageLocation = "{AV-8B}/Images/";
 
+        // these sections are the dead space in the image.
+        private static readonly Rect SCREEN_RECT_0 = new Rect(0, 0, 209, 839);
+        private Rect _scaledScreenRect0 = SCREEN_RECT_0;
+        private static readonly Rect SCREEN_RECT_1 = new Rect(612, 386, 141, 453);
+        private Rect _scaledScreenRect1 = SCREEN_RECT_1;
+        private static readonly Rect SCREEN_RECT_2 = new Rect(449, 0, 151, 507);
+        private Rect _scaledScreenRect2 = SCREEN_RECT_2;
+
+
+
         public GearPanel()
             : base("Flaps and Gear Panel", new Size(755, 839))
         {
@@ -173,10 +183,10 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override bool HitTest(Point location)
         {
-            //if (_scaledScreenRect.Contains(location))
-            //{
-            //    return false;
-            //}
+            if (_scaledScreenRect0.Contains(location) || _scaledScreenRect1.Contains(location) || _scaledScreenRect2.Contains(location))
+            {
+                return false;
+            }
 
             return true;
         }

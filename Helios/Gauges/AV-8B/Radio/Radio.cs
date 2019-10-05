@@ -31,19 +31,15 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     [HeliosControl("Helios.AV8B.Radio", "Radio & ACNIP", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class Radio: AV8BDevice
     {
-        // these three sections are the dead space in the UFC image.
-        private static readonly Rect SCREEN_RECT_L = new Rect(0, 135, 38, 415);
-        private Rect _scaledScreenRectL = SCREEN_RECT_L;
-        private static readonly Rect SCREEN_RECT_LB = new Rect(38, 476, 103, 74);
-        private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
-        private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
-        private Rect _scaledScreenRectR = SCREEN_RECT_R;
-        private static readonly Rect SCREEN_RECT_BL = new Rect(0, 792, 150, 177);
-        private Rect _scaledScreenRectBL = SCREEN_RECT_BL;
-        private static readonly Rect SCREEN_RECT_BR = new Rect(818, 792, 150, 177);
-        private Rect _scaledScreenRectBR = SCREEN_RECT_BR;
-        private static readonly Rect SCREEN_RECT_BM = new Rect(236, 889, 500, 81);
-        private Rect _scaledScreenRectBM = SCREEN_RECT_BM;
+        // these sections are the dead space in the image.
+        private static readonly Rect SCREEN_RECT_0 = new Rect(166, 0, 368, 171);
+        private Rect _scaledScreenRect0 = SCREEN_RECT_0;
+        private static readonly Rect SCREEN_RECT_1 = new Rect(0, 276, 302, 250);
+        private Rect _scaledScreenRect1 = SCREEN_RECT_1;
+        private static readonly Rect SCREEN_RECT_2 = new Rect(0, 541, 83, 357);
+        private Rect _scaledScreenRect2 = SCREEN_RECT_2;
+        private static readonly Rect SCREEN_RECT_3 = new Rect(637, 196, 83, 702);
+        private Rect _scaledScreenRect3 = SCREEN_RECT_3;
         private String _font = "Hornet IFEI Mono";
         private string _interfaceDeviceName = "V/UHF Radio";
         private string _imageLocation = "{AV-8B}/Images/";
@@ -248,7 +244,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override bool HitTest(Point location)
         {
-            if (_scaledScreenRectL.Contains(location) || _scaledScreenRectLB.Contains(location) || _scaledScreenRectR.Contains(location) || _scaledScreenRectBL.Contains(location) || _scaledScreenRectBR.Contains(location) || _scaledScreenRectBM.Contains(location))
+            if (_scaledScreenRect0.Contains(location) || _scaledScreenRect1.Contains(location) || _scaledScreenRect2.Contains(location) || _scaledScreenRect3.Contains(location))
             {
                 return false;
             }
