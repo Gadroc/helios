@@ -32,23 +32,22 @@ When the aircraft specific interface is deployed from the **Profile Editor**, it
 		* Improvement of the Tacan Panel: add the 2 potentiometers and made them continuous and working
 		* Improvement of VOR/ILS Panel: added the 2 potentiometers and made them continuous and working and made the Mode Selector working
 		* Improvement of the HSI Panel: all the needles are working
-* Known issues 
-   * Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
-   * Master Caution lights Panel: still not working despite the modification with IndicatorPushButton. Seems the id is not the good one when clicking on the 2 indicators ?
-   * HSI Panel: the potentiometer doesn’t work properly
-   * ECM Box: the potentiometer is not working
+	* Known issues 
+  	  * Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
+   	  * Master Caution lights Panel: still not working despite the modification with IndicatorPushButton. Seems the id is not the good one when clicking on the 2 indicators ?
+          * HSI Panel: the potentiometer doesn’t work properly
+          * ECM Box: the potentiometer is not working
 
 * Controls:
-	Custom Gauge, chages to improve workflow and visuals
-	Guarded switch, added a new image for open state
+	* Custom Gauge, chages to improve workflow and visuals
+	* Guarded switch, added a new image for open state
 
 * General:
-	Added a new rotation option on the editor: 180º Turn
+	* Mousewheel support for some rotaries and pots in Control Center
+	* Added a new rotation option on the editor: 180º Turn
 
 * Interfaces DCS common:
 	New DualRocker function, work like the normal rocker but this one return the actual arg value form DCS, too.
-
-* Implementation of mouse wheel control for rotaries and pots in DCS style.
 
 #### Bug Fixes:
 * Fix for duplicate bindings #156 problem with autobindings
