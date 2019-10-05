@@ -21,8 +21,8 @@ namespace GadrocsWorkshop.Helios.Controls
     using System.Windows;
     using System.Xml;
 
-    [HeliosControl("Helios.Base.EndlessPotentiometer", "Endless Potentiometer", "Potentiometers", typeof(RotaryRenderer))]
-    public class EndlessPotentiometer : Rotary
+    [HeliosControl("Helios.Base.PotentiometerEndless", "Endless Potentiometer", "Potentiometers", typeof(RotaryRenderer))]
+    public class PotentiometerEndless : Rotary
     {
         private double _value = 0.0d;
 
@@ -36,12 +36,12 @@ namespace GadrocsWorkshop.Helios.Controls
 
         private HeliosValue _potValue;
 
-        public EndlessPotentiometer()
-            : base("EndlessPotentiometer", new Size(100, 100))
+        public PotentiometerEndless()
+            : base("PotentiometerEndless", new Size(100, 100))
         {
             KnobImage = "{Helios}/Images/Knobs/knob1.png";
 
-            _potValue = new HeliosValue(this, new BindingValue(0d), "", "value", "Current value of the EndlessPotentiometer.", "", BindingValueUnits.Numeric);
+            _potValue = new HeliosValue(this, new BindingValue(0d), "", "value", "Current value of the Endless Potentiometer.", "", BindingValueUnits.Numeric);
             _potValue.Execute += new HeliosActionHandler(SetValue_Execute);
             Values.Add(_potValue);
             Actions.Add(_potValue);

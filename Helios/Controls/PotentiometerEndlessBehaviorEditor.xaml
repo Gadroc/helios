@@ -1,4 +1,4 @@
-﻿<HeliosSdk:HeliosPropertyEditor x:Class="GadrocsWorkshop.Helios.Controls.EndlessPotentiometerBehaviorEditor"
+﻿<HeliosSdk:HeliosPropertyEditor x:Class="GadrocsWorkshop.Helios.Controls.PotentiometerEndlessBehaviorEditor"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -49,11 +49,11 @@
         </Label>
         <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="1" FontSize="10" Margin="2" Text="{Binding Control.InitialValue}" />
         <Label Grid.Column="0" Grid.Row="2" FontSize="10" HorizontalAlignment="Right">
-            <Label.ToolTip>Minimum value for this EndlessPotentiometer.</Label.ToolTip> Min
+            <Label.ToolTip>Minimum value for this PotentiometerEndless.</Label.ToolTip> Min
         </Label>
         <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="2" FontSize="10" Margin="2" Text="{Binding Control.MinValue}" />
         <Label Grid.Column="0" Grid.Row="3" FontSize="10" HorizontalAlignment="Right">
-            <Label.ToolTip>Maximum value for this EndlessPotentiometer.</Label.ToolTip> Max
+            <Label.ToolTip>Maximum value for this PotentiometerEndless.</Label.ToolTip> Max
         </Label>
         <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="3" FontSize="10" Margin="2" Text="{Binding Control.MaxValue}" />
 

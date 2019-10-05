@@ -107,6 +107,13 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Controls\PotentiometerEndless.cs" />
+    <Compile Include="Controls\PotentiometerEndlessAppearanceEditor.xaml.cs">
+      <DependentUpon>PotentiometerEndlessAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PotentiometerEndlessBehaviorEditor.xaml.cs">
+      <DependentUpon>PotentiometerEndlessBehaviorEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gauges\AV-8B\Small Panels\Slip Turn Panel.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumTacanChannel.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
@@ -1293,6 +1300,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\CustomGaugeBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PotentiometerEndlessAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PotentiometerEndlessBehaviorEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

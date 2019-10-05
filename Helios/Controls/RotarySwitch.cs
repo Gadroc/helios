@@ -779,7 +779,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 bool.TryParse(reader.ReadElementString("MouseWheel"), out mw);
                 MouseWheelAction = mw;
             }
-            catch (Exception ex)
+            catch 
             {
                 MouseWheelAction = true;
             }

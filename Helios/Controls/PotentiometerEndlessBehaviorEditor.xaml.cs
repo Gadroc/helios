@@ -17,35 +17,16 @@ namespace GadrocsWorkshop.Helios.Controls
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Windows.Controls;
-    using System.Windows;
 
     /// <summary>
-    /// Interaction logic for EndlessPotentiometerAppearanceEditor.xaml
+    /// Interaction logic for PotentiometerEndlessBehaviorEditor.xaml
     /// </summary>
-    [HeliosPropertyEditor("Helios.Base.EndlessPotentiometer", "Appearance")]
-    public partial class EndlessPotentiometerAppearanceEditor : HeliosPropertyEditor
+    [HeliosPropertyEditor("Helios.Base.PotentiometerEndless", "Behavior")]
+    public partial class PotentiometerEndlessBehaviorEditor : HeliosPropertyEditor
     {
-        public EndlessPotentiometerAppearanceEditor()
+        public PotentiometerEndlessBehaviorEditor()
         {
             InitializeComponent();
-        }
-
-        private void MinPosition_GotFocus(object sender, RoutedEventArgs e)
-        {
-            EndlessPotentiometer pot = Control as EndlessPotentiometer;
-            if (pot != null)
-            {
-                pot.Value = pot.MinValue;
-            }
-        }
-
-        private void MaxPosition_GotFocus(object sender, RoutedEventArgs e)
-        {
-            EndlessPotentiometer pot = Control as EndlessPotentiometer;
-            if (pot != null)
-            {
-                pot.Value = pot.MaxValue;
-            }
         }
     }
 }
