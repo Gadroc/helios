@@ -32,6 +32,9 @@
 
 * Implementation of mouse wheel control for rotaries and pots in DCS style.
 
+* Bug Fixes:
+	* Fix for duplicate bindings #156 problem with autobindings
+
 		
 1.4.2019.0930 Release
 ----------------------------
