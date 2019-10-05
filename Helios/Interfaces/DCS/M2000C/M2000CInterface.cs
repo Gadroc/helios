@@ -239,8 +239,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
                 new SwitchPosition("0.5", "theta", "3341"),
                 new SwitchPosition("0.6", "TEL", "3341")},
                 "HSI Panel", "Mode Selector", "%0.1f"));
-            CalibrationPointCollectionDouble compassScale = new CalibrationPointCollectionDouble(0d, 0d, 360d, 360d);
-            AddFunction(new ScaledNetworkValue(this, "342", compassScale, "HSI Panel", "Compass Rose", "Compass Rose.", "0 - 360", BindingValueUnits.Degrees));
+            AddFunction(new ScaledNetworkValue(this, "342", 1d, "HSI Panel", "Compass Rose", "Compass Rose.", "0 - 360", BindingValueUnits.Degrees, 0d, "%.4f"));
             AddFunction(new ScaledNetworkValue(this, "336", 1d, "HSI Panel", "Distance (Hundreds)", "Distance (Hundreds).", "0 - 9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "337", 1d, "HSI Panel", "Distance (Tens)", "Engine RPM (Tens).", "0 - 9", BindingValueUnits.Numeric));
             AddFunction(new ScaledNetworkValue(this, "338", 1d, "HSI Panel", "Distance (Ones)", "Distance (Ones).", "0 - 9", BindingValueUnits.Numeric));
@@ -249,14 +248,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
             AddFunction(new FlagValue(this, "345", "HSI Panel", "Flag 2", "Flag 2"));
             AddFunction(new FlagValue(this, "346", "HSI Panel", "Flag CAP", "Flag CAP"));
             AddFunction(new FlagValue(this, "343", "HSI Panel", "Flag distance", "Flag distance"));
-            CalibrationPointCollectionDouble directionNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
-            AddFunction(new ScaledNetworkValue(this, "333", directionNeedleScale, "HSI Panel", "Direction Needle", "Direction Needle.", "0 - 360", BindingValueUnits.Numeric));
-            CalibrationPointCollectionDouble bigNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
-            AddFunction(new ScaledNetworkValue(this, "334", bigNeedleScale, "HSI Panel", "Big Needle", "Big Needle.", "0 - 360", BindingValueUnits.Numeric));
-            CalibrationPointCollectionDouble smallNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
-            AddFunction(new ScaledNetworkValue(this, "335", smallNeedleScale, "HSI Panel", "Small Needle", "Small Needle.", "0 - 360", BindingValueUnits.Numeric));
-            CalibrationPointCollectionDouble modeNeedleScale = new CalibrationPointCollectionDouble(0.0d, 0.0d, 360d, 360d);
-            AddFunction(new ScaledNetworkValue(this, "341", modeNeedleScale, "HSI Panel", "Mode Needle", "Mode Needle.", "0 - 360", BindingValueUnits.Numeric));
+            AddFunction(new ScaledNetworkValue(this, "333", 1d, "HSI Panel", "Direction Needle", "Direction Needle.", "0 - 360", BindingValueUnits.Degrees, 0d, "%.4f"));
+            AddFunction(new ScaledNetworkValue(this, "334", 1d, "HSI Panel", "Big Needle", "Big Needle.", "0 - 360", BindingValueUnits.Degrees, 0d, "%.4f"));
+            AddFunction(new ScaledNetworkValue(this, "335", 1d, "HSI Panel", "Small Needle", "Small Needle.", "0 - 360", BindingValueUnits.Degrees, 0d, "%.4f"));
+            AddFunction(new ScaledNetworkValue(this, "341", 1d, "HSI Panel", "Mode Needle", "Mode Needle.", "0 - 360", BindingValueUnits.Degrees, 0d, "%.4f"));
             #endregion
             #region INS Panel
             AddFunction(new Switch(this, PCN_NAV, "627", new SwitchPosition[] {

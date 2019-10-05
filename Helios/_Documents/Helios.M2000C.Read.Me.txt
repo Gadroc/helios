@@ -1,4 +1,4 @@
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ï»¿* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
 * *                       Helios 1.4.2019.0823                              * * 
@@ -31,12 +31,12 @@ relevant then open a new issue.
   
 
 * * * Working Elements on M2000C * * *
-* * *      2nd October 2019      * * *
+* * *      4th October 2019      * * *
 
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * * Next Release Helios v1.4.2019.xxxx  * * *
 * * * * * * * * * * * * * * * * * * * * * * * *
-What’s new DCS M2000C
+Whatâ€™s new DCS M2000C
 ---------------------
 	* Improvement of guards on the Test and LG Panels
 		- Made all 4 guards on this 2 panels working
@@ -46,28 +46,28 @@ What’s new DCS M2000C
 	* Improvement of VOR/ILS Panel
 		- added the 2 potentiometers and made them continuous and working in both sens
 		- made the Mode Selector working
+	* Improvement of the HSIâ€¯Panel
+		- all the needles are working
 
 Known issues DCS M2000C
 -----------------------
 	* Fuel Panel
-	   - the Fuel CrossFeed Switch doesn’t work
-	   - the two toggle switches don’t work (seems not to be used in DCS)
+	   - the Fuel CrossFeed Switch doesnâ€™t work
+	   - the two toggle switches donâ€™t work (seems not to be used in DCS)
     * Master Caution lights Panel
 	   - seems the id is not the good one when clicking on the 2 indicators ?
 	* HSI Panel
-	   - the bottom stop flag is not tested
-	   - the compass rose, the 2 needles, the green needle are working but there is an problem of precision
 	   - the compass rose need to be redisign
-	   - the potentiometer doesn’t work properly
+	   - the potentiometer doesnâ€™t work properly
 	* ECM Box
 	   - the potentiometer is not working
 	* Miscellaneous Panels
-	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
+	   - I donâ€™t know how to test the Fire Warning Indicators. Does someone has a match? :-)
 	   
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * *    Release Helios v1.4.2019.1005    * * *
 * * * * * * * * * * * * * * * * * * * * * * * *
-What’s new DCS M2000C
+Whatâ€™s new DCS M2000C
 ---------------------
 	* Added the Fuel Panel
        - added the 7 indicators empty tanks
@@ -120,7 +120,7 @@ What’s new DCS M2000C
 	   - added the guard for the gun safe switch 
  	   - added the emergency landing gear lever
 	* Improvement of the Master Caution lights Panel
-	   - try to make the 2 indicators clickable with the same solution as the PCN Panel --> doesn’t work
+	   - try to make the 2 indicators clickable with the same solution as the PCN Panel --> doesnâ€™t work
 	* Improvement of the pictures of the cockpit to allow the new panels to work fine
 	* Miscellaneous Panels
        - Added the Post Combustion Indicator
