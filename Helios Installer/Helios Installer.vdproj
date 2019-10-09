@@ -231,6 +231,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B3F350392E2043689F87D29BFD8B7FBF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BD7FE92423974C1686F7BBBA7BE1CFAE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1087,6 +1093,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B3F350392E2043689F87D29BFD8B7FBF"
+            {
+            "SourcePath" = "8:..\\Helios\\_Documents\\HeliosDiag.cmd"
+            "TargetName" = "8:HeliosDiag.cmd"
+            "Tag" = "8:"
+            "Folder" = "8:_99D248ECE7CA4B17A15B204984A6573C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BF479CAA025B4D81BB1616CA6D48F634"
             {
             "SourcePath" = "8:..\\..\\Iris-Screen-Exporter\\Installer\\Iris Setup\\Release\\Iris Screen Exporter Setup.exe"
@@ -1224,7 +1250,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2019.919, Culture=neutral, processorArchitecture=AMD64"
+            "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2019.1005, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
                     "_F615FF8476F96D80BCD516BCA4BA5E7D"
@@ -2246,7 +2272,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_17CA188F80B94BE0A42E8B8E79EB6483"
             {
-            "SourcePath" = "8:..\\Aircraft FA-18C\\obj\\Debug\\FA-18C.dll"
+            "SourcePath" = "8:..\\Aircraft FA-18C\\obj\\Release\\FA-18C.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -2330,7 +2356,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_72CEFC0E61EB439E9A3A8073F41622EF"
             {
-            "SourcePath" = "8:..\\Phidgets\\obj\\x64\\Debug\\Phidgets.dll"
+            "SourcePath" = "8:..\\Phidgets\\obj\\x64\\Release\\Phidgets.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -2386,7 +2412,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7E877B10F16E46429A3738F5EBDB4F5C"
             {
-            "SourcePath" = "8:..\\Keypress Receiver Installer\\Debug\\Keypress Receiver Installer.msi"
+            "SourcePath" = "8:..\\Keypress Receiver Installer\\Release\\Keypress Receiver Setup.msi"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_99D248ECE7CA4B17A15B204984A6573C"
@@ -2415,7 +2441,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_80A510498A90463B948A51AD3876BD90"
             {
-            "SourcePath" = "8:..\\Control Center\\obj\\x64\\Debug\\Control Center.exe"
+            "SourcePath" = "8:..\\Control Center\\obj\\x64\\Release\\Control Center.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -2445,7 +2471,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BD7FE92423974C1686F7BBBA7BE1CFAE"
             {
-            "SourcePath" = "8:..\\Aircraft AV-8B\\obj\\Debug\\AV-8B.dll"
+            "SourcePath" = "8:..\\Aircraft AV-8B\\obj\\Release\\AV-8B.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -2501,7 +2527,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_CA5D295B54864BC8ACE27922958E407C"
             {
-            "SourcePath" = "8:..\\Aircraft M2000C\\obj\\Debug\\M2000C.dll"
+            "SourcePath" = "8:..\\Aircraft M2000C\\obj\\Release\\M2000C.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -2529,7 +2555,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FA987369A3EA4F739E46E3E94BA7D12B"
             {
-            "SourcePath" = "8:..\\Profile Editor\\obj\\x64\\Debug\\Profile Editor.exe"
+            "SourcePath" = "8:..\\Profile Editor\\obj\\x64\\Release\\Profile Editor.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"

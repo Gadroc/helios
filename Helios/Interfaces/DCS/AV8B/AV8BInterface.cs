@@ -81,7 +81,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         public AV8BInterface()
             : base("DCS AV-8B")
         {
-            DCSConfigurator config = new DCSConfigurator("DCSAV8B", DCSPath);
+            DCSConfigurator config = new DCSConfigurator("DCSAV8B", DCSPath,true,"AV8BNA");
             config.ExportConfigPath = "Config\\Export";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/AV8B/ExportFunctions.lua";
             Port = config.Port;
@@ -661,6 +661,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
                 return _dcsPath;
             }
         }
+       
 
         protected override void OnProfileChanged(HeliosProfile oldProfile)
         {

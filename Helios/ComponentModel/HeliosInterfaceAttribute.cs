@@ -38,7 +38,8 @@ namespace GadrocsWorkshop.Helios.ComponentModel
         /// Recommended to follow conventions of {module name}.{interface}.  Helios.* is reserved for helios's included controls.</param>
         /// <param name="name">Display name used for this interface in the ui.</param>
         /// <param name="factory">Instance factory used to populate new interface dialog.</param>
-        public HeliosInterfaceAttribute(string typeIdentifier, string name, Type interfaceEditor, Type factory)
+        /// 
+        public HeliosInterfaceAttribute(string typeIdentifier, string name, Type interfaceEditor, Type factory) 
         {
             _typeIdentifier = typeIdentifier;
             _interfaceEditorType = interfaceEditor;
