@@ -112,6 +112,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         public FA18CInterface()
             : base("DCS F/A-18C")
         {
+            AlternateName = "FA-18C_hornet";  // this is the name that DCS uses to describe the aircraft being flown
             DCSConfigurator config = new DCSConfigurator("DCS F/A-18C", DCSPath);
             config.ExportConfigPath = "Scripts";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/FA18C/ExportFunctions.lua";

@@ -80,6 +80,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.M2000C
         public M2000CInterface()
             : base("DCS M2000C")
         {
+            AlternateName = "M2000C";  // this is the name that DCS uses to describe the aircraft being flown
             DCSConfigurator config = new DCSConfigurator("DCS M2000C", DCSPath);
             config.ExportConfigPath = "Config\\Export";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/M2000C/ExportFunctions.lua";

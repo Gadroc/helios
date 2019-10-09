@@ -50,6 +50,8 @@ namespace GadrocsWorkshop.Helios.UDPInterface
 
         private System.Text.Encoding iso_8859_1;
 
+        private string _alternatename = "";
+
         public BaseUDPInterface(string name)
             : base(name)
         {
@@ -125,6 +127,23 @@ namespace GadrocsWorkshop.Helios.UDPInterface
                     int oldValue = _port;
                     _port = value;
                     OnPropertyChanged("Port", oldValue, value, false);
+                }
+            }
+        }
+
+        public string AlternateName
+        {
+            get
+            {
+                return _alternatename;
+            }
+            set
+            {
+                if (!_port.Equals(value))
+                {
+                    string oldValue = _alternatename;
+                    _alternatename = value;
+                    OnPropertyChanged("AlternateName", oldValue, value, false);
                 }
             }
         }

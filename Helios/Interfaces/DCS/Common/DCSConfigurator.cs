@@ -73,14 +73,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
 
         private bool _dcsUseNewExport = false;
 
-        private string _dcsAircraftType = "";
-
         private ObservableCollection<string> _doFiles = new ObservableCollection<string>();
-        public DCSConfigurator(string preferencesPrefix, string defaultAppPath, bool xAircraft, string AircraftType) : this(preferencesPrefix, defaultAppPath, true)
-        {
-            if (xAircraft) _dcsAircraftType = AircraftType;
-        }
-
 
         public DCSConfigurator(string preferencesPrefix, string defaultAppPath) : this(preferencesPrefix, defaultAppPath, true)
         {
@@ -603,7 +596,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
         {
             get
             {
-                return _dcsAircraftType;
+                return UDPInterface.AlternateName;           
             }
         }
 

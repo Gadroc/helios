@@ -153,6 +153,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C
         public A10CInterface()
             : base("DCS A10C")
         {
+            AlternateName = "A-10C";  // this is the name that DCS uses to describe the aircraft being flown
             DCSConfigurator config = new DCSConfigurator("DCSA10C", DCSPath);
             config.ExportConfigPath = "Config\\Export";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/A10C/ExportFunctions.lua";
