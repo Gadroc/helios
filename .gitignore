@@ -12,6 +12,7 @@ Helios *.zip
 "NL Assets"
 /installer
 /.vs/helios/v15/Server/sqlite3
+/.vs/Helios/v16/Server/sqlite3
 Helios *.zip
 Helios*.msi
 setup.exe
@@ -19,3 +20,4 @@ setup.exe
 *.user
 Keypress Receiver Installer/Release/Keypress Receiver Setup.msi
 !/Docs/*.txt
+/UpgradeLog3.htm
