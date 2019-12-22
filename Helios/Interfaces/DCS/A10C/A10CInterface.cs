@@ -331,7 +331,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C
             AddFunction(new PushButton(this, MFCD_LEFT, BUTTON_20, "319", "Left MFCD", "OSB20"));
             AddFunction(new Rocker(this, MFCD_LEFT, BUTTON_21, BUTTON_22, BUTTON_23, BUTTON_23, "320", "Left MFCD", "Moving Map Scale", true));
             AddFunction(new Rocker(this, MFCD_LEFT, BUTTON_24, BUTTON_25, BUTTON_26, BUTTON_26, "321", "Left MFCD", "Backlight", true));
-            AddFunction(new Rocker(this, MFCD_LEFT, BUTTON_27, BUTTON_27, BUTTON_29, BUTTON_29, "322", "Left MFCD", "Brightness", true));
+            AddFunction(new Rocker(this, MFCD_LEFT, BUTTON_27, BUTTON_28, BUTTON_29, BUTTON_29, "322", "Left MFCD", "Brightness", true));
             AddFunction(new Rocker(this, MFCD_LEFT, BUTTON_30, BUTTON_31, BUTTON_32, BUTTON_32, "323", "Left MFCD", "Contrast", true));
             AddFunction(new Rocker(this, MFCD_LEFT, BUTTON_33, BUTTON_34, BUTTON_35, BUTTON_35, "324", "Left MFCD", "Entity Level", false));
             AddFunction(Switch.CreateThreeWaySwitch(this, MFCD_LEFT, BUTTON_36, "325", "0.2", "Day", "0.1", "Night", "0.0", "Off", "Left MFCD", "Day/Night/Off", "%0.1f"));
@@ -360,7 +360,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C
             AddFunction(new PushButton(this, MFCD_RIGHT, BUTTON_20, "345", "Right MFCD", "OSB20"));
             AddFunction(new Rocker(this, MFCD_RIGHT, BUTTON_21, BUTTON_22, BUTTON_23, BUTTON_23, "346", "Right MFCD", "Moving Map Scale", true));
             AddFunction(new Rocker(this, MFCD_RIGHT, BUTTON_24, BUTTON_25, BUTTON_26, BUTTON_26, "347", "Right MFCD", "Backlight", true));
-            AddFunction(new Rocker(this, MFCD_RIGHT, BUTTON_27, BUTTON_27, BUTTON_29, BUTTON_29, "348", "Right MFCD", "Brightness", true));
+            AddFunction(new Rocker(this, MFCD_RIGHT, BUTTON_27, BUTTON_28, BUTTON_29, BUTTON_29, "348", "Right MFCD", "Brightness", true));
             AddFunction(new Rocker(this, MFCD_RIGHT, BUTTON_30, BUTTON_31, BUTTON_32, BUTTON_32, "349", "Right MFCD", "Contrast", true));
             AddFunction(new Rocker(this, MFCD_RIGHT, BUTTON_33, BUTTON_34, BUTTON_35, BUTTON_35, "350", "Right MFCD", "Entity Level", false));
             AddFunction(Switch.CreateThreeWaySwitch(this, MFCD_RIGHT, BUTTON_36, "351", "0.2", "Day", "0.1", "Night", "0.0", "Off", "Right MFCD", "Day/Night/Off", "%0.1f"));
