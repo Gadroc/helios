@@ -58,7 +58,7 @@ Note: The Assembly file version information is saved as a set of integers for ea
 			Https://www.digitalcombatsimulator.com/en/files/3302014/
 			</DownloadUrl>
 		</HeliosVersion>
-		ie without a decimal point between the last 4.4 digits.
+		ie with a decimal point between the last 4.4 digits.
 
 
 
