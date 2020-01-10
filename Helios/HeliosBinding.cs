@@ -428,9 +428,8 @@ namespace GadrocsWorkshop.Helios
                             case BindingValueSources.LuaScript:
                                 try
                                 {
-
                                     object[] returnValues = LuaInterpreter.DoString(Value);
-                                    if (returnValues.Length >= 1)
+                                    if ((returnValues != null) && (returnValues.Length >= 1))
                                     {
                                         value = CreateBindingValue(returnValues[0]);
                                         if (ConfigManager.LogManager.LogLevel >= LogLevel.Debug)
@@ -449,6 +448,7 @@ namespace GadrocsWorkshop.Helios
                                 }
                                 catch (Exception valueException)
                                 {
+                                    // these are exceptions thrown by the Lua implementation
                                     ConfigManager.LogManager.LogError("Binding value lua script has thown an unhandled exception. (Binding=\"" + Description + "\", Value Script=\"" + Value + "\")", valueException);
                                 }
                                 break;
