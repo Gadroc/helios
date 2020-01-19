@@ -849,9 +849,10 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 System.Threading.Thread t = new System.Threading.Thread(delegate()
                 {
                     ConfigManager.UndoManager.StartBatch();
-                    ConfigManager.LogManager.LogDebug("Reseting Monitors");
+                    ConfigManager.LogManager.LogDebug("Resetting Monitors");
                     try
                     {
+                        // WARNING: monitor naming is 1-based but indexing and NewMonitor references are 0-based
                         int i = 0;
                         foreach (Monitor display in ConfigManager.DisplayManager.Displays)
                         {
@@ -859,17 +860,17 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                             {
                                 if (resetDialog.MonitorResets[i].NewMonitor != i)
                                 {
-                                    ConfigManager.LogManager.LogDebug("Removing controls for replacement from Monitor " + i);
+                                    ConfigManager.LogManager.LogDebug($"Removing controls from Monitor {i + 1} for replacement");
                                     Dispatcher.Invoke(DispatcherPriority.Background, new Action(resetDialog.MonitorResets[i].RemoveControls));
                                 }
-                                ConfigManager.LogManager.LogDebug("Reseting Monitor " + i);
+                                ConfigManager.LogManager.LogDebug($"Resetting Monitor {i + 1}");
                                 Dispatcher.Invoke(DispatcherPriority.Background, new Action(resetDialog.MonitorResets[i].Reset));
                             }
                             else
                             {
-                                ConfigManager.LogManager.LogDebug("Adding Monitor " + i);
+                                ConfigManager.LogManager.LogDebug($"Adding Monitor {i + 1}");
                                 Monitor monitor = new Monitor(display);
-                                monitor.Name = "Monitor " + i++;
+                                monitor.Name = $"Monitor {i + 1}";
                                 ConfigManager.UndoManager.AddUndoItem(new AddMonitorUndoEvent(profile, monitor));
                                 Dispatcher.Invoke(DispatcherPriority.Background, new Action<Monitor>(profile.Monitors.Add), monitor);
                             }
@@ -877,7 +878,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                         }
                         while (i < profile.Monitors.Count)
                         {
-                            ConfigManager.LogManager.LogDebug("Removing Monitor " + i);
+                            ConfigManager.LogManager.LogDebug($"Removing Monitor {i + 1}");
                             Dispatcher.Invoke(DispatcherPriority.Background, new Action<HeliosObject>(CloseProfileItem), profile.Monitors[i]);
                             Dispatcher.Invoke(DispatcherPriority.Background, new Action(resetDialog.MonitorResets[i].RemoveControls));
 
@@ -886,13 +887,13 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                         }
                         foreach (MonitorResetItem item in resetDialog.MonitorResets)
                         {
-                            ConfigManager.LogManager.LogDebug("Placing controls for old monitor " + item.OldMonitor);
+                            ConfigManager.LogManager.LogDebug($"Placing controls for old monitor {item.OldMonitor.Name} onto Monitor {item.NewMonitor + 1}");
                             Dispatcher.Invoke(DispatcherPriority.Background, new Action<Monitor>(item.PlaceControls), profile.Monitors[item.NewMonitor]);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error encountered while resetting monitors, please contact support via forums at www.scsimulations.com", "Error");
+                        MessageBox.Show("Error encountered while resetting monitors; please file a bug with the contents of the application log", "Error");
                         ConfigManager.LogManager.LogError("Reset Monitors - Unhandled exception", ex);
                     }
 
