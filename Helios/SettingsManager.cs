@@ -82,47 +82,52 @@ namespace GadrocsWorkshop.Helios
                     TextReader reader = new StreamReader(_settingsFile);
                     XmlReader xmlReader = XmlReader.Create(reader, settings);
 
-                    xmlReader.ReadStartElement("HeliosSettings");
-                    if (!xmlReader.IsEmptyElement)
+                    try
                     {
-                        while (xmlReader.NodeType != XmlNodeType.EndElement)
+                        xmlReader.ReadStartElement("HeliosSettings");
+                        if (!xmlReader.IsEmptyElement)
                         {
-                            xmlReader.ReadStartElement("Group");
-                            string name = xmlReader.ReadElementString("Name");
-                            Group group = GetGroup(name);
-
-                            if (!xmlReader.IsEmptyElement)
+                            while (xmlReader.NodeType != XmlNodeType.EndElement)
                             {
-                                xmlReader.ReadStartElement("Settings");
-                                while (xmlReader.NodeType != XmlNodeType.EndElement)
+                                xmlReader.ReadStartElement("Group");
+                                string name = xmlReader.ReadElementString("Name");
+                                Group group = GetGroup(name);
+
+                                if (!xmlReader.IsEmptyElement)
                                 {
-                                    Setting setting = new Setting();
+                                    xmlReader.ReadStartElement("Settings");
+                                    while (xmlReader.NodeType != XmlNodeType.EndElement)
+                                    {
+                                        Setting setting = new Setting();
 
-                                    xmlReader.ReadStartElement("Setting");
-                                    setting.Name = xmlReader.ReadElementString("Name");
-                                    setting.Value = xmlReader.ReadElementString("Value");
+                                        xmlReader.ReadStartElement("Setting");
+                                        setting.Name = xmlReader.ReadElementString("Name");
+                                        setting.Value = xmlReader.ReadElementString("Value");
+                                        xmlReader.ReadEndElement();
+
+                                        group.Settings.Add(setting);
+                                    }
                                     xmlReader.ReadEndElement();
-
-                                    group.Settings.Add(setting);
+                                }
+                                else
+                                {
+                                    xmlReader.Read();
                                 }
                                 xmlReader.ReadEndElement();
                             }
-                            else
-                            {
-                                xmlReader.Read();
-                            }
-                            xmlReader.ReadEndElement();
                         }
+                        else
+                        {
+                            xmlReader.Read();
+                        }
+
+                        xmlReader.ReadEndElement();
                     }
-                    else
+                    finally
                     {
-                        xmlReader.Read();
+                        xmlReader.Close();
+                        reader.Close();
                     }
-
-                    xmlReader.ReadEndElement();
-
-                    xmlReader.Close();
-                    reader.Close();
                 }
             } 
             catch (System.Exception ex)
