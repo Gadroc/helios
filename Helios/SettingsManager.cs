@@ -62,9 +62,17 @@ namespace GadrocsWorkshop.Helios
 
         private void LoadSettings()
         {
-            if (_settings == null)
+            if (_settings != null)
             {
-                _settings = new GroupCollection();
+                // only load once
+                return;
+            }
+
+            // start with empty settings
+            _settings = new GroupCollection();
+
+            try
+            {
                 if (File.Exists(_settingsFile))
                 {
                     XmlReaderSettings settings = new XmlReaderSettings();
@@ -116,6 +124,12 @@ namespace GadrocsWorkshop.Helios
                     xmlReader.Close();
                     reader.Close();
                 }
+            } 
+            catch (System.Exception ex)
+            {
+                ConfigManager.LogManager.LogError($"the settings file '{_settingsFile}' cannot be read; all settings will be reset", ex);
+                // reset to defaults (empty settings) and let it overwrite the settings file when we next save
+                _settings = new GroupCollection();
             }
         }
 
