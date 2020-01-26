@@ -106,10 +106,9 @@ namespace GadrocsWorkshop.Helios
             {"F24", 0x87},
             {"NUMLOCK", 0x90},
             {"SCROLLLOCK", 0x91},
-            {"ENTER_LEGACY", 0xCA }, // not a valid key code, not sure what this was supposed to do, but now we have a name for it in case anyone needs it
-            {"ENTER", 0x0D},
-            // not a real keycode, we fix this up to mean extended ENTER (i.e. ENTER on numpad)
-            {"NUMENTER", 0x10D }
+            {"ENTER", 0x0D},                  // synonym for "RETURN".  This is deliberate. 
+            {"NUMENTER", 0x10D },             // not a real keycode, high byte used to indicate an extended mapping which results in the scancode for ENTER on the numeric keypad.
+            {"NUMPADENTER", 0x10D }
         };
 
         static KeyboardEmulator()
@@ -214,7 +213,7 @@ namespace GadrocsWorkshop.Helios
             uint scanCode = NativeMethods.MapVirtualKeyEx(virtualKeyCode, 0, _hkl);
             if (virtualKeyCode == 0x13)
             {
-                scanCode = 0x04C5;
+                scanCode = 0x04C5;                  // extended scancode for Pause
             }
 
             if (keyDown)

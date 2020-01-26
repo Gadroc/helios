@@ -1,8 +1,29 @@
 ﻿## Full change log
 
-### 1.4.2019.xxxx Release
+### 1.4.2020.02xx Release
 ----------------------------
-
+* BMS F-16 - Altimeter fixes
+	Added altimeter pressure reading
+	fix for _airPressureDrum.Value only can accept 4 digits
+	Added Altimeter Calibration reading from FlightData2
+	Support barometric readings of altitude and pressure
+	Use math.abs to get absolute value
+	Read values from flightData2 to support barometric altitude and calibrated airpressure
+* Keyboard Interface changes
+	Bug relating to sending keys "RETURN" and "ENTER" fixed.  Both of these now send the ENTER key on
+	the right of the main keyboard.  New "NUMENTER" sends the Enter key on the numeric keypad.
+	This potentially needs profiles sending "RETURN" which previously activated the numeric pad enter
+	to be changed to send "NUMENTER" instead #178
+* A-10C
+	fixed button command for MFCD brightness down
+	Corrections to the values used by the interface for VHF AM Radio
+* Bug fix for orphaned triggers and actions when there is a change in interface #173
+* UDP traffic logging now only for loglevel Debug
+* Fix for Reset monitors Bug where bindings don't move to the correct monitor #177 & #117
+* Fix for CLR20r3 crash on release check when there is not internet connection #163
+* Fix for crash on startup when Helios Settings file has been corrupted #106
+* Fix for Text Display font size being incorrect when textbox is resized #146
+* Fix for ArgumentOutOfRangeException on HeliosTextBox #158
 
 
 ### 1.4.2019.1005 Release
