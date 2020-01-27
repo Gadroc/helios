@@ -156,7 +156,7 @@ namespace GadrocsWorkshop.Helios
                     int endIndex = keys.IndexOf('}', index + 1);
                     if (endIndex > -1)
                     {
-                        string keycode = keys.Substring(index + 1, endIndex - index - 1);
+                        string keycode = keys.Substring(index + 1, endIndex - index - 1).ToUpper();
                         if (_keycodes.ContainsKey(keycode))
                         {
                             eventList.Add(CreateInput(_keycodes[keycode], keyDown));

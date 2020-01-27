@@ -22,7 +22,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Keyboard
     [HeliosInterface("Helios.Base.Keyboard", "Keyboard", typeof(KeyboardInterfaceEditor), typeof(UniqueHeliosInterfaceFactory), AutoAdd=true)]
     public class KeyboardInterface : HeliosInterface
     {
-        public static readonly string SpecialKeyHelp = "\r\n\r\nSpecial keys can be sent by sending their names in brackets, ex: {PAUSE}.\r\nBACKSPACE, TAB, CLEAR, RETURN, ENTER, LSHIFT, RSHIFT, LCONTROL, RCONTROL, LALT, RALT, PAUSE, CAPSLOCK, ESCAPE, SPACE, PAGEUP, PAGEDOWN, END, HOME, LEFT, UP, RIGHT, DOWN, PRINTSCREEN, INSERT, DELETE, LWIN, RWIN, APPS, NUMPAD0, NUMPAD1, NUMPAD2, NUMPAD3, NUMPAD4, NUMPAD5, NUMPAD6, NUMPAD7, NUMPAD8, NUMPAD9, MULTIPLY, ADD, SEPARATOR, SUBTRACT, DECIMAL, DIVIDE, NUMPADENTER, NUMENTER, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24, NUMLOCK, SCROLLLOCK";
+        public static readonly string SpecialKeyHelp = "\r\n\r\nSpecial keys can be sent by sending their names in brackets, ex: {PAUSE}.\r\nBACKSPACE, TAB, CLEAR, RETURN, ENTER, LSHIFT, RSHIFT, LCONTROL, RCONTROL, LALT, RALT, PAUSE, CAPSLOCK, ESCAPE, SPACE, PAGEUP, PAGEDOWN, END, HOME, LEFT, UP, RIGHT, DOWN, PRINTSCREEN, INSERT, DELETE, LWIN, RWIN, APPS, NUMPAD0, NUMPAD1, NUMPAD2, NUMPAD3, NUMPAD4, NUMPAD5, NUMPAD6, NUMPAD7, NUMPAD8, NUMPAD9, MULTIPLY, ADD, SEPARATOR, SUBTRACT, DECIMAL, DIVIDE, NUMPADENTER, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24, NUMLOCK, SCROLLLOCK";
 
         private HeliosAction _keyPressAction;
         private HeliosAction _keyDownAction;
