@@ -155,10 +155,9 @@ namespace GadrocsWorkshop.Helios
             }
             foreach (IntPtr hkl in hkls)
             {
-                ConfigManager.LogManager.LogError($"Testing keyboard layout; installed: 0x{((UInt32)hkl):X8}");
+                ConfigManager.LogManager.LogDebug($"KeyboardEmulator: keyboard layout 0x{((UInt32)hkl):X8} detected (not necessarily active)");
                 if ((((UInt32)hkl) & 0xffff0000) == 0x04090000)
                 {
-                    ConfigManager.LogManager.LogError($"Testing keyboard layout; choosing: 0x{((UInt32)hkl):X8}");
                     return hkl;
                 }
             }
@@ -215,6 +214,7 @@ namespace GadrocsWorkshop.Helios
                 if (value)
                 {
                     _hkl = FindQwertyLayout() ?? _defaultLayout;
+                    ConfigManager.LogManager.LogInfo($"KeyboardEmulator: keyboard layout 0x{((UInt32)_hkl):X8} selected for forced QWERTY mode");
                 }
                 else
                 {
