@@ -601,6 +601,7 @@ Global
 		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|Windows-x86.ActiveCfg = Release
 		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|Windows-x86.Build.0 = Release
 		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|x64.ActiveCfg = Release
+		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|x64.Build.0 = Release
 		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|x86.ActiveCfg = Release
 		{61272BD1-E670-45CC-918B-1208B837F4DC}.Release|x86.Build.0 = Release
 		{3EBE3C85-C79E-42EF-AA07-EEDA5990205B}.Debug|Android.ActiveCfg = Debug

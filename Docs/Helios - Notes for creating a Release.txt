@@ -1,3 +1,4 @@
+Download latest VC_redist.x64.exe from Microsoft and add to helios\packages\VCRedist_14.24.28127.4\
 Change Buildtype to "Release"
 Change the assembly dates on the projects
 	This can be done with a "Replace All" for the previous version and the new one, but make sure you check the results from a 

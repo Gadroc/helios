@@ -3,6 +3,8 @@
 ### 1.4.2020.0221 Release
 ----------------------------
 
+#### Huge "Shout out" to derammo who was this release's primary contributor.  1.4.2020.0221 benefits from his many improvements and bugfixes.
+
 * BMS F-16 - Altimeter fixes
 	Added altimeter pressure reading
 	fix for _airPressureDrum.Value only can accept 4 digits
@@ -31,6 +33,10 @@
 	people are missing from their machines.  This only works when using "Helios setup.exe"
 * Helios is now be an x64 only offering
 * HeliosDiag.cmd is delivered to aid the collection of diagnostic information
+* Package Updates:
+	* HidSharp 2.1
+	* KeraLua 1.0.2.6
+	* NLua 1.4.29 (including Lua 5.3)
 
 
 ### 1.4.2019.1005 Release

@@ -474,6 +474,15 @@
     <Compile Include="Gauges\FA-18C\UFC\UFC.cs" />
     <Compile Include="Gauges\FA-18C\IFEI\IFEI.cs" />
     <Compile Include="Gauges\FA-18C\VVI\VVI.cs" />
+    <Content Include="_Documents\Licenses\AvalonDock\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\CommandLineParser\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\EOSSharp\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\hidsharp\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\KeraLua\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\NLua\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\Phidget\License.txt" />
+    <Content Include="_Documents\Licenses\SharpDX.DirectInput\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\SharpDX\LICENSE.txt" />
     <None Include="Gauges\GaugeTextDisplay.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
     <Compile Include="Gauges\F-16\ADI\ADI.cs" />
@@ -856,6 +865,7 @@
     <Content Include="_Documents\HeliosDiag.cmd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="_Documents\Licenses\VC_redist.x64.exe\VS_2017_ENT_PRO_TRIAL_RTW_ENU_Eula.1033.rtf" />
     <Resource Include="Gauges\M2000C\Common\needleA.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
