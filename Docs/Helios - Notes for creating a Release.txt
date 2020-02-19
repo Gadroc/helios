@@ -36,6 +36,8 @@ Open the .MSI with Orca and
 		This cannot be done with a post build SQL change so change the "UPGRADE" "VersionMin" to the same ##.##.####.#### that we have used for the other projects.
 
 	Check the Welcome Text for the installer.  You can then correct any welcome text issues in "Control" eg  "WelcomeText".  Copy the original text into a text editor, save it as a file and then "Import Text File"
+
+Change the Helios Setup.exe icon by File -> Open -> File and add an icon resource.
 		
 Note: The Assembly file version information is saved as a set of integers for each portion of the numbering system, with the result that
 		any leading zeros will always be lost!

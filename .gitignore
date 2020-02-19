@@ -21,3 +21,4 @@ setup.exe
 Keypress Receiver Installer/Release/Keypress Receiver Setup.msi
 !/Docs/*.txt
 /UpgradeLog3.htm
+/Helios Installer/Debug/Helios setup.exe

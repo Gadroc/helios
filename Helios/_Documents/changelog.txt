@@ -1,7 +1,8 @@
 ﻿## Full change log
 
-### 1.4.2020.02xx Release
+### 1.4.2020.0221 Release
 ----------------------------
+
 * BMS F-16 - Altimeter fixes
 	Added altimeter pressure reading
 	fix for _airPressureDrum.Value only can accept 4 digits
@@ -14,6 +15,8 @@
 	the right of the main keyboard.  New "NUMPADENTER" sends the Enter key on the numeric keypad.
 	This potentially needs profiles sending "RETURN" which previously activated the numeric pad enter
 	to be changed to send "NUMPADENTER" instead #178
+	New feature to force QWERTY keyboard keycodes to be sent to programs (such as BMS) which only
+	understand keycodes and not keystrokes. #164
 * A-10C
 	fixed button command for MFCD brightness down
 	Corrections to the values used by the interface for VHF AM Radio
@@ -24,6 +27,11 @@
 * Fix for crash on startup when Helios Settings file has been corrupted #106
 * Fix for Text Display font size being incorrect when textbox is resized #146
 * Fix for ArgumentOutOfRangeException on HeliosTextBox #158
+* Installer changes to install the Visual C++ Redistributable Runtime which some
+	people are missing from their machines.  This only works when using "Helios setup.exe"
+* Helios is now be an x64 only offering
+* HeliosDiag.cmd is delivered to aid the collection of diagnostic information
+
 
 ### 1.4.2019.1005 Release
 ----------------------------
