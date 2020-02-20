@@ -31,13 +31,12 @@
 * Fix for ArgumentOutOfRangeException on HeliosTextBox #158
 * Installer changes to install the Visual C++ Redistributable Runtime which some
 	people are missing from their machines.  This only works when using "Helios setup.exe"
-* Helios is now be an x64 only offering
+* Helios is now an x64-only offering
 * HeliosDiag.cmd is delivered to aid the collection of diagnostic information
 * Package Updates:
 	* HidSharp 2.1
 	* KeraLua 1.0.2.6
 	* NLua 1.4.29 (including Lua 5.3)
-
 
 ### 1.4.2019.1005 Release
 ----------------------------
