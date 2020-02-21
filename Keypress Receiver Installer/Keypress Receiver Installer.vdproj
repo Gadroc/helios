@@ -146,10 +146,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5.2"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    "Name" = "8:Microsoft .NET Framework 4.5.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5.2"
                     }
                 }
             }
@@ -340,7 +340,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Helios Keypress Receiver"
         "ProductCode" = "8:{0B9D5080-9B9E-4A60-9D06-3DB387C903BC}"
-        "PackageCode" = "8:{5715E387-AD6B-4230-AFA9-2E362D2E5FB1}"
+        "PackageCode" = "8:{FF9BE3B6-772E-4878-A493-C5E9273F6974}"
         "UpgradeCode" = "8:{EC3AC978-542C-4062-B6D0-F652A7C3E134}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
