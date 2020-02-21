@@ -3739,7 +3739,9 @@
     <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE_DN.png" />
     <Resource Include="Gauges\FA-18C\IFEI\IFEI Reflections.png" />
     <Resource Include="Images\KneeBoards\default_kneeboard_image.png" />
-    <Content Include="Helios.ico" />
+    <Content Include="Helios.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="_Documents\changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
