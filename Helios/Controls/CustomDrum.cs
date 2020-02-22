@@ -36,9 +36,9 @@ namespace GadrocsWorkshop.Helios.Controls
 		private double _drum_PosY = 0d;
 		private double _drum_Width = 50d;
 		private double _drum_Height = 1000d;
-		private int _initialVertical = 0;
-		private int _minVertical = 0;
-		private int _verticalTravel = 0;
+		private int _initialVertical = -490;
+		private int _minVertical = -910;
+		private int _verticalTravel = 10;
 		private double _minInputVertical = 0d;
 		private double _maxInputVertical = 1d;
 		
@@ -53,7 +53,7 @@ namespace GadrocsWorkshop.Helios.Controls
             _Drum.Clip = new RectangleGeometry(new Rect(1d, 1d,50d, 100d));
             Components.Add(_Drum);
 
-            _drumOffset = new HeliosValue(this, new BindingValue(0d), "", "Drum vertical offset", "Values between configured Min and Max", "", BindingValueUnits.Numeric);
+            _drumOffset = new HeliosValue(this, new BindingValue(0d), "", "Drum tape offset", "Value between configured Min and Max", "", BindingValueUnits.Numeric);
             _drumOffset.Execute += new HeliosActionHandler(DrumOffset_Execute);
             Actions.Add(_drumOffset);
             Values.Add(_drumOffset);
@@ -82,8 +82,6 @@ namespace GadrocsWorkshop.Helios.Controls
 				}
 			}
 		}
-
-
 
 		public double Drum_PosX
 		{

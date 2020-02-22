@@ -31,9 +31,7 @@ namespace GadrocsWorkshop.Helios.Controls
             InitializeComponent();
         }
 
-       
-
-		private void OnClick (object sender, RoutedEventArgs e)
+        private void OnClick (object sender, RoutedEventArgs e)
 		{
 			CustomDrum drum = Control as CustomDrum;
 			if (drum != null)
@@ -41,12 +39,6 @@ namespace GadrocsWorkshop.Helios.Controls
 				drum.Reset();
 			}
 		}
-
-	
-
-		
-
-
 		private void IncInitV(object sender, RoutedEventArgs e)
 		{
 			CustomDrum drum = Control as CustomDrum;
@@ -100,10 +92,14 @@ namespace GadrocsWorkshop.Helios.Controls
 			}
 		}
 
+        private void HeliosTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
 
+        }
 
+        private void ImagePicker_Loaded(object sender, RoutedEventArgs e)
+        {
 
-
-	
-	}
+        }
+    }
 }

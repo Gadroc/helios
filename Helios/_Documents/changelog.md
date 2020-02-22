@@ -1,9 +1,9 @@
 ﻿## Full change log
 
-### 1.4.2020.0222 Release
+### 1.4.2020.0221 Release
 ----------------------------
 
-#### Huge "Shout out" to derammo who was this release's primary contributor.  1.4.2020.0222 benefits from his many improvements and bugfixes.
+#### Huge "Shout out" to derammo who was this release's primary contributor.  1.4.2020.0221 benefits from his many improvements and bugfixes.
 
 * BMS F-16 - Altimeter fixes
 	Added altimeter pressure reading
@@ -37,6 +37,7 @@
 	* HidSharp 2.1
 	* KeraLua 1.0.2.6
 	* NLua 1.4.29 (including Lua 5.3)
+* New Custom Drum and Custom Gauge controls added
 
 ### 1.4.2019.1005 Release
 ----------------------------

@@ -901,9 +901,9 @@
     <Resource Include="Interfaces\DCS\AV8B\ExportFunctions - New - Post.lua" />
     <Resource Include="Interfaces\DCS\AV8B\ExportFunctions - New - Pre.lua" />
     <None Include="_Documents\Helios Release 1.4 Users Guide.docx" />
-    <None Include="_Documents\Helios Release 1.4 Users Guide.pdf">
+    <Content Include="_Documents\Helios Release 1.4 Users Guide.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\AV-8B\Common\needle_a.xaml">
@@ -3768,7 +3768,7 @@
     <Content Include="Helios.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="_Documents\changelog.txt">
+    <Content Include="_Documents\changelog.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="_Documents\GNU Lesser General Public License.txt">

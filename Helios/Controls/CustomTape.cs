@@ -89,16 +89,16 @@ namespace GadrocsWorkshop.Helios.Controls
 			_Foreground = new Gauges.GaugeImage(_foregroundImage, new Rect(0, 0, _gaugeWidth, _gaugeHeight));
 			Components.Add(_Foreground);
 
-            _offFlag = new HeliosValue(this, new BindingValue(false), "", "off flag", "Indicates whether the off flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
+            _offFlag = new HeliosValue(this, new BindingValue(false), "", "Off Flag", "Indicates whether the \"Off Flag\" is displayed.", "True if displayed.", BindingValueUnits.Boolean);
             _offFlag.Execute += new HeliosActionHandler(OffFlag_Execute);
             Actions.Add(_offFlag);
 
-            _tapeOffset = new HeliosValue(this, new BindingValue(0d), "", "Tape vertical offset", "Values between configured Min and Max", "", BindingValueUnits.Numeric);
+            _tapeOffset = new HeliosValue(this, new BindingValue(0d), "", "Tape Vertical Offset", "Values between configured Min and Max", "", BindingValueUnits.Numeric);
             _tapeOffset.Execute += new HeliosActionHandler(TapeOffset_Execute);
             Actions.Add(_tapeOffset);
             Values.Add(_tapeOffset);
 
-			_tapeHOffset = new HeliosValue(this, new BindingValue(0d), "", "Tape Horizontal offset", "Values between configured Min and Max", "", BindingValueUnits.Numeric);
+			_tapeHOffset = new HeliosValue(this, new BindingValue(0d), "", "Tape Horizontal Offset", "Values between configured Min and Max", "", BindingValueUnits.Numeric);
 			_tapeHOffset.Execute += new HeliosActionHandler(TapeHOffset_Execute);
 			Actions.Add(_tapeHOffset);
 			Values.Add(_tapeHOffset);
