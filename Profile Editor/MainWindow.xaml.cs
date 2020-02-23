@@ -23,8 +23,8 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Linq;
     using System.IO;
+    using System.Linq;
     using System.Runtime.InteropServices;
     using System.Windows;
     using System.Windows.Controls;
@@ -34,7 +34,6 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
     using System.Windows.Threading;
     using Xceed.Wpf.AvalonDock.Layout;
     using Xceed.Wpf.AvalonDock.Layout.Serialization;
-    using GadrocsWorkshop.Helios.Splash;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -384,9 +383,9 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
         {
             HeliosEditorDocument editor = null;
 
-            if (profileObject is Monitor)
+            if (profileObject is Helios.Monitor)
             {
-                editor = new MonitorDocument((Monitor)profileObject);
+                editor = new MonitorDocument((Helios.Monitor)profileObject);
             }
             else if (profileObject is HeliosPanel)
             {
@@ -529,7 +528,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                 // Load the graphics so everything is more responsive after load
                 if (profile != null)
                 {
-                    foreach (Monitor monitor in profile.Monitors)
+                    foreach (Helios.Monitor monitor in profile.Monitors)
                     {
                         LoadVisual(monitor);
                     }
@@ -842,67 +841,97 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             resetDialog.Owner = this;
             bool? reset = resetDialog.ShowDialog();
 
-            if (reset != null && reset == true)
+            if (reset.HasValue && reset.Value)
             {
-                HeliosProfile profile = Profile;
                 GetLoadingAdorner();
-                System.Threading.Thread t = new System.Threading.Thread(delegate()
-                {
-                    ConfigManager.UndoManager.StartBatch();
-                    ConfigManager.LogManager.LogDebug("Resetting Monitors");
-                    try
-                    {
-                        // WARNING: monitor naming is 1-based but indexing and NewMonitor references are 0-based
-                        int i = 0;
-                        foreach (Monitor display in ConfigManager.DisplayManager.Displays)
-                        {
-                            if (i < profile.Monitors.Count)
-                            {
-                                if (resetDialog.MonitorResets[i].NewMonitor != i)
-                                {
-                                    ConfigManager.LogManager.LogDebug($"Removing controls from Monitor {i + 1} for replacement");
-                                    Dispatcher.Invoke(DispatcherPriority.Background, new Action(resetDialog.MonitorResets[i].RemoveControls));
-                                }
-                                ConfigManager.LogManager.LogDebug($"Resetting Monitor {i + 1}");
-                                Dispatcher.Invoke(DispatcherPriority.Background, new Action(resetDialog.MonitorResets[i].Reset));
-                            }
-                            else
-                            {
-                                ConfigManager.LogManager.LogDebug($"Adding Monitor {i + 1}");
-                                Monitor monitor = new Monitor(display);
-                                monitor.Name = $"Monitor {i + 1}";
-                                ConfigManager.UndoManager.AddUndoItem(new AddMonitorUndoEvent(profile, monitor));
-                                Dispatcher.Invoke(DispatcherPriority.Background, new Action<Monitor>(profile.Monitors.Add), monitor);
-                            }
-                            i++;
-                        }
-                        while (i < profile.Monitors.Count)
-                        {
-                            ConfigManager.LogManager.LogDebug($"Removing Monitor {i + 1}");
-                            Dispatcher.Invoke(DispatcherPriority.Background, new Action<HeliosObject>(CloseProfileItem), profile.Monitors[i]);
-                            Dispatcher.Invoke(DispatcherPriority.Background, new Action(resetDialog.MonitorResets[i].RemoveControls));
+                // this value comes from a dependency property that can only be 
+                // read on this thread
+                HeliosProfile profile = Profile;
 
-                            ConfigManager.UndoManager.AddUndoItem(new DeleteMonitorUndoEvent(profile, profile.Monitors[i], i));
-                            profile.Monitors.RemoveAt(i);
-                        }
-                        foreach (MonitorResetItem item in resetDialog.MonitorResets)
-                        {
-                            ConfigManager.LogManager.LogDebug($"Placing controls for old monitor {item.OldMonitor.Name} onto Monitor {item.NewMonitor + 1}");
-                            Dispatcher.Invoke(DispatcherPriority.Background, new Action<Monitor>(item.PlaceControls), profile.Monitors[item.NewMonitor]);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error encountered while resetting monitors; please file a bug with the contents of the application log", "Error");
-                        ConfigManager.LogManager.LogError("Reset Monitors - Unhandled exception", ex);
-                    }
-
-                    ConfigManager.UndoManager.CloseBatch();
-
-                    Dispatcher.Invoke(DispatcherPriority.Background, new Action(RemoveLoadingAdorner));
-                });
-                t.Start();
+                // now run monitor import as another thread
+                new System.Threading.Thread(() => { ResetMonitorsThread(resetDialog, profile); }).Start();
             }
+        }
+
+        private void ResetMonitorsThread(ResetMonitors resetDialog, HeliosProfile profile)
+        {
+            ConfigManager.UndoManager.StartBatch();
+            ConfigManager.LogManager.LogDebug("Resetting Monitors");
+            try
+            {
+                // WARNING: monitor naming is 1-based but indexing and NewMonitor references are 0-based
+                Helios.Monitor[] localMonitors = ConfigManager.DisplayManager.Displays.ToArray<Helios.Monitor>();
+                System.Diagnostics.Debug.Assert(resetDialog.MonitorResets.Count == Math.Max(localMonitors.Length, profile.Monitors.Count));
+
+                // pass1: process all new and/or old monitors in order
+                int resetItemIndex = 0;
+                int existingMonitors = Math.Min(localMonitors.Length, profile.Monitors.Count);
+                foreach (MonitorResetItem item in resetDialog.MonitorResets)
+                {
+                    if (resetItemIndex < existingMonitors)
+                    {
+                        ResetExistingMonitor(resetDialog, resetItemIndex);
+                    }
+                    else if (resetItemIndex < localMonitors.Length)
+                    {
+                        ResetAddedMonitor(profile, resetItemIndex, localMonitors[resetItemIndex]);
+                    }
+                    else
+                    {
+                        ResetRemovedMonitor(profile, resetItemIndex, item, localMonitors.Length);
+                    }
+                    resetItemIndex++;
+                }
+
+                // pass2: place all controls that were temporarily lifted
+                foreach (MonitorResetItem item in resetDialog.MonitorResets)
+                {
+                    ConfigManager.LogManager.LogDebug($"Placing controls for old monitor {item.OldMonitor.Name} onto Monitor {item.NewMonitor + 1}");
+                    Dispatcher.Invoke(DispatcherPriority.Background, new Action<Helios.Monitor>(item.PlaceControls), profile.Monitors[item.NewMonitor]);
+                }
+
+                ConfigManager.UndoManager.CloseBatch();
+            }
+            catch (Exception ex)
+            {
+                ConfigManager.LogManager.LogError("Reset Monitors - Unhandled exception", ex);
+                ConfigManager.LogManager.LogError("Rolling back any undoable operations from monitor reset");
+                ConfigManager.UndoManager.UndoBatch();
+                MessageBox.Show("Error encountered while resetting monitors; please file a bug with the contents of the application log", "Error");
+            }
+            finally
+            {
+                Dispatcher.Invoke(DispatcherPriority.Background, new Action(RemoveLoadingAdorner));
+            }
+        }
+
+        private void ResetRemovedMonitor(HeliosProfile profile, int resetItemIndex, MonitorResetItem item, int newMonitorCount)
+        {
+            ConfigManager.LogManager.LogDebug($"Removing Monitor {resetItemIndex + 1} and saving its controls for replacement");
+            Dispatcher.Invoke(DispatcherPriority.Background, new Action<HeliosObject>(CloseProfileItem), profile.Monitors[newMonitorCount]);
+            Dispatcher.Invoke(DispatcherPriority.Background, new Action(item.RemoveControls));
+            ConfigManager.UndoManager.AddUndoItem(new DeleteMonitorUndoEvent(profile, profile.Monitors[newMonitorCount], newMonitorCount));
+            profile.Monitors.RemoveAt(newMonitorCount);
+        }
+
+        private void ResetAddedMonitor(HeliosProfile profile, int resetItemIndex, Helios.Monitor display)
+        {
+            ConfigManager.LogManager.LogDebug($"Adding Monitor {resetItemIndex + 1}");
+            Helios.Monitor monitor = new Helios.Monitor(display);
+            monitor.Name = $"Monitor {resetItemIndex + 1}";
+            ConfigManager.UndoManager.AddUndoItem(new AddMonitorUndoEvent(profile, monitor));
+            Dispatcher.Invoke(DispatcherPriority.Background, new Action<Helios.Monitor>(profile.Monitors.Add), monitor);
+        }
+
+        private void ResetExistingMonitor(ResetMonitors resetDialog, int resetItemIndex)
+        {
+            if (resetDialog.MonitorResets[resetItemIndex].NewMonitor != resetItemIndex)
+            {
+                ConfigManager.LogManager.LogDebug($"Removing controls from Monitor {resetItemIndex + 1} for replacement");
+                Dispatcher.Invoke(DispatcherPriority.Background, new Action(resetDialog.MonitorResets[resetItemIndex].RemoveControls));
+            }
+            ConfigManager.LogManager.LogDebug($"Resetting Monitor {resetItemIndex + 1}");
+            Dispatcher.Invoke(DispatcherPriority.Background, new Action(resetDialog.MonitorResets[resetItemIndex].Reset));
         }
 
         private void DockManager_Loaded(object sender, RoutedEventArgs e)
