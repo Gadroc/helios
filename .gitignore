@@ -22,3 +22,4 @@ Helios *.exe
 /UpgradeLog3.htm
 /postbuild.txt
 
+/Keypress Receiver Installer/Debug/Keypress Receiver Installer.msi

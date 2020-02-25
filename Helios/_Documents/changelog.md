@@ -1,9 +1,9 @@
 ﻿## Full change log
 
-### 1.4.2020.0221 Release
+### 1.4.2020.0226 Release
 ----------------------------
 
-#### Huge "Shout out" to derammo who was this release's primary contributor.  1.4.2020.0221 benefits from his many improvements and bugfixes.
+#### Huge "Shout out" to derammo who was this release's primary contributor.  1.4.2020.0226 benefits from his many improvements and bugfixes.
 
 * BMS F-16 - Altimeter fixes
 	Added altimeter pressure reading
@@ -29,8 +29,8 @@
 * Fix for crash on startup when Helios Settings file has been corrupted #106
 * Fix for Text Display font size being incorrect when textbox is resized #146
 * Fix for ArgumentOutOfRangeException on HeliosTextBox #158
-* Installer changes to install the Visual C++ Redistributable Runtime which some
-	people are missing from their machines.  This only works when using "Helios setup.exe"
+* Installer changes to re-req the Visual C++ 2015-2019 Redistributable Runtime.  
+	The installation is only attempted when using "Helios setup.exe".  14.24.28127.04 is the minimum level.
 * Helios is now an x64-only offering
 * HeliosDiag.cmd is delivered to aid the collection of diagnostic information
 * Package Updates:
@@ -38,6 +38,7 @@
 	* KeraLua 1.0.2.6
 	* NLua 1.4.29 (including Lua 5.3)
 * New Custom Drum and Custom Gauge controls added
+* Fix for Reset Monitors: on reset from 5 to 3 screens, all controls lost #194
 
 ### 1.4.2019.1005 Release
 ----------------------------
