@@ -81,6 +81,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
         public AV8BInterface()
             : base("DCS AV-8B")
         {
+            AlternateName = "AV8BNA";  // this is the name that DCS uses to describe the aircraft being flown
             DCSConfigurator config = new DCSConfigurator("DCSAV8B", DCSPath);
             config.ExportConfigPath = "Config\\Export";
             config.ExportFunctionsPath = "pack://application:,,,/Helios;component/Interfaces/DCS/AV8B/ExportFunctions.lua";
@@ -270,7 +271,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Fuel Quantity Indicator System
             AddFunction(new Axis(this, FQIS, "3380", "380", 0.001d, 0d, 1d, "Fuel Quantity", "Bingo Fuel Set Knob", true, "%.3f"));  //looping axis
-            AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3379"), new SwitchPosition("-0.66", "FEED", "3379"), new SwitchPosition("-0.33", "TOTAL", "3379"), new SwitchPosition("0.0", "INT", "3379"), new SwitchPosition("0.33", "WING", "3379"), new SwitchPosition("0.66", "INBD", "3379"), new SwitchPosition("0.99", "OUTBD", "3379") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.1f"));
+            AddFunction(new Switch(this, FQIS, "3379", new SwitchPosition[] { new SwitchPosition("-0.99", "BIT", "3379"), new SwitchPosition("-0.66", "FEED", "3379"), new SwitchPosition("-0.33", "TOTAL", "3379"), new SwitchPosition("0.0", "INT", "3379"), new SwitchPosition("0.33", "WING", "3379"), new SwitchPosition("0.66", "INBD", "3379"), new SwitchPosition("0.99", "OUTBD", "3379") }, "Fuel Quantity", "Fuel Totaliser Selector", "%0.2f"));
             AddFunction(new Digits4Display(this, FQIS, "2011", "Fuel Quantity", "Left Tank display", "Fuel left tank quantity"));
             AddFunction(new Digits4Display(this, FQIS, "2012", "Fuel Quantity", "Right Tank display", "Fuel right tank quantity"));
             AddFunction(new Digits4Display(this, FQIS, "2013", "Fuel Quantity", "Bingo value display", "Fuel Bingo amount"));
@@ -279,9 +280,9 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             #endregion
 
             #region ECM
-            AddFunction(new Switch(this, RWRCONTROL, "3273", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3273"), new SwitchPosition("0.3", "posn 1", "3273"), new SwitchPosition("0.4", "posn 2", "3273"), new SwitchPosition("0.5", "posn 3", "3273"), new SwitchPosition("0.6", "posn 4", "3273"), new SwitchPosition("0.7", "posn 5", "3273"), new SwitchPosition("0.8", "posn 6", "3273"), new SwitchPosition("0.9", "posn 7", "3273"), new SwitchPosition("1.0", "posn 8", "3273") }, "RWR / ECM", "Off/Volume", "%0.1f"));
-            AddFunction(new Switch(this, EWS, "3274", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3274"),new SwitchPosition("0.25", "AUTO", "3274"), new SwitchPosition("0.50", "UP", "3274"), new SwitchPosition("0.75", "Down", "3274"), new SwitchPosition("1.00", "RWR", "3274") }, "RWR / ECM", "Decoy Dispenser Control", "%0.1f"));
-            AddFunction(new Switch(this, EWS, "3275", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3275"),new SwitchPosition("0.25", "STBY", "3275"), new SwitchPosition("0.50", "BIT", "3275"), new SwitchPosition("0.75", "RPT", "3275"), new SwitchPosition("1.00", "RPT", "3275")}, "RWR / ECM", "Jammer Control", "%0.1f"));
+            AddFunction(new Switch(this, RWRCONTROL, "3273", new SwitchPosition[] { new SwitchPosition("0.0", "Off", "3273"), new SwitchPosition("0.3", "posn 1", "3273"), new SwitchPosition("0.4", "posn 2", "3273"), new SwitchPosition("0.5", "posn 3", "3273"), new SwitchPosition("0.6", "posn 4", "3273"), new SwitchPosition("0.7", "posn 5", "3273"), new SwitchPosition("0.8", "posn 6", "3273"), new SwitchPosition("0.9", "posn 7", "3273"), new SwitchPosition("1.0", "posn 8", "3273") }, "RWR / ECM", "Off/Volume", "%0.2f"));
+            AddFunction(new Switch(this, EWS, "3274", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3274"),new SwitchPosition("0.25", "AUTO", "3274"), new SwitchPosition("0.50", "UP", "3274"), new SwitchPosition("0.75", "Down", "3274"), new SwitchPosition("1.00", "RWR", "3274") }, "RWR / ECM", "Decoy Dispenser Control", "%0.2f"));
+            AddFunction(new Switch(this, EWS, "3275", new SwitchPosition[] { new SwitchPosition("0.0", "OFF", "3275"),new SwitchPosition("0.25", "STBY", "3275"), new SwitchPosition("0.50", "BIT", "3275"), new SwitchPosition("0.75", "RCV", "3275"), new SwitchPosition("1.00", "RPT", "3275")}, "RWR / ECM", "Jammer Control", "%0.2f"));
             #endregion
 
             #region Advisory indicators
@@ -488,6 +489,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(new PushButton(this, RSC, "3618", "618", "V/UHF Radio", "Ancillary Mode Switch P mode"));
             AddFunction(new Switch(this, RSC, "3619", new SwitchPosition[] {new SwitchPosition("0.0", "AJ/M", "3619"), new SwitchPosition("0.15", "AJ", "3619"), new SwitchPosition("0.30", "MAR", "3619"), new SwitchPosition("0.45", "PRST", "3619"), new SwitchPosition("0.60", "MAN", "3619"), new SwitchPosition("0.75", "243", "3619"), new SwitchPosition("0.90", "121", "3619")}, "V/UHF Radio", "Frequency Mode Switch", "%0.2f"));
             AddFunction(new PushButton(this, RSC, "3620", "620", "V/UHF Radio", "LOAD/OFST Switch"));
+            AddFunction(new Text(this, "2100", "V/UHF Radio", "Channel Number", "Radio Channel Number text display"));
+            AddFunction(new Text(this, "2101", "V/UHF Radio", "Frequency", "Radio Frequency text display"));
 
             #endregion
 
@@ -502,7 +505,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3627", "627", "1", "On", "0", "Off", "ACNIP", "KY-58 Codes Clear Switch", "%1d"));
             AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3628", "628", "1", "On", "0", "Off", "-1", "Off", "ACNIP", "KY-58 Remote Codes Load Switch", "%.1f"));
             AddFunction(Switch.CreateToggleSwitch(this, ACNIP, "3632", "632", "1", "On", "0", "Off", "ACNIP", "IFF Operational Mode Switch", "%.1f"));
-            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "633", "1", "On", "0.5", "Mid", "0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%.1f"));
+            AddFunction(Switch.CreateThreeWaySwitch(this, ACNIP, "3633", "633", "1.0", "On", "0.0", "Mid", "-1.0", "Off", "ACNIP", "IFF Crypto Mode Switch", "%.1f"));
+
+            AddFunction(new Text(this, "2102", "ACNIP", "ACNIP 1 Mode Label", "Title for the ACNIP 1 Mode display"));
+            AddFunction(new Text(this, "2103", "ACNIP", "ACNIP 1 Mode", "ACNIP 1 Mode display"));
+            AddFunction(new Text(this, "2104", "ACNIP", "ACNIP 1 Code Label", "Title for the ACNIP 1 Code display"));
+            AddFunction(new Text(this, "2105", "ACNIP", "ACNIP 1 Code", "ACNIP 1 Code display"));
+            AddFunction(new Text(this, "2106", "ACNIP", "ACNIP 2 Mode Label", "Title for the ACNIP 2 Mode display"));
+            AddFunction(new Text(this, "2107", "ACNIP", "ACNIP 2 Mode", "ACNIP 2 Mode display"));
+            AddFunction(new Text(this, "2108", "ACNIP", "ACNIP 2 Code Label", "Title for the ACNIP 2 Code display"));
+            AddFunction(new Text(this, "2109", "ACNIP", "ACNIP 2 Code", "ACNIP 2 Code display"));
+
 
             #endregion
 
@@ -510,7 +523,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
             // switch positions still need to be labeled
             AddFunction(new Axis(this, INTERCOM, "3629", "629", 0.03d, 0d, 1d, "Intercomm", "Aux Volume Knob"));
             AddFunction(new Axis(this, INTERCOM, "3630", "630", 0.03d, 0d, 1d, "Intercomm", "Ground Volume Knob"));
-            AddFunction(new Switch(this, RSC, "3631", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3631"), new SwitchPosition("0.5", "Norm", "3631"), new SwitchPosition("1.0", "Norm", "3631") }, "Intercomm", "Mic Operational Mode Switch", "%0.1f"));
+            AddFunction(new Switch(this, INTERCOM, "3631", new SwitchPosition[] { new SwitchPosition("1.0", "Norm", "3631"), new SwitchPosition("0.5", "Norm", "3631"), new SwitchPosition("0.0", "Norm", "3631") }, "Intercomm", "Mic Operational Mode Switch", "%0.1f"));
+            //AddFunction(new Switch(this, RSC, "3631", new SwitchPosition[] { new SwitchPosition("0.0", "Norm", "3631"), new SwitchPosition("0.5", "Norm", "3631"), new SwitchPosition("1.0", "Norm", "3631") }, "Intercomm", "Mic Operational Mode Switch", "%0.1f"));
 
             #endregion
 
@@ -597,8 +611,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
 
             #region Flight Instruments
 
-            AddFunction(new Altimeter(this,"Altimeter","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Pressure", "Manually set barometric altitude.",""));
-            AddFunction(new Axis(this, ADC, "3653", "653", 0.01d, 0d, 1d, "Altimeter", "Barometric pressure calibration adjust", true, "%.3f"));
+            AddFunction(new Altimeter(this,"Flight Instruments","2051","Altitude", "Barometric altitude above sea level of the aircraft.", "Value is adjusted per altimeter pressure setting.", "2059","Air Pressure", "Manually set barometric altitude.",""));
+            AddFunction(new Axis(this, ADC, "3653", "653", 0.01d, 0d, 1d, "Flight Instruments", "Barometric pressure calibration adjust", true, "%.3f"));
 
             CalibrationPointCollectionDouble vviScale = new CalibrationPointCollectionDouble(-0.6d, -6000d, 0.6d, 6000d);
             vviScale.Add(new CalibrationPointDouble(0d, 0d));
@@ -648,6 +662,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.AV8B
                 return _dcsPath;
             }
         }
+       
 
         protected override void OnProfileChanged(HeliosProfile oldProfile)
         {

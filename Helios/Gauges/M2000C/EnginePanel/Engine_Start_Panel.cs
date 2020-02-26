@@ -17,7 +17,7 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
 {
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
-    using System;
+    using System.Collections;
     using System.Globalization;
     using System.Windows;
     using System.Windows.Media;
@@ -32,22 +32,27 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         public M2000C_EnginePanel()
             : base("Engine Start Panel", new Size(700, 251))
         {
-            int row0 = 44, row1 = 163;
+            int row0 = 44, row1 = 166;
 
-            AddSwitch("Starter Fuel Pump Switch", "long-black-", new Point(208, row0), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
+            ToggleSwitch starterFuelPumpSwitch = AddSwitch("Starter Fuel Pump Switch", "long-black-", new Point(208, row0), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
             AddSwitch("Left Fuel Pump Switch", "long-black-", new Point(343, row0), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
             AddSwitch("Right Fuel Pump Switch", "long-black-", new Point(484, row0), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
-            AddSwitch("Fuel Shut-Off Switch", "long-black-", new Point(440, 163), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
+            ToggleSwitch fuelShutOffSwitch = AddSwitch("Fuel Shut-Off Switch", "long-black-", new Point(440, 165), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn);
 
-            AddPushButton("Engine Start Switch");
+            PushButton engineStartButton = AddPushButton("Engine Start Button");
 
-// Need to find a solution because adding the covers prevent the user to use the switches/button under
-//            AddCover("Engine Start Switch Cover", "engine-start-", new Point(82, 37), new Size(206, 169), ToggleSwitchPosition.One, ToggleSwitchType.OnOn, false);
-//            AddCover("Fuel Cutoff Switch Cover", "coupe-feu-", new Point(395, row1), new Size(137,50), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn, false);
+
+            AddGuard("Engine Start Switch Guard", "engine-start-", new Point(82, 37), new Size(206, 169), ToggleSwitchPosition.One, ToggleSwitchType.OnOn,
+                new NonClickableZone[] {
+                    new NonClickableZone(new Rect(0, 50, 90, 119), ToggleSwitchPosition.Two, engineStartButton, ToggleSwitchPosition.Two),
+                    new NonClickableZone(new Rect(125, 0, 81, 50), ToggleSwitchPosition.One, starterFuelPumpSwitch, ToggleSwitchPosition.Two) },
+                false, false);
+            AddGuard("Fuel Shut-Off Switch Guard", "coupe-feu-", new Point(385, 160), new Size(150,54), ToggleSwitchPosition.Two, ToggleSwitchType.OnOn, 
+                new NonClickableZone[] { new NonClickableZone(new Rect(30,0,140,50), ToggleSwitchPosition.Two, fuelShutOffSwitch, ToggleSwitchPosition.Two) }, false, false);
 
             Add3PosnToggle(
                 name: "Ignition Ventilation Selector Switch",
-                posn: new Point(246, row1),
+                posn: new Point(233, row1),
                 image: "{M2000C}/Images/Switches/long-black-",
                 interfaceDevice: _interfaceDeviceName,
                 interfaceElement: "Ignition Ventilation Selector Switch",
@@ -76,33 +81,38 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
             base.OnPropertyChanged(args);
         }
 
-        private void AddSwitch(string name, string imagePrefix, Point posn, ToggleSwitchPosition defaultPosition, ToggleSwitchType defaultType)
+        private ToggleSwitch AddSwitch(string name, string imagePrefix, Point posn, ToggleSwitchPosition defaultPosition, ToggleSwitchType defaultType)
         {
-            AddToggleSwitch(name: name,
+            return AddToggleSwitch(name: name,
                 posn: posn,
                 size: new Size(37, 75),
                 defaultPosition: defaultPosition,
                 positionOneImage: "{M2000C}/Images/Switches/" + imagePrefix + "down.png",
-                positionTwoImage: "{M2000C}/Images/SWitches/" + imagePrefix + "up.png",
+                positionTwoImage: "{M2000C}/Images/Switches/" + imagePrefix + "up.png",
                 defaultType: defaultType,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
                 horizontal: true,
+                horizontalRender: true,
+                nonClickableZones: null,
                 fromCenter: false);
         }
 
-        private void AddCover(string name, string imagePrefix, Point posn, Size size, ToggleSwitchPosition defaultPosition, ToggleSwitchType defaultType, bool horizontal = true)
+        private void AddGuard(string name, string imagePrefix, Point posn, Size size, ToggleSwitchPosition defaultPosition, 
+            ToggleSwitchType defaultType, NonClickableZone[] nonClickableZones, bool horizontal = true, bool horizontalRender = true)
         {
             AddToggleSwitch(name: name,
                 posn: posn,
                 size: size,
                 defaultPosition: defaultPosition,
-                positionOneImage: "{M2000C}/Images/EnginePanel/" + imagePrefix + "guarded.png",
-                positionTwoImage: "{M2000C}/Images/EnginePanel/" + imagePrefix + "unguarded.png",
+                positionOneImage: "{M2000C}/Images/EnginePanel/" + imagePrefix + "down.png",
+                positionTwoImage: "{M2000C}/Images/EnginePanel/" + imagePrefix + "up.png",
                 defaultType: defaultType,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: name,
                 horizontal: horizontal,
+                horizontalRender: horizontalRender,
+                nonClickableZones: nonClickableZones,
                 fromCenter: false);
         }
 
@@ -110,24 +120,25 @@ namespace GadrocsWorkshop.Helios.Gauges.M2000C
         {
             AddThreeWayToggle(
                 name: name,
-                posn: posn,
-                size: new Size(37, 75),
+                pos: posn,
+                size: new Size(33, 100),
                 positionOneImage: image + "down.png",
                 positionTwoImage: image + "mid.png",
                 positionThreeImage: image + "up.png",
                 defaultPosition: ThreeWayToggleSwitchPosition.One,
-                defaultType: ThreeWayToggleSwitchType.OnOnOn,
+                switchType: ThreeWayToggleSwitchType.OnOnOn,
                 interfaceDeviceName: interfaceDevice,
                 interfaceElementName: interfaceElement,
                 horizontal: true,
+                horizontalRender: true,
                 clickType: ClickType.Touch,
-                fromCenter: false
+                fromCenter: true
                 );
         }
 
-        private void AddPushButton(string name)
+        private PushButton AddPushButton(string name)
         {
-            AddButton(name: name,
+            return AddButton(name: name,
                 posn: new Point(98,92),
                 size: new Size(102,102), 
                 image: "{M2000C}/Images/EnginePanel/start-engine-not-pushed.png", 

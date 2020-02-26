@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80870108-EFE4-4ADF-969D-A0CE06123271}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GadrocsWorkshop.Helios</RootNamespace>
+    <AssemblyName>A-10C</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseX64|AnyCPU'">
+    <OutputPath>bin\ReleaseX64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseX64|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugX64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugX64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugX64|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\adj-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\adj-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\adj-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\anchr-norm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\anchr-norm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\anchr-press-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\anchr-press-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brt-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brt-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\brt-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\con-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\con-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\con-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dsp-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dsp-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dsp-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\egi-norm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\egi-norm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\egi-press-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\egi-press-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-apu-fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-apu-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-apu-pull-fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-apu-pull-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-left-fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-left-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-left-pull-fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-left-pull-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-right-fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-right-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-right-pull-fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fire-right-pull-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\front_panel_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gear-dn-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gear-dn-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gear-up-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gear-up-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hars-norm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hars-norm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hars-press-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hars-press-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\homing-fm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\homing-fm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\homing-uhf-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\homing-uhf-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ils-norm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ils-norm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ils-press-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ils-press-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mfd-bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mfd-in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mfd-knob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mfd-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mfd-rocker-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mfd-rocker-middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mfd-rocker-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mfd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\strpt-norm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\strpt-norm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\strpt-press-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\strpt-press-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sym-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sym-norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sym-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tcn-norm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tcn-norm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tcn-press-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tcn-press-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tisl-norm-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tisl-norm-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tisl-press-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tisl-press-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_0_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_1_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_2_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_3_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_4_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_5_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_6_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_7_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_8_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_9_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_aft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_aft_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_alt_alrt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_alt_alrt_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_blank_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_clr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_clr_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_data_rocker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_data_rocker_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_data_rocker_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_ent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_ent_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_func.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_func_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_fwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_fwd_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_hack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_hack_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_hrocker_blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_hrocker_blank_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_hrocker_blank_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_ltr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_ltr_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_mid_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_mk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_mk_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_sel_rocker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_sel_rocker_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_sel_rocker_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_spc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_spc_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_vrocker_blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_vrocker_blank_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ufc_vrocker_blank_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\0.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\1.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\2.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\3.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\4.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\5.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\6.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\7.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\8.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\9.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\AFT.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Altitude Alert.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\ANCHR.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Blank.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Clear.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Data.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\EGI.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Enter.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Fire Pull APU.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Fire Pull Left.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Fire Pull Right.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\FM Indicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Func.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\FWD.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Gear Handle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Hack.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\HARS.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Horizontal Rocker.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\ILS.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\LTR.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Mark.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Master Caution.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\MID.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\RWR Bezel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Sel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Space.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\STR PT.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\TCN.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\TISL.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\UHF Indicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Vertical Rocker.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)Templates\*.*" "$(SolutionDir)$(OutDir)Templates\Base\$(TargetName)\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

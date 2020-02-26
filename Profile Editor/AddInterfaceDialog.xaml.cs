@@ -83,18 +83,18 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             {
                 foreach (HeliosInterfaceDescriptor descriptor in ConfigManager.ModuleManager.InterfaceDescriptors)
                 {
-                    ConfigManager.LogManager.LogInfo("Checking for available intstances for " + descriptor.Name + " interafce.");
+                    ConfigManager.LogManager.LogInfo("Checking for available instances of " + descriptor.Name + " interface.");
                     try
                     {
                         foreach (HeliosInterface newInterface in descriptor.GetNewInstances(_profile))
                         {
-                            ConfigManager.LogManager.LogInfo("Adding " + newInterface.Name + " to add interface list.");
+                            ConfigManager.LogManager.LogInfo("Adding " + newInterface.Name + " Type: " + descriptor.InterfaceType.BaseType.Name + " to add interface list.");
                             AvailableInterfaces.Add(newInterface);
                         }
                     }
                     catch (Exception e)
                     {
-                        ConfigManager.LogManager.LogError("Error trying to get available instances for " + descriptor.Name + " interafce.", e);
+                        ConfigManager.LogManager.LogError("Error trying to get available instances for " + descriptor.Name + " interface.", e);
                     }
                 }
             }

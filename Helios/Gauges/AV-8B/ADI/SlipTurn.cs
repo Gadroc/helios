@@ -53,18 +53,17 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.SlipBall
 
             Components.Add(new GaugeImage("{Helios}/Gauges/AV-8B/ADI/adi_slip_guides.xaml", new Rect(0d, 0d, 225d, 114d)));
 
-            _slipBall = new HeliosValue(this, new BindingValue(0d), "", "Slip Ball Offset", "Side slip indicator offset from the center of the tube.", "(-1 to 1) -1 full left and 1 is full right.", BindingValueUnits.Numeric);
+            _slipBall = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Slip Ball Offset", "Side slip indicator offset from the center of the tube.", "(-1 to 1) -1 full left and 1 is full right.", BindingValueUnits.Numeric);
             _slipBall.Execute += new HeliosActionHandler(SlipBall_Execute);
             Actions.Add(_slipBall);
 
-            _turnIndicator = new HeliosValue(this, new BindingValue(0d), "", "Turn Indicator Offset", "Turn indicator offset from the center of the gauge.", "(-1 to 1) -1 full left and 1 is full right.", BindingValueUnits.Numeric);
+            _turnIndicator = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "Turn Indicator Offset", "Turn indicator offset from the center of the gauge.", "(-1 to 1) -1 full left and 1 is full right.", BindingValueUnits.Numeric);
             _turnIndicator.Execute += new HeliosActionHandler(turnIndicator_Execute);
             Actions.Add(_turnIndicator);
         
-            _warningFlag = new HeliosValue(this, new BindingValue(false), "", "Slip Turn Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
+            _warningFlag = new HeliosValue(this, new BindingValue(false), "Flight Instruments", "Slip Turn Warning Flag", "Indicates whether the warning flag is displayed.", "True if displayed.", BindingValueUnits.Boolean);
             _warningFlag.Execute += new HeliosActionHandler(OffFlag_Execute);
             Actions.Add(_warningFlag);
-
         }
 
         void SlipBall_Execute(object action, HeliosActionEventArgs e)
@@ -82,7 +81,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B.SlipBall
             _warningFlag.SetValue(e.Value, e.BypassCascadingTriggers);
             _warningFlagNeedle.Rotation = e.Value.BoolValue ? -90 : 0;
             _warningFlagNeedle.IsHidden = e.Value.BoolValue;
-
         }
 
     }

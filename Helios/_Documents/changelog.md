@@ -1,49 +1,157 @@
-1.4.2019.???? Release
+## Full change log
+
+### 1.4.2020.0226 Release
 ----------------------------
 
+#### Huge "Shout out" to derammo who was this release's primary contributor.  1.4.2020.0226 benefits from his many improvements and bugfixes.
 
-1.4.2019.0908 Release
+* BMS F-16 - Altimeter fixes
+	Added altimeter pressure reading
+	fix for _airPressureDrum.Value only can accept 4 digits
+	Added Altimeter Calibration reading from FlightData2
+	Support barometric readings of altitude and pressure
+	Use math.abs to get absolute value
+	Read values from flightData2 to support barometric altitude and calibrated airpressure
+* Keyboard Interface changes
+	Bug relating to sending keys "RETURN" and "ENTER" fixed.  Both of these now send the ENTER key on
+	the right of the main keyboard.  New "NUMPADENTER" sends the Enter key on the numeric keypad.
+	This potentially needs profiles sending "RETURN" which previously activated the numeric pad enter
+	to be changed to send "NUMPADENTER" instead #178
+	New feature to force QWERTY keyboard keycodes to be sent to programs (such as BMS) which only
+	understand keycodes and not keystrokes. #164
+* A-10C
+	fixed button command for MFCD brightness down
+	Corrections to the values used by the interface for VHF AM Radio
+* Bug fix for orphaned triggers and actions when there is a change in interface #173
+* UDP traffic logging now only for loglevel Debug
+* Fix for Reset monitors Bug where bindings don't move to the correct monitor #177 & #117
+* Fix for CLR20r3 crash on release check when there is no internet connection #163
+* Fix for crash on startup when Helios Settings file has been corrupted #106
+* Fix for Text Display font size being incorrect when textbox is resized #146
+* Fix for ArgumentOutOfRangeException on HeliosTextBox #158
+* Installer changes to re-req the Visual C++ 2015-2019 Redistributable Runtime.  
+	The installation is only attempted when using "Helios setup.exe".  14.24.28127.04 is the minimum level.
+* Helios is now an x64-only offering
+* HeliosDiag.cmd is delivered to aid the collection of diagnostic information
+* Package Updates:
+	* HidSharp 2.1
+	* KeraLua 1.0.2.6
+	* NLua 1.4.29 (including Lua 5.3)
+* New Custom Drum and Custom Gauge controls added
+* Fix for Reset Monitors: on reset from 5 to 3 screens, all controls lost #194
+
+### 1.4.2019.1005 Release
+----------------------------
+* A-10C Interface
+	* New devices for AN_ALR69V, TISL, DVADR and ACCELEROMETER
+	* A-10C Interface completed, improvements in GuardedSwitch and CustomGauge, and new rotation option
+	* Fixed:
+		* "101", "IFFCC", "Ext Stores Jettison", fixed output buttom number.
+		* All TISL values changed from IFFCC to the new device TISL.
+		* Corrected the output buttons number of all IFF functions for the correct ones.
+		* Added one missing position to Intercom, Transmitter Select Dial.
+
+* M2000C Interface 
+	* What’s new 
+		* Improvement of guards on the Test and LG Panels: Made all 4 guards on this 2 panels working
+		* Improvement of the Tacan Panel: add the 2 potentiometers and made them continuous and working
+		* Improvement of VOR/ILS Panel: added the 2 potentiometers and made them continuous and working and made the Mode Selector working
+		* Improvement of the HSI Panel: all the needles are working
+	* Known issues 
+  	  * Fuel Panel: the Fuel CrossFeed Switch doesn’t work, the two toggle switches don’t work (seem not to be used in DCS)
+   	  * Master Caution lights Panel: still not working despite the modification with IndicatorPushButton. Seems the id is not the good one when clicking on the 2 indicators ?
+          * HSI Panel: the potentiometer doesn’t work properly
+          * ECM Box: the potentiometer is not working
+
+* Controls:
+	* Custom Gauge, chages to improve workflow and visuals
+	* Guarded switch, added a new image for open state
+
+* General:
+	* Mousewheel support for some rotaries and pots in Control Center
+	* Added a new rotation option on the editor: 180º Turn
+
+* Interfaces DCS common:
+	New DualRocker function, work like the normal rocker but this one return the actual arg value form DCS, too.
+
+#### Bug Fixes:
+* Fix for duplicate bindings #156 problem with autobindings
+
+		
+### 1.4.2019.0930 Release
+----------------------------
+* M2000C Interface 
+	* Added the Fuel Panel with the 7 empty tanks indicators, the refueling indicator, the left and right neddle gauges and the JAUG and DETOT drums
+	* Added the PPA Panel with the 8 indicators on the buttons, the 4 buttons and the 5 switches
+	* Added the PCA Panel with the 17 indicators on the buttons, the 11 buttons, the 2 switches and the guard on the Jettison switch
+	* Added the PCN	Panel with the 9 indicators, the 9 indicators buttons, the 10 keypad buttons and the Parameter selector working only from DCS to Helios
+	* Added the TACAN Panel with the frequency display and the 2 switches (X/Y Mode and Mode Select) working only from DCS to Helios
+	* Added the VOR/ILS Panel with the frequency display and the 2 switches (Power and Mode Select)	
+	* Added the Engine Sensors Panel (still in beta) with the 2 needles and the drum
+	* Added the HSI Panel (still in beta) with the drum, the 4 stop flags, the 2 needles, the green needle, the mode needle, the compass rose, the switch and the potentiometer
+	* Added the ECM Box with the potentiometer and the 3 switches
+	* Added the INS Panel with the 2 switches
+	* Added the Test Panel with the 4 indicators, the 3 switches and the 3 guards on the switches
+	* Improvement of the Engine Panel by adding the 2 guards
+	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch  and the emergency landing gear lever
+	* Improvement of the pictures of the cockpit to allow the new panels to work fine
+	* Improvement of the Master Caution lights Panel, trying to make the 2 indicators clickable with the same solution as the PCN Panel
+	* Miscellaneous: Added the Post Combustion Indicator, the 2 Fire Warning Indicators, the Demar Indicator, the 5 RWR indicators, the AOA needle
+
+* Profile Editor now polices only adding one UDP interface.
+* AV-8B Interface Elements
+	* Autobinding Master Arm Panel added
+	* Autobinding Gear and Flaps panel added
+	* Autobinding Gear Indicator Panel added
+	* Autobinding H2O Panel added
+	* Autobinding Threat Indicator panel added
+	* Autobinding RWR control panel added
+	* Autobinding Cockpit as a single control
+	* Autobinding AV-8B Radios now use text displays saving viewport exports
+	* Known issues: there has had to be some breaking changes, so profiles may not work completely as they once did, but all new items are autobinding so hopefully can be fixed easily.
+* Small change to UFC font to allow AV-8B decimal point 
+
+### 1.4.2019.0908 Release
 ----------------------------
 * Adjustments to the method to identify the scripts directory
 * Graphical improvements to AV-8B SMC, FQIS, ODU, EDP, UFC, MFD including support for automatically
 	binding the controls to the AV-8B interface if it has been added.  
-	* * * Note:  We've tried to limit any beakages, but there are certain to be some issues with existing
+	* Note:  We've tried to limit any beakages, but there are certain to be some issues with existing
 	       AV-8B profiles.
 * AV-8B ODU and UFC text based displays - to avoid viewports for these devices
 * Fix for problem with new Export.lua not sending data after the first set of sends
 * Refactoring to move images and templates from Helios.dll into aircraft specific dlls.  Any profiles which make use
 	of images for M2000C, AV-8B or F/A-18C embedded within Helios will have to change references 
 	from 
-		{helios}\Images\aircraft\xxxx.png 
+		`{helios}\Images\aircraft\xxxx.png`
 	to 
-		{M2000C}\Images\xxxx.png, {AV-8B}\Images\xxxx.png, {FA-18C}\Images\xxxx.png
+		`{M2000C}\Images\xxxx.png, {AV-8B}\Images\xxxx.png, {FA-18C}\Images\xxxx.png`
 * New Autobinding Caution Panel for Mirage 2000C
 * Updates to the Interfaces for A-10C, F/A-18C, AV-8B, and Mirage 2000C to improve integration with the different
 	types of DCS World installations
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-|	* * * * * * * * * * * * * * * * * *
-|	* * *       Shadowman's       * * *
-|	* * *   M2000C Status as of   * * *
-|	* * *    31st August 2019     * * *
-|	* * * * * * * * * * * * * * * * * *
-|
-|	* Caution Panel:  What is working:  all the indicators; all the switches
-|	* Master Caution Lights Panel:  What is working: 2 red and yellow PANNE indicators
-|	* Start Engine Panel:  The 5 switches work
-|	* Landing Gear Panel: the 3 switches, the landing gear lever, the emergency jettison lever and all 
-|                         the indicators are working	
-|	* Other:  Testing is incomplete, but more of the switches should work.				
-|	
-|	Known issues:
-|		Master Caution Lights Panel: this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
-|		Start Engine Panel: Temporarily removed the two red Guard Covers because we are not able to use the switches/button under
-|		Landing Gear Panel: two red Guard Covers removed; the emergency landing gear lever : it seems there is nothing coming from DCS
-|			and need to work a little on the RotarySwitch in CompositoVisual.cs
-|
-+-----------------------------------------------------------------------------------------------------------------------------------------+
+### 1.4.2019.0901 Release
+----------------------------
+* Profile Editor now polices only adding only one UDP interface.
+* AV-8B Autobinding Cockpit as a single control
+* AV-8B Radios now use text displays saving viewport exports
+* A-10C DLL added and images can be referenced by `{A-10C}/Images/xxxx.png`
+	
+#### Shadowman's M2000C Status as of 31st August 2019
 
-1.4.2019.0823 Release
+	* Caution Panel:  What is working:  all the indicators; all the switches
+	* Master Caution Lights Panel:  What is working: 2 red and yellow PANNE indicators
+	* Start Engine Panel:  The 5 switches work
+	* Landing Gear Panel: the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators are working	
+	* Other:  Testing is incomplete, but more of the switches should work.				
+	
+	* Known Issues
+		* Master Caution Lights Panel: this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
+		* Start Engine Panel: Temporarily removed the two red Guard Covers because we are not able to use the switches/button under
+		* Landing Gear Panel: two red Guard Covers removed; the emergency landing gear lever : it seems there is nothing coming from DCS
+			and need to work a little on the RotarySwitch in CompositoVisual.cs
+
+### 1.4.2019.0823 Release
 ----------------------------
 * Adjustments made to templates for F-16 gauges, parts, etc in toolbox 
 * Empty panel template created for toolbox
@@ -54,7 +162,7 @@
 * Bug fix for 10 second delay on profile start introduced in 1.4.2019.0616
 * Special Guest submission from Jabbers.... Control Center size independent of the Windows scaling value - Let us know what you think 
 
-1.4.2019.0616 Release
+### 1.4.2019.0616 Release
 ----------------------------
 * Fixed bug stopping both Profile Editor and Control Center not running at the same time
 * Extended the 0611 change log.
@@ -62,7 +170,7 @@
 * Reduced the nagging frequency when there is a new release available
 * Fix for Control Center window positioning not working.
 
-1.4.2019.0611 Release
+### 1.4.2019.0611 Release
 ----------------------------
 * Original Helios User Guide refreshed and included
 * GNU LESSER GENERAL PUBLIC LICENSE file added to the distribution
@@ -115,7 +223,7 @@
 * Added ability to send key presses to a different PC using TCP on port 9088 (KiwiLostInMelb)
 * The usual minor bug changes
 
-1.4.2019.0317 Release
+### 1.4.2019.0317 Release
 ----------------------------
 * TextDisplay Control Added
 * Hornet UFC updated to remove the need for a viewport
@@ -129,7 +237,7 @@
 * Code corrected to identify destination directory for DCS, Betas and Alphas 
 * Stricter version numbering which breaks the installer's version checking so previous Helios needs to be uninstalled manually.
 
-1.4.2018.1008 Release
+### 1.4.2018.1008 Release
 ----------------------------
 * F/A-18C Interface
 * DCS Generic interface added.  This is an enabler for complex aircraft profiles from authors such as Capt Zeen.
@@ -138,7 +246,7 @@
 * A-10 NMSP and UFC Toolbox contents moved into "A-10"
 * Mi-8 ADI gauge added
 
-1.4.2018.0924 Beta 3 Release
+### 1.4.2018.0924 Beta 3 Release
 ----------------------------
 * AV-8B Interface
 * MiG-21Bis Partial Interface by Cylution
@@ -146,7 +254,7 @@
 * Various Profile Editor bug fixes
 * New file extension for profile layout
 
-1.4 Un-released (Gadroc Open Source)
+### 1.4 Un-released (Gadroc Open Source)
 ------------------------------------
 * Switch to NuGet for dependency management
 * Switch to open source license (GPLv3)
@@ -165,16 +273,16 @@ TODO
 * Fix value interpretation on lua expressions (Frank bug)
 * Add exe scanning for CMSC, CMSP, Radio and PUI-800 (from forums)
 
-1.3 Release - Build 191
+### 1.3 Release - Build 191
 -----------------------
 * Fix crash when renaming analog inputs on EOS Devices
 * Fix intermitant crash when trying to send data to EOS bus
 
-1.3 Release - Build 190
+### 1.3 Release - Build 190
 -----------------------
 * Attempt to fix always on top with DCS World 1.2.4
 
-1.3 Release - Build 189
+### 1.3 Release - Build 189
 -----------------------
 * Added "Autopilot - On Indicator" to BMS interface
 * Fixed Phidgets Servo to properly configure and save servo type
@@ -188,7 +296,7 @@ TODO
 * Fixed input calibaration save/load when output values are in reverse order
 * Fixed setup for phidgets servo's using userdefined settings
 
-1.2 Release - Build 176
+### 1.2 Release - Build 176
 -----------------------
 * EOS Interface Enhancements
 * Profile Editor: Added uncaught exception handling
@@ -196,19 +304,19 @@ TODO
 * Increased EOS Direct scanning speed
 * EOS Interface Editor: Added board active indicator
 
-1.2 Release - Build 175
+### 1.2 Release - Build 175
 -----------------------
 * Added EOS Interface Module
 
 Changes
 * Resolved bindings not showing up on Phidgets Servo Board
 
-1.2 Release - Build 173
+### 1.2 Release - Build 173
 -----------------------
 Changes
 * Composite Controls (MFDs): Input bindings now load properly from a saved profile.
 
-1.2 Release - Build 172
+### 1.2 Release - Build 172
 -----------------------
 Changes
 * A-10C Gauge Pack: Fixed colors on ADI ball
@@ -224,7 +332,7 @@ Known Issues
 * Old profiles may contain names with periods which cause bindings to be lost on save/load.
 * DCS Black Shark Interace: VHF-1 & VHF-2 Power switches do not work as input bindings (bug in BlackShark 1.0.2 not Helios)
 
-1.2 Release - Build 168
+### 1.2 Release - Build 168
 -----------------------
 * Controls: Added Guarded Toggle Switches
 * Profile Editor: Added ability for all controls to be rotated
@@ -295,24 +403,24 @@ Known Issues
 * DCS A-10C Interface: Added UHF Radio cover bindings
 * DCS Black Shark Interface: Added support for Black Shark 2
 
-1.1 Release - Build 146
+### 1.1 Release - Build 146
 -----------------------
 * Fixes loading of profiles which have multiple DirectX interfaces of the same type
 
-1.1 Release - Build 143
+### 1.1 Release - Build 143
 -----------------------
 * DCS A-10C Interface: Fixed TACAN tens dial
 * DCS A-10C Interface: Fixed Fire Bleed Air Detect button
 * Profile Editor: Fixed crash bug when removing interface while it's open in the editor
 * Profile Editor: Fixed error preventing multiple directx controllers with the same name from being available
 
-1.1 Release - Build 142
+### 1.1 Release - Build 142
 -----------------------
 * Profile Editor: Fixed Rotary Encoder to rotate when changing initial position
 * Helios Control Center: Added addition log message at debug level
 * DCS A-10C Interface: Fixed parsing error on non-english systems
 
-1.1 Release - Build 140
+### 1.1 Release - Build 140
 -----------------------
 * Profile Editor: Fixed bug where wrong data was saved in layout
 * Profile Editor: Fixed crash on reload bug when invalid name is saved in layout
@@ -325,7 +433,7 @@ Known Issues
 * Fixed bug on profile load preventing some profiles from reloading
 
 
-1.1 Release - Build 133
+### 1.1 Release - Build 133
 -----------------------
 * DCS Black Shark, A-10C, FC2 Interface: Added ability to remove Helios config
 * DCS Black Shark, A-10C, FC2 Interface: Added ability manually set game path
@@ -334,7 +442,7 @@ Known Issues
 * Profile Editor: Added Donate Now menu item.
 * Control Center: Added automatic version checking on startup.
 
-1.1 Release - Build 132
+### 1.1 Release - Build 132
 -----------------------
 * KA-50 Gauge Pack: Accelerometer
 * KA-50 Gauge Pack: Radar Altimeter
@@ -352,7 +460,7 @@ Known Issues
 * DCS Black Shark Interface: Fixed tank fuel qty exports
 * Phidgets Advanced LED: Fixed set brightness to automatically turn on led
 
-1.1 Release - Build 124
+### 1.1 Release - Build 124
 -----------------------
 * KA-50 Gauge Pack: Completed HSI
 * DCS Black Shark Interface: Fixed HSI Commaned Course and heading exports
@@ -368,7 +476,7 @@ Known Issues
 * Added warning dialog for disabled Aero glass
 * KA-50 Gauge Pack: Completed IAS
 
-1.0 Release - Build 120
+### 1.0 Release - Build 120
 ------------------------
 * Resolved new installer issues causing crash on start for some machines
 * Installer changes to use regular shortcuts
@@ -381,16 +489,16 @@ Known Issues
 * Added RWR Bezel for A10
 * Fixed SAI pitch inversion
 
-1.0 Release - Build 113 - 3/22/2011
+### 1.0 Release - Build 113 - 3/22/2011
 -----------------------------------
 * Fix for installer error causing Profile Editor to crash
 
-1.0 Release - Build 112 - 3/21/2011
+### 1.0 Release - Build 112 - 3/21/2011
 -----------------------------------
 * DCS A-10C Interface: Reversed SAI Bank direction
 * Fixed TouchKit support broken in build 111
 
-1.0 Release - Build 111 - 3/21/2011
+### 1.0 Release - Build 111 - 3/21/2011
 -----------------------------------
 * Optimized for fewer screen redraws
 * Added configuration option to adjust number of updates per second from DCS based simulations.
@@ -409,7 +517,7 @@ Known Issues
 * Fixed Helios so it will return itself to the top most windows every 3 seconds.
 * Fixed lua script values becoming strings instead of numeric - No really I think I really fixed it this time
 
-1.0 Release - Build 103 - 3/9/2011
+### 1.0 Release - Build 103 - 3/9/2011
 ----------------------------------
 * Fixed DCS switches to properly pass values as numbers instead of string for lua functions
 * Added additional error trapping for DCS configuration
@@ -421,7 +529,7 @@ Known Issues
 * DCS A-10C Interface: Added SAI pitch trim
 * DCS Black Shark Interface: Fixed indicator push buttons to work correctly
 
-Experimental Add
+### Experimental Add
 * DCS Black Shark: Added UV-26 CMD Panel
 * DCS Black Shark: Added PVI-800 Control Panel
 * DCS Black Shark: Added PVTz-800 Data Link Panel
@@ -438,7 +546,7 @@ Experimental Add
 * DCS Black Shark: Added Fuel System Panel
 * DCS Black Shark: Added Comm Power panel
 
-1.0 Release Candidate 4 - 2/28/2011
+### 1.0 Release Candidate 4 - 2/28/2011
 -----------------------
 Bug Fixes and Changes
 * Fixed logging bugs causing crashes
@@ -458,15 +566,14 @@ Bug Fixes and Changes
 * DCS A-10C Interface: Added SAI value exports
 * DCS A-10C, BS and FC2: Set export back to max of 30fps
 
-Experimental Adds
+### Experimental Adds
 * DCS Black Shark: Added Magnetic Compass triggers/actions
 * DCS Black Shark: Added Overhead Panel triggers/actions
 * DCS Black Shark: Added Landing Gear Panel triggers/actions
 * DCS Black Shark: Added Datalink panel triggers/actions
 * DCS Black Shark: Added Laser Warning Receiver triggers/actions
 
-1.0 Releaase Candidate 2 - 1/28/2011
-------------------------------------
+### 1.0 Releaase Candidate 2 - 1/28/2011
 * Settings and preferences are now store in My Documents Helios, so they will not be lost during upgrades
 * Fixed Cut and Paste display order issues
 * Fixed so you can't drag a control with negative top or left co-ordinates

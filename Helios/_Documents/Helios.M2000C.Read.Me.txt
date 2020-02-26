@@ -1,7 +1,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
-* *                       Helios 1.4.2019.0908                              * * 
+* *                       Helios 1.4.2019.0823                              * * 
 * *                                                                         * * 
 * *                                READ.ME                                  * * 
 * *                                                                         * * 
@@ -29,38 +29,122 @@ If you encounter problems, please check for known issues here
 https://github.com/BlueFinBima/helios/issues and if nothing appears to be 
 relevant then open a new issue.
   
+
 * * * Working Elements on M2000C * * *
-* * *      31st August 2019      * * *
+* * *      4th October 2019      * * *
 
-1) Caution Panel
-	a) What is working
-	   - all the indicators
-	   - all the switches
-	b) Known issue
-	   - nothing, � for now�
+* * * * * * * * * * * * * * * * * * * * * * * *
+* * * Next Release Helios v1.4.2019.xxxx  * * *
+* * * * * * * * * * * * * * * * * * * * * * * *
+What's new DCS M2000C
+---------------------
+	* Improvement of guards on the Test and LG Panels
+		- Made all 4 guards on this 2 panels working
+	* Improvement of the Tacan Panel
+		- add the 2 potentiometers and made them continuous and working in both sens
+		- the display of the channel X/Y mode works
+	* Improvement of VOR/ILS Panel
+		- added the 2 potentiometers and made them continuous and working in both sens
+		- made the Mode Selector working
+	* Improvement of the HSI Panel
+		- all the needles are working
 
-2) Master Caution Lights Panel
-	a) What is working
-       - the 2 red and yellow PANNE indicators
-	b) Known issue
-	   - this indicator has to be clickable to aknowledge the audio alarm and light off the 2 indicators
-      
-3) Start Engine Panel
-	a) What is working
-       - the 5 switches
-	b) Known issue
-	   - for now, removed the two red Guard Covers because we are not able to use the switches/button under
-      
-4) Landing Gear Panel
-	a) What is working
-       - the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators
-	b) Known issues
-	   - removed the two red Guard Covers because we are not able to use the switches/button under
-	   - the emergency landing gear lever : it seems there is nothing coming from DCS and need to work a little on the RotarySwitch in CompositoVisual.cs
-      
-5) Others things
-	a) What is working
-	   - not all has been tested but most of the switches might work
+Known issues DCS M2000C
+-----------------------
+	* Fuel Panel
+	   - the Fuel CrossFeed Switch doesn’t work
+	   - the two toggle switches don’t work (seems not to be used in DCS)
+    * Master Caution lights Panel
+	   - seems the id is not the good one when clicking on the 2 indicators ?
+	* HSI Panel
+	   - the compass rose need to be redisign
+	   - the potentiometer doesn’t work properly
+	* ECM Box
+	   - the potentiometer is not working
+	* Miscellaneous Panels
+	   - I don’t know how to test the Fire Warning Indicators. Does someone has a match? :-)
+	   
+* * * * * * * * * * * * * * * * * * * * * * * *
+* * *    Release Helios v1.4.2019.1005    * * *
+* * * * * * * * * * * * * * * * * * * * * * * *
+What's new DCS M2000C
+---------------------
+	* Added the Fuel Panel
+       - added the 7 indicators empty tanks
+	   - added the refueling indicator
+	   - added the left and right neddle gauges
+	   - improved to use a more reusable code
+	* Added the PCA Panel
+       - added the 17 indicators on the buttons
+	   - added the 11 buttons
+	   - added the 2 switches
+	   - added the guard
+	* Added the PCN	Panel
+       - added the 9 indicators 
+	   - added the 9 indicators buttons
+	   - added the 10 keypad buttons
+	   - added the Parameter selector working only from DCS to Helios
+	* Added the PPA Panel
+       - added the 8 indicators on the buttons
+	   - added the 4 buttons
+	   - added the 5 switches
+	* Added the TACAN Panel
+       - added the frequency display
+	   - added the 2 switches (X/Y Mode and Mode Select)
+	* Added the VOR/ILS Panel
+       - added the frequency display
+	   - added the 2 switches (Power and Mode Select)
+	* Added the Engine Sensors Panel (still in beta)
+	   - added the 2 needles
+	   - added the drum
+	* Added the HSI Panel (still in beta)
+	   - added the drum (working)
+	   - added the 4 stop flags (2 are working)
+	   - added the 2 needles
+	   - added the green needle
+	   - added the mode needle (working)
+	   - added the compass rose (partially working)
+	   - added the switch and the potentiometer
+	* Added the ECM Box
+	   - added the potentiometer
+	   - added the 3 switches
+	* Added the INS Panel
+	   - added the 2 switches
+	* Added the Test Panel
+       - added the 4 indicators 
+	   - added the 3 switches
+	   - added the 3 guards on the switches
+	* Improvement of the Engine Panel
+	   - added the 2 guards
+	* Improvement of the Landing Gear Panel
+	   - added the guard for the gun safe switch 
+ 	   - added the emergency landing gear lever
+	* Improvement of the Master Caution lights Panel
+	   - try to make the 2 indicators clickable with the same solution as the PCN Panel --> doesn’t work
+	* Improvement of the pictures of the cockpit to allow the new panels to work fine
+	* Miscellaneous Panels
+       - Added the Post Combustion Indicator
+       - Added the 2 Fire Warning Indicators (need a match to test it :-)
+	   - Added the Demar Indicator
+	   - Added the 5 RWR indicators
+	   - Added the AOA needle
 
+* * * * * * * * * * * * * * * * * * * * * 
+* * * Release Helios v1.4.2019.0908 * * *
+* * * * * * * * * * * * * * * * * * * * * 
+	* Added the Caution Panel
+	   - added all the indicators
+	   - added all the switches
+
+	 *Added the Master Caution Lights Panel
+       - added the 2 red and yellow PANNE indicators
+      
+	* Added the Start Engine Panel
+       - added the 5 switches
+      
+	* Added the Landing Gear Panel
+       - added the 3 switches, the landing gear lever, the emergency jettison lever and all the indicators
+      
+Please take note that not all has been tested so far, but most of the switches might work.
 Thanks for your patience and feedback
 ShadowMan

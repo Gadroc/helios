@@ -88,7 +88,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
         {
         }
 
-        public DCSConfigurator(string preferencesPrefix, string exportLuaPath, string defaultAppPath, bool allowDCSWorld)
+        public DCSConfigurator(string preferencesPrefix, string exportLuaPath, string defaultAppPath, bool allowDCSWorld) 
         {
             _allowDCSWorld = allowDCSWorld;
             _defaultAppPath = defaultAppPath;
@@ -592,16 +592,27 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.Common
             return false;
         }
 
+        private string AircraftType
+        {
+            get
+            {
+                return UDPInterface.AlternateName;           
+            }
+        }
+
+
         private void UpdateHeliosProperties()
         {
-            string _luaVarScope = "g";                  // default to globals
-            if (_dcsUseNewExport) _luaVarScope = "l";   // the new structure for export.lua code attempts to avoid the use of globals.
+            string _luaVarScope; 
+
+            if (_dcsUseNewExport) _luaVarScope = "l"; else _luaVarScope = "g";   // the new structure for export.lua code attempts to avoid the use of globals.
             if (_udpInterface != null)
             {
                 double exportInterval = Math.Round(1d / Math.Max(4, _exportFrequency), 3);
                 int lowExportTickInterval = Math.Min(1, (int)Math.Floor(0.250d / exportInterval));
 
                 StringWriter configFile = new StringWriter();
+                configFile.WriteLine("local l" + "Aircraft = \"" + AircraftType + "\"");
                 configFile.WriteLine(_luaVarScope + "Host = \"" + IPAddress + "\"");
                 configFile.WriteLine(_luaVarScope + "Port = " + Port.ToString(CultureInfo.InvariantCulture));
                 configFile.WriteLine(_luaVarScope + "ExportInterval = " + exportInterval.ToString(CultureInfo.InvariantCulture));

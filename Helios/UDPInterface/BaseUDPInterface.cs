@@ -50,6 +50,8 @@ namespace GadrocsWorkshop.Helios.UDPInterface
 
         private System.Text.Encoding iso_8859_1;
 
+        private string _alternatename = "";
+
         public BaseUDPInterface(string name)
             : base(name)
         {
@@ -129,6 +131,23 @@ namespace GadrocsWorkshop.Helios.UDPInterface
             }
         }
 
+        public string AlternateName
+        {
+            get
+            {
+                return _alternatename;
+            }
+            set
+            {
+                if (!_port.Equals(value))
+                {
+                    string oldValue = _alternatename;
+                    _alternatename = value;
+                    OnPropertyChanged("AlternateName", oldValue, value, false);
+                }
+            }
+        }
+
         public NetworkFunctionCollection Functions
         {
             get
@@ -157,7 +176,11 @@ namespace GadrocsWorkshop.Helios.UDPInterface
         {
             if (_started)
             {
-                ConfigManager.LogManager.LogDebug("UDP interface waiting for socket data. (Interface=\"" + Name + "\")");
+                // this message drowns the console output, so only send it if requested
+                if (ConfigManager.LogManager.LogLevel == LogLevel.Debug)
+                {
+                    ConfigManager.LogManager.LogDebug("UDP interface waiting for socket data. (Interface=\"" + Name + "\")");
+                }
                 try
                 {
                     _socket.BeginReceiveFrom(_dataBuffer, 0, _dataBuffer.Length, SocketFlags.None, ref _bindEndPoint, _socketDataCallback, null);

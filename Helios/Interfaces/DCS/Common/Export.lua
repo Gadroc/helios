@@ -26,6 +26,15 @@ gLastData = {}
 -- Frame counter for non important data
 gTickCount = 0
 
+-- Check the Aircraft is right for the interface
+local DCSInfo = LoGetSelfData()
+if DCSInfo ~= nil and lAircraft ~= nil then
+	if (DCSInfo.Name == lAircraft) then
+		log.write('USERMOD',log.INFO," Helios Exports.Lua Loaded for " .. DCSInfo.Name )
+	else
+		log.write('USERMOD',log.WARNING," Helios Exports.Lua Loaded for " .. lAircraft .. " but " .. DCSInfo.Name .. " has been started" )
+	end
+end
 -- DCS Export Functions
 LuaExportStart = function()
 -- Works once just before mission start.

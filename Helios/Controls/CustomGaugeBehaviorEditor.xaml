@@ -28,7 +28,7 @@
             </Style.Triggers>
         </Style>
     </HeliosSdk:HeliosPropertyEditor.Resources>
-    <Grid Background="Transparent" Margin="4">
+    <Grid Background="Transparent" Margin="4" Height="146">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -62,14 +62,5 @@
         </Label>
         <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="4" FontSize="10" Margin="2" Text="{Binding Control.StepValue}" />
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5"  Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Touch</TextBlock>
-        <Label Grid.Column="0" Grid.Row="6" FontSize="10" HorizontalAlignment="Right">
-            <Label.ToolTip>When set to touch this switch will respond to control regions (left/right) and switch the switch appropriatly. Swipe will switch the switch in the direction you swipe your finger or mouse using a circular motion.</Label.ToolTip> Click Type
-        </Label>
-        <ComboBox Grid.Column="1" Grid.Row="6" FontSize="10" Margin="0,2,0,2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource ClickTypes}, Path=DisplayNames}" SelectedItem="{Binding Path=Control.ClickType, Converter={StaticResource ClickTypes}}" />
-        <Label Grid.Column="0" Grid.Row="7" FontSize="10" HorizontalAlignment="Right" Style="{StaticResource SwipeLabelStyle}">
-            <Label.ToolTip>When set left it will take more rotation to switch a position to the right postions will move rapidly.</Label.ToolTip> Sensitivity
-        </Label>
-        <Slider Grid.Column="1" Grid.Row="7" Margin="0,6,0,0" Minimum="-1" Maximum="1" TickFrequency="0.1" TickPlacement="BottomRight" Value="{Binding Control.SwipeSensitivity}" Style="{StaticResource SwipeSliderStyle}" />
     </Grid>
 </HeliosSdk:HeliosPropertyEditor>

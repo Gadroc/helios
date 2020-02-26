@@ -21,8 +21,6 @@ namespace GadrocsWorkshop.Helios.Controls
     public class GuardedSwitchRenderer : HeliosVisualRenderer
     {
         private ImageSource _imageOneGuardUp;
-        private ImageSource _imageOneGuardDown;
-        private ImageSource _imageTwoGuardUp;
         private ImageSource _imageTwoGuardDown;
         private Rect _imageRect;
 
@@ -31,30 +29,16 @@ namespace GadrocsWorkshop.Helios.Controls
             GuardedSwitch toggleSwitch = Visual as GuardedSwitch;
             if (toggleSwitch != null)
             {
-                switch (toggleSwitch.SwitchPosition)
-                {
-                    case ToggleSwitchPosition.One:
-                        if (toggleSwitch.GuardPosition == GuardPosition.Up)
-                        {
-                            drawingContext.DrawImage(_imageOneGuardUp, _imageRect);
-                        }
-                        else
-                        {
-                            drawingContext.DrawImage(_imageTwoGuardDown, _imageRect);
-                        }
-                        break;
-                    case ToggleSwitchPosition.Two:
-                        if (toggleSwitch.GuardPosition == GuardPosition.Up)
-                        {
-                            drawingContext.DrawImage(_imageOneGuardUp, _imageRect);
-                        }
-                        else
-                        {
-                            drawingContext.DrawImage(_imageTwoGuardDown, _imageRect);
-                        }
-                        break;
-                }
-            }
+				if (toggleSwitch.GuardPosition == GuardPosition.Up)
+				{
+					drawingContext.DrawImage(_imageOneGuardUp, _imageRect);
+				}
+				else
+				{
+					drawingContext.DrawImage(_imageTwoGuardDown, _imageRect);
+				}
+				
+			}
         }
 
         protected override void OnRefresh()
@@ -65,15 +49,11 @@ namespace GadrocsWorkshop.Helios.Controls
                 _imageRect.Width = toggleSwitch.Width;
                 _imageRect.Height = toggleSwitch.Height;
                 _imageOneGuardUp = ConfigManager.ImageManager.LoadImage(toggleSwitch.PositionOneGuardUpImage);
-                _imageOneGuardDown = ConfigManager.ImageManager.LoadImage(toggleSwitch.PositionOneGuardDownImage);
-                _imageTwoGuardUp = ConfigManager.ImageManager.LoadImage(toggleSwitch.PositionTwoGuardUpImage);
                 _imageTwoGuardDown = ConfigManager.ImageManager.LoadImage(toggleSwitch.PositionTwoGuardDownImage);
             }
             else
             {
                 _imageOneGuardUp = null;
-                _imageOneGuardDown = null;
-                _imageTwoGuardUp = null;
                 _imageTwoGuardDown = null;
             }
         }

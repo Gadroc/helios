@@ -20,13 +20,42 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.VVI", "AV-8B Vertical Velocity Indicator", "AV-8B Gauges", typeof(GaugeRenderer))]
-    public class VVI : GadrocsWorkshop.Helios.Gauges.A_10.VVI.VVI
+    [HeliosControl("Helios.AV8B.VVI (AutoBinding)", "VVI", "AV-8B Gauges", typeof(GaugeRenderer))]
+    public class VVI1 : BaseGauge
     {
-        public VVI()
-            : base()
+        private HeliosValue _verticalVelocity;
+        private GaugeNeedle _needle;
+        private CalibrationPointCollectionDouble _calibrationPoints;
+
+        public VVI1()
+            : base("Flight Instruments", new Size(364, 376))
         {
-            Components.RemoveAt(Components.Count - 1);  // remove the bezel
+            Components.Add(new GaugeImage("{Helios}/Gauges/A-10/VVI/vvi_faceplate.xaml", new Rect(32d, 38d, 300d, 300d)));
+
+            _needle = new GaugeNeedle("{Helios}/Gauges/A-10/Common/needle_a.xaml", new Point(182d, 188d), new Size(22, 165), new Point(11, 130), -90d);
+            Components.Add(_needle);
+
+            //Components.Add(new GaugeImage("{Helios}/Gauges/A-10/Common/gauge_bezel.png", new Rect(0d, 0d, 364d, 376d)));
+            //Components.Add(new GaugeImage("{AV-8B}/Images/WQHD/Panel/crystal_reflection_round.png", new Rect(32d, 38d, 300d, 300d)));
+            GaugeImage _gauge = new GaugeImage("{AV-8B}/Images/WQHD/Panel/crystal_reflection_round.png", new Rect(32d, 38d, 300d, 300d));
+            _gauge.Opacity = 0.4;
+            Components.Add(_gauge);
+
+            _verticalVelocity = new HeliosValue(this, new BindingValue(0d), "Flight Instruments", "vertical velocity", "Veritcal velocity of the aircraft", "(-6,000 to 6,000)", BindingValueUnits.FeetPerMinute);
+            _verticalVelocity.Execute += new HeliosActionHandler(VerticalVelocity_Execute);
+            Actions.Add(_verticalVelocity);
+
+            _calibrationPoints = new CalibrationPointCollectionDouble(-6000d, -169d, 6000d, 169d);
+            _calibrationPoints.Add(new CalibrationPointDouble(-2000d, -81d));
+            _calibrationPoints.Add(new CalibrationPointDouble(-1000d, -45d));
+            _calibrationPoints.Add(new CalibrationPointDouble(0d, 0d));
+            _calibrationPoints.Add(new CalibrationPointDouble(1000d, 45d));
+            _calibrationPoints.Add(new CalibrationPointDouble(2000d, 81d));
+        }
+
+        void VerticalVelocity_Execute(object action, HeliosActionEventArgs e)
+        {
+            _needle.Rotation = _calibrationPoints.Interpolate(e.Value.DoubleValue);
         }
     }
 }

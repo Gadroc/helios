@@ -13,28 +13,32 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/// <summary>
+/// This is the revised version of the Stores Management Controller unit which is larger and uses improved graphics.
+/// It has a slightly different name because the old version is retained to help with backward compatability
+/// </summary>
+/// 
+
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
-    using GadrocsWorkshop.Helios.Gauges.AV8B;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
-    using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.SMC1", "Stores Management Panel 1", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.SMC1", "Stores Management", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class SMC_1: AV8BDevice
     {
         private string _interfaceDeviceName = "Stores Management";
         private string _font = "MS 33558";
 
         public SMC_1()
-            : base("SMC1", new Size(1231, 470))
+            : base("SMC", new Size(1231, 470))
         {
-            AddDisplay("Stores Mode", new Helios.Gauges.AV8B.smcModeDisplay(), new Point(81, 64), new Size(68, 41), "SMC mode (value)");
-            AddDisplay("Fuze Mode", new Helios.Gauges.AV8B.fuzeDisplay(), new Point(218, 59), new Size(112, 50), "Fuze Mode");
-            AddDisplay("Quantity", new Helios.Gauges.AV8B.SMC.TwoDigitDisplay(), new Point(407, 66), new Size(98, 48), "Stores quantity display");
-            AddDisplay("Multiple", new Helios.Gauges.AV8B.SMC.OneDigitDisplay(), new Point(607,66), new Size(41, 48), "Stores multiple display");
-            AddDisplay("Interval", new Helios.Gauges.AV8B.SMC.ThreeDigitDisplay(), new Point(746, 66), new Size(168, 48), "Stores interval display");
+            AddDisplay("Stores Mode", new smcModeDisplay(), new Point(81, 64), new Size(68, 41), "SMC mode (value)");
+            AddDisplay("Fuze Mode", new fuzeDisplay(), new Point(218, 59), new Size(112, 50), "Fuze Mode");
+            AddDisplay("Quantity", new SMC.TwoDigitDisplay(), new Point(407, 66), new Size(98, 48), "Stores quantity display");
+            AddDisplay("Multiple", new SMC.OneDigitDisplay(), new Point(607,66), new Size(41, 48), "Stores multiple display");
+            AddDisplay("Interval", new ThreeDigitDisplay(), new Point(746, 66), new Size(168, 48), "Stores interval display");
 
             AddButton("Station 1", 383, 393, new Size(50, 50), "Station 1 Button");
             AddButton("Station 2", 486, 393, new Size(50, 50), "Station 2 Button");
@@ -76,7 +80,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName
                 );
-            _gauge.Name = "SMC1_" + name;
+            _gauge.Name = "SMC_" + name;
         }
 
         public override string BezelImage
@@ -87,7 +91,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private void AddKnobSMC1(string name, Point posn, Size size, string interfaceElementName)
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
-            _knob.Name = "SMC1_" + name;
+            _knob.Name = "SMC_" + name;
             _knob.KnobImage = "{AV-8B}/Images/SMC Selector Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
@@ -107,7 +111,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private void AddKnobSMC2(string name, Point posn, Size size, string interfaceElementName)
         {
             Helios.Controls.RotarySwitch _knob = new Helios.Controls.RotarySwitch();
-            _knob.Name = "SMC1_" + name;
+            _knob.Name = "SMC_" + name;
             _knob.KnobImage = "{AV-8B}/Images/SMC Jettison Knob.png";
             _knob.DrawLabels = false;
             _knob.DrawLines = false;
@@ -151,7 +155,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                         button.Image = "{AV-8B}/Images/SMC Jettison Button.png";
                         button.PushedImage = "{AV-8B}/Images/SMC Jettison Button.png";
                     }
-            button.Name = "SMC1_" + name;
+            button.Name = "SMC_" + name;
         }
        private void AddTwoWayToggle(string name, double x, double y, Size size, string interfaceElementName)
         {
@@ -163,11 +167,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 defaultType: ToggleSwitchType.OnOn,
                 positionOneImage: "{AV-8B}/Images/SMC Cool Switch Up.png",
                 positionTwoImage: "{AV-8B}/Images/SMC Cool Switch Dn.png",
+                horizontal: false,
+                clickType: ClickType.Swipe, 
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 fromCenter: false
                 );
-            toggle.Name = "SMC1_" + name;
+            toggle.Name = "SMC_" + name;
         }
 
         private void AddThreeWayToggle(string name, double x, double y, Size size, string interfaceElementName)
@@ -185,7 +191,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 interfaceElementName: interfaceElementName,
                 fromCenter: false
                 );
-            toggle.Name = "SMC1_" + name;
+            toggle.Name = "SMC_" + name;
         }
 
         private void AddIndicator(string name, double x, double y, Size size, string interfaceElementName) { AddIndicator(name, x, y, size, false, interfaceElementName); }
@@ -206,7 +212,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 fromCenter: false
                 );
                 indicator.Text = "";
-                indicator.Name = "SMC1_" + name;
+                indicator.Name = "SMC_" + name;
         }
 
         public override bool HitTest(Point location)

@@ -13,9 +13,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/// <summary>
+/// This is the revised version of the Up Front Controller which is larger and uses text displays to avoid cutouts for the exported viewport.
+/// It has a slightly different name because the old version is retained to help with backward compatability
+/// </summary>
+/// 
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 {
-    using GadrocsWorkshop.Helios.Gauges.AV8B;
     using GadrocsWorkshop.Helios.ComponentModel;
     using GadrocsWorkshop.Helios.Controls;
     using System;
@@ -24,7 +28,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System.Windows.Threading;
 
 
-    [HeliosControl("Helios.AV8B.UFC1", "Up Front Controller 1", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.UFC1", "Up Front Controller", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
     class UFC_1: AV8BDevice
     {
         // these three sections are the dead space in the UFC image.
@@ -34,13 +38,20 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
         private Rect _scaledScreenRectLB = SCREEN_RECT_LB;
         private static readonly Rect SCREEN_RECT_R = new Rect(743, 102, 65, 448);
         private Rect _scaledScreenRectR = SCREEN_RECT_R;
+        private static readonly Rect SCREEN_RECT_BL = new Rect(0, 792, 150, 177);
+        private Rect _scaledScreenRectBL = SCREEN_RECT_BL;
+        private static readonly Rect SCREEN_RECT_BR = new Rect(818, 792, 150, 177);
+        private Rect _scaledScreenRectBR = SCREEN_RECT_BR;
+        private static readonly Rect SCREEN_RECT_BM = new Rect(236, 889, 500, 81);
+        private Rect _scaledScreenRectBM = SCREEN_RECT_BM;
         private String _font = "MS 33558";
         private string _interfaceDeviceName = "UFC";
         private string _ufcNumbers16 = "`0=«;`1=¬;`2=­;`3=®;`4=¯;`5=°;`6=±;`7=²;`8=³;`9=´;~0=µ;0=¡;1=¢;2=£;3=¤;4=¥;5=¦;6=§;7=¨;8=©;9=ª;_=É"; //Numeric mapping into characters in the UFC font
-        private string _ufcNumbers7 = "_=É"; //Numeric mapping into characters in the UFC font
+        private string _ufcNumbers7 = "_=É;.=<"; //Numeric mapping into characters in the UFC font
+        private string _imageLocation = "{AV-8B}/Images/";
 
         public UFC_1()
-            : base("UFC1", new Size(968, 970))
+            : base("UFC", new Size(968, 970))
         {
             AddButton("TMR", 228, 76, new Size(64, 64), "UFC Function Selector Pushbutton TMR");
             AddButton("TOO", 228, 168, new Size(64, 64), "UFC Function Selector Pushbutton TOO");
@@ -125,7 +136,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
 
         public override string BezelImage
         {
-            get { return "{AV-8B}/Images/UFC Bezel Large.png"; }
+            get { return "{AV-8B}/Images/WQHD/Panel/UFC Large.png"; }
         }
 
         private void AddPot(string name, Point posn, Size size, string interfaceElementName)
@@ -186,7 +197,6 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 );
         }
 
-
         private void AddButton(string name, double x, double y, Size size, string interfaceElementName)
         {
             Point pos = new Point(x, y);
@@ -209,15 +219,14 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 name: name,
                 posn: pos,
                 size: size,
-                image: "{AV-8B}/Images/_transparant.png",
-                pushedImage: "{AV-8B}/Images/_transparant.png",
+                image: "{AV-8B}/Images/_transparent.png",
+                pushedImage: "{AV-8B}/Images/_transparent.png",
                 buttonText: "",
                 interfaceDeviceName: interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 fromCenter: false
                 );
         }
-
 
         private void AddButtonIP(string name, double x, double y, Size size, string interfaceElementName)
         { AddButtonIP(name, x, y, size, interfaceElementName, true); }
@@ -250,52 +259,20 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 name: name,
                 posn: new Point(x, y),
                 size: size,
-                onImage: "{AV-8B}/Images/Caution " + name + ".png",
-                offImage: "{AV-8B}/Images/_transparant.png",
-                onTextColor: Color.FromArgb(0x00, 0x24, 0x8D, 0x22),
-                offTextColor: Color.FromArgb(0x00, 0x1C, 0x1C, 0x1C),
+                onImage: _imageLocation + "Caution " + name + ".png",
+                offImage: _imageLocation + "_transparent.png",
+                onTextColor: Color.FromArgb(0x00, 0xff, 0xff, 0xff),
+                offTextColor: Color.FromArgb(0x00, 0x00, 0x00, 0x00),
                 font: _font,
                 vertical: _vertical,
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
                 fromCenter: false
                 );
-                if (name == "Unknown 1" || name == "Unknown 2")
-                    {
-                        indicator.Text = ".";
-                    }
-                    else
-                    {
-                        indicator.Text = name;
-                    }
-                indicator.Name = "UFC1_" + name;
-                indicator.OnTextColor = Color.FromArgb(0x00, 0x94, 0xEB, 0xA6);
-                indicator.OffTextColor = Color.FromArgb(0x00, 0x10, 0x10, 0x10);
-                indicator.TextFormat.FontStyle = FontStyles.Normal;
-                indicator.TextFormat.FontWeight = FontWeights.Normal;
-                if (_vertical)
-                {
-                    if (_font == "MS 33558")
-                    {
-                        indicator.TextFormat.FontSize = 8;
-                    }
-                    else
-                    {
-                        indicator.TextFormat.FontSize = 11;
-                    }
-                }
-                else
-                {
-                    indicator.TextFormat.FontSize = 12;
-                }
-                indicator.TextFormat.FontFamily = new FontFamily(_font);  // this probably needs to change before release
-                indicator.TextFormat.PaddingLeft = 0;
-                indicator.TextFormat.PaddingRight = 0;
-                indicator.TextFormat.PaddingTop = 0;
-                indicator.TextFormat.PaddingBottom = 0;
-                indicator.TextFormat.VerticalAlignment = TextVerticalAlignment.Center;
-                indicator.TextFormat.HorizontalAlignment = TextHorizontalAlignment.Center;
+                indicator.Text = "";
+                indicator.Name = "UFC_" + name;
         }
+
         private void AddCautionWarningIndicator(string name, double x, double y, Size size, string interfaceElementName)
         {
             Color onTextColor;
@@ -313,7 +290,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 posn: new Point(x, y),
                 size: size,
                 onImage: "{AV-8B}/Images/Caution " + name + ".png",
-                offImage: "{AV-8B}/Images/_transparant.png",
+                offImage: "{AV-8B}/Images/_transparent.png",
                 offTextColor: Color.FromArgb(0x00, 0x1C, 0x1C, 0x1C),
                 onTextColor: onTextColor,
                 font: _font,
@@ -323,7 +300,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 fromCenter: false
                 );
             indicator.Text = name;
-            indicator.Name = "UFC1_" + name;
+            indicator.Name = "UFC_" + name;
             if (name == "MASTER WARNING")
             {
                 indicator.OnTextColor = Color.FromArgb(0x00, 0xc7, 0x1e, 0x1e);
@@ -357,9 +334,10 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 positionTwoImage: "{Helios}/Images/Toggles/round-down.png",
                 interfaceDeviceName: _interfaceDeviceName,
                 interfaceElementName: interfaceElementName,
+                clickType: ClickType.Swipe,
                 fromCenter: false
                 );
-            toggle.Name = "UFC1_" + name;
+            toggle.Name = "UFC_" + name;
         }
 
         private void AddThreeWayToggle(string name, double x, double y, Size size, string interfaceElementName)
@@ -377,13 +355,13 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 interfaceElementName: interfaceElementName,
                 fromCenter: false
                 );
-            toggle.Name = "UFC1_" + name;
+            toggle.Name = "UFC_" + name;
         }
 
 
         public override bool HitTest(Point location)
         {
-            if (_scaledScreenRectL.Contains(location) || _scaledScreenRectLB.Contains(location) || _scaledScreenRectR.Contains(location))
+            if (_scaledScreenRectL.Contains(location) || _scaledScreenRectLB.Contains(location) || _scaledScreenRectR.Contains(location) || _scaledScreenRectBL.Contains(location) || _scaledScreenRectBR.Contains(location) || _scaledScreenRectBM.Contains(location))
             {
                 return false;
             }

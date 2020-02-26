@@ -29,6 +29,60 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseX64|AnyCPU'">
+    <OutputPath>bin\ReleaseX64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseX64|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugX64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugX64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugX64|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -313,126 +367,403 @@
   <ItemGroup>
     <Resource Include="Images\yellow-indicator-on.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\EnginePanel\coupe-feu-guarded.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\EnginePanel\coupe-feu-unguarded.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+  <ItemGroup>
     <Resource Include="Images\EnginePanel\engine-start-panel.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\EnginePanel\engine-start-guarded.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="Images\EnginePanel\engine-start-down.png">
     </Resource>
-    <Resource Include="Images\EnginePanel\engine-start-unguarded.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="Images\EnginePanel\engine-start-up.png">
     </Resource>
     <Resource Include="Images\EnginePanel\start-engine-not-pushed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\EnginePanel\start-engine-pushed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\a-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\a-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\bip-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\bip-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\cross-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\cross-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\dirav-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\dirav-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\emergency-jettison-not-pushed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\emergency-jettison-pushed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\emergency-landing-gear-lever.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\f-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\f-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\frein-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\frein-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\landing-gear-down.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\landing-gear-up.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\lg-panel.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\nose-gear-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\nose-gear-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\spad-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\spad-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\left-gear-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\left-gear-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\right-gear-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LGPanel\right-gear-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Switches\black-circle-down.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Switches\black-circle-mid.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Switches\black-circle-up.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Switches\red-down.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\EnginePanel\coupe-feu-down.png">
+    </Resource>
+    <Resource Include="Images\EnginePanel\coupe-feu-up.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\1y-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\1y-on.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\2g-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\2g-on.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\2y-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\2y-on.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\a-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\a-on.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\aff-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\aff-on.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\alt-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\alt-on.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\g-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\g-on.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\l-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\l-on.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\p-off.png">
+    </Resource>
+    <Resource Include="Images\AutopilotPanel\p-on.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\air-refueling-off.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\air-refueling-on.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\av-off.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\av-on.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\fuel-panel.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\fuel-transfer-knob-off.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\rl-off.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\rl-on.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\v-off.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\v-on.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\demar-off.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\demar-on.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\fire-warning-afterburner-chamber-off.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\fire-warning-afterburner-chamber-on.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\fire-warning-engine-chamber-off.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\fire-warning-engine-chamber-on.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\pc-off.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\pc-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-parameter-selector.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\pcn-panel.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\ppa-button.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\ppa-p-mag.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\ppa-p-mis.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\ppa-panel.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\small-black-down.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\small-black-mid.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\small-black-up.png">
+    </Resource>
+    <Resource Include="Images\LGPanel\fbwg-guard-down.png">
+    </Resource>
+    <Resource Include="Images\LGPanel\fbwg-guard-up.png">
+    </Resource>
+    <Resource Include="Images\LGPanel\gun-arming-guard-down.png">
+    </Resource>
+    <Resource Include="Images\LGPanel\gun-arming-guard-up.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\demar-panel.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\fire-warning-panel.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\pc-panel.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\rwr-light-off.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\rwr-light-on.png">
+    </Resource>
+    <Resource Include="Images\FuelPanel\fuel-transfer-knob-on.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\aut-on.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\man-on.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\p-on.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\par-on.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\tot-on.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\mag-on.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\mis-on.png">
+    </Resource>
+    <Resource Include="Images\PPAPanel\void.png">
+    </Resource>
+    <Resource Include="Images\MCLPanel\void.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\pca-panel.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\guard-down.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\guard-up.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\kl1-on.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\kl2-on.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\p-on.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\pca-button.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\s-on.png">
+    </Resource>
+    <Resource Include="Images\PCAPanel\void.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-0.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-1.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-2.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-3.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-4.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-5.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-6.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-7.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-8.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-9.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\void.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\aln-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\mip-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ndeg-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\pret-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\sec-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\uni-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\m91-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\m92-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\m93-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\bad-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\bad.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\dest-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\dest.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\eff-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\eff.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\enc-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\enc.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\ins.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\mrq-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\mrq.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\prep-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\prep.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\rec-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\rec.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\val-on.png">
+    </Resource>
+    <Resource Include="Images\PCNPanel\val.png">
+    </Resource>
+    <Resource Include="Images\MCLPanel\panne-red.png">
+    </Resource>
+    <Resource Include="Images\MCLPanel\panne-yellow.png">
+    </Resource>
+    <Resource Include="Images\TacanPanel\low-switch-tacan.png">
+    </Resource>
+    <Resource Include="Images\TacanPanel\tacan-panel.png">
+    </Resource>
+    <Resource Include="Images\TacanPanel\up-switch-tacan.png">
+    </Resource>
+    <Resource Include="Images\EngineSensorsPanel\engine-sensors-panel.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\big-needle.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\direction-needle.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\distance-flag.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\hsi-panel.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\left-flag.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\mode-selector-needle.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\mode-selector.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\right-flag.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\small-needle.png">
+    </Resource>
+    <Resource Include="Images\HSIPanel\vad-selector.png">
+    </Resource>
+    <Resource Include="Images\VorIlsPanel\low-switch-vor-ils.png">
+    </Resource>
+    <Resource Include="Images\VorIlsPanel\up-switch-vor-ils.png">
+    </Resource>
+    <Resource Include="Images\VorIlsPanel\vor-ils-panel.png">
+    </Resource>
+    <Resource Include="Images\Miscellaneous\aoa-panel.png">
+    </Resource>
+    <Resource Include="Images\ECMBox\ecm-box.png">
+    </Resource>
+    <Resource Include="Images\ECMBox\brightness-selector.png">
+    </Resource>
+    <Resource Include="Images\INSPanel\ins-panel.png">
+    </Resource>
+    <Resource Include="Images\INSPanel\mode-selector.png">
+    </Resource>
+    <Resource Include="Images\INSPanel\operation-selector.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\test-panel.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\autopilot-test-down.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\autopilot-test-up.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\cdve5-down.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\cdve5-up.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\elec-off.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\elec-on.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\fbw-test-down.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\fbw-test-up.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\hyd-off.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\hyd-on.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\test-fail-off.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\test-fail-on.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\test-ok-off.png">
+    </Resource>
+    <Resource Include="Images\TestPanel\test-ok-on.png">
+    </Resource>
+    <Content Include="Templates\CautionPanelRedIndicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\CautionPanelYellowIndicator.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Cockpit Front 16x10.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Cockpit Front 16x9.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\long-black-switch-toggle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\Red-switch-toggle.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\M2000C_16x10.png" />
-    <Resource Include="Images\M2000C_16x9.png" /> 
- <Content Include="Templates\CautionPanelRedIndicator.htpl" />
-    <Content Include="Templates\CautionPanelYellowIndicator.htpl" />
-    <Content Include="Templates\Cockpit Front 16x10.htpl" />
-    <Content Include="Templates\Cockpit Front 16x9.htpl" />
-    <Content Include="Templates\long-black-switch-toggle.htpl" />
-    <Content Include="Templates\Red-switch-toggle.htpl" />
+    <Resource Include="Images\M2000C_16x9.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -458,20 +789,11 @@
     <Content Include="Templates\short-black-switch-toggle.htpl" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MCLPanel\mcl-panel.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\MCLPanel\panne-red-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="Images\MCLPanel\mcl-panel.png">
     </Resource>
     <Resource Include="Images\MCLPanel\panne-red-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\MCLPanel\panne-yellow-off.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\MCLPanel\panne-yellow-on.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

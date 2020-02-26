@@ -49,6 +49,7 @@ namespace GadrocsWorkshop.Helios
         private bool _defaultHidden = false;
 
         private HeliosValue _hiddenValue;
+        private NonClickableZone[] _nonClickableZones;
 
 
         /// <summary>
@@ -90,6 +91,18 @@ namespace GadrocsWorkshop.Helios
         public event EventHandler HiddenChanged;
 
         #region Properties
+
+        public NonClickableZone[] NonClickableZones
+        {
+            get
+            {
+                return _nonClickableZones;
+            }
+            set
+            {
+                _nonClickableZones = value;
+            }
+        }
 
         public bool PersistChildren
         {
@@ -467,7 +480,13 @@ namespace GadrocsWorkshop.Helios
                     m1.Translate(0, _rectangle.Width);
                     newRect.Transform(m1);
                     break;
-            }
+
+				case HeliosVisualRotation.ROT180:
+					m1.RotateAt(180, _rectangle.X + (_rectangle.Width/2), _rectangle.Y + (_rectangle.Height/2));
+					m1.Translate(0, 0);
+					newRect.Transform(m1);
+					break;
+			}
             PostUpdateRectangle(DisplayRectangle, newRect);
             DisplayRectangle = newRect;
         }
@@ -558,6 +577,14 @@ namespace GadrocsWorkshop.Helios
         public virtual bool HitTest(Point location)
         {
             return true;
+        }
+
+        /// <summary>
+        /// Called when a mouse wheel is rotated on this control.
+        /// </summary>
+        /// <param name="location">Current location of the mouse relative to this controls upper left corner.</param>
+        public virtual void MouseWheel(int delta)
+        {
         }
 
         /// <summary>

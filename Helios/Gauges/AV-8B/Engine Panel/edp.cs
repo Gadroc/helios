@@ -21,12 +21,12 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.EDP", "Engine Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
-    class edp: AV8BDevice
+    [HeliosControl("Helios.AV8B.EDP", "Engine Panel", "AV-8B Gauges", typeof(AV8BDeviceRenderer))]
+    class EDP: AV8BDevice
     {
         private string _interfaceDeviceName = "EDP";
 
-        public edp()
+        public EDP()
             : base("Engine Panel", new Size(528,302))
         {
             AddDisplay("Nozzle Position", new edpNoz(), new Point(405d, 140d), new Size(18d, 72d), "Nozzle Position");  //nozzle needle
@@ -34,12 +34,31 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
             AddDisplay("Engine Duct Indicator", new ThreeDigitDisplay(), new Point(44, 45), new Size(90, 42), "Duct pressure display");
             AddDisplay("Engine FF Indicator", new ThreeDigitDisplay(), new Point(44, 137), new Size(90, 42), "FF display");
             AddDisplay("Jet Pipe Temp Indicator", new ThreeDigitDisplay(), new Point(214, 137), new Size(90, 42), "JPT display");
-            AddDisplay("Stabilizer Direction Indicator", new stabilizerDisplay(), new Point(44, 232), new Size(30, 42), "Up/Down Arrow for the stabilizer");
+            AddDisplay("Stabilizer Direction Indicator", new stabilizerDisplay(), new Point(44, 232), new Size(30, 42), "Stabilzer Arrow");
             AddDisplay("Stabilizer Angle Indicator", new TwoDigitDisplay(), new Point(73, 232), new Size(60, 42), "Stabiliser display");
             AddDisplay("H2O Amount Indicator", new TwoDigitDisplay(), new Point(214, 232), new Size(60, 42), "H2O display");
             AddIndicator("H2O Flow Indicator",new Point(158,234),new Size(32,32), "H2O flow indicator");
-            //AddButton("BIT button",-45,0,new Size(45,40), "BIT");
-            //AddPot("EDP Brightness", new Point(528, 216), new Size(64, 64), "Off/Brightness Control");
+            AddButton("BIT button",-49,6,new Size(60,50), "BIT");
+            AddPot("EDP Brightness", new Point(528, 236), new Size(75, 75), "Off/Brightness Control");
+            GaugeImage _gi = new GaugeImage("{AV-8B}/Images/WQHD/Panel/EDP Reflection.png", new Rect(0d, 0d, 528d, 302d));
+            _gi.Opacity = 0.4;
+            //Components.Add(_gi);
+            //AddPanel("EDP Reflection", new Point(0, 0), new Size(528, 302), "{AV-8B}/Images/WQHD/Panel/EDP Reflection.png", _interfaceDeviceName, "EDP Reflection Element");
+
+        }
+        private void AddPanel(string name, Point posn, Size size, string background, string interfaceDevice, string interfaceElement)
+        {
+            HeliosPanel _panel = AddPanel(
+                 name: name,
+                 posn: posn,
+                 size: size,
+                 background: background
+                  );
+            _panel.FillBackground = false;
+            _panel.DrawBorder = false;
+            //_panel.BackgroundAlignment = ImageAlignment.Centered;
+
+
         }
         private void AddDisplay(string name, BaseGauge _gauge, Point posn, Size displaySize, string interfaceElementName)
         {
@@ -61,7 +80,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
                 posn: posn,
                 size: size,
                 onImage: "{Helios}/Gauges/AV-8B/Engine Panel/edp_water_light.xaml",
-                offImage: "{AV-8B}/Images/_transparant.png",
+                offImage: "{AV-8B}/Images/_transparent.png",
                 onTextColor: System.Windows.Media.Color.FromArgb(0x00, 0x24, 0x8D, 0x22),
                 offTextColor: System.Windows.Media.Color.FromArgb(0x00, 0x1C, 0x1C, 0x1C),
                 font: "MS 33558",

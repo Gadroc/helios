@@ -30,24 +30,15 @@ namespace GadrocsWorkshop.Helios.Controls
         private ToggleSwitchOrientation _orientation;
 
         private ToggleSwitchType _switchType = ToggleSwitchType.OnOn;
-        private ToggleSwitchPosition _position = ToggleSwitchPosition.Two;
         private GuardPosition _guardPosition = GuardPosition.Down;
 
         private string _positionOneGuardUpImage;
-        private string _positionOneGuardDownImage;
-
-        private string _positionTwoGuardUpImage;
         private string _positionTwoGuardDownImage;
 
         private ToggleSwitchPosition _defaultPosition = ToggleSwitchPosition.Two;
         private GuardPosition _defaultGuardPosition = GuardPosition.Down;
 
-        private HeliosValue _positionValue;
         private HeliosValue _guardPositionValue;
-        private HeliosTrigger _positionOneEnterAction;
-        private HeliosTrigger _positionOneExitAction;
-        private HeliosTrigger _positionTwoEnterAction;
-        private HeliosTrigger _positionTwoExitAction;
         private HeliosTrigger _releaseTrigger;
 
         private HeliosTrigger _guardUpAction;
@@ -63,28 +54,15 @@ namespace GadrocsWorkshop.Helios.Controls
         public GuardedSwitch()
             : base("Guard Empty", new System.Windows.Size(65, 249))
         {
-            _positionOneGuardUpImage = "{Helios}/Images/Toggles/guard-up-on.png";
-            _positionOneGuardDownImage = "{Helios}/Images/Toggles/guard-down-on.png";
-            _positionTwoGuardUpImage = "{Helios}/Images/Toggles/guard-up-off.png";
+            _positionOneGuardUpImage = "{Helios}/Images/Toggles/guard-up-empty.png";
             _positionTwoGuardDownImage = "{Helios}/Images/Toggles/guard-down-off.png";
 
-            _positionOneEnterAction = new HeliosTrigger(this, "", "position one", "entered", "Deprecated Trigger. DO NOT USE.");
-            //Triggers.Add(_positionOneEnterAction);
-            _positionOneExitAction = new HeliosTrigger(this, "", "position one", "exited", "Deprecated Trigger. DO NOT USE.");
-            //Triggers.Add(_positionOneExitAction);
-            _positionTwoEnterAction = new HeliosTrigger(this, "", "position two", "entered", "Deprecated Trigger. DO NOT USE.");
-            //Triggers.Add(_positionTwoEnterAction);
-            _positionTwoExitAction = new HeliosTrigger(this, "", "position two", "exited", "Deprecated Trigger. DO NOT USE.");
-            //Triggers.Add(_positionTwoExitAction);
             _guardUpAction = new HeliosTrigger(this, "", "guard", "up", "Triggered when guard is moved up.");
             Triggers.Add(_guardUpAction);
             _guardDownAction = new HeliosTrigger(this, "", "guard", "down", "Triggered when guard is moved down.");
             Triggers.Add(_guardDownAction);
             _releaseTrigger = new HeliosTrigger(this, "", "", "released", "This trigger is fired when the user releases pressure on the switch (lifts finger or mouse button.).");
             Triggers.Add(_releaseTrigger);
-
-            _positionValue = new HeliosValue(this, new BindingValue((double)SwitchPosition), "", "position", "Deprecated Value. DO NOT USE.", "Position number 1 or 2.  Positions are numbered from top to bottom.", BindingValueUnits.Numeric);
-            _positionValue.Execute += new HeliosActionHandler(SetPositionAction_Execute);
 
             _guardPositionValue = new HeliosValue(this, new BindingValue((double)GuardPosition), "", "guard position", "Current position of the switch guard.", "1 = Up, 2 = Down.", BindingValueUnits.Numeric);
             _guardPositionValue.Execute += new HeliosActionHandler(SetGuardPositionAction_Execute);
@@ -181,22 +159,22 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
-        public ToggleSwitchPosition DefaultPosition
-        {
-            get
-            {
-                return _defaultPosition;
-            }
-            set
-            {
-                if (!_defaultPosition.Equals(value))
-                {
-                    ToggleSwitchPosition oldValue = _defaultPosition;
-                    _defaultPosition = value;
-                    OnPropertyChanged("DefaultPosition", oldValue, value, true);
-                }
-            }
-        }
+      public ToggleSwitchPosition DefaultPosition
+      {
+          get
+          {
+              return _defaultPosition;
+          }
+          set
+          {
+              if (!_defaultPosition.Equals(value))
+              {
+                  ToggleSwitchPosition oldValue = _defaultPosition;
+                  _defaultPosition = value;
+                  OnPropertyChanged("DefaultPosition", oldValue, value, true);
+              }
+          }
+      }
 
         public GuardPosition DefaultGuardPosition
         {
@@ -215,49 +193,6 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
-        public ToggleSwitchPosition SwitchPosition
-        {
-            get
-            {
-                return _position;
-            }
-            set
-            {
-                if (!_position.Equals(value))
-                {
-                    ToggleSwitchPosition oldValue = _position;
-
-                    _position = value;
-                    _positionValue.SetValue(new BindingValue((double)_position), BypassTriggers);
-
-                    if (!BypassTriggers)
-                    {
-                        switch (oldValue)
-                        {
-                            case ToggleSwitchPosition.One:
-                                _positionOneExitAction.FireTrigger(BindingValue.Empty);
-                                break;
-                            case ToggleSwitchPosition.Two:
-                                _positionTwoExitAction.FireTrigger(BindingValue.Empty);
-                                break;
-                        }
-
-                        switch (value)
-                        {
-                            case ToggleSwitchPosition.One:
-                                _positionOneEnterAction.FireTrigger(BindingValue.Empty);
-                                break;
-                            case ToggleSwitchPosition.Two:
-                                _positionTwoEnterAction.FireTrigger(BindingValue.Empty);
-                                break;
-                        }
-                    }
-
-                    OnPropertyChanged("SwitchPosition", oldValue, value, false);
-                    OnDisplayUpdate();
-                }
-            }
-        }
 
         public string PositionOneGuardUpImage
         {
@@ -278,43 +213,7 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
-        public string PositionOneGuardDownImage
-        {
-            get
-            {
-                return _positionOneGuardDownImage;
-            }
-            set
-            {
-                if ((_positionOneGuardDownImage == null && value != null)
-                    || (_positionOneGuardDownImage != null && !_positionOneGuardDownImage.Equals(value)))
-                {
-                    string oldValue = _positionOneGuardDownImage;
-                    _positionOneGuardDownImage = value;
-                    OnPropertyChanged("PositionOneGuardDownImage", oldValue, value, true);
-                    Refresh();
-                }
-            }
-        }
 
-        public string PositionTwoGuardUpImage
-        {
-            get
-            {
-                return _positionTwoGuardUpImage;
-            }
-            set
-            {
-                if ((_positionTwoGuardUpImage == null && value != null)
-                    || (_positionTwoGuardUpImage != null && !_positionTwoGuardUpImage.Equals(value)))
-                {
-                    string oldValue = _positionTwoGuardUpImage;
-                    _positionTwoGuardUpImage = value;
-                    OnPropertyChanged("PositionTwoGuardUpImage", oldValue, value, true);
-                    Refresh();
-                }
-            }
-        }
 
         public string PositionTwoGuardDownImage
         {
@@ -359,7 +258,6 @@ namespace GadrocsWorkshop.Helios.Controls
         public override void Reset()
         {
             BeginTriggerBypass(true);
-            SwitchPosition = DefaultPosition;
             GuardPosition = DefaultGuardPosition;
             EndTriggerBypass(true);
         }
@@ -394,24 +292,6 @@ namespace GadrocsWorkshop.Helios.Controls
                         {
                             GuardPosition = Controls.GuardPosition.Down;
                         }
-                        else if (_switchRegion.Contains(location))
-                        {
-                            switch (SwitchPosition)
-                            {
-                                case ToggleSwitchPosition.One:
-                                    if (location.Y - _switchRegion.Top > _switchRegion.Height / 2d)
-                                    {
-                                        SwitchPosition = ToggleSwitchPosition.Two;
-                                    }
-                                    break;
-                                case ToggleSwitchPosition.Two:
-                                    if (location.Y - _switchRegion.Top < _switchRegion.Height / 2d)
-                                    {
-                                        SwitchPosition = ToggleSwitchPosition.One;
-                                    }
-                                    break;
-                            }
-                        }
                         break;
                     case GuardPosition.Down:
                         if (_guardDownRegion.Contains(location))
@@ -444,19 +324,7 @@ namespace GadrocsWorkshop.Helios.Controls
                         _mouseAction = true;
                     }
                 }
-                else if (GuardPosition == Controls.GuardPosition.Up && _switchRegion.Contains(_mouseDownLocation))
-                {
-                    if (SwitchPosition == ToggleSwitchPosition.One && swipeVector.Y > 5)
-                    {
-                        SwitchPosition = ToggleSwitchPosition.Two;
-                        _mouseAction = true;
-                    }
-                    else if (SwitchPosition == ToggleSwitchPosition.Two && swipeVector.Y < -5)
-                    {
-                        SwitchPosition = ToggleSwitchPosition.One;
-                        _mouseAction = true;
-                    }
-                }
+            
             }
         }
 
@@ -468,21 +336,6 @@ namespace GadrocsWorkshop.Helios.Controls
                 _mouseAction = false;
             }
 
-            switch (SwitchPosition)
-            {
-                case ToggleSwitchPosition.One:
-                    if (SwitchType == ToggleSwitchType.MomOn)
-                    {
-                        SwitchPosition = ToggleSwitchPosition.Two;
-                    }
-                    break;
-                case ToggleSwitchPosition.Two:
-                    if (SwitchType == ToggleSwitchType.OnMom)
-                    {
-                        SwitchPosition = ToggleSwitchPosition.One;
-                    }
-                    break;
-            }
         }
 
         public override void WriteXml(System.Xml.XmlWriter writer)
@@ -493,20 +346,21 @@ namespace GadrocsWorkshop.Helios.Controls
             writer.WriteElementString("ClickType", ClickType.ToString());
             writer.WriteStartElement("GuardUp");
             writer.WriteElementString("PositionOneImage", PositionOneGuardUpImage);
-            writer.WriteElementString("PositionTwoImage", PositionTwoGuardUpImage);
-            writer.WriteEndElement();
+            writer.WriteElementString("PositionTwoImage", PositionTwoGuardDownImage);// writing this value just for compatibility with old profiles
+			writer.WriteEndElement();
             writer.WriteStartElement("GuardDown");
-            writer.WriteElementString("PositionOneImage", PositionOneGuardDownImage);
-            writer.WriteElementString("PositionTwoImage", PositionTwoGuardDownImage);
+            writer.WriteElementString("PositionOneImage", PositionOneGuardUpImage);// writing this value just for compatibility with old profiles
+			writer.WriteElementString("PositionTwoImage", PositionTwoGuardDownImage);
             writer.WriteEndElement();
-            writer.WriteElementString("DefaultPosition", DefaultPosition.ToString());
-            writer.WriteElementString("DefaultGuardPosition", DefaultGuardPosition.ToString());
+            writer.WriteElementString("DefaultPosition", "Two"); // writing this value just for compatibility with old profiles
+			writer.WriteElementString("DefaultGuardPosition", DefaultGuardPosition.ToString());
         }
 
         public override void ReadXml(System.Xml.XmlReader reader)
         {
             base.ReadXml(reader);
-            SwitchType = (ToggleSwitchType)Enum.Parse(typeof(ToggleSwitchType), reader.ReadElementString("SwitchType"));
+			string trash;
+			SwitchType = (ToggleSwitchType)Enum.Parse(typeof(ToggleSwitchType), reader.ReadElementString("SwitchType"));
             Orientation = (ToggleSwitchOrientation)Enum.Parse(typeof(ToggleSwitchOrientation), reader.ReadElementString("Orientation"));
             if (reader.Name.Equals("ClickType"))
             {
@@ -519,19 +373,19 @@ namespace GadrocsWorkshop.Helios.Controls
 
             reader.ReadStartElement("GuardUp");
             PositionOneGuardUpImage = reader.ReadElementString("PositionOneImage");
-            PositionTwoGuardUpImage = reader.ReadElementString("PositionTwoImage");
-            reader.ReadEndElement();
+			trash = reader.ReadElementString("PositionTwoImage"); // reading this value just for compatibility with old profiles
+			reader.ReadEndElement();
 
-            reader.ReadStartElement("GuardDown");
-            PositionOneGuardDownImage = reader.ReadElementString("PositionOneImage");
+            reader.ReadStartElement("GuardDown"); 
+			trash = reader.ReadElementString("PositionOneImage"); // reading this value just for compatibility with old profiles
             PositionTwoGuardDownImage = reader.ReadElementString("PositionTwoImage");
             reader.ReadEndElement();
 
-            DefaultPosition = (ToggleSwitchPosition)Enum.Parse(typeof(ToggleSwitchPosition), reader.ReadElementString("DefaultPosition"));
-            DefaultGuardPosition = (GuardPosition)Enum.Parse(typeof(GuardPosition), reader.ReadElementString("DefaultGuardPosition"));
+			trash = reader.ReadElementString("DefaultPosition"); // reading this value just for compatibility with old profiles
+			DefaultGuardPosition = (GuardPosition)Enum.Parse(typeof(GuardPosition), reader.ReadElementString("DefaultGuardPosition"));
 
             BeginTriggerBypass(true);
-            SwitchPosition = DefaultPosition;
+
             GuardPosition = DefaultGuardPosition;
             EndTriggerBypass(true);
         }
@@ -540,28 +394,7 @@ namespace GadrocsWorkshop.Helios.Controls
 
         #region Actions
 
-        void SetPositionAction_Execute(object action, HeliosActionEventArgs e)
-        {
-            try
-            {
-                BeginTriggerBypass(e.BypassCascadingTriggers);
-                int newPosition = 0;
-                if (int.TryParse(e.Value.StringValue, out newPosition))
-                {
-                    if (newPosition > 0 && newPosition < 3)
-                    {
-                        SwitchPosition = (ToggleSwitchPosition)newPosition;
-                    }
-                }
-
-                EndTriggerBypass(e.BypassCascadingTriggers);
-            }
-            catch
-            {
-                // No-op if the parse fails we won't set the position.
-            }
-        }
-
+   
         void SetGuardPositionAction_Execute(object action, HeliosActionEventArgs e)
         {
             try

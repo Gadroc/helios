@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:HeliosSdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls"                      
-             DataContext="{Binding RelativeSource={RelativeSource Self}}"
-             Height="Auto" d:DesignWidth="180" d:DesignHeight="362">
-    <Grid Background="Transparent" Margin="6">
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             Height="Auto" d:DesignWidth="180" d:DesignHeight="393.333">
+    <Grid Background="Transparent" Margin="7,6,6,3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -24,59 +24,61 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" MinHeight="28" />
+            <RowDefinition Height="Auto" MinHeight="28" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-    </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Background Plate</TextBlock>
-        <Label Grid.Column="0" Grid.Row="1" FontSize="10" HorizontalAlignment="Right">
+        <Label Grid.Column="0" Grid.Row="1" FontSize="10" HorizontalAlignment="Right" Width="37">
             <Label.ToolTip>Image used for the backgroud.</Label.ToolTip> Image
         </Label>
         <HeliosSdk:ImagePicker Grid.Column="1" Grid.Row="1" ImageFilename="{Binding Control.BGPlateImage, Mode=TwoWay}" />
-
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Needle</TextBlock>
-        <Label Grid.Column="0" Grid.Row="3" FontSize="10" HorizontalAlignment="Right">
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Needle Image</TextBlock>
+        <Label Grid.Column="0" Grid.Row="3" FontSize="10" HorizontalAlignment="Right" Width="37">
             <Label.ToolTip>Image used for the Needle.</Label.ToolTip> Image
         </Label>
         <HeliosSdk:ImagePicker Grid.Column="1" Grid.Row="3" ImageFilename="{Binding Control.KnobImage, Mode=TwoWay}" />
-        <Label Grid.Column="0" Grid.Row="4 " FontSize="10" HorizontalAlignment="Right">
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Needle Values</TextBlock>
+        <Label Grid.Column="0" Grid.Row="5" FontSize="10" HorizontalAlignment="Right" Width="33">
             <Label.ToolTip>Scale of the Needle relative to gauge vertical size.</Label.ToolTip> Scale
         </Label>
-                    <Slider Grid.Column="1" Grid.Row="4" Minimum="0" Maximum="1" Value="{Binding Control.Needle_Scale}" Margin="2" GotFocus="Scale_GotFocus"/>
+
+        <Slider Grid.Column="1" Grid.Row="5" Minimum="0" Maximum="1" Value="{Binding Control.Needle_Scale}" Margin="2" GotFocus="Scale_GotFocus" TickPlacement="BottomRight" TickFrequency="0.1"/>
 
 
-        <Label Grid.Column="0" Grid.Row="6" FontSize="10" HorizontalAlignment="Right">
+        <Label Grid.Column="0" Grid.Row="6" FontSize="10" HorizontalAlignment="Right" Width="54">
             <Label.ToolTip>Position X of the Needle relative to gauge.</Label.ToolTip> Position X
         </Label>
-        <Slider Grid.Column="1" Grid.Row="6" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PosX}" Margin="2" GotFocus="Needle_posX_GotFocus"/>
-        <Label Grid.Column="0" Grid.Row="7" FontSize="10" HorizontalAlignment="Right">
+        <Slider Grid.Column="1" Grid.Row="6" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PosX}" Margin="2" GotFocus="Needle_posX_GotFocus" TickPlacement="BottomRight" TickFrequency="0.1"/>
+        <Label Grid.Column="0" Grid.Row="7" FontSize="10" HorizontalAlignment="Right" Width="53">
             <Label.ToolTip>Position Y of the Needle relative to gauge.</Label.ToolTip> Position Y
         </Label>
-        <Slider Grid.Column="1" Grid.Row="7" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PosY}" Margin="2" GotFocus="Needle_posX_GotFocus" />
-        
-        
-        <Label Grid.Column="0" Grid.Row="8" FontSize="10" HorizontalAlignment="Right">
+        <Slider Grid.Column="1" Grid.Row="7" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PosY}" Margin="2" GotFocus="Needle_posX_GotFocus" TickPlacement="BottomRight" TickFrequency="0.1" />
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Pivot Values</TextBlock>
+        <Label Grid.Column="0" Grid.Row="9" FontSize="10" HorizontalAlignment="Right" Width="41">
             <Label.ToolTip>Pivot X of the Needle relative to his size.</Label.ToolTip> Pivot X
         </Label>
-        <Slider Grid.Column="1" Grid.Row="8" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PivotX}" Margin="2" GotFocus="PivotX_GotFocus"/>
-        <Label Grid.Column="0" Grid.Row="9" FontSize="10" HorizontalAlignment="Right">
+        <Slider Grid.Column="1" Grid.Row="9" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PivotX}" Margin="2" GotFocus="PivotX_GotFocus" TickPlacement="BottomRight" TickFrequency="0.1"/>
+        <Label Grid.Column="0" Grid.Row="10" FontSize="10" HorizontalAlignment="Right" Width="40">
             <Label.ToolTip>Pivot Y of the Needle relative to his size.</Label.ToolTip> Pivot Y
         </Label>
-        <Slider Grid.Column="1" Grid.Row="9" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PivotY}" Margin="2" GotFocus="PivotY_GotFocus"/>
+        <Slider Grid.Column="1" Grid.Row="10" Minimum="0" Maximum="1" Value="{Binding Control.Needle_PivotY}" Margin="2" GotFocus="PivotY_GotFocus" TickPlacement="BottomRight" TickFrequency="0.1"/>
 
-       
-        
-        
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10
-                   " Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Rotation</TextBlock>
-        <Label Grid.Column="0" Grid.Row="12" FontSize="10" HorizontalAlignment="Right">
+
+
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="11" Margin="4,10,2,2" FontSize="12" FontWeight="Bold">Rotation Range</TextBlock>
+        <Label Grid.Column="0" Grid.Row="12" FontSize="10" HorizontalAlignment="Right" Width="27">
             <Label.ToolTip>Position of the Neddle at the minimum value.</Label.ToolTip> Min
         </Label>
-        <Slider Grid.Column="1" Grid.Row="12" Minimum="0" Maximum="360" Value="{Binding Control.InitialRotation}" Margin="2" GotFocus="MinPosition_GotFocus"/>
-        <Label Grid.Column="0" Grid.Row="13" FontSize="10" HorizontalAlignment="Right">
+        <Slider Grid.Column="1" Grid.Row="12" Minimum="0" Maximum="360" Value="{Binding Control.InitialRotation}" Margin="2" GotFocus="MinPosition_GotFocus" TickPlacement="BottomRight" TickFrequency="30"/>
+        <Label Grid.Column="0" Grid.Row="13" FontSize="10" HorizontalAlignment="Right" Width="29">
             <Label.ToolTip>Position of the Neddle at the maximum value.</Label.ToolTip> Max
         </Label>
-        <Slider Grid.Column="1" Grid.Row="13" Minimum="0" Maximum="360" Value="{Binding Control.RotationTravel}" Margin="2" GotFocus="MaxPosition_GotFocus" />
-        
+        <Slider Grid.Column="1" Grid.Row="13" Minimum="0" Maximum="360" Value="{Binding Control.RotationTravel}" Margin="2" GotFocus="MaxPosition_GotFocus" TickPlacement="BottomRight" TickFrequency="30" />
+
     </Grid>
 </HeliosSdk:HeliosPropertyEditor>

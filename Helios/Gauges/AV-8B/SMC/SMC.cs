@@ -25,7 +25,7 @@ namespace GadrocsWorkshop.Helios.Gauges.AV8B
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.AV8B.SMC", "Stores Management Panel", "AV-8B", typeof(AV8BDeviceRenderer))]
+    [HeliosControl("Helios.AV8B.SMC", "Stores Management Panel", "_Hidden Parts", typeof(AV8BDeviceRenderer))]
     class SMC_AV8B : AV8BDevice
     {
 
