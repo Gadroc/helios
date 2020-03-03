@@ -95,7 +95,7 @@ namespace GadrocsWorkshop.Helios
                             ConfigManager.SettingsManager.SaveSetting("ControlCenter", "LastTimeVersionWarningIssued", "");
                         }
                         // MessageBoxResult result = MessageBox.Show("Bleeding Edge version (" + VersionToString(_runningVersion) + ") of Helios.", "Version Check", MessageBoxButton.OK, MessageBoxImage.Information);
-                        ConfigManager.LogManager.LogInfo("Version Check: Bleeding Edge version " + VersionToString(_runningVersion));
+                        ConfigManager.LogManager.LogInfo("Version Check: version " + VersionToString(_runningVersion));
                     }
                     else
                     {

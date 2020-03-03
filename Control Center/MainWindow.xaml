@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ControlCenter"
     Title="Helios Control Center"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-    Height="595" Width="504" Background="Red" WindowStyle="None" ResizeMode="NoResize" Name="HeliosWindow" Icon="Icon.png" Topmost="True" Loaded="Window_Loaded" ContentRendered="Window_Opened">
+    Height="597" Width="504" Background="Red" WindowStyle="None" ResizeMode="NoResize" Name="HeliosWindow" Icon="Icon.png" Topmost="True" Loaded="Window_Loaded" ContentRendered="Window_Opened">
     <Window.Resources>
 
         <Style TargetType="{x:Type CheckBox}" x:Key="HeliosSwitchStyle">
@@ -114,7 +114,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Margin="0,0,0,0">
-            <Canvas x:Name="ControlCenterCanvas" Margin="0,0,0,0" Height="276">
+            <Canvas x:Name="ControlCenterCanvas" Margin="0,0,0,0" Height="277">
                 <Image Source="ControlCenterBackground.png" Canvas.Top="0" Canvas.Left="0" />
                 <Thumb x:Name="ControlCenterDragThumb" Width="504" Height="277" Opacity="0" Canvas.Left="0" DragDelta="MoveThumb_DragDelta" />
                 <Button Canvas.Left="70" Canvas.Top="171" Height="50" x:Name="StartButton" Width="50" Style="{StaticResource HeliosPushButtonStyle}" Command="local:ControlCenterCommands.StartProfile"/>
@@ -129,7 +129,7 @@
                 <TextBlock Canvas.Left="76" Canvas.Top="71" Height="53" x:Name="MesssgeText" Text="{Binding Message}" Width="223" FontFamily="Franklin Gothic" Foreground="#FF79CC87" FontSize="10" TextWrapping="Wrap" />
                 <Button Canvas.Left="40" Canvas.Top="242" Content="Hide" FontWeight="Bold" Foreground="White" Height="25" Style="{StaticResource HeliosPushButtonStyle}" Width="80" Click="Button_Click" />
             </Canvas>
-            <Canvas Name="PreferencesCanvas" Margin="0" Height="320" Width="504" Visibility="Collapsed">
+            <Canvas Name="PreferencesCanvas" Margin="0,0,0,0" Height="320" Width="504" Visibility="Collapsed">
                 <Image Source="PreferencesBackground.png" />
                 <Thumb Name="PrefsDragThumb" Width="504" Height="320" Opacity="0" DragDelta="MoveThumb_DragDelta" Canvas.Left="0" Canvas.Top="0" />
                 <CheckBox Canvas.Left="39" Canvas.Top="50" Height="100" Name="MinimizeCheckBox" Width="50" Style="{StaticResource HeliosSwitchStyle}" Checked="MinimizeCheckBox_Checked" Unchecked="MinimizeCheckBox_Unchecked" />
