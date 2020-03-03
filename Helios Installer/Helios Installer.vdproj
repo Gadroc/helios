@@ -273,7 +273,6 @@
         }
         "Entry"
         {
-
         "MsmKey" = "8:_B3429646F38C40A5A4B89ADF49299B9A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1738,7 +1737,6 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Helios"
-
         "ProductCode" = "8:{421509D7-A828-4190-8C5E-8E1D34BAA66F}"
         "PackageCode" = "8:{D7A344C8-4CE9-49AF-A185-0776B43CB067}"
         "UpgradeCode" = "8:{589D8667-3ED9-478B-8F67-A56E4FADBC63}"
@@ -1928,6 +1926,20 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
             "Folder" = "8:_937487924C53439892F37CF38F2AF25A"
+            "WorkingFolder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
+            "Icon" = "8:_3BDDB34F79F7418EBFD2D513E068A09B"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_53AFDF753B84467AB063EF6F037857AC"
+            {
+            "Name" = "8:Profile Editor Debug"
+            "Arguments" = "8:-l debug"
+            "Description" = "8:Profile Editor with Loglevel Debug"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_0C23ED5842AB4CD4BE1266E39F55D6D2"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "WorkingFolder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Icon" = "8:_3BDDB34F79F7418EBFD2D513E068A09B"
             "Feature" = "8:"
@@ -2721,7 +2733,7 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
-            "Condition" = "8:"
+            "Condition" = "8:CHECKBOXA2=1"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"

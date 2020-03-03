@@ -35,7 +35,6 @@ namespace GadrocsWorkshop.Helios
         internal TemplateManager(string userTemplateDirectory, string userPanelTemplateDirectory)
         {
             ConfigManager.LogManager.Log("TemplateManager Intialisation: Templates = " + userTemplateDirectory + ". Panel Templates = " + userPanelTemplateDirectory);
-
             _userTemplateDirectory = userTemplateDirectory;
 
             PopulateUserTemplatesCollection();
