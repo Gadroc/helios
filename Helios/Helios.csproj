@@ -167,6 +167,9 @@
       <DependentUpon>DCSInterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\DCS\Common\SilentValueConsumer.cs" />
+    <Compile Include="Interfaces\DCS\FA18C\FA18CInterfaceEditor.xaml.cs">
+      <DependentUpon>FA18CInterfaceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />
@@ -3023,6 +3026,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\FA18C\FA18CInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
