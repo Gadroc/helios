@@ -14,9 +14,6 @@
     <StartArguments>
     </StartArguments>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseX64|x64'">
-    <StartArguments>--loglevel=debug</StartArguments>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <StartArguments>--loglevel=debug --documents HeliosTesting</StartArguments>
   </PropertyGroup>
