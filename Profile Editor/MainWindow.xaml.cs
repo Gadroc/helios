@@ -73,6 +73,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             _layoutSerializer.LayoutSerializationCallback += LayoutSerializer_LayoutSerializationCallback;
 
             _defalutLayoutFile = System.IO.Path.Combine(ConfigManager.DocumentPath, "DefaultLayout.hply");
+
         }
 
         void LayoutSerializer_LayoutSerializationCallback(object sender, LayoutSerializationCallbackEventArgs e)
@@ -90,7 +91,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
                     AddDocumentMeta(profileObject, (LayoutDocument)e.Model, editor);
                 } else
                 {
-                    ConfigManager.LogManager.LogDebug("Unable to resolve Layout Document " + e.Model.ContentId);
+                    ConfigManager.LogManager.LogDebug("Layout Serializer: Unable to resolve Layout Document " + e.Model.ContentId);
                 }
             }
         }
@@ -658,6 +659,10 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             About dialog = new About();
             dialog.Owner = this;
             dialog.ShowDialog();
+        }
+        private void NewVersionCheck_Click(object sender, RoutedEventArgs e)
+        {
+            VersionChecker.CheckVersion();
         }
 
         #region Commands

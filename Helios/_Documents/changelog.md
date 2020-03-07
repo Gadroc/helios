@@ -1,12 +1,18 @@
 ﻿## Full change log
 
-### 1.4.2020.9999 Release
+### 1.4.2020.0308 Release
 ----------------------------
-
+* Regression fix for change in Lua 5.3 interpreter causing bindings to return integer #201
+* Regression fix for rotary switch not working for the last position
+* Installer change to make Iris and Keyboard Receiver delivery optional
+* Improved diagnostics during initialisation
+* New shortcuts for Control Center and Profile Editor to start with loglevel debug
+* Removed Visual C++ Runtime dependency
+* Control Center Version Check now checks GitHub and not gh-pages.  Also it has a better "Reminder" mechanism.  
+	Version check added to "About" dropdown in Profile Editor #200
 
 ### 1.4.2020.0226 Release
 ----------------------------
-
 #### Huge "Shout out" to derammo who was this release's primary contributor.  1.4.2020.0226 benefits from his many improvements and bugfixes.
 
 * BMS F-16 - Altimeter fixes

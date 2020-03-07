@@ -115,6 +115,7 @@
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About Helios" Click="About_Click" />
+                <MenuItem Header="_Check for New Version" Click="NewVersionCheck_Click" />
                 <MenuItem Header="_Donate To Current Development Team" Click="Donate_Click_Current" />
                 <MenuItem Header="_Donate To Original Developer" Click="Donate_Click_Gadroc" />
             </MenuItem>
