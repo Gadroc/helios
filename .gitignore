@@ -24,3 +24,4 @@ Helios *.exe
 /postbuild.txt
 
 /Keypress Receiver Installer/Debug/Keypress Receiver Installer.msi
+/Helios Installer/select_output.txt

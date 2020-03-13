@@ -75,7 +75,14 @@ For argNum = 1 To argCount - 1
 	End If
 Next
 If openMode = msiOpenDatabaseModeTransact Then database.Commit
-If Not IsEmpty(message) Then Wscript.Echo message
+'If Not IsEmpty(message) Then Wscript.Echo message
+If Not IsEmpty(message) Then 
+    Dim result, fso, fs
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set fs  = fso.CreateTextFile("..\select_output.txt", True)
+    fs.Write message
+    fs.Close
+End if
 Wscript.Quit 0
 
 Sub CheckError

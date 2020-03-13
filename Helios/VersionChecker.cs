@@ -168,7 +168,13 @@ namespace GadrocsWorkshop.Helios
                                 case "GitHubDownloadUrl":
                                     _ghdownloadUrl = xmlReader.ReadElementString("GitHubDownloadUrl");
                                     ConfigManager.SettingsManager.SaveSetting("Helios", "LastestGitHubDownloadUrl", _ghdownloadUrl);
+                                    break;                                    
+                                case "VersionHighlights":
+                                    _ghdownloadUrl = xmlReader.ReadElementString("VersionHighlights");
+                                    // TODO handle the VersionHighlights data in the XML
+                                    //ConfigManager.SettingsManager.SaveSetting("Helios", "LastestGitHubDownloadUrl", _ghdownloadUrl);
                                     break;
+
                                 case "HeliosVersion":
                                     break;
                                 default:
