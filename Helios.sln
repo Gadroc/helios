@@ -18,10 +18,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios", "Helios\Helios.csp
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profile Editor", "Profile Editor\Profile Editor.csproj", "{3AF089A2-9DA0-40C3-AD3A-92253F497BC8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06BA10F4-279C-4E82-B77C-333706A617B9} = {06BA10F4-279C-4E82-B77C-333706A617B9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Control Center", "Control Center\Control Center.csproj", "{80D80B0F-0DC0-49E2-97C2-3CC6436FA61F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06BA10F4-279C-4E82-B77C-333706A617B9} = {06BA10F4-279C-4E82-B77C-333706A617B9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phidgets", "Phidgets\Phidgets.csproj", "{06BA10F4-279C-4E82-B77C-333706A617B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E5ABE3F5-46EC-46D1-9330-D42311471A93} = {E5ABE3F5-46EC-46D1-9330-D42311471A93}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keypress Receiver", "KeyPressReceiver\Keypress Receiver.csproj", "{5F79059E-6954-45C1-8929-27683551D25A}"
 EndProject

@@ -1,5 +1,12 @@
 ﻿## Full change log
 
+### 1.4.2020.0315 Release
+----------------------------
+* Fix for some post installation file level strangeness.  #204
+* Fix for a silent failure due to a problem with RWR Bezel
+* Significant restructure of the installer
+* HeliosDiag.cmd Data Privacy Notice
+
 ### 1.4.2020.0308 Release
 ----------------------------
 * Regression fix for change in Lua 5.3 interpreter causing bindings to return integer #201
@@ -106,7 +113,7 @@
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch  and the emergency landing gear lever
 	* Improvement of the pictures of the cockpit to allow the new panels to work fine
 	* Improvement of the Master Caution lights Panel, trying to make the 2 indicators clickable with the same solution as the PCN Panel
-	* Miscellaneous: Added the Post Combustion Indicator, the 2 Fire Warning Indicators, the Demar Indicator, the 5 RWR indicators, the AOA needle
+	* Miscellaneous: Added the Post Combustion Indicator, the 2 Fire Warning Indicators, the Demar Indicator, the 5 ] indicators, the AOA needle
 
 * Profile Editor now polices only adding one UDP interface.
 * AV-8B Interface Elements
