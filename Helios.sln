@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
@@ -10,7 +9,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aircraft FA-18C", "Aircraft FA-18C\Aircraft FA-18C.csproj", "{4FDCE381-AA97-4C5E-B4CF-F9EC6792DD2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios", "Helios\Helios.csproj", "{E5ABE3F5-46EC-46D1-9330-D42311471A93}"
-	ProjectSection(ProjectDependencies) = postProject
+	ProjectSection(ProjectDependencies) = postProject
 		{80870108-EFE4-4ADF-969D-A0CE06123271} = {80870108-EFE4-4ADF-969D-A0CE06123271}
 		{2B00F04B-3CB2-44E7-B49B-DA94FF74C66C} = {2B00F04B-3CB2-44E7-B49B-DA94FF74C66C}
 		{BD8B2678-7D32-4E3D-8A9D-CA1CE201285F} = {BD8B2678-7D32-4E3D-8A9D-CA1CE201285F}
@@ -18,10 +17,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios", "Helios\Helios.csp
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profile Editor", "Profile Editor\Profile Editor.csproj", "{3AF089A2-9DA0-40C3-AD3A-92253F497BC8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06BA10F4-279C-4E82-B77C-333706A617B9} = {06BA10F4-279C-4E82-B77C-333706A617B9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Control Center", "Control Center\Control Center.csproj", "{80D80B0F-0DC0-49E2-97C2-3CC6436FA61F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06BA10F4-279C-4E82-B77C-333706A617B9} = {06BA10F4-279C-4E82-B77C-333706A617B9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phidgets", "Phidgets\Phidgets.csproj", "{06BA10F4-279C-4E82-B77C-333706A617B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E5ABE3F5-46EC-46D1-9330-D42311471A93} = {E5ABE3F5-46EC-46D1-9330-D42311471A93}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keypress Receiver", "KeyPressReceiver\Keypress Receiver.csproj", "{5F79059E-6954-45C1-8929-27683551D25A}"
 EndProject
@@ -31,7 +39,7 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Helios Installer", "Helios 
 	ProjectSection(ProjectDependencies) = postProject
 		{5F79059E-6954-45C1-8929-27683551D25A} = {5F79059E-6954-45C1-8929-27683551D25A}
 		{61272BD1-E670-45CC-918B-1208B837F4DC} = {61272BD1-E670-45CC-918B-1208B837F4DC}
-	EndProjectSection
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aircraft A-10C", "Aircraft A-10C\Aircraft A-10C.csproj", "{80870108-EFE4-4ADF-969D-A0CE06123271}"
 EndProject

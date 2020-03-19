@@ -29,24 +29,45 @@ namespace GadrocsWorkshop.Helios
         private static Version _currentNetVersion;
         private static string _currentVersion = "";
         private static string _downloadUrl = "";
-
-        private const string VERSION_URL = "https://bluefinbima.github.io/Helios/HeliosCurrentVersionV2.xml";
-        //private const string VERSION_URL = "https://bluefinbima.github.io/Helios/HeliosTestVersion.xml";
+        private static string _ghdownloadUrl = "";
+        private static string _nextdatewarn = "";
+        private static string _today = "";
+        private static Int32 _todayVal = 0;
+        private static Boolean _downloadneeded = false;
+        private static Boolean _remindnextrelease = false;
+        private const string VERSION_URL = "https://github.com/BlueFinBima/HeliosCheckRelease/releases/download/CheckRelease/HeliosCurrentVersionV2.xml";
 
         static VersionChecker()
         {
+            _today = DateTime.Today.ToString("yyyyMMdd");
+            _todayVal = Convert.ToInt32(_today);
             GetRunningVersion();
-            _lastseenVersion = ToVersion(ConfigManager.SettingsManager.LoadSetting("ControlCenter", "LastReturnedVersion", "0.0.0.0"));
-
-            if (_runningVersion.CompareTo(_lastseenVersion) >= 0 || _lastseenVersion.Major == 0)
+            _lastseenVersion = ToVersion(ConfigManager.SettingsManager.LoadSetting("Helios", "LastReturnedVersion", "0.0.0.0"));
+            _nextdatewarn = ConfigManager.SettingsManager.LoadSetting("Helios", "NextDateForVersionWarning", _today);
+            _remindnextrelease = ConfigManager.SettingsManager.LoadSetting("Helios", "ReminderForNextRelease", "0")=="1"?true:false;
+            // also need to do a periodic (weekly) check for people wanting to stop reminders until the following release 
+            if (_runningVersion.CompareTo(_lastseenVersion) >= 0 || _lastseenVersion.Major == 0 || (_remindnextrelease && Convert.ToInt32(_nextdatewarn) <= _todayVal))
             {
                 _currentNetVersion = GetCurrentVersion();  // only get the latest version if the saved version isn't already higher than the running version
+                if (_remindnextrelease)
+                {
+                    if (_runningVersion.CompareTo(_lastseenVersion) < 0 && _currentNetVersion.CompareTo(_lastseenVersion) > 0)
+                    {
+                        _nextdatewarn = _today;  //There is a new release higher than the las new release we stored so indicate that we need to issue the New Version dialog
+                        ConfigManager.SettingsManager.SaveSetting("Helios", "ReminderForNextRelease", "0");
+                    } else
+                    {
+                        _nextdatewarn = DateTime.Today.AddDays(7).ToString("yyyyMMdd");  // Check again in a week's time
+                    }
+                    ConfigManager.SettingsManager.SaveSetting("Helios", "NextDateForVersionWarning", _nextdatewarn);
+                }
             }
             else
             {
                 _currentNetVersion = _lastseenVersion;
                 _currentVersion = VersionToString(_currentNetVersion);
-                _downloadUrl = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "LastestDownloadUrl", "Https://www.digitalcombatsimulator.com/en/files/3302014/");
+                _downloadUrl = ConfigManager.SettingsManager.LoadSetting("Helios", "LastestDownloadUrl", "Https://www.digitalcombatsimulator.com/en/files/3302014/");
+                _ghdownloadUrl = ConfigManager.SettingsManager.LoadSetting("Helios", "LastestGitHubDownloadUrl", "Https://www.digitalcombatsimulator.com/en/files/3302014/");
             }
         }
 
@@ -56,64 +77,45 @@ namespace GadrocsWorkshop.Helios
             {
                 try
                 {
-                    string _lastchecked = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "FirstTimeVersionWarningIssued", "");
-                    string _lasttimewarned = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "LastTimeVersionWarningIssued", "");
-                        if (_runningVersion.CompareTo(_currentNetVersion) < 0)
-                        {
-                            if (_lastchecked == "")
-                            {
-                                _lastchecked = DateTime.Today.ToString("yyyyMMdd");
-                                _lasttimewarned = "";
-                                ConfigManager.SettingsManager.SaveSetting("ControlCenter", "FirstTimeVersionWarningIssued", _lastchecked);
-                             }
-                        DateTime _now = DateTime.Today;
-                        DateTime _firstSeen = new DateTime(Convert.ToInt32(_lastchecked.Substring(0, 4)), Convert.ToInt32(_lastchecked.Substring(4, 2)), Convert.ToInt32(_lastchecked.Substring(6, 2)));
-                        double _sinceLastWarned = 0;
-                        double _sinceFirstSeen = (_now - _firstSeen).TotalDays;
-                        if (_lasttimewarned != "")
-                        {
-                            DateTime _lastwarned = new DateTime(Convert.ToInt32(_lasttimewarned.Substring(0, 4)), Convert.ToInt32(_lasttimewarned.Substring(4, 2)), Convert.ToInt32(_lasttimewarned.Substring(6, 2)));
-                            _sinceLastWarned = (_now - _lastwarned).TotalDays;
-                        }
+                    _nextdatewarn = ConfigManager.SettingsManager.LoadSetting("Helios", "NextDateForVersionWarning", "");
 
-                        //   We want to throttle the number of times that the message is displayed and no more than once a day.
-                        if (_lasttimewarned == "" || (_sinceFirstSeen <= 7 && _sinceLastWarned > 0) || (_sinceFirstSeen > 7 && _sinceLastWarned >= 4))
-                        {
-                            MessageBoxResult result = MessageBox.Show("A newer version (" + _currentVersion + ") of Helios is available. Would you like to download it now?", "Version Check", MessageBoxButton.YesNo, MessageBoxImage.Information);
-                            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "LastTimeVersionWarningIssued", DateTime.Today.ToString("yyyyMMdd"));
-                            if (result == MessageBoxResult.Yes)
-                            {
-                                System.Diagnostics.Process.Start(_downloadUrl);
-                            }
-                        }
-                    }
-                    else if (_runningVersion.CompareTo(_currentNetVersion) > 0)
+                    if (_nextdatewarn == "")
                     {
-                        if (_lastchecked != "")
-                        {
-                            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "FirstTimeVersionWarningIssued", "");
-                            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "LastTimeVersionWarningIssued", "");
-                        }
-                        // MessageBoxResult result = MessageBox.Show("Bleeding Edge version (" + VersionToString(_runningVersion) + ") of Helios.", "Version Check", MessageBoxButton.OK, MessageBoxImage.Information);
-                        ConfigManager.LogManager.LogInfo("Version Check: Bleeding Edge version " + VersionToString(_runningVersion));
+                        _nextdatewarn = _today;
+                        ConfigManager.SettingsManager.SaveSetting("Helios", "NextDateForVersionWarning", _nextdatewarn);
                     }
-                    else
+                    if (_runningVersion.CompareTo(_currentNetVersion) < 0 && (Convert.ToInt32(_nextdatewarn) <= _todayVal))
                     {
-                        if (_lastchecked != "")
-                        {
-                            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "FirstTimeVersionWarningIssued", "");
-                            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "LastTimeVersionWarningIssued", "");
-                        }
-                        // MessageBoxResult result = MessageBox.Show("You're running the latest version (" + _currentVersion + ") of Helios.", "Version Check", MessageBoxButton.OK, MessageBoxImage.Information);
-                        ConfigManager.LogManager.LogInfo("Version Check: Running Latest version " + VersionToString(_runningVersion));
+                        VersionReminderForm dialog = new VersionReminderForm();
+                        dialog.NewVersionBlock.Text = VersionToString(_currentNetVersion);
+                        dialog.ShowDialog();
 
+                        if (_downloadneeded)
+                        {
+                            System.Diagnostics.Process.Start(_ghdownloadUrl);
+                        }
                     }
                 }
                 catch (Exception e)
                 {
-                    ConfigManager.LogManager.LogError("Error comparing versions", e);
+                    ConfigManager.LogManager.LogError("Version Checker: Error comparing versions", e);
                 }
             }
+        }
+        public static void SetNextCheckDate(DateTime dateNextCheck, Boolean remindNextRelease)
+        {
+            _nextdatewarn = dateNextCheck.ToString("yyyyMMdd");
+            ConfigManager.SettingsManager.SaveSetting("Helios", "NextDateForVersionWarning", _nextdatewarn);
+            ConfigManager.SettingsManager.SaveSetting("Helios", "ReminderForNextRelease", remindNextRelease?"1":"0");
+        }
+
+        public static void SetDownloadNeeded()
+        {
+            _downloadneeded = true;
+
+            // if the user has downloaded the new version, set a nag if they have not installed it
+            _nextdatewarn = _today;
+            ConfigManager.SettingsManager.SaveSetting("Helios", "NextDateForVersionWarning", _nextdatewarn);
         }
 
         private static void GetRunningVersion()
@@ -125,7 +127,7 @@ namespace GadrocsWorkshop.Helios
             }
             catch (Exception e)
             {
-                ConfigManager.LogManager.LogError("Error reading running version.", e);
+                ConfigManager.LogManager.LogError("Version Checker: Error reading running version. ", e);
             }
         }
 
@@ -133,9 +135,9 @@ namespace GadrocsWorkshop.Helios
         {
             try
             {
-                // The version checking has been moved off Gadroc's site and onto GitHub (ghpages branch).   This requires querying the version with HTTPS
+                // The version checking has been moved off Gadroc's site and onto a dedicated GitHub repo.   This requires querying the version with HTTPS
                 // which requires a little more setup
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
                 ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
                 HttpWebRequest wreq = (HttpWebRequest)WebRequest.Create(VERSION_URL);
                 wreq.MaximumAutomaticRedirections = 4;
@@ -159,13 +161,20 @@ namespace GadrocsWorkshop.Helios
                                     if (_currentVersion == "")
                                         _currentVersion = xmlReader.ReadElementString("CurrentVersion");
                                     break;
-                                case "CurrentVersionV2":  // this is a newer version format that is not currently used.
-                                    _currentVersion = xmlReader.ReadElementString("CurrentVersionV2");
-                                    break;
                                 case "DownloadUrl":
                                     _downloadUrl = xmlReader.ReadElementString("DownloadUrl");
-                                    ConfigManager.SettingsManager.SaveSetting("ControlCenter", "LastestDownloadUrl", _downloadUrl);
+                                    ConfigManager.SettingsManager.SaveSetting("Helios", "LastestDownloadUrl", _downloadUrl);
                                     break;
+                                case "GitHubDownloadUrl":
+                                    _ghdownloadUrl = xmlReader.ReadElementString("GitHubDownloadUrl");
+                                    ConfigManager.SettingsManager.SaveSetting("Helios", "LastestGitHubDownloadUrl", _ghdownloadUrl);
+                                    break;                                    
+                                case "VersionHighlights":
+                                    _ghdownloadUrl = xmlReader.ReadElementString("VersionHighlights");
+                                    // TODO handle the VersionHighlights data in the XML
+                                    //ConfigManager.SettingsManager.SaveSetting("Helios", "LastestGitHubDownloadUrl", _ghdownloadUrl);
+                                    break;
+
                                 case "HeliosVersion":
                                     break;
                                 default:
@@ -176,11 +185,11 @@ namespace GadrocsWorkshop.Helios
                     xmlReader.ReadEndElement();
                     wrsp.Close();
                 }
-                ConfigManager.SettingsManager.SaveSetting("ControlCenter", "LastReturnedVersion", _currentVersion);
+                ConfigManager.SettingsManager.SaveSetting("Helios", "LastReturnedVersion", _currentVersion);
             }
             catch (Exception e)
             {
-                ConfigManager.LogManager.LogError("Error retrieving current version.", e);
+                ConfigManager.LogManager.LogError("Version Checker: Error retrieving current version.", e);
                 return _runningVersion;
             }
             return ToVersion(_currentVersion);

@@ -637,7 +637,8 @@ namespace GadrocsWorkshop.Helios.Controls
             BeginTriggerBypass(e.BypassCascadingTriggers);
             if (int.TryParse(e.Value.StringValue, out int index))
             {
-                if (index >= 0 && index < Positions.Count)
+                // WARNING: rotary switch positions are 1-based
+                if (index > 0 && index <= Positions.Count)
                 {
                     CurrentPosition = index;
                 }

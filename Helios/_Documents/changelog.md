@@ -1,8 +1,25 @@
 ## Full change log
 
+### 1.4.2020.0315 Release
+----------------------------
+* Fix for some post installation file level strangeness.  #204
+* Fix for a silent failure due to a problem with RWR Bezel
+* Significant restructure of the installer
+* HeliosDiag.cmd Data Privacy Notice
+
+### 1.4.2020.0308 Release
+----------------------------
+* Regression fix for change in Lua 5.3 interpreter causing bindings to return integer #201
+* Regression fix for rotary switch not working for the last position
+* Installer change to make Iris and Keyboard Receiver delivery optional
+* Improved diagnostics during initialisation
+* New shortcuts for Control Center and Profile Editor to start with loglevel debug
+* Removed Visual C++ Runtime dependency
+* Control Center Version Check now checks GitHub and not gh-pages.  Also it has a better "Reminder" mechanism.  
+	Version check added to "About" dropdown in Profile Editor #200
+
 ### 1.4.2020.0226 Release
 ----------------------------
-
 #### Huge "Shout out" to derammo who was this release's primary contributor.  1.4.2020.0226 benefits from his many improvements and bugfixes.
 
 * BMS F-16 - Altimeter fixes
@@ -96,7 +113,7 @@
 	* Improvement of the Landing Gear Panel by adding the guard for the gun safe switch  and the emergency landing gear lever
 	* Improvement of the pictures of the cockpit to allow the new panels to work fine
 	* Improvement of the Master Caution lights Panel, trying to make the 2 indicators clickable with the same solution as the PCN Panel
-	* Miscellaneous: Added the Post Combustion Indicator, the 2 Fire Warning Indicators, the Demar Indicator, the 5 RWR indicators, the AOA needle
+	* Miscellaneous: Added the Post Combustion Indicator, the 2 Fire Warning Indicators, the Demar Indicator, the 5 ] indicators, the AOA needle
 
 * Profile Editor now polices only adding one UDP interface.
 * AV-8B Interface Elements

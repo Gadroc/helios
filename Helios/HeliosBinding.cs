@@ -346,6 +346,11 @@ namespace GadrocsWorkshop.Helios
             {
                 return new BindingValue((bool)value);
             }
+            else if (value is long longValue)
+            {
+                // construct double from long
+                return new BindingValue(longValue);
+            }
 
             return BindingValue.Empty;
         }

@@ -7,6 +7,7 @@ TestResults
 *.suo
 Keypress Receiver Installer/*/* [sS]etup.exe
 Helios Installer/*/* [sS]etup.exe
+Helios Installer/*/* [iI]nstaller.msi
 packages/**/*.*
 !**/*.md
 Helios *.zip
@@ -23,3 +24,4 @@ Helios *.exe
 /postbuild.txt
 
 /Keypress Receiver Installer/Debug/Keypress Receiver Installer.msi
+/Helios Installer/select_output.txt
