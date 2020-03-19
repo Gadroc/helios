@@ -100,6 +100,24 @@ This Powershell script Pre-shipInstallationCheck.ps1 can be used to save directo
 ```Set-ExecutionPolicy Unrestricted ```
 from an admin Powershell 
 
+## GitHub Release
+Create a new GitHub release with a tag like "1.4.2020.0315".  If you need to delete this tag, then use the following.
+
+The Zipped version of the installer files should be added to the release.  Possibly also add the installation footprint files which were created by Pre-shipInstallationCheck.ps1
+
+Use FCIV.exe to compute the MD5 of the zip file.
+
+Deleting Tags:
+```
+  git tag -d CurrentRelease
+```
+then
+```
+  git push --delete origin CurrentRelease
+```
+
+
+
 ## Information for the Download Site 
 
 https://www.digitalcombatsimulator.com/en/files/3302014/
