@@ -572,7 +572,7 @@ namespace GadrocsWorkshop.Helios
             return indicator;
         }
 
-        protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition,
+        protected ToggleSwitch AddToggleSwitch(string name, Point posn, Size size, ToggleSwitchPosition defaultPosition,
            string positionOneImage, string positionTwoImage, ToggleSwitchType defaultType, string interfaceDeviceName, string interfaceElementName,
            bool fromCenter, bool horizontal = false)
         {
@@ -590,7 +590,7 @@ namespace GadrocsWorkshop.Helios
 
             ToggleSwitch newSwitch = new ToggleSwitch();
             newSwitch.Name = componentName;
-            newSwitch.SwitchType = defaultType;
+            newSwitch.SwitchType = defaultType;
             newSwitch.ClickType = clickType;
             newSwitch.DefaultPosition = defaultPosition;
             newSwitch.PositionOneImage = positionOneImage;
@@ -820,7 +820,7 @@ namespace GadrocsWorkshop.Helios
             gauge.Top = posn.Y;
             gauge.Left = posn.X;
             gauge.Width = size.Width;
-            gauge.Height = size.Height;
+            gauge.Height = size.Height;
 
             string componentName = GetComponentName(name);
             gauge.Name = componentName;

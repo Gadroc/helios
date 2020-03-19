@@ -1,4 +1,4 @@
-﻿* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * *                                                                         * * 
 * *                       Helios 1.4.2019.0823                              * * 
@@ -36,7 +36,7 @@ relevant then open a new issue.
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * * Next Release Helios v1.4.2019.xxxx  * * *
 * * * * * * * * * * * * * * * * * * * * * * * *
-What’s new DCS M2000C
+What's new DCS M2000C
 ---------------------
 	* Improvement of guards on the Test and LG Panels
 		- Made all 4 guards on this 2 panels working
@@ -67,7 +67,7 @@ Known issues DCS M2000C
 * * * * * * * * * * * * * * * * * * * * * * * *
 * * *    Release Helios v1.4.2019.1005    * * *
 * * * * * * * * * * * * * * * * * * * * * * * *
-What’s new DCS M2000C
+What's new DCS M2000C
 ---------------------
 	* Added the Fuel Panel
        - added the 7 indicators empty tanks

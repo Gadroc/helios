@@ -1,4 +1,4 @@
-﻿## Full change log
+## Full change log
 
 ### 1.4.2020.0315 Release
 ----------------------------
