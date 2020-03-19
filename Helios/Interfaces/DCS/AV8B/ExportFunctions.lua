@@ -33,6 +33,7 @@ function ProcessLowImportance(mainPanelDevice)
 		SendData("2091", string.format("%1s",check(li.ODU_Option_5_Slc)):gsub(":","!"))  -- ":" is reserved
 		-- -- test command 00000000*2096=20:2095=13:2087=!:2088=!:2089=!:2090=!:2091=!:2082=BLUE:2083=FIN :2084=BIMA:2085=2019:2086=test:2094=123.567:2092=~0:2093=-:326=1:336=1:197=1:365=1:196=1: 
 	end
+
  	local li = parse_indication(7)  --V/UHF Radio and ACNIP
 	if li then
 		SendData("2100", string.format("%2s",check(li.uvhf_channel)))
