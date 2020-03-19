@@ -25,3 +25,7 @@ Helios *.exe
 
 /Keypress Receiver Installer/Debug/Keypress Receiver Installer.msi
 /Helios Installer/select_output.txt
+Keypress Receiver Installer/postbuild.txt
+Keypress Receiver Installer/postbuild.txt
+Keypress Receiver Installer/Release/Helios Keypress Receiver Setup.exe
+Keypress Receiver Installer/Release/Keypress Receiver Setup.msi
