@@ -193,8 +193,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_86F4AB9C03E94F288119ED0278419834"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_745A49A328E3528657335FAFB62F6368"
+        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -273,6 +273,7 @@
         }
         "Entry"
         {
+
         "MsmKey" = "8:_B3429646F38C40A5A4B89ADF49299B9A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -386,24 +387,6 @@
         {
         "MsmKey" = "8:_E82F3FE48F7BBBBF540D96F770BDB2D9"
         "OwnerKey" = "8:_C4E244B7C98E4FCAA2E188040474BD32"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F615FF8476F96D80BCD516BCA4BA5E7D"
-        "OwnerKey" = "8:_0B9949BD1FBD42C2B99DE69AFF3555FA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F615FF8476F96D80BCD516BCA4BA5E7D"
-        "OwnerKey" = "8:_60AF79F40A8140E9B89B3252BF8A567C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F615FF8476F96D80BCD516BCA4BA5E7D"
-        "OwnerKey" = "8:_0C23ED5842AB4CD4BE1266E39F55D6D2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -789,8 +772,19 @@
 
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_08A8CE6856A173C96A70F80100AED9E5"
             {
-            "SourcePath" = "8:..\\bin\\Release\\Helios.ico"
-            "TargetName" = "8:Helios.ico"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:NLua, Version=1.4.29.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_08A8CE6856A173C96A70F80100AED9E5"
+                    {
+                    "Name" = "8:NLua.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:NLua.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
@@ -805,17 +799,17 @@
             "Register" = "3:1"
 
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_29F6005D9412AD6742A02CE06C9D27EA"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_161114B3210C9125BCADDBB596A52A7A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:KeraLua, Version=1.0.29.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_29F6005D9412AD6742A02CE06C9D27EA"
+                    "_161114B3210C9125BCADDBB596A52A7A"
                     {
                     "Name" = "8:KeraLua.DLL"
                     "Attributes" = "3:512"
@@ -924,7 +918,7 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3BDDB34F79F7418EBFD2D513E068A09B"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_31E026CE4D511148C375D73ABB8FFE1F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
@@ -953,25 +947,14 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
 
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3BDDB34F79F7418EBFD2D513E068A09B"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                    "_3E517CFAB0B22FAEB933CC50A9D2B15B"
-                    {
-                    "Name" = "8:System.Windows.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.Windows.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\bin\\Release\\ProfileEditor.ico"
+            "TargetName" = "8:ProfileEditor.ico"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Condition" = "8:"
@@ -989,20 +972,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5A57A5CA2503D78A662AD16EF9E3FA3F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3E517CFAB0B22FAEB933CC50A9D2B15B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:HidSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_5A57A5CA2503D78A662AD16EF9E3FA3F"
+                    "_3E517CFAB0B22FAEB933CC50A9D2B15B"
                     {
-                    "Name" = "8:HidSharp.dll"
+                    "Name" = "8:System.Windows.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:HidSharp.dll"
+            "SourcePath" = "8:System.Windows.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -1113,13 +1096,13 @@
             "AssemblyAsmDisplayName" = "8:HidSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_743F6EA1E81D7EB020EC69ACED6138A1"
+                    "_745A49A328E3528657335FAFB62F6368"
                     {
-                    "Name" = "8:NLua.dll"
+                    "Name" = "8:HidSharp.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:NLua.dll"
+            "SourcePath" = "8:HidSharp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -1264,37 +1247,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A177E20BA06FFC17C6F3199B766D8979"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A177E20BA06FFC17C6F3199B766D8979"
-                    {
-                    "Name" = "8:SharpDX.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A23DD0E6E2324AB79E81D4B2CF805182"
             {
             "SourcePath" = "8:..\\Helios\\Fonts\\Hornet UFC.ttf"
@@ -1401,17 +1353,17 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:EosSharp, Version=1.1.5488.21795, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
 
                     "_BBD01F1F2CAB406FBC39642D2C723667"
                     {
-                    "Name" = "8:EosSharp.dll"
+                    "Name" = "8:SharpDX.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:EosSharp.dll"
+            "SourcePath" = "8:SharpDX.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -1491,20 +1443,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E82F3FE48F7BBBBF540D96F770BDB2D9"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2020.315, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_E82F3FE48F7BBBBF540D96F770BDB2D9"
+                    "_DE2E358AC1B539A5DE4E38F0CC0E49B6"
                     {
-                    "Name" = "8:System.Net.Http.dll"
+                    "Name" = "8:Helios.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:System.Net.Http.dll"
+            "SourcePath" = "8:Helios.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -1522,21 +1474,21 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F39C8C3B8DFF944FF19A868A0FA4E603"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E82F3FE48F7BBBBF540D96F770BDB2D9"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:KeraLua, Version=1.0.26.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
 
                     "_E82F3FE48F7BBBBF540D96F770BDB2D9"
                     {
-                    "Name" = "8:KeraLua.dll"
+                    "Name" = "8:System.Net.Http.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:KeraLua.dll"
+            "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -1786,6 +1738,7 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Helios"
+
         "ProductCode" = "8:{421509D7-A828-4190-8C5E-8E1D34BAA66F}"
         "PackageCode" = "8:{D7A344C8-4CE9-49AF-A185-0776B43CB067}"
         "UpgradeCode" = "8:{589D8667-3ED9-478B-8F67-A56E4FADBC63}"
@@ -1975,20 +1928,6 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
             "Folder" = "8:_937487924C53439892F37CF38F2AF25A"
-            "WorkingFolder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
-            "Icon" = "8:_3BDDB34F79F7418EBFD2D513E068A09B"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_53AFDF753B84467AB063EF6F037857AC"
-            {
-            "Name" = "8:Profile Editor Debug"
-            "Arguments" = "8:-l debug"
-            "Description" = "8:Profile Editor with Loglevel Debug"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_0C23ED5842AB4CD4BE1266E39F55D6D2"
-            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "WorkingFolder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
             "Icon" = "8:_3BDDB34F79F7418EBFD2D513E068A09B"
             "Feature" = "8:"
@@ -2782,7 +2721,7 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
-            "Condition" = "8:CHECKBOXA2=1"
+            "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"

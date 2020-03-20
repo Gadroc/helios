@@ -35,8 +35,8 @@ namespace GadrocsWorkshop.Helios.Splash
             Version _runningVersion = Assembly.GetEntryAssembly().GetName().Version;
             VersionBlock.Text = _runningVersion.Major.ToString() + "." + _runningVersion.Minor.ToString() + "." + _runningVersion.Build.ToString() + "." + _runningVersion.Revision.ToString("0000");
             ContributionBlock.Text = "Gadroc; BlueFinBima; ";
-            ContributionBlock.Text = ContributionBlock.Text + "derammo; CaptZeen; KiwiLostInMelb; Phar71; damien022; Will Hartsell; Cylution; Rachmaninoff; yzfanimal; BeamRider";
-            StatusBlock.Text = "Released";
+            ContributionBlock.Text = ContributionBlock.Text + "derammo; CaptZeen; KiwiLostInMelb; Phar71; damien022; Will Hartsell; Cylution; Rachmaninoff; yzfanimal; BeamRider; WillianG83";
+            StatusBlock.Text = "BMS Test";
             base.OnActivated(e);
         }
 
