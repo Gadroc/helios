@@ -130,6 +130,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
                 SetValue("Tacan", "aux tacan band", new BindingValue(_lastFlightData2.tacanInfo[(int)TacanSources.AUX].HasFlag(TacanBits.mode) ? 2 : 1));
                 SetValue("Tacan", "ufc tacan mode", new BindingValue(_lastFlightData2.tacanInfo[(int)TacanSources.UFC].HasFlag(TacanBits.band) ? 1 : 2));
                 SetValue("Tacan", "aux tacan mode", new BindingValue(_lastFlightData2.tacanInfo[(int)TacanSources.AUX].HasFlag(TacanBits.mode) ? 2 : 1));
+
+                // Second Engine values
+                SetValue("Engine", "rpm 2", new BindingValue(_lastFlightData2.rpm2));
+                SetValue("Engine", "ftit 2", new BindingValue(_lastFlightData2.ftit2 * 100));
+                SetValue("Engine", "nozzle position 2", new BindingValue(_lastFlightData2.nozzlePos2 * 100));
+                SetValue("Engine", "oil pressure 2", new BindingValue(_lastFlightData2.oilPressure2));
+
             }
         }
 
