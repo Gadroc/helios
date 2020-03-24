@@ -21,8 +21,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
     enum TacanSources : int
     {
         UFC = 0,
-        AUX,
-        NUMBER_OF_SOURCES
+        AUX = 1,
+        NUMBER_OF_SOURCES = 2,
     };
 
     [Flags]
