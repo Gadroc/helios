@@ -389,8 +389,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
 
         protected void ProcessAltBits(AltBits bits)
         {
-            SetValue("AltBits", "calibration in inches of mercury (hg) otherwise hector pascal (hPa) ", new BindingValue(bits.HasFlag(AltBits.CalType)));
-            SetValue("AltBits", "pneu flag is visible", new BindingValue(bits.HasFlag(AltBits.PneuFlag)));
+            SetValue("AltBits", "altimeter calibration type", new BindingValue(bits.HasFlag(AltBits.CalType)));
+            SetValue("AltBits", "altimeter pneu flag", new BindingValue(bits.HasFlag(AltBits.PneuFlag)));
         }
 
         protected void ProcessPowerBits(PowerBits bits)
