@@ -188,18 +188,6 @@ namespace GadrocsWorkshop.Helios
             }
         }
 
-        public static bool ControlCenterSession
-        {
-            get
-            {
-                return _keyboardThread.ControlCenterSession;
-            }
-            set
-            {
-                _keyboardThread.ControlCenterSession = value;
-            }
-        }
-
         /// <summary>
         /// If enabled, always tries to use an available QWERTY mapping, since various software
         /// (such as BMS) actually bind to specific key codes instead of key names.  This means that
