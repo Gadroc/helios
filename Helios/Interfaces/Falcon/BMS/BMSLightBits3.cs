@@ -67,5 +67,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         NLGWOW = 0x8000000,
 
         ATF_Not_Engaged = 0x10000000,
+
+        // Used with the MAL/IND light code to light up "everything"
+        // please update this if you add/change bits!
+        AllLampBits3On = 0x1147EFFF,
+        AllLampBits3OnExceptCarapace = AllLampBits3On ^ SysTest
     }
 }
