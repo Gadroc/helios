@@ -57,7 +57,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         public float headYaw;      // Head yaw offset from design eye (radians)
 
         // new lights
-        public LightBits2 lightBits2;   // Cockpit Indicator Lights, one bit per bulb. See enum
+        public BMSLightBits2 lightBits2;   // Cockpit Indicator Lights, one bit per bulb. See enum
         public BMSLightBits3 lightBits3;   // Cockpit Indicator Lights, one bit per bulb. See enum
 
         // chaff/flare
