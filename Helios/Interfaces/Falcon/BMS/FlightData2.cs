@@ -22,21 +22,21 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
     {
         UFC = 0,
         AUX = 1,
-        NUMBER_OF_SOURCES = 2,
-    };
+        NUMBER_OF_SOURCES = 2
+    }
 
     [Flags]
     enum TacanBits : byte
     {
         band = 0x01,   // true in this bit position if band is X
         mode = 0x02    // true in this bit position if domain is air to air
-    };
+    }
 
     [Flags]
     public enum AltBits : uint
     {
         CalType = 0x01, // true if calibration in inches of Mercury (Hg), false if in hectoPascal (hPa)
-        PneuFlag = 0x02,	// true if PNEU flag is visible
+        PneuFlag = 0x02	// true if PNEU flag is visible
     }
 
     [Flags]
@@ -48,7 +48,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         BusPowerNonEssential = 0x08,    // true if at least the non-essential bus is powered
         MainGenerator = 0x10,   // true if the main generator is online
         StandbyGenerator = 0x20,    // true if the standby generator is online
-        JetFuelStarter = 0x40,	// true if JFS is running, can be used for magswitch
+        JetFuelStarter = 0x40	// true if JFS is running, can be used for magswitch
     }
 
     [Flags]
@@ -68,7 +68,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         OXY_BROW = 0x100,   // defined in LightBits  - monitor fault during Obogs
         EPUOn = 0x200,  // defined in LightBits3 - abnormal EPU operation
         JFSOn_Slow = 0x400, // defined in LightBits3 - slow blinking: non-critical failure
-        JFSOn_Fast = 0x800,	// defined in LightBits3 - fast blinking: critical failure
+        JFSOn_Fast = 0x800	// defined in LightBits3 - fast blinking: critical failure
     }
 
     public enum CmdsModes : int
@@ -78,7 +78,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         CmdsMAN = 2,
         CmdsSEMI = 3,
         CmdsAUTO = 4,
-        CmdsBYP = 5,
+        CmdsBYP = 5
     }
 
     public enum NavModes : byte
@@ -86,7 +86,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         ILS_TACAN = 0,
         TACAN = 1,
         NAV = 2,
-        ILS_NAV = 3,
+        ILS_NAV = 3
     }
 
     public enum FlyStates : int
@@ -96,7 +96,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         WAITING = 2, // UI>3D   - waiting for other players
         FLYING = 3, // 3D      - flying
         DEAD = 4, // 3D>Dead - dead, waiting to respawn
-        UNKNOWN = 5, // ???
+        UNKNOWN = 5 // ???
     }
 
     [StructLayout(LayoutKind.Sequential)]
