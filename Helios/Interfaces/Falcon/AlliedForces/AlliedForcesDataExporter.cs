@@ -87,7 +87,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.AlliedForces
                 SetValue("Engine", "fuel flow", new BindingValue(_lastFlightData.fuelFlow));
                 SetValue("Engine", "rpm", new BindingValue(_lastFlightData.rpm));
                 SetValue("Engine", "ftit", new BindingValue(Ftit(_lastFlightData.ftit, _lastFlightData.rpm)));
-                SetValue("Landging Gear", "position", new BindingValue(_lastFlightData.gearPos != 0d));
+                SetValue("Landing Gear", "position", new BindingValue(_lastFlightData.gearPos != 0d));
                 SetValue("General", "speed brake position", new BindingValue(_lastFlightData.speedBrake));
                 SetValue("General", "speed brake indicator", new BindingValue(_lastFlightData.speedBrake > 0d));
                 SetValue("EPU", "fuel", new BindingValue(_lastFlightData.epuFuel));
@@ -180,7 +180,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.AlliedForces
             SetValue("Caution", "fuel oil hot indicator", new BindingValue(bits.HasFlag(LightBits2.FUEL_OIL_HOT)));
             SetValue("Caution", "anti skid indicator", new BindingValue(bits.HasFlag(LightBits2.ANTI_SKID)));
             SetValue("Misc", "tfs engaged indicator", new BindingValue(bits.HasFlag(LightBits2.TFR_ENGAGED)));
-            SetValue("Gear Handle", "handle indicator", new BindingValue(bits.HasFlag(LightBits2.GEARHANDLE)));
+            SetValue("Landing Gear", "handle indicator", new BindingValue(bits.HasFlag(LightBits2.GEARHANDLE)));
             SetValue("Right Eyebrow", "engine indicator", new BindingValue(bits.HasFlag(LightBits2.ENGINE)));
         }
 

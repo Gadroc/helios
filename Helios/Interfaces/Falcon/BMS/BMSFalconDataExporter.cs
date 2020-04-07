@@ -179,7 +179,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
                 SetValue("Engine", "fuel flow", new BindingValue(_lastFlightData.fuelFlow));
                 SetValue("Engine", "rpm", new BindingValue(_lastFlightData.rpm));
                 SetValue("Engine", "ftit", new BindingValue(_lastFlightData.ftit * 100));
-                SetValue("Landging Gear", "position", new BindingValue(_lastFlightData.gearPos != 0d));
+                SetValue("Landing Gear", "position", new BindingValue(_lastFlightData.gearPos != 0d));
                 SetValue("General", "speed brake position", new BindingValue(_lastFlightData.speedBrake));
                 SetValue("General", "speed brake indicator", new BindingValue(_lastFlightData.speedBrake > 0d));
                 SetValue("EPU", "fuel", new BindingValue(_lastFlightData.epuFuel));
@@ -275,59 +275,61 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Test Panel", "FLCS channel lamps", new BindingValue(bits.HasFlag(BMSLightBits.Flcs_ABCD)));
         }
 
-        protected void ProcessLightBits2(LightBits2 bits, BlinkBits blinkBits, int time)
+        protected void ProcessLightBits2(BMSLightBits2 bits, BlinkBits blinkBits, int time)
         {
-            bool rwrPower = bits.HasFlag(LightBits2.AuxPwr);
+            bool rwrPower = bits.HasFlag(BMSLightBits2.AuxPwr);
 
-            SetValue("Threat Warning Prime", "handoff indicator", new BindingValue(bits.HasFlag(LightBits2.HandOff)));
-            //SetValue("Threat Warning Prime", "launch indicator", new BindingValue(bits.HasFlag(LightBits2.Launch)));
-            //SetValue("Threat Warning Prime", "prioirty mode indicator", new BindingValue(bits.HasFlag(LightBits2.PriMode)));
-            SetValue("Threat Warning Prime", "open mode indicator", new BindingValue(bits.HasFlag(LightBits2.AuxPwr) && !bits.HasFlag(LightBits2.PriMode)));
-            SetValue("Threat Warning Prime", "naval indicator", new BindingValue(bits.HasFlag(LightBits2.Naval)));
-            //SetValue("Threat Warning Prime", "unknown mode indicator", new BindingValue(bits.HasFlag(LightBits2.Unk)));
-            SetValue("Threat Warning Prime", "target step indicator", new BindingValue(bits.HasFlag(LightBits2.TgtSep)));
-            //SetValue("Aux Threat Warning", "search indicator", new BindingValue(bits.HasFlag(LightBits2.AuxSrch)));
-            SetValue("Aux Threat Warning", "activity indicator", new BindingValue(bits.HasFlag(LightBits2.AuxAct)));
-            SetValue("Aux Threat Warning", "low altitude indicator", new BindingValue(bits.HasFlag(LightBits2.AuxLow)));
-            SetValue("Aux Threat Warning", "power indicator", new BindingValue(bits.HasFlag(LightBits2.AuxPwr)));
+            SetValue("Threat Warning Prime", "handoff indicator", new BindingValue(bits.HasFlag(BMSLightBits2.HandOff)));
+            //SetValue("Threat Warning Prime", "launch indicator", new BindingValue(bits.HasFlag(BMSLightBits2.Launch)));
+            //SetValue("Threat Warning Prime", "prioirty mode indicator", new BindingValue(bits.HasFlag(BMSLightBits2.PriMode)));
+            SetValue("Threat Warning Prime", "open mode indicator", new BindingValue(bits.HasFlag(BMSLightBits2.AuxPwr) && !bits.HasFlag(BMSLightBits2.PriMode)));
+            SetValue("Threat Warning Prime", "naval indicator", new BindingValue(bits.HasFlag(BMSLightBits2.Naval)));
+            //SetValue("Threat Warning Prime", "unknown mode indicator", new BindingValue(bits.HasFlag(BMSLightBits2.Unk)));
+            SetValue("Threat Warning Prime", "target step indicator", new BindingValue(bits.HasFlag(BMSLightBits2.TgtSep)));
+            //SetValue("Aux Threat Warning", "search indicator", new BindingValue(bits.HasFlag(BMSLightBits2.AuxSrch)));
+            SetValue("Aux Threat Warning", "activity indicator", new BindingValue(bits.HasFlag(BMSLightBits2.AuxAct)));
+            SetValue("Aux Threat Warning", "low altitude indicator", new BindingValue(bits.HasFlag(BMSLightBits2.AuxLow)));
+            SetValue("Aux Threat Warning", "power indicator", new BindingValue(bits.HasFlag(BMSLightBits2.AuxPwr)));
 
-            SetValue("CMDS", "Go", new BindingValue(bits.HasFlag(LightBits2.Go)));
-            SetValue("CMDS", "NoGo", new BindingValue(bits.HasFlag(LightBits2.NoGo)));
-            SetValue("CMDS", "Degr", new BindingValue(bits.HasFlag(LightBits2.Degr)));
-            SetValue("CMDS", "Rdy", new BindingValue(bits.HasFlag(LightBits2.Rdy)));
-            SetValue("CMDS", "ChaffLo", new BindingValue(bits.HasFlag(LightBits2.ChaffLo)));
-            SetValue("CMDS", "FlareLo", new BindingValue(bits.HasFlag(LightBits2.FlareLo)));
+            SetValue("CMDS", "Go", new BindingValue(bits.HasFlag(BMSLightBits2.Go)));
+            SetValue("CMDS", "NoGo", new BindingValue(bits.HasFlag(BMSLightBits2.NoGo)));
+            SetValue("CMDS", "Degr", new BindingValue(bits.HasFlag(BMSLightBits2.Degr)));
+            SetValue("CMDS", "Rdy", new BindingValue(bits.HasFlag(BMSLightBits2.Rdy)));
+            SetValue("CMDS", "ChaffLo", new BindingValue(bits.HasFlag(BMSLightBits2.ChaffLo)));
+            SetValue("CMDS", "FlareLo", new BindingValue(bits.HasFlag(BMSLightBits2.FlareLo)));
 
-            SetValue("ECM", "power indicator", new BindingValue(bits.HasFlag(LightBits2.EcmPwr)));
-            SetValue("ECM", "fail indicator", new BindingValue(bits.HasFlag(LightBits2.EcmFail)));
-            SetValue("Caution", "forward fuel low indicator", new BindingValue(bits.HasFlag(LightBits2.FwdFuelLow)));
-            SetValue("Caution", "aft fuel low indicator", new BindingValue(bits.HasFlag(LightBits2.AftFuelLow)));
-            SetValue("EPU", "on indicator", new BindingValue(bits.HasFlag(LightBits2.EPUOn)));
-            SetValue("JFS", "run indicator", new BindingValue(bits.HasFlag(LightBits2.JFSOn)));
-            SetValue("Caution", "second engine compressor indicator", new BindingValue(bits.HasFlag(LightBits2.SEC)));
-            SetValue("Caution", "oxygen low indicator", new BindingValue(bits.HasFlag(LightBits2.OXY_LOW)));
-            //SetValue("Caution", "probe heat indicator", new BindingValue(bits.HasFlag(LightBits2.PROBEHEAT)));
-            SetValue("Caution", "seat arm indicator", new BindingValue(bits.HasFlag(LightBits2.SEAT_ARM)));
-            SetValue("Caution", "backup fuel control indicator", new BindingValue(bits.HasFlag(LightBits2.BUC)));
-            SetValue("Caution", "fuel oil hot indicator", new BindingValue(bits.HasFlag(LightBits2.FUEL_OIL_HOT)));
-            SetValue("Caution", "anti skid indicator", new BindingValue(bits.HasFlag(LightBits2.ANTI_SKID)));
-            SetValue("Misc", "tfs engaged indicator", new BindingValue(bits.HasFlag(LightBits2.TFR_ENGAGED)));
-            SetValue("Gear Handle", "handle indicator", new BindingValue(bits.HasFlag(LightBits2.GEARHANDLE)));
-            SetValue("Right Eyebrow", "engine indicator", new BindingValue(bits.HasFlag(LightBits2.ENGINE)));
+            SetValue("ECM", "power indicator", new BindingValue(bits.HasFlag(BMSLightBits2.EcmPwr)));
+            SetValue("ECM", "fail indicator", new BindingValue(bits.HasFlag(BMSLightBits2.EcmFail)));
+            SetValue("Caution", "forward fuel low indicator", new BindingValue(bits.HasFlag(BMSLightBits2.FwdFuelLow)));
+            SetValue("Caution", "aft fuel low indicator", new BindingValue(bits.HasFlag(BMSLightBits2.AftFuelLow)));
+            SetValue("EPU", "on indicator", new BindingValue(bits.HasFlag(BMSLightBits2.EPUOn)));
+            SetValue("JFS", "run indicator", new BindingValue(bits.HasFlag(BMSLightBits2.JFSOn)));
+            SetValue("Caution", "second engine compressor indicator", new BindingValue(bits.HasFlag(BMSLightBits2.SEC)));
+            SetValue("Caution", "oxygen low indicator", new BindingValue(bits.HasFlag(BMSLightBits2.OXY_LOW)));
+            //SetValue("Caution", "probe heat indicator", new BindingValue(bits.HasFlag(BMSLightBits2.PROBEHEAT)));
+            SetValue("Caution", "seat arm indicator", new BindingValue(bits.HasFlag(BMSLightBits2.SEAT_ARM)));
+            SetValue("Caution", "backup fuel control indicator", new BindingValue(bits.HasFlag(BMSLightBits2.BUC)));
+            SetValue("Caution", "fuel oil hot indicator", new BindingValue(bits.HasFlag(BMSLightBits2.FUEL_OIL_HOT)));
+            SetValue("Caution", "anti skid indicator", new BindingValue(bits.HasFlag(BMSLightBits2.ANTI_SKID)));
+            SetValue("Misc", "tfs engaged indicator", new BindingValue(bits.HasFlag(BMSLightBits2.TFR_ENGAGED)));
 
-            UpdateBlinkingLightState(bits.HasFlag(LightBits2.PROBEHEAT), blinkBits.HasFlag(BlinkBits.PROBEHEAT), ref _probeheatLastTick, ref _probeheatOnState);
+            SetValue("Landing Gear", "handle indicator", new BindingValue(bits.HasFlag(BMSLightBits2.GEARHANDLE)));
+
+            SetValue("Right Eyebrow", "engine indicator", new BindingValue(bits.HasFlag(BMSLightBits2.ENGINE)));
+
+            UpdateBlinkingLightState(bits.HasFlag(BMSLightBits2.PROBEHEAT), blinkBits.HasFlag(BlinkBits.PROBEHEAT), ref _probeheatLastTick, ref _probeheatOnState);
             SetValue("Caution", "probe heat indicator", new BindingValue(_probeheatOnState));
 
-            UpdateBlinkingLightState(bits.HasFlag(LightBits2.AuxSrch), blinkBits.HasFlag(BlinkBits.AuxSrch), ref _auxsrchLastTick, ref _auxsrchOnState);
+            UpdateBlinkingLightState(bits.HasFlag(BMSLightBits2.AuxSrch), blinkBits.HasFlag(BlinkBits.AuxSrch), ref _auxsrchLastTick, ref _auxsrchOnState);
             SetValue("Aux Threat Warning", "search indicator", new BindingValue(_auxsrchOnState));
 
-            UpdateBlinkingLightState(bits.HasFlag(LightBits2.Launch), blinkBits.HasFlag(BlinkBits.Launch), ref _launchLastTick, ref _launchOnState);
+            UpdateBlinkingLightState(bits.HasFlag(BMSLightBits2.Launch), blinkBits.HasFlag(BlinkBits.Launch), ref _launchLastTick, ref _launchOnState);
             SetValue("Threat Warning Prime", "launch indicator", new BindingValue(_launchOnState));
 
-            UpdateBlinkingLightState(bits.HasFlag(LightBits2.PriMode), blinkBits.HasFlag(BlinkBits.PriMode), ref _primodeLastTick, ref _primodeOnState);
+            UpdateBlinkingLightState(bits.HasFlag(BMSLightBits2.PriMode), blinkBits.HasFlag(BlinkBits.PriMode), ref _primodeLastTick, ref _primodeOnState);
             SetValue("Threat Warning Prime", "prioirty mode indicator", new BindingValue(_primodeOnState));
 
-            UpdateBlinkingLightState(bits.HasFlag(LightBits2.Unk), blinkBits.HasFlag(BlinkBits.Unk), ref _unkLastTick, ref _unkOnState);
+            UpdateBlinkingLightState(bits.HasFlag(BMSLightBits2.Unk), blinkBits.HasFlag(BlinkBits.Unk), ref _unkLastTick, ref _unkOnState);
             SetValue("Threat Warning Prime", "unknown mode indicator", new BindingValue(_unkOnState));
         }
 
