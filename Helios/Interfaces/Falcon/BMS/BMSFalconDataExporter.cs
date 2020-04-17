@@ -313,7 +313,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             SetValue("Caution", "anti skid indicator", new BindingValue(bits.HasFlag(BMSLightBits2.ANTI_SKID)));
             SetValue("Misc", "tfs engaged indicator", new BindingValue(bits.HasFlag(BMSLightBits2.TFR_ENGAGED)));
 
-            SetValue("Landing Gear", "handle indicator", new BindingValue(bits.HasFlag(BMSLightBits2.GEARHANDLE)));
+            SetValue("Gear Handle", "handle indicator", new BindingValue(bits.HasFlag(BMSLightBits2.GEARHANDLE)));  // TODO This should be under device Landing Gear
 
             SetValue("Right Eyebrow", "engine indicator", new BindingValue(bits.HasFlag(BMSLightBits2.ENGINE)));
 

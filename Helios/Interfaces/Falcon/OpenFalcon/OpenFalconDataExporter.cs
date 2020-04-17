@@ -174,7 +174,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.OpenFalcon
             SetValue("Caution", "fuel oil hot indicator", new BindingValue(bits.HasFlag(LightBits2.FUEL_OIL_HOT)));
             SetValue("Caution", "anti skid indicator", new BindingValue(bits.HasFlag(LightBits2.ANTI_SKID)));
             SetValue("Misc", "tfs engaged indicator", new BindingValue(bits.HasFlag(LightBits2.TFR_ENGAGED)));
-            SetValue("Landing Gear", "handle indicator", new BindingValue(bits.HasFlag(LightBits2.GEARHANDLE)));
+            SetValue("Gear Handle", "handle indicator", new BindingValue(bits.HasFlag(LightBits2.GEARHANDLE))); // TODO This should be under device Landing Gear
             SetValue("Right Eyebrow", "engine indicator", new BindingValue(bits.HasFlag(LightBits2.ENGINE)));
         }
 
