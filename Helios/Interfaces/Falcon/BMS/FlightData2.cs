@@ -110,7 +110,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         public float aauz; // Ownship barometric altitude given by AAU (depends on calibration)
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)TacanSources.NUMBER_OF_SOURCES)]
         public TacanBits[] tacanInfo;      // Tacan band/mode settings for UFC and AUX COMM
-        //My mods
+
         //VERSION 2/7
         public int AltCalReading;  // barometric altitude calibration (depends on CalType)
         public AltBits altBits;       // various altimeter bits, see AltBits enum for details
