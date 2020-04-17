@@ -116,19 +116,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             AddValue("POWER", "standby generator", "standby generator is online", "True if online", BindingValueUnits.Boolean);
             AddValue("POWER", "Jetfuel starter", "JFS is running, can be used for magswitch", "True if running", BindingValueUnits.Boolean);
 
-            //BlinkBits
-            //AddValue("Blink", "Outer marker", "slow flashing for outer marker", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "Middle marker", "fast flashing for middle marker", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "probeheat", "probeheat system is tested", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "aux search", "search function in NOT activated and a search radar is painting ownship", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "launch", "missile is fired at ownship", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "primary mode", "priority mode is enabled but more than 5 threat emitters are detected", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "unknown", "unknown is not active but EWS detects unknown radar", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "elec fault", "non-resetting fault", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "oxy brow", "monitor fault during Obogs", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "epu on", "abnormal EPU operation", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "JFS on_slow", "slow blinking: non-critical failure", "True if blinking", BindingValueUnits.Boolean);
-            //AddValue("Blink", "JFS on_fast", "fast blinking: critical failure", "True if blinking", BindingValueUnits.Boolean);
         }
 
         internal override void InitData()
