@@ -104,8 +104,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             AddValue("Engine", "fuel flow 2", "Current fuel flow to the engine 2.", "", BindingValueUnits.PoundsPerHour);
 
             //AltBits
-            AddValue("AltBits", "altimeter calibration type", "", "True if hg otherwise hpa.", BindingValueUnits.Boolean);
-            AddValue("AltBits", "altimeter pneu flag", "", "True if visible", BindingValueUnits.Boolean);
+            AddValue("Altimeter", "altimeter calibration type", "", "True if hg otherwise hpa.", BindingValueUnits.Boolean);
+            AddValue("Altimeter", "altimeter pneu flag", "", "True if visible", BindingValueUnits.Boolean);
 
             //PowerBits
             AddValue("POWER", "bus power battery", "at least the battery bus is powered", "True if powered", BindingValueUnits.Boolean);
@@ -372,8 +372,8 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
 
         protected void ProcessAltBits(AltBits bits)
         {
-            SetValue("AltBits", "altimeter calibration type", new BindingValue(bits.HasFlag(AltBits.CalType)));
-            SetValue("AltBits", "altimeter pneu flag", new BindingValue(bits.HasFlag(AltBits.PneuFlag)));
+            SetValue("Altimeter", "altimeter calibration type", new BindingValue(bits.HasFlag(AltBits.CalType)));
+            SetValue("Altimeter", "altimeter pneu flag", new BindingValue(bits.HasFlag(AltBits.PneuFlag)));
         }
 
         protected void ProcessPowerBits(PowerBits bits)
