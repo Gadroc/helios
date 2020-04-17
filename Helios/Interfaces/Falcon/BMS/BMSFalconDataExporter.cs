@@ -199,7 +199,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
 
                 ProcessAltBits(_lastFlightData2.altBits);
                 ProcessPowerBits(_lastFlightData2.powerBits);
-                //ProcessBlinkBits(_lastFlightData2.blinkBits);
 
                 SetValue("CMDS", "CMDS Mode", new BindingValue((int)_lastFlightData2.cmdsMode));
                 SetValue("UHF", "Backup channel", new BindingValue(_lastFlightData2.BupUhfPreset));
