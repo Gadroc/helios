@@ -214,7 +214,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
                 SetValue("Engine", "ftit2", new BindingValue(_lastFlightData2.ftit2 * 100));
                 SetValue("Engine", "oil pressure 2", new BindingValue(_lastFlightData2.oilPressure2));
                 SetValue("Engine", "fuel flow 2", new BindingValue(_lastFlightData2.fuelFlow2));
-                SetValue("Altimeter", "barometric pressure", new BindingValue(_lastFlightData2.AltCalReading));
+                SetValue("Altimeter", "barimetric pressure", new BindingValue(_lastFlightData2.AltCalReading));
 
                 ProcessAltBits(_lastFlightData2.altBits);
                 ProcessPowerBits(_lastFlightData2.powerBits);
