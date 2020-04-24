@@ -78,8 +78,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         private const string MDI_LEFT = "35";                   // Left Multipurpose Display Indicator (DDI) - IP-1556/A
         private const string MDI_RIGHT = "36";                  // Right Multipurpose Display Indicator (DDI) - IP-1556/A
         private const string AMPCD = "37";                      // Advanced Multipurpose Color Display - ???
-        //  Stick and throttle grips
-        //private const string HOTASA = "38";                     // Stick and throttle grips //  Is this a duplicate of 13
         //  Radio & Comm
         private const string UHF1 = "38";                       // VHF/UHF Receiver-Transmitter - ARC 210
         private const string UHF2 = "39";                       // VHF/UHF Receiver-Transmitter - ARC 210 DCS
@@ -96,17 +94,28 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
         private const string SIDEWINDER_INTERFACE = "47";
         private const string MAVERICK_INTERFACE = "48";
         //  RNAV
-        private const string ADF = "49";                        //  Direction Finder OA-8697/ARD
+        private const string ADF = "49";                        // Direction Finder OA-8697/ARD
         private const string ANTENNA_SELECTOR = "50";
         private const string MIDS = "51";                       // MIDS-LVT (implements Link 16 and TACAN)
         private const string ILS = "52";                        // AN/ARA-63D, airborne segment of US NAVY ACLS, and US Marines MRAALS
         //  TEWS
         private const string RWR = "53";                        // AN/ALR-67(V)
-        private const string CMDS = "54";                       //  Countermeasures dispenser System
+        private const string CMDS = "54";                       // Countermeasures dispenser System
 
         private const string MACROS = "55";
         private const string IFF = "56";                        // IFF, AN/APX-111(V) CIT
+        //Helmet
         private const string NVG = "57";
+        private const string HMD_INTERFACE = "58";
+        // MIDS Parts
+        private const string MIDS_RT = "59";
+        private const string CLC = "60";                        // Command Launch Computer
+        private const string HARM_INTERFACE = "61";
+        private const string TGP_INTERFACE = "62";
+        private const string WALLEYE_INTERFACE = "63";
+        private const string DATALINK_INTERFACE = "64";
+        private const string HMD = "65";
+
         #endregion
 
         public FA18CInterface()
@@ -476,7 +485,6 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.FA18C
             AddFunction(new Switch(this, MDI_LEFT, "312", new SwitchPosition[] { new SwitchPosition("1", "+ve", "3004", "3004", "0"), new SwitchPosition("0", "Off", "3005"), new SwitchPosition("-1", "-ve", "3005", "3005", "0") }, "AMPCD", "Heading Set Switch", "%1d")); // elements["pnt_312"]     = springloaded_3_pos_tumb2(_("Heading Set Switch"),devices.MDI_LEFT, MDI_commands.MDI_Left_HDG_Negative, MDI_commands.MDI_Left_HDG_Positive, 312)
             AddFunction(new Switch(this, MDI_LEFT, "313", new SwitchPosition[] { new SwitchPosition("1", "+ve", "3006", "3006", "0"), new SwitchPosition("0", "Off", "3007"), new SwitchPosition("-1", "-ve", "3007", "3007", "0") }, "AMPCD", "Course Set Switch", "%1d"));  // elements["pnt_313"]= springloaded_3_pos_tumb(_("Course Set Switch"),devices.MDI_LEFT, MDI_commands.MDI_Left_CRS_Negative, MDI_commands.MDI_Left_CRS_Positive, 313)
             #endregion
-
             #region  Integrated Fuel/Engine Indicator (IFEI)
             AddFunction(new PushButton(this, IFEI, "3001", "168", "IFEI", "IFEI Mode Button", "1", "0", "%1d"));    // elements["pnt_168"] = short_way_button(_("IFEI Mode Button"),           devices.IFEI, IFEI_commands.IFEI_BTN_MODE,          168)
             AddFunction(new PushButton(this, IFEI, "3002", "169", "IFEI", "IFEI QTY Button", "1", "0", "%1d"));    // elements["pnt_169"] = short_way_button(_("IFEI QTY Button"),            devices.IFEI, IFEI_commands.IFEI_BTN_QTY,           169)

@@ -625,6 +625,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /s /y "$(TargetDir)Templates\*.*" "$(SolutionDir)$(OutDir)Templates\Base\$(TargetName)\"</PostBuildEvent>
+    <PostBuildEvent>echo Post-build for target name:   $(TargetName)
+xcopy /s /y "$(TargetDir)Templates\*.*" "$(SolutionDir)$(OutDir)Templates\Base\$(TargetName)\"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -26,6 +26,9 @@ Review and change ContributionBlock.text in About.xaml.cs in both Helios and PE
 Review and make necessary changes to SetProjectReleaseMessage() in CC's MainWindow.xaml.cs
 Update the "Helios.Read.Me.txt" file in the Helios project's root folder.
 Update the "ChangeLog.md" file in the Helios project's root folder.
+Check for NuGet updates (don't update commandline.dll)
+Ensure that Lua53.dll is being pulled into the installer.  It should get copied into bin\release\ automatically.
+
 
 Commit the Dev branch
 
@@ -91,6 +94,30 @@ The XML file is also stored more permanently in the HeliosCheckRelease repo http
 is not actually the source which is checked in, but the asset HeliosCurrentVersionV2.xml which is in the "CheckRelease" tag GitHub release.  Longer term,
 this is the only 
 
+## Checking the Program File Contents
+
+This Powershell script Pre-shipInstallationCheck.ps1 can be used to save directory information for comparison.  In order to run this, you need to issues
+```Set-ExecutionPolicy Unrestricted ```
+from an admin Powershell 
+
+## GitHub Release
+Create a new GitHub release with a tag like "1.4.2020.0315".  If you need to delete this tag, then use the following.
+
+The Zipped version of the installer files should be added to the release.  Possibly also add the installation footprint files which were created by Pre-shipInstallationCheck.ps1
+
+Use FCIV.exe to compute the MD5 of the zip file.
+
+Deleting Tags:
+```
+  git tag -d CurrentRelease
+```
+then
+```
+  git push --delete origin CurrentRelease
+```
+
+
+
 ## Information for the Download Site 
 
 https://www.digitalcombatsimulator.com/en/files/3302014/
@@ -130,3 +157,13 @@ Update my EDForums Signature
 
 Create a new entry in the ChangeLog.md file so that new features can be added into this file.
 Clean up and GH Issues that have been resolved in the shipped code. 
+
+
+## General Notes
+Debugging Installer problems can be helped by turning on logging which is done using a registry key
+https://support.microsoft.com/en-gb/help/223300/how-to-enable-windows-installer-logging
+``` 
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer]
+"Logging"="voicewarmupx"
+```

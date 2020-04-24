@@ -62,7 +62,5 @@
         </Label>
         <HeliosSdk:HeliosTextBox Grid.Column="1" Grid.Row="4" FontSize="10" Margin="2" Text="{Binding Control.StepValue}" />
 
-        
-       
     </Grid>
 </HeliosSdk:HeliosPropertyEditor>

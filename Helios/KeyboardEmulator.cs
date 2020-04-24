@@ -121,6 +121,7 @@ namespace GadrocsWorkshop.Helios
         static KeyboardEmulator()
         {
             _keyboardThread = new KeyboardThread(30);
+
             _defaultLayout = NativeMethods.GetKeyboardLayout(0);
             _hkl = _defaultLayout;
         }
@@ -175,7 +176,6 @@ namespace GadrocsWorkshop.Helios
                 _keyboardThread.KeyDelay = value;
             }
         }
-
         public static bool ControlCenterSession
         {
             get

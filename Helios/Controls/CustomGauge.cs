@@ -36,7 +36,7 @@ namespace GadrocsWorkshop.Helios.Controls
         private double _stepValue = 0.1d;
         private double _minValue = 0d;
         private double _maxValue = 1d;
-        private string _bgplateImage = "{Helios}/Gauges/KA-50/RadarAltimeter/radar_alt_faceplate.xaml";
+        private string _bgplateImage = "{Helios}/Gauges/KA-50/RadarAltimeter/radar_alt_faceplate.xaml";
         private double _initialRotation = 0d;
         private double _rotationTravel = 360d;
 

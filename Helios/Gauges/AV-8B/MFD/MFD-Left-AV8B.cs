@@ -20,8 +20,6 @@
 /// </summary>
 /// 
 
-
-
 namespace GadrocsWorkshop.Helios.Gauges.AV8B
 { 
     using GadrocsWorkshop.Helios.Controls;

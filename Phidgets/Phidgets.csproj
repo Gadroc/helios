@@ -115,14 +115,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Helios.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Helios\Helios.csproj">
       <Project>{e5abe3f5-46ec-46d1-9330-d42311471a93}</Project>
       <Name>Helios</Name>
-      <Private>False</Private>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Helios.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
