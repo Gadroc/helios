@@ -52,7 +52,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon
             AddValue("Engine", "fuel flow", "Current fuel flow to the engine.", "", BindingValueUnits.PoundsPerHour);
             AddValue("Engine", "rpm", "Current RPM of the engine.", "Percent (0-103)", BindingValueUnits.RPMPercent);
             AddValue("Engine", "ftit", "Forward turbine intake temperature", "", BindingValueUnits.Celsius);
-            AddValue("Landging Gear", "position", "Landing gear current position.", "True for down, false for up", BindingValueUnits.Boolean);
+            AddValue("Landing Gear", "position", "Landing gear current position.", "True for down, false for up", BindingValueUnits.Boolean);
             AddValue("General", "speed brake position", "Speed brake position", "0(Fully Closed) to 1(Fully Open)", BindingValueUnits.Degrees);
             AddValue("General", "speed brake indicator", "Speed brake open indicator.", "True if the speed brake is open at all.", BindingValueUnits.Boolean);
             AddValue("EPU", "fuel", "Remaining EPU fuel.", "Percent (0-100)", BindingValueUnits.Numeric);
@@ -141,7 +141,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon
             AddValue("Caution", "fuel oil hot indicator", "Caution panel oil hot indicator.", "True if lit.", BindingValueUnits.Boolean);
             AddValue("Caution", "anti skid indicator", "Caution panel anti skid indicator.", "True if lit.", BindingValueUnits.Boolean);
             AddValue("Misc", "tfs engaged indicator", "Misc panel Terrain Following(TFS) engaged indicator.", "True if lit.", BindingValueUnits.Boolean);
-            AddValue("Landing Gear", "handle indicator", "Landing gear handle indicator light.", "True if lit.", BindingValueUnits.Boolean);
+            AddValue("Gear Handle", "handle indicator", "Landing gear handle indicator light.", "True if lit.", BindingValueUnits.Boolean);
             AddValue("Right Eyebrow", "engine indicator", "Right eyebrow engine indicator.", "True if lit.", BindingValueUnits.Boolean);
 
             // Lightbits3

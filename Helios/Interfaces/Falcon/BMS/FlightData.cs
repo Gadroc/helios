@@ -57,7 +57,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         public float headYaw;      // Head yaw offset from design eye (radians)
 
         // new lights
-        public LightBits2 lightBits2;   // Cockpit Indicator Lights, one bit per bulb. See enum
+        public BMSLightBits2 lightBits2;   // Cockpit Indicator Lights, one bit per bulb. See enum
         public BMSLightBits3 lightBits3;   // Cockpit Indicator Lights, one bit per bulb. See enum
 
         // chaff/flare
@@ -100,12 +100,26 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
         public HsiBits hsiBits;      // HSI flags
 
         //DED Lines
-        public TextLines DED;
-        public TextLines DEDInverse;
+        //public TextLines DED;
+        //public TextLines DEDInverse;
 
         //PFL Lines
-        public TextLines PFL;
-        public TextLines PFLInverse;
+        //public TextLines PFL;
+        //public TextLines PFLInverse;
+
+        //MOD START: Changed in order to simulated grid chars display
+        //DED Lines
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 26 * 5)]
+        public byte[] DED;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 26 * 5)]
+        public byte[] DEDInverse;
+
+        //PFL Lines
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 26 * 5)]
+        public byte[] PFL;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 26 * 5)]
+        public byte[] PFLInverse;
+        //MOD END
 
         //TacanChannel
         public int UFCTChan;
