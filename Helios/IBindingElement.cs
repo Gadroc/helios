@@ -24,6 +24,8 @@ namespace GadrocsWorkshop.Helios
 
         /// <summary>
         /// Returns the device which this will be listed under.
+        /// This value will never change after a component is released, because it is
+        /// part of the IDs used for the binding.
         /// </summary>
         string Device { get; set; }
 
@@ -41,5 +43,15 @@ namespace GadrocsWorkshop.Helios
         /// Returns units for the values produced and accepted for this binding element.
         /// </summary>
         BindingValueUnit Unit { get; }
+    }
+
+    public interface IBindingElement2: IBindingElement
+    {
+        /// <summary>
+        /// Returns the device name that this item should be displayed under in the UI,
+        /// which is usually the same as Device, except when correcting mistakes after release.
+        /// This value must never be used for generation of IDs that could end up in XML.
+        /// </summary>
+        string DeviceInUserInterface { get; }
     }
 }

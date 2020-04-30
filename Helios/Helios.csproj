@@ -146,6 +146,7 @@
       <DependentUpon>FA18CInterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Falcon\BMS\BMSLightBits2.cs" />
+    <Compile Include="Interfaces\Falcon\HeliosValueWithCorrectedDeviceName.cs" />
     <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />

@@ -524,9 +524,14 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.ViewModel
             {
                 foreach (IBindingAction action in e.OldItems)
                 {
-                    if (action.Device.Length > 0)
+                    string deviceName = action.Device;
+                    if (action is IBindingElement2 element2)
                     {
-                        ProfileExplorerTreeItem folder = GetFolder(action.Device);
+                        deviceName = element2.DeviceInUserInterface;
+                    }
+                    if (deviceName.Length > 0)
+                    {
+                        ProfileExplorerTreeItem folder = GetFolder(deviceName);
                         folder.Children.Remove(folder.GetChildObject(action));
                         if (folder.Children.Count == 0)
                         {
@@ -537,7 +542,6 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.ViewModel
                     {
                         Children.Remove(GetChildObject(action));
                     }
-
                 }
             }
 
@@ -556,14 +560,19 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.ViewModel
             ProfileExplorerTreeItem triggerItem = new ProfileExplorerTreeItem(trigger, this, includeTypes);
             if (triggerItem.HasChildren || includeTypes.HasFlag(ProfileExplorerTreeItemType.Trigger))
             {
-                if (trigger.Device.Length > 0)
+                string deviceName = trigger.Device;
+                if (trigger is IBindingElement2 element2)
                 {
-                    if (!HasFolder(trigger.Device))
+                    deviceName = element2.DeviceInUserInterface;
+                }
+                if (deviceName.Length > 0)
+                {
+                    if (!HasFolder(deviceName))
                     {
-                        Children.Add(new ProfileExplorerTreeItem(trigger.Device, "", this, includeTypes));
+                        Children.Add(new ProfileExplorerTreeItem(deviceName, "", this, includeTypes));
                     }
 
-                    ProfileExplorerTreeItem deviceItem = GetFolder(trigger.Device);
+                    ProfileExplorerTreeItem deviceItem = GetFolder(deviceName);
                     triggerItem.Parent = deviceItem;
                     deviceItem.Children.Add(triggerItem);
                 }
