@@ -52,7 +52,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon
             AddValue("Engine", "fuel flow", "Current fuel flow to the engine.", "", BindingValueUnits.PoundsPerHour);
             AddValue("Engine", "rpm", "Current RPM of the engine.", "Percent (0-103)", BindingValueUnits.RPMPercent);
             AddValue("Engine", "ftit", "Forward turbine intake temperature", "", BindingValueUnits.Celsius);
-            AddValue("Landing Gear", "position", "Landing gear current position.", "True for down, false for up", BindingValueUnits.Boolean);
+            AddValue("Landging Gear", "position", "Landing gear current position.", "True for down, false for up", BindingValueUnits.Boolean, "Landing Gear");
             AddValue("General", "speed brake position", "Speed brake position", "0(Fully Closed) to 1(Fully Open)", BindingValueUnits.Degrees);
             AddValue("General", "speed brake indicator", "Speed brake open indicator.", "True if the speed brake is open at all.", BindingValueUnits.Boolean);
             AddValue("EPU", "fuel", "Remaining EPU fuel.", "Percent (0-100)", BindingValueUnits.Numeric);
@@ -219,9 +219,17 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon
             }
         }
 
-        protected HeliosValue AddValue(string device, string name, string description, string valueDescription, BindingValueUnit unit)
+        protected HeliosValue AddValue(string device, string name, string description, string valueDescription, BindingValueUnit unit, string correctedDeviceName = null)
         {
-            HeliosValue value = new HeliosValue(FalconInterface, BindingValue.Empty, device, name, description, valueDescription, unit);
+            HeliosValue value;
+            if (correctedDeviceName == null)
+            {
+                value = new HeliosValue(FalconInterface, BindingValue.Empty, device, name, description, valueDescription, unit);
+            }
+            else
+            {
+                value = new HeliosValueWithCorrectedDeviceName(FalconInterface, BindingValue.Empty, device, name, description, valueDescription, unit, correctedDeviceName);
+            }
             FalconInterface.Triggers.Add(value);
             FalconInterface.Values.Add(value);
             _values.Add(device + "." + name, value);
