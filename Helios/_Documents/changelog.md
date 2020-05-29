@@ -1,5 +1,18 @@
 ## Full change log
 
+### 1.4.2020.0529 Release
+----------------------------
+* BMS fixes and updates 
+	* Merge of a more complete Falcon BMS flightdata structure and supporting code provided by a fork from WillianG83
+	* Fix for nozzle2 position shows incorrect value #211
+	* Fix for rpm2, ftit2 shows incorrect values #210
+	* Fix for altimeter calibration flags #208
+	* Fix for TACAN data shows incorrect values #207
+	* Fix for Landing gear handle light #141
+	* Fix for RWR incorectly positioning contacts in the wrong threat ring #223
+	* Added fuel aft, fuel fwd, and fuel total values
+* Added F-16 Hydraulic Pressure Gauge
+
 ### 1.4.2020.0315 Release
 ----------------------------
 * Fix for some post installation file level strangeness.  #204
