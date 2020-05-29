@@ -103,6 +103,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
             AddValue("Time", "Time", "Current tine in seconds", "(max 60 * 60 * 24)", BindingValueUnits.Numeric);
             AddValue("Engine", "fuel flow 2", "Current fuel flow to the engine 2.", "", BindingValueUnits.PoundsPerHour);
 
+            AddValue("Fuel", "fwd fuel", "Amount of fuel in the fwd tanks", "", BindingValueUnits.Pounds);
+            AddValue("Fuel", "aft fuel", "Amount of fuel in the aft tanks", "", BindingValueUnits.Pounds);
+            AddValue("Fuel", "total fuel", "Amount of total fuel", "", BindingValueUnits.Pounds);
+
             //AltBits
             AddValue("Altimeter", "altimeter calibration type", "", "True if hg otherwise hpa.", BindingValueUnits.Boolean);
             AddValue("Altimeter", "altimeter pneu flag", "", "True if visible", BindingValueUnits.Boolean);
@@ -155,8 +159,13 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.BMS
 
                 SetValue("General", "Gs", new BindingValue(_lastFlightData.gs));
                 SetValue("Engine", "nozzle position", new BindingValue(_lastFlightData.nozzlePos * 100));
+
                 SetValue("Fuel", "internal fuel", new BindingValue(_lastFlightData.internalFuel));
                 SetValue("Fuel", "external fuel", new BindingValue(_lastFlightData.externalFuel));
+                SetValue("Fuel", "fwd fuel", new BindingValue(_lastFlightData.fwd));
+                SetValue("Fuel", "aft fuel", new BindingValue(_lastFlightData.aft));
+                SetValue("Fuel", "total fuel", new BindingValue(_lastFlightData.total));
+
                 SetValue("Engine", "fuel flow", new BindingValue(_lastFlightData.fuelFlow));
                 SetValue("Engine", "rpm", new BindingValue(_lastFlightData.rpm));
                 SetValue("Engine", "ftit", new BindingValue(_lastFlightData.ftit * 100));
