@@ -291,6 +291,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C943713F24B34CA38263E6AEEE9AFD24"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CB3772881E5840A98CB09460F7421DB3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1286,6 +1292,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C943713F24B34CA38263E6AEEE9AFD24"
+            {
+            "SourcePath" = "8:Release\\Helios 1.4.2020.0503 Download from GitHub.url"
+            "TargetName" = "8:Helios 1.4.2020.0503 Download from GitHub.url"
+            "Tag" = "8:"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB3772881E5840A98CB09460F7421DB3"
             {
             "SourcePath" = "8:..\\bin\\Release\\lua53.dll"
@@ -1353,6 +1379,11 @@
             "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2020.530, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
+                    "_DE2E358AC1B539A5DE4E38F0CC0E49B6"
+                    {
+                    "Name" = "8:Helios.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Helios.dll"
             "TargetName" = "8:"
@@ -1665,7 +1696,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Helios"
         "ProductCode" = "8:{421509D7-A828-4190-8C5E-8E1D34BAA66F}"
-        "PackageCode" = "8:{D7A344C8-4CE9-49AF-A185-0776B43CB067}"
+        "PackageCode" = "8:{F040E0B3-5406-4248-B60D-C9F3BB6250CE}"
         "UpgradeCode" = "8:{589D8667-3ED9-478B-8F67-A56E4FADBC63}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
