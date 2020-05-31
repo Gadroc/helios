@@ -105,7 +105,8 @@ Create a new GitHub release with a tag like "1.4.2020.0315".  If you need to del
 
 The Zipped version of the installer files should be added to the release.  Possibly also add the installation footprint files which were created by Pre-shipInstallationCheck.ps1
 
-Use FCIV.exe to compute the MD5 of the zip file.
+Use FCIV.exe to compute the MD5 & SHA1 of the zip file.
+eg fciv >"E:\Users\bluefinbima\Source\Repos\BlueFinBima\helios\Helios Installer\Release\Helios 1.4.2020.0530.zip.checksum.txt" -add "E:\Users\bluefinbima\Source\Repos\BlueFinBima\helios\Helios Installer\Release\Helios 1.4.2020.0530.zip" -both
 
 Deleting Tags:
 ```
@@ -116,7 +117,10 @@ then
   git push --delete origin CurrentRelease
 ```
 
+## Create the windows shortcut for downloading to Github.  
 
+The shortcut is in Helios Installer/Release/Helios%201.4.2020.0503%20Download%20from%20GitHub.url
+This should be altered to the download link on Github and it is this file that we put up on DCS User Files site.
 
 ## Information for the Download Site 
 
