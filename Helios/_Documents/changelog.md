@@ -1,7 +1,8 @@
 ## Full change log
 
-### 1.4.2020.0529 Release
+### 1.4.2020.0530 Release
 ----------------------------
+#### Great work in this release for BMS carried out primarily by wheelchock, on the corrections and improvements for BMS users.  This incorporated work from WillianG83.  Thanks also to those who tested.
 * BMS fixes and updates 
 	* Merge of a more complete Falcon BMS flightdata structure and supporting code provided by a fork from WillianG83
 	* Fix for nozzle2 position shows incorrect value #211
@@ -12,6 +13,7 @@
 	* Fix for RWR incorectly positioning contacts in the wrong threat ring #223
 	* Added fuel aft, fuel fwd, and fuel total values
 * Added F-16 Hydraulic Pressure Gauge
+* IRIS built to allow x86 installation, and minor changes for network error handling
 
 ### 1.4.2020.0315 Release
 ----------------------------

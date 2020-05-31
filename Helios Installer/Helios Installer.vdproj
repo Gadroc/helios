@@ -21,51 +21,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_08A8CE6856A173C96A70F80100AED9E5"
-        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_08A8CE6856A173C96A70F80100AED9E5"
-        "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_08A8CE6856A173C96A70F80100AED9E5"
-        "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_08A8CE6856A173C96A70F80100AED9E5"
-        "OwnerKey" = "8:_531AD437E2DF44DC8E98C94F2EEEBB9F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_161114B3210C9125BCADDBB596A52A7A"
-        "OwnerKey" = "8:_08A8CE6856A173C96A70F80100AED9E5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_161114B3210C9125BCADDBB596A52A7A"
-        "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_161114B3210C9125BCADDBB596A52A7A"
-        "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_1FB50865C6EB4D3EAF5A6197E72FAEBF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -74,6 +29,30 @@
         {
         "MsmKey" = "8:_25D03799FFC54E17A4D2DC75D13D8177"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_29F6005D9412AD6742A02CE06C9D27EA"
+        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_29F6005D9412AD6742A02CE06C9D27EA"
+        "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_29F6005D9412AD6742A02CE06C9D27EA"
+        "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_29F6005D9412AD6742A02CE06C9D27EA"
+        "OwnerKey" = "8:_531AD437E2DF44DC8E98C94F2EEEBB9F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -115,7 +94,6 @@
         "Entry"
         {
         "MsmKey" = "8:_31E026CE4D511148C375D73ABB8FFE1F"
-
         "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -127,7 +105,6 @@
         }
         "Entry"
         {
-
         "MsmKey" = "8:_3E517CFAB0B22FAEB933CC50A9D2B15B"
         "OwnerKey" = "8:_531AD437E2DF44DC8E98C94F2EEEBB9F"
         "MsmSig" = "8:_UNDEFINED"
@@ -140,14 +117,12 @@
         }
         "Entry"
         {
-
         "MsmKey" = "8:_635A8A23E1C069F3F83821DEFD568135"
         "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-
         "MsmKey" = "8:_693E71612CB241C2B5898A115F06ACDF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -160,39 +135,36 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6D25A3A87606F011B198DAE49306A51A"
-        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_6D25A3A87606F011B198DAE49306A51A"
-        "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_6D25A3A87606F011B198DAE49306A51A"
-        "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_6D25A3A87606F011B198DAE49306A51A"
-        "OwnerKey" = "8:_531AD437E2DF44DC8E98C94F2EEEBB9F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_70E53CBB875F467EAF0875D64644C788"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_743F6EA1E81D7EB020EC69ACED6138A1"
+        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_743F6EA1E81D7EB020EC69ACED6138A1"
+        "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_743F6EA1E81D7EB020EC69ACED6138A1"
+        "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_743F6EA1E81D7EB020EC69ACED6138A1"
+        "OwnerKey" = "8:_531AD437E2DF44DC8E98C94F2EEEBB9F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_745A49A328E3528657335FAFB62F6368"
         "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
         "MsmSig" = "8:_UNDEFINED"
@@ -213,13 +185,6 @@
         {
         "MsmKey" = "8:_745A49A328E3528657335FAFB62F6368"
         "OwnerKey" = "8:_531AD437E2DF44DC8E98C94F2EEEBB9F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_86F4AB9C03E94F288119ED0278419834"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -248,14 +213,49 @@
         }
         "Entry"
         {
-
         "MsmKey" = "8:_9DFD2AA5EE8E4A2EADB0D881248C3BE8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_A177E20BA06FFC17C6F3199B766D8979"
+        "OwnerKey" = "8:_29F6005D9412AD6742A02CE06C9D27EA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A177E20BA06FFC17C6F3199B766D8979"
+        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A177E20BA06FFC17C6F3199B766D8979"
+        "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A177E20BA06FFC17C6F3199B766D8979"
+        "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A177E20BA06FFC17C6F3199B766D8979"
+        "OwnerKey" = "8:_531AD437E2DF44DC8E98C94F2EEEBB9F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A23DD0E6E2324AB79E81D4B2CF805182"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A2EADACAF8494846B8288499BE8F4F96"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -273,51 +273,14 @@
         }
         "Entry"
         {
-
         "MsmKey" = "8:_B3429646F38C40A5A4B89ADF49299B9A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-
         "MsmKey" = "8:_B3F350392E2043689F87D29BFD8B7FBF"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_BBD01F1F2CAB406FBC39642D2C723667"
-        "OwnerKey" = "8:_6D25A3A87606F011B198DAE49306A51A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_BBD01F1F2CAB406FBC39642D2C723667"
-        "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_BBD01F1F2CAB406FBC39642D2C723667"
-        "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_BBD01F1F2CAB406FBC39642D2C723667"
-        "OwnerKey" = "8:_531AD437E2DF44DC8E98C94F2EEEBB9F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-
-        "MsmKey" = "8:_BBD01F1F2CAB406FBC39642D2C723667"
-        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -340,7 +303,6 @@
         }
         "Entry"
         {
-
         "MsmKey" = "8:_DAC4318B76D1416BB6D637DD9A9D58A2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -359,7 +321,6 @@
         }
         "Entry"
         {
-
         "MsmKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
         "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
         "MsmSig" = "8:_UNDEFINED"
@@ -378,7 +339,6 @@
         }
         "Entry"
         {
-
         "MsmKey" = "8:_E82F3FE48F7BBBBF540D96F770BDB2D9"
         "OwnerKey" = "8:_E5E14DCBC2A2466DA4718ADC479A8E9D"
         "MsmSig" = "8:_UNDEFINED"
@@ -391,6 +351,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F39C8C3B8DFF944FF19A868A0FA4E603"
+        "OwnerKey" = "8:_743F6EA1E81D7EB020EC69ACED6138A1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F39C8C3B8DFF944FF19A868A0FA4E603"
+        "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F39C8C3B8DFF944FF19A868A0FA4E603"
+        "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F62FF08081A599A5153EE7E796758E85"
         "OwnerKey" = "8:_6CAA7C85519B4DD98F25EC242F854D7F"
         "MsmSig" = "8:_UNDEFINED"
@@ -398,7 +376,6 @@
         "Entry"
         {
         "MsmKey" = "8:_F62FF08081A599A5153EE7E796758E85"
-
         "OwnerKey" = "8:_8F3C6B7CFA1EE0CE0E032282CF8BC712"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -411,22 +388,37 @@
         "Entry"
         {
         "MsmKey" = "8:_F62FF08081A599A5153EE7E796758E85"
-
         "OwnerKey" = "8:_635A8A23E1C069F3F83821DEFD568135"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-
         "MsmKey" = "8:_F62FF08081A599A5153EE7E796758E85"
         "OwnerKey" = "8:_064F99F3D9F35DDC146FD8173A1CAD11"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_70E53CBB875F467EAF0875D64644C788"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_745A49A328E3528657335FAFB62F6368"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_31E026CE4D511148C375D73ABB8FFE1F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -462,42 +454,36 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
         "OwnerKey" = "8:_2FC823C6E84B4FB3636C109E6D48F087"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
         "OwnerKey" = "8:_8F3C6B7CFA1EE0CE0E032282CF8BC712"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
         "OwnerKey" = "8:_928ADA8B9CF9B5FF98FE5A1219024B82"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
         "OwnerKey" = "8:_635A8A23E1C069F3F83821DEFD568135"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
         "OwnerKey" = "8:_064F99F3D9F35DDC146FD8173A1CAD11"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
         "OwnerKey" = "8:_F62FF08081A599A5153EE7E796758E85"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -510,63 +496,36 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
         "OwnerKey" = "8:_3017249F82D3593F85B2600DA584699B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
-        "OwnerKey" = "8:_DE2E358AC1B539A5DE4E38F0CC0E49B6"
+        "OwnerKey" = "8:_29F6005D9412AD6742A02CE06C9D27EA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
-        "OwnerKey" = "8:_6D25A3A87606F011B198DAE49306A51A"
+        "OwnerKey" = "8:_A177E20BA06FFC17C6F3199B766D8979"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
-        "OwnerKey" = "8:_BBD01F1F2CAB406FBC39642D2C723667"
+        "OwnerKey" = "8:_743F6EA1E81D7EB020EC69ACED6138A1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
-        "OwnerKey" = "8:_08A8CE6856A173C96A70F80100AED9E5"
+        "OwnerKey" = "8:_F39C8C3B8DFF944FF19A868A0FA4E603"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-
-        "OwnerKey" = "8:_161114B3210C9125BCADDBB596A52A7A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-
-        "OwnerKey" = "8:_745A49A328E3528657335FAFB62F6368"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-
-        "OwnerKey" = "8:_31E026CE4D511148C375D73ABB8FFE1F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-
         "OwnerKey" = "8:_3E517CFAB0B22FAEB933CC50A9D2B15B"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -584,7 +543,6 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-
         "OutputFilename" = "8:Debug\\Helios Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
@@ -654,7 +612,6 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-
         "OutputFilename" = "8:Release\\Helios Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
@@ -744,7 +701,6 @@
             "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.Aero, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-
                     "_064F99F3D9F35DDC146FD8173A1CAD11"
                     {
                     "Name" = "8:Xceed.Wpf.AvalonDock.Themes.Aero.dll"
@@ -769,71 +725,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_08A8CE6856A173C96A70F80100AED9E5"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NLua, Version=1.4.29.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_08A8CE6856A173C96A70F80100AED9E5"
-                    {
-                    "Name" = "8:NLua.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:NLua.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_161114B3210C9125BCADDBB596A52A7A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:KeraLua, Version=1.0.29.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_161114B3210C9125BCADDBB596A52A7A"
-                    {
-                    "Name" = "8:KeraLua.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:KeraLua.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1FB50865C6EB4D3EAF5A6197E72FAEBF"
             {
             "SourcePath" = "8:..\\bin\\Release\\Helios.ico"
@@ -854,6 +745,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_29F6005D9412AD6742A02CE06C9D27EA"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.DirectInput, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_29F6005D9412AD6742A02CE06C9D27EA"
+                    {
+                    "Name" = "8:SharpDX.DirectInput.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.DirectInput.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2FC823C6E84B4FB3636C109E6D48F087"
             {
             "AssemblyRegister" = "3:1"
@@ -861,7 +783,6 @@
             "AssemblyAsmDisplayName" = "8:CommandLine, Version=1.9.71.2, Culture=neutral, PublicKeyToken=de6f01bd326f8c32, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-
                     "_2FC823C6E84B4FB3636C109E6D48F087"
                     {
                     "Name" = "8:CommandLine.dll"
@@ -893,7 +814,6 @@
             "AssemblyAsmDisplayName" = "8:Phidget21.NET, Version=2.1.9.8, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-
                     "_3017249F82D3593F85B2600DA584699B"
                     {
                     "Name" = "8:Phidget21.NET.dll"
@@ -925,7 +845,6 @@
             "AssemblyAsmDisplayName" = "8:EosSharp, Version=1.1.5488.21795, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-
                     "_31E026CE4D511148C375D73ABB8FFE1F"
                     {
                     "Name" = "8:EosSharp.dll"
@@ -950,7 +869,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3BDDB34F79F7418EBFD2D513E068A09B"
             {
             "SourcePath" = "8:..\\bin\\Release\\ProfileEditor.ico"
@@ -968,7 +886,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
@@ -1000,7 +917,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -1011,7 +927,6 @@
             "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.Expression, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-
                     "_635A8A23E1C069F3F83821DEFD568135"
                     {
                     "Name" = "8:Xceed.Wpf.AvalonDock.Themes.Expression.dll"
@@ -1056,21 +971,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6D25A3A87606F011B198DAE49306A51A"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_743F6EA1E81D7EB020EC69ACED6138A1"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.DirectInput, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:NLua, Version=1.4.29.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6D25A3A87606F011B198DAE49306A51A"
+                    "_743F6EA1E81D7EB020EC69ACED6138A1"
                     {
-                    "Name" = "8:SharpDX.DirectInput.dll"
+                    "Name" = "8:NLua.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:SharpDX.DirectInput.dll"
+            "SourcePath" = "8:NLua.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
@@ -1085,7 +999,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -1120,28 +1033,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_86F4AB9C03E94F288119ED0278419834"
-            {
-            "SourcePath" = "8:..\\..\\Iris-Screen-Exporter\\Release\\Iris Screen Exporter Setup.msi"
-            "TargetName" = "8:Iris Screen Exporter Setup.msi"
-            "Tag" = "8:"
-            "Folder" = "8:_99D248ECE7CA4B17A15B204984A6573C"
-            "Condition" = "8:CHECKBOXA3=1"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8F3C6B7CFA1EE0CE0E032282CF8BC712"
             {
             "AssemblyRegister" = "3:1"
@@ -1149,7 +1040,6 @@
             "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-
                     "_8F3C6B7CFA1EE0CE0E032282CF8BC712"
                     {
                     "Name" = "8:Xceed.Wpf.AvalonDock.Themes.VS2010.dll"
@@ -1181,7 +1071,6 @@
             "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.Themes.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-
                     "_928ADA8B9CF9B5FF98FE5A1219024B82"
                     {
                     "Name" = "8:Xceed.Wpf.AvalonDock.Themes.Metro.dll"
@@ -1226,7 +1115,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9DFD2AA5EE8E4A2EADB0D881248C3BE8"
             {
             "SourcePath" = "8:..\\Helios\\_Documents\\Helios.Read.Me.txt"
@@ -1247,6 +1135,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A177E20BA06FFC17C6F3199B766D8979"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A177E20BA06FFC17C6F3199B766D8979"
+                    {
+                    "Name" = "8:SharpDX.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A23DD0E6E2324AB79E81D4B2CF805182"
             {
             "SourcePath" = "8:..\\Helios\\Fonts\\Hornet UFC.ttf"
@@ -1263,6 +1182,26 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:5"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A2EADACAF8494846B8288499BE8F4F96"
+            {
+            "SourcePath" = "8:..\\..\\Iris-Screen-Exporter\\Installer\\Iris Setup\\Release\\Iris Screen Exporter Setup.msi"
+            "TargetName" = "8:Iris Screen Exporter Setup.msi"
+            "Tag" = "8:"
+            "Folder" = "8:_99D248ECE7CA4B17A15B204984A6573C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
@@ -1327,7 +1266,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B3F350392E2043689F87D29BFD8B7FBF"
             {
             "SourcePath" = "8:..\\Helios\\_Documents\\HeliosDiag.cmd"
@@ -1346,39 +1284,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BBD01F1F2CAB406FBC39642D2C723667"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-
-                    "_BBD01F1F2CAB406FBC39642D2C723667"
-                    {
-                    "Name" = "8:SharpDX.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB3772881E5840A98CB09460F7421DB3"
@@ -1416,13 +1321,11 @@
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
-
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DAC4318B76D1416BB6D637DD9A9D58A2"
             {
             "SourcePath" = "8:..\\Keypress Receiver Installer\\Release\\Helios Keypress Receiver Setup.exe"
@@ -1447,14 +1350,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2020.315, Culture=neutral, processorArchitecture=AMD64"
+            "AssemblyAsmDisplayName" = "8:Helios, Version=1.4.2020.530, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_DE2E358AC1B539A5DE4E38F0CC0E49B6"
-                    {
-                    "Name" = "8:Helios.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Helios.dll"
             "TargetName" = "8:"
@@ -1481,7 +1379,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-
                     "_E82F3FE48F7BBBBF540D96F770BDB2D9"
                     {
                     "Name" = "8:System.Net.Http.dll"
@@ -1506,6 +1403,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F39C8C3B8DFF944FF19A868A0FA4E603"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:KeraLua, Version=1.0.29.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F39C8C3B8DFF944FF19A868A0FA4E603"
+                    {
+                    "Name" = "8:KeraLua.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:KeraLua.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E384890BFB804E8DBFE6ADCE0EDB8172"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F62FF08081A599A5153EE7E796758E85"
             {
             "AssemblyRegister" = "3:1"
@@ -1513,7 +1441,6 @@
             "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-
                     "_F62FF08081A599A5153EE7E796758E85"
                     {
                     "Name" = "8:Xceed.Wpf.AvalonDock.dll"
@@ -1538,7 +1465,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-
         }
         "FileType"
         {
@@ -1738,7 +1664,6 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Helios"
-
         "ProductCode" = "8:{421509D7-A828-4190-8C5E-8E1D34BAA66F}"
         "PackageCode" = "8:{D7A344C8-4CE9-49AF-A185-0776B43CB067}"
         "UpgradeCode" = "8:{589D8667-3ED9-478B-8F67-A56E4FADBC63}"
@@ -1754,7 +1679,6 @@
         "Title" = "8:Helios"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Gadroc's Workshop"
-
         "Keywords" = "8:Helios DCS BMS Cockpit"
         "ARPCOMMENTS" = "8:Helios Virtual Cockpit System"
         "ARPURLINFOABOUT" = "8:"
@@ -1881,7 +1805,6 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_70E53CBB875F467EAF0875D64644C788"
@@ -1938,7 +1861,6 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_70E53CBB875F467EAF0875D64644C788"
@@ -1995,7 +1917,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2019,7 +1940,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2043,7 +1963,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2069,7 +1988,6 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-
                             "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  *** Windows installer might report that there is a newer version installed because the Version numbering system has changed with this release. ***  This will require you to uninstall the previous version of Helios in Add Remove Programs in Windows.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
@@ -2103,7 +2021,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2136,7 +2053,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2182,7 +2098,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2228,7 +2143,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2300,7 +2214,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2326,7 +2239,6 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-
                             "Value" = "8:The installer will guide you through the steps required to install [ProductName] [ProductVersion] from the BlueFinBima Project fork on your computer.  *** Windows installer might report that there is a newer version installed because the Version numbering system has changed with this release. ***  This will require you to uninstall the previous version of Helios in Add Remove Programs in Windows.  This version is a fork from the Open Source version of Gadroc's Helios, and has not been pulled back into that project as it appears dormant to pull requests."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
@@ -2351,7 +2263,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2654,7 +2565,6 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-
                             "Value" = "8:_D173C748252D44D981A12ACFEE58D5FA"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -2736,7 +2646,6 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{80870108-EFE4-4ADF-969D-A0CE06123271}"
             "ShowKeyOutput" = "11:TRUE"
@@ -2765,7 +2674,6 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{06BA10F4-279C-4E82-B77C-333706A617B9}"
             "ShowKeyOutput" = "11:TRUE"
@@ -2822,7 +2730,6 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{80D80B0F-0DC0-49E2-97C2-3CC6436FA61F}"
             "ShowKeyOutput" = "11:TRUE"
@@ -2879,7 +2786,6 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-
             "OutputGroupCanonicalName" = "8:ContentFiles"
             "OutputProjectGuid" = "8:{2B00F04B-3CB2-44E7-B49B-DA94FF74C66C}"
             "ShowKeyOutput" = "11:TRUE"
@@ -2980,7 +2886,6 @@
                 {
                 }
             }
-
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C7EB05A39EAA4EC29C82410636CA5637"
             {
             "SourcePath" = "8:"
@@ -3002,7 +2907,6 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-
             "OutputGroupCanonicalName" = "8:ContentFiles"
             "OutputProjectGuid" = "8:{BD8B2678-7D32-4E3D-8A9D-CA1CE201285F}"
             "ShowKeyOutput" = "11:TRUE"
