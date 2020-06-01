@@ -14,6 +14,8 @@
 	* Added fuel aft, fuel fwd, and fuel total values
 * Added F-16 Hydraulic Pressure Gauge
 * IRIS built to allow x86 installation, and minor changes for network error handling
+* FA-18C Interface corrections for 3 way toggles on Head Up Display Control panel
+* Exceptional additional build for x86 version for low spec Windows machines such as Windows tablets
 
 ### 1.4.2020.0315 Release
 ----------------------------

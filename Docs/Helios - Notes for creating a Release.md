@@ -135,7 +135,7 @@ Helios was originally created by Craig "Gadroc" Courtney.  Gadroc donated his 
 =======================
 ### Details
 ```
-This release features more bug fixes (including some for BMS) and new controls.
+This release features more bug fixes (including some for BMS) and new controls.  It also has an x86 version to satisfy those needing to run Control Center on less capable platforms.
 
 Full change history is at https://github.com/BlueFinBima/Helios/wiki/Change-Log and the readme is here https://github.com/BlueFinBima/Helios/blob/Dev/README.md
 
@@ -148,9 +148,10 @@ and a video tutorial demonstrating Installing Helios for beginners is here http
 
 Tutorials about creating profiles can be viewed https://www.youtube.com/results?search_query=dcs+helios+tutorial and Gadroc's site at http://www.gadrocsworkshop.com/downloads/ still exists which contains profiles, older information and files relating to Helios.
 
-The BlueFinBima fork of Helios development effort is aided & abetted by derammo; CaptZeen; KiwiLostInMelb; damien022; Will Hartsell; Cylution; Rachmaninoff; yzfanimal; Jabbers; Phar71; BeamRider
+The BlueFinBima fork of Helios development effort is aided & abetted by derammo; CaptZeen; KiwiLostInMelb; damien022; Will Hartsell; Wheelchock; Cylution; Rachmaninoff; yzfanimal; Jabbers; Phar71; BeamRider
 
 https://forums.eagle.ru/showthread.php?p=3637870 can be used for communications about this release of Helios.
+
 
 ```
 
