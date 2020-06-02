@@ -92,8 +92,17 @@ Note: The Assembly file version information is saved as a set of integers for ea
 
 The XML file is also stored more permanently in the HeliosCheckRelease repo https://github.com/BlueFinBima/HeliosCheckRelease.  The file checked
 is not actually the source which is checked in, but the asset HeliosCurrentVersionV2.xml which is in the "CheckRelease" tag GitHub release.  Longer term,
-this is the only 
+this is the only mechanism we want to use. The tag "CheckRelease" must always be used, so the release with this tag must only be updated.  The two existing files 
+HeliosCurrentVersionV2.xml and HeliosCurrentVersion.xml need to be deleted, and then the new files from the repo should then be dropped into the release and saved.
 
+The number of times that the file is checked can be seen with
+
+```curl -s https://api.github.com/repos/BlueFinBima/HeliosCheckRelease/releases | findstr /I /N "download_count browser_download_url"
+```
+
+number of times a file has been downloaded can be determined from:
+```curl -s https://api.github.com/repos/BlueFinBima/Helios/releases | findstr /I /N "download_count browser_download_url" 
+```
 ## Checking the Program File Contents
 
 This Powershell script Pre-shipInstallationCheck.ps1 can be used to save directory information for comparison.  In order to run this, you need to issues
@@ -121,6 +130,13 @@ then
 
 The shortcut is in Helios Installer/Release/Helios%201.4.2020.0503%20Download%20from%20GitHub.url
 This should be altered to the download link on Github and it is this file that we put up on DCS User Files site.
+For the DCS site, ".url" is an invalid file extensions, so it needs to be added into a zip.
+
+## Wiki update
+
+https://github.com/BlueFinBima/Helios/wiki/Change-Log 
+
+Update the change log in the Wiki
 
 ## Information for the Download Site 
 
@@ -135,7 +151,7 @@ Helios was originally created by Craig "Gadroc" Courtney.  Gadroc donated his 
 =======================
 ### Details
 ```
-This release features more bug fixes (including some for BMS) and new controls.  It also has an x86 version to satisfy those needing to run Control Center on less capable platforms.
+This release features more bug fixes (including some for BMS) and new controls.  It also has a version for Windows 32 bit systems to satisfy those needing to run Control Center on less capable platforms.
 
 Full change history is at https://github.com/BlueFinBima/Helios/wiki/Change-Log and the readme is here https://github.com/BlueFinBima/Helios/blob/Dev/README.md
 
