@@ -89,6 +89,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Profile
             if (_exe)
             {
                 // For executables launches, we resolve environment variables
+                ConfigManager.LogManager.LogDebug("Launch type determined to be an executable based on %PATHEXT% \"" + e.Value.StringValue + "\")");
 
                 _matches = Regex.Matches(e.Value.StringValue, "(?:\\\")([^\"]*)(?:\\\")");  // Extract anything which is enclosed in escaped double quotes
                 int _blank = e.Value.StringValue.IndexOf(" ");
@@ -158,6 +159,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Profile
                 }
                 else
                 {
+                    ConfigManager.LogManager.LogDebug("Launch type determined to be non-executable based on %PATHEXT% \"" + e.Value.StringValue + "\")");
                     Process.Start(e.Value.StringValue);
                 }
              }

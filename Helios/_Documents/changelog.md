@@ -3,6 +3,7 @@
 ### 1.4.2020.0603 Release
 ----------------------------
 * Added STARTED, STOPPED and RESET triggers for the profile
+* Environment variables for paths used on "launch Application" are allowed, and arguments can be supplied for executable being launched
 * Added a Kill Process action to allow external processes to be ended by a running profile
 
 ### 1.4.2020.0530 Release
