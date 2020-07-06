@@ -9,7 +9,7 @@ very definitely Helios 1.6 whose releases will appear [here](https://github.com/
 The [Helios 1.4 Wiki](https://github.com/BlueFinBima/Helios14/wiki) remains available, however the only wiki to be maintained is at [Helios Virtual Cockpit](https://github.com/HeliosVirtualCockpit/Helios/wiki)
 
 
-## [Project Wiki](https://github.com/BlueFinBima/Helios/wiki)
+## [Project Wiki](https://github.com/BlueFinBima/Helios14/wiki)
 
 This is the source code repository for the Helios Virtual Cockpit System for DCS World.  This repository is for core and module developers use.  If you are looking for end user downloads and documentation please visit http://www.gadrocsworkshop.com.
 
@@ -21,7 +21,7 @@ The Helios **Control Center** program executes the profile that was created by t
 
 When the aircraft specific interface is deployed from the **Profile Editor**, it creates an **export.lua** script file in the %userprofile%\saved games\DCS\Scripts\ directory, and this is the code that is invoked by DCS at aircraft start-up, and communicates with the **Control Center** over a UDP link.
 
-## [Change History](https://github.com/BlueFinBima/Helios/wiki/Change-Log)
+## [Change History](https://github.com/BlueFinBima/Helios14/wiki/Change-Log)
 
 ## YouTube Resources
 
