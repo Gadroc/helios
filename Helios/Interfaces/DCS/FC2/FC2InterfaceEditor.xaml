@@ -91,7 +91,7 @@
                         <Label.Content>Export Frequency</Label.Content>
                     </Label>
                     <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding ElementName=FC2Editor,Path=Configuration.ExportFrequency}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" MaxWidth="40" />
-                    <TextBlock Grid.Column="1" Grid.Row="5" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Number of times per second that intrument guages will be exported per second (min 4).</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="5" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Number of times per second that instrument guages will be exported per second (min 4).</TextBlock>
                 </Grid>
             </GroupBox>            
         </Grid>
@@ -130,14 +130,14 @@
                     <TextBlock Grid.Column="1" Grid.Row="1" FontSize="10" FontStyle="Italic" TextWrapping="Wrap">Path to your Lock On Flaming Cliffs 2 install folder.</TextBlock>
                 </Grid>
                 <StackPanel Style="{StaticResource PathInvalid}">
-                    <TextBlock Margin="4" Foreground="Red" TextWrapping="Wrap">Can not find game install.</TextBlock>
+                    <TextBlock Margin="4" Foreground="Red" TextWrapping="Wrap">Cannot find game install.</TextBlock>
                 </StackPanel>
                 <StackPanel Style="{StaticResource UpToDateStyle}">
                     <TextBlock Margin="4" TextWrapping="Wrap">Your FC2 configuration is up to date.</TextBlock>
                     <Button Grid.Row="1" HorizontalAlignment="Right" Margin="2" Click="Remove_Click">Remove Helios Setup</Button>
                 </StackPanel>                
                 <StackPanel Style="{StaticResource OutOfDateStyle}">
-                    <TextBlock Margin="4" TextWrapping="Wrap">In order for Helios to interface with Flaming Cliffs an updated Export.lua file must be installed.  This will back up and existing Export.lua file and deploy the necessary Helios configuration.</TextBlock>
+                    <TextBlock Margin="4" TextWrapping="Wrap">In order for Helios to interface with Flaming Cliffs an updated Export.lua file must be installed.  This will back up an existing Export.lua file and deploy the necessary Helios configuration.</TextBlock>
                     <Button Grid.Row="1" HorizontalAlignment="Right" Margin="2" Click="Configure_Click">Setup Flaming Cliffs</Button>
                 </StackPanel>
             </StackPanel>                

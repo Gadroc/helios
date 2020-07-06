@@ -19,7 +19,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.FTIT
     using System;
     using System.Windows;
 
-    [HeliosControl("Helios.F16.FTIT", "FTIT", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.FTIT", "FTIT", "F-16", typeof(GaugeRenderer))]
     public class FTIT : BaseGauge
     {
         private HeliosValue _ftit;

@@ -1,6 +1,6 @@
 ﻿<ControlTemplate>
   <Name>0</Name>
-  <Category>F-16 ICP</Category>
+  <Category>F-16 Parts</Category>
   <TypeIdentifier>Helios.Base.PushButton</TypeIdentifier>
   <Template>
     <TemplateValues>

@@ -1,0 +1,6 @@
+//
+// File Checksum Integrity Verifier version 2.05.
+//
+		MD5				SHA-1
+-------------------------------------------------------------------------
+0acdfa8c88f92397afc06b421c989796 6c463b51d43016cbbc9d8f866295efd4a935cab2 helios 1.4.2020.0530 (win x86).zip

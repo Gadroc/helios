@@ -35,6 +35,7 @@ namespace GadrocsWorkshop.Helios.Controls
         private Point _mouseDownLocation;
 
         private ClickType _clickType = ClickType.Swipe;
+        private bool _mouseWheelAction = true;
         private CalibrationPointCollectionDouble _swipeCalibration;
         private double _swipeThreshold = 45d;
         private double _swipeSensitivity = 0d;
@@ -59,6 +60,8 @@ namespace GadrocsWorkshop.Helios.Controls
 
         private HeliosValue _positionValue;
         private HeliosValue _positionNameValue;
+
+        private bool _isContinuous = false;
 
         public RotarySwitch()
             : base("Rotary Switch", new Size(100, 100))
@@ -101,6 +104,23 @@ namespace GadrocsWorkshop.Helios.Controls
                     ClickType oldValue = _clickType;
                     _clickType = value;
                     OnPropertyChanged("ClickType", oldValue, value, true);
+                }
+            }
+        }
+
+        public bool MouseWheelAction
+        {
+            get
+            {
+                return _mouseWheelAction;
+            }
+            set
+            {
+                if (!_clickType.Equals(value))
+                {
+                    bool oldValue = _mouseWheelAction;
+                    _mouseWheelAction = value;
+                    OnPropertyChanged("MouseWheelAction", oldValue, value, true);
                 }
             }
         }
@@ -209,6 +229,24 @@ namespace GadrocsWorkshop.Helios.Controls
                     bool oldValue = _drawLines;
                     _drawLines = value;
                     OnPropertyChanged("DrawLines", oldValue, value, true);
+                    Refresh();
+                }
+            }
+        }
+
+        public bool IsContinuous
+        {
+            get
+            {
+                return _isContinuous;
+            }
+            set
+            {
+                if (!_isContinuous.Equals(value))
+                {
+                    bool oldValue = _isContinuous;
+                    _isContinuous = value;
+                    OnPropertyChanged("IsContinuous", oldValue, value, true);
                     Refresh();
                 }
             }
@@ -477,13 +515,11 @@ namespace GadrocsWorkshop.Helios.Controls
             return Vector.AngleBetween(VectorFromCenter(startPoint), VectorFromCenter(endPoint));
         }
 
-        public override void MouseDown(Point location)
+        public override void MouseWheel(int delta)
         {
-            if (_clickType == ClickType.Touch)
+            if (_mouseWheelAction)
             {
-                bool increment = (location.X > Width / 2d);
-
-                if (increment)
+                if(delta > 0)
                 {
                     if (_currentPosition <= Positions.Count)
                     {
@@ -495,6 +531,48 @@ namespace GadrocsWorkshop.Helios.Controls
                     if (_currentPosition > 1)
                     {
                         CurrentPosition = _currentPosition - 1;
+                    }
+                }
+            }
+        }
+
+        public override void MouseDown(Point location)
+        {
+            if(NonClickableZones != null)
+            {
+                foreach (NonClickableZone zone in NonClickableZones)
+                {
+                    if (zone.AllPositions && zone.isClickInZone(location))
+                    {
+                        zone.ChildVisual.MouseDown(new System.Windows.Point(location.X - (zone.ChildVisual.Left - this.Left), location.Y - (zone.ChildVisual.Top - this.Top)));
+                        return; //we get out to let the ChildVisual using the click
+                    }
+                }
+            }
+            if (_clickType == ClickType.Touch)
+            {
+                bool increment = (location.X > Width / 2d);
+
+                if (increment)
+                {
+                    if (_currentPosition < Positions.Count)
+                    {
+                        CurrentPosition = _currentPosition + 1;
+                    }
+                    else if (_isContinuous == true)
+                    {
+                        CurrentPosition = 1;
+                    }
+                }
+                else
+                {
+                    if (_currentPosition > 1)
+                    {
+                        CurrentPosition = _currentPosition - 1;
+                    }
+                    else if (_isContinuous == true)
+                    {
+                        CurrentPosition = Positions.Count;
                     }
                 }
             }
@@ -535,6 +613,17 @@ namespace GadrocsWorkshop.Helios.Controls
 
         public override void MouseUp(Point location)
         {
+            if (NonClickableZones != null)
+            {
+                foreach (NonClickableZone zone in NonClickableZones)
+                {
+                    if (zone.AllPositions && zone.isClickInZone(location))
+                    {
+                        zone.ChildVisual.MouseUp(new System.Windows.Point(location.X - (zone.ChildVisual.Left - this.Left), location.Y - (zone.ChildVisual.Top - this.Top)));
+                        return; //we get out to let the ChildVisual using the click
+                    }
+                }
+            }
             if (_mouseDown)
             {
                 _mouseDown = false;
@@ -545,20 +634,16 @@ namespace GadrocsWorkshop.Helios.Controls
 
         void SetPositionAction_Execute(object action, HeliosActionEventArgs e)
         {
-            try
+            BeginTriggerBypass(e.BypassCascadingTriggers);
+            if (int.TryParse(e.Value.StringValue, out int index))
             {
-                BeginTriggerBypass(e.BypassCascadingTriggers);
-                int index = int.Parse(e.Value.StringValue);
+                // WARNING: rotary switch positions are 1-based
                 if (index > 0 && index <= Positions.Count)
                 {
                     CurrentPosition = index;
                 }
-                EndTriggerBypass(e.BypassCascadingTriggers);
             }
-            catch
-            {
-                // No-op if the parse fails we won't set the position.
-            }
+            EndTriggerBypass(e.BypassCascadingTriggers);
         }
 
         #endregion
@@ -611,6 +696,7 @@ namespace GadrocsWorkshop.Helios.Controls
                 writer.WriteElementString("Sensitivity", SwipeSensitivity.ToString(CultureInfo.InvariantCulture));
             }
             writer.WriteEndElement();
+            writer.WriteElementString("MouseWheel", MouseWheelAction.ToString(CultureInfo.InvariantCulture));
         }
 
         public override void ReadXml(XmlReader reader)
@@ -681,6 +767,17 @@ namespace GadrocsWorkshop.Helios.Controls
             {
                 ClickType = Controls.ClickType.Swipe;
                 SwipeSensitivity = 0d;
+            }
+
+            try
+            {
+                bool mw;
+                bool.TryParse(reader.ReadElementString("MouseWheel"), out mw);
+                MouseWheelAction = mw;
+            }
+            catch 
+            {
+                MouseWheelAction = true;
             }
 
             BeginTriggerBypass(true);

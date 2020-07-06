@@ -13,10 +13,10 @@
         </ResourceDictionary>
     </local:VisualContainerEditorDocument.Resources>
     <DockPanel Background="#FFCCD6E5" Margin="0">
-        <!--<StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="32">
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="32">
             <Label FontSize="8" FontWeight="Bold" Foreground="White">Zoom</Label>
             <Slider Orientation="Vertical" Height="150" HorizontalAlignment="Center" Minimum="-4" Maximum="4" Value="{Binding ElementName=MonitorEditor,Path=ZoomLevel}" TickFrequency="1" TickPlacement="BottomRight" IsMoveToPointEnabled="False" IsSnapToTickEnabled="False" SmallChange="0.25" />
-        </StackPanel>-->
+        </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <local:HeliosVisualContainerEditor x:Name="MonitorEditor" Margin="14" HorizontalAlignment="Left" VerticalAlignment="Top" VisualContainer="{Binding ElementName=MonitorEditorDocument,Path=Monitor}" local:DragAndDropManager.DropTargetAdvisor="{StaticResource DropAdvisor}" />
         </ScrollViewer>

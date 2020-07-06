@@ -24,16 +24,126 @@ namespace GadrocsWorkshop.Helios.Gauges
         private ImageSource _image;
         private Rect _rectangle;
         private Rect _imageRetangle;
+        private double _opacity;
 
         public GaugeImage(string imageFile, Rect location)
         {
             _imageFile = imageFile;
             _rectangle = location;
+            _opacity = 1.0;
         }
 
-        protected override void OnRender(DrawingContext drawingContext)
+        #region Properties
+
+        public double Opacity
         {
+            get
+            {
+                return _opacity;
+            }
+            set
+            {
+                if (value != _opacity)
+                {
+                    _opacity = value;
+                    OnDisplayUpdate();
+                }
+            }
+        }
+
+		public string Image
+		{
+			get
+			{
+				return _imageFile;
+			}
+			set
+			{
+				if (value != _imageFile)
+				{
+					_imageFile = value;
+					OnDisplayUpdate();
+				}
+			}
+		}
+
+		public double Width
+		{
+			get
+			{
+				return _rectangle.Width;
+			}
+			set
+			{
+				if (value != _rectangle.Width)
+				{
+					_rectangle.Width = value;
+					OnDisplayUpdate();
+				}
+			}
+		}
+
+		public double Height
+		{
+			get
+			{
+				return _rectangle.Height;
+			}
+			set
+			{
+				if (value != _rectangle.Height)
+				{
+					_rectangle.Height = value;
+					OnDisplayUpdate();
+				}
+			}
+		}
+
+		public double PosX
+		{
+			get
+			{
+				return _rectangle.X;
+			}
+			set
+			{
+				if (value != _rectangle.X)
+				{
+					_rectangle.X = value;
+					OnDisplayUpdate();
+				}
+			}
+		}
+
+		public double PosY
+		{
+			get
+			{
+				return _rectangle.Y;
+			}
+			set
+			{
+				if (value != _rectangle.Y)
+				{
+					_rectangle.Y = value;
+					OnDisplayUpdate();
+				}
+			}
+		}
+
+		#endregion
+
+		protected override void OnRender(DrawingContext drawingContext)
+        {
+            if (_opacity >= 1.0)
+            {
+                drawingContext.DrawImage(_image, _imageRetangle);
+                return;
+            }
+
+            drawingContext.PushOpacity(_opacity);
             drawingContext.DrawImage(_image, _imageRetangle);
+            drawingContext.Pop();
         }
 
         protected override void OnRefresh(double xScale, double yScale)

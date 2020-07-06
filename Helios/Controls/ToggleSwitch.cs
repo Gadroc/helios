@@ -270,6 +270,40 @@ namespace GadrocsWorkshop.Helios.Controls
             }
         }
 
+        public override void MouseDown(System.Windows.Point location)
+        {
+            if (NonClickableZones != null)
+            {
+                foreach (NonClickableZone zone in NonClickableZones)
+                {
+                    if (SwitchPosition.ToString() == zone.PositionWhenApplicable.ToString() && zone.isClickInZone(location))
+                    {
+                        zone.ChildVisual.MouseDown(new System.Windows.Point(location.X-(zone.ChildVisual.Left-this.Left),location.Y-(zone.ChildVisual.Top-this.Top)));
+                        return; //we get out to let the ChildVisual using the click
+                    }
+                }
+            }
+
+            base.MouseDown(location);
+
+            if(SwitchPosition == ToggleSwitchPosition.One)
+            {
+                if (NonClickableZones != null)
+                {
+                    foreach (NonClickableZone zone in NonClickableZones)
+                    {
+                        switch (zone.ChildVisual.GetType().ToString())
+                        {
+                            case "GadrocsWorkshop.Helios.Controls.ToggleSwitch":
+                                ToggleSwitch tSwitch = (ToggleSwitch)zone.ChildVisual;
+                                tSwitch.SwitchPosition = zone.GuardedChildPosition;
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
         public override void WriteXml(XmlWriter writer)
         {
             base.WriteXml(writer);

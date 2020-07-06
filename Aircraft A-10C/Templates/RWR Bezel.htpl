@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>RWR Bezel</Name><Category>A-10C Gauges</Category><TypeIdentifier>Helios.Base.Image</TypeIdentifier><Template><TemplateValues><Image>{Helios}/Interfaces/Falcon/RWR/rwr_bezel.png</Image><Alignment>Stretched</Alignment><CornerRadius>0</CornerRadius><Location>239,144</Location><Size>400,387</Size></TemplateValues></Template></ControlTemplate>

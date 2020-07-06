@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="21" Height="125"><Canvas.Resources/><Canvas Name="layer7"><Canvas><Canvas.RenderTransform><TransformGroup><!--g--><TranslateTransform X="-138.34531" Y="-19.731513"/></TransformGroup></Canvas.RenderTransform><Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path5183" Fill="#FFFFFFFF" Stroke="#FF0A0A0A" StrokeThickness="1" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 143.86381 144.19055 0.30585 -114.930593 4.6737 -9.009919 4.98339 9.032341 -0.30587 114.930601 -9.65707 -0.0225 z"/>
+        </Canvas></Canvas></Canvas>

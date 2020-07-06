@@ -17,6 +17,7 @@ namespace GadrocsWorkshop.Helios
 {
     using System.Collections.Generic;
     using System.Collections.Specialized;
+    using System;
     using System.IO;
     using System.Text;
     using System.Xml;
@@ -33,6 +34,8 @@ namespace GadrocsWorkshop.Helios
 
         internal TemplateManager(string userTemplateDirectory, string userPanelTemplateDirectory)
         {
+            ConfigManager.LogManager.Log("TemplateManager Intialisation: Templates = " + userTemplateDirectory + ". Panel Templates = " + userPanelTemplateDirectory);
+
             _userTemplateDirectory = userTemplateDirectory;
 
             PopulateUserTemplatesCollection();
@@ -63,6 +66,7 @@ namespace GadrocsWorkshop.Helios
         internal void LoadModuleTemplates(string moduleName)
         {
             string templateDirectory = Path.Combine(ConfigManager.ApplicationPath, "Templates", moduleName);
+            ConfigManager.LogManager.LogDebug("TemplateManager Loading Module Templates: " + templateDirectory);
             if (Directory.Exists(templateDirectory))
             {
                 LoadTemplateDirectory(_moduleTemplates, templateDirectory, false);
@@ -71,18 +75,30 @@ namespace GadrocsWorkshop.Helios
 
         private void PopulateUserTemplatesCollection()
         {
+            ConfigManager.LogManager.Log("TemplateManager Loading User Templates.");
             LoadTemplateDirectory(_userTemplates, _userTemplateDirectory, true);
         }
 
         private void LoadTemplateDirectory(IList<HeliosTemplate> templates, string directory, bool userTemplates)
         {
+            ConfigManager.LogManager.LogDebug("TemplateManager Loading Template Directory: " + directory);
             foreach (string templateFile in Directory.GetFiles(directory, "*.htpl"))
             {
-                templates.Add(LoadTemplate(templateFile, userTemplates));
+                ConfigManager.LogManager.LogDebug("TemplateManager Loading Template: " + templateFile);
+                try
+                {
+                    templates.Add(LoadTemplate(templateFile, userTemplates));
+                }
+                catch (Exception e)
+                {
+                    ConfigManager.LogManager.LogError("TemplateManager Template Not Added due to Failure - (probable duplicate name): " + templateFile, e);
+                    continue;
+                }
             }
 
             foreach (string subDirectory in Directory.GetDirectories(directory))
             {
+                ConfigManager.LogManager.LogDebug("TemplateManager Loading Template Subdirectory: " + subDirectory);
                 LoadTemplateDirectory(templates, subDirectory, userTemplates);
             }
         }
@@ -95,10 +111,11 @@ namespace GadrocsWorkshop.Helios
             settings.IgnoreComments = true;
             settings.IgnoreWhitespace = true;
             settings.CloseInput = true;
-
+            ConfigManager.LogManager.LogDebug("TemplateManager Reading Template XML: " + path);
             XmlReader reader = XmlReader.Create(path, settings);
             template.ReadXml(reader);
             reader.Close();
+            ConfigManager.LogManager.LogDebug("TemplateManager XML Reader Closed: " + path);
 
             return template;
         }

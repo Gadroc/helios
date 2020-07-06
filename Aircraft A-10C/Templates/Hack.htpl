@@ -1,0 +1,1 @@
+﻿<ControlTemplate><Name>Hack</Name><Category>A-10C</Category><TypeIdentifier>Helios.Base.PushButton</TypeIdentifier><Template><TemplateValues><Location>275,9</Location><Size>50,50</Size><Type>Momentary</Type><Image>{A-10C}/Images/ufc_hack.png</Image><PushedImage>{A-10C}/Images/ufc_hack_in.png</PushedImage></TemplateValues></Template></ControlTemplate>

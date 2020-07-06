@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:GadrocsWorkshop.Helios.ProfileEditor"
         xmlns:hsdk="clr-namespace:GadrocsWorkshop.Helios.Windows.Controls;assembly=Helios"
         Title="ResetMonitors" Height="Auto" Width="600" MinWidth="700" WindowStartupLocation="CenterOwner" Name="ResetMonitorsWindow" ResizeMode="NoResize" SizeToContent="Height">
-    <Grid Background="{StaticResource HeliosToolBackground}" Margin="5">
+    <Grid Background="White" Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />

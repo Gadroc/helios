@@ -11,22 +11,86 @@
     <AssemblyName>Helios</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Helios.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEVELOPMENT_CONFIGURATION</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release x86|x64'">
+    <OutputPath>bin\x64\Release x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Development\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEVELOPMENT_CONFIGURATION</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release x86|x86'">
+    <OutputPath>bin\x86\Release x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -35,39 +99,38 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EosSharp.1.1.5488.21795\lib\net45\EosSharp.dll</HintPath>
     </Reference>
-    <Reference Include="HidSharp">
-      <HintPath>..\packages\HidSharp.1.5\lib\net35\HidSharp.dll</HintPath>
+    <Reference Include="HidSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HidSharp.2.1.0\lib\net35\HidSharp.dll</HintPath>
     </Reference>
-    <Reference Include="KeraLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=04d04586786c6f34, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NLua.1.3.2.1\lib\net45\KeraLua.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="KeraLua, Version=1.0.29.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL">
+      <HintPath>..\packages\KeraLua.1.0.29\lib\net45\KeraLua.dll</HintPath>
     </Reference>
-    <Reference Include="NLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8df2ab518030ea95, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NLua.1.3.2.1\lib\net45\NLua.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="NLua, Version=1.4.29.0, Culture=neutral, PublicKeyToken=6a194c04b9c89217, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLua.1.4.29\lib\net45\NLua.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="SharpDX, Version=2.6.3.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(SharpDXPackageBinDir)\SharpDX.dll</HintPath>
+    <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX.DirectInput, Version=2.6.3.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(SharpDXPackageBinDir)\SharpDX.DirectInput.dll</HintPath>
+    <Reference Include="SharpDX.DirectInput, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.DirectInput.4.2.0\lib\net45\SharpDX.DirectInput.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BaseDeserializer.cs" />
     <Compile Include="BindingValue.cs" />
     <Compile Include="BindingValueSources.cs" />
@@ -80,6 +143,57 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Controls\CustomGaugeNeedle.cs" />
+    <Compile Include="Controls\CustomDrum.cs" />
+    <Compile Include="Controls\CustomTape.cs" />
+    <Compile Include="Controls\CustomDrumAppearanceEditor.xaml.cs">
+      <DependentUpon>CustomDrumAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomTapeAppearanceEditor.xaml.cs">
+      <DependentUpon>CustomTapeAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageTranslucent.cs" />
+    <Compile Include="Controls\ImageTranslucentAppearanceEditor.xaml.cs">
+      <DependentUpon>ImageTranslucentAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageTranslucentRenderer.cs" />
+    <Compile Include="Controls\PotentiometerEndless.cs" />
+    <Compile Include="Controls\PotentiometerEndlessAppearanceEditor.xaml.cs">
+      <DependentUpon>PotentiometerEndlessAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PotentiometerEndlessBehaviorEditor.xaml.cs">
+      <DependentUpon>PotentiometerEndlessBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\Slip Turn Panel.cs" />
+    <Compile Include="Gauges\F-16\HydraulicPressure\HydraulicPressure.cs" />
+    <Compile Include="Gauges\M2000C\Common\Mk2CDrumTacanChannel.cs" />
+    <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
+    <Compile Include="Gauges\M2000C\Common\Mk2CNeedle.cs" />
+    <Compile Include="Gauges\M2000C\ECMBox\ECM_Box.cs" />
+    <Compile Include="Gauges\M2000C\TestPanel\Test_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\AOA_Panel.cs" />
+    <Compile Include="Gauges\M2000C\HSIPanel\HSI_Panel.cs" />
+    <Compile Include="Gauges\M2000C\EngineSensorsPanel\EngineSensors_Panel.cs" />
+    <Compile Include="Gauges\M2000C\INSPanel\INS_Panel.cs" />
+    <Compile Include="Gauges\M2000C\PCNPanel\PCN_Panel.cs" />
+    <Compile Include="Gauges\M2000C\PCAPanel\PCA_Panel.cs" />
+    <Compile Include="Gauges\M2000C\PPAPanel\PPA_Panel.cs" />
+    <Compile Include="Gauges\M2000C\FuelPanel\Fuel_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\Demar_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\RWR_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\FireWarning_Panel.cs" />
+    <Compile Include="Gauges\M2000C\Miscellaneous\PCI_Panel.cs" />
+    <Compile Include="Gauges\M2000C\VorIlsChannel\VorIls_Panel.cs" />
+    <Compile Include="Interfaces\DCS\Common\DCSInterfaceEditor.xaml.cs">
+      <DependentUpon>DCSInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\Common\SilentValueConsumer.cs" />
+    <Compile Include="Interfaces\DCS\FA18C\FA18CInterfaceEditor.xaml.cs">
+      <DependentUpon>FA18CInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Falcon\BMS\BMSLightBits2.cs" />
+    <Compile Include="Interfaces\Falcon\HeliosValueWithCorrectedDeviceName.cs" />
+    <Compile Include="NonClickableZone.cs" />
     <Compile Include="Collections\HeliosObjectCollection.cs" />
     <Compile Include="Collections\KeyedObservableCollection.cs" />
     <Compile Include="Collections\NoResetObservablecollection.cs" />
@@ -90,9 +204,54 @@
     <Compile Include="ComponentModel\HeliosUnitConverterAttribute.cs" />
     <Compile Include="ComponentModel\IPropertyNotification.cs" />
     <Compile Include="ComponentModel\PropertyNotificationEventArgs.cs" />
+    <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BCompositeVisual.cs" />
     <Compile Include="CompositeVisual.cs" />
+    <Compile Include="Gauges\M2000C\M2000CDevice\M2000CCompositeVisual.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="Controls\ClickType.cs" />
+    <Compile Include="Controls\CustomGauge.cs" />
+    <Compile Include="Controls\CustomGaugeAppearanceEditor.xaml.cs">
+      <DependentUpon>CustomGaugeAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomGaugeBehaviorEditor.xaml.cs">
+      <DependentUpon>CustomGaugeBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomGaugeRenderer.cs" />
+    <Compile Include="Controls\CustonNeedle.cs" />
+    <Compile Include="Gauges\AV-8B\ADI\ADI.cs" />
+    <Compile Include="Gauges\AV-8B\Altimeter\Altimeter.cs" />
+    <Compile Include="Gauges\AV-8B\Radio\Radio.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\AV-8B Front Cockpit.cs" />
+    <Compile Include="Gauges\AV-8B\MFD\MFD-Right-AV8B.cs" />
+    <Compile Include="Gauges\AV-8B\MFD\MFD-Left-AV8B.cs" />
+    <Compile Include="Gauges\AV-8B\MFD\MPCD.cs" />
+    <Compile Include="Gauges\AV-8B\ODU\ODU_1.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Flight Instrument Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\CockpitAppearanceEditor.xaml.cs">
+      <DependentUpon>CockpitAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\Gear and Flaps Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\H2O Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\FlightInstrumentAppearanceEditor.xaml.cs">
+      <DependentUpon>FlightInstrumentAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\AV-8B\Small Panels\Landing Gear Indicator Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Threat Indicator Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Master Arm Panel.cs" />
+    <Compile Include="Gauges\AV-8B\Small Panels\Right RWR.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\SMC_1.cs" />
+    <Compile Include="Gauges\AV-8B\UFC\UFC_1.cs" />
+    <Compile Include="Gauges\AV-8B\VVI\VVI.cs" />
+    <Compile Include="Gauges\M2000C\LGPanel\LG_Panel.cs" />
+    <Compile Include="Gauges\M2000C\EnginePanel\Engine_Start_Panel.cs" />
+    <Compile Include="Gauges\M2000C\CautionPanel\Caution_Panel.cs" />
+    <Compile Include="Controls\PotentiometerWithTranslate.cs" />
+    <Compile Include="Controls\PotentiometerWithTranslateAppearanceEditor.xaml.cs">
+      <DependentUpon>PotentiometerWithTranslateAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PotentiometerWithTranslateBehaviorEditor.xaml.cs">
+      <DependentUpon>PotentiometerWithTranslateBehaviorEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GuardedThreeWayAppearancePropertyEditor.xaml.cs">
       <DependentUpon>GuardedThreeWayAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
@@ -110,6 +269,14 @@
     </Compile>
     <Compile Include="Controls\GuardedToggleSwitchRenderer.cs" />
     <Compile Include="Controls\GuardPosition.cs" />
+    <Compile Include="Controls\GuardedSwitch.cs" />
+    <Compile Include="Controls\GuardedSwitchAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>GuardedSwitchAppearancePropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GuardedSwitchBehaviorPropertyEditor.xaml.cs">
+      <DependentUpon>GuardedSwitchBehaviorPropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GuardedSwitchRenderer.cs" />
     <Compile Include="Controls\HatSwitch.cs" />
     <Compile Include="Controls\HatSwitchAppearanceEditor.xaml.cs">
       <DependentUpon>HatSwitchAppearanceEditor.xaml</DependentUpon>
@@ -126,9 +293,14 @@
       <DependentUpon>ImageDecorationAppearanceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageDecorationRenderer.cs" />
-    <Compile Include="Controls\Indicator.cs" />
     <Compile Include="Controls\IndicatorAppearancePropertyEditor.xaml.cs">
       <DependentUpon>IndicatorAppearancePropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextDisplayRenderer.cs" />
+    <Compile Include="Controls\TextDisplay.cs" />
+    <Compile Include="Controls\Indicator.cs" />
+    <Compile Include="Controls\TextDisplayAppearancePropertyEditor.xaml.cs">
+      <DependentUpon>TextDisplayAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\IndicatorPushButton.cs" />
     <Compile Include="Controls\IndicatorPushButtonAppearanceEditor.xaml.cs">
@@ -136,11 +308,72 @@
     </Compile>
     <Compile Include="Controls\IndicatorPushButtonRenderer.cs" />
     <Compile Include="Controls\IndicatorRenderer.cs" />
+    <Compile Include="Controls\KneeBoard.cs" />
+    <Compile Include="Controls\KneeBoardAddPositionUndoEvent.cs" />
+    <Compile Include="Controls\KneeBoardAppearanceEditor.xaml.cs">
+      <DependentUpon>KneeBoardAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeBoardBehaviorEditor.xaml.cs">
+      <DependentUpon>KneeBoardBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeBoardDeletePositionUndoEvent.cs" />
+    <Compile Include="Controls\KneeBoardPosition.cs" />
+    <Compile Include="Controls\KneeBoardPositionChangeArgs.cs" />
+    <Compile Include="Controls\KneeBoardPositionCollection.cs" />
+    <Compile Include="Controls\KneeboardRenderer.cs" />
+    <Compile Include="Controls\KneeboardSwitch.cs" />
+    <Compile Include="Controls\KneeboardSwitchAppearanceEditor.xaml.cs">
+      <DependentUpon>KneeboardSwitchAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeboardSwitchBehaviorEditor.xaml.cs">
+      <DependentUpon>KneeboardSwitchBehaviorEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KneeboardSwitchPosition.cs" />
+    <Compile Include="Controls\KneeboardSwitchRenderer.cs" />
+    <Compile Include="Controls\KneeboardSwitchType.cs" />
     <Compile Include="Controls\LineDecoration.cs" />
     <Compile Include="Controls\LineDecorationAppearancePropertyEditor.xaml.cs">
       <DependentUpon>LineDecorationAppearancePropertyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\LineDecorationRenderer.cs" />
+    <Compile Include="FontManager.cs" />
+    <Compile Include="Gauges\A-10\A10CDevice\A10CDevice.cs" />
+    <Compile Include="Gauges\A-10\A10CDevice\A10CDeviceRenderer.cs" />
+    <Compile Include="Controls\Metric.cs" />
+    <Compile Include="Controls\MetricRenderer.cs" />
+    <Compile Include="Controls\PulseType.cs" />
+    <Compile Include="Controls\RectangleFill.cs" />
+    <Compile Include="Controls\RectangleFillAppearanceEditor.xaml.cs">
+      <DependentUpon>RectangleFillAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RectangleFillRenderer.cs" />
+    <Compile Include="Gauges\AV-8B\Fuel Panel\4 Digit Display\4DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\Fuel Panel\5 Digit Display\5DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\Fuel Panel\fuelPanel.cs" />
+    <Compile Include="Gauges\AV-8B\Advisory Panel\advisory_Panel.cs" />
+    <Compile Include="Gauges\AV-8B\ODU\ODU.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\1 Digit Display\1DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\2 Digit Display\2DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\3 Digit Display\3DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\UFC\UFC_AV8B.cs" />
+    <Compile Include="Gauges\F-14B\F14BDevice\F14BDevice.cs" />
+    <Compile Include="Gauges\F-14B\F14BDevice\F14BDeviceRenderer.cs" />
+    <Compile Include="Gauges\FA-18C\ADI\ADI.cs" />
+    <Compile Include="Gauges\FA-18C\Altimeter\BarometricAltimeter.cs" />
+    <Compile Include="Gauges\FA-18C\Altimeter\RADARAltimeter.cs" />
+    <Compile Include="Gauges\FA-18C\Battery\Battery.cs" />
+    <Compile Include="Gauges\FA-18C\BrakePressure\Brake_Pressure.cs" />
+    <Compile Include="Gauges\FA-18C\CabinPressure\CabinPressure.cs" />
+    <Compile Include="Gauges\FA-18C\HydraulicPressure\Hydraulic.cs" />
+    <Compile Include="Gauges\FA-18C\IAS\IAS.cs" />
+    <Compile Include="Gauges\FA-18C\IFEI\IFEI Gauges.cs" />
+    <Compile Include="Gauges\FA-18C\IFEI\IFEI_AppearanceEditor.xaml.cs">
+      <DependentUpon>IFEI_AppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gauges\FA-18C\LOx\LOx.cs" />
+    <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-2.cs" />
+    <Compile Include="Gauges\FA-18C\MFD\MFD-FA18C-Type-1.cs" />
+    <Compile Include="Gauges\AV-8B\MFD\MFD-AV8B.cs" />
     <Compile Include="Controls\MFD-A10.cs" />
     <Compile Include="Controls\MFD-F16.cs" />
     <Compile Include="Controls\MFD.cs" />
@@ -168,6 +401,7 @@
     </Compile>
     <Compile Include="Controls\RectangleDecorationRenderer.cs" />
     <Compile Include="Controls\Rotary.cs" />
+    <Compile Include="Controls\RotaryEncoderPushable.cs" />
     <Compile Include="Controls\RotaryEncoder.cs" />
     <Compile Include="Controls\RotaryEncoderAppearanceEditor.xaml.cs">
       <DependentUpon>RotaryEncoderAppearanceEditor.xaml</DependentUpon>
@@ -245,14 +479,55 @@
     </Compile>
     <Compile Include="Gauges\A-10\Hydraulic\Hydraulic.cs" />
     <Compile Include="Gauges\A-10\IAS\IAS.cs" />
-    <Compile Include="Gauges\A-10\ILSFrequencey\ILSFrequency.cs" />
+    <Compile Include="Gauges\A-10\ILSFrequency\ILSFrequency.cs" />
     <Compile Include="Gauges\A-10\LiquidOxygen\LiquidOxygen.cs" />
     <Compile Include="Gauges\A-10\OilPressure\OilPressure.cs" />
     <Compile Include="Gauges\A-10\OxygenPressure\OxygenPressure.cs" />
     <Compile Include="Gauges\A-10\TACANChannel\TACANChannel.cs" />
     <Compile Include="Gauges\A-10\TISLCodeWheel\TISLCodeWheel.cs" />
     <Compile Include="Gauges\A-10\VVI\VVI.cs" />
+    <Compile Include="Gauges\AV-8B\Altimeter\AV-8B Altimeter.cs" />
+    <Compile Include="Gauges\AV-8B\Cabin Pressure\CabinPressure.cs" />
+    <Compile Include="Gauges\AV-8B\Engine Panel\EDP.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\fuzeDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\smcDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\SMC\SMC.cs" />
+    <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BDevice.cs" />
+    <Compile Include="Gauges\AV-8B\AV8BDevice\AV8BDeviceRenderer.cs" />
+    <Compile Include="Gauges\AV-8B\stabiliser display\stabilizerDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\1 Digit Display\1DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\ADI\SlipTurn.cs" />
+    <Compile Include="Gauges\AV-8B\ADI\BackupADI.cs" />
+    <Compile Include="Gauges\AV-8B\AOA\AOA.cs" />
+    <Compile Include="Gauges\AV-8B\Trim Position\trimPositionRudder.cs" />
+    <Compile Include="Gauges\AV-8B\Trim Position\trimPositionAileron.cs" />
+    <Compile Include="Gauges\AV-8B\Trim Position\trimPosition.cs" />
+    <Compile Include="Gauges\AV-8B\Battery\Battery.cs" />
+    <Compile Include="Gauges\AV-8B\Engine Panel\edpNoz.cs" />
+    <Compile Include="Gauges\AV-8B\5 Digit Display\5DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\3 Digit Display\3DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\Accumulator\Accumulator.cs" />
+    <Compile Include="Gauges\AV-8B\IAS\IAS.cs" />
+    <Compile Include="Gauges\AV-8B\4 Digit Display\4DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\2 Digit Display\2DigitDisplay.cs" />
+    <Compile Include="Gauges\AV-8B\VVI\VVI Old.cs" />
     <Compile Include="Gauges\BaseGauge.cs" />
+    <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDevice.cs" />
+    <Compile Include="Gauges\FA-18C\FA18CDevice\FA18CDeviceRenderer.cs" />
+    <Compile Include="Gauges\FA-18C\UFC\UFC.cs" />
+    <Compile Include="Gauges\FA-18C\IFEI\IFEI.cs" />
+    <Compile Include="Gauges\FA-18C\VVI\VVI.cs" />
+    <Content Include="_Documents\Licenses\AvalonDock\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\CommandLineParser\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\EOSSharp\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\hidsharp\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\KeraLua\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\NLua\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\Phidget\License.txt" />
+    <Content Include="_Documents\Licenses\SharpDX.DirectInput\LICENSE.txt" />
+    <Content Include="_Documents\Licenses\SharpDX\LICENSE.txt" />
+    <None Include="app.config" />
+    <None Include="Gauges\GaugeTextDisplay.cs" />
     <Compile Include="Gauges\KA-50\EGT\EGT.cs" />
     <Compile Include="Gauges\F-16\ADI\ADI.cs" />
     <Compile Include="Gauges\F-16\Airspeed\Airspeed.cs" />
@@ -286,6 +561,34 @@
     <Compile Include="Gauges\KA-50\RotorRPM\RotorRPM.cs" />
     <Compile Include="Gauges\KA-50\Tachometer\Tachometer.cs" />
     <Compile Include="Gauges\KA-50\VVI\VVI.cs" />
+    <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDevice.cs" />
+    <Compile Include="Gauges\M2000C\M2000CDevice\M2000CDeviceRenderer.cs" />
+    <Compile Include="Gauges\M2000C\MCLPanel\MCL_Panel.cs" />
+    <Compile Include="Gauges\M2000C\TACANChannel\Tacan_Panel.cs" />
+    <Compile Include="Gauges\Mi-8\ADI\ADI.cs" />
+    <Compile Include="Gauges\MiG-21\BatteryCapacity\BatteryCapacity.cs" />
+    <Compile Include="Gauges\MiG-21\RadioChannelDisplay\RadioChannelDisplay.cs" />
+    <Compile Include="Gauges\MiG-21\O2Pressure\O2Pressure.cs" />
+    <Compile Include="Gauges\MiG-21\EngineO2\EngineO2.cs" />
+    <Compile Include="Gauges\MiG-21\O2Level\O2Level.cs" />
+    <Compile Include="Gauges\MiG-21\OilPressure\OilPressure.cs" />
+    <Compile Include="Gauges\MiG-21\RSBNDistance\RSBNDistance.cs" />
+    <Compile Include="Gauges\MiG-21\Voltmeter\Voltmeter.cs" />
+    <Compile Include="Gauges\MiG-21\HydroPressure\HydroPressure.cs" />
+    <Compile Include="Gauges\MiG-21\Nosecone\Nosecone.cs" />
+    <Compile Include="Gauges\MiG-21\BaroAltimeter\BaroAltimeter.cs" />
+    <Compile Include="Gauges\MiG-21\ARU3VM\ARU3VM.cs" />
+    <Compile Include="Gauges\MiG-21\RadioAltimeter\RadioAltimeter.cs" />
+    <Compile Include="Gauges\MiG-21\EngineRpm\EngineRpm.cs" />
+    <Compile Include="Gauges\MiG-21\EngExhaustTemp\EngExhaustTemp.cs" />
+    <Compile Include="Gauges\MiG-21\NPP\NPP.cs" />
+    <Compile Include="Gauges\MiG-21\KPP\KPP.cs" />
+    <Compile Include="Gauges\MiG-21\DA200\DA200.cs" />
+    <Compile Include="Gauges\MiG-21\AOA\AOA.cs" />
+    <Compile Include="Gauges\MiG-21\FuelGauge\FuelGauge.cs" />
+    <Compile Include="Gauges\MiG-21\TAS\TAS.cs" />
+    <Compile Include="Gauges\MiG-21\IAS\IAS.cs" />
+    <Compile Include="Gauges\MiG-21\Accelerometer\Accelerometer.cs" />
     <Compile Include="HeliosAction.cs" />
     <Compile Include="HeliosActionCollection.cs" />
     <Compile Include="HeliosActionEventArgs.cs" />
@@ -322,6 +625,7 @@
     <Compile Include="IHeliosValue.cs" />
     <Compile Include="IImageManager.cs" />
     <Compile Include="ImageAlignment.cs" />
+    <Compile Include="ImageAlignmentPlus.cs" />
     <Compile Include="ImageManager.cs" />
     <Compile Include="IModuleManager.cs" />
     <Compile Include="Interfaces\DCS\A10C\A10CInterface.cs" />
@@ -338,6 +642,24 @@
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder1.cs" />
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder3.cs" />
     <Compile Include="Interfaces\DCS\A10C\Functions\VHFRadioEncoder4.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\Functions\SMCFuzeDisplay.cs" />
+    <Compile Include="Interfaces\DCS\Common\DualNetworkValue.cs" />
+    <Compile Include="Interfaces\DCS\Common\DualRocker.cs" />
+    <Compile Include="Interfaces\DCS\F14B\F14BInterface.cs" />
+    <Compile Include="Interfaces\DCS\F14B\F14BInterfaceEditor.xaml.cs">
+      <DependentUpon>F14BInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\FA18C\FA18CInterface.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\AV8BInterface.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\AV8BInterfaceEditor.xaml.cs">
+      <DependentUpon>AV8BInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\AV8B\Functions\Altimeter.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\Functions\Digits3Display.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\Functions\Digits4Dispaly.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\Functions\SMCMultipleDisplay.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\Functions\Digits2Display.cs" />
+    <Compile Include="Interfaces\DCS\AV8B\Functions\FuelTotalDisplay.cs" />
     <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterface.cs" />
     <Compile Include="Interfaces\DCS\BlackShark\BlackSharkInterfaceEditor.xaml.cs">
       <DependentUpon>BlackSharkInterfaceEditor.xaml</DependentUpon>
@@ -365,9 +687,26 @@
     <Compile Include="Interfaces\DCS\Common\Switch.cs" />
     <Compile Include="Interfaces\DCS\Common\SwitchPosition.cs" />
     <Compile Include="Interfaces\DCS\Common\Text.cs" />
+    <Compile Include="Interfaces\DCS\FA18C\Functions\Altimeter.cs" />
     <Compile Include="Interfaces\DCS\FC2\FC2Interface.cs" />
     <Compile Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml.cs">
       <DependentUpon>FC2InterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\Generic\GenericInterface.cs" />
+    <Compile Include="Interfaces\DCS\Generic\GenericInterfaceEditor.xaml.cs">
+      <DependentUpon>GenericInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\M2000C\M2000CInterface.cs" />
+    <Compile Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml.cs">
+      <DependentUpon>M2000CInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\Mi8Simple\Mi8SimpleInterface.cs" />
+    <Compile Include="Interfaces\DCS\Mi8Simple\Mi8SimpleInterfaceEditor.xaml.cs">
+      <DependentUpon>Mi8SimpleInterfaceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\DCS\MiG21\MiG21Interface.cs" />
+    <Compile Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml.cs">
+      <DependentUpon>MiG21InterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\DirectX\DirectXControllerAxis.cs" />
     <Compile Include="Interfaces\DirectX\DirectXControllerButton.cs" />
@@ -444,6 +783,11 @@
       <DependentUpon>KeyboardInterfaceEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Profile\ProfileInterface.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UnitConverters\AreaConverter.cs" />
     <Compile Include="UnitConverters\DistanceConverter.cs" />
     <Compile Include="UnitConverters\MassConverter.cs" />
@@ -452,6 +796,11 @@
     <Compile Include="UnitConverters\RadianToDegreesConverter.cs" />
     <Compile Include="UnitConverters\SpeedConverter.cs" />
     <Compile Include="UnitConverters\TimeConverter.cs" />
+    <Compile Include="Units\NozzlePositionPercentUnit.cs" />
+    <Compile Include="Units\NozzlePositionUnit.cs" />
+    <Compile Include="VersionReminderForm.xaml.cs">
+      <DependentUpon>VersionReminderForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Controls\AnalogBar.cs" />
     <Compile Include="Windows\Controls\AxisBar.cs" />
     <Compile Include="Windows\Controls\ButtonIndicator.cs" />
@@ -557,409 +906,505 @@
       <DependentUpon>TextStaticEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Controls\TypefaceListItem.cs" />
+    <Content Include="_Documents\HeliosDiag.cmd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="_Documents\Licenses\VC_redist.x64.exe\VS_2017_ENT_PRO_TRIAL_RTW_ENU_Eula.1033.rtf" />
+    <Resource Include="Gauges\M2000C\Common\needleA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Resource>
+    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_x_mode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Resource>
+    <Resource Include="Interfaces\DCS\Common\Export_Stub.lua" />
+    <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Post.lua" />
+    <Resource Include="Interfaces\DCS\FA18C\ExportFunctions - New - Pre.lua" />
+    <Resource Include="Images\Toggles\guard-up-empty.png" />
+    <Resource Include="Images\Buttons\green-push-in.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Templates\Base\Panels\Empty Panel.htpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Interfaces\DCS\AV8B\ExportFunctions - New - Post.lua" />
+    <Resource Include="Interfaces\DCS\AV8B\ExportFunctions - New - Pre.lua" />
+    <None Include="_Documents\Helios Release 1.4 Users Guide.docx" />
+    <Content Include="_Documents\Helios Release 1.4 Users Guide.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Gauges\AV-8B\Common\needle_a.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\Altimeter\altimeter_needle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Resource>
     <Resource Include="Interfaces\DCS\FC2\Export.lua" />
     <Resource Include="Interfaces\DCS\FC2\ExportFunctions.lua" />
-    <None Include="Templates\Base\A-10\0.htpl">
+    <Resource Include="Interfaces\DCS\MiG21\Export.lua" />
+    <Resource Include="Interfaces\DCS\MiG21\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\AV8B\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\FA18C\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\Generic\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\M2000C\ExportFunctions.lua" />
+    <Resource Include="Interfaces\DCS\Mi8Simple\ExportFunctions.lua" />
+    <None Include="Fonts\Helios font registration.reg" />
+    <Resource Include="about.png" />
+    <Resource Include="Icon.png" />
+    <Content Include="Fonts\Hornet IFEI.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\Hornet UFC.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\MS33558.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Interfaces\DCS\F14B\ExportFunctions.lua" />
+    <Content Include="Templates\Base\A-10\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\1.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\1.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\2.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\2.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\3.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\3.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\4.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\4.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\5.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\5.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\6.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\6.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\7.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\7.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\8.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\8.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\9.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\9.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\AFT.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\AFT.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Altitude Alert.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Altitude Alert.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\ANCHR.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\ANCHR.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Blank.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Blank.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Clear.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Clear.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Data.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Data.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\EGI.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\EGI.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Enter.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Enter.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Fire Pull APU.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Fire Pull APU.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Fire Pull Left.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Fire Pull Left.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Fire Pull Right.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Fire Pull Right.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\FM Indicator.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\FM Indicator.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Func.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Func.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\FWD.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\FWD.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Gear Handle.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Gear Handle.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Hack.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Hack.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\HARS.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\HARS.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Horizontal Rocker.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Horizontal Rocker.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\ILS.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\ILS.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\LTR.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\LTR.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Mark.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Mark.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Master Caution.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Master Caution.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\MID.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\MID.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\RWR Bezel.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\RWR Bezel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Sel.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Sel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Space.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Space.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\STR PT.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\STR PT.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\TCN.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\TCN.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\TISL.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\TISL.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\UHF Indicator.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\UHF Indicator.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\A-10\Vertical Rocker.htpl">
+    </Content>
+    <Content Include="Templates\Base\A-10\Vertical Rocker.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\MFD Lit.htpl">
+    </Content>
+    <Content Include="Templates\Base\Buttons\MFD Lit.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\MFD.htpl">
+    </Content>
+    <Content Include="Templates\Base\Buttons\MFD.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Push - Red.htpl">
+    </Content>
+    <Content Include="Templates\Base\Buttons\Push - Red.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Push - White.htpl">
+    </Content>
+    <Content Include="Templates\Base\Buttons\Push - White.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Tactile Round - Light.htpl">
+    </Content>
+    <Content Include="Templates\Base\Buttons\Tactile Round - Light.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Tactile Round.htpl">
+    </Content>
+    <Content Include="Templates\Base\Buttons\Tactile Round.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Buttons\Tactile Square - Light.htpl">
+    </Content>
+    <Content Include="Templates\Base\Buttons\Tactile Square - Light.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom Left.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Bottom Left.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom Right.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Bottom Right.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Bottom.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Bottom.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Left.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Left.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Right.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Right.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Top Left.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Top Left.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Top Right.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Top Right.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Backplate Screw - Top.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Backplate Screw - Top.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Caution.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Caution.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Decorations\Screw.htpl">
+    </Content>
+    <Content Include="Templates\Base\Decorations\Screw.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Encoders\Encoder - Knob 2.htpl">
+    </Content>
+    <Content Include="Templates\Base\Encoders\Encoder - Knob 2.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Encoders\Encoder - Knob 3.htpl">
+    </Content>
+    <Content Include="Templates\Base\Encoders\Encoder - Knob 3.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Encoders\Encoder - Knob 4.htpl">
+    </Content>
+    <Content Include="Templates\Base\Encoders\Encoder - Knob 4.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Encoders\Encoder - Knob 5.htpl">
+    </Content>
+    <Content Include="Templates\Base\Encoders\Encoder - Knob 5.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\0.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\0.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\1.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\1.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\2.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\2.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\3.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\3.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\4.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\4.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\5.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\5.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\6.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\6.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\7.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\7.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\8.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\8.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\9.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\9.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\A-A.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\A-A.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\A-G.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\A-G.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Arrow.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Arrow.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\CMDS Outline.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\CMDS Outline.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\COM 1.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\COM 1.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\COM 2.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\COM 2.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\DED Bezel.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\DED Bezel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\ENTR.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\ENTR.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\F-16 ICP Panel.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\F-16 ICP Panel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\F-16 Panel.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\F-16 Panel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Gear Handle.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Gear Handle.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Gear Light Diagarm.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Gear Light Diagarm.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Horizontal Panel Guard.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Horizontal Panel Guard.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\IFF.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\IFF.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\LIST.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\LIST.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Panel Screw.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Panel Screw.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\RCL.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\RCL.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Seat Arming Switch.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Seat Arming Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Spider Canopy Switch.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Spider Canopy Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Vertical Panel Guard.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Vertical Panel Guard.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\WX.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\WX.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\F-16\Yaw Trim Scale.htpl">
+    </Content>
+    <Content Include="Templates\Base\F-16\Yaw Trim Scale.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Hats\DCS Switch.htpl">
+    </Content>
+    <Content Include="Templates\Base\Hats\DCS Switch.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Indicators\Anunciator.htpl">
+    </Content>
+    <Content Include="Templates\Base\Indicators\Anunciator.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Indicators\Green Light.htpl">
+    </Content>
+    <Content Include="Templates\Base\Indicators\Green Light.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Indicators\Indicator - Square.htpl">
+    </Content>
+    <Content Include="Templates\Base\Indicators\Indicator - Square.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Panels\Generic Backplate.htpl">
+    </Content>
+    <Content Include="Templates\Base\Panels\Generic Backplate.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Panels\Generic Screws.htpl">
+    </Content>
+    <Content Include="Templates\Base\Panels\Generic Screws.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Push Button Indicators\Push Indicator - Square.htpl">
+    </Content>
+    <Content Include="Templates\Base\Push Button Indicators\Push Indicator - Square.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Arrows - Dark.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Arrows - Dark.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Arrows - Light.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Arrows - Light.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Blank - Dark.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Blank - Dark.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Blank - Light.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Blank - Light.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Dark Wheel.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Dark Wheel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Plus Minus - Dark - Horizontal.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Plus Minus - Dark - Horizontal.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Plus Minus - Dark.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Plus Minus - Dark.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Plus Minus - Light - Horizontal.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Plus Minus - Light - Horizontal.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Plus Minus - Light.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Plus Minus - Light.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Triangles - Dark.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Triangles - Dark.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\Triangles - Light.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\Triangles - Light.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rockers\White Wheel.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rockers\White Wheel.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rotaries\Rotary - Knob 1.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rotaries\Rotary - Knob 1.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rotaries\Rotary - Knob 3.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rotaries\Rotary - Knob 3.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rotaries\Rotary - Knob 4.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rotaries\Rotary - Knob 4.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Rotaries\Rotary - Knob 5.htpl">
+    </Content>
+    <Content Include="Templates\Base\Rotaries\Rotary - Knob 5.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Flat Top - Locking.htpl">
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Flat Top - Locking.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Flat Top.htpl">
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Flat Top.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Orange Seal - Round.htpl">
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Orange Seal - Round.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Orange Seal.htpl">
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Orange Seal.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Round - Locking.htpl">
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Round - Locking.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Round.htpl">
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Round.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Threeway Toggles\Square - Tan.htpl">
+    </Content>
+    <Content Include="Templates\Base\Threeway Toggles\Square - Tan.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Flat Top - Locking.htpl">
+    </Content>
+    <Content Include="Templates\Base\Toggles\Flat Top - Locking.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Flat Top.htpl">
+    </Content>
+    <Content Include="Templates\Base\Toggles\Flat Top.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Orange Seal - Round.htpl">
+    </Content>
+    <Content Include="Templates\Base\Toggles\Orange Seal - Round.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Orange Seal.htpl">
+    </Content>
+    <Content Include="Templates\Base\Toggles\Orange Seal.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Round - Locking.htpl">
+    </Content>
+    <Content Include="Templates\Base\Toggles\Round - Locking.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Round.htpl">
+    </Content>
+    <Content Include="Templates\Base\Toggles\Round.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Base\Toggles\Square - Tan.htpl">
+    </Content>
+    <Content Include="Templates\Base\Toggles\Square - Tan.htpl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Resource Include="Interfaces\DCS\A10C\ExportFunctions.lua" />
     <Resource Include="Interfaces\DCS\Common\Export.lua" />
     <Resource Include="Interfaces\DCS\BlackShark\ExportFunctions.lua" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CustomGaugeAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CustomGaugeBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CustomDrumAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CustomTapeAppearanceEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Controls\ImageTranslucentAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PotentiometerEndlessAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PotentiometerEndlessBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PotentiometerWithTranslateAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PotentiometerWithTranslateBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\GuardedThreeWayAppearancePropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -973,6 +1418,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\GuardedToggleSwitchBehaviorPropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GuardedSwitchAppearancePropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GuardedSwitchBehaviorPropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -992,7 +1445,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\TextDisplayAppearancePropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\IndicatorPushButtonAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeBoardAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeBoardBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeboardSwitchAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\KneeboardSwitchBehaviorEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1017,6 +1490,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\RectangleDecorationAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RectangleFillAppearanceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1164,10 +1641,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\A-10\Common\needle_a.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Resource>
     <Resource Include="Gauges\A-10\AOA\aoa_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1225,6 +1698,10 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Gauges\A-10\EngineTemp\eng_temp_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\A-10\Common\needle_a.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -1300,7 +1777,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Resource Include="Gauges\A-10\ILSFrequencey\ils_frequency_faceplate.xaml">
+    <Resource Include="Gauges\A-10\ILSFrequency\ils_frequency_faceplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
@@ -1848,7 +2325,738 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Gauges\MiG-21\Accelerometer\accelerometer_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Accelerometer\accelerometer_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Accelerometer\accelerometer_limit_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Accelerometer\accelerometer_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Accelerometer\accelerometer_limit_needleLow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Common\generic_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Common\small_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Common\generic_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\IAS\ias_back.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\IAS\ias_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\TAS\tas_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\TAS\tas_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\TAS\m_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\FuelGauge\fuelgauge_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\FuelGauge\fuelgauge_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\AOA\aoa_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\DA200\da200slip_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\DA200\da200_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\DA200\da200vvi_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\DA200\da200_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\DA200\da200bank_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_aircraft_symbol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_airspeed_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_bank_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_inner_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_lateral_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_pitch_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_pitch_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_k_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\KPP\adi_t_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\bearing_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\compass_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\compass_card_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\deviation_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\inner_bezel_markers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\k_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\g_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\glideslope_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\outer_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\black_blinker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\course_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\NPP\course_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\EngExhaustTemp\EngExhaustTemp_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\EngExhaustTemp\EngExhaustTemp_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\EngExhaustTemp\EngExhaustTemp_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\EngineRpm\enginerpm_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\EngineRpm\enginerpm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\EngineRpm\enginerpm_needle2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\EngineRpm\enginerpm_needle1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\RadioAltimeter\radalt_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\RadioAltimeter\radalt_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\BaroAltimeter\baro_alt_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\BaroAltimeter\baro_alt_innerfaceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\BaroAltimeter\baro_alt_short_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\BaroAltimeter\baro_alt_qfe_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\BaroAltimeter\baro_alt_long_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\BaroAltimeter\baro_alt_triangle_m.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\ARU3VM\aru3vm_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\ARU3VM\aru3vm_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Nosecone\nosecone_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Nosecone\nosecone_outer_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\HydroPressure\hydropressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\HydroPressure\hydropressure_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\HydroPressure\hydropressure_needle_cover.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\HydroPressure\hydropressure_needle_cover_second.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Common\drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Common\generic_gray_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Voltmeter\voltmeter_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\OilPressure\oilpressure_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\OilPressure\oilpressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\Common\generic_small_gray_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\EngineO2\engine_o2_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\O2Level\o2_level_blinker_l.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\O2Level\o2_level_blinker_r.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\O2Level\o2_level_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\O2Pressure\o2_pressure_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\MiG-21\BatteryCapacity\battery_capacity_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Engine Panel\edp_noz_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Engine Panel\nozzle_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\IAS\ias_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\AOA\aoa_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Common\drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Common\drum_tape_reverse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\5 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\4 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\3 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\2 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\1 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Accumulator\accumulator_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_outer_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_guides.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_inner_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\stabiliser display\stabilizer_drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\stores_mode_drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\fuze_mode_drum_tape_left.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\stabiliser display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\fuze_digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\DelModedigit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_slip_guides.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_slip_ball_complete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\ADI\adi_turn_marker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\IAS\needle_mask.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\AOA\aoa_off_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Common\needle_b.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Common\300_Gauge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Engine Panel\edp_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Battery\battery_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Accumulator\accumulator_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Trim Position\Trim_rudder_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Trim Position\Trim_aileron_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\Jettison Knob.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\Jettison Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Engine Panel\edp_water_light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Fuel Panel\fuel_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\fuze_mode_drum_tape_right.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\Altimeter\alt_drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\Common\drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\Common\drum_tape_reverse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\Common\eng_small_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\Common\needle_a.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\Altimeter\RADAR_Altimeter_Min_Needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_bank_pointer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_guides.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_inner_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_outer_ring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_aircraft_symbol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_airspeed_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_alt_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_bank_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_bubble_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_dir_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_inner_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_lateral_deviation_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_outer_bezel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_pitch_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\Mi-8\ADI\adi_slip_ball.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left Needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Bingo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends FF.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends L.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Noz.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Oil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends R.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends RPM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Temp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Legends Z.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right Needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left 0 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left 100 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Left 50 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Clock Separator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_gs_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_pitch_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_bank_steering_bar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_course_flag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\ADI\adi_gs_indicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\1 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\2 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\SMC\3 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Fuel Panel\4 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\AV-8B\Fuel Panel\5 Digit Display\digit_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Gauges\AV-8B\Small Panels\CockpitAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Gauges\AV-8B\Small Panels\FlightInstrumentAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Gauges\F-16\HydraulicPressure\hydraulic_faceplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\F-16\HydraulicPressure\hydraulic_needle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Gauges\FA-18C\IFEI\IFEI Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right 0 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right 100 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right 50 Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Right Nozzle Gauge Marks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Gauges\FA-18C\IFEI\IFEI_AppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Gauges\M2000C\Common\drum_tape.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\TACANChannel\tacan_channel_y_mode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\Common\needleB.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\HSIPanel\compass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Gauges\M2000C\Common\drum_tape_with_point.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Page Include="Interfaces\DCS\A10C\A10CInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\Common\DCSInterfaceEditor.xaml">
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Interfaces\DCS\F14B\F14BInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\AV8B\AV8BInterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1856,7 +3064,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Interfaces\DCS\FA18C\FA18CInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Interfaces\DCS\FC2\FC2InterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\Generic\GenericInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\M2000C\M2000CInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\Mi8Simple\Mi8SimpleInterfaceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Interfaces\DCS\MiG21\MiG21InterfaceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1883,6 +3111,10 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VersionReminderForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Controls\CalibrationEditorLong.xaml">
       <SubType>Designer</SubType>
@@ -1913,7 +3145,28 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Gauges\FA-18C\Controls\" />
+    <Folder Include="Interfaces\DCS\F14B\Functions\" />
+    <Folder Include="Interfaces\DCS\M2000C\Functions\" />
+    <Folder Include="Interfaces\DCS\Mi8Simple\Functions\" />
+    <Folder Include="Interfaces\DCS\MiG21\Functions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\Altimeter\Altimeter_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\Altimeter\RADAR_Altimeter_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\Battery\Battery_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\CabinPressure\Cabin_Pressure_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\Common\gauge_bezel.png" />
+    <Resource Include="Gauges\FA-18C\Common\engine_bezel.png" />
+    <Resource Include="Gauges\FA-18C\Battery\Battery_Needle_Cover.png" />
+    <Resource Include="Gauges\FA-18C\BrakePressure\Brake_Pressure_Cover.png" />
+    <Resource Include="Gauges\FA-18C\BrakePressure\Brake_Pressure_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\HydraulicPressure\Hyd_Pressure_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\IAS\IAS.png" />
+    <Resource Include="Gauges\FA-18C\LOx\LOx_Faceplate.png" />
+    <Resource Include="Gauges\FA-18C\VVI\VVI_Faceplate.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Buttons\mfd-in.png" />
     <Resource Include="Images\Buttons\mfd-lit-in.png" />
@@ -2097,7 +3350,7 @@
     <Resource Include="Images\Toggles\toggle-up.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Controls\missing_image.png" />
+    <Resource Include="Images\General\missing_image.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Interfaces\Falcon\OpenFalcon\ded.png" />
@@ -2251,85 +3504,243 @@
     <Resource Include="Gauges\A-10\HSI\hsi_bezel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\F-16\a-a-press.png" />
-    <Resource Include="Images\F-16\a-a.png" />
-    <Resource Include="Images\F-16\a-g-press.png" />
-    <Resource Include="Images\F-16\a-g.png" />
-    <Resource Include="Images\F-16\arrow-image.png" />
-    <Resource Include="Images\F-16\aux-comm-freq.png" />
-    <Resource Include="Images\F-16\canopy-down.png" />
-    <Resource Include="Images\F-16\canopy-up.png" />
-    <Resource Include="Images\F-16\cmds_outline.png" />
-    <Resource Include="Images\F-16\comm1-press.png" />
-    <Resource Include="Images\F-16\comm1.png" />
-    <Resource Include="Images\F-16\comm2-press.png" />
-    <Resource Include="Images\F-16\comm2.png" />
-    <Resource Include="Images\F-16\ded-box.png" />
-    <Resource Include="Images\F-16\earming-off.png" />
-    <Resource Include="Images\F-16\earming-on.png" />
-    <Resource Include="Images\F-16\f16_panel_background.png" />
-    <Resource Include="Images\F-16\f16_panel_border_left.png" />
-    <Resource Include="Images\F-16\f16_panel_border_right.png" />
-    <Resource Include="Images\F-16\f16_panel_bottom_border.png" />
-    <Resource Include="Images\F-16\f16_panel_bottom_left_croner.png" />
-    <Resource Include="Images\F-16\f16_panel_bottom_right_corner.png" />
-    <Resource Include="Images\F-16\f16_panel_horizontal_guard.png" />
-    <Resource Include="Images\F-16\f16_panel_screw.png" />
-    <Resource Include="Images\F-16\f16_panel_top_border.png" />
-    <Resource Include="Images\F-16\f16_panel_top_left_corner.png" />
-    <Resource Include="Images\F-16\f16_panel_top_right_corner.png" />
-    <Resource Include="Images\F-16\f16_panel_vertical_guard.png" />
-    <Resource Include="Images\F-16\f16_small_panel_bottom_border.png" />
-    <Resource Include="Images\F-16\f16_small_panel_bottom_left_corner.png" />
-    <Resource Include="Images\F-16\f16_small_panel_bottom_right_corner.png" />
-    <Resource Include="Images\F-16\f16_small_panel_left_border.png" />
-    <Resource Include="Images\F-16\f16_small_panel_right_border.png" />
-    <Resource Include="Images\F-16\f16_small_panel_top_border.png" />
-    <Resource Include="Images\F-16\f16_small_panel_top_left_corner.png" />
-    <Resource Include="Images\F-16\f16_small_panel_top_right_corner.png" />
-    <Resource Include="Images\F-16\gear-down-red-on.png" />
-    <Resource Include="Images\F-16\gear-down.png" />
-    <Resource Include="Images\F-16\gear-light-graphic.png" />
-    <Resource Include="Images\F-16\gear-up-red-on.png" />
-    <Resource Include="Images\F-16\gear-up.png" />
-    <Resource Include="Images\F-16\icp-0-press.png" />
-    <Resource Include="Images\F-16\icp-0.png" />
-    <Resource Include="Images\F-16\icp-1-press.png" />
-    <Resource Include="Images\F-16\icp-1.png" />
-    <Resource Include="Images\F-16\icp-2-press.png" />
-    <Resource Include="Images\F-16\icp-2.png" />
-    <Resource Include="Images\F-16\icp-3-press.png" />
-    <Resource Include="Images\F-16\icp-3.png" />
-    <Resource Include="Images\F-16\icp-4-press.png" />
-    <Resource Include="Images\F-16\icp-4.png" />
-    <Resource Include="Images\F-16\icp-5-press.png" />
-    <Resource Include="Images\F-16\icp-5.png" />
-    <Resource Include="Images\F-16\icp-6-press.png" />
-    <Resource Include="Images\F-16\icp-6.png" />
-    <Resource Include="Images\F-16\icp-7-press.png" />
-    <Resource Include="Images\F-16\icp-7.png" />
-    <Resource Include="Images\F-16\icp-8-press.png" />
-    <Resource Include="Images\F-16\icp-8.png" />
-    <Resource Include="Images\F-16\icp-9-press.png" />
-    <Resource Include="Images\F-16\icp-9.png" />
-    <Resource Include="Images\F-16\icp-enter-press.png" />
-    <Resource Include="Images\F-16\icp-enter.png" />
-    <Resource Include="Images\F-16\icp-wx-press.png" />
-    <Resource Include="Images\F-16\icp-wx.png" />
-    <Resource Include="Images\F-16\icp_panel_background.png" />
-    <Resource Include="Images\F-16\iff-press.png" />
-    <Resource Include="Images\F-16\iff.png" />
-    <Resource Include="Images\F-16\ipc-rcl-press.png" />
-    <Resource Include="Images\F-16\ipc-rcl.png" />
-    <Resource Include="Images\F-16\list-pressed.png" />
-    <Resource Include="Images\F-16\list.png" />
-    <Resource Include="Images\F-16\mfd-in.png" />
-    <Resource Include="Images\F-16\mfd-out.png" />
-    <Resource Include="Images\F-16\mfd_bezel.png" />
-    <Resource Include="Images\F-16\rocker-down.png" />
-    <Resource Include="Images\F-16\rocker-middle.png" />
-    <Resource Include="Images\F-16\rocker-up.png" />
-    <Resource Include="Images\F-16\yaw_trim_scale.png" />
+    <Resource Include="Images\F-16\a-a-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\a-a.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\a-g-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\a-g.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\arrow-image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\aux-comm-freq.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\canopy-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\canopy-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\cmds_outline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\comm1-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\comm1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\comm2-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\comm2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\ded-box.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\earming-off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\earming-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_border_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_border_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_bottom_border.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_bottom_left_croner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_bottom_right_corner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_horizontal_guard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_screw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_top_border.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_top_left_corner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_top_right_corner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_panel_vertical_guard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_small_panel_bottom_border.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_small_panel_bottom_left_corner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_small_panel_bottom_right_corner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_small_panel_left_border.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_small_panel_right_border.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_small_panel_top_border.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_small_panel_top_left_corner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\f16_small_panel_top_right_corner.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\gear-down-red-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\gear-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\gear-light-graphic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\gear-up-red-on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\gear-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-0-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-1-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-2-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-3-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-4-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-5-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-6-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-7-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-8-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-9-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-enter-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-enter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-wx-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp-wx.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\icp_panel_background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\iff-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\iff.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\ipc-rcl-press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\ipc-rcl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\list-pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\list.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\mfd-in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\mfd-out.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\mfd_bezel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\rocker-down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\rocker-middle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\rocker-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\F-16\yaw_trim_scale.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Gauges\F-16\ADI\adi_bezel.png" />
@@ -2350,12 +3761,102 @@
   <ItemGroup>
     <Resource Include="Gauges\F-16\VVI\vvi_bezel.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\MiG-21\RSBNDistance\RSBNDistance.png" />
+    <Resource Include="Gauges\AV-8B\ADI\adi_bezel.png" />
+    <Resource Include="Gauges\AV-8B\ADI\adi_slip_bezel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\Altimeter\RADAR_Altimeter_Cover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\HydraulicPressure\PRESS_1.png" />
+    <Resource Include="Gauges\FA-18C\HydraulicPressure\PRESS_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\ADI\adi_bezel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\ADI\adi_glass.png" />
+    <Resource Include="Gauges\FA-18C\ADI\adi_inner_ring.png" />
+    <Resource Include="Gauges\FA-18C\ADI\adi_slip_bezel.png" />
+    <Resource Include="Gauges\FA-18C\ADI\adi_off_flag.png" />
+    <Resource Include="Gauges\FA-18C\ADI\adi_wings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\ADI\adi_ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_DOWN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_DOWN_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_ET.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_ET_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_MODE.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_MODE_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_QTY.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_QTY_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_UP.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_UP_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI_ZONE_DN.png" />
+    <Resource Include="Gauges\FA-18C\IFEI\IFEI Reflections.png" />
+    <Resource Include="Images\KneeBoards\default_kneeboard_image.png" />
+    <Content Include="Helios.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_Documents\changelog.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_Documents\GNU Lesser General Public License.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="_Documents\Helios.M2000C.Read.Me.txt" />
+    <Content Include="_Documents\Helios.Read.Me.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aircraft A-10C\Aircraft A-10C.csproj">
+      <Project>{80870108-efe4-4adf-969d-a0ce06123271}</Project>
+      <Name>Aircraft A-10C</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aircraft AV-8B\Aircraft AV-8B.csproj">
+      <Project>{2b00f04b-3cb2-44e7-b49b-da94ff74c66c}</Project>
+      <Name>Aircraft AV-8B</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aircraft FA-18C\Aircraft FA-18C.csproj">
+      <Project>{4fdce381-aa97-4c5e-b4cf-f9ec6792dd2c}</Project>
+      <Name>Aircraft FA-18C</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aircraft M2000C\Aircraft M2000C.csproj">
+      <Project>{bd8b2678-7d32-4e3d-8a9d-ca1ce201285f}</Project>
+      <Name>Aircraft M2000C</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /s /y "$(SolutionDir)packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"
-</PostBuildEvent>
+    <PostBuildEvent>del "$(TargetDir)Templates\*.htpl"
+if "x86"=="$(PlatformName)" (
+  copy "$(TargetDir)*lua*.*" "$(SolutionDir)bin\release\"
+  copy "$(TargetDir)helios.dll" "$(SolutionDir)bin\release\"
+)</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\SharpDX.2.6.3\build\SharpDX.targets" Condition="Exists('..\packages\SharpDX.2.6.3\build\SharpDX.targets')" />
+  <Import Project="..\packages\KeraLua.1.0.29\build\net45\KeraLua.targets" Condition="Exists('..\packages\KeraLua.1.0.29\build\net45\KeraLua.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\KeraLua.1.0.29\build\net45\KeraLua.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\KeraLua.1.0.29\build\net45\KeraLua.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

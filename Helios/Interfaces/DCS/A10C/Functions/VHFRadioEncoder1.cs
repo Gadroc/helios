@@ -15,49 +15,49 @@
 
 namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C.Functions
 {
-    using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
-    using GadrocsWorkshop.Helios.UDPInterface;
-    using System;
-    using System.Globalization;
+	using GadrocsWorkshop.Helios.Interfaces.DCS.Common;
+	using GadrocsWorkshop.Helios.UDPInterface;
+	using System;
+	using System.Globalization;
 
-    class VHFRadioEncoder1 : AbsoluteEncoder
-    {
-        private double _lastData = 0d;
-        private HeliosValue _windowValue;
+	class VHFRadioEncoder1 : Axis
+	{
+		private double _lastData = 0d;
+		private HeliosValue _windowValue;
 
-        public VHFRadioEncoder1(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string button2Id, string argId, double argValue, double argMin, double argMax, string device, string name, bool loop, string exportFormat)
-            : base(sourceInterface, deviceId, buttonId, button2Id, argId, argValue, argMin, argMax, device, name, loop, exportFormat)
-        {
-            _windowValue = new HeliosValue(sourceInterface, new BindingValue(0.0d), device, name + " window", "Current value displayed in this encoder.", argMin.ToString() + "-" + argMax.ToString(), BindingValueUnits.Text);
-            Values.Add(_windowValue);
-            Triggers.Add(_windowValue);
-        }
+		public VHFRadioEncoder1(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, double argValue, double argMin, double argMax, string device, string name)
+			: base(sourceInterface, deviceId, buttonId, argId, argValue, argMin, argMax, device, name, false, "%.3f")
+		{
+			_windowValue = new HeliosValue(sourceInterface, new BindingValue(0.0d), device, name + " window", "Current value displayed in this encoder.", "current value converted" , BindingValueUnits.Text);
+			Values.Add(_windowValue);
+			Triggers.Add(_windowValue);
+		}
 
-        public override void ProcessNetworkData(string id, string value)
-        {
-            base.ProcessNetworkData(id, value);
-            double parseValue;
-            if (double.TryParse(value, System.Globalization.NumberStyles.Number, System.Globalization.CultureInfo.InvariantCulture, out parseValue))
-            {
-                double newValue = parseValue;
+		public override void ProcessNetworkData(string id, string value)
+		{
+			base.ProcessNetworkData(id, value);
+			double parseValue;
+			if (double.TryParse(value, System.Globalization.NumberStyles.Number, System.Globalization.CultureInfo.InvariantCulture, out parseValue))
+			{
+				double newValue = parseValue;
 
-                if (newValue < _lastData)
-                {
-                    newValue = Math.Floor((Math.Truncate(newValue * 100))/5);                    
-                }
-                else if (newValue > _lastData)
-                {
-                    newValue = Math.Ceiling(Math.Truncate((newValue * 100)) / 5);
-                }
-                else
-                {
-                    return;
-                }
+				if (newValue < _lastData)
+				{
+					newValue = Math.Floor((Math.Truncate(newValue * 100)) / 5);
+				}
+				else if (newValue > _lastData)
+				{
+					newValue = Math.Ceiling(Math.Truncate((newValue * 100)) / 5);
+				}
+				else
+				{
+					return;
+				}
 
-                _lastData = parseValue;
+				_lastData = parseValue;
 
-                _windowValue.SetValue(new BindingValue(newValue.ToString(CultureInfo.InvariantCulture)), false);
-            }
-        }
-    }
+				_windowValue.SetValue(new BindingValue(newValue.ToString(CultureInfo.InvariantCulture)), false);
+			}
+		}
+	}
 }

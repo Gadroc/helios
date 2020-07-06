@@ -136,7 +136,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             }
             catch (Exception ex)
             {
-                ConfigManager.LogManager.LogWarning("Error trying to determine rednering mode for " + _display.Name, ex);
+                ConfigManager.LogManager.LogWarning("Error trying to determine rendering mode for " + _display.Name, ex);
             }
         }
 

@@ -87,7 +87,10 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.RWR
                             }
                             else
                             {
-                                y = -((1.0f - contact.Lethality) * 178.0d);
+                                //lethality values range in 1 = lowest priority to .01 = highest priority
+                                //substract -(1.0f - contact.Lethality) * 178.0d) from the elipse radious (187d) to get the inverse value
+                                //so that the symbol maps into the correct threat ring
+                                y = -(187d - ((1.0f - contact.Lethality) * 178.0d));
                             }
 
                             drawingContext.PushTransform(new RotateTransform(contact.RelativeBearing));
