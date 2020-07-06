@@ -11,7 +11,7 @@ The [Helios 1.4 Wiki](https://github.com/BlueFinBima/Helios14/wiki) remains avai
 
 ## [Project Wiki](https://github.com/BlueFinBima/Helios14/wiki)
 
-This is the source code repository for the Helios Virtual Cockpit System for DCS World.  This repository is for core and module developers use.  If you are looking for end user downloads and documentation please visit http://www.gadrocsworkshop.com.
+This is the source code repository for the Helios Virtual Cockpit System for DCS World.  This repository is for core and module developers use.  If you are looking for end user downloads and documentation from the Gadroc era, then 1.3.190 has been made available [here](http://www.captzeen.com/helios/downloads.asp) however the documentation and profiles which had been available on Gadroc's Workshop website are unavailable because the site http://www.gadrocsworkshop.com has been taken down.
 
 The latest binaries from this fork of Helios are available at https://www.digitalcombatsimulator.com/en/files/3302014/
 
