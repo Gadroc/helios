@@ -20,14 +20,14 @@ namespace GadrocsWorkshop.Helios.Interfaces.DCS.A10C.Functions
     using System;
     using System.Globalization;
 
-    class VHFPresetSelector : AbsoluteEncoder
+    class VHFPresetSelector : Axis
     {
         private double _lastData = 0d;
         private HeliosValue _windowValue;
 
-        public VHFPresetSelector(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string button2Id, string argId, double argValue, double argMin, double argMax, string device, string name, bool loop, string exportFormat)
-            : base(sourceInterface, deviceId, buttonId, button2Id, argId, argValue, argMin, argMax, device, name, loop, exportFormat)
-        {
+		public VHFPresetSelector(BaseUDPInterface sourceInterface, string deviceId, string buttonId, string argId, double argValue, double argMin, double argMax, string device, string name)
+			 : base(sourceInterface, deviceId, buttonId, argId, argValue, argMin, argMax, device, name, false, "%.3f")
+		{
             _windowValue = new HeliosValue(sourceInterface, new BindingValue(0.0d), device, name + " window", "Current value displayed in this encoder.", argMin.ToString() + "-" + argMax.ToString(), BindingValueUnits.Text);
             Values.Add(_windowValue);
             Triggers.Add(_windowValue);

@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.Altimeter
     using System.Windows;
     using System.Windows.Media;
 
-    [HeliosControl("Helios.F16.Altimeter", "Altimeter", "F-16 Gauges", typeof(GaugeRenderer))]
+    [HeliosControl("Helios.F16.Altimeter", "Altimeter", "F-16", typeof(GaugeRenderer))]
     public class Altimeter : BaseGauge
     {
         private HeliosValue _altitdue;
@@ -76,7 +76,8 @@ namespace GadrocsWorkshop.Helios.Gauges.F_16.Altimeter
 
         void AirPressure_Execute(object action, HeliosActionEventArgs e)
         {
-            _airPressureDrum.Value = e.Value.DoubleValue * 100d;
+            //_airPressureDrum.Value = e.Value.DoubleValue * 100d;
+            _airPressureDrum.Value = e.Value.DoubleValue;
         }
     }
 }

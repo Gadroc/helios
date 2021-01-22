@@ -16,12 +16,14 @@
 namespace GadrocsWorkshop.Helios.ControlCenter
 {
     using System;
+    using System.ComponentModel;
     using System.Runtime.InteropServices;
     using System.Windows.Input;
 
     // RECT structure required by WINDOWPLACEMENT structure
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
+    [TypeConverter(typeof(RECTConverter))]
     public struct RECT
     {
         public int Left;
@@ -36,7 +38,55 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             this.Right = right;
             this.Bottom = bottom;
         }
+
+        public int Width
+        {
+            get { return Right - Left; }
+        }
+
+        public int Height
+        {
+            get { return Bottom - Top; }
+        }
+
+        public override string ToString()
+        {
+            return "(" + Left.ToString() + "," + Top.ToString() + " " + Right.ToString() + "," + Bottom.ToString() + ")";
+        }
     }
+
+    public class RECTConverter : TypeConverter
+    {
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            if (sourceType == typeof(string))
+            {
+                return true;
+            }
+            return base.CanConvertFrom(context, sourceType);
+        }
+
+        public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
+        {
+            if (value is string)
+            {
+                string[] v = ((string)value).Split(',');
+                return new RECT(int.Parse(v[0]), int.Parse(v[1]), int.Parse(v[2]), int.Parse(v[3]));
+            }
+            return base.ConvertFrom(context, culture, value);
+        }
+
+        public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
+        {
+            if (destinationType == typeof(string))
+            {
+                RECT rectValue = (RECT)value;
+                return rectValue.Left + "," + rectValue.Top + "," + rectValue.Right + "," + rectValue.Bottom;
+            }
+            return base.ConvertTo(context, culture, value, destinationType);
+        }
+    }
+
 
     // POINT structure required by WINDOWPLACEMENT structure
     [Serializable]

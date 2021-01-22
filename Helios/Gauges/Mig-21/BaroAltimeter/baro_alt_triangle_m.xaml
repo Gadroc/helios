@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="32" Height="189">
+    <Canvas.Resources/>
+    <Canvas Name="layer11">
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <!--g-->
+                    <TranslateTransform X="-154.02143" Y="-38.699947"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+        </Canvas>
+    </Canvas>
+
+    <Polygon Points="0,0 20,10, 0,20" Stroke="Black" Fill="White" Width="22" Height="20.667" RenderTransformOrigin="0.5,0.5" Canvas.Left="4.875" Canvas.Top="1.202" >
+        <Polygon.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="90.096"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Polygon.RenderTransform>
+    </Polygon>
+
+</Canvas>
+    

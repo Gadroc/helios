@@ -40,6 +40,11 @@ namespace GadrocsWorkshop.Helios
         private bool _valid = false;
         private string _error = "";
 
+#if DEVELOPMENT_CONFIGURATION
+        private static Object _sTracingSource = null;
+        private static bool _sTraceLoop = false;
+#endif
+
         public HeliosBinding()
         {
         }
@@ -341,14 +346,74 @@ namespace GadrocsWorkshop.Helios
             {
                 return new BindingValue((bool)value);
             }
+            else if (value is long longValue)
+            {
+                // construct double from long
+                return new BindingValue(longValue);
+            }
 
             return BindingValue.Empty;
         }
+
+#if DEVELOPMENT_CONFIGURATION
+        private static System.Collections.Generic.HashSet<string> _sTracesReported = new System.Collections.Generic.HashSet<string>();
+
+        private void TraceTriggerFired()
+        {
+            // NOTE: deliberately crash if any of these are null
+            HeliosObject target = (_targetAction.Target as IBindingAction).Target;
+            if (target._tracing || _executing)
+            {
+                if (!_sTracesReported.Contains(Description))
+                {
+                    string loopType = _executing ? "Hard" : "Soft";
+                    ConfigManager.LogManager.LogInfo($"{loopType} binding loop detected; Object {target.Name} may have triggered itself");
+                    _sTraceLoop = true;
+                    _sTracesReported.Add(Description);
+                }
+                _sTracingSource = target;
+            }
+            HeliosObject source = (_triggerSource.Target as IBindingTrigger).Source;
+            source._tracing = true;
+        }
+
+        private void EndTraceTriggerFired()
+        {
+            if (_sTraceLoop)
+            {
+                ConfigManager.LogManager.LogInfo($"  binding loop includes {Description}");
+            }
+            HeliosObject source = (_triggerSource.Target as IBindingTrigger).Source;
+            if (source._tracing)
+            {
+                source._tracing = false;
+                if (_sTracingSource == source)
+                {
+                    if (_sTraceLoop)
+                    {
+                        _sTraceLoop = false;
+                        ConfigManager.LogManager.LogInfo("  binding loop trace complete");
+                    }
+                    _sTracingSource = null;
+                }
+            }
+        }
+#else
+        private void TraceTriggerFired()
+        {
+            // no code
+        }
+        private void EndTraceTriggerFired()
+        {
+            // no code
+        }
+#endif
 
         public void OnTriggerFired(object trigger, HeliosTriggerEventArgs e)
         {
             if (IsActive)
             {
+                TraceTriggerFired();
                 if (_executing)
                 {
                     ConfigManager.LogManager.LogWarning("Binding loop condition detected, binding aborted. (Binding=\"" + Description + "\")");
@@ -391,6 +456,7 @@ namespace GadrocsWorkshop.Helios
                                         {
                                             ConfigManager.LogManager.LogDebug("Binding condition evaluated to false, binding aborted. (Binding=\"" + Description + "\")");
                                         }
+                                        EndTraceTriggerFired();
                                         return;
                                     }
                                 }
@@ -402,6 +468,7 @@ namespace GadrocsWorkshop.Helios
                             catch (Exception conditionException)
                             {
                                 ConfigManager.LogManager.LogError("Binding condition has thown an unhandled exception. (Binding=\"" + Description + "\", Condition=\"" + Condition + "\")", conditionException);
+                                EndTraceTriggerFired();
                                 return;
                             }
                         }
@@ -428,9 +495,8 @@ namespace GadrocsWorkshop.Helios
                             case BindingValueSources.LuaScript:
                                 try
                                 {
-
                                     object[] returnValues = LuaInterpreter.DoString(Value);
-                                    if (returnValues.Length >= 1)
+                                    if ((returnValues != null) && (returnValues.Length >= 1))
                                     {
                                         value = CreateBindingValue(returnValues[0]);
                                         if (ConfigManager.LogManager.LogLevel >= LogLevel.Debug)
@@ -449,11 +515,17 @@ namespace GadrocsWorkshop.Helios
                                 }
                                 catch (Exception valueException)
                                 {
+                                    // these are exceptions thrown by the Lua implementation
                                     ConfigManager.LogManager.LogError("Binding value lua script has thown an unhandled exception. (Binding=\"" + Description + "\", Value Script=\"" + Value + "\")", valueException);
                                 }
                                 break;
                         }
-
+                        if(Action.Target.Dispatcher == null) {
+                            // if we don't have a dispatcher, likely because this is a composite device, we use the dispatcher object from the owner of the trigger
+                            // this seems to work and was the best I could come up with, but it is very much a kludge because I could not work out the proper way
+                            // to have a dispatcher created for Actions
+                            Action.Target.Dispatcher = Trigger.Owner.Dispatcher;
+                        }
                         Action.Target.Dispatcher.Invoke(new Action<BindingValue, bool>(Execute), value, BypassCascadingTriggers);
                     }
                     catch (Exception ex)
@@ -462,6 +534,7 @@ namespace GadrocsWorkshop.Helios
                     }
                     _executing = false;
                 }
+                EndTraceTriggerFired();
             }
         }
 
@@ -514,21 +587,21 @@ namespace GadrocsWorkshop.Helios
                 if (ValueSource == BindingValueSources.TriggerValue && _needsConversion && _converter == null)
                 {
                     IsValid = true;
-                    ErrorMessage = "Action Value Warning - Can not convert trigger value to action value.";
+                    ErrorMessage = "Action Value Warning - Cannot convert trigger value to action value.";
                     return;
                 }
 
                 if (ValueSource == BindingValueSources.StaticValue && (Value == null || Value.Length == 0))
                 {
                     IsValid = true;
-                    ErrorMessage = "Action Value Warning - Value can not be empty.";
+                    ErrorMessage = "Action Value Warning - Value cannot be empty.";
                     return;
                 }
 
                 if (ValueSource == BindingValueSources.LuaScript && (Value == null || Value.Length == 0))
                 {
                     IsValid = true;
-                    ErrorMessage = "Action Value Warning - Script can not be empty.";
+                    ErrorMessage = "Action Value Warning - Script cannot be empty.";
                     return;
                 }
             }

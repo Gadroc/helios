@@ -366,21 +366,30 @@ namespace GadrocsWorkshop.Helios
 
             public INPUT(ushort wVk, ushort wScan, uint dwFlags, uint time, IntPtr dwExtraInfo)
             {
+                /// https://stackoverflow.com/questions/8962850/sendinput-fails-on-64bit
                 type = INPUT_KEYBOARD;
                 mkhi = new MOUSEKEYBDHARDWAREINPUT();
+                /*Virtual Key code.  Must be from 1-254.  If the dwFlags member specifies KEYEVENTF_UNICODE, wVk must be 0.*/
                 mkhi.ki.wVk = wVk;
+                /*A hardware scan code for the key. If dwFlags specifies KEYEVENTF_UNICODE, wScan specifies a Unicode character which is to be sent to the foreground application.*/
                 mkhi.ki.wScan = wScan;
+                /*Specifies various aspects of a keystroke.  See the KEYEVENTF_ constants for more information.*/
                 mkhi.ki.dwFlags = dwFlags;
+                /*The time stamp for the event, in milliseconds. If this parameter is zero, the system will provide its own time stamp.*/
                 mkhi.ki.time = time;
+                /*An additional value associated with the keystroke. Use the GetMessageExtraInfo function to obtain this information.*/
                 mkhi.ki.dwExtraInfo = dwExtraInfo;
             }
         }
 
-        [DllImport("User32.dll", SetLastError = true)]
+        [DllImport("user32.dll", SetLastError = true)]
         internal static extern uint SendInput(uint nInputs, INPUT[] pInputs, int cbSize);
 
         [DllImport("user32.dll")]
         internal static extern IntPtr GetKeyboardLayout(uint idThread);
+
+        [DllImport("user32.dll")]
+        internal static extern Int32 GetKeyboardLayoutList(Int32 bufferSize, IntPtr[] buffer);
 
         [DllImport("user32.dll")]
         internal static extern short VkKeyScanEx(char ch, IntPtr dwhkl);

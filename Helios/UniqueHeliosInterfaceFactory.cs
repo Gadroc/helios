@@ -44,7 +44,7 @@ namespace GadrocsWorkshop.Helios
                 }
                 else
                 {
-                    ConfigManager.LogManager.LogInfo("Unique interface already exists in profile " + descriptor.Name);
+                    ConfigManager.LogManager.LogInfo("Unique interface already exists in profile " + descriptor.Name + ". Type: " + descriptor.InterfaceType.BaseType.Name);
                 }
             }
 
@@ -67,11 +67,24 @@ namespace GadrocsWorkshop.Helios
         {
             foreach (HeliosInterface heliosInterface in profile.Interfaces)
             {
-                HeliosInterfaceDescriptor interfaceDescriptor = ConfigManager.ModuleManager.InterfaceDescriptors[heliosInterface.GetType()];
-                if (interfaceDescriptor.TypeIdentifier.Equals(descriptor.TypeIdentifier))
+                if (descriptor.InterfaceType.BaseType.Name != "BaseUDPInterface")
                 {
-                    // If any existing interfaces in the profile have the same type identifier do not add them.
-                    return false;
+                    HeliosInterfaceDescriptor interfaceDescriptor = ConfigManager.ModuleManager.InterfaceDescriptors[heliosInterface.GetType()];
+                    if (interfaceDescriptor.TypeIdentifier.Equals(descriptor.TypeIdentifier))
+                    {
+                        // If any existing interfaces in the profile have the same type identifier do not add them.
+                        return false;
+                    }
+                } else
+                {
+                    string _a = heliosInterface.TypeIdentifier;
+                    string _b = heliosInterface.BaseTypeIdentifier;
+                    HeliosInterfaceDescriptor interfaceDescriptor = ConfigManager.ModuleManager.InterfaceDescriptors[heliosInterface.GetType()];
+                    if (interfaceDescriptor.TypeIdentifier.Equals(descriptor.TypeIdentifier) || heliosInterface.BaseTypeIdentifier == "BaseUDPInterface")
+                    {
+                        // If any existing interfaces in the profile have the same type identifier do not add them.
+                        return false;
+                    }                    
                 }
             }
 

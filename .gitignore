@@ -5,4 +5,27 @@ obj
 # mstest test results
 TestResults
 *.suo
-/packages
+Keypress Receiver Installer/*/* [sS]etup.exe
+Helios Installer/*/* [sS]etup.exe
+Helios Installer/*/* [iI]nstaller.msi
+packages/**/*.*
+!**/*.md
+Helios *.zip
+Helios *.msi
+Helios *.exe
+"/.vs"
+"NL Assets"
+/.vs/helios/v15/Server/sqlite3
+/.vs/Helios/v16/Server/sqlite3
+*.bak
+*.user
+!/Docs/*.txt
+/UpgradeLog3.htm
+/postbuild.txt
+
+/Keypress Receiver Installer/Debug/Keypress Receiver Installer.msi
+/Helios Installer/select_output.txt
+Keypress Receiver Installer/postbuild.txt
+Keypress Receiver Installer/Release/Helios Keypress Receiver Setup.exe
+Keypress Receiver Installer/Release/Keypress Receiver Setup.msi
+Keypress Receiver Installer/postbuild.txt

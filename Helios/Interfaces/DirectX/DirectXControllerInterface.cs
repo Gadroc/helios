@@ -79,23 +79,16 @@ namespace GadrocsWorkshop.Helios.Interfaces.DirectX
                     catch (SharpDX.SharpDXException)
                     {
                         //    // Check to see if any enumerable controllers have the same DisplayName
-                        //    DeviceList gameControllerList = Manager.GetDevices(DeviceClass.GameControl, EnumDevicesFlags.AttachedOnly);
-                        //    if (gameControllerList.Count > 0)
-                        //    {
-                        //        while (gameControllerList.MoveNext())
-                        //        {
-                        //            DeviceInstance joystickInstance = (DeviceInstance)gameControllerList.Current;
-                        //            DirectXControllerGuid joystickId = new DirectXControllerGuid(joystickInstance.ProductName, joystickInstance.InstanceGuid);
-                        //            if (joystickId.ProductName.Equals(newDeviceId.ProductName))
-                        //            {
-                        //                newDeviceId = joystickId;
-                        //                newDevice = new Device(newDeviceId.InstanceGuid);
-                        //                break;
-                        //            }
-                        //        }
-                        //    }
+                        foreach (DeviceInstance controllerInstance in DirectXControllerInterfaceFactory.DirectInput.GetDevices(DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly))
+                        {
+                            if (controllerInstance.ProductName == value.ProductName)
+                            {
+                                newDeviceId = new DirectXControllerGuid(controllerInstance.ProductName, controllerInstance.InstanceGuid);
+                                newDevice = new Joystick(DirectXControllerInterfaceFactory.DirectInput, controllerInstance.InstanceGuid);
+                                break;
+                            }
+                        }
                     }
-
 
                     if (newDeviceId == null)
                     {

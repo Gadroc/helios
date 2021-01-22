@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"   Name="edp_Faceplate" Width="32" Height="32">
+
+  <Ellipse HorizontalAlignment="Stretch" Stroke="ForestGreen" Width="32" RenderTransformOrigin="0,0" Height="32" Canvas.Left="0" Canvas.Top="0">
+    <Ellipse.Fill>
+      <RadialGradientBrush>
+        <GradientStop Color="#FF343434"/>
+        <GradientStop Color="#9900FF00" Offset="1"/>
+        <GradientStop Color="#401FF400"/>
+      </RadialGradientBrush>
+    </Ellipse.Fill>
+  </Ellipse>
+
+</Canvas>

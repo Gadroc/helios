@@ -26,6 +26,7 @@ namespace GadrocsWorkshop.Helios
 
     public class HeliosSerializer : BaseDeserializer
     {
+        private HeliosBindingCollection _skipbindings = new HeliosBindingCollection();
         public HeliosSerializer(Dispatcher dispatcher)
             : base(dispatcher)
         {
@@ -76,7 +77,10 @@ namespace GadrocsWorkshop.Helios
                         if (display != null)
                         {
                             display.Name = "Monitor " + i++;
-                            destination.Add(display);
+                            if (display != null)
+                            {
+                                destination.Add(display);
+                            }
                         }
                     }
                     xmlReader.ReadEndElement();
@@ -239,7 +243,14 @@ namespace GadrocsWorkshop.Helios
         {
             foreach (HeliosBinding binding in bindings)
             {
-                SerializeBinding(binding, xmlWriter);
+                //SerializeBinding(binding, xmlWriter);
+                //_skipbindings.Add(binding);
+                if (!_skipbindings.Contains(binding))
+                {
+                    SerializeBinding(binding, xmlWriter);
+                    _skipbindings.Add(binding);
+                }
+
             }
         }
 
@@ -289,6 +300,9 @@ namespace GadrocsWorkshop.Helios
                         binding.Trigger = source.Triggers[trigger];
                     }
                 }
+            } else
+            {
+                ConfigManager.LogManager.LogError("Binding Source Reference Unresolved: " + xmlReader.GetAttribute("Source"));
             }
             xmlReader.Read();
 
@@ -310,8 +324,11 @@ namespace GadrocsWorkshop.Helios
                     }
                 }
             }
+            else
+            {
+                ConfigManager.LogManager.LogError("Binding Target Reference Unresolved: " + xmlReader.GetAttribute("Target"));
+            }
             xmlReader.Read();
-
             switch (xmlReader.Name)
             {
                 case "StaticValue":

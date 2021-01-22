@@ -30,9 +30,13 @@ namespace GadrocsWorkshop.Helios.ProfileEditor
             InitializeComponent();
         }
 
-        protected override void OnActivated(EventArgs e)
+         protected override void OnActivated(EventArgs e)
         {
-            VersionBlock.Text = Assembly.GetEntryAssembly().GetName().Version.ToString();
+            Version _runningVersion = Assembly.GetEntryAssembly().GetName().Version;
+            VersionBlock.Text = _runningVersion.Major.ToString() + "." + _runningVersion.Minor.ToString() + "." + _runningVersion.Build.ToString() + "." + _runningVersion.Revision.ToString("0000");
+            ContributionBlock.Text = "Gadroc; BlueFinBima; ";
+            ContributionBlock.Text = ContributionBlock.Text + "derammo; CaptZeen; KiwiLostInMelb; damien022; Phar71; Will Hartsell; Wheelchock; BeamRider; Cylution; Rachmaninoff; yzfanimal; WillianG83";
+            StatusBlock.Text = "Released";
             base.OnActivated(e);
         }
 

@@ -20,7 +20,7 @@ namespace GadrocsWorkshop.Helios.Interfaces.Falcon.RWR
     using System.Collections.Generic;
     using System.Windows;
 
-    [HeliosControl("Helios.Falcon.RWR", "Block 50/52 RWR", "F-16 Gauges", typeof(RWRRenderer))] 
+    [HeliosControl("Helios.Falcon.RWR", "Block 50/52 RWR", "F-16", typeof(RWRRenderer))] 
     public class RWR : HeliosVisual
     {
         private bool _on;

@@ -150,7 +150,7 @@ namespace GadrocsWorkshop.Helios
             _typeIdentifier = reader.ReadElementString("TypeIdentifier");
 
             _templateControl = reader.ReadInnerXml();
-
+            ConfigManager.LogManager.LogDebug("HeliosTemplate Loaded Inner XML: " + _templateControl);
             reader.ReadEndElement();
         }
     }

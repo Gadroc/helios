@@ -19,21 +19,13 @@ namespace GadrocsWorkshop.Helios.ControlCenter
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using System.Runtime.InteropServices;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Reflection;
     using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Documents;
     using System.Windows.Input;
     using System.Windows.Interop;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using System.Windows.Navigation;
-    using System.Windows.Shapes;
     using System.Windows.Threading;
+    using GadrocsWorkshop.Helios.Splash;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -61,6 +53,9 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             InitializeComponent();
 
             ConfigManager.LogManager.LogInfo("Initializing Main Window");
+            KeyboardEmulator.ControlCenterSession = true;  // Keyboard emulator needs to know that we're in the Control Center
+
+            displaySplash(4000);  // Display a dynamic splash panel with release and credits
 
             MinimizeCheckBox.IsChecked = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "StartMinimized", false);
             if (MinimizeCheckBox.IsChecked == true)
@@ -86,6 +81,23 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                 SelectedProfileName = "- No Profiles Available -";
             }
 
+            if (ConfigManager.SettingsManager.IsSettingAvailable("ControlCenter", "TouchScreenMouseSuppressionPeriod"))
+            {
+                TouchScreenDelaySlider.Value = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "TouchScreenMouseSuppressionPeriod", 0);
+                if (TouchScreenDelaySlider.Value > 0)
+                {
+                    TouchscreenDelayTextBlock.Visibility = Visibility.Visible;
+                    TouchScreenDelaySlider.Visibility = Visibility.Visible;
+                    TouchScreenDelayBorder.Visibility = Visibility.Visible;
+                    TouchScreenDelayTitle.Visibility = Visibility.Visible;
+                    TouchscreenCheckBox.IsChecked = true;
+                }
+                else
+                {
+                    TouchscreenCheckBox.IsChecked = false;
+                }
+            }
+
             try
             {
                 RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
@@ -109,6 +121,16 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             AutoHideCheckBox.IsChecked = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "AutoHide", false);
 
             SetLicenseMessage();
+            SetProjectReleaseMessage();
+        }
+
+        private void displaySplash(Int32 splashDelay)
+        {
+            About aboutDialog = new About();
+            aboutDialog.InitializeComponent();
+            aboutDialog.Show();
+            System.Threading.Thread.Sleep(splashDelay);
+            aboutDialog.Close();
         }
 
         #region Properties
@@ -289,7 +311,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             if (_prefsShown)
             {
                 PreferencesCanvas.Visibility = System.Windows.Visibility.Visible;
-                Height = 477;
+                Height = 277 + 320;
             }
             else
             {
@@ -380,7 +402,15 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                     {
                         if (monitor.Children.Count > 0 || monitor.FillBackground || !String.IsNullOrWhiteSpace(monitor.BackgroundImage))
                         {
-                            ConfigManager.LogManager.LogDebug("Creating window (Monitor=\"" + monitor.Name + "\")");
+                            if (ConfigManager.SettingsManager.IsSettingAvailable("ControlCenter", "TouchScreenMouseSuppressionPeriod"))
+                            {
+                                monitor.SuppressMouseAfterTouchDuration = ConfigManager.SettingsManager.LoadSetting("ControlCenter", "TouchScreenMouseSuppressionPeriod", 0);
+                            }
+                            else
+                            {
+                                monitor.SuppressMouseAfterTouchDuration = 0;
+                            }
+                            ConfigManager.LogManager.LogDebug("Creating window (Monitor=\"" + monitor.Name + "\")" + " with Touchscreen 2nd Trigger suppression delay set to " + Convert.ToString(monitor.SuppressMouseAfterTouchDuration) + " msec.");
                             MonitorWindow window = new MonitorWindow(monitor, true);
                             window.Show();
                             _windows.Add(window);
@@ -522,7 +552,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
 #if !DEBUG
                 if (!ActiveProfile.IsValidMonitorLayout)
                 {
-                    Message = "Can not display this profile because it has an invalid monitor configuration.  Please open the editor and select reset monitors from the profile menu.";
+                    Message = "Cannot display this profile because it has an invalid monitor configuration.  Please open the editor and select reset monitors from the profile menu.";
                     ActiveProfile = null;
                     return;
                 }
@@ -530,7 +560,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
 
                 if (ActiveProfile.IsInvalidVersion)
                 {
-                    Message = "Can not display this profile because it was created with a newer version of Helios.  Please upgrade to the latest version.";
+                    Message = "Cannot display this profile because it was created with a newer version of Helios.  Please upgrade to the latest version.";
                     ActiveProfile = null;
                     return;
                 }
@@ -577,10 +607,17 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             Top = Top + e.VerticalChange;
         }
 
+        private void TouchScreenDelaySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs < double > e)
+        {
+            Int16 delayValue = Convert.ToInt16(e.NewValue);
+            string msg = String.Format(" {0} ms", delayValue);
+            this.TouchscreenDelayTextBlock.Text = msg;
+            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "TouchScreenMouseSuppressionPeriod", Convert.ToString(delayValue));
+        }
         private void PowerButton_Unchecked(object sender, RoutedEventArgs e)
         {
             _deletingProfile = false;
-            DispatcherTimer minizeTimer = new DispatcherTimer(new TimeSpan(0, 0, 0, 0, 250), DispatcherPriority.Normal, TimedMinimize, Dispatcher);
+            DispatcherTimer minimizeTimer = new DispatcherTimer(new TimeSpan(0, 0, 0, 0, 250), DispatcherPriority.Normal, TimedMinimize, Dispatcher);
         }
 
         void TimedMinimize(object sender, EventArgs e)
@@ -664,7 +701,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             catch { }
         }
 
-        private void Widnow_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Set the window style to noactivate.
             _helper = new WindowInteropHelper(this);
@@ -676,7 +713,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
 
         private void Window_Opened(object sender, EventArgs e)
         {
-            Height = _prefsShown ? 477 : 277;
+            Height = _prefsShown ? 277+320 : 277;
             Width = 504;
 
             if (Environment.OSVersion.Version.Major > 5 && ConfigManager.SettingsManager.LoadSetting("ControlCenter", "AeroWarning", true))
@@ -696,6 +733,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
                 }
             }
 
+
             App app = Application.Current as App;
             if (app != null && app.StartupProfile != null && File.Exists(app.StartupProfile))
             {
@@ -705,6 +743,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             }
 
             VersionChecker.CheckVersion();
+
         }
 
         protected override void OnInitialized(EventArgs e)
@@ -719,7 +758,7 @@ namespace GadrocsWorkshop.Helios.ControlCenter
         private void AutoStartCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             RegistryKey pathKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
-            pathKey.SetValue("Helios", "\"" + System.IO.Path.Combine(ConfigManager.ApplicationPath, "HeliosControlCenter.exe") + "\"");
+            pathKey.SetValue("Helios", "\"" + System.IO.Path.Combine(ConfigManager.ApplicationPath, "ControlCenter.exe") + "\"");
             pathKey.Close();
         }
 
@@ -749,7 +788,33 @@ namespace GadrocsWorkshop.Helios.ControlCenter
         {
             ConfigManager.SettingsManager.SaveSetting("ControlCenter", "AutoHide", false);
         }
+        private void TouchscreenCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            //ConfigManager.SettingsManager.SaveSetting("ControlCenter", "AutoHide", true);
+            TouchscreenDelayTextBlock.Visibility = Visibility.Visible;
+            TouchScreenDelaySlider.Visibility = Visibility.Visible;
+            TouchScreenDelayBorder.Visibility = Visibility.Visible;
+            TouchScreenDelayTitle.Visibility = Visibility.Visible;
+        }
 
+        private void TouchscreenCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ConfigManager.SettingsManager.SaveSetting("ControlCenter", "TouchScreenMouseSuppressionPeriod", "0");
+            TouchScreenDelaySlider.Value = 0;
+            TouchscreenDelayTextBlock.Visibility = Visibility.Hidden;
+            TouchScreenDelaySlider.Visibility = Visibility.Hidden;
+            TouchScreenDelayBorder.Visibility = Visibility.Hidden;
+            TouchScreenDelayTitle.Visibility = Visibility.Hidden;
+        }
+        private void TBDCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            //ConfigManager.SettingsManager.SaveSetting("ControlCenter", "AutoHide", true);
+        }
+
+        private void TBDCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            //ConfigManager.SettingsManager.SaveSetting("ControlCenter", "AutoHide", false);
+         }
         private void SetHotkey_Click(object sender, RoutedEventArgs e)
         {
             HotKeyDetector detector = new HotKeyDetector();
@@ -803,6 +868,12 @@ namespace GadrocsWorkshop.Helios.ControlCenter
             Message = "";
         }
 
+        private void SetProjectReleaseMessage()
+        {
+            Version _runningVersion = Assembly.GetEntryAssembly().GetName().Version;
+            Message = _runningVersion.Major.ToString() + "." + _runningVersion.Minor.ToString() + "." + _runningVersion.Build.ToString("0000") + "." + _runningVersion.Revision.ToString("0000") +
+                "\nProject Fork: BlueFinBima\n";
+        }
         #endregion
 
         private void Button_Click(object sender, RoutedEventArgs e)

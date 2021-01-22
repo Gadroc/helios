@@ -1,4 +1,19 @@
-﻿os.setlocale("ISO-8559-1", "numeric")
+﻿local PrevExport = {}
+PrevExport.LuaExportStart = LuaExportStart
+PrevExport.LuaExportStop = LuaExportStop
+PrevExport.LuaExportBeforeNextFrame = LuaExportBeforeNextFrame
+PrevExport.LuaExportAfterNextFrame = LuaExportAfterNextFrame
+PrevExport.LuaExportActivityNextEvent = LuaExportActivityNextEvent
+
+LuaExportStart =nil
+LuaExportBeforeNextFrame =nil
+LuaExportAfterNextFrame =nil
+LuaExportStop =nil
+LuaExportActivityNextEvent =nil
+
+-- for some reason, this causes a failure on my system so commenting it
+-- out in the hope that others don't see a problem with it.
+-- os.setlocale("ISO-8559-1", "numeric")
 
 -- Simulation id
 gSimID = string.format("%08x*",os.time())
@@ -11,8 +26,17 @@ gLastData = {}
 -- Frame counter for non important data
 gTickCount = 0
 
+-- Check the Aircraft is right for the interface
+local DCSInfo = LoGetSelfData()
+if DCSInfo ~= nil and lAircraft ~= nil then
+	if (DCSInfo.Name == lAircraft) then
+		log.write('USERMOD',log.INFO," Helios Exports.Lua Loaded for " .. DCSInfo.Name )
+	else
+		log.write('USERMOD',log.WARNING," Helios Exports.Lua Loaded for " .. lAircraft .. " but " .. DCSInfo.Name .. " has been started" )
+	end
+end
 -- DCS Export Functions
-function LuaExportStart()
+LuaExportStart = function()
 -- Works once just before mission start.
 	
     -- 2) Setup udp sockets to talk to helios
@@ -25,18 +49,37 @@ function LuaExportStart()
 	c:setsockname("*", 0)
 	c:setoption('broadcast', true)
     c:settimeout(.001) -- set the timeout for reading the socket 
+
+	if PrevExport.LuaExportStart then
+        PrevExport.LuaExportStart()
+    end
 end
 
-function LuaExportBeforeNextFrame()
+LuaExportBeforeNextFrame = function()
 	ProcessInput()
+	
+	if PrevExport.LuaExportBeforeNextFrame then
+       PrevExport.LuaExportBeforeNextFrame()
+    end
 end
 
-function LuaExportAfterNextFrame()	
+LuaExportAfterNextFrame = function()	
+    if PrevExport.LuaExportAfterNextFrame  then
+        PrevExport.LuaExportAfterNextFrame()
+    end
+
 end
 
-function LuaExportStop()
+LuaExportStop = function()
 -- Works once just after mission stop.
+-- Send DISCONNECT message so we can fire the Helios Disconnect event
+    socket.try(c:sendto("DISCONNECT\n", gHost, gPort))
     c:close()
+	
+	if PrevExport.LuaExportStop  then
+        PrevExport.LuaExportStop()
+    end
+
 end
 
 function ProcessInput()
@@ -61,8 +104,9 @@ function ProcessInput()
     end 
 end
 
-function LuaExportActivityNextEvent(t)
-	t = t + gExportInterval
+LuaExportActivityNextEvent = function(t)
+	local lt = t + gExportInterval
+    local lot = lt
 
 	gTickCount = gTickCount + 1
 
@@ -82,7 +126,13 @@ function LuaExportActivityNextEvent(t)
 		FlushData()
 	end
 
-	return t
+    if PrevExport.LuaExportActivityNextEvent then
+        lot = PrevExport.LuaExportActivityNextEvent(t)  -- if we were given a value then pass it on
+    end
+    if  lt > lot then
+        lt = lot -- take the lesser of the next event times
+    end
+	return lt
 end
 
 -- Helper Functions
@@ -116,6 +166,13 @@ function round(num, idp)
   return math.floor(num * mult + 0.5) / mult
 end
 
+function check(s)
+    if type(s) == "string" then 
+        return s
+    else
+	    return ""
+    end
+end
 -- Status Gathering Functions
 function ProcessArguments(device, arguments)
 	local lArgument , lFormat , lArgumentValue
@@ -124,6 +181,19 @@ function ProcessArguments(device, arguments)
 		lArgumentValue = string.format(lFormat,device:get_argument_value(lArgument))
 		SendData(lArgument, lArgumentValue)
 	end
+end
+
+function parse_indication(indicator_id)  -- Thanks to [FSF]Ian code
+	local ret = {}
+	local li = list_indication(indicator_id)
+	if li == "" then return nil end
+	local m = li:gmatch("-----------------------------------------\n([^\n]+)\n([^\n]*)\n")
+	while true do
+	local name, value = m()
+	if not name then break end
+		ret[name] = value
+	end
+	return ret
 end
 
 -- Network Functions

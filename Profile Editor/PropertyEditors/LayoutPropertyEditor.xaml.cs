@@ -23,7 +23,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.PropertyEditors
     /// <summary>
     /// Interaction logic for HeliosPanelNodePropertyEditor.xaml
     /// </summary>
-    [HeliosPropertyEditor("*", "Layout")]
+    [HeliosPropertyEditor("*", "hply")]
     public partial class LayoutPropertyEditor : HeliosPropertyEditor, IDataErrorInfo
     {
         public LayoutPropertyEditor()
@@ -83,7 +83,7 @@ namespace GadrocsWorkshop.Helios.ProfileEditor.PropertyEditors
                 {
                     if (string.IsNullOrWhiteSpace(VisualName))
                     {
-                        return "Name can not be blank.";
+                        return "Name cannot be blank.";
                     }
                     if (!System.Text.RegularExpressions.Regex.IsMatch(VisualName, "^[a-zA-Z0-9_ ]*$"))
                     {
